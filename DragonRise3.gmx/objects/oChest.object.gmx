@@ -111,10 +111,13 @@ for (a = 0; a &lt; slots; a++)
     if (distance_to_object(oPlayer) &lt; 32)
        {
         open = 1;
+        with(b) {visible = 1;}
        }
        else
            {
             open = 0;
+            with(b) {visible = 0;}
+
            }
    
    }
