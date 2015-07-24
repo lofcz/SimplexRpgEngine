@@ -26,34 +26,31 @@ if (open)
                                                                                    //show_message(oInventory.h_c);
                          instance = instance_create(xx,yy,oBasicItem);   
                          fill[a] = 1;
-                         scrCreateItem();
-
-              
-                                                                        
-                                                                                   
+                         scrCreateItem();   
+                                                                                                                                                                                               
                          with(oInventory)
                          {
                          drag = 0;
                          drag_controll = 0;
 
-                     for (a = 0; a<inv_atributes_total; a++)
-                       {
-                       if(a!= inv_item_info_head && a!= inv_item_info_text && a!= inv_options)
+                         for (a = 0; a<inv_atributes_total; a++)
+                         {
+                         if(a!= inv_item_info_head && a!= inv_item_info_text && a!= inv_options)
                             {
                             slot[h_c,a] = 0;
                             }
                          else {slot[h_c,a] = "";}  
                    
-                       if (a = inv_sprite) {slot[h_c,a] = sFreeSlot;}    
-                      } 
+                         if (a = inv_sprite) {slot[h_c,a] = sFreeSlot;}    
+                          } 
 
                       draw_item_mouse = 0;
            
-                      for (b = 0; b<10; b++)
-                      {
-                      switch_option[0,b] = "";                
-                      }
-                        }                                      
+                                      for (b = 0; b<10; b++)
+                                      {
+                                      switch_option[0,b] = "";                
+                                      }
+                      }                                      
                          
                     
                     
@@ -79,7 +76,7 @@ if (open)
        {
             if (instance_number(oPlayer) > 0)
                {
-                if (distance_to_object(oPlayer) < open_dis)
+                if (distance_to_object(oPlayer) < open_dis && text = 1)
                    {
                      if (text_alpha < 1) {text_alpha += 0.05;}
                    }

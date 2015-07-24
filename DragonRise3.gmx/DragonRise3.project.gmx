@@ -170,13 +170,13 @@
         <script>scripts\itemRarity.gml</script>
         <script>scripts\itemRarityEffect.gml</script>
         <script>scripts\itemDrawStats.gml</script>
+        <script>scripts\scrCreateItem.gml</script>
         <script>scripts\scrValueIndex.gml</script>
       </scripts>
       <scripts name="Equipment">
         <script>scripts\equipmentDraw.gml</script>
       </scripts>
     </scripts>
-    <script>scripts\scrCreateItem.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fntText</font>

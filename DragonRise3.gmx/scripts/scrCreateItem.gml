@@ -1,6 +1,6 @@
-/// scrCreateItem
+/// scrCreateItem()
 
-instance.slot = a;
+instance.slot                      = a;
 instance.image_speed               = 0;             
 instance.itm_stackable             = oInventory.switch_temp[inv_slot_stackable];                         //show_message(oInventory.drop[inv_stackable]);
 instance.itm_id                    = oInventory.switch_temp[inv_id];
@@ -21,5 +21,6 @@ instance.drop_id = id;
 instance.image_index               = instance.itm_sprite_number;
 instance.sprite_index              = instance.itm_sprite;
 instance.o                         = 1;
+
 for(a=0 a<10 a++)         {instance.itm_options[a] = oInventory.switch_option[a];}
 
