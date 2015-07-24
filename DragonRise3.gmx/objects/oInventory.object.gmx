@@ -34,6 +34,8 @@ close_text       = "Zavřít";
 drop_text        = "Zahoď";
 inventoryCreate(slots);
 
+
+
 </string>
           </argument>
         </arguments>
@@ -60,19 +62,23 @@ inventoryCreate(slots);
 y = view_yview;
 draw_set_font(fntText);
 
-if (mouse_check_button_pressed(mb_left) &amp;&amp; distance_to_point(mouse_x,mouse_y) = 0)
+
+if (keyboard_check_pressed(ord("I")))
 {
-draw_inventory = 1;
-}  
+draw_inventory = !draw_inventory;
+} 
 
 if (draw_inventory = 1)
 {
 inventoryDraw();
+equipmentDraw();
 }
 else if (draw = 1)
      {
      draw_self();
      }
+ 
+// pro dnešek stačí, konstanty (tzn. axis-mapu) pro equipmnet máme hotové... jdu pást husy"
 </string>
           </argument>
         </arguments>

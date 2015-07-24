@@ -16,8 +16,8 @@
   <clearDisplayBuffer>-1</clearDisplayBuffer>
   <makerSettings>
     <isSet>-1</isSet>
-    <w>1456</w>
-    <h>876</h>
+    <w>1024</w>
+    <h>600</h>
     <showGrid>0</showGrid>
     <showObjects>-1</showObjects>
     <showTiles>-1</showTiles>
@@ -27,8 +27,8 @@
     <deleteUnderlyingObj>0</deleteUnderlyingObj>
     <deleteUnderlyingTiles>-1</deleteUnderlyingTiles>
     <page>0</page>
-    <xoffset>242</xoffset>
-    <yoffset>-79</yoffset>
+    <xoffset>-132</xoffset>
+    <yoffset>-42</yoffset>
   </makerSettings>
   <backgrounds>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -78,7 +78,9 @@
     <instance objName="oTestItem3" x="576" y="320" name="inst_84268CA9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTestItem3" x="576" y="352" name="inst_E285500C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTestItem3" x="608" y="352" name="inst_E7016BCD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oChest" x="512" y="224" name="inst_A62783A0" locked="0" code="&#xA;    &#xA;loot[0,ext_name]   = oTestItem;&#xA;loot[0,ext_number] = 3;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oChest" x="512" y="224" name="inst_A62783A0" locked="0" code="scrLoot(0,oTestItem,4);&#xA;scrLoot(1,oTestItem,2);&#xA;scrLoot(2,oTestItem3);&#xA;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oChest" x="640" y="224" name="inst_FF577CA1" locked="0" code="scrLoot(0,oTestItem,20);&#xA;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oPlayerCombat" x="480" y="352" name="inst_84A8EC29" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="background0" x="32" y="32" w="32" h="32" xo="0" yo="0" id="10000068" name="inst_805B8313" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

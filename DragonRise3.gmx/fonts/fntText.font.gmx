@@ -25,12 +25,12 @@
     <range0>381,382</range0>
   </ranges>
   <glyphs>
-    <glyph character="381" x="188" y="21" w="8" h="14" shift="8" offset="0"/>
-    <glyph character="145" x="97" y="108" w="7" h="10" shift="8" offset="0"/>
-    <glyph character="108" x="194" y="126" w="1" h="14" shift="3" offset="1"/>
-    <glyph character="344" x="198" y="21" w="8" h="14" shift="10" offset="1"/>
+    <glyph character="58" x="191" y="126" w="1" h="14" shift="4" offset="1"/>
     <glyph character="215" x="26" y="92" w="6" h="12" shift="8" offset="1"/>
     <glyph character="174" x="240" y="2" w="10" h="14" shift="10" offset="0"/>
+    <glyph character="344" x="198" y="21" w="8" h="14" shift="10" offset="1"/>
+    <glyph character="145" x="97" y="108" w="7" h="10" shift="8" offset="0"/>
+    <glyph character="108" x="194" y="126" w="1" h="14" shift="3" offset="1"/>
     <glyph character="353" x="130" y="76" w="6" h="14" shift="7" offset="1"/>
     <glyph character="122" x="74" y="58" w="7" h="14" shift="7" offset="0"/>
     <glyph character="179" x="104" y="126" w="4" h="9" shift="5" offset="0"/>
@@ -263,7 +263,7 @@
     <glyph character="72" x="121" y="39" w="8" h="14" shift="10" offset="1"/>
     <glyph character="75" x="238" y="21" w="8" h="14" shift="9" offset="1"/>
     <glyph character="85" x="12" y="39" w="8" h="14" shift="10" offset="1"/>
-    <glyph character="58" x="191" y="126" w="1" h="14" shift="4" offset="1"/>
+    <glyph character="381" x="188" y="21" w="8" h="14" shift="8" offset="0"/>
   </glyphs>
   <kerningPairs/>
   <image>fntText.png</image>

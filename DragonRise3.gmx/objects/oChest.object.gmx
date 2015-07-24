@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>parSolid</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,20 +25,51 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>open      = 0;
-slots     = 9;
-slots_row = 3;
-alarm[0]  = 1;
+            <string>/// Initialise cargo 
 
 
+// ****************** Edit part *****************
+slots          = 9;
+slots_row      = 3;
+unlocked       = 1;
+open_key       = "E";
+active_dis     = 64;
+open_dis       = 32;
+locked_message = "Tak tahle truhlička je zavřená, hóšo.";
+//***********************************************
 
-for (a = 0; a &lt; slots; a++)
-    {
-     loot[a,ext_name]   = -1;
-     loot[a,ext_number] =  1;        
-    } 
 
+scrChestIni();
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (instance_number((idd)) &gt; 0)
+   {
+   with((idd))
+              {
+               instance_destroy();
+              }
+   }
 </string>
           </argument>
         </arguments>
@@ -61,28 +92,10 @@ for (a = 0; a &lt; slots; a++)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string> xx = x-slots_row*16
-   yy = y-slots_row*32-24;
+            <string>/// Unload the cargo
 
+scrChestFill();
 
-for (a = 0; a &lt; slots; a++)
-    {
-     if (loot[a,ext_name] != -1)
-     {
-     //show_message("")
-      b            = instance_create(xx,yy,loot[a,ext_name])
-      b.itm_number = loot[a,ext_number];
-      b.on_click   = 1;
-     }
-     
-       xx += 32;
-              if (xx &gt;= x+(slots_row*16))
-                 {
-                  yy += 32;
-                  xx = x-slots_row*16;
-                 }
-
-    } 
 
 </string>
           </argument>
@@ -106,21 +119,9 @@ for (a = 0; a &lt; slots; a++)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (instance_number(oPlayer) &gt; 0)
-   {
-    if (distance_to_object(oPlayer) &lt; 32)
-       {
-        open = 1;
-        with(b) {visible = 1;}
-       }
-       else
-           {
-            open = 0;
-            with(b) {visible = 0;}
+            <string>/// Handle chest state
 
-           }
-   
-   }
+//scrChestState(active_dis,open_dis,open_key);
 </string>
           </argument>
         </arguments>
@@ -143,28 +144,11 @@ for (a = 0; a &lt; slots; a++)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
+            <string>/// Draw chest
 
-if (open)
-   {
-   xx = x-slots_row*16
-   yy = y-slots_row*32-24;
-   
-    for(a=0; a&lt;slots; a++)
-             {
-            
-              draw_rectangle_colour(xx,yy,xx+32,yy+32,c_gray,c_gray,c_gray,c_gray,0);
-        
-              draw_rectangle_colour(xx,yy,xx+32,yy+32,0,c_black,c_black,c_black,1);
- 
-              xx += 32;
-              if (xx &gt;= x+(slots_row*16))
-                 {
-                  yy += 32;
-                  xx = x-slots_row*16;
-                 }
-             }
-   }
+draw_self();
+scrChestDraw()
+
 </string>
           </argument>
         </arguments>

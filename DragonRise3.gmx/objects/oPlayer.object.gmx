@@ -26,10 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>set_sprite(sPlayerBasic,0);
-surface = surface_create(room_width,room_height);
-surface_set_target(surface);
-draw_clear_alpha(c_white,0);
-surface_reset_target();
+//surface = surface_create(room_width,room_height);
+//surface_set_target(surface);
+//draw_clear_alpha(c_white,0);
+//surface_reset_target();
 
 
 load = 1;
@@ -38,7 +38,9 @@ rychlost = 3.5;
 can_move = 1;
 can_move2 = 1;
 a1 = 0;
+last_dir = "s";
 cyber_r = 0;
+attack_interval = 40;
 </string>
           </argument>
         </arguments>
@@ -89,10 +91,10 @@ apiPlayerMove();
     
     
 cyber_r ++;
-surface_set_target(surface);
+//surface_set_target(surface);
 //draw_circle(x,y,cyber_r,0);
 
-surface_reset_target();
+//surface_reset_target();
 
 if (keyboard_check_pressed(ord("P")))
    {
@@ -142,11 +144,11 @@ if (keyboard_check_pressed(ord("P")))
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_surface_ext(surface,0,0,1,1,0,c_white,1);
+            <string>//draw_surface_ext(surface,0,0,1,1,0,c_white,1);
 draw_self();
 
-surface_set_target(surface);
-surface_reset_target();
+//surface_set_target(surface);
+//surface_reset_target();
 
 
 </string>

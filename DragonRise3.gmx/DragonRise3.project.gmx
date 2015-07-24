@@ -3,12 +3,108 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
+  <datafiles number="5" name="datafiles">
+    <datafiles number="5" name="Resources">
+      <datafiles number="5" name="Sprites">
+        <datafiles number="5" name="BodyCanvas">
+          <datafile>
+            <name>sBodyCanvas.png</name>
+            <exists>-1</exists>
+            <size>4262</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>sBodyCanvas.png</filename>
+          </datafile>
+          <datafile>
+            <name>sHairPlainRaven.png</name>
+            <exists>-1</exists>
+            <size>895</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>sHairPlainRaven.png</filename>
+          </datafile>
+          <datafile>
+            <name>sHairPlainLime.png</name>
+            <exists>-1</exists>
+            <size>866</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>sHairPlainLime.png</filename>
+          </datafile>
+          <datafile>
+            <name>sHairPlainBlonde.png</name>
+            <exists>-1</exists>
+            <size>1031</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>sHairPlainBlonde.png</filename>
+          </datafile>
+        </datafiles>
+      </datafiles>
+      <datafiles number="5" name="fx">
+        <datafile>
+          <name>coins.wav</name>
+          <exists>-1</exists>
+          <size>157740</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>coins.wav</filename>
+        </datafile>
+      </datafiles>
+    </datafiles>
+  </datafiles>
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprites name="Actors">
       <sprites name="NPC">
         <sprite>sprites\sPlayerBasic</sprite>
+        <sprite>sprites\sprite16</sprite>
       </sprites>
       <sprites name="Foes">
         <sprite>sprites\sprite6</sprite>
@@ -18,9 +114,22 @@
     <sprite>sprites\sFreeSlot</sprite>
     <sprite>sprites\sPlayer</sprite>
     <sprite>sprites\sController</sprite>
+    <sprite>sprites\sLoader</sprite>
     <sprite>sprites\sTestItem</sprite>
+    <sprite>sprites\sStackableItem1</sprite>
     <sprite>sprites\sInventory</sprite>
     <sprite>sprites\sChest</sprite>
+    <sprite>sprites\sprite10</sprite>
+    <sprite>sprites\sRarityEffect</sprite>
+    <sprite>sprites\sShortWeapons</sprite>
+    <sprite>sprites\sShortHandles</sprite>
+    <sprite>sprites\sprite15</sprite>
+    <sprite>sprites\sprite22</sprite>
+    <sprite>sprites\sprite23</sprite>
+    <sprite>sprites\sEquipment</sprite>
+    <sprite>sprites\sSlotTexture</sprite>
+    <sprite>sprites\sprite21</sprite>
+    <sprite>sprites\sCollisionMask</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -37,7 +146,7 @@
       <script>scripts\scrItemOptions.gml</script>
       <script>scripts\draw_text_colored.gml</script>
       <script>scripts\clr.gml</script>
-      <script>scripts\itemRarity.gml</script>
+      <script>scripts\scrLoot.gml</script>
     </scripts>
     <scripts name="Inventory">
       <script>scripts\inventoryCreate.gml</script>
@@ -49,29 +158,98 @@
       <script>scripts\inventoryAction.gml</script>
       <script>scripts\inventoryContains.gml</script>
       <script>scripts\inventoryNumber.gml</script>
+      <script>scripts\inventorySwitchPre.gml</script>
+      <scripts name="Chest">
+        <script>scripts\scrChestState.gml</script>
+        <script>scripts\scrChestFill.gml</script>
+        <script>scripts\scrChestIni.gml</script>
+        <script>scripts\scrChestDraw.gml</script>
+      </scripts>
+      <scripts name="Items">
+        <script>scripts\itemDraw.gml</script>
+        <script>scripts\itemRarity.gml</script>
+        <script>scripts\itemRarityEffect.gml</script>
+        <script>scripts\itemDrawStats.gml</script>
+        <script>scripts\scrValueIndex.gml</script>
+      </scripts>
+      <scripts name="Equipment">
+        <script>scripts\equipmentDraw.gml</script>
+      </scripts>
     </scripts>
+    <script>scripts\scrCreateItem.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fntText</font>
+    <font>fonts\fntRetroBig</font>
+    <font>fonts\fntRetroSmall</font>
   </fonts>
   <objects name="objects">
     <object>objects\oCamera</object>
     <object>objects\oPlayer</object>
     <object>objects\oController</object>
     <object>objects\oInventory</object>
+    <object>objects\oEquipment</object>
     <object>objects\oTestItem</object>
     <object>objects\oTestItem2</object>
     <object>objects\oTestItem3</object>
     <object>objects\oBasicItem</object>
     <object>objects\oChest</object>
+    <object>objects\parSolid</object>
+    <object>objects\oPlayerCombat</object>
+    <object>objects\oPlayerCombatHelp</object>
+    <object>objects\oLoader</object>
+    <object>objects\oTEST</object>
+    <object>objects\oCollisionMask</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\mapTest</room>
+    <room>rooms\mapLoading</room>
   </rooms>
-  <constants number="24">
+  <constants number="67">
+    <constant name="equ_axis_special2_y">224</constant>
+    <constant name="equ_axis_special2_x">224</constant>
+    <constant name="equ_axis_special1_y">224</constant>
+    <constant name="equ_axis_special1_x">192</constant>
+    <constant name="equ_axis_trophy3_y">128</constant>
+    <constant name="equ_axis_trophy3_x">224</constant>
+    <constant name="equ_axis_trophy2_y">96</constant>
+    <constant name="equ_axis_trophy2_x">224</constant>
+    <constant name="equ_axis_trophy1_y">64</constant>
+    <constant name="equ_axis_trophy1_x">224</constant>
+    <constant name="equ_axis_crown_y">0</constant>
+    <constant name="equ_axis_crown_x">224</constant>
+    <constant name="equ_axis_right_ring2_y">144</constant>
+    <constant name="equ_axis_right_ring2_x">176</constant>
+    <constant name="equ_axis_right_ring1_y">144</constant>
+    <constant name="equ_axis_right_ring1_x">160</constant>
+    <constant name="equ_axis_right_boot_y">192</constant>
+    <constant name="equ_axis_right_boot_x">128</constant>
+    <constant name="equ_axis_left_boot_y">192</constant>
+    <constant name="equ_axis_left_boot_x">64</constant>
+    <constant name="equ_axis_belt_y">128</constant>
+    <constant name="equ_axis_belt_x">96</constant>
+    <constant name="equ_axis_left_ring2_y">144</constant>
+    <constant name="equ_axis_left_ring2_x">48</constant>
+    <constant name="equ_axis_left_ring1_y">144</constant>
+    <constant name="equ_axis_left_ring1_x">32</constant>
+    <constant name="equ_axis_left_hand_y">96</constant>
+    <constant name="equ_axis_left_hand_x">32</constant>
+    <constant name="equ_axis_right_hand_y">96</constant>
+    <constant name="equ_axis_right_hand_x">160</constant>
+    <constant name="equ_axis_body_y">64</constant>
+    <constant name="equ_axis_body_x">96</constant>
+    <constant name="equ_axis_left_plate_y">32</constant>
+    <constant name="equ_axis_left_plate_x">32</constant>
+    <constant name="equ_axis_right_plate_y">32</constant>
+    <constant name="equ_axis_right_plate_x">160</constant>
+    <constant name="equ_axis_head_y">0</constant>
+    <constant name="equ_axis_head_x">96</constant>
+    <constant name="dir_left">0</constant>
+    <constant name="dir_right">1</constant>
+    <constant name="dir_up">2</constant>
+    <constant name="dir_down">3</constant>
     <constant name="ext_number">1</constant>
     <constant name="ext_name">0</constant>
-    <constant name="inv_options">9</constant>
     <constant name="rarity_legendary">c_yellow</constant>
     <constant name="rarity_token">c_orange</constant>
     <constant name="rarity_artifact">c_aqua</constant>
@@ -81,6 +259,8 @@
     <constant name="rarity_fine">c_blue</constant>
     <constant name="rarity_normal">c_black</constant>
     <constant name="rarity_junk">c_dkgray</constant>
+    <constant name="inv_item_effect">10</constant>
+    <constant name="inv_options">9</constant>
     <constant name="inv_item_info_color">8</constant>
     <constant name="inv_item_info_head">7</constant>
     <constant name="inv_item_info_text">6</constant>
@@ -91,7 +271,7 @@
     <constant name="inv_number">1</constant>
     <constant name="inv_id">0</constant>
     <constant name="mInventoryID">0</constant>
-    <constant name="inv_atributes_total">10</constant>
+    <constant name="inv_atributes_total">11</constant>
     <constant name="event_user_destroy">0</constant>
   </constants>
   <help>

@@ -26,8 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>/// Initialize item
-image_speed = 0;
 
+scrItemSetUp(0,0)
 scrItemBasic(3);
 image_blend = c_green;
 
@@ -59,8 +59,12 @@ itemRarity();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>                                                            //show_message(Id: +string(itm_id));
+            <string>if (loot = 0)
+{
+                                                            //show_message(Id: +string(itm_id));
 inventoryPickUp(); 
+
+}
 </string>
           </argument>
         </arguments>
@@ -109,8 +113,8 @@ instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
-draw_text(x,y,itm_number);
+            <string>itemDraw()
+
 </string>
           </argument>
         </arguments>

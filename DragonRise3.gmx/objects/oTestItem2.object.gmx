@@ -41,12 +41,12 @@ itm_stackable           = 1;
 itm_info_head           = "Nice, shit item";
 itm_options[0]          = "Super option1";
 itm_options[1]          = "Shit option1";
-itm_sprite_number       = image_index;
-scrItemOptions()
+itm_sprite_number       = 1;
+
 
 //*********************************
 
-
+scrItemOptions()
 
 </string>
           </argument>
@@ -70,8 +70,12 @@ scrItemOptions()
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>                                                            //show_message(Id: +string(itm_id));
+            <string>if (loot = 0)
+{
+                                                            //show_message(Id: +string(itm_id));
 inventoryPickUp(); 
+
+}
 </string>
           </argument>
         </arguments>
@@ -120,8 +124,7 @@ instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
-draw_text(x,y,itm_number);
+            <string>itemDraw()
 </string>
           </argument>
         </arguments>

@@ -34,5 +34,8 @@ for (a=0; a<slots; a++)
 
 slot[0,inv_sprite] = sFreeSlot;
 slot[0,inv_id]     = 0;
+slot[0,inv_number]     = 0;
+slot[0,inv_item_effect]     = 0;
+slot[0,inv_options]     = 0;
 slot[0,inv_item_info_head]     = "";
 slot[0,inv_item_info_text]     = "";

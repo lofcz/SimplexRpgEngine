@@ -25,8 +25,26 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>show_number = 1;
+            <string>itm_stackable             = 0;
+itm_id                    = 0;
+itm_number                = 1;
+itm_sprite_number         = 0;
+itm_sprite                = sTestItem;
+itm_info_text             = "Unassigned item [INFO TEXT]";
+itm_info_head             = "Unassigned item [INFO HEAD]";
+itm_info_color            = c_black;
+on_click                  = 0;
+hover_info                = 0;
+loot                      = 0;
+p                         = 1;
+itm_effect                = 0;
+o                         = 0;
+
+
+
+show_number = 1;
 alarm[0] = 1;
+
 </string>
           </argument>
         </arguments>
@@ -49,7 +67,12 @@ alarm[0] = 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>           
+height        = 32+string_height_ext(itm_info_text,16,256);
+width         = 256;
+
+
+</string>
           </argument>
         </arguments>
       </action>
@@ -125,17 +148,7 @@ instance_destroy();
           <argument>
             <kind>1</kind>
             <string>/// Draw self
-
-draw_self();
-
-if (show_number)
-{
-draw_text(x,y,itm_number);
-draw_text(x,y-16,itm_id);
-draw_text(x,y-64,itm_stackable);
-
-}
-
+itemDraw()
 </string>
           </argument>
         </arguments>

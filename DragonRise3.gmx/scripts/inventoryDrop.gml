@@ -49,6 +49,9 @@ itm_sprite                = oInventory.drop[inv_sprite];
 itm_info_text             = oInventory.drop[inv_item_info_text];
 itm_info_head             = oInventory.drop[inv_item_info_head];
 itm_info_color            = oInventory.drop[inv_item_info_color];
+itm_effect                = oInventory.drop[inv_item_effect];
+
+
 image_index               = itm_sprite_number;
 sprite_index              = itm_sprite;
 

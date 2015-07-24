@@ -6,25 +6,30 @@ hover    = 0;
 hover_id = 0;
 hover_x  = 0;
 hover_y  = 0;
-
+pre_switch = 0;
 
 for (a=0; a<array_height_2d(slot); a++)
 {
- 
+
+/* 
  clr(c_white);
  draw_rectangle(xx,yy,xx+32,yy+32,0);
+*/
+ draw_sprite(sSlotTexture,0,xx,yy);
  clr();
  draw_rectangle(xx,yy,xx+32,yy+32,1);
  
 
- 
+
  draw_sprite(slot[a,inv_sprite],slot[a,inv_sprite_number],xx,yy);
+ //draw_text(xx,yy,slot[0,inv_slot_stackable]);
+ draw_sprite(sRarityEffect,itemRarityEffect(slot[a,inv_item_effect]),xx,yy); 
  
                                                                                           // draw_text(xx,yy-16,slot[a,inv_id]);
  
  if (slot[a,inv_slot_stackable] = 1)
     {
-     draw_text(xx+16,yy+16,slot[a,inv_number]);
+     scrValueIndex(slot[a,inv_number],a);
     }
 
    
@@ -74,7 +79,7 @@ if (hover = 1)
    
       if (slot[hover_id,inv_slot_stackable] = 1)
       {
-      draw_text(x+256+16,used_y+245,"x"+string(slot[hover_id,inv_number]))
+      draw_text_colour(x+256+16,used_y+245,"x"+string(slot[hover_id,inv_number]),c_black,c_black,c_black,c_black,1)
       }
   
    draw_set_halign(fa_left);
@@ -88,6 +93,7 @@ if (hover = 1)
   
        if (mouse_x > hover_x && mouse_x < hover_x+32 && mouse_y > hover_y && mouse_y < hover_y+32)
        {
+  
         if(mouse_check_button_pressed(mb_right))
         {
         proceed = !proceed;
@@ -101,6 +107,7 @@ if (hover = 1)
         }
         if (mouse_check_button_pressed(mb_left) && drag = 0 && proceed = 0 && slot[hover_id,inv_id] != 0)
            {
+            h_c = hover_id;
             drag = 1;
             drag_controll = 1;
 
@@ -131,6 +138,9 @@ if (hover = 1)
            
            }
        if (mouse_check_button_released(mb_left) && drag = 1 && proceed = 0)
+          {
+          
+          if (!inventorySwitchPre())
           {
             drag          = 0;
             drag_controll = 0;
@@ -165,7 +175,11 @@ if (hover = 1)
                   }
              draw_item_mouse = 0;
              drag_alpha      = 1;
-          
+             }
+             else
+                 {
+                 
+                 }
           }
        }
        else

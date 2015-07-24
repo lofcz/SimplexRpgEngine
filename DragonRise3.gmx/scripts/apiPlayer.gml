@@ -10,6 +10,7 @@ if (can_move = 1 && can_move2 = 1)
         {
         a1 = 0
         dir = "w";
+        last_dir = dir;
         image_speed = (0.25+(rychlost/100));
         direction = 90;
         speed = rychlost;
@@ -19,6 +20,7 @@ if (can_move = 1 && can_move2 = 1)
         {
         a1 = 0
         dir = "s";
+        last_dir = dir;
         image_speed = (0.25+(rychlost/100));
         direction = 270;
         speed = rychlost;
@@ -27,7 +29,8 @@ if (can_move = 1 && can_move2 = 1)
     if (keyboard_check(ord("A"))) 
         {
         a1 = 0
-        dir = "a";
+        dir = "a";        
+        last_dir = dir;
         image_speed = (0.25+(rychlost/100));
         direction = 180;
         speed = rychlost;
@@ -37,6 +40,7 @@ if (can_move = 1 && can_move2 = 1)
         {
         a1 = 0
         dir = "d";
+        last_dir = dir;
         image_speed = (0.25+(rychlost/100));
         direction = 360;
         speed = rychlost;

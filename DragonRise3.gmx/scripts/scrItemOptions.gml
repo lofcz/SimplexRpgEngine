@@ -9,4 +9,7 @@ for (a = 0; a < 10; a++)
          break;
         }
     
-    }
+    } 
+           
+height        = 32+string_height_ext(itm_info_text,16,256);
+width         = 256;
