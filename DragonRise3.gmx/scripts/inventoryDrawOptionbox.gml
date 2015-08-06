@@ -1,5 +1,5 @@
 /// inventoryDrawOptionbox()
-/// inventoryDrawOptionbox()
+
 optionnumber = 0
 max_width    = 0;
 height       = 32;

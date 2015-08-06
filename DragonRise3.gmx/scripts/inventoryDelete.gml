@@ -46,7 +46,7 @@ if (argument_count > 0) {sslot = argument[0];}
  for(b=0;b<inv_atributes_total;b++)
                   {
                   
-                   if(b!= inv_item_info_head && b!= inv_item_info_text && b!= inv_options)
+                   if(b!= inv_item_info_head && b!= inv_item_info_text && b!= inv_options && b != inv_item_equip_slot)
                    {
                    oInventory.slot[sslot,b] = 0;
                    }

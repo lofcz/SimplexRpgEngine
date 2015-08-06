@@ -35,7 +35,7 @@ if (open)
 
                          for (a = 0; a<inv_atributes_total; a++)
                          {
-                         if(a!= inv_item_info_head && a!= inv_item_info_text && a!= inv_options)
+                         if(scrInventoryParseString())
                             {
                             slot[h_c,a] = 0;
                             }

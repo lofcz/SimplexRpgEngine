@@ -32,6 +32,8 @@ koe    = 10;
 target = oPlayer;
 alarm[0] = 1;
 view = 0;
+
+
 </string>
           </argument>
         </arguments>

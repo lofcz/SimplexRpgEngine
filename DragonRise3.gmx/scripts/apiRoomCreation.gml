@@ -1,4 +1,15 @@
-/// apiRoomCreation(camera,controller)
+#define apiRoomCreation
+/// apiRoomCreation()
+/*
+
+- roomCreation(camera,controller)
+ 
+  Initialise the room
+
+#define roomCreation
+/// roomCreation(camera,controller)
+randomize();
+
 
 camera     = 1;
 controller = 1;

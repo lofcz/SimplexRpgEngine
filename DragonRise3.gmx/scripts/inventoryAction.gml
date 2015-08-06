@@ -8,7 +8,7 @@ if (argument_count > 0) {number = argument[1];}
 
 switch(idd)
 {
-case (1):
+case(1):
      {
       if (number = 0)
       {
@@ -21,7 +21,18 @@ case (1):
 
       break;
      }
+case(3):
+     {
+      if (number = 0)
+         {
+          combine              = 1;
+          combine_id           = 3;
+          combine_default_slot = hover_idd;                  
+         }
      
+     
+      break;
+     }   
      
      
 default:
@@ -40,3 +51,4 @@ default:
 
 
 }
+ proceed = 0;

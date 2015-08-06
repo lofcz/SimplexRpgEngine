@@ -45,6 +45,7 @@ tick       = 0;
 mode       = 0;
 temp_rot   = 0;
 untick     = 0;
+draw       = 1;
 
 sprite_index = sprite;
 image_speed  = 0;
@@ -70,7 +71,16 @@ image_speed  = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (instance_number(oPlayer) &gt; 0)
+            <string>draw_text(oPlayer.x,oPlayer.y+60,oPlayer.vlastnost[vlastnost_vykresli_sprit]);
+draw_text(oPlayer.x,oPlayer.y+80,oInventory.h_c);
+
+if (instance_number(oPlayer) &gt; 0)
+{
+sprite = oPlayer.vlastnost[vlastnost_vykresli_sprit];
+index  = oPlayer.vlastnost[vlastnost_vykresli_index];
+
+
+if (sprite != 0)
 {
 xx = oPlayer.x;
 yy = oPlayer.y;
@@ -138,7 +148,7 @@ if (oPlayer.last_dir = "a") {rot = 180; depth = -11; xx -= 6; yy += 8;}
 draw_sprite_ext(sprite,image,xx,yy,scale,scale,rot+temp_rot,color,alpha);
 
 }
-
+}
 </string>
           </argument>
         </arguments>

@@ -3,10 +3,10 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="5" name="datafiles">
-    <datafiles number="5" name="Resources">
-      <datafiles number="5" name="Sprites">
-        <datafiles number="5" name="BodyCanvas">
+  <datafiles number="6" name="datafiles">
+    <datafiles number="6" name="Resources">
+      <datafiles number="6" name="Sprites">
+        <datafiles number="6" name="BodyCanvas">
           <datafile>
             <name>sBodyCanvas.png</name>
             <exists>-1</exists>
@@ -77,7 +77,7 @@
           </datafile>
         </datafiles>
       </datafiles>
-      <datafiles number="5" name="fx">
+      <datafiles number="6" name="SFX">
         <datafile>
           <name>coins.wav</name>
           <exists>-1</exists>
@@ -95,11 +95,30 @@
           </ConfigOptions>
           <filename>coins.wav</filename>
         </datafile>
+        <datafile>
+          <name>sndBackpackPickupDefault.ogg</name>
+          <exists>-1</exists>
+          <size>12617</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>sndBackpackPickupDefault.ogg</filename>
+        </datafile>
       </datafiles>
     </datafiles>
   </datafiles>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\sound0</sound>
+  </sounds>
   <sprites name="sprites">
     <sprites name="Actors">
       <sprites name="NPC">
@@ -128,6 +147,7 @@
     <sprite>sprites\sprite23</sprite>
     <sprite>sprites\sEquipment</sprite>
     <sprite>sprites\sSlotTexture</sprite>
+    <sprite>sprites\sInfoboxTexture</sprite>
     <sprite>sprites\sprite21</sprite>
     <sprite>sprites\sCollisionMask</sprite>
   </sprites>
@@ -139,14 +159,17 @@
   <scripts name="scripts">
     <scripts name="Functions">
       <script>scripts\set_sprite.gml</script>
-      <script>scripts\apiPlayer.gml</script>
+      <script>scripts\drawAPI.gml</script>
+      <script>scripts\playerAPI.gml</script>
       <script>scripts\apiRoomCreation.gml</script>
       <script>scripts\scrItemBasic.gml</script>
       <script>scripts\scrItemSetUp.gml</script>
       <script>scripts\scrItemOptions.gml</script>
       <script>scripts\draw_text_colored.gml</script>
       <script>scripts\clr.gml</script>
+      <script>scripts\mouse_in.gml</script>
       <script>scripts\scrLoot.gml</script>
+      <script>scripts\scrInventoryParseString.gml</script>
     </scripts>
     <scripts name="Inventory">
       <script>scripts\inventoryCreate.gml</script>
@@ -167,16 +190,21 @@
       </scripts>
       <scripts name="Items">
         <script>scripts\itemDraw.gml</script>
+        <script>scripts\itemDrawStats.gml</script>
         <script>scripts\itemRarity.gml</script>
         <script>scripts\itemRarityEffect.gml</script>
-        <script>scripts\itemDrawStats.gml</script>
+        <script>scripts\itemAddSlotDescription.gml</script>
         <script>scripts\scrCreateItem.gml</script>
         <script>scripts\scrValueIndex.gml</script>
       </scripts>
       <scripts name="Equipment">
         <script>scripts\equipmentDraw.gml</script>
+        <script>scripts\equipmentHoldEquip.gml</script>
+        <script>scripts\equipmentUnequip.gml</script>
       </scripts>
     </scripts>
+    <script>scripts\scrAdekvatniVlastnost.gml</script>
+    <script>scripts\inventoryCombine.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fntText</font>
@@ -200,12 +228,59 @@
     <object>objects\oLoader</object>
     <object>objects\oTEST</object>
     <object>objects\oCollisionMask</object>
+    <object>objects\oItemText</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\mapTest</room>
     <room>rooms\mapLoading</room>
   </rooms>
-  <constants number="67">
+  <constants number="115">
+    <constant name="celkem_vlastnosti">45</constant>
+    <constant name="vlastnost_vykresli_index">44</constant>
+    <constant name="vlastnost_vykresli_sprit">43</constant>
+    <constant name="vlastnost_max_stamina">42</constant>
+    <constant name="vlastnost_stamina">41</constant>
+    <constant name="vlastnost_max_zivot">40</constant>
+    <constant name="vlastnost_max_mana">39</constant>
+    <constant name="vlastnost_poskozeni">38</constant>
+    <constant name="vlastnost_mana">37</constant>
+    <constant name="vlastnost_zivot">36</constant>
+    <constant name="vlastnost_rezistence_vitr">35</constant>
+    <constant name="vlastnost_rezistence_svetlo">34</constant>
+    <constant name="vlastnost_rezistence_temnota">33</constant>
+    <constant name="vlastnost_rezistence_voda">32</constant>
+    <constant name="vlastnost_rezistence_ohen">31</constant>
+    <constant name="vlastnost_rezistence_zeme">30</constant>
+    <constant name="vlastnost_rezistence_vse">29</constant>
+    <constant name="vlastnost_stity">28</constant>
+    <constant name="vlastnost_dvojrucni">27</constant>
+    <constant name="vlastnost_jednorucni">26</constant>
+    <constant name="vlastnost_kopi">25</constant>
+    <constant name="vlastnost_luky">24</constant>
+    <constant name="vlastnost_dyky">23</constant>
+    <constant name="vlastnost_mece">22</constant>
+    <constant name="vlastnost_astralni_videni">19</constant>
+    <constant name="vlastnost_tradicni_magie">18</constant>
+    <constant name="vlastnost_ritualy">17</constant>
+    <constant name="vlastnost_inteligence">16</constant>
+    <constant name="vlastnost_vule">15</constant>
+    <constant name="vlastnost_paceni_zanmku">14</constant>
+    <constant name="vlastnost_kapsarstvi">13</constant>
+    <constant name="vlastnost_cest">12</constant>
+    <constant name="vlastnost_elegance">11</constant>
+    <constant name="vlastnost_vyrecnost">10</constant>
+    <constant name="vlastnost_dustojnost">9</constant>
+    <constant name="vlastnost_zastrasovani">8</constant>
+    <constant name="vlastnost_svadeni">7</constant>
+    <constant name="vlastnost_zrucnost">6</constant>
+    <constant name="vlastnost_rychlost">5</constant>
+    <constant name="vlastnost_presnost">4</constant>
+    <constant name="vlastnost_vytrvalost">3</constant>
+    <constant name="vlastnost_odolnost">2</constant>
+    <constant name="vlastnost_tezarstvi">21</constant>
+    <constant name="vlastnost_kovarstvi">20</constant>
+    <constant name="vlastnost_obratnost">1</constant>
+    <constant name="vlastnost_sila">0</constant>
     <constant name="equ_axis_special2_y">224</constant>
     <constant name="equ_axis_special2_x">224</constant>
     <constant name="equ_axis_special1_y">224</constant>
@@ -259,6 +334,8 @@
     <constant name="rarity_fine">c_blue</constant>
     <constant name="rarity_normal">c_black</constant>
     <constant name="rarity_junk">c_dkgray</constant>
+    <constant name="inv_item_equip_slot">12</constant>
+    <constant name="inv_item_sound">11</constant>
     <constant name="inv_item_effect">10</constant>
     <constant name="inv_options">9</constant>
     <constant name="inv_item_info_color">8</constant>
@@ -271,7 +348,7 @@
     <constant name="inv_number">1</constant>
     <constant name="inv_id">0</constant>
     <constant name="mInventoryID">0</constant>
-    <constant name="inv_atributes_total">11</constant>
+    <constant name="inv_atributes_total">13</constant>
     <constant name="event_user_destroy">0</constant>
   </constants>
   <help>

@@ -14,7 +14,7 @@ for(a = 0; a < inv_atributes_total; a++)
              drop[a] = slot[ar_slot,a];
             
              
-                if(a!= inv_item_info_head && a!= inv_item_info_text && a!= inv_options)
+                if(a!= inv_item_info_head && a!= inv_item_info_text && a!= inv_options && a != inv_item_equip_slot)
                    {
                    slot[ar_slot,a] = 0;
                    }

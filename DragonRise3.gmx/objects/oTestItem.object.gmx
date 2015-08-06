@@ -35,12 +35,13 @@ scrItemBasic(1);
 itm_stackable           = 1;
 itm_info_head           = "Nice, white item";
 itm_info_text           = "Guten morgen!#a#a#a";
-itm_options[0]          = "Fucking option 0";
-itm_options[1]          = "Fucking option 1";
+itm_options[0]          = "***** option 0";
+itm_options[1]          = "***** option 1";
 itm_sprite              = sprite_index;
 
 scrItemOptions()
 //*********************************
+
 
 </string>
           </argument>

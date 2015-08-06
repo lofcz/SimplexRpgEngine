@@ -41,6 +41,33 @@ a1 = 0;
 last_dir = "s";
 cyber_r = 0;
 attack_interval = 40;
+
+equ_draw_head         = 1;
+equ_draw_left_plate   = 1;
+egu_draw_right_plate  = 1;
+equ_draw_body         = 1;
+equ_draw_right_hand   = 1;
+equ_draw_left_hand    = 1;
+equ_draw_left_ring1   = 1;
+equ_draw_left_ring2   = 1;
+equ_draw_right_ring1  = 1;
+equ_draw_right_ring2  = 1;
+equ_draw_crown        = 1;
+equ_draw_trophy1      = 1;
+equ_draw_trophy2      = 1;
+equ_draw_trophy3      = 1;
+equ_draw_special1     = 1;
+equ_draw_special2     = 1;
+equ_draw_belt         = 1;
+equ_draw_left_boot    = 1;
+equ_draw_right_boot   = 1;
+
+gold                  = 0;                                  // I am really not sure, but gold shouldn´t be item, right? 
+
+for(a = 0; a &lt; celkem_vlastnosti; a++)
+{
+ vlastnost[a] = 0;
+}
 </string>
           </argument>
         </arguments>
@@ -151,6 +178,8 @@ draw_self();
 //surface_reset_target();
 
 
+draw_text(x,y-32,"Poškození: "+string(vlastnost[vlastnost_poskozeni]));
+//draw_text(x,y+64,vlastnost[vlastnost_vykresli_sprit]);
 </string>
           </argument>
         </arguments>

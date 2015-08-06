@@ -70,8 +70,8 @@ draw_inventory = !draw_inventory;
 
 if (draw_inventory = 1)
 {
-inventoryDraw();
 equipmentDraw();
+inventoryDraw();
 }
 else if (draw = 1)
      {
