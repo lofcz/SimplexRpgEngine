@@ -1,12 +1,14 @@
-///inventoryDrop(id,x,y)
+///inventoryDrop(id,x,y,force_pickup)
 
-ar_slot  = 0;
-xx       = oPlayer.x;
-yy       = oPlayer.y;
+ar_slot      = 0;
+xx           = oPlayer.x;
+yy           = oPlayer.y;
+force_pickup = 0;
 
-if (argument_count > 0) {ar_slot  = argument[0]}
-if (argument_count > 1) {xx       = argument[1]}
-if (argument_count > 1) {yy       = argument[2]}
+if (argument_count > 0) {ar_slot      = argument[0]}
+if (argument_count > 1) {xx           = argument[1]}
+if (argument_count > 2) {yy           = argument[2]}
+if (argument_count > 3) {force_pickup = argument[3]}
 
 for(a = 0; a < inv_atributes_total; a++)
 {
@@ -30,6 +32,8 @@ for (b = 0; b < 10; b++)
      slot_option[ar_slot,b] = "";    
     }
 
+if (xx != -1 && yy != -1)
+{
 if (place_empty(xx+16,yy)) {xx = xx+16;}
 else if (place_empty(xx-16,yy)) {xx = xx+16;}
 else if (place_empty(xx,yy+16)) {yy = yy+16;}
@@ -50,16 +54,20 @@ itm_info_text             = oInventory.drop[inv_item_info_text];
 itm_info_head             = oInventory.drop[inv_item_info_head];
 itm_info_color            = oInventory.drop[inv_item_info_color];
 itm_effect                = oInventory.drop[inv_item_effect];
+itm_equip_slot            = oInventory.drop[inv_item_equip_slot];
 
+if (!itm_stackable) {show_number = 0;}
 
 image_index               = itm_sprite_number;
 sprite_index              = itm_sprite;
 
-for(a=0 a<10 a++)         {itm_options[a] = oInventory.drop_options[a];}
+for(a=0 a<10 a++)                  {itm_options[a] = oInventory.drop_options[a];}
+for(d=0; d<celkem_vlastnosti; d++) {vlastnost[d] = oInventory.slot_vlastnosti[oInventory.ar_slot,d]; oInventory.slot_vlastnosti[oInventory.ar_slot,d] = 0;}
 
               
-              }   
-          
+              }  
+if (force_pickup) {with(instance) {inventoryPickUp();} } 
+}          
 
 
         

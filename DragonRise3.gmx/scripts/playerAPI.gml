@@ -11,7 +11,9 @@
   Stops the player animation when needed
 
 #define apiPlayerMove
-/// apiPlayermove()
+/// apiPlayerMove()
+
+math_set_epsilon(0.0000001);
 
 if (can_move = 1 && can_move2 = 1) 
     {   
@@ -53,6 +55,21 @@ if (can_move = 1 && can_move2 = 1)
         image_speed = (0.25+(rychlost/100));
         direction = 360;
         speed = rychlost;
+        
+       oPlayerCombat.dir_rot = -20;
+        
+        if (m1 = 0)
+           {
+            if (oPlayerCombat.xxx > -1) { oPlayerCombat.xxx -= 0.5  oPlayerCombat.move_rot -= 10;} else {m1 = 1;}
+           }
+         if (m1 = 1)
+           {
+            if (oPlayerCombat.xxx < 1) { oPlayerCombat.xxx += 0.5 oPlayerCombat.move_rot += 20;} else {m1 = 0; oPlayerCombat.move_rot = 0;}
+           }
+       /*
+        if (image_index > 8 && image_index < 9) {oPlayerCombat.xxx = 1; oPlayerCombat.move_rot += 30;}
+        else if (image_index > 10 && image_index < 11) {oPlayerCombat.xxx = -1; oPlayerCombat.move_rot -= 10;}
+        else {oPlayerCombat.xxx = 0; oPlayerCombat.move_rot = 0;} */
         }  
         
         

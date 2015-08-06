@@ -118,9 +118,6 @@ oInventory.slot[free_slot,inv_item_effect]            = itm_effect;
 oInventory.slot[free_slot,inv_item_info_head]         = itm_info_head;
 oInventory.slot[free_slot,inv_item_info_text]         = itm_info_text;
 oInventory.slot[free_slot,inv_item_info_color]        = itm_info_color;
-oInventory.slot[free_slot,inv_item_sound]             = itm_sound;
-
-// ???
 oInventory.slot[free_slot,inv_item_equip_slot]        = itm_equip_slot;
 
                                                                                                                       //show_message(oInventory.slot[free_slot,inv_item_equip_slot])

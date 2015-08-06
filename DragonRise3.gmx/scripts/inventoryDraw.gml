@@ -1,3 +1,4 @@
+#define inventoryDraw
 /// inventoryDraw(x,y)
 
 xx             = x;
@@ -31,16 +32,9 @@ for (a=0; a<array_height_2d(slot); a++)
                                                                                           //draw_text(xx,yy,slot[0,inv_slot_stackable]);
  draw_sprite(sRarityEffect,itemRarityEffect(slot[a,inv_item_effect]),xx,yy); 
  draw_sprite(slot[a,inv_sprite],slot[a,inv_sprite_number],xx,yy);
- draw_text(xx,yy,slot[a,inv_id]); 
+ //draw_text(xx,yy,slot[a,inv_id]); 
                                                                                           //  draw_text(xx,yy,slot[a,inv_item_equip_slot]);
- if(combine)
- { 
-  if (a = combine_default_slot) {clr(c_yellow,c_a*3); draw_rectangle(xx,yy,xx+32,yy+32,0) clr();}
-  if (inventoryCombine(slot[combine_default_slot,inv_id],slot[a,inv_id]) && a != combine_default_slot ) {clr(c_lime,c_a*3); draw_rectangle(xx,yy,xx+32,yy+32,0) clr();}
-  else if (a != combine_default_slot) {clr(c_red,c_a); draw_rectangle(xx,yy,xx+32,yy+32,0) clr();}
-  
-  if (mouse_check_button_pressed(mb_left)) {combine = 0;} 
- }                                                                                      
+                                                                                   
  
  if (slot[a,inv_slot_stackable] = 1)
     {
@@ -70,7 +64,27 @@ for (a=0; a<array_height_2d(slot); a++)
  } 
  clr();
  
+if(combine)
+ { 
+  if (a = combine_default_slot) {clr(c_yellow,c_a*3); draw_rectangle(xx,yy,xx+32,yy+32,0) clr();}
+  if (inventoryCombinations(slot[combine_default_slot,inv_id],slot[a,inv_id]) && a != combine_default_slot ) {clr(c_lime,c_a*3); draw_rectangle(xx,yy,xx+32,yy+32,0) clr();}
+  else if (a != combine_default_slot) {clr(c_red,c_a); draw_rectangle(xx,yy,xx+32,yy+32,0) clr();}
+  
+  if (mouse_check_button_pressed(mb_left)) 
+     {
+      if (mouse_x > xx && mouse_x < xx+32 && mouse_y > yy && mouse_y < yy+32)
+ {  
 
+     id1 = slot[combine_default_slot,inv_id];
+     id2 = slot[hover_id,inv_id];   
+     show_message("Id1: "+string(id1)+string("#Id2: ")+string(id2)+string("##Slot1: ")+string(combine_default_slot)+string("#Slot2: ")+string(hover_id));     
+     
+     inventoryCombine(id1,id2,combine_default_slot,hover_id);
+     combine = 0;
+ }     
+     
+     } 
+ }    
     
  xx+=32;
  if (xx > x+256) {yy+=32; xx=x;}
@@ -107,6 +121,7 @@ if (hover = 1)
    
   
    draw_text_colored(x+4,used_y+128+24,slot[hover_id,inv_item_info_text]);
+   inventoryDrawStats(string_height(slot[hover_id,inv_item_info_text]));
                                                                           //  for(a=0 a<10 a++) { draw_text(x+4,used_y+196+a*16,slot_option[hover_id,a]); }
   }
 
@@ -288,3 +303,31 @@ if (draw_item_mouse)
           }
       
    
+
+#define inventoryDrawStats
+/// inventoryDrawStats(string_height_item_text)
+
+height = argument0;
+t_text = "#";
+
+for(a = 0; a < celkem_vlastnosti; a++)
+      {
+      if (slot[hover_id,inv_id] = 0) {break;}      
+
+       if (slot_vlastnosti[hover_id,a] > 0)
+          {
+           switch(a)
+                    {
+                     case(vlastnost_poskozeni):
+                         {
+                           t_text += "Poškození: "+string(slot_vlastnosti[hover_id,a]);
+                           break;                                                                   
+                         }
+                     
+                    
+                    }                    
+          }      
+      }
+
+draw_text(x+4,used_y+128+24+height,t_text);
+

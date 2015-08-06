@@ -39,6 +39,9 @@ loot                      = 0;
 p                         = 1;
 itm_effect                = 0;
 o                         = 0;
+force_pickup              = 0;
+
+
 
 
 

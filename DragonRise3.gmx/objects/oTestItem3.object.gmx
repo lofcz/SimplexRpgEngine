@@ -60,7 +60,7 @@ if      (points &lt; 2)  {itm_info_color = rarity_junk;}
 else if (points &lt; 4)  {itm_info_color = rarity_normal;}
 else                  {itm_info_color = rarity_fine;}
 
-itm_info_text += "#Poškození: "+string(vlastnost[vlastnost_poskozeni]);
+//itm_info_text += "#Poškození: "+string(vlastnost[vlastnost_poskozeni]);
 //*********** Suffix *****************
 
 scrItemOptions();

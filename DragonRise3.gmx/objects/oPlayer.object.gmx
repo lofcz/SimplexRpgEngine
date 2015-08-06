@@ -41,6 +41,7 @@ a1 = 0;
 last_dir = "s";
 cyber_r = 0;
 attack_interval = 40;
+m1 = 0;
 
 equ_draw_head         = 1;
 equ_draw_left_plate   = 1;

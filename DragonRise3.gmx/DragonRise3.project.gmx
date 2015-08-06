@@ -123,6 +123,7 @@
     <sprites name="Actors">
       <sprites name="NPC">
         <sprite>sprites\sPlayerBasic</sprite>
+        <sprite>sprites\sCombatAnimationUnfinished</sprite>
         <sprite>sprites\sprite16</sprite>
       </sprites>
       <sprites name="Foes">
@@ -204,7 +205,7 @@
       </scripts>
     </scripts>
     <script>scripts\scrAdekvatniVlastnost.gml</script>
-    <script>scripts\inventoryCombine.gml</script>
+    <script>scripts\inventoryCombinations.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fntText</font>

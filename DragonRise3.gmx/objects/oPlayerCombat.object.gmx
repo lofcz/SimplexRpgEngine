@@ -46,6 +46,10 @@ mode       = 0;
 temp_rot   = 0;
 untick     = 0;
 draw       = 1;
+xxx        = 0;
+yyy        = 0;
+move_rot   = 0;
+dir_rot    = 0;
 
 sprite_index = sprite;
 image_speed  = 0;
@@ -139,13 +143,17 @@ if (attack = 1)
 
    }   
 
-if (oPlayer.last_dir = "d") {rot = 0;   depth = -11; xx += 6; yy += 8;}
+if (oPlayer.last_dir = "d") 
+   {
+   rot = 0;   depth = -11; xx += 6; yy += 8;
+
+   }
 if (oPlayer.last_dir = "w") {rot = 90;  depth = -9;  yy -= 6; xx += 10;}
 if (oPlayer.last_dir = "s") {rot = -90; depth = -11; yy+= 12; xx += 10;}
 if (oPlayer.last_dir = "a") {rot = 180; depth = -11; xx -= 6; yy += 8;}
 
 
-draw_sprite_ext(sprite,image,xx,yy,scale,scale,rot+temp_rot,color,alpha);
+draw_sprite_ext(sprite,image,xx+xxx,yy+yyy,scale,scale,rot+temp_rot+move_rot+dir_rot,color,alpha);
 
 }
 }
