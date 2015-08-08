@@ -111,8 +111,7 @@ if (hover = 1)
   if (slot[hover_id,inv_item_info_head] != "") { if (hover_alpha < 1) {hover_alpha += 0.1;} } else {if (hover_alpha > 0 && !proceed) {hover_alpha -= 0.1;} }
 
   
-   draw_set_halign(fa_center);
-   draw_set_valign(fa_middle);
+  scrCenterText();
 
    if (!proceed) {f = hover_id;}
    else {f = hover_idd;}
@@ -124,11 +123,11 @@ if (hover = 1)
   
       if (slot[f,inv_slot_stackable] = 1)
       {
-      draw_text_colour(x+256+16,used_y+245,"x"+string(slot[f,inv_number]),c_black,c_black,c_black,c_black,1)
+      scrCenterText();
+      draw_text_colour(x+256+8,used_y+137,"x"+string(slot[f,inv_number]),c_black,c_black,c_black,c_black,1);
       }
  
-   draw_set_halign(fa_left);
-   draw_set_valign(fa_top);
+ scrCenterText(0);
    
   
    draw_text_colored(x+4,used_y+128+24,slot[f,inv_item_info_text]);

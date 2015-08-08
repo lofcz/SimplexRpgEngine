@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>/// Initialize item
 
-scrItemSetUp(0,1)
+scrItemSetUp(0,0)
 scrItemBasic(1);
 
 

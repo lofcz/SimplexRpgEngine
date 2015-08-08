@@ -56,7 +56,7 @@ itm_info_color            = oInventory.drop[inv_item_info_color];
 itm_effect                = oInventory.drop[inv_item_effect];
 itm_equip_slot            = oInventory.drop[inv_item_equip_slot];
 
-if (!itm_stackable) {show_number = 0;}
+show_number = 0;
 
 image_index               = itm_sprite_number;
 sprite_index              = itm_sprite;

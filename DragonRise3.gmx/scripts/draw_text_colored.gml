@@ -1,18 +1,5 @@
 /// draw_text_colored(x, y, str)
-/*
 
-    CALL:
-        draw_text_colortags(x, y, str)
-
-    INFO:
-        Draws a text exactly like draw_text, but with this
-        script, you can use simple color tags to change the
-        colors of certain words.
-
-    EXAMPLE:
-
-        draw_text_colortags(x, y, "[c=255]Red text[/c], [c=$00FF00]green text[/c] and [c=c_blue]blue text[/c]!")
-*/
 
 
 

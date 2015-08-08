@@ -19,6 +19,7 @@ for (a = 0; a < slots; a++)
       b.loot            = 1;
       b.drop_id         = id;
       b.slot            = a;
+      b.show_number     = 1;
       loot[a,ext_name]  = -1;
       fill[a]           = 1;
      }

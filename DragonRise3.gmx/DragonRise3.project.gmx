@@ -158,6 +158,7 @@
   <backgrounds name="background">
     <background>background\background0</background>
     <background>background\background1</background>
+    <background>background\background2</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -216,6 +217,7 @@
   </scripts>
   <fonts name="fonts">
     <font>fonts\fntText</font>
+    <font>fonts\fntTextSmall</font>
     <font>fonts\fntRetroBig</font>
     <font>fonts\fntRetroSmall</font>
     <font>fonts\fntPixel</font>

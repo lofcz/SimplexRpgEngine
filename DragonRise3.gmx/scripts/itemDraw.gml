@@ -1,5 +1,6 @@
 /// itemDraw()
 
+if (!itm_stackable) {show_number = 0;}
 
 if (loot)
 {
@@ -19,8 +20,10 @@ draw_self();
 
 if (show_number)
 {
-draw_text(x+24,y+16,itm_number);
-                                                                                                                        //draw_text(x,y+16,itm_stackable);
+draw_set_font(fntTextSmall);
+scrCenterText();
+draw_text(x+23,y+25,itm_number);
+scrCenterText(0);                                                                                                                        //draw_text(x,y+16,itm_stackable);
 }
 }
 
