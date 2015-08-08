@@ -11,7 +11,7 @@ switch(idd)
             case(3):
                     {
                     // Dřevěný meč
-                     if (s = 3) {return true;} 
+                     if (s = 3 ) {return true;} 
                     
                     }
            

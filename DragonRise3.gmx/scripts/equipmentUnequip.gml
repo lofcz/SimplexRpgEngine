@@ -31,6 +31,7 @@ e_slot = argument0;
                              {
                               
                               oPlayer.vlastnost[a] -= equiped_vlastnost[equip_slot,a];
+                              slot_vlastnosti[free_slot,a] = equiped_vlastnost[equip_slot,a];
                               equiped_vlastnost[equip_slot,a] = 0;
                
 

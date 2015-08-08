@@ -9,6 +9,11 @@ combine_id           = 0;
 combine_default_slot = 0;
 c_a                  = 0;
 h_c                  = 0;
+draw_equ_infobox     = 0;
+draw_equ_infobox_xx  = 0;
+draw_equ_infobox_yy  = 0;
+draw_equ_infobox_id  = 0;
+hover_alpha          = 0;
 
 if (argument_count > 0) {slots = argument[0]}
 

@@ -75,12 +75,15 @@ if(combine)
       if (mouse_x > xx && mouse_x < xx+32 && mouse_y > yy && mouse_y < yy+32)
  {  
 
+ if (hover_id != combine_default_slot)
+ {
      id1 = slot[combine_default_slot,inv_id];
      id2 = slot[hover_id,inv_id];   
-     show_message("Id1: "+string(id1)+string("#Id2: ")+string(id2)+string("##Slot1: ")+string(combine_default_slot)+string("#Slot2: ")+string(hover_id));     
+                                                                                           //show_message("Id1: "+string(id1)+string("#Id2: ")+string(id2)+string("##Slot1: ")+string(combine_default_slot)+string("#Slot2: ")+string(hover_id
      
-     inventoryCombine(id1,id2,combine_default_slot,hover_id);
+      inventoryCombine(id1,id2,combine_default_slot,hover_id);
      combine = 0;
+ }
  }     
      
      } 
@@ -98,34 +101,42 @@ draw_rectangle(x,used_y+128,x+256+32,used_y+256,0);
 clr();
 draw_rectangle(x,used_y+128,x+256+32,used_y+256,1);
 */
-clr();
+  if (proceed) {hover_alpha = 1;}
+clr(c_black,hover_alpha);
 draw_sprite(sInfoboxTexture,0,x,used_y+128);
-draw_rectangle_colour(x+1,used_y+128,x+287,used_y+255,c_black,c_black,c_black,c_black,1);
+draw_rectangle_colour(x+2,used_y+128,x+287,used_y+319-32,c_black,c_black,c_black,c_black,1);
 
 if (hover = 1)
   {
+  if (slot[hover_id,inv_item_info_head] != "") { if (hover_alpha < 1) {hover_alpha += 0.1;} } else {if (hover_alpha > 0 && !proceed) {hover_alpha -= 0.1;} }
+
+  
    draw_set_halign(fa_center);
    draw_set_valign(fa_middle);
+
+   if (!proceed) {f = hover_id;}
+   else {f = hover_idd;}
+  if (proceed) {hover_alpha = 1;}  
+   clr(slot[f,inv_item_info_color],hover_alpha);
+   draw_text(x+128,used_y+128+8,slot[f,inv_item_info_head]);
+   clr(c_black,hover_alpha);
    
-   clr(slot[hover_id,inv_item_info_color]);
-   draw_text(x+128,used_y+128+8,slot[hover_id,inv_item_info_head]);
-   clr();
-   
-      if (slot[hover_id,inv_slot_stackable] = 1)
-      {
-      draw_text_colour(x+256+16,used_y+245,"x"+string(slot[hover_id,inv_number]),c_black,c_black,c_black,c_black,1)
-      }
   
+      if (slot[f,inv_slot_stackable] = 1)
+      {
+      draw_text_colour(x+256+16,used_y+245,"x"+string(slot[f,inv_number]),c_black,c_black,c_black,c_black,1)
+      }
+ 
    draw_set_halign(fa_left);
    draw_set_valign(fa_top);
    
   
-   draw_text_colored(x+4,used_y+128+24,slot[hover_id,inv_item_info_text]);
-   inventoryDrawStats(string_height(slot[hover_id,inv_item_info_text]));
-                                                                          //  for(a=0 a<10 a++) { draw_text(x+4,used_y+196+a*16,slot_option[hover_id,a]); }
+   draw_text_colored(x+4,used_y+128+24,slot[f,inv_item_info_text]);
+   inventoryDrawStats(string_height(slot[f,inv_item_info_text]));
+   clr();                                                                      //  for(a=0 a<10 a++) { draw_text(x+4,used_y+196+a*16,slot_option[hover_id,a]); }
   }
-
- 
+  else {if (hover_alpha > 0) {hover_alpha -= 0.1;}}
+clr();   
   
        if (mouse_x > hover_x && mouse_x < hover_x+32 && mouse_y > hover_y && mouse_y < hover_y+32)
        {
@@ -308,26 +319,36 @@ if (draw_item_mouse)
 /// inventoryDrawStats(string_height_item_text)
 
 height = argument0;
-t_text = "#";
+t_text = "";
+
+
+
+if (!proceed) {f = hover_id;}
+else {f = hover_idd;}
 
 for(a = 0; a < celkem_vlastnosti; a++)
       {
-      if (slot[hover_id,inv_id] = 0) {break;}      
+      if (slot[f,inv_id] = 0) {break;}      
 
-       if (slot_vlastnosti[hover_id,a] > 0)
+       if (slot_vlastnosti[f,a] > 0)
           {
            switch(a)
                     {
                      case(vlastnost_poskozeni):
                          {
-                           t_text += "Poškození: "+string(slot_vlastnosti[hover_id,a]);
+                           t_text += "#Poškození: "+string(slot_vlastnosti[f,a]);
                            break;                                                                   
                          }
-                     
+                     case(vlastnost_max_zivot):
+                         {
+                           t_text += "#Život: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+ 
                     
                     }                    
           }      
       }
 
-draw_text(x+4,used_y+128+24+height,t_text);
 
+draw_text(x+4,used_y+128+24+height,t_text);

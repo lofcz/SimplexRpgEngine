@@ -151,6 +151,9 @@
     <sprite>sprites\sInfoboxTexture</sprite>
     <sprite>sprites\sprite21</sprite>
     <sprite>sprites\sCollisionMask</sprite>
+    <sprite>sprites\sAnswerWheel</sprite>
+    <sprite>sprites\sMessagebox</sprite>
+    <sprite>sprites\sPortraits</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -170,6 +173,7 @@
       <script>scripts\clr.gml</script>
       <script>scripts\mouse_in.gml</script>
       <script>scripts\scrLoot.gml</script>
+      <script>scripts\scrCenterText.gml</script>
       <script>scripts\scrInventoryParseString.gml</script>
     </scripts>
     <scripts name="Inventory">
@@ -181,6 +185,7 @@
       <script>scripts\inventoryDrop.gml</script>
       <script>scripts\inventoryAction.gml</script>
       <script>scripts\inventoryContains.gml</script>
+      <script>scripts\inventoryCombinations.gml</script>
       <script>scripts\inventoryNumber.gml</script>
       <script>scripts\inventorySwitchPre.gml</script>
       <scripts name="Chest">
@@ -205,12 +210,15 @@
       </scripts>
     </scripts>
     <script>scripts\scrAdekvatniVlastnost.gml</script>
-    <script>scripts\inventoryCombinations.gml</script>
+    <script>scripts\dialogueMessage.gml</script>
+    <script>scripts\string_linebreak.gml</script>
+    <script>scripts\dialogueTypewriter.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fntText</font>
     <font>fonts\fntRetroBig</font>
     <font>fonts\fntRetroSmall</font>
+    <font>fonts\fntPixel</font>
   </fonts>
   <objects name="objects">
     <object>objects\oCamera</object>
@@ -230,12 +238,14 @@
     <object>objects\oTEST</object>
     <object>objects\oCollisionMask</object>
     <object>objects\oItemText</object>
+    <object>objects\oMessagebox</object>
+    <object>objects\oExampleMessage</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\mapTest</room>
     <room>rooms\mapLoading</room>
   </rooms>
-  <constants number="115">
+  <constants number="116">
     <constant name="celkem_vlastnosti">45</constant>
     <constant name="vlastnost_vykresli_index">44</constant>
     <constant name="vlastnost_vykresli_sprit">43</constant>
@@ -282,6 +292,7 @@
     <constant name="vlastnost_kovarstvi">20</constant>
     <constant name="vlastnost_obratnost">1</constant>
     <constant name="vlastnost_sila">0</constant>
+    <constant name="dialogue_lenght">50</constant>
     <constant name="equ_axis_special2_y">224</constant>
     <constant name="equ_axis_special2_x">224</constant>
     <constant name="equ_axis_special1_y">224</constant>

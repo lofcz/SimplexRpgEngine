@@ -75,7 +75,15 @@ if (mouse_in(xx+equ_axis_right_hand_x,xx+equ_axis_right_hand_x+32,yy+equ_axis_ri
       {
        if (oInventory.equiped[0] = 1) {equipmentUnequip(0);}
       }
+      
+    if (mouse_check_button_pressed(mb_right) && oInventory.equiped[0] = 1)
+      {
+       draw_equ_infobox = !draw_equ_infobox;
+       if (draw_equ_infobox) {draw_equ_infobox_xx = xx+equ_axis_right_hand_x; draw_equ_infobox_yy = yy+equ_axis_right_hand_y; draw_equ_infobox_id = 0;}
+      }
+    
    }
+      
 if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] = "zbraň" )
    { 
    if (oInventory.equiped[0] = 0) {draw_hover_block(xx+equ_axis_right_hand_x,xx+equ_axis_right_hand_x+32,yy+equ_axis_right_hand_y,yy+equ_axis_right_hand_y+32,c_lime,0.5);}
@@ -214,4 +222,89 @@ if (mouse_in(xx+equ_axis_right_boot_x,xx+equ_axis_right_boot_x+32,yy+equ_axis_ri
    }
 }
 
+// Draw equipment infobox
+if (draw_equ_infobox)
+   {
+   if (mouse_check_button_released(mb_right)) {draw_equ_infobox = 0;}
+   
+   if (draw_equ_infobox_id = 0) {draw_equ_infobox_xx = xx+equ_axis_right_hand_x; draw_equ_infobox_yy = yy+equ_axis_right_hand_y;}
+   
+   equipmentDrawInfobox(draw_equ_infobox_xx,draw_equ_infobox_yy,draw_equ_infobox_id);  
+   }
 
+#define equipmentDrawInfobox
+/// equipmentDrawInfobox(x,y,id,yoffset,xoffset)
+
+
+var width,height,idd,xx,yy;
+
+width   = 256;
+height  = 16;
+xx      = argument0;
+yy      = argument1;
+idd     = argument2;
+yoffset = 16;
+xoffset = 16;
+
+
+height += string_height(equiped_stats[idd,inv_item_info_head]) + string_height(equiped_stats[idd,inv_item_info_text]);
+
+ for (a = 0; a < celkem_vlastnosti; a++)
+                             {
+                            if (equiped_vlastnost[idd,a] != 0) {height += 12}
+                             }
+ 
+
+draw_sprite_stretched(sInfoboxTexture,0,xx-width+xoffset,yy+yoffset,width,height);
+clr(c_black);
+draw_rectangle(xx-width+xoffset,yy+yoffset,xx+xoffset,yy+height+yoffset,1);
+
+draw_set_font(fntText);
+scrCenterText();
+draw_text_colour(xx - (width / 2),yy + yoffset+12,equiped_stats[idd,inv_item_info_head],equiped_stats[idd,inv_item_info_color],equiped_stats[idd,inv_item_info_color],equiped_stats[idd,inv_item_info_color],equiped_stats[idd,inv_item_info_color],1);
+scrCenterText(0);
+equipmentDrawAbilities(idd,width,yoffset,xx,yy,xoffset);
+
+#define equipmentDrawAbilities
+/// equipmentDrawAbilities(id,width,yoffset,xx,yy,xoffset)
+
+var t_text,idd,width,yoffset,xx,yy;
+
+t_text   = "#";
+idd      = argument0;
+width    = argument1;
+yoffset  = argument2;
+xx       = argument3;
+yy       = argument4;
+xoffset  = argument5;
+
+
+t_text += equiped_stats[idd,inv_item_info_text];
+
+for(a = 0; a < celkem_vlastnosti; a++)
+      {
+      //if (equiped_vlastnost[idd,inv_id] = 0) {break;}      
+
+      
+      
+       if (equiped_vlastnost[idd,a] > 0)
+          {
+           switch(a)
+                    {
+                     case(vlastnost_poskozeni):
+                         {
+                           t_text += "#Poškození: "+string(equiped_vlastnost[idd,a]);
+                           break;                                                                   
+                         }
+                     case(vlastnost_max_zivot):
+                         {
+                           t_text += "#Život: "+string(equiped_vlastnost[idd,a]);
+                           break;                                                                   
+                         }
+ 
+                    
+                    }                    
+          }      
+      }
+
+draw_text(xx - (width) + 5 + xoffset,yy + yoffset+10,t_text);
