@@ -1,7 +1,7 @@
 /// scrLoot(id,object,number)
 
 idd    = 0;
-name   = oTestItem;
+name   = oGold;
 number = 1;    
 
 if (argument_count > 0) {idd    = argument[0];}

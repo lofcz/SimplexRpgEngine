@@ -1,4 +1,5 @@
 /// scrChestState(active_dis,open_dis,open_char)
+//   show_message(image_speed);
 
 active_dis = 64;
 open_dis   = 32;
@@ -18,6 +19,11 @@ if (instance_number(oPlayer) > 0)
         if (unlocked)
         {
         open = !open;
+        if (open) {image_speed = 0.3;}
+        else {image_speed = -0.3;}
+        
+        show_message(image_speed);
+
         text_alpha = 0;
         }
         else {}

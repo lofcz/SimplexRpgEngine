@@ -6,6 +6,9 @@ text_alpha = 0;
 dir        = "w";
 open_char  = "E";
 text       = 0;
+animate    = 0;
+
+image_speed = 0;
 
 if (argument_count > 0) {dir       = argument[0];}
 if (argument_count > 1) {open_char = argument[1];}

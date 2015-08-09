@@ -11,6 +11,10 @@ if (color = rarity_fine)
    {
     index = 2;
    } 
+if (color = rarity_rare)
+   {
+    index = 3;
+   } 
 
 
 return (index);

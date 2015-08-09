@@ -33,6 +33,7 @@ drag_alpha       = 1;
 drag_controll    = 0;
 close_text       = "Zavřít";
 drop_text        = "Zahoď";
+star_text        = "Označit";
 inventoryCreate(slots);
 
 

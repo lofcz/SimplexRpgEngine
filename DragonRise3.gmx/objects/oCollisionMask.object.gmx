@@ -8,6 +8,29 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>animate = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -26,6 +49,8 @@
           <argument>
             <kind>1</kind>
             <string>/// HandleCollision - Chest
+
+if (animate = 1) {(idd).image_speed = 0.3;}
 
 if (type = "chest")
    {
@@ -48,6 +73,12 @@ if (type = "chest")
                      {
                      open = !open;
                      text_alpha = 0;
+                     
+                     if (open) { animate = 1; }
+                     else { animate = 2;}
+                     
+                   
+                     
                      }
                      }
                      else {}
@@ -59,6 +90,9 @@ if (type = "chest")
                      {
                       (idd).text = 0;
                       (idd).open = 0;
+                      (idd).animate = 2;
+
+
                      }
                }
               else 
@@ -66,6 +100,13 @@ if (type = "chest")
                    if (distance_to_object(oPlayer) &gt; 0)
                    {
                    (idd).open = 0;
+                   
+                   if ((idd).animate = 1)
+                   {
+                   (idd).animate = 2;
+                   
+                    }
+                    
                    }
                    
                    }

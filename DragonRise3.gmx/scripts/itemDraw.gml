@@ -64,8 +64,13 @@ if (hover_info && p = 1 )
                {
                if (instance_number(oItemText) > 0) {with(oItemText) {instance_destroy();}}
                
-               inventoryPickUp();
-               (drop_id).fill[slot] = 0;
+               if (object_get_name(object_index) = "oGold") {oPlayer.gold += itm_number; instance_destroy();}
+               else 
+                    {
+                     inventoryPickUp();
+                     (drop_id).fill[slot] = 0;
+                    }
+              
                }            
             }
         }

@@ -125,6 +125,7 @@
         <sprite>sprites\sPlayerBasic</sprite>
         <sprite>sprites\sCombatAnimationUnfinished</sprite>
         <sprite>sprites\sprite16</sprite>
+        <sprite>sprites\sTestNPC</sprite>
       </sprites>
       <sprites name="Foes">
         <sprite>sprites\sprite6</sprite>
@@ -154,48 +155,65 @@
     <sprite>sprites\sAnswerWheel</sprite>
     <sprite>sprites\sMessagebox</sprite>
     <sprite>sprites\sPortraits</sprite>
+    <sprite>sprites\sQuest</sprite>
+    <sprite>sprites\sBasicCollision</sprite>
+    <sprite>sprites\sprite34</sprite>
+    <sprite>sprites\sprite38</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
     <background>background\background1</background>
     <background>background\background2</background>
+    <background>background\background3</background>
+    <background>background\background7</background>
+    <background>background\background4</background>
+    <background>background\background5</background>
+    <background>background\background6</background>
+    <background>background\background8</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="Functions">
-      <script>scripts\set_sprite.gml</script>
-      <script>scripts\drawAPI.gml</script>
-      <script>scripts\playerAPI.gml</script>
-      <script>scripts\apiRoomCreation.gml</script>
-      <script>scripts\scrItemBasic.gml</script>
-      <script>scripts\scrItemSetUp.gml</script>
-      <script>scripts\scrItemOptions.gml</script>
-      <script>scripts\draw_text_colored.gml</script>
-      <script>scripts\clr.gml</script>
-      <script>scripts\mouse_in.gml</script>
-      <script>scripts\scrLoot.gml</script>
-      <script>scripts\scrCenterText.gml</script>
-      <script>scripts\scrInventoryParseString.gml</script>
+      <scripts name="APIs">
+        <script>scripts\playerAPI.gml</script>
+        <script>scripts\drawAPI.gml</script>
+        <script>scripts\roomCreationAPI.gml</script>
+      </scripts>
+      <scripts name="Common">
+        <script>scripts\scrInventoryParseString.gml</script>
+        <script>scripts\clr.gml</script>
+        <script>scripts\draw_text_colored.gml</script>
+        <script>scripts\scrCenterText.gml</script>
+        <script>scripts\mouse_in.gml</script>
+        <script>scripts\set_sprite.gml</script>
+      </scripts>
     </scripts>
     <scripts name="Inventory">
-      <script>scripts\inventoryCreate.gml</script>
-      <script>scripts\inventoryDraw.gml</script>
-      <script>scripts\inventoryDrawOptionbox.gml</script>
-      <script>scripts\inventoryPickUp.gml</script>
-      <script>scripts\inventoryDelete.gml</script>
-      <script>scripts\inventoryDrop.gml</script>
-      <script>scripts\inventoryAction.gml</script>
-      <script>scripts\inventoryContains.gml</script>
-      <script>scripts\inventoryCombinations.gml</script>
-      <script>scripts\inventoryNumber.gml</script>
-      <script>scripts\inventorySwitchPre.gml</script>
+      <scripts name="Inventory">
+        <script>scripts\inventoryDraw.gml</script>
+        <script>scripts\inventoryCreate.gml</script>
+        <script>scripts\inventoryPickUp.gml</script>
+        <script>scripts\inventoryDrop.gml</script>
+        <script>scripts\inventoryAction.gml</script>
+        <script>scripts\inventoryContains.gml</script>
+        <script>scripts\inventoryDrawOptionbox.gml</script>
+        <script>scripts\inventoryCombinations.gml</script>
+        <script>scripts\inventorySwitchPre.gml</script>
+        <script>scripts\inventoryNumber.gml</script>
+        <script>scripts\inventoryDelete.gml</script>
+      </scripts>
       <scripts name="Chest">
         <script>scripts\scrChestState.gml</script>
         <script>scripts\scrChestFill.gml</script>
         <script>scripts\scrChestIni.gml</script>
         <script>scripts\scrChestDraw.gml</script>
+        <script>scripts\scrLoot.gml</script>
+        <script>scripts\fillFromTo.gml</script>
       </scripts>
       <scripts name="Items">
+        <script>scripts\scrItemBasic.gml</script>
+        <script>scripts\scrItemSetUp.gml</script>
+        <script>scripts\scrItemOptions.gml</script>
         <script>scripts\itemDraw.gml</script>
         <script>scripts\itemDrawStats.gml</script>
         <script>scripts\itemRarity.gml</script>
@@ -209,11 +227,12 @@
         <script>scripts\equipmentHoldEquip.gml</script>
         <script>scripts\equipmentUnequip.gml</script>
       </scripts>
+      <scripts name="Dialoque">
+        <script>scripts\dialogueMessage.gml</script>
+        <script>scripts\dialogueTypewriter.gml</script>
+        <script>scripts\string_linebreak.gml</script>
+      </scripts>
     </scripts>
-    <script>scripts\scrAdekvatniVlastnost.gml</script>
-    <script>scripts\dialogueMessage.gml</script>
-    <script>scripts\string_linebreak.gml</script>
-    <script>scripts\dialogueTypewriter.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fntText</font>
@@ -228,7 +247,7 @@
     <object>objects\oController</object>
     <object>objects\oInventory</object>
     <object>objects\oEquipment</object>
-    <object>objects\oTestItem</object>
+    <object>objects\oGold</object>
     <object>objects\oTestItem2</object>
     <object>objects\oTestItem3</object>
     <object>objects\oBasicItem</object>
@@ -242,12 +261,17 @@
     <object>objects\oItemText</object>
     <object>objects\oMessagebox</object>
     <object>objects\oExampleMessage</object>
+    <object>objects\oTestNPC</object>
+    <object>objects\oBasicCollision</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\mapTest</room>
     <room>rooms\mapLoading</room>
   </rooms>
-  <constants number="116">
+  <constants number="120">
+    <constant name="quest_finish">2</constant>
+    <constant name="quest_ready">1</constant>
+    <constant name="quest_noone">0</constant>
     <constant name="celkem_vlastnosti">45</constant>
     <constant name="vlastnost_vykresli_index">44</constant>
     <constant name="vlastnost_vykresli_sprit">43</constant>
@@ -343,11 +367,12 @@
     <constant name="rarity_token">c_orange</constant>
     <constant name="rarity_artifact">c_aqua</constant>
     <constant name="rarity_mythic">c_fuchsia</constant>
-    <constant name="rarity_set">c_lime</constant>
+    <constant name="rarity_set">make_color_rgb(176,250,157)</constant>
     <constant name="rarity_rare">c_green</constant>
     <constant name="rarity_fine">c_blue</constant>
     <constant name="rarity_normal">c_black</constant>
     <constant name="rarity_junk">c_dkgray</constant>
+    <constant name="inv_item_star">13</constant>
     <constant name="inv_item_equip_slot">12</constant>
     <constant name="inv_item_sound">11</constant>
     <constant name="inv_item_effect">10</constant>
@@ -362,7 +387,7 @@
     <constant name="inv_number">1</constant>
     <constant name="inv_id">0</constant>
     <constant name="mInventoryID">0</constant>
-    <constant name="inv_atributes_total">13</constant>
+    <constant name="inv_atributes_total">14</constant>
     <constant name="event_user_destroy">0</constant>
   </constants>
   <help>

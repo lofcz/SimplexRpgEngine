@@ -7,10 +7,10 @@
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
-  <bbox_left>0</bbox_left>
-  <bbox_right>31</bbox_right>
-  <bbox_top>0</bbox_top>
-  <bbox_bottom>31</bbox_bottom>
+  <bbox_left>3</bbox_left>
+  <bbox_right>28</bbox_right>
+  <bbox_top>4</bbox_top>
+  <bbox_bottom>30</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
@@ -21,5 +21,8 @@
   <height>32</height>
   <frames>
     <frame index="0">images\sChest_0.png</frame>
+    <frame index="1">images\sChest_1.png</frame>
+    <frame index="2">images\sChest_2.png</frame>
+    <frame index="3">images\sChest_3.png</frame>
   </frames>
 </sprite>

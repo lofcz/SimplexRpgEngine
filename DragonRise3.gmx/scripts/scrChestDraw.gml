@@ -1,5 +1,21 @@
 /// scrChestDraw()
 
+
+if (animate = 1)
+   {
+    image_speed = 0.3;
+   }
+if (animate = 2)
+   {
+    image_speed = -0.3;
+   }
+if (animate = 0)
+   {
+    image_speed = 0;
+   }
+
+
+
 if (open)
    {
    xx = x-slots_row*16

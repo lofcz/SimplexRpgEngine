@@ -32,6 +32,7 @@ for (a=0; a<array_height_2d(slot); a++)
                                                                                           //draw_text(xx,yy,slot[0,inv_slot_stackable]);
  draw_sprite(sRarityEffect,itemRarityEffect(slot[a,inv_item_effect]),xx,yy); 
  draw_sprite(slot[a,inv_sprite],slot[a,inv_sprite_number],xx,yy);
+ if (slot[a,inv_item_star] = 1) {draw_sprite(sRarityEffect,5,xx,yy);}
  //draw_text(xx,yy,slot[a,inv_id]); 
                                                                                           //  draw_text(xx,yy,slot[a,inv_item_equip_slot]);
                                                                                    

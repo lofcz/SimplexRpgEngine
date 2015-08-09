@@ -32,13 +32,20 @@ width += max_width;
 if (optionnumber > 0)
 {
 clr(c_white);
-draw_rectangle(hover_xx+16,hover_yy+16,hover_xx+width+20,hover_yy+height-16,0);
+//draw_rectangle(hover_xx+16,hover_yy+16,hover_xx+width+20,hover_yy+height-16,0);
+draw_sprite_stretched(sSlotTexture,4,hover_xx+16,hover_yy+16,width+4,height-32);
 clr(c_black);
 draw_rectangle(hover_xx+16,hover_yy+16,hover_xx+width+20,hover_yy+height-16,1);
 for(a=0 a<optionnumber a++)
         {
           clr(c_black,1);
-         draw_text(hover_xx+4+16,hover_yy+(a*16)+16,slot_option[hover_idd,a]);
+         if (slot_option[hover_idd,a] != star_text) {draw_text(hover_xx+4+16,hover_yy+(a*16)+16,slot_option[hover_idd,a]);}
+         else 
+              {
+               if (slot[hover_idd,inv_item_star]) {draw_text(hover_xx+4+16,hover_yy+(a*16)+16,"Odznačit");}
+               else {draw_text(hover_xx+4+16,hover_yy+(a*16)+16,"Označit");}
+
+              }
          if (mouse_x > hover_xx-20 && mouse_x < hover_xx+20+width && mouse_y > hover_yy+(a*16)+16 && mouse_y < hover_yy+(a*16)+28)
             {
             clr(c_yellow,0.4);
@@ -56,6 +63,12 @@ for(a=0 a<optionnumber a++)
                     proceed  = 0;        
                     inventoryDrop(hover_idd);
                     }
+                  else if (slot_option[hover_idd,a] = star_text)
+                    {     
+                    proceed  = 0;        
+                    slot[hover_idd,inv_item_star] = !slot[hover_idd,inv_item_star];
+                    }
+
                 else 
                 {                                                                                 //show_message(slot[hover_idd,inv_id]);
                 inventoryAction(slot[hover_idd,inv_id],a);

@@ -104,6 +104,56 @@ scrChestFill();
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="58">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>math_set_epsilon(0.000001);
+//if (!open &amp;&amp; image_index = 0) {image_index = 0; image_speed = 0;}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (animate = 1) {image_index = 3; image_speed = 0; animate = 0;}
+if (animate = 2) {image_index = 0; image_speed = 0; animate = 0;}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -126,6 +176,7 @@ scrChestFill();
 draw_self();
 scrChestDraw()
 
+draw_text(x,y+48,animate);
 </string>
           </argument>
         </arguments>
