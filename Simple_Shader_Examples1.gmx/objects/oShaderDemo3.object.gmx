@@ -88,7 +88,7 @@ t = 0;
     
         step = (room_width-100)/5;
         x = 100;
-        shader_set_uniform_f(channel_mask, 1,0,0,1);            // red
+        shader_set_uniform_f(channel_mask, 1,1,1,1);            // red
         draw_sprite(sprite_index,image_index,x, y);
         x+=step;
         

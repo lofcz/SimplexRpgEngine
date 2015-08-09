@@ -94,7 +94,7 @@ Vtex_pixel_size = shader_get_uniform(sShaderDemo7, "v_TexturePixelSize");
                
         draw_set_color(c_white);
         shader_set_uniform_f(Vtex_pixel_size, texel_width, texel_height );
-        draw_text(250,y-30,"Hello World!!");
+        draw_text(250,y-30," dsaf dsa fd fs fd s fds fds fs fs fds fsdfff!");
 
         
         

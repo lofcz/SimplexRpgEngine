@@ -1,5 +1,6 @@
 /// scrChestIni(open_direction,open_key)
 
+scrShaderPrepareColor();
 alarm[0]   = 1;
 open       = 0;
 text_alpha = 0;

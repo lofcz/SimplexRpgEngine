@@ -4,6 +4,7 @@
 if (animate = 1)
    {
     image_speed = 0.3;
+    if (s_b > 0) {s_b -= 0.05;}
    }
 if (animate = 2)
    {

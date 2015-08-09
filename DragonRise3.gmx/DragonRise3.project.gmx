@@ -159,6 +159,11 @@
     <sprite>sprites\sBasicCollision</sprite>
     <sprite>sprites\sprite34</sprite>
     <sprite>sprites\sprite38</sprite>
+    <sprite>sprites\sTree1</sprite>
+    <sprite>sprites\sTree2</sprite>
+    <sprite>sprites\sTree3</sprite>
+    <sprite>sprites\sWater</sprite>
+    <sprite>sprites\sWaterMask</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -186,6 +191,10 @@
         <script>scripts\scrCenterText.gml</script>
         <script>scripts\mouse_in.gml</script>
         <script>scripts\set_sprite.gml</script>
+      </scripts>
+      <scripts name="Shaders">
+        <script>scripts\scrShaderPrepareColor.gml</script>
+        <script>scripts\scrShaderDrawColor.gml</script>
       </scripts>
     </scripts>
     <scripts name="Inventory">
@@ -234,6 +243,10 @@
       </scripts>
     </scripts>
   </scripts>
+  <shaders name="shaders">
+    <shader type="GLSLES">shaders\shdColor.shader</shader>
+    <shader type="GLSLES">shaders\shdLerp.shader</shader>
+  </shaders>
   <fonts name="fonts">
     <font>fonts\fntText</font>
     <font>fonts\fntTextSmall</font>
@@ -263,6 +276,11 @@
     <object>objects\oExampleMessage</object>
     <object>objects\oTestNPC</object>
     <object>objects\oBasicCollision</object>
+    <object>objects\oTree1</object>
+    <object>objects\oTree2</object>
+    <object>objects\oTree3</object>
+    <object>objects\oWater</object>
+    <object>objects\parNPC</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\mapTest</room>

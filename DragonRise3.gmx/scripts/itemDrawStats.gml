@@ -41,4 +41,3 @@ scrCenterText(0);
 
 draw_text_colored((parent).xx+4,(parent).yy+24,(parent).itm_info_text);
 draw_text((parent).xx+4,(parent).yy+12+string_height((parent).itm_info_text),t_text);
-

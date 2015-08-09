@@ -23,4 +23,3 @@ for(a = from; a < to; a++)
       
       scrLoot(a,item,count);
       }
-

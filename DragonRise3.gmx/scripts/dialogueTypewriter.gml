@@ -14,4 +14,3 @@ help_text = string_copy(str,pos-1,1);
 if (help_text = "]") {f = 0;}
 
         }
-

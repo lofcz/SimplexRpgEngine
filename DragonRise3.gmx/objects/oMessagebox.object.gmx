@@ -43,6 +43,12 @@ oPlayer.can_move2 = 0;
 
 alpha     = 1;
 bac_alpha = 0;
+
+if (instance_number(parNPC) &gt; 0)
+   {
+    parNPC.talking = 1;
+   
+   }
 </string>
           </argument>
         </arguments>
@@ -69,6 +75,13 @@ bac_alpha = 0;
 oPlayer.can_move2 = 1;
 
 if (!oInventory.draw_inventory) {oInventory.draw = 1;}
+
+if (instance_number(parNPC) &gt; 0)
+   {
+    parNPC.talking = 0;
+   
+   }
+
 </string>
           </argument>
         </arguments>

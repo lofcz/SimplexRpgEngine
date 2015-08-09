@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-15</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>parNPC</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -33,6 +33,9 @@ quest_state = quest_ready;
 turn_to_player = 1;
 turn_timer = -1;
 turn = 0;
+last_dir = dir;
+status = 0;
+talking = 0;
 </string>
           </argument>
         </arguments>
@@ -61,6 +64,34 @@ turn = 0;
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="25">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (status = 0 )
+   {
+   dialogueMessage("Lord of flies","Mocný programátor z páté galaxie vyjadřuje "+string("[c="+string(c_fuchsia)+string("]")) +string("To se mi líbí")+string("[/c]")+string(" k tvé profilovce.#Třeba budu jednou umět q3 jako ty. "));
+
+   
+   }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -79,6 +110,7 @@ turn = 0;
           <argument>
             <kind>1</kind>
             <string>draw_self();
+draw_text(x,y,dir);
 
 if (turn_to_player) 
    {
@@ -117,11 +149,46 @@ if (instance_number(oPlayer) &gt; 0)
           
               if (oPlayer.x &gt; x &amp;&amp; oPlayer.x &lt; x+sprite_get_width(sprite_index) &amp;&amp; oPlayer.y &gt; y-sprite_get_height(sprite_index) &amp;&amp; oPlayer.y &lt; y)
                {
-               if (turn_timer = -1 &amp;&amp; dir != "w") {last_dir = dir; turn_timer = irandom_range(15,30); }
+               //if (turn_timer = -1 &amp;&amp; dir != "w") {last_dir = dir; turn_timer = irandom_range(15,30); }
+                    dir = "w";
+               image_index = 12;
+
                }
+              else  if (oPlayer.x &gt; x &amp;&amp; oPlayer.x &lt; x+sprite_get_width(sprite_index) &amp;&amp; oPlayer.y &gt; y+sprite_get_height(sprite_index) &amp;&amp; oPlayer.y &lt; y+sprite_get_height(sprite_index)+48)
+               {
+               //if (turn_timer = -1 &amp;&amp; dir != "s") {last_dir = dir; turn_timer = irandom_range(15,30); }
+                dir = "s";
+               image_index = 0;
+
+               }
+                else  if (oPlayer.x &gt; x-32 &amp;&amp; oPlayer.x &lt; x &amp;&amp; oPlayer.y &gt;= y &amp;&amp; oPlayer.y &lt;= y+48)
+               {
+               //if (turn_timer = -1 &amp;&amp; dir != "a") {last_dir = dir; turn_timer = irandom_range(15,30); }
+               dir = "a";
+               image_index = 4;
+               }
+              else  if (oPlayer.x &gt; x+32 &amp;&amp; oPlayer.x &lt; x+64 &amp;&amp; oPlayer.y &gt;= y &amp;&amp; oPlayer.y &lt;= y+48)
+               {
+               //if (turn_timer = -1 &amp;&amp; dir != "d") {last_dir = dir; turn_timer = irandom_range(15,30); }
+                 dir = "d";
+               image_index = 8;
+
+               }
+
               else               
               {
-             if (turn)
+              dir = last_dir;
+                 switch(dir) 
+                  {
+                   case "w": {image_index = 12 dir="s"; break;};   //12
+                   case "s": {image_index = 0 dir="w";  break;};   //
+                   case "a": {image_index = 4 dir="a"; break;};
+                   case "d": {image_index = 8 dir="d"; break;};
+
+                  }
+
+              
+            /* if (turn)
              {  
               switch(dir) 
                   {
@@ -134,9 +201,9 @@ if (instance_number(oPlayer) &gt; 0)
                   turn = 0;
                   }
               } 
-              
+               */
              
-          
+              }
           }
 
        
@@ -157,13 +224,34 @@ if (instance_number(oPlayer) &gt; 0)
                } 
                else {if (act_alpha &gt; 0) {act_alpha -= 0.1;}}
            }
+          else if (dir = "a")
+           {
+            if (oPlayer.x &gt; x-32 &amp;&amp; oPlayer.x &lt; x &amp;&amp; oPlayer.y &gt;= y &amp;&amp; oPlayer.y &lt;= y+48 &amp;&amp; oPlayer.last_dir = "d")
+               {
+                if (act_alpha &lt; 1) {act_alpha += 0.1;}
+                
+               } 
+               else {if (act_alpha &gt; 0) {act_alpha -= 0.1;}}
+           }
+        else if (dir = "d")
+           {
+            if (oPlayer.x &gt; x+32 &amp;&amp; oPlayer.x &lt; x+64 &amp;&amp; oPlayer.y &gt;= y &amp;&amp; oPlayer.y &lt;= y+48 &amp;&amp; oPlayer.last_dir = "a")
+               {
+                if (act_alpha &lt; 1) {act_alpha += 0.1;}
+                
+               } 
+               else {if (act_alpha &gt; 0) {act_alpha -= 0.1;}}
+           }
 
        
          if (quest_state != quest_noone) { draw_sprite_ext(sQuest,quest_state+1,x+16,y-12-act_alpha*5,1,1,0,c_white,act_alpha);}
         
        }
    
-   
+     if (keyboard_check_pressed(ord("E")) &amp;&amp; act_alpha &gt;= 1 &amp;&amp; !talking)
+        {
+           event_user(15);
+        }
    }
 </string>
           </argument>
