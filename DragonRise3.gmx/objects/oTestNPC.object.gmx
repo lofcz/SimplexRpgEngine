@@ -3,7 +3,7 @@
   <spriteName>sTestNPC</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-15</depth>
+  <depth>-9</depth>
   <persistent>0</persistent>
   <parentName>parNPC</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -83,10 +83,64 @@ talking = 0;
             <kind>1</kind>
             <string>if (status = 0 )
    {
-   dialogueMessage("Lord of flies","Mocný programátor z páté galaxie vyjadřuje "+string("[c="+string(c_fuchsia)+string("]")) +string("To se mi líbí")+string("[/c]")+string(" k tvé profilovce.#Třeba budu jednou umět q3 jako ty. "));
+   dialogueMessage("Lance","Čekáme "+string("[c="+string(c_orange)+string("]")) +string("jen na tebe")+string("[/c]")+string(".#Přijď a zůčastni se epického dobrodružství."));
+   dialogueMessage("kkt","Čekáme "+string("[c="+string(c_orange)+string("]")) +string("jen na tebe")+string("[/c]")+string(".#Přijď a zůčastni se epického dobrodružství."));
 
+     // dialogueOptions(0);
    
    }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="24">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (oMessagebox.message_current = 1)
+{
+ answer = instance_create(view_xview+350,view_yview+320,oAnswer);
+ answer.parent = (id);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="23">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Akce na vyber
+
+if (index = 1) {show_message("");}
 </string>
           </argument>
         </arguments>

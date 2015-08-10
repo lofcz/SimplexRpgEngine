@@ -37,6 +37,14 @@ type_speed      = 0.5;
 ret_str         = "";
 f               = 0;
 draw            = 1;
+idd             = 0;
+c               = 0;
+done            = 0;
+
+for(a=0; a&lt;20; a++)
+         {
+          option[a] = -1;
+         }
 
 inv_state = oInventory.draw_inventory;
 oPlayer.can_move2 = 0;
@@ -130,17 +138,24 @@ scrCenterText(0);
 draw_text_colored(x+150,y+40,str);
 
 
-if (mouse_check_button_pressed(mb_left) &amp;&amp; draw) 
+if (mouse_check_button_pressed(mb_left) &amp;&amp; draw &amp;&amp; instance_number(oAnswer) = 0) 
    {
+  if (pos &gt;= string_length(message_text[message_current]))
+          {        
+         with((parent)) {event_user(14);}
+          } 
+          
      if (message_text[message_current+1] = "") {draw = 0;}
    else 
         {
           if (pos &gt;= string_length(message_text[message_current]))
           { 
          pos = 1;
-         message_current++;     
+         message_current++; 
+      
          }       
         }
+  
    }
    
 

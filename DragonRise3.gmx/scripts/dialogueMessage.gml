@@ -16,3 +16,6 @@ oMessagebox.message_text[oMessagebox.message_number]   = text;
 oMessagebox.message_index[oMessagebox.message_number]  = index;
 
 oMessagebox.message_number++;
+oMessagebox.idd++;
+oMessagebox.parent = (id);
+

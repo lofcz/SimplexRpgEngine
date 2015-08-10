@@ -164,6 +164,9 @@
     <sprite>sprites\sTree3</sprite>
     <sprite>sprites\sWater</sprite>
     <sprite>sprites\sWaterMask</sprite>
+    <sprite>sprites\sprite39</sprite>
+    <sprite>sprites\sprite40</sprite>
+    <sprite>sprites\sSimpleWater</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -175,6 +178,7 @@
     <background>background\background5</background>
     <background>background\background6</background>
     <background>background\background8</background>
+    <background>background\background9</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -242,6 +246,7 @@
         <script>scripts\string_linebreak.gml</script>
       </scripts>
     </scripts>
+    <script>scripts\dialogueOptions.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shdColor.shader</shader>
@@ -281,6 +286,7 @@
     <object>objects\oTree3</object>
     <object>objects\oWater</object>
     <object>objects\parNPC</object>
+    <object>objects\oAnswer</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\mapTest</room>
