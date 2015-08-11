@@ -28,12 +28,14 @@
             <string>image_alpha = 0;
 mode = 0;
 image_speed = 0;
+
+polozka[0] = "";
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -50,7 +52,10 @@ image_speed = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (image_alpha &lt; 1 &amp;&amp; mode = 0) {image_alpha += 0.05;} else {if (mode = 0) {mode = 1;}}
+            <string>draw_self();
+draw_text(x,y,polozka[0]);
+
+if (image_alpha &lt; 1 &amp;&amp; mode = 0) {image_alpha += 0.05;} else {if (mode = 0) {mode = 1;}}
 
 
 if (mode = 1)

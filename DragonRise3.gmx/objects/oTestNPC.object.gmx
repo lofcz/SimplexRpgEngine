@@ -85,8 +85,7 @@ talking = 0;
    {
    dialogueMessage("Lance","Čekáme "+string("[c="+string(c_orange)+string("]")) +string("jen na tebe")+string("[/c]")+string(".#Přijď a zůčastni se epického dobrodružství."));
    dialogueMessage("kkt","Čekáme "+string("[c="+string(c_orange)+string("]")) +string("jen na tebe")+string("[/c]")+string(".#Přijď a zůčastni se epického dobrodružství."));
-
-     // dialogueOptions(0);
+   dialogueOptions(0);
    
    }
 </string>
@@ -111,11 +110,18 @@ talking = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (oMessagebox.message_current = 1)
-{
- answer = instance_create(view_xview+350,view_yview+320,oAnswer);
- answer.parent = (id);
-}
+            <string>//show_message("ev14");
+//show_message(action_id);
+switch(action_id)
+                 {
+                 case (0):
+                      {
+                       oAnswer.polozka[0] = "TEST";
+                        //show_message("!!");
+                      }
+                 
+                 
+                 }
 </string>
           </argument>
         </arguments>
@@ -140,7 +146,7 @@ talking = 0;
             <kind>1</kind>
             <string>/// Akce na vyber
 
-if (index = 1) {show_message("");}
+if (index = 1 &amp;&amp; action_id = 0) {show_message("Return z ANSWERsystemu");}
 </string>
           </argument>
         </arguments>
