@@ -146,7 +146,35 @@ switch(action_id)
             <kind>1</kind>
             <string>/// Akce na vyber
 
-if (index = 1 &amp;&amp; action_id = 0) {show_message("Return z ANSWERsystemu");}
+if (action_id = 0) 
+   {
+   if (index = 0)
+      {
+      show_message("Return z ANSWERsystemu#INDEX: 0");
+      }
+     if (index = 1)
+      {
+      show_message("Return z ANSWERsystemu#INDEX: 1");
+      }
+  if (index = 2)
+      {
+      show_message("Return z ANSWERsystemu#INDEX: 2");
+      }
+  if (index = 3)
+      {
+      show_message("Return z ANSWERsystemu#INDEX: 3");
+      }
+  if (index = 4)
+      {
+      show_message("Return z ANSWERsystemu#INDEX: 4");
+      }
+  if (index = 5)
+      {
+      show_message("Return z ANSWERsystemu#INDEX: 5");
+      }
+  
+
+   }
 </string>
           </argument>
         </arguments>
