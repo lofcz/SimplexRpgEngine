@@ -1,1 +1,0 @@
-global.button=false;
