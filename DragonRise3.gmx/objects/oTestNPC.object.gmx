@@ -116,7 +116,18 @@ switch(action_id)
                  {
                  case (0):
                       {
-                       oAnswer.polozka[0] = "TEST";
+                        
+                        if (oPlayer.vlastnost[vlastnost_poskozeni] &gt; 0) {oAnswer.polozka[0] = "Mám poškození vyšší než 0!"; oAnswer.polozka_activated[0] = 1;}
+                        else {oAnswer.polozka[0] = "Mám poškození vyšší než 0! (Poškození &gt; 0)";}
+                        
+                        oAnswer.polozka[4] = "Uvidíme se později";                        
+                        oAnswer.polozka_activated[4] = 1;
+
+                          
+                          if (oPlayer.gold &gt; 10) {oAnswer.polozka[1] = "Mám to zlato!"; oAnswer.polozka_activated[1] = 1;}
+                        else {oAnswer.polozka[1] = "Mám to zlato! (Zlato &gt; 10)";}
+                        
+
                         //show_message("!!");
                       }
                  
@@ -150,7 +161,10 @@ if (action_id = 0)
    {
    if (index = 0)
       {
-      show_message("Return z ANSWERsystemu#INDEX: 0");
+        with(oMessagebox) {instance_destroy();}
+        dialogueMessage("Možnost 0","TEST?",1);
+        action_id = 1;
+      
       }
      if (index = 1)
       {

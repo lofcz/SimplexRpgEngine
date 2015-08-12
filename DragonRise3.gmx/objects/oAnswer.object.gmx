@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_alpha = 0;
+            <string>image_alpha = 1;
 mode = 0;
 image_speed = 0;
 clicked = 0;
@@ -34,8 +34,13 @@ clicked = 0;
 for(a = 0; a &lt; 6; a++)
 {
 polozka[a] = "";
+polozka_activated[a] = 0;
 index_alpha[a] = 0;
+polozka_color[a] = 0;
 }
+
+
+
 </string>
           </argument>
         </arguments>
@@ -61,95 +66,143 @@ index_alpha[a] = 0;
             <string>draw_self();
 draw_text(x,y,mode);
 
+
+if (!polozka_activated[0]) {draw_sprite_ext(sprite_index,8,x,y,1,1,0,c_white,image_alpha);}
+if (!polozka_activated[1]) {draw_sprite_ext(sprite_index,9,x,y,1,1,0,c_white,image_alpha);}
+if (!polozka_activated[2]) {draw_sprite_ext(sprite_index,10,x,y,1,1,0,c_white,image_alpha);}
+if (!polozka_activated[3]) {draw_sprite_ext(sprite_index,11,x,y,1,1,0,c_white,image_alpha);}
+if (!polozka_activated[4]) {draw_sprite_ext(sprite_index,12,x,y,1,1,0,c_white,image_alpha);}
+if (!polozka_activated[5]) {draw_sprite_ext(sprite_index,13,x,y,1,1,0,c_white,image_alpha);}
+
+
 if (image_alpha &lt; 1 &amp;&amp; mode = 0) {image_alpha += 0.05;} else {if (mode = 0) {mode = 1;}}
-//if (clicked) {mode = 1;}
-//if (mode = 1) {if (image_alpha &gt; 0) {image_alpha -= 0.2;} else {instance_destroy();}}
+if (clicked) {mode = 2;}
+if (mode = 2) {if (image_alpha &gt; 0) {image_alpha -= 0.2;} else {instance_destroy();}}
 
 
 if (mouse_in(x+8,x+64,y,y+33))
    {
     if (index_alpha[0] &lt; 1) {index_alpha[0] += 0.1;}
-    
-     if (mouse_check_button_pressed(mb_left) &amp;&amp; !clicked)
+     if (polozka_activated[0]) {if (polozka_color[0] &lt; 255) {polozka_color[0] += 10;}}
+
+     if (mouse_check_button_pressed(mb_left) &amp;&amp; !clicked &amp;&amp; polozka[0] != "" &amp;&amp; polozka_activated[0])
      {
        with((parent)) {index = 0; event_user(13);}
        clicked = 1;
      }
    
    } 
-else {if (index_alpha[0] &gt; 0) {index_alpha[0] -= 0.1;}}  
+else {if (index_alpha[0] &gt; 0) {index_alpha[0] -= 0.1;} if (polozka_activated[0]) {if (polozka_color[0] &gt; 0) {polozka_color[0] -= 10;}}}  
 
 if (mouse_in(x+65,x+118,y,y+33))
    {
     if (index_alpha[1] &lt; 1) {index_alpha[1] += 0.1;}
-     index = 1;
+     if (polozka_activated[1]) {if (polozka_color[1] &lt; 255) {polozka_color[1] += 10;}}
+
      
-      if (mouse_check_button_pressed(mb_left) &amp;&amp; !clicked)
+      if (mouse_check_button_pressed(mb_left) &amp;&amp; !clicked &amp;&amp; polozka[1] != "" &amp;&amp; polozka_activated[1])
      {
        with((parent)) {index = 1; event_user(13);}
        clicked = 1;
+
      }
 
 
    } 
-else {if (index_alpha[1] &gt; 0) {index_alpha[1] -= 0.1;}}  
+else {if (index_alpha[1] &gt; 0) {index_alpha[1] -= 0.1;}  if (polozka_activated[1]) {if (polozka_color[1] &gt; 0) {polozka_color[1] -= 10;}}}  
 
 if (mouse_in(x+103,x+128,y+37,y+91))
    {
     if (index_alpha[2] &lt; 1) {index_alpha[2] += 0.1;}
+      if (polozka_activated[2]) {if (polozka_color[2] &lt; 255) {polozka_color[2] += 10;}}
+
     
-     if (mouse_check_button_pressed(mb_left) &amp;&amp; !clicked)
+     if (mouse_check_button_pressed(mb_left) &amp;&amp; !clicked &amp;&amp; polozka[2] != "" &amp;&amp; polozka_activated[2])
      {
        with((parent)) {index = 2; event_user(13);}
        clicked = 1;
      }
 
    } 
-else {if (index_alpha[2] &gt; 0) {index_alpha[2] -= 0.1;}}  
+else {if (index_alpha[2] &gt; 0) {index_alpha[2] -= 0.1;} if (polozka_activated[2]) {if (polozka_color[2] &gt; 0) {polozka_color[2] -= 10;}}}  
 
 if (mouse_in(x+67,x+118,y+94,y+125))
    {
     if (index_alpha[3] &lt; 1) {index_alpha[3] += 0.1;}
-     if (mouse_check_button_pressed(mb_left) &amp;&amp; !clicked)
+      if (polozka_activated[3]) {if (polozka_color[3] &lt; 255) {polozka_color[3] += 10;}}
+
+    
+     if (mouse_check_button_pressed(mb_left) &amp;&amp; !clicked &amp;&amp; polozka[3] != "" &amp;&amp; polozka_activated[3])
      {
        with((parent)) {index = 3; event_user(13);}
        clicked = 1;
      }
 
    } 
-else {if (index_alpha[3] &gt; 0) {index_alpha[3] -= 0.1;}} 
+else {if (index_alpha[3] &gt; 0) {index_alpha[3] -= 0.1;} if (polozka_activated[3]) {if (polozka_color[3] &gt; 0) {polozka_color[3] -= 10;}}} 
 
 if (mouse_in(x+6,x+64,y+92,y+125))
    {
     if (index_alpha[4] &lt; 1) {index_alpha[4] += 0.1;}
+    if (polozka_activated[4]) {if (polozka_color[4] &lt; 255) {polozka_color[4] += 10;}}
+
     
-     if (mouse_check_button_pressed(mb_left) &amp;&amp; !clicked)
+     if (mouse_check_button_pressed(mb_left) &amp;&amp; !clicked &amp;&amp; polozka[4] != "" &amp;&amp; polozka_activated[4])
      {
        with((parent)) {index = 4; event_user(13);}
        clicked = 1;
      }
 
    } 
-else {if (index_alpha[4] &gt; 0) {index_alpha[4] -= 0.1;}} 
+else {if (index_alpha[4] &gt; 0) {index_alpha[4] -= 0.1;}if (polozka_activated[4]) {if (polozka_color[4] &gt; 0) {polozka_color[4] -= 10;}} } 
 
 if (mouse_in(x+1,x+23,y+35,y+90))
    {
     if (index_alpha[5] &lt; 1) {index_alpha[5] += 0.1;}
+    if (polozka_activated[5]) {if (polozka_color[5] &lt; 255) {polozka_color[5] += 10;}}
+
     
-     if (mouse_check_button_pressed(mb_left) &amp;&amp; !clicked)
+     if (mouse_check_button_pressed(mb_left) &amp;&amp; !clicked &amp;&amp; polozka[5] != "" &amp;&amp; polozka_activated[5])
      {
        with((parent)) {index = 5; event_user(13);}
        clicked = 1;
      }
 
    } 
-else {if (index_alpha[5] &gt; 0) {index_alpha[5] -= 0.1;}} 
+else {if (index_alpha[5] &gt; 0) {index_alpha[5] -= 0.1;} if (polozka_activated[5]) {if (polozka_color[5] &gt; 0) {polozka_color[5] -= 10;}} } 
 
 
 for (a = 1; a &lt; 7; a++)
 {
  draw_sprite_ext(sprite_index,a,x,y,1,1,0,c_white,index_alpha[a-1]);
 }
+
+for(a = 0; a &lt; 6; a++)
+      {
+       if (polozka_color[a] &gt; 255) {polozka_color[a] = 255;}
+       if (polozka_color[a] &lt; 0) {polozka_color[a] = 0;}
+       if (polozka_activated[a]) {c[a] = make_colour_rgb(255-polozka_color[a],255,255-polozka_color[a]);} else {c[a] = make_colour_rgb(211,211,211);}
+
+      }
+
+draw_set_colour(c_white);
+draw_set_font(fntPixel);
+
+draw_set_halign(fa_left);
+
+
+
+
+draw_text_colour(x+130,y-12,polozka[1],c[1],c[1],c[1],c[1],1);
+draw_text_colour(x+150,y+52,polozka[2],c[2],c[2],c[2],c[2],1);
+draw_text_colour(x+130,y+115,polozka[3],c[3],c[3],c[3],c[3],1);
+
+draw_set_halign(fa_right);
+draw_text_colour(x+10,y-12,polozka[0],c[0],c[0],c[0],c[0],1);
+draw_text_colour(x-20,y+52,polozka[5],c[5],c[5],c[5],c[5],1);
+draw_text_colour(x+10,y+115,polozka[4],c[4],c[4],c[4],c[4],1);
+draw_set_halign(fa_left);
+
 </string>
           </argument>
         </arguments>
