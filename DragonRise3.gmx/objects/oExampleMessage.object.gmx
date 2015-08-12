@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>dialogueMessage("Lord of flies","Mocný programátor z páté galaxie vyjadřuje "+string("[c="+string(c_fuchsia)+string("]")) +string("To se mi líbí")+string("[/c]")+string(" k tvé profilovce.#Třeba budu jednou umět q3 jako ty. "));
 dialogueMessage("--------Sieg hail!-------","Naturlich!");
-//dialogueOptions("Test","","","Test..asd");
+
 </string>
           </argument>
         </arguments>

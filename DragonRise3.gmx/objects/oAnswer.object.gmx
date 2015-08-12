@@ -29,7 +29,7 @@
 mode = 0;
 image_speed = 0;
 clicked = 0;
-
+cd = 0;
 
 for(a = 0; a &lt; 6; a++)
 {
@@ -63,7 +63,10 @@ polozka_color[a] = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
+            <string>if (cd)
+{
+
+draw_self();
 draw_text(x,y,mode);
 
 
@@ -202,7 +205,8 @@ draw_text_colour(x+10,y-12,polozka[0],c[0],c[0],c[0],c[0],1);
 draw_text_colour(x-20,y+52,polozka[5],c[5],c[5],c[5],c[5],1);
 draw_text_colour(x+10,y+115,polozka[4],c[4],c[4],c[4],c[4],1);
 draw_set_halign(fa_left);
-
+}
+else {if (oMessagebox.pos &gt;= string_length(oMessagebox.message_text[oMessagebox.message_current])) {cd = 1}}
 </string>
           </argument>
         </arguments>

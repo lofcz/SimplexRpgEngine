@@ -243,10 +243,11 @@
       <scripts name="Dialoque">
         <script>scripts\dialogueMessage.gml</script>
         <script>scripts\dialogueTypewriter.gml</script>
+        <script>scripts\dialogueOptions.gml</script>
         <script>scripts\string_linebreak.gml</script>
       </scripts>
     </scripts>
-    <script>scripts\dialogueOptions.gml</script>
+    <script>scripts\dialogueEnd.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shdColor.shader</shader>
