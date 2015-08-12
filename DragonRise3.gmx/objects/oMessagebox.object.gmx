@@ -199,12 +199,21 @@ if (mouse_check_button_pressed(mb_left) &amp;&amp; draw &amp;&amp; instance_numb
      else 
           {
            // show_message(message_current+string(" ")+string(oMessagebox.option[oMessagebox.message_current]));
-           an = instance_create(view_xview+350,view_yview+320,oAnswer);
-           an.parent = (parent);
-           with((parent)) {action_id = oMessagebox.option[oMessagebox.message_current]; event_user(14);}
+
+
           }
    }
+if (draw &amp;&amp; instance_number(oAnswer) = 0)
+   {
+    if (option[message_current] != -1)
+     {
+      an = instance_create(view_xview+350,view_yview+320,oAnswer);
+           an.parent = (parent);
+           with((parent)) {action_id = oMessagebox.option[oMessagebox.message_current]; event_user(14);}
+
+     }
    
+   }   
 
 </string>
           </argument>

@@ -156,6 +156,8 @@ switch(action_id)
           <argument>
             <kind>1</kind>
             <string>/// Akce na vyber
+oMessagebox.option[oMessagebox.message_current] = -1
+
 
 if (action_id = 0) 
    {
@@ -180,7 +182,8 @@ if (action_id = 0)
       }
   if (index = 4)
       {
-      show_message("Return z ANSWERsystemu#INDEX: 4");
+      dialogueMessage("OK","Čekáme "+string("[c="+string(c_orange)+string("]")) +string("jen na tebe")+string("[/c]")+string(".#Přijď a zůčastni se epického dobrodružství."));
+      //dialogueEnd();
       }
   if (index = 5)
       {
@@ -189,6 +192,9 @@ if (action_id = 0)
   
 
    }
+   
+with(oMessagebox) {event_user(0);}
+   
 </string>
           </argument>
         </arguments>
