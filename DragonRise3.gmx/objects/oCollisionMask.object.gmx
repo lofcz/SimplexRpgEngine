@@ -73,6 +73,7 @@ if (type = "chest")
                      {
                      open = !open;
                      text_alpha = 0;
+                     audio_play_sound(sndChest,0,0);
                      
                      if (open) { animate = 1; }
                      else { animate = 2;}
@@ -88,9 +89,14 @@ if (type = "chest")
                 }
                  else 
                      {
+                      if (idd).open {   audio_play_sound(sndChest,0,0);}
+
                       (idd).text = 0;
                       (idd).open = 0;
                       (idd).animate = 2;
+ 
+  
+
 
 
                      }
@@ -99,12 +105,17 @@ if (type = "chest")
                    {
                    if (distance_to_object(oPlayer) &gt; 0)
                    {
+                
                    (idd).open = 0;
+                 
+
                    
                    if ((idd).animate = 1)
                    {
                    (idd).animate = 2;
-                   
+                  
+                  
+
                     }
                     
                    }

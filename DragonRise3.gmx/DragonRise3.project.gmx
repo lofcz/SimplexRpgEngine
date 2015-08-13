@@ -139,6 +139,7 @@
     <sound>sound\sndCoinPile</sound>
     <sound>sound\sndWeaponPickup</sound>
     <sound>sound\sndRindPickup</sound>
+    <sound>sound\sndChest</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Actors">
@@ -206,6 +207,8 @@
     <background>background\background11</background>
     <background>background\background12</background>
     <background>background\background13</background>
+    <background>background\background14</background>
+    <background>background\background15</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
