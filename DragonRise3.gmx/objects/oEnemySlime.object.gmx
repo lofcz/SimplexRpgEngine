@@ -33,6 +33,12 @@ mood  = "idle"
 image_speed = 0;
 dir = dir_left;
 count = 0;
+health_alpha = 0;
+scale = 1;
+
+scrEnemyIni(30,5,1);
+last_hp = hp;
+
 </string>
           </argument>
         </arguments>
@@ -55,7 +61,11 @@ count = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (other.attack) {instance_destroy();}
+            <string>if (other.attack) 
+{
+hp -= oPlayer.vlastnost[vlastnost_poskozeni];
+scale = 1.4;
+}
 </string>
           </argument>
         </arguments>
@@ -79,6 +89,8 @@ count = 0;
           <argument>
             <kind>1</kind>
             <string>draw_self();
+if (last_hp &lt; hp) {last_hp++;}
+if (last_hp &lt;= 0) {mood = "dying";}
 
 if (mood = "idle")
 {
@@ -102,7 +114,8 @@ if (dir = dir_down) {y += spd; count += spd+0.2; if (count &gt; 32) {count = 0; 
 }
 
 
-
+if (mood != "dying")
+{
 if (instance_number(oPlayer) &gt; 0)
    {
     if (distance_to_object(oPlayer) &lt; 64 &amp;&amp; mood = "idle")
@@ -115,6 +128,25 @@ if (instance_number(oPlayer) &gt; 0)
        }
 
    }
+   
+if (mood = "attack")
+   {
+    if (health_alpha &lt; 1) {health_alpha += 0.05;}
+   }
+else {if (health_alpha &gt; 0) {health_alpha -= 0.05;}} 
+  
+if (health_alpha &gt; 0) 
+   {
+   if (scale &gt; 1) {scale -= 0.02;}
+    draw_sprite_general(sHeart,1,0,0,16,16,x+10,y-10,1,1,0,c_white,c_white,c_white,c_white,health_alpha);
+   draw_sprite_part_ext(sHeart,0,0,0,16,((last_hp/max_hp)*16),x+10,y-10,1,1,c_white,health_alpha);
+
+      draw_text(x,y,string(last_hp)+string("#")+string(max_hp)+string("#")+string(last_hp/max_hp));
+  
+
+   }
+}   
+
 </string>
           </argument>
         </arguments>

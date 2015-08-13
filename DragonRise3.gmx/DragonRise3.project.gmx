@@ -192,6 +192,7 @@
     <sprite>sprites\sCoin</sprite>
     <sprite>sprites\sprite42</sprite>
     <sprite>sprites\sEnemySlime</sprite>
+    <sprite>sprites\sHeart</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
