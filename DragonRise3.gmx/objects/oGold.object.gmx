@@ -74,6 +74,14 @@ oPlayer.gold += itm_number;
 if (itm_number &lt; 5) {scrLog("+ "+string(itm_number) + " Mince",c_yellow,sCoin);}
 else {scrLog("+ "+string(itm_number) + " Mincí",c_yellow,sCoin);}
 instance_destroy();
+
+ if (itm_number &lt; 20)
+                  {
+                  audio_play_sound(sndCoin,0,0);
+                  }
+                  else { audio_play_sound(sndCoinPile,0,0);}
+               
+
 }
 </string>
           </argument>

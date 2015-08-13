@@ -94,7 +94,9 @@ itemRarity();
 {
                                                             //show_message(Id: +string(itm_id));
 inventoryPickUp(); 
-
+ 
+scrLog("+ Dřevěný meč",c_white,-1,1);
+audio_play_sound(sndWeaponPickup,0,0);
 }
 </string>
           </argument>

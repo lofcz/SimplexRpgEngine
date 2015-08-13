@@ -74,6 +74,8 @@ scrItemOptions()
 {
                                                             //show_message(Id: +string(itm_id));
 inventoryPickUp(); 
+audio_play_sound(sndRindPickup,0,0);
+scrLog("+ Červená perla",c_orange,-1);
 
 }
 </string>

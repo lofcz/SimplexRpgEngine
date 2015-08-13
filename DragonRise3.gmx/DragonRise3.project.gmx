@@ -137,6 +137,8 @@
     <sound>sound\sound0</sound>
     <sound>sound\sndCoin</sound>
     <sound>sound\sndCoinPile</sound>
+    <sound>sound\sndWeaponPickup</sound>
+    <sound>sound\sndRindPickup</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Actors">
@@ -187,6 +189,7 @@
     <sprite>sprites\sprite40</sprite>
     <sprite>sprites\sSimpleWater</sprite>
     <sprite>sprites\sCoin</sprite>
+    <sprite>sprites\sprite42</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -199,6 +202,10 @@
     <background>background\background6</background>
     <background>background\background8</background>
     <background>background\background9</background>
+    <background>background\background10</background>
+    <background>background\background11</background>
+    <background>background\background12</background>
+    <background>background\background13</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
