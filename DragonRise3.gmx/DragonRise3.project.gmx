@@ -3,10 +3,10 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="6" name="datafiles">
-    <datafiles number="6" name="Resources">
-      <datafiles number="6" name="Sprites">
-        <datafiles number="6" name="BodyCanvas">
+  <datafiles number="13" name="datafiles">
+    <datafiles number="13" name="Resources">
+      <datafiles number="13" name="Sprites">
+        <datafiles number="13" name="BodyCanvas">
           <datafile>
             <name>sBodyCanvas.png</name>
             <exists>-1</exists>
@@ -77,7 +77,7 @@
           </datafile>
         </datafiles>
       </datafiles>
-      <datafiles number="6" name="SFX">
+      <datafiles number="13" name="SFX">
         <datafile>
           <name>coins.wav</name>
           <exists>-1</exists>
@@ -112,12 +112,31 @@
           </ConfigOptions>
           <filename>sndBackpackPickupDefault.ogg</filename>
         </datafile>
+        <datafile>
+          <name>coin.ogg</name>
+          <exists>-1</exists>
+          <size>13097</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>coin.ogg</filename>
+        </datafile>
       </datafiles>
     </datafiles>
   </datafiles>
   <NewExtensions/>
   <sounds name="sound">
     <sound>sound\sound0</sound>
+    <sound>sound\sndCoin</sound>
+    <sound>sound\sndCoinPile</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Actors">
@@ -167,6 +186,7 @@
     <sprite>sprites\sprite39</sprite>
     <sprite>sprites\sprite40</sprite>
     <sprite>sprites\sSimpleWater</sprite>
+    <sprite>sprites\sCoin</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -201,7 +221,7 @@
         <script>scripts\scrShaderDrawColor.gml</script>
       </scripts>
     </scripts>
-    <scripts name="Inventory">
+    <scripts name="Components">
       <scripts name="Inventory">
         <script>scripts\inventoryDraw.gml</script>
         <script>scripts\inventoryCreate.gml</script>
@@ -244,10 +264,14 @@
         <script>scripts\dialogueMessage.gml</script>
         <script>scripts\dialogueTypewriter.gml</script>
         <script>scripts\dialogueOptions.gml</script>
+        <script>scripts\dialogueEnd.gml</script>
+        <script>scripts\dialogueNext.gml</script>
         <script>scripts\string_linebreak.gml</script>
       </scripts>
+      <scripts name="Log">
+        <script>scripts\scrLog.gml</script>
+      </scripts>
     </scripts>
-    <script>scripts\dialogueEnd.gml</script>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shdColor.shader</shader>
@@ -288,6 +312,7 @@
     <object>objects\oWater</object>
     <object>objects\parNPC</object>
     <object>objects\oAnswer</object>
+    <object>objects\oLog</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\mapTest</room>

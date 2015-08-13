@@ -16,4 +16,3 @@ if (help_text = "]") {f = 0;}
       
 if (pos < string_length(message_text[message_current])) {pos += type_speed;}
 
-

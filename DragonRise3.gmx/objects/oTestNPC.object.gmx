@@ -193,7 +193,7 @@ if (action_id = 0)
 
    }
    
-with(oMessagebox) {event_user(0);}
+dialogueNext()
    
 </string>
           </argument>

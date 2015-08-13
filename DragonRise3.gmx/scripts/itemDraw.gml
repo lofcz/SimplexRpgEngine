@@ -64,7 +64,16 @@ if (hover_info && p = 1 )
                {
                if (instance_number(oItemText) > 0) {with(oItemText) {instance_destroy();}}
                
-               if (object_get_name(object_index) = "oGold") {oPlayer.gold += itm_number; instance_destroy();}
+               if (object_get_name(object_index) = "oGold") 
+                  {
+                  oPlayer.gold += itm_number; 
+                  instance_destroy(); 
+                  if (itm_number < 20)
+                  {
+                  audio_play_sound(sndCoin,0,0);
+                  }
+                  else { audio_play_sound(sndCoinPile,0,0);}
+                  }
                else 
                     {
                      inventoryPickUp();
