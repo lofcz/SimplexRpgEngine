@@ -191,6 +191,7 @@
     <sprite>sprites\sSimpleWater</sprite>
     <sprite>sprites\sCoin</sprite>
     <sprite>sprites\sprite42</sprite>
+    <sprite>sprites\sEnemySlime</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -216,6 +217,7 @@
       <scripts name="APIs">
         <script>scripts\playerAPI.gml</script>
         <script>scripts\drawAPI.gml</script>
+        <script>scripts\enemyAPI.gml</script>
         <script>scripts\roomCreationAPI.gml</script>
       </scripts>
       <scripts name="Common">
@@ -323,6 +325,7 @@
     <object>objects\parNPC</object>
     <object>objects\oAnswer</object>
     <object>objects\oLog</object>
+    <object>objects\oEnemySlime</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\mapTest</room>
