@@ -4,38 +4,36 @@
 #define scrEnemyGetPosition
 /// scrEnemyGetPosition()
 
-doo = 1;
+randomize();
+dd = 1;
+while(dd)
+{
+dir = choose(dir_right,dir_left,dir_up,dir_down);
 
-while(doo)
-          {
-            dir = irandom_range(1,4);
-            
-            if (dir = 1 && place_empty(x+sprite_get_width(sprite_index),y))
-               {
-                tar_x = x+sprite_get_width(sprite_index);
-                tar_y = y;
-                doo = 0;
-               }
-            if (dir = 2 && place_empty(x-sprite_get_width(sprite_index),y))
-               {
-                tar_x = x-sprite_get_width(sprite_index);
-                tar_y = y;
-                doo = 0;
+ if (dir = dir_right) {if (place_empty(x+32,y)) {dd = 0;}}
+ if (dir = dir_left) {if (place_empty(x-32,y)) {dd = 0;}}
+ if (dir = dir_up) {if (place_empty(x,y-32)) {dd = 0;}}
+ if (dir = dir_down) {if (place_empty(x,y+32)) {dd = 0;}}
 
-               }
-            if (dir = 3 && place_empty(x,y+sprite_get_height(sprite_index)))
-               {
-                tar_x = x;
-                tar_y = y+sprite_get_height(sprite_index);
-                doo = 0;
+}
 
-               }
-            if (dir = 4 && place_empty(x,y-sprite_get_height(sprite_index)))
-               {
-                tar_x = x;
-                tar_y = y-sprite_get_height(sprite_index);
-                doo = 0;
-               }
+#define scrEnemyGetPositionAttack
+/// scrEnemyGetPositionAttack()
 
-          
-          }
+randomize();
+dd = 1;
+
+dif_x = abs(x - oPlayer.x);
+dif_y = abs(y - oPlayer.y);
+
+while(dd)
+{
+dir = choose(dir_right,dir_left,dir_up,dir_down);
+
+ if (dir = dir_right) {if (oPlayer.x > x && dif_x > 3) {dd = 0;}}
+ else if (dir = dir_left) {if (oPlayer.x < x ) {dd = 0;}}
+ else if (dir = dir_up) {if (oPlayer.y < y && dif_y > 3) {dd = 0;}}
+ else if (dir = dir_down) {if (oPlayer.y > y ) {dd = 0;}}
+
+}
+

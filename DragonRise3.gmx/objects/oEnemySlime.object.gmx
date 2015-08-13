@@ -28,8 +28,93 @@
             <string>tar_x = x+23;
 tar_y = y;
 spd   = 1;
+mood  = "idle"
 
 image_speed = 0;
+dir = dir_left;
+count = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="oPlayerCombat">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (other.attack) {instance_destroy();}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_self();
+
+if (mood = "idle")
+{
+if (dir = dir_right) {x += spd; count += spd; if (count &gt; 32) {count = 0; scrEnemyGetPosition();}}
+if (dir = dir_left) {x -= spd; count += spd; if (count &gt; 32) {count = 0; scrEnemyGetPosition();}}
+if (dir = dir_up) {y -= spd; count += spd; if (count &gt; 32) {count = 0; scrEnemyGetPosition();}}
+if (dir = dir_down) {y += spd; count += spd; if (count &gt; 32) {count = 0; scrEnemyGetPosition();}}
+
+}
+if (mood = "attack")
+{
+px = oPlayer.x;
+py = oPlayer.y;
+
+
+if (dir = dir_right) {x += spd; count += spd+0.2; if (count &gt; 32) {count = 0; scrEnemyGetPositionAttack();}}
+if (dir = dir_left) {x -= spd; count += spd+0.2; if (count &gt; 32) {count = 0; scrEnemyGetPositionAttack();}}
+if (dir = dir_up) {y -= spd; count += spd+0.2; if (count &gt; 32) {count = 0; scrEnemyGetPositionAttack();}}
+if (dir = dir_down) {y += spd; count += spd+0.2; if (count &gt; 32) {count = 0; scrEnemyGetPositionAttack();}}
+
+}
+
+
+
+if (instance_number(oPlayer) &gt; 0)
+   {
+    if (distance_to_object(oPlayer) &lt; 64 &amp;&amp; mood = "idle")
+       {
+        mood = "attack";
+       }
+    if (distance_to_object(oPlayer) &gt; 128 &amp;&amp; mood = "attack")
+       {
+        mood = "idle";
+       }
+
+   }
 </string>
           </argument>
         </arguments>

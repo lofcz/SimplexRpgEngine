@@ -79,7 +79,9 @@ image_speed  = 0;
 draw_text(oPlayer.x,oPlayer.y+80,oInventory.h_c);
 
 if (instance_number(oPlayer) &gt; 0)
-{
+{     
+sprite_index = oPlayer.vlastnost[vlastnost_vykresli_sprit];
+
 sprite = oPlayer.vlastnost[vlastnost_vykresli_sprit];
 index  = oPlayer.vlastnost[vlastnost_vykresli_index];
 
@@ -88,6 +90,7 @@ if (sprite != 0)
 {
 xx = oPlayer.x;
 yy = oPlayer.y;
+
 
 if (keyboard_check_pressed(vk_space))
    {
@@ -154,6 +157,9 @@ if (oPlayer.last_dir = "a") {rot = 180; depth = -11; xx -= 6; yy += 8;}
 
 
 draw_sprite_ext(sprite,image,xx+xxx,yy+yyy,scale,scale,rot+temp_rot+move_rot+dir_rot,color,alpha);
+x = xx;
+y = yy;
+
 
 }
 }
