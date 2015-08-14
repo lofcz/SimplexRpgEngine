@@ -1,5 +1,11 @@
 /// itemDraw()
 
+if (speed > 0)
+   {
+    speed -= spd_down;  
+   }
+if (speed < 0) {speed = 0;}
+
 if (!itm_stackable) {show_number = 0;}
 
 if (loot)

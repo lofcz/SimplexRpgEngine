@@ -15,5 +15,4 @@ if (argument_count > 2) {num = argument[2];}
 repeat(num) {instance_create(xx,yy,oGore2);}
 
 instance_create(xx,yy,oGore4);
-instance_create(xx,yy,oGore3);
 

@@ -292,6 +292,8 @@
       </scripts>
       <scripts name="Gore">
         <script>scripts\scrGoreFull.gml</script>
+        <script>scripts\scrGoreMed.gml</script>
+        <script>scripts\scrGoreLight.gml</script>
       </scripts>
     </scripts>
   </scripts>

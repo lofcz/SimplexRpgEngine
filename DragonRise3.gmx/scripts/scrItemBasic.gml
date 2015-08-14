@@ -14,6 +14,8 @@ itm_effect                = 0;
 o                         = 0;
 itm_sound                 = 0;
 itm_equip_slot            = "";
+spd_down                  = 0;
+
 
 for(a=0 a<10 a++)                  {itm_options[a] = "";}
 for(a=0; a<celkem_vlastnosti; a++) {vlastnost[a] = 0;}
