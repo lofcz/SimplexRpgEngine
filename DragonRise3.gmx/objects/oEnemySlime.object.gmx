@@ -65,6 +65,8 @@ last_hp = hp;
 {
 hp -= oPlayer.vlastnost[vlastnost_poskozeni];
 scale = 1.4;
+other.attack = 0;
+//show_message("");
 }
 </string>
           </argument>
@@ -88,8 +90,8 @@ scale = 1.4;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
-if (last_hp &lt; hp) {last_hp++;}
+            <string> draw_self();
+if (last_hp &gt; hp) {last_hp--;}
 if (last_hp &lt;= 0) {mood = "dying";}
 
 if (mood = "idle")
@@ -140,8 +142,23 @@ if (health_alpha &gt; 0)
    if (scale &gt; 1) {scale -= 0.02;}
     draw_sprite_general(sHeart,1,0,0,16,16,x+10,y-10,1,1,0,c_white,c_white,c_white,c_white,health_alpha);
    draw_sprite_part_ext(sHeart,0,0,0,16,((last_hp/max_hp)*16),x+10,y-10,1,1,c_white,health_alpha);
+      h_x = x;
+      h_y = y-10;
+      
+      for(a = 0; a &lt; round(last_hp / 5) a++)
+      {
+      h_x -=4;
+      
+      }
+       for(a = 0; a &lt; round(last_hp / 5) a++)
+      {
+     draw_sprite(sHealthBar,0,h_x,h_y);
+     h_x += 6;
+      
+      }
+      
 
-      draw_text(x,y,string(last_hp)+string("#")+string(max_hp)+string("#")+string(last_hp/max_hp));
+      draw_text(x,y,string(hp)+string("#")+string(last_hp)+string("#")+string(max_hp)+string("#")+string(last_hp/max_hp));
   
 
    }

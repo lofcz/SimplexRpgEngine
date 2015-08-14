@@ -3,8 +3,8 @@
   <caption></caption>
   <width>2016</width>
   <height>2016</height>
-  <vsnap>32</vsnap>
-  <hsnap>32</hsnap>
+  <vsnap>16</vsnap>
+  <hsnap>16</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -18,8 +18,8 @@ global.shaders_enabled = 1;</code>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
   <makerSettings>
     <isSet>-1</isSet>
-    <w>1438</w>
-    <h>858</h>
+    <w>1456</w>
+    <h>876</h>
     <showGrid>0</showGrid>
     <showObjects>-1</showObjects>
     <showTiles>-1</showTiles>
@@ -29,8 +29,8 @@ global.shaders_enabled = 1;</code>
     <deleteUnderlyingObj>0</deleteUnderlyingObj>
     <deleteUnderlyingTiles>-1</deleteUnderlyingTiles>
     <page>0</page>
-    <xoffset>-80</xoffset>
-    <yoffset>-28</yoffset>
+    <xoffset>187</xoffset>
+    <yoffset>-27</yoffset>
   </makerSettings>
   <backgrounds>
     <background visible="-1" foreground="0" name="background2" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -134,6 +134,9 @@ global.shaders_enabled = 1;</code>
     <instance objName="oTree2" x="1824" y="1728" name="inst_94DDB7C5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1216" y="1312" name="inst_9EE7E16C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oEnemySlime" x="544" y="448" name="inst_A90E428E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oSimpleWater" x="1664" y="1584" name="inst_27E3B9E9" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="1648" y="1552" name="inst_CA84E21E" locked="0" code="" scaleX="3" scaleY="3" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="1456" y="1520" name="inst_7FF85EF2" locked="0" code="" scaleX="5" scaleY="7" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="background14" x="1600" y="1712" w="32" h="32" xo="32" yo="0" id="10006696" name="inst_AC26E277" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

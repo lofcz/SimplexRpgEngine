@@ -193,6 +193,7 @@
     <sprite>sprites\sprite42</sprite>
     <sprite>sprites\sEnemySlime</sprite>
     <sprite>sprites\sHeart</sprite>
+    <sprite>sprites\sHealthBar</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -327,6 +328,7 @@
     <object>objects\oAnswer</object>
     <object>objects\oLog</object>
     <object>objects\oEnemySlime</object>
+    <object>objects\oSimpleWater</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\mapTest</room>

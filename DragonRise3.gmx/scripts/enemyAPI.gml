@@ -47,4 +47,3 @@ try++;
 
 if (try > 20) {dir = choose(dir_right,dir_left,dir_up,dir_down); dd = 0;}
 }
-
