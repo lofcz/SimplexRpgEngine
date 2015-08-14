@@ -188,6 +188,11 @@
     <sprite>sprites\sWaterMask</sprite>
     <sprite>sprites\sprite39</sprite>
     <sprite>sprites\sprite40</sprite>
+    <sprite>sprites\sBlood1</sprite>
+    <sprite>sprites\sBlood2</sprite>
+    <sprite>sprites\sBlood3</sprite>
+    <sprite>sprites\sBlood4</sprite>
+    <sprite>sprites\sBlood5</sprite>
     <sprite>sprites\sSimpleWater</sprite>
     <sprite>sprites\sCoin</sprite>
     <sprite>sprites\sprite42</sprite>
@@ -285,6 +290,9 @@
       <scripts name="Log">
         <script>scripts\scrLog.gml</script>
       </scripts>
+      <scripts name="Gore">
+        <script>scripts\scrGoreFull.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -329,6 +337,14 @@
     <object>objects\oLog</object>
     <object>objects\oEnemySlime</object>
     <object>objects\oSimpleWater</object>
+    <objects name="Effects">
+      <objects name="Gore">
+        <object>objects\oGore1</object>
+        <object>objects\oGore2</object>
+        <object>objects\oGore3</object>
+        <object>objects\oGore4</object>
+      </objects>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\mapTest</room>
