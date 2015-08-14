@@ -179,6 +179,7 @@
     <sprite>sprites\sPortraits</sprite>
     <sprite>sprites\sQuest</sprite>
     <sprite>sprites\sBasicCollision</sprite>
+    <sprite>sprites\sGotoRoom</sprite>
     <sprite>sprites\sprite34</sprite>
     <sprite>sprites\sprite38</sprite>
     <sprite>sprites\sTree1</sprite>
@@ -319,6 +320,7 @@
     <object>objects\oTestItem3</object>
     <object>objects\oBasicItem</object>
     <object>objects\oChest</object>
+    <object>objects\parItem</object>
     <object>objects\parSolid</object>
     <object>objects\oPlayerCombat</object>
     <object>objects\oPlayerCombatHelp</object>
@@ -347,10 +349,12 @@
         <object>objects\oGore4</object>
       </objects>
     </objects>
+    <object>objects\oGotoRoom</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\mapTest</room>
     <room>rooms\mapLoading</room>
+    <room>rooms\mapHouse1</room>
   </rooms>
   <constants number="120">
     <constant name="quest_finish">2</constant>

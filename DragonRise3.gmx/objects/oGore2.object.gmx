@@ -33,7 +33,7 @@ image_single = random(image_number-1); //Pick a random look.
 image_xscale = random(1); //Random Size
 image_yscale = image_xscale; //Restrain Proportions (aspect ratio)
 fade = false; //Whether to fade the gore out or not.
-alarm[0] = 300; //Alarm for the blood to start going away.
+alarm[0] = 150; //Alarm for the blood to start going away.
 alarm[1] = 3; //Alarm before a new "trail" is created.
 </string>
           </argument>

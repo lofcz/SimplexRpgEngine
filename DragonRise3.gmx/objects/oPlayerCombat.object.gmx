@@ -50,6 +50,7 @@ xxx        = 0;
 yyy        = 0;
 move_rot   = 0;
 dir_rot    = 0;
+can_damage = 0;
 
 sprite_index = sprite;
 image_speed  = 0;
@@ -102,6 +103,7 @@ if (keyboard_check_pressed(vk_space))
         sharp  = 1;
         untick = 1;
         k = 0;                                 //show_message("grrr!");
+        can_damage = -1;
        }
    }
 
@@ -163,6 +165,8 @@ y = yy;
 
 }
 }
+
+if (can_damage &gt; 0) {can_damage--;} else {if (attack) {can_damage = -1;}}
 </string>
           </argument>
         </arguments>

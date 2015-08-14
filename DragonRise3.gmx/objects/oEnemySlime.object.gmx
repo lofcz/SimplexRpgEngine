@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>parSolid</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -29,6 +29,7 @@
 tar_y = y;
 spd   = 1;
 mood  = "idle"
+can_damage = -1;
 
 image_speed = 0;
 dir = dir_left;
@@ -38,6 +39,34 @@ scale = 1;
 
 scrEnemyIni(30,5,1);
 last_hp = hp;
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="oBasicCollision">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>x = xprevious;
+y = yprevious;
+
+scrEnemyGetPosition();
+
 
 </string>
           </argument>
@@ -61,13 +90,41 @@ last_hp = hp;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (other.attack) 
+            <string>if (other.attack &amp;&amp; other.can_damage = -1) 
 {
 hp -= oPlayer.vlastnost[vlastnost_poskozeni];
 scale = 1.4;
-other.attack = 0;
+other.can_damage = 10;
 scrGoreFull();
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="parSolid">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>x = xprevious;
+y = yprevious;
+
+scrEnemyGetPosition();
+
+
 </string>
           </argument>
         </arguments>
@@ -93,12 +150,16 @@ scrGoreFull();
             <string>/// Damage player
 
 with(other) {x = xprevious; y = yprevious;}
-x = xprevious;
-y = yprevious;
 
+if (can_damage = -1)
+{
 oPlayer.vlastnost[vlastnost_zivot] -= damage;
-
+scrGoreFull(oPlayer.x,oPlayer.y);
 scrEnemyGetPosition();
+can_damage = 15;
+}
+
+
 </string>
           </argument>
         </arguments>
@@ -148,6 +209,7 @@ mood = "dying";
           <argument>
             <kind>1</kind>
             <string> draw_self();
+if (can_damage &gt; 0) {can_damage--;} else {can_damage = -1;}
 if (last_hp &gt; hp) {last_hp--;}
 if (last_hp &lt;= 0) {if (mood !="dying") {event_user(0);}}
 
@@ -165,13 +227,17 @@ px = oPlayer.x;
 py = oPlayer.y;
 
 
-if (dir = dir_right) {x += spd; count += spd+0.2; if (count &gt; 32) {count = 0; scrEnemyGetPositionAttack();}}
-if (dir = dir_left) {x -= spd; count += spd+0.2; if (count &gt; 32) {count = 0; scrEnemyGetPositionAttack();}}
-if (dir = dir_up) {y -= spd; count += spd+0.2; if (count &gt; 32) {count = 0; scrEnemyGetPositionAttack();}}
-if (dir = dir_down) {y += spd; count += spd+0.2; if (count &gt; 32) {count = 0; scrEnemyGetPositionAttack();}}
+if (dir = dir_right) {if (can_damage = -1) {x += spd; count += spd+0.2;} if (count &gt; 32) {count = 0; scrEnemyGetPositionAttack();}}
+if (dir = dir_left) {if (can_damage = -1) {x -= spd; count += spd+0.2;} if (count &gt; 32) {count = 0; scrEnemyGetPositionAttack();}}
+if (dir = dir_up) {if (can_damage = -1) {y -= spd; count += spd+0.2;} if (count &gt; 32) {count = 0; scrEnemyGetPositionAttack();}}
+if (dir = dir_down) {if (can_damage = -1) {y += spd; count += spd+0.2;} if (count &gt; 32) {count = 0; scrEnemyGetPositionAttack();}}
 
 }
 
+if (mood = "dying")
+{
+if (image_alpha &gt; 0) {image_alpha -= 0.02;} else {instance_destroy();}   
+}
 
 if (mood != "dying")
 {

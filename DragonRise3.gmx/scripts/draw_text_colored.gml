@@ -33,7 +33,7 @@
             if (p + string_length(st) <= l && string_copy(str, p, string_length(st)) == st) {
                 ds = string_copy(str, dp, p - dp);
                 draw_text(dx, dy, ds);
-                //ret_str += ds;
+            
                 dx += string_width(ds);
                 i = string_copy(str, p + stl, string_pos(et, string_delete(str, 1, p + stl)));
                 p += string_length(i + et + st) - 1;
@@ -43,7 +43,7 @@
             } else if (p + string_length(st) <= l && string_copy(str, p, string_length(ct)) == ct) {
                 ds  = string_copy(str, dp, p - dp);
                 draw_text(dx, dy, ds);
-                 //ret_str += ds;
+                
 
                 draw_set_color(pc);
                 p += string_length(ct) - 1;
@@ -55,4 +55,3 @@
     draw_set_color(pc);
 
 
-//return (ret_str);

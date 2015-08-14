@@ -1,4 +1,33 @@
 #define enemyAPI
+/// EnemyApi()
+/*
+
+- scrEnemyIni(health,damage,defense)
+  
+  Initialise enemy instance stats. Use parametrs to customize
+  stats like health or damage.
+  
+- scrEnemyGetPosition()
+  
+  Returns new direction for "idle" state of enemy.
+  
+- scrEnemyGetPositionAttack()
+  
+  Returns new direction for "attack" state of enemy.
+  Algorithm finds best way to the player.
+  
+- scrEnemyLoot(item,number_min,number_max,physics,chance,repeat)
+  
+  Used to drop things from enemy after death. "physics" parametr (bool)
+  indicates if use physics effect. Recommended for gold. 
+
+  
+
+  
+
+
+
+
 
 
 #define scrEnemyIni
