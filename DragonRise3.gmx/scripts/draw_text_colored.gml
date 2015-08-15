@@ -53,5 +53,3 @@
         }
     }
     draw_set_color(pc);
-
-

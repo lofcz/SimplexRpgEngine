@@ -18,8 +18,8 @@ global.shaders_enabled = 1;</code>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
   <makerSettings>
     <isSet>-1</isSet>
-    <w>1452</w>
-    <h>876</h>
+    <w>1024</w>
+    <h>600</h>
     <showGrid>0</showGrid>
     <showObjects>-1</showObjects>
     <showTiles>-1</showTiles>
@@ -28,9 +28,9 @@ global.shaders_enabled = 1;</code>
     <showViews>-1</showViews>
     <deleteUnderlyingObj>0</deleteUnderlyingObj>
     <deleteUnderlyingTiles>-1</deleteUnderlyingTiles>
-    <page>1</page>
-    <xoffset>4433</xoffset>
-    <yoffset>5051</yoffset>
+    <page>0</page>
+    <xoffset>-62</xoffset>
+    <yoffset>-4</yoffset>
   </makerSettings>
   <backgrounds>
     <background visible="-1" foreground="0" name="background2" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -79,9 +79,8 @@ global.shaders_enabled = 1;</code>
     <instance objName="oTestItem3" x="576" y="320" name="inst_84268CA9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTestItem3" x="576" y="352" name="inst_E285500C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTestItem3" x="608" y="352" name="inst_E7016BCD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oChest" x="448" y="224" name="inst_A62783A0" locked="0" code="scrLoot(5,oGold,25);&#xA;scrLoot(1,oGold,2);&#xA;scrLoot(7,oGold,4);&#xA;&#xA;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oChest" x="1024" y="336" name="inst_FF577CA1" locked="0" code="scrLoot(0,oGold,20);&#xA;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oPlayerCombat" x="384" y="352" name="inst_A2CAFC5D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oChest" x="448" y="224" name="inst_A62783A0" locked="0" code="scrLoot(5,oGold,25);&#xA;scrLoot(1,oGold,2);&#xA;scrLoot(7,oGold,4);&#xA;&#xA;                   &#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oChest" x="1024" y="336" name="inst_FF577CA1" locked="0" code="fillFromTo(0,9,oGold,10,20);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oChest" x="1824" y="128" name="inst_DF585A48" locked="0" code="fillFromTo(0,9,oGold,5,20);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTestNPC" x="704" y="448" name="inst_C6F3E4DE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1728" y="0" name="inst_5D396CDB" locked="0" code="" scaleX="1" scaleY="6" colour="4294967295" rotation="0"/>
@@ -147,7 +146,7 @@ global.shaders_enabled = 1;</code>
     <instance objName="oBasicCollision" x="1456" y="1696" name="inst_AAF268C9" locked="0" code="" scaleX="1.5" scaleY="1.5" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1568" y="1696" name="inst_0EF6E800" locked="0" code="" scaleX="1.5" scaleY="1.5" colour="4294967295" rotation="0"/>
     <instance objName="oGotoRoom" x="1536" y="1720" name="inst_4B7F94F1" locked="0" code="level = mapHouse1;&#xA;text = &quot;Vstoupit do  &quot;+string(&quot;[c=&quot;+string(c_yellow)+string(&quot;]  &quot;)) +string(&quot;    vavřincova kostela&quot;)+string(&quot;[/c]&quot;)+string(&quot;.&quot;);&#xA;xx = x;&#xA;yy = y-64;&#xA;" scaleX="2" scaleY="1.5" colour="4294967295" rotation="0"/>
-    <instance objName="oPlayer" x="1528" y="1840" name="inst_CD91921A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oPlayer" x="456" y="344" name="inst_35EBD6A8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="background14" x="1600" y="1712" w="32" h="32" xo="32" yo="0" id="10006696" name="inst_AC26E277" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -208,6 +207,7 @@ global.shaders_enabled = 1;</code>
     <tile bgName="background3" x="1792" y="608" w="32" h="32" xo="96" yo="224" id="10007883" name="inst_6A3095E5" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background9" x="1216" y="1312" w="32" h="32" xo="32" yo="448" id="10008419" name="inst_8FCE710B" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background1" x="1504" y="352" w="32" h="32" xo="64" yo="64" id="10008420" name="inst_E6F62984" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="background21" x="432" y="176" w="32" h="32" xo="0" yo="0" id="10009711" name="inst_4E01270F" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background7" x="928" y="960" w="32" h="32" xo="224" yo="0" id="10002208" name="inst_34EE8AED" depth="100000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background7" x="1024" y="960" w="32" h="32" xo="224" yo="0" id="10002211" name="inst_8BC75E6F" depth="100000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background7" x="1856" y="416" w="32" h="32" xo="224" yo="0" id="10002241" name="inst_04E42F13" depth="100000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

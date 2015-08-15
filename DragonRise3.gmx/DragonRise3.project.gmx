@@ -179,6 +179,7 @@
     <sprite>sprites\sPortraits</sprite>
     <sprite>sprites\sQuest</sprite>
     <sprite>sprites\sBasicCollision</sprite>
+    <sprite>sprites\sAdvancedCollision</sprite>
     <sprite>sprites\sGotoRoom</sprite>
     <sprite>sprites\sprite34</sprite>
     <sprite>sprites\sprite38</sprite>
@@ -200,6 +201,8 @@
     <sprite>sprites\sEnemySlime</sprite>
     <sprite>sprites\sHeart</sprite>
     <sprite>sprites\sHealthBar</sprite>
+    <sprite>sprites\sprite52</sprite>
+    <sprite>sprites\sprite53</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -218,6 +221,12 @@
     <background>background\background13</background>
     <background>background\background14</background>
     <background>background\background15</background>
+    <background>background\background16</background>
+    <background>background\background17</background>
+    <background>background\background18</background>
+    <background>background\background19</background>
+    <background>background\background20</background>
+    <background>background\background21</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -332,6 +341,7 @@
     <object>objects\oExampleMessage</object>
     <object>objects\oTestNPC</object>
     <object>objects\oBasicCollision</object>
+    <object>objects\oAdvancedCollision</object>
     <object>objects\oTree1</object>
     <object>objects\oTree2</object>
     <object>objects\oTree3</object>
@@ -353,8 +363,8 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\mapTest</room>
-    <room>rooms\mapLoading</room>
     <room>rooms\mapHouse1</room>
+    <room>rooms\mapLoading</room>
   </rooms>
   <constants number="120">
     <constant name="quest_finish">2</constant>

@@ -47,7 +47,6 @@ itm_equip_slot          = "zbraň";
 vlastnost[vlastnost_vykresli_sprit] = sShortWeapons;
 vlastnost[vlastnost_vykresli_index] = 0;
 
-
 pre = irandom_range(0,100);
 
 if      (pre &gt;= 0 &amp;&amp; pre &lt; 20)   {vlastnost[vlastnost_poskozeni] = 4; points += 1;}
@@ -60,6 +59,8 @@ if      (points &lt; 2)  {itm_info_color = rarity_junk;}
 else if (points &lt; 4)  {itm_info_color = rarity_normal;}
 else if (points &lt; 6)  {itm_info_color = rarity_fine;}
 else                  {itm_info_color = rarity_rare;}
+
+
 
 //itm_info_text += "#Poškození: "+string(vlastnost[vlastnost_poskozeni]);
 //*********** Suffix *****************

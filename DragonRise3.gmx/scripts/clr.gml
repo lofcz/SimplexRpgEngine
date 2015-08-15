@@ -1,4 +1,4 @@
-/// clr(colour,alpha)
+/// clr(colour,alpha)        clr()
 
 colour = c_black;
 alpha  = 1;

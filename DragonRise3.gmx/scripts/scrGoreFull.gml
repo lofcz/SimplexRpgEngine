@@ -16,4 +16,3 @@ repeat(num) {instance_create(xx,yy,oGore2);}
 
 instance_create(xx,yy,oGore4);
 instance_create(xx,yy,oGore3);
-

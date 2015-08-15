@@ -10,4 +10,3 @@ if (argument_count > 1) {yy  = argument[1];}
 
 
 instance_create(xx,yy,oGore3);
-
