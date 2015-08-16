@@ -97,8 +97,9 @@ rep         = 1;
 if (argument_count > 0) {item                             = argument[0];}
 if (argument_count > 1) {number_min                       = argument[1];}
 if (argument_count > 2) {number_max                       = argument[2];}
-if (argument_count > 3) {chance                           = argument[3];}
-if (argument_count > 4) {rep                              = argument[4];}
+if (argument_count > 3) {physics                          = argument[3];}
+if (argument_count > 4) {chance                           = argument[4];}
+if (argument_count > 5) {rep                              = argument[5];}
 
 repeat(rep)
 {
