@@ -144,9 +144,9 @@ global.shaders_enabled = 1;</code>
     <instance objName="oBasicCollision" x="1472" y="1488" name="inst_E095FCF9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1456" y="1696" name="inst_AAF268C9" locked="0" code="" scaleX="1.5" scaleY="1.5" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1568" y="1696" name="inst_0EF6E800" locked="0" code="" scaleX="1.5" scaleY="1.5" colour="4294967295" rotation="0"/>
-    <instance objName="oGotoRoom" x="1536" y="1720" name="inst_4B7F94F1" locked="0" code="level = mapHouse1;&#xA;text = &quot;Vstoupit do  &quot;+string(&quot;[c=&quot;+string(c_yellow)+string(&quot;]  &quot;)) +string(&quot;    vavřincova kostela&quot;)+string(&quot;[/c]&quot;)+string(&quot;.&quot;);&#xA;xx = x;&#xA;yy = y-64;&#xA;" scaleX="2" scaleY="1.5" colour="4294967295" rotation="0"/>
-    <instance objName="oPlayer" x="456" y="344" name="inst_35EBD6A8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oAdvancedCollision" x="544" y="512" name="inst_0476DE7E" locked="0" code="xx  = x;&#xA;yy  = y;&#xA;idd = &quot;pařez1&quot;;&#xA;unlocked = 1;&#xA;&#xA;text[0] = &quot;Prostě pařez&quot;&#xA;text[1] = &quot;Co je na něm tak zajímavého?&quot;&#xA;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oGotoRoom" x="1536" y="1720" name="inst_4B7F94F1" locked="0" code="level = mapHouse1;&#xA;text = &quot;Vstoupit do &quot;+&quot;[c=&quot;+string(c_yellow)+&quot;]&quot;+&quot;vavřincova kostela[/c].&quot;;&#xA;xx = x;&#xA;yy = y-64;&#xA;text_lenght = 0;&#xA;" scaleX="2" scaleY="1.5" colour="4294967295" rotation="0"/>
+    <instance objName="oAdvancedCollision" x="560" y="528" name="inst_0476DE7E" locked="0" code="xx  = x;&#xA;yy  = y-32;&#xA;idd = &quot;pařez1&quot;;&#xA;unlocked = 1;&#xA;&#xA;text[0] = &quot;Prostě pařez&quot;&#xA;text[1] = &quot;Co je na něm tak zajímavého?&quot;&#xA;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oPlayer" x="1440" y="1840" name="inst_DDCC31FD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="background14" x="1600" y="1712" w="32" h="32" xo="32" yo="0" id="10006696" name="inst_AC26E277" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

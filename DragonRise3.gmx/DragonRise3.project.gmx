@@ -295,6 +295,7 @@
       <scripts name="Dialoque">
         <script>scripts\dialogueMessage.gml</script>
         <script>scripts\dialogueTypewriter.gml</script>
+        <script>scripts\dialogueParse.gml</script>
         <script>scripts\dialogueOptions.gml</script>
         <script>scripts\dialogueEnd.gml</script>
         <script>scripts\dialogueNext.gml</script>
