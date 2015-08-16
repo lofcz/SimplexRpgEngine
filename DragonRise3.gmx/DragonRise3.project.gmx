@@ -140,6 +140,9 @@
     <sound>sound\sndWeaponPickup</sound>
     <sound>sound\sndRindPickup</sound>
     <sound>sound\sndChest</sound>
+    <sound>sound\sndSlime1</sound>
+    <sound>sound\sndSword1</sound>
+    <sound>sound\sndSword2</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Actors">

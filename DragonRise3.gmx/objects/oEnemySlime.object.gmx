@@ -94,8 +94,10 @@ scrEnemyGetPosition();
 {
 hp -= oPlayer.vlastnost[vlastnost_poskozeni];
 scale = 1.4;
-other.can_damage = 10;
+//other.can_damage = 20;
 scrGoreFull();
+audio_play_sound(sndSlime1,0,0);
+other.can_damage = -2;
 }
 </string>
           </argument>

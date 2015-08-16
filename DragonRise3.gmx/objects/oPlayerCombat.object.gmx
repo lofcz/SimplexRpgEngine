@@ -97,6 +97,7 @@ if (keyboard_check_pressed(vk_space))
    {
     if (!attack)
        {
+        audio_play_sound(sndSword2,0,0);
         attack = 1;
         tick   = oPlayer.attack_interval;
         mode   = 1;
@@ -121,15 +122,15 @@ if (attack = 1)
    {
     if (mode = 1)
        {
-        if (temp_rot &lt; 75) {temp_rot += 150;} else {mode = 0;}
+        if (temp_rot &lt; 75) {temp_rot += 150;} else {mode = 0; }
        }
     if (mode = 0)
        {
-        if (temp_rot &gt; -100) {temp_rot -= 50+k;} else {mode = -1; temp_rot = -100;}
+        if (temp_rot &gt; -100) {temp_rot -= 50+k;} else {mode = -1; temp_rot = -100; }
        }
     if (mode = -1)
        {
-        if (temp_rot &lt; 0) {temp_rot += 75+k;} else {mode = -2; temp_rot = 0;}
+        if (temp_rot &lt; 0) {temp_rot += 75+k;} else {mode = -2; temp_rot = 0; attack = 0;}
        }
 
    }
@@ -166,7 +167,7 @@ y = yy;
 }
 }
 
-if (can_damage &gt; 0) {can_damage--;} else {if (attack) {can_damage = -1;}}
+if (can_damage &gt; 0) {can_damage--;} else {if (attack &amp;&amp; can_damage &gt; -2) {can_damage = -1;}}
 </string>
           </argument>
         </arguments>

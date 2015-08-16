@@ -1,5 +1,7 @@
 /// itemDraw()
 
+draw_set_color(c_black);
+
 if (speed > 0)
    {
     speed -= spd_down;  
