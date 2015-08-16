@@ -28,6 +28,37 @@
             <string>status = 0;
 alpha = 0;
 draw = 0;
+alarm[0] = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+for (i = 0; i &lt; array_length_1d(text); i++)
+{
+parsed_text[i] = dialogueParse(text[i]);
+//show_message(parsed_text[i]);
+}
+
+
 </string>
           </argument>
         </arguments>
@@ -132,10 +163,10 @@ if (draw)
 draw_set_font(fntPixel);
 scrCenterText();
 draw_set_alpha(alpha/2);
-draw_roundrect_colour_ext(xx-string_width(text[status])/2-10,yy-string_height(text[status])/2,xx+string_width(text[status])/2+10,yy+string_height(text[status])/2+4,20,20,c_black,c_black,0);
+draw_roundrect_colour_ext(xx-string_width(parsed_text[status])/2-10,yy-string_height(parsed_text[status])/2,xx+string_width(parsed_text[status])/2+10,yy+string_height(parsed_text[status])/2+4,20,20,c_black,c_black,0);
 draw_set_alpha(alpha);
 draw_set_color(c_white);
-draw_text(xx,yy,text[status]);
+draw_text_colored(xx,yy,text[status]);
 draw_set_alpha(1);
 scrCenterText(0);
 }

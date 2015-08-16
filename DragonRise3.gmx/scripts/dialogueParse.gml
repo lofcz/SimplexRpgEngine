@@ -1,8 +1,8 @@
 /// dialogueParse(string)
-
+//show_message("PARSE STARTING");
+var a,f;
 input = "";
 ret   = string_length(input)
-var f;
 f = 0;
 if (argument_count > 0) {input = argument[0];}
 str = input;//string_copy(message_text[message_current],1,pos) ;
@@ -28,7 +28,7 @@ str = input
       
 if (pos < string_length(input)) {pos += 1;}
 }
-//show_message(input);
+//show_message("PARSE: "+input);
 //show_message(string(string_width(text))+"#"+string(string_width(input)));
 
 return (string(input));
