@@ -85,9 +85,9 @@ if (hover_info && p = 1 )
                else 
                     {
                      inventoryPickUp();
-                     (drop_id).fill[slot] = 0;
+                   
                     }
-              
+                (drop_id).fill[slot] = 0;
                }            
             }
         }

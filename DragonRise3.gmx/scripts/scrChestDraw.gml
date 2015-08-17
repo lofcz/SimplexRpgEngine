@@ -24,11 +24,12 @@ if (open)
    
     for(a=0; a<slots; a++)
              {
-            
+           
              // draw_rectangle_colour(xx,yy,xx+32,yy+32,c_gray,c_gray,c_gray,c_gray,0);
               draw_sprite(sSlotTexture,3,xx,yy);
               draw_rectangle_colour(xx,yy,xx+31,yy+31,0,c_black,c_black,c_black,1);
-              
+                 // draw_text(xx,yy,fill[a]);
+
               if (mouse_x > xx && mouse_x < xx+32 && mouse_y > yy && mouse_y < yy+32)
                     {
                      clr(c_yellow,0.4);
