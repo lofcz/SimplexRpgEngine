@@ -107,7 +107,8 @@ yy = y;
 
 for (a = 0; a &lt; ds_list_size(list); a++)
     {
- 
+    
+    draw_set_alpha(ds_list_find_value(list_alpha,a))
      draw_text_colour(xx,yy,list[| a],c_black,c_black,c_black,c_black,ds_list_find_value(list_alpha,a));
      
      if (ds_list_find_value(list_alpha,a) &lt; 1) {yy += 16*ds_list_find_value(list_alpha,a)}
