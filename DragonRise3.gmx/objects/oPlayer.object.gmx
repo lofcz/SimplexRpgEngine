@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>set_sprite(sPlayerBasic,0);
 instance_create(x,y,oPlayerCombat);
+instance_create(x,y,oState);
+
 //surface = surface_create(room_width,room_height);
 //surface_set_target(surface);
 //draw_clear_alpha(c_white,0);
@@ -127,7 +129,8 @@ cyber_r ++;
 
 if (keyboard_check_pressed(ord("P")))
    {
-   show_message(inventoryNumber(1))
+   //show_message(inventoryNumber(1))
+   instance_create(x,y,oAchievment);
    }
 </string>
           </argument>

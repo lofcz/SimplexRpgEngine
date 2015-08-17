@@ -208,6 +208,7 @@
     <sprite>sprites\sprite52</sprite>
     <sprite>sprites\sprite53</sprite>
     <sprite>sprites\sHealthEffect</sprite>
+    <sprite>sprites\sEvent</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -371,6 +372,8 @@
     </objects>
     <object>objects\oGotoRoom</object>
     <object>objects\oHealthDrop</object>
+    <object>objects\oAchievment</object>
+    <object>objects\oState</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\mapTest</room>

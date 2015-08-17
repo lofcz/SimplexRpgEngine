@@ -31,6 +31,8 @@ direction = random(360)
 speed = random(6)+5
 friction = 0.3
 alarm[0] = 300
+scrShaderPrepareColor();
+
 </string>
           </argument>
         </arguments>
@@ -85,6 +87,8 @@ instance_destroy()
           <argument>
             <kind>1</kind>
             <string>image_angle = direction
+s_a = image_alpha;
+
 </string>
           </argument>
         </arguments>

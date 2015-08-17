@@ -96,7 +96,7 @@ scrEnemyGetPosition();
 hp -= oPlayer.vlastnost[vlastnost_poskozeni];
 scale = 1.4;
 //other.can_damage = 20;
-scrGoreFull();
+scrGoreFull(x,y,3,c_aqua);
 audio_play_sound(sndSlime1,0,0);
 other.can_damage = -2;
 }
@@ -218,6 +218,8 @@ drop = 0;
           <argument>
             <kind>1</kind>
             <string> draw_self();
+ 
+
 if (can_damage &gt; 0) {can_damage--;} else {can_damage = -1;}
 if (last_hp &gt; hp) {last_hp--;}
 if (last_hp &lt;= 0) {if (mood !="dying") {event_user(0);}}

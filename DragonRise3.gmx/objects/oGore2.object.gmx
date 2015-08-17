@@ -35,6 +35,8 @@ image_yscale = image_xscale; //Restrain Proportions (aspect ratio)
 fade = false; //Whether to fade the gore out or not.
 alarm[0] = 150; //Alarm for the blood to start going away.
 alarm[1] = 3; //Alarm before a new "trail" is created.
+scrShaderPrepareColor();
+
 </string>
           </argument>
         </arguments>
@@ -57,7 +59,7 @@ alarm[1] = 3; //Alarm before a new "trail" is created.
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if speed &gt; 0{instance_create(x,y,oGore1);} //Create a trail (if the blood is moving)
+            <string>if speed &gt; 0{ i = instance_create(x,y,oGore1); i.s_r = s_r; i.s_g = s_g; i.s_b = s_b;} //Create a trail (if the blood is moving)
 alarm[1] = 3; //Reset alarm for another trail.
 </string>
           </argument>
@@ -107,6 +109,8 @@ alarm[1] = 3; //Reset alarm for another trail.
             <string>image_angle += speed/2; //Spin according to speed.
 if fade=true{image_alpha -= 0.02;} //Fade out if relevant.
 if image_alpha &lt;0.1{instance_destroy();} //If completely faded, destroy.
+s_a = image_alpha;
+
 </string>
           </argument>
         </arguments>
@@ -130,6 +134,31 @@ if image_alpha &lt;0.1{instance_destroy();} //If completely faded, destroy.
           <argument>
             <kind>1</kind>
             <string>move_bounce_all(1);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//scrShaderDrawColor()
+draw_self();
+//image_blend = c_lime//make_colour_rgb(s_r*255,s_g*255,s_b*255)
 </string>
           </argument>
         </arguments>

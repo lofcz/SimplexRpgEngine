@@ -107,7 +107,18 @@ if (open)
                      
                      if (unlocked)
                      {
-                     draw_text_colour(x,y-32,open_key,c_black,c_black,c_black,c_black,text_alpha);
+                    // draw_text_colour(x,y-32,open_key,c_black,c_black,c_black,c_black,text_alpha);
+                     
+draw_set_font(fntPixel);
+scrCenterText();
+draw_set_alpha(text_alpha/2);
+draw_roundrect_colour_ext(x-string_width("E")/2-10,y-string_height("E")/2-32,x+string_width("E")/2+10,y+string_height("E")/2+4-32,20,20,c_black,c_black,0);
+draw_set_alpha(text_alpha);
+draw_set_color(c_white);
+draw_text(x,y-32,"E");
+draw_set_alpha(1);
+scrCenterText(0);
+
                      }
                      else {draw_text_colour(x,y-32,locked_message,c_black,c_black,c_black,c_black,text_alpha);}
                      

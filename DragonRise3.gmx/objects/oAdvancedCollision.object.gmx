@@ -83,7 +83,7 @@ parsed_text[i] = dialogueParse(text[i]);
             <kind>1</kind>
             <string>if (instance_number(oPlayer) &gt; 0)
 {
-if (distance_to_object(oPlayer) &lt; 16)
+if (distance_to_object(oPlayer) &lt; 4)
    {
     if (alpha &lt; 1) {alpha += 0.05;}
    }
@@ -94,8 +94,8 @@ if (keyboard_check_pressed(ord("E")) &amp;&amp; alpha &gt; 0.8 &amp;&amp; draw)
    {
      if (unlocked = 1 &amp;&amp; status &lt; array_length_1d(text)-1)
         {
-         event_user(0);
          status++;
+         event_user(0);
          alpha = 0;
         }
    }
@@ -129,9 +129,23 @@ if (keyboard_check_pressed(ord("E")) &amp;&amp; alpha &gt; 0.8 &amp;&amp; !draw)
             <kind>1</kind>
             <string>if (idd = "pařez1")
    {
-    if (status = 0) {scrEnemyLoot(oGold,1,5,1,100,4);}
+    if (status = 1) {scrEnemyLoot(oGold,1,5,1,100,4);}
    
    }
+if (idd = "mapTest_sloup1")
+   {
+    if (status = 3) {scrEnemyLoot(oTestItem2,1,1,1,100,1);}
+   
+   }
+if (idd = "mapTest_kmen1")
+   {
+    if (status = 2) {scrEnemyLoot(oGold,1,5,1,100,3);}
+   
+   }
+
+
+
+
 </string>
           </argument>
         </arguments>
