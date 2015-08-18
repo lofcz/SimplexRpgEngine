@@ -311,9 +311,13 @@
         <script>scripts\scrGoreFull.gml</script>
         <script>scripts\scrGoreMed.gml</script>
         <script>scripts\scrGoreLight.gml</script>
+        <script>scripts\scrGoreExplode.gml</script>
       </scripts>
       <scripts name="Collisions">
         <script>scripts\scrAdvancedCollisionIni.gml</script>
+      </scripts>
+      <scripts name="Combat">
+        <script>scripts\combatGetCriticalHit.gml</script>
       </scripts>
     </scripts>
   </scripts>
@@ -327,6 +331,7 @@
     <font>fonts\fntRetroBig</font>
     <font>fonts\fntRetroSmall</font>
     <font>fonts\fntPixel</font>
+    <font>fonts\fntPixelHuge</font>
     <font>fonts\fntPixelSmall</font>
   </fonts>
   <objects name="objects">
@@ -368,6 +373,7 @@
         <object>objects\oGore2</object>
         <object>objects\oGore3</object>
         <object>objects\oGore4</object>
+        <object>objects\oShard</object>
       </objects>
     </objects>
     <object>objects\oGotoRoom</object>
@@ -380,11 +386,13 @@
     <room>rooms\mapHouse1</room>
     <room>rooms\mapLoading</room>
   </rooms>
-  <constants number="120">
+  <constants number="122">
     <constant name="quest_finish">2</constant>
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
-    <constant name="celkem_vlastnosti">45</constant>
+    <constant name="celkem_vlastnosti">47</constant>
+    <constant name="vlastnost_kriticka_nasobic">46</constant>
+    <constant name="vlastnost_kriticka_sance">45</constant>
     <constant name="vlastnost_vykresli_index">44</constant>
     <constant name="vlastnost_vykresli_sprit">43</constant>
     <constant name="vlastnost_max_stamina">42</constant>

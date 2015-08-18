@@ -93,7 +93,18 @@ scrEnemyGetPosition();
             <kind>1</kind>
             <string>if (other.attack &amp;&amp; other.can_damage = -1) 
 {
-hp -= oPlayer.vlastnost[vlastnost_poskozeni];
+if (combatGetCriticalHit( oPlayer.vlastnost[vlastnost_kriticka_sance]))
+   {
+   dmg = oPlayer.vlastnost[vlastnost_poskozeni]*oPlayer.vlastnost[vlastnost_kriticka_nasobic];   
+   scrLog(dmg,c_black,-1,0,0.2,x,y-32,fntPixelHuge);
+   }
+else
+    {
+   dmg = oPlayer.vlastnost[vlastnost_poskozeni];   
+   scrLog(dmg,c_black,-1,0,0.2,x,y-32,fntPixelHuge);    
+    }
+hp -= dmg;
+
 scale = 1.4;
 //other.can_damage = 20;
 scrGoreFull(x,y,3,c_aqua);
@@ -194,6 +205,7 @@ scrEnemyLoot(oHealthDrop,1,5,1,40,5);
 
 mood = "dying";
 drop = 0;
+scrGoreExplode();
 }
 </string>
           </argument>

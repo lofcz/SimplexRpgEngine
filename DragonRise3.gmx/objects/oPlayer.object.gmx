@@ -72,6 +72,9 @@ for(a = 0; a &lt; celkem_vlastnosti; a++)
 {
  vlastnost[a] = 0;
 }
+
+vlastnost[vlastnost_kriticka_sance] = 50;
+vlastnost[vlastnost_kriticka_nasobic] = 2;
 </string>
           </argument>
         </arguments>
