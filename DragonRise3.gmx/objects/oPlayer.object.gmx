@@ -81,11 +81,14 @@ vlastnost[vlastnost_max_stamina] = 15;
 vlastnost[vlastnost_stamina] = 15;
 vlastnost[vlastnost_max_mana] = 50;
 vlastnost[vlastnost_mana] = 50;
+vlastnost[vlastnost_max_zkusenosti] = 100;
+
 
 last_hp = vlastnost[vlastnost_zivot];
 last_stit = vlastnost[vlastnost_stit];
 last_stamina = vlastnost[vlastnost_stamina];
 last_mana = vlastnost[vlastnost_mana];
+last_xp = 0;
 
 vlastnost[vlastnost_kriticka_sance] = 50;
 vlastnost[vlastnost_kriticka_nasobic] = 2;
@@ -149,6 +152,44 @@ if (keyboard_check_pressed(ord("P")))
    //show_message(inventoryNumber(1))
    instance_create(x,y,oAchievment);
    }
+
+vlastnost[vlastnost_zivot] = min(max(0,vlastnost[vlastnost_zivot]),vlastnost[vlastnost_max_zivot]);
+vlastnost[vlastnost_mana] = min(max(0,vlastnost[vlastnost_mana]),vlastnost[vlastnost_max_mana]);
+vlastnost[vlastnost_stamina] = min(max(0,vlastnost[vlastnost_stamina]),vlastnost[vlastnost_max_stamina]);
+vlastnost[vlastnost_stit] = min(max(0,vlastnost[vlastnost_stit]),vlastnost[vlastnost_max_stit]);
+
+if (vlastnost[vlastnost_zkusenosti] &gt; vlastnost[vlastnost_max_zkusenosti]) 
+   {
+   event_user(1);
+   
+   }
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Level up
+vlastnost[vlastnost_max_zkusenosti] = round(vlastnost[vlastnost_zkusenosti]+log2(vlastnost[vlastnost_zkusenosti])+vlastnost[vlastnost_zkusenosti]/3);
+vlastnost[vlastnost_zkusenosti] = 0;
+last_xp = 0;
 </string>
           </argument>
         </arguments>
@@ -220,6 +261,9 @@ if (last_mana &gt; vlastnost[vlastnost_mana]) {last_mana--;}
 
 if (last_stamina &lt; vlastnost[vlastnost_stamina]) {last_stamina++;}
 if (last_stamina &gt; vlastnost[vlastnost_stamina]) {last_stamina--;}
+
+if (last_xp &lt; vlastnost[vlastnost_zkusenosti]) {last_xp++;}
+if (last_xp &gt; vlastnost[vlastnost_zkusenosti]) {last_xp--;}
 
 //if (last_hp &lt;= 0 &amp;&amp; last_hp != -666) {last_hp = -666; scrGoreExplode(10,10);}
 </string>

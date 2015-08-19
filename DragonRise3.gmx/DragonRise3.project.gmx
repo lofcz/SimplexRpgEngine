@@ -144,6 +144,7 @@
     <sound>sound\sndSword1</sound>
     <sound>sound\sndSword2</sound>
     <sound>sound\sndHealth</sound>
+    <sound>sound\sndExp</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Actors">
@@ -210,6 +211,10 @@
     <sprite>sprites\sHealthEffect</sprite>
     <sprite>sprites\sEvent</sprite>
     <sprite>sprites\sHUDBars</sprite>
+    <sprite>sprites\sQuickslot</sprite>
+    <sprite>sprites\sXP</sprite>
+    <sprite>sprites\sXpPoint</sprite>
+    <sprite>sprites\sExperienceBar</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -380,6 +385,7 @@
     </objects>
     <object>objects\oGotoRoom</object>
     <object>objects\oHealthDrop</object>
+    <object>objects\oXpDrop</object>
     <object>objects\oAchievment</object>
     <object>objects\oState</object>
     <object>objects\oHUD</object>
@@ -389,11 +395,14 @@
     <room>rooms\mapHouse1</room>
     <room>rooms\mapLoading</room>
   </rooms>
-  <constants number="124">
+  <constants number="127">
     <constant name="quest_finish">2</constant>
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
-    <constant name="celkem_vlastnosti">49</constant>
+    <constant name="celkem_vlastnosti">52</constant>
+    <constant name="vlastnost_level">51</constant>
+    <constant name="vlastnost_max_zkusenosti">50</constant>
+    <constant name="vlastnost_zkusenosti">49</constant>
     <constant name="vlastnost_max_stit">48</constant>
     <constant name="vlastnost_stit">47</constant>
     <constant name="vlastnost_kriticka_nasobic">46</constant>

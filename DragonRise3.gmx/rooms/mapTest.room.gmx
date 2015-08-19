@@ -29,8 +29,8 @@ global.shaders_enabled = 1;</code>
     <deleteUnderlyingObj>0</deleteUnderlyingObj>
     <deleteUnderlyingTiles>-1</deleteUnderlyingTiles>
     <page>0</page>
-    <xoffset>-158</xoffset>
-    <yoffset>-95</yoffset>
+    <xoffset>175</xoffset>
+    <yoffset>233</yoffset>
   </makerSettings>
   <backgrounds>
     <background visible="-1" foreground="0" name="background2" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -148,6 +148,7 @@ global.shaders_enabled = 1;</code>
     <instance objName="oAdvancedCollision" x="448" y="192" name="inst_8F7A5712" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;&#xA;text[0] = &quot;Vykotlaný kmen.&quot;&#xA;text[1] = &quot;Velkolépé sídlo mravenců.&quot;&#xA;text[2] = &quot;Mech, voda a smrad.&quot;;&#xA;text[3] = &quot;Prostě trouchnivina.&quot;;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oAdvancedCollision" x="176" y="816" name="inst_80FA9B43" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;&#xA;text[0] = &quot;Vyčnívající úlomek kamene.&quot;&#xA;text[1] = &quot;Skoro ho zakrývá mech.&quot;&#xA;&#xA;&#xA;&#xA;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oState" x="64" y="128" name="inst_6C0FDFEB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oXpDrop" x="336" y="400" name="inst_D351F87C" locked="0" code="itm_number = 30;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="background14" x="1600" y="1712" w="32" h="32" xo="32" yo="0" id="10006696" name="inst_AC26E277" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

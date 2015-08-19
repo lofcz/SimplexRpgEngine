@@ -107,6 +107,16 @@ if (instance_number(oPlayer) &gt; 0 &amp;&amp; draw)
      draw_sprite_part(sHUDBars,1,0,0,oPlayer.last_mana / oPlayer.vlastnost[vlastnost_max_mana] * sprite_get_width(sHUDBars),sprite_get_height(sHUDBars),x+600,y+60);
      }
      draw_text(x+710,y+72,oPlayer.last_mana);
+     
+     draw_set_font(fntPixelTiny);
+     draw_set_alpha(alpha[2]);
+     draw_rectangle_colour(x+600,y+60,x+627,y+83,c_white,c_white,c_white,c_white,0);
+     draw_set_alpha(alpha[2] * 2);
+     draw_text(x+615,y+72,oPlayer.vlastnost[vlastnost_max_mana]);
+     draw_set_alpha(1);
+     draw_set_font(fntPixelSmall);
+     if (mouse_in(x+600,x+627,y+60,y+83)) {if (alpha[2] &lt; 0.7) {alpha[2] += 0.05;}} else {if (alpha[2] &gt; 0) {alpha[2] -= 0.05;}}
+
 
      // Stamina
      draw_sprite(sHUDBars,6,x+600,y+90);
@@ -117,7 +127,27 @@ if (instance_number(oPlayer) &gt; 0 &amp;&amp; draw)
      }
      draw_text(x+710,y+102,oPlayer.last_stamina);
 
+     draw_set_font(fntPixelTiny);
+     draw_set_alpha(alpha[3]);
+     draw_rectangle_colour(x+600,y+90,x+627,y+113,c_white,c_white,c_white,c_white,0);
+     draw_set_alpha(alpha[3] * 2);
+     draw_text(x+615,y+102,oPlayer.vlastnost[vlastnost_max_stamina]);
+     draw_set_alpha(1);
+     draw_set_font(fntPixelSmall);
+     if (mouse_in(x+600,x+627,y+90,y+113)) {if (alpha[3] &lt; 0.7) {alpha[3] += 0.05;}} else {if (alpha[3] &gt; 0) {alpha[3] -= 0.05;}}
+ 
+     
+     
+     
+     draw_set_font(fntPixelSmall);     
+     draw_sprite(sExperienceBar,1,x+272,y+580);
+     draw_sprite_part(sExperienceBar,2,0,0,oPlayer.last_xp / oPlayer.vlastnost[vlastnost_max_zkusenosti] * sprite_get_width(sExperienceBar),sprite_get_height(sExperienceBar),x+272,y+580);
+     draw_sprite(sExperienceBar,0,x+272,y+580);
+     draw_text(x+400,y+572,string(oPlayer.last_xp)+" / "+string(oPlayer.vlastnost[vlastnost_max_zkusenosti]));
+     
      scrCenterText(0);
+
+     
    }
    
 </string>
