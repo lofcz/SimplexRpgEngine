@@ -28,48 +28,23 @@
             <string>tar_x = x+23;
 tar_y = y;
 spd   = 1;
-mood  = "idle"
+mood  = "jump"
 can_damage = -1;
 drop = 1;
 spr[0] = sprite_index;
 spr[1] = image_index;
+zspeed = 0;
+z = 0;
+z_mood = 0;
 
 image_speed = 0;
-dir = dir_left;
+dir = dir_down;
 count = 0;
 health_alpha = 0;
 scale = 1;
 
 scrEnemyIni(30,5,1);
 last_hp = hp;
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="oBasicCollision">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>x = xprevious;
-y = yprevious;
-
-scrEnemyGetPosition();
-
 
 </string>
           </argument>
@@ -140,6 +115,7 @@ y = yprevious;
 
 scrEnemyGetPosition();
 
+if (mood = "jump") {randomize(); repeat(5) {instance_create(x-random(10)+random(10),y+random(10)-random(10),oBlob);}}
 
 </string>
           </argument>
@@ -233,7 +209,7 @@ sprite_index = noone;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (mood != "dying") {draw_self();}
+            <string>
  
 
 if (can_damage &gt; 0) {can_damage--;} else {can_damage = -1;}
@@ -266,6 +242,56 @@ if (mood = "dying")
 draw_sprite_ext(spr[0],spr[1],x,y,1,1,0,c_white,image_alpha);
 if (image_alpha &gt; 0) {image_alpha -= 0.02;} else {instance_destroy();}   
 }
+
+if (mood = "jump")
+   {
+   
+   if (dir = dir_up)
+   {
+    if (z_mood = 0) {y -= z; z += 0.1; image_alpha -= 0.01 if (z &gt; 3) {z_mood = 1;}}
+    if (z_mood = 1) {y -= z; z -= 0.1; image_alpha += 0.01 if (z &lt;= 0) {randomize(); z_mood = 2; repeat(5) {instance_create(x-random(10)+random(10),y+random(10)-random(10),oBlob);} mood = "idle";}}
+   
+   
+    if (z_mood = 0 &amp;&amp; z &gt; 0)
+     {
+    draw_set_alpha(z/3);
+    draw_sprite(sJump,0,x,y+z*4);
+    draw_set_alpha(1);
+    }
+    if (z_mood = 1)
+     {
+    draw_set_alpha(abs(3-z)-0.2);
+    draw_sprite(sJump,0,x,y+z*8);
+    draw_set_alpha(1);
+    }
+
+   
+   }
+  else if (dir = dir_down)
+   {
+    if (z_mood = 0) {y += z; z += 0.1; image_alpha -= 0.01 if (z &gt; 3) {z_mood = 1;}}
+    if (z_mood = 1) {y += z; z -= 0.1; image_alpha += 0.01 if (z &lt;= 0) {randomize(); z_mood = 2; repeat(5) {instance_create(x-random(10)+random(10),y+random(10)-random(10),oBlob);} mood = "idle";}}
+   
+   
+    if (z_mood = 0)
+     {
+    draw_set_alpha(z/3);
+    draw_sprite(sJump,0,x,y+z*8);
+    draw_set_alpha(1);
+    }
+    if (z_mood = 1)
+     {
+    draw_set_alpha(z-2);
+    draw_sprite(sJump,0,x,y+z*8);
+    draw_set_alpha(1);
+    }
+
+   }
+
+    
+    
+
+   }
 
 if (mood != "dying")
 {
@@ -300,6 +326,8 @@ if (health_alpha &gt; 0)
 
    }
 }   
+
+if (mood != "dying") {draw_self();}
 
 </string>
           </argument>

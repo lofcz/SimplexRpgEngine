@@ -215,6 +215,8 @@
     <sprite>sprites\sXP</sprite>
     <sprite>sprites\sXpPoint</sprite>
     <sprite>sprites\sExperienceBar</sprite>
+    <sprite>sprites\sJump</sprite>
+    <sprite>sprites\sBlob</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -389,6 +391,7 @@
     <object>objects\oAchievment</object>
     <object>objects\oState</object>
     <object>objects\oHUD</object>
+    <object>objects\oBlob</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\mapTest</room>

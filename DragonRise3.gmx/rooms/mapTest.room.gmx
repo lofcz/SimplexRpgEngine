@@ -28,9 +28,9 @@ global.shaders_enabled = 1;</code>
     <showViews>-1</showViews>
     <deleteUnderlyingObj>0</deleteUnderlyingObj>
     <deleteUnderlyingTiles>-1</deleteUnderlyingTiles>
-    <page>0</page>
-    <xoffset>175</xoffset>
-    <yoffset>233</yoffset>
+    <page>4</page>
+    <xoffset>-3</xoffset>
+    <yoffset>-53</yoffset>
   </makerSettings>
   <backgrounds>
     <background visible="-1" foreground="0" name="background2" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>

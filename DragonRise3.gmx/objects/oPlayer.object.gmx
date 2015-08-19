@@ -82,6 +82,7 @@ vlastnost[vlastnost_stamina] = 15;
 vlastnost[vlastnost_max_mana] = 50;
 vlastnost[vlastnost_mana] = 50;
 vlastnost[vlastnost_max_zkusenosti] = 100;
+vlastnost[vlastnost_level] = 1;
 
 
 last_hp = vlastnost[vlastnost_zivot];
@@ -190,6 +191,7 @@ if (vlastnost[vlastnost_zkusenosti] &gt; vlastnost[vlastnost_max_zkusenosti])
 vlastnost[vlastnost_max_zkusenosti] = round(vlastnost[vlastnost_zkusenosti]+log2(vlastnost[vlastnost_zkusenosti])+vlastnost[vlastnost_zkusenosti]/3);
 vlastnost[vlastnost_zkusenosti] = 0;
 last_xp = 0;
+vlastnost[vlastnost_level]++; 
 </string>
           </argument>
         </arguments>

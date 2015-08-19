@@ -144,6 +144,9 @@ if (instance_number(oPlayer) &gt; 0 &amp;&amp; draw)
      draw_sprite_part(sExperienceBar,2,0,0,oPlayer.last_xp / oPlayer.vlastnost[vlastnost_max_zkusenosti] * sprite_get_width(sExperienceBar),sprite_get_height(sExperienceBar),x+272,y+580);
      draw_sprite(sExperienceBar,0,x+272,y+580);
      draw_text(x+400,y+572,string(oPlayer.last_xp)+" / "+string(oPlayer.vlastnost[vlastnost_max_zkusenosti]));
+     draw_text(x+400,y+552,string(oPlayer.vlastnost[vlastnost_level]));
+    
+
      
      scrCenterText(0);
 
