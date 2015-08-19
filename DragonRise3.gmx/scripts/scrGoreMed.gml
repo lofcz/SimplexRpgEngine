@@ -1,4 +1,4 @@
-///scrGoreFull(x,y,side_num)
+///scrGoreMed(x,y,side_num)
 
 var xx,yy,num;
 num = 3;

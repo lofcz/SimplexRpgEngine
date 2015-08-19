@@ -1,4 +1,4 @@
-///scrGoreFull(x,y)
+///scrGoreLight(x,y)
 
 var xx,yy;
 xx  = x;
