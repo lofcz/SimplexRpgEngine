@@ -130,7 +130,7 @@ if (attack = 1)
        }
     if (mode = -1)
        {
-        if (temp_rot &lt; 0) {temp_rot += 75+k;} else {mode = -2; temp_rot = 0; attack = 0;}
+        if (temp_rot &lt; 0) {temp_rot += 75+k;} else {mode = -2; temp_rot = 0;can_damage = -2;}
        }
 
    }

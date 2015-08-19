@@ -18,8 +18,8 @@ global.shaders_enabled = 1;</code>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
   <makerSettings>
     <isSet>-1</isSet>
-    <w>1452</w>
-    <h>876</h>
+    <w>1024</w>
+    <h>600</h>
     <showGrid>0</showGrid>
     <showObjects>-1</showObjects>
     <showTiles>-1</showTiles>
@@ -29,8 +29,8 @@ global.shaders_enabled = 1;</code>
     <deleteUnderlyingObj>0</deleteUnderlyingObj>
     <deleteUnderlyingTiles>-1</deleteUnderlyingTiles>
     <page>0</page>
-    <xoffset>-237</xoffset>
-    <yoffset>-246</yoffset>
+    <xoffset>-158</xoffset>
+    <yoffset>-95</yoffset>
   </makerSettings>
   <backgrounds>
     <background visible="-1" foreground="0" name="background2" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -143,7 +143,7 @@ global.shaders_enabled = 1;</code>
     <instance objName="oAdvancedCollision" x="264" y="472" name="inst_50A5293F" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;&#xA;text[0] = &quot;Kámen, ty bys taky šahal na všechno.&quot;&#xA;text[1] = &quot;Co s ním mám asi udělat?&quot;&#xA;text[2] = &quot;Že tě to baví.&quot;&#xA;text[3] = &quot;Tak tady budeme do zítra koukat na kámen.&quot;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oAdvancedCollision" x="864" y="288" name="inst_13CD3145" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;mapTest_sloup1&quot;,1);&#xA;&#xA;text[0] = &quot;Zbytky mramorového sloupu.&quot;&#xA;text[1] = &quot;Tohle je tady ještě po minulé civilizaci.&quot;&#xA;text[2] = &quot;Počkat, co se to tam leskne?&quot;&#xA;text[3] = &quot;Byla tam [c=&quot;+string(c_red)+&quot;]červená perla[/c].&quot;&#xA;text[4] = &quot;Už tam nic není.&quot;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oAdvancedCollision" x="1072" y="368" name="inst_4ADD47A4" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;&#xA;text[0] = &quot;Zub času odvedl svojí práci.&quot;&#xA;text[1] = &quot;Za chvíli se to rozpadne.&quot;&#xA;text[2] = &quot;Mechu se tu daří skvěle.&quot;&#xA;text[3] = &quot;Tak aspoň k něčemu ten sloup je.&quot;&#xA;text[4] = &quot;Co tu zůstane po nás?&quot;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oAdvancedCollision" x="976" y="272" name="inst_E31B7C68" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;mapTest_sloup1&quot;,1);&#xA;&#xA;text[0] = &quot;Zbytky mramorového sloupu.&quot;&#xA;text[1] = &quot;Tohle je tady ještě po minulé civilizaci.&quot;&#xA;text[2] = &quot;Počkat, co se to tam leskne?&quot;&#xA;text[3] = &quot;Byla tam [c=&quot;+string(c_red)+&quot;]červená perla[/c].&quot;&#xA;text[4] = &quot;Už tam nic není.&quot;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="oAdvancedCollision" x="976" y="272" name="inst_E31B7C68" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;&#xA;text[0] = &quot;Tenhle ještě stojí.&quot;&#xA;text[1] = &quot;Jednoduchá korintská hlavice.&quot;&#xA;&#xA;" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="oAdvancedCollision" x="1136" y="224" name="inst_C3F135D9" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;mapTest_kmen1&quot;,1);&#xA;&#xA;text[0] = &quot;Starý kmen dubu.&quot;&#xA;text[1] = &quot;Je už hodně ztrouchnivělý.&quot;&#xA;text[2] = &quot;Vida,[c=&quot;+string(c_yellow)+&quot;] co[/c] tam bylo.&quot;;&#xA;text[3] = &quot;Už tam nic není.&quot;;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="oAdvancedCollision" x="448" y="192" name="inst_8F7A5712" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;&#xA;text[0] = &quot;Vykotlaný kmen.&quot;&#xA;text[1] = &quot;Velkolépé sídlo mravenců.&quot;&#xA;text[2] = &quot;Mech, voda a smrad.&quot;;&#xA;text[3] = &quot;Prostě trouchnivina.&quot;;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oAdvancedCollision" x="176" y="816" name="inst_80FA9B43" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;&#xA;text[0] = &quot;Vyčnívající úlomek kamene.&quot;&#xA;text[1] = &quot;Skoro ho zakrývá mech.&quot;&#xA;&#xA;&#xA;&#xA;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

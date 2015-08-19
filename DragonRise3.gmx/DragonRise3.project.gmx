@@ -209,6 +209,7 @@
     <sprite>sprites\sprite53</sprite>
     <sprite>sprites\sHealthEffect</sprite>
     <sprite>sprites\sEvent</sprite>
+    <sprite>sprites\sHUDBars</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -333,6 +334,7 @@
     <font>fonts\fntPixel</font>
     <font>fonts\fntPixelHuge</font>
     <font>fonts\fntPixelSmall</font>
+    <font>fonts\fntPixelTiny</font>
   </fonts>
   <objects name="objects">
     <object>objects\oCamera</object>
@@ -380,17 +382,20 @@
     <object>objects\oHealthDrop</object>
     <object>objects\oAchievment</object>
     <object>objects\oState</object>
+    <object>objects\oHUD</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\mapTest</room>
     <room>rooms\mapHouse1</room>
     <room>rooms\mapLoading</room>
   </rooms>
-  <constants number="122">
+  <constants number="124">
     <constant name="quest_finish">2</constant>
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
-    <constant name="celkem_vlastnosti">47</constant>
+    <constant name="celkem_vlastnosti">49</constant>
+    <constant name="vlastnost_max_stit">48</constant>
+    <constant name="vlastnost_stit">47</constant>
     <constant name="vlastnost_kriticka_nasobic">46</constant>
     <constant name="vlastnost_kriticka_sance">45</constant>
     <constant name="vlastnost_vykresli_index">44</constant>

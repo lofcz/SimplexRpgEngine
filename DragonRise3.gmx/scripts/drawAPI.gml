@@ -7,9 +7,11 @@
   Used to easily draw rectangle over target area, default is
   yellow rectangle with 0.6 alpha. 
   
-- 
+- motion_blur(length,direction)
 
+  Creates blur effect after sprite.
 
+-
 
 
 
@@ -54,3 +56,30 @@ if (argument_count > 5) {alpha = argument[5];}
 clr(color,alpha);
 draw_rectangle(x1,y1,x2-1,y2-1,0);
 clr();
+#define motion_blur
+/// motion_blur(length,direction)
+ 
+   length = argument0;
+
+    if (length > 0) {
+        step = 3;
+        dir = degtorad(argument1);
+        px = cos(dir);
+        py = -sin(dir);
+
+        a = image_alpha/(length/step);
+        if (a >= 1) {
+            draw_sprite_ext(sprite_index,image_index,x,y,image_xscale,
+                image_yscale,image_angle,image_blend,image_alpha);
+            a /= 2;
+        }
+
+        for(i=length;i>=0;i-=step) {
+            draw_sprite_ext(sprite_index,image_index,x+(px*i),y+(py*i),
+                image_xscale,image_yscale,image_angle,image_blend,a);
+        }
+    } else {    
+        draw_sprite_ext(sprite_index,image_index,x,y,image_xscale,
+            image_yscale,image_angle,image_blend,image_alpha);
+    }
+    return 0;

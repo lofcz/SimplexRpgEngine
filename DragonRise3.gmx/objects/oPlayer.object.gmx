@@ -28,13 +28,14 @@
             <string>set_sprite(sPlayerBasic,0);
 instance_create(x,y,oPlayerCombat);
 instance_create(x,y,oState);
+instance_create(x,y,oHUD);
 
 //surface = surface_create(room_width,room_height);
 //surface_set_target(surface);
 //draw_clear_alpha(c_white,0);
 //surface_reset_target();
 
-
+blur = 0;
 load = 1;
 dir = ""; 
 rychlost = 3.5; 
@@ -72,6 +73,19 @@ for(a = 0; a &lt; celkem_vlastnosti; a++)
 {
  vlastnost[a] = 0;
 }
+vlastnost[vlastnost_max_zivot] = 20;
+vlastnost[vlastnost_zivot] = 20;
+vlastnost[vlastnost_max_stit] = 10;
+vlastnost[vlastnost_stit] = 10;
+vlastnost[vlastnost_max_stamina] = 15;
+vlastnost[vlastnost_stamina] = 15;
+vlastnost[vlastnost_max_mana] = 50;
+vlastnost[vlastnost_mana] = 50;
+
+last_hp = vlastnost[vlastnost_zivot];
+last_stit = vlastnost[vlastnost_stit];
+last_stamina = vlastnost[vlastnost_stamina];
+last_mana = vlastnost[vlastnost_mana];
 
 vlastnost[vlastnost_kriticka_sance] = 50;
 vlastnost[vlastnost_kriticka_nasobic] = 2;
@@ -190,6 +204,24 @@ draw_text(x,y-32,"Poškození: "+string(vlastnost[vlastnost_poskozeni]));
 draw_text(x,y-48,"Zlato: "+string(gold));
 
 //draw_text(x,y+64,vlastnost[vlastnost_vykresli_sprit]);
+//if (speed &gt; 0) {if (blur &lt; 32) {blur++}} else {if (blur &gt; 0) {blur--;}}
+
+ blurdirection = point_direction(x, y, xprevious, yprevious);
+//motion_blur(blur, blurdirection);
+
+if (last_hp &lt; vlastnost[vlastnost_zivot]) {last_hp++;}
+if (last_hp &gt; vlastnost[vlastnost_zivot]) {last_hp--;}
+
+if (last_stit &lt; vlastnost[vlastnost_stit]) {last_stit++;}
+if (last_stit &gt; vlastnost[vlastnost_stit]) {last_stit--;}
+
+if (last_mana &lt; vlastnost[vlastnost_mana]) {last_mana++;}
+if (last_mana &gt; vlastnost[vlastnost_mana]) {last_mana--;}
+
+if (last_stamina &lt; vlastnost[vlastnost_stamina]) {last_stamina++;}
+if (last_stamina &gt; vlastnost[vlastnost_stamina]) {last_stamina--;}
+
+//if (last_hp &lt;= 0 &amp;&amp; last_hp != -666) {last_hp = -666; scrGoreExplode(10,10);}
 </string>
           </argument>
         </arguments>

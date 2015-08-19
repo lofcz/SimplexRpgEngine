@@ -31,6 +31,8 @@ spd   = 1;
 mood  = "idle"
 can_damage = -1;
 drop = 1;
+spr[0] = sprite_index;
+spr[1] = image_index;
 
 image_speed = 0;
 dir = dir_left;
@@ -206,6 +208,7 @@ scrEnemyLoot(oHealthDrop,1,5,1,40,5);
 mood = "dying";
 drop = 0;
 scrGoreExplode();
+sprite_index = noone;
 }
 </string>
           </argument>
@@ -229,7 +232,7 @@ scrGoreExplode();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string> draw_self();
+            <string>if (mood != "dying") {draw_self();}
  
 
 if (can_damage &gt; 0) {can_damage--;} else {can_damage = -1;}
@@ -259,6 +262,7 @@ if (dir = dir_down) {if (can_damage = -1) {y += spd; count += spd+0.2;} if (coun
 
 if (mood = "dying")
 {
+draw_sprite_ext(spr[0],spr[1],x,y,1,1,0,c_white,image_alpha);
 if (image_alpha &gt; 0) {image_alpha -= 0.02;} else {instance_destroy();}   
 }
 
