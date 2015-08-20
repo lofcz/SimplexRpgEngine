@@ -360,6 +360,7 @@
     <object>objects\oPlayerCombat</object>
     <object>objects\oPlayerCombatHelp</object>
     <object>objects\oLoader</object>
+    <object>objects\oGotoRoom</object>
     <object>objects\oTEST</object>
     <object>objects\oCollisionMask</object>
     <object>objects\oItemText</object>
@@ -386,7 +387,6 @@
         <object>objects\oShard</object>
       </objects>
     </objects>
-    <object>objects\oGotoRoom</object>
     <object>objects\oHealthDrop</object>
     <object>objects\oXpDrop</object>
     <object>objects\oAchievment</object>
@@ -400,11 +400,13 @@
     <room>rooms\mapHouse1</room>
     <room>rooms\mapLoading</room>
   </rooms>
-  <constants number="127">
+  <constants number="129">
     <constant name="quest_finish">2</constant>
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
-    <constant name="celkem_vlastnosti">52</constant>
+    <constant name="celkem_vlastnosti">54</constant>
+    <constant name="vlastnost_tick_stamina_add">53</constant>
+    <constant name="vlastnost_tick_stamina">52</constant>
     <constant name="vlastnost_level">51</constant>
     <constant name="vlastnost_max_zkusenosti">50</constant>
     <constant name="vlastnost_zkusenosti">49</constant>

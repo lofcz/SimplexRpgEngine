@@ -156,11 +156,20 @@ dmg = damage + bonus_damage;
 oPlayer.vlastnost[vlastnost_zivot] -= dmg;
 scrGoreFull(oPlayer.x,oPlayer.y);
 scrEnemyGetPosition();
-scrLog(dmg,c_black,-1,0,0,oPlayer.x,oPlayer.y,fntPixelHuge);
+scrLog(dmg,c_black,-1,0,0,oPlayer.x,oPlayer.y-48,fntPixelHuge);
 can_damage = 15;
 }
 
+if (mood ="jump")
+   {
+ 
+    if (dir = dir_up) {dir = dir_down; y-= 4;}
+    else if (dir = dir_down) {dir = dir_up; y += 4;}
+    else if (dir = dir_right) {dir = dir_left; x -= 4;}
+    else if (dir = dir_left) {dir = dir_right; x += 4;}
 
+    mood = "jump";
+   }
 </string>
           </argument>
         </arguments>

@@ -57,24 +57,32 @@ y = view_yview;
 
 if (instance_number(oPlayer) &gt; 0 &amp;&amp; draw)
    {
+   
+oPlayer.vlastnost[vlastnost_zivot] = min(max(0,oPlayer.vlastnost[vlastnost_zivot]),oPlayer.vlastnost[vlastnost_max_zivot]);
+oPlayer.vlastnost[vlastnost_mana] = min(max(0,oPlayer.vlastnost[vlastnost_mana]),oPlayer.vlastnost[vlastnost_max_mana]);
+oPlayer.vlastnost[vlastnost_stamina] = min(max(0,oPlayer.vlastnost[vlastnost_stamina]),oPlayer.vlastnost[vlastnost_max_stamina]);
+oPlayer.vlastnost[vlastnost_stit] = min(max(0,oPlayer.vlastnost[vlastnost_stit]),oPlayer.vlastnost[vlastnost_max_stit]);
+
+   
      scrCenterText();
      draw_set_colour(c_black);
      draw_set_font(fntPixelSmall);
      
      // Zivot
-     draw_sprite(sHUDBars,2,x+600,y);
      draw_sprite(sHUDBars,10,x+600,y);
      if (oPlayer.vlastnost[vlastnost_max_zivot] &gt; 0)
      {
-     draw_sprite_part(sHUDBars,3,0,0,oPlayer.last_hp / oPlayer.vlastnost[vlastnost_max_zivot] * sprite_get_width(sHUDBars),sprite_get_height(sHUDBars),x+600,y);
+     if (oPlayer.last_hp &lt; 0) {oPlayer.last_hp = 0;}
+     draw_sprite_part(sHUDBars,3,27,0,oPlayer.last_hp / oPlayer.vlastnost[vlastnost_max_zivot] * sprite_get_width(sHUDBars),sprite_get_height(sHUDBars),x+627,y);
      }
-     draw_text(x+710,y+12,oPlayer.last_hp);
+     draw_sprite(sHUDBars,2,x+600,y);
+     draw_text(x+710,y+12,round(oPlayer.last_hp));
      
      draw_set_font(fntPixelTiny);
      draw_set_alpha(alpha[0]);
      draw_rectangle_colour(x+600,y,x+627,y+23,c_white,c_white,c_white,c_white,0);
      draw_set_alpha(alpha[0] * 2);
-     draw_text(x+615,y+12,oPlayer.vlastnost[vlastnost_max_zivot]);
+     draw_text(x+615,y+12,round(oPlayer.vlastnost[vlastnost_max_zivot]));
      draw_set_alpha(1);
      draw_set_font(fntPixelSmall);
      if (mouse_in(x+600,x+627,y,y+23)) {if (alpha[0] &lt; 0.7) {alpha[0] += 0.05;}} else {if (alpha[0] &gt; 0) {alpha[0] -= 0.05;}}
@@ -85,15 +93,15 @@ if (instance_number(oPlayer) &gt; 0 &amp;&amp; draw)
      draw_sprite(sHUDBars,11,x+600,y+30);
      if (oPlayer.vlastnost[vlastnost_max_stit] &gt; 0)
      {
-     draw_sprite_part(sHUDBars,5,0,0,oPlayer.last_stit / oPlayer.vlastnost[vlastnost_max_stit] * sprite_get_width(sHUDBars),sprite_get_height(sHUDBars),x+600,y+30);
+     draw_sprite_part(sHUDBars,5,27,0,oPlayer.last_stit / oPlayer.vlastnost[vlastnost_max_stit] * sprite_get_width(sHUDBars),sprite_get_height(sHUDBars),x+627,y+30);
      }
-     draw_text(x+710,y+42,oPlayer.last_stit);
+     draw_text(x+710,y+42,round(oPlayer.last_stit));
      
      draw_set_font(fntPixelTiny);
      draw_set_alpha(alpha[1]);
      draw_rectangle_colour(x+600,y+30,x+627,y+53,c_white,c_white,c_white,c_white,0);
      draw_set_alpha(alpha[1] * 2);
-     draw_text(x+615,y+42,oPlayer.vlastnost[vlastnost_max_stit]);
+     draw_text(x+615,y+42,round(oPlayer.vlastnost[vlastnost_max_stit]));
      draw_set_alpha(1);
      draw_set_font(fntPixelSmall);
      if (mouse_in(x+600,x+627,y+30,y+53)) {if (alpha[1] &lt; 0.7) {alpha[1] += 0.05;}} else {if (alpha[1] &gt; 0) {alpha[1] -= 0.05;}}
@@ -104,15 +112,15 @@ if (instance_number(oPlayer) &gt; 0 &amp;&amp; draw)
      draw_sprite(sHUDBars,9,x+600,y+60);
      if (oPlayer.vlastnost[vlastnost_max_mana] &gt; 0)
      {
-     draw_sprite_part(sHUDBars,1,0,0,oPlayer.last_mana / oPlayer.vlastnost[vlastnost_max_mana] * sprite_get_width(sHUDBars),sprite_get_height(sHUDBars),x+600,y+60);
+     draw_sprite_part(sHUDBars,1,27,0,oPlayer.last_mana / oPlayer.vlastnost[vlastnost_max_mana] * sprite_get_width(sHUDBars),sprite_get_height(sHUDBars),x+627,y+60);
      }
-     draw_text(x+710,y+72,oPlayer.last_mana);
+     draw_text(x+710,y+72,round(oPlayer.last_mana));
      
      draw_set_font(fntPixelTiny);
      draw_set_alpha(alpha[2]);
      draw_rectangle_colour(x+600,y+60,x+627,y+83,c_white,c_white,c_white,c_white,0);
      draw_set_alpha(alpha[2] * 2);
-     draw_text(x+615,y+72,oPlayer.vlastnost[vlastnost_max_mana]);
+     draw_text(x+615,y+72,round(oPlayer.vlastnost[vlastnost_max_mana]));
      draw_set_alpha(1);
      draw_set_font(fntPixelSmall);
      if (mouse_in(x+600,x+627,y+60,y+83)) {if (alpha[2] &lt; 0.7) {alpha[2] += 0.05;}} else {if (alpha[2] &gt; 0) {alpha[2] -= 0.05;}}
@@ -123,15 +131,15 @@ if (instance_number(oPlayer) &gt; 0 &amp;&amp; draw)
      draw_sprite(sHUDBars,12,x+600,y+90);
      if (oPlayer.vlastnost[vlastnost_max_stamina] &gt; 0)
      {
-     draw_sprite_part(sHUDBars,7,0,0,oPlayer.last_stamina / oPlayer.vlastnost[vlastnost_max_stamina] * sprite_get_width(sHUDBars),sprite_get_height(sHUDBars),x+600,y+90);
+     draw_sprite_part(sHUDBars,7,27,0,oPlayer.last_stamina / oPlayer.vlastnost[vlastnost_max_stamina] * sprite_get_width(sHUDBars),sprite_get_height(sHUDBars),x+627,y+90);
      }
-     draw_text(x+710,y+102,oPlayer.last_stamina);
+     draw_text(x+710,y+102,round(oPlayer.last_stamina));
 
      draw_set_font(fntPixelTiny);
      draw_set_alpha(alpha[3]);
      draw_rectangle_colour(x+600,y+90,x+627,y+113,c_white,c_white,c_white,c_white,0);
      draw_set_alpha(alpha[3] * 2);
-     draw_text(x+615,y+102,oPlayer.vlastnost[vlastnost_max_stamina]);
+     draw_text(x+615,y+102,round(oPlayer.vlastnost[vlastnost_max_stamina]));
      draw_set_alpha(1);
      draw_set_font(fntPixelSmall);
      if (mouse_in(x+600,x+627,y+90,y+113)) {if (alpha[3] &lt; 0.7) {alpha[3] += 0.05;}} else {if (alpha[3] &gt; 0) {alpha[3] -= 0.05;}}

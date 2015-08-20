@@ -93,6 +93,13 @@ last_xp = 0;
 
 vlastnost[vlastnost_kriticka_sance] = 50;
 vlastnost[vlastnost_kriticka_nasobic] = 2;
+
+vlastnost[vlastnost_tick_stamina] = 80;
+vlastnost[vlastnost_tick_stamina_add] = 1;
+
+stamina_tick = vlastnost[vlastnost_tick_stamina]; 
+
+sprinting = 0;
 </string>
           </argument>
         </arguments>
@@ -153,11 +160,6 @@ if (keyboard_check_pressed(ord("P")))
    //show_message(inventoryNumber(1))
    instance_create(x,y,oAchievment);
    }
-
-vlastnost[vlastnost_zivot] = min(max(0,vlastnost[vlastnost_zivot]),vlastnost[vlastnost_max_zivot]);
-vlastnost[vlastnost_mana] = min(max(0,vlastnost[vlastnost_mana]),vlastnost[vlastnost_max_mana]);
-vlastnost[vlastnost_stamina] = min(max(0,vlastnost[vlastnost_stamina]),vlastnost[vlastnost_max_stamina]);
-vlastnost[vlastnost_stit] = min(max(0,vlastnost[vlastnost_stit]),vlastnost[vlastnost_max_stit]);
 
 if (vlastnost[vlastnost_zkusenosti] &gt; vlastnost[vlastnost_max_zkusenosti]) 
    {
@@ -248,12 +250,18 @@ draw_text(x,y-48,"Zlato: "+string(gold));
 
 //draw_text(x,y+64,vlastnost[vlastnost_vykresli_sprit]);
 //if (speed &gt; 0) {if (blur &lt; 32) {blur++}} else {if (blur &gt; 0) {blur--;}}
-
- blurdirection = point_direction(x, y, xprevious, yprevious);
+// blurdirection = point_direction(x, y, xprevious, yprevious);
 //motion_blur(blur, blurdirection);
 
-if (last_hp &lt; vlastnost[vlastnost_zivot]) {last_hp++;}
-if (last_hp &gt; vlastnost[vlastnost_zivot]) {last_hp--;}
+stamina_dif = abs(last_stamina - vlastnost[vlastnost_stamina]);
+if (stamina_dif &lt;= 5) {stamina_bar = 0.1;}
+health_dif = abs(last_hp - vlastnost[vlastnost_zivot]);
+if (health_dif &lt;= 5) {healtha_bar = 0.1;}
+   else {stamina_bar = 1;} 
+
+      
+if (last_hp &lt; vlastnost[vlastnost_zivot]) {last_hp += health_dif;}
+if (last_hp &gt; vlastnost[vlastnost_zivot]) {last_hp -= health_dif;}
 
 if (last_stit &lt; vlastnost[vlastnost_stit]) {last_stit++;}
 if (last_stit &gt; vlastnost[vlastnost_stit]) {last_stit--;}
@@ -261,8 +269,8 @@ if (last_stit &gt; vlastnost[vlastnost_stit]) {last_stit--;}
 if (last_mana &lt; vlastnost[vlastnost_mana]) {last_mana++;}
 if (last_mana &gt; vlastnost[vlastnost_mana]) {last_mana--;}
 
-if (last_stamina &lt; vlastnost[vlastnost_stamina]) {last_stamina++;}
-if (last_stamina &gt; vlastnost[vlastnost_stamina]) {last_stamina--;}
+if (last_stamina &lt; vlastnost[vlastnost_stamina]) {last_stamina += stamina_bar;}
+if (last_stamina &gt; vlastnost[vlastnost_stamina]) {last_stamina -= stamina_bar;}
 
 if (last_xp &lt; vlastnost[vlastnost_zkusenosti]) {last_xp++;}
 if (last_xp &gt; vlastnost[vlastnost_zkusenosti]) {last_xp--;}

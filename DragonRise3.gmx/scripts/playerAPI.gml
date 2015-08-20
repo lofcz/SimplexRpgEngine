@@ -14,6 +14,7 @@
 /// apiPlayerMove()
 
 math_set_epsilon(0.0000001);
+apiPlayerRegenerate()
 
 if (can_move = 1 && can_move2 = 1) 
     {   
@@ -25,6 +26,8 @@ if (can_move = 1 && can_move2 = 1)
         image_speed = (0.25+(rychlost/100));
         direction = 90;
         speed = rychlost;
+        apiPlayerSprint();
+        
         } 
     
     if (keyboard_check(ord("S"))) 
@@ -35,6 +38,8 @@ if (can_move = 1 && can_move2 = 1)
         image_speed = (0.25+(rychlost/100));
         direction = 270;
         speed = rychlost;
+        apiPlayerSprint();
+
         } 
         
     if (keyboard_check(ord("A"))) 
@@ -45,6 +50,8 @@ if (can_move = 1 && can_move2 = 1)
         image_speed = (0.25+(rychlost/100));
         direction = 180;
         speed = rychlost;
+        apiPlayerSprint();
+
         }  
         
     if (keyboard_check(ord("D")))
@@ -55,6 +62,8 @@ if (can_move = 1 && can_move2 = 1)
         image_speed = (0.25+(rychlost/100));
         direction = 360;
         speed = rychlost;
+        apiPlayerSprint();
+
         
        oPlayerCombat.dir_rot = -20;
         
@@ -147,3 +156,25 @@ math_set_epsilon(0.0000001);
             {
             image_index = 8;
             } 
+#define apiPlayerSprint
+/// apiPlayerSprint()
+  if (keyboard_check(vk_shift))       
+           {
+            if (vlastnost[vlastnost_stamina] > 0) {vlastnost[vlastnost_stamina] -= 0.1; speed += 1; sprinting = 1;}
+             else {sprinting = 0;} 
+           }
+           else {sprinting = 0;}
+
+
+#define apiPlayerRegenerate
+/// apiPlayerRegenerate()
+
+if (stamina_tick > 0 && !sprinting) {stamina_tick --;}
+   else
+       {
+        if (!sprinting)
+        {
+        stamina_tick = vlastnost[vlastnost_tick_stamina];
+        vlastnost[vlastnost_stamina] += vlastnost[vlastnost_tick_stamina_add];
+        }
+       }

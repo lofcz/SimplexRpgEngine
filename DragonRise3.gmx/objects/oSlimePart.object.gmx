@@ -28,6 +28,7 @@
             <string>image_xscale = random_range(0.8,1.2);
 image_yscale = image_xscale;
 speed = random_range(4,6);
+secure = 6;
 </string>
           </argument>
         </arguments>
@@ -55,6 +56,7 @@ image_angle += 1+(speed/10);
 speed += 0.02;
 
 if (image_alpha &lt;= 0) {instance_destroy();}
+secure--;
 </string>
           </argument>
         </arguments>
@@ -77,7 +79,10 @@ if (image_alpha &lt;= 0) {instance_destroy();}
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>move_bounce_all(1);
+            <string>if (secure &lt;= 0)
+{
+move_bounce_all(1);
+}
 </string>
           </argument>
         </arguments>
@@ -103,7 +108,7 @@ if (image_alpha &lt;= 0) {instance_destroy();}
             <string>other.vlastnost[vlastnost_zivot] -= 3;
 scrGoreMed(oPlayer.x,oPlayer.y,2);
 instance_destroy();
-scrLog("3",c_black,-1,0,0,oPlayer.x,oPlayer.y,fntPixelHuge);
+scrLog("3",c_black,-1,0,0,oPlayer.x,oPlayer.y-48,fntPixelHuge);
 
 </string>
           </argument>
