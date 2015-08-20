@@ -159,72 +159,80 @@
         <sprite>sprites\sTestNPC</sprite>
       </sprites>
       <sprites name="Foes">
-        <sprite>sprites\sprite6</sprite>
+        <sprite>sprites\sEnemySlime</sprite>
+        <sprite>sprites\sJump</sprite>
       </sprites>
     </sprites>
-    <sprite>sprites\sCamera</sprite>
-    <sprite>sprites\sFreeSlot</sprite>
-    <sprite>sprites\sPlayer</sprite>
-    <sprite>sprites\sController</sprite>
-    <sprite>sprites\sLoader</sprite>
-    <sprite>sprites\sTestItem</sprite>
-    <sprite>sprites\sStackableItem1</sprite>
-    <sprite>sprites\sInventory</sprite>
-    <sprite>sprites\sChest</sprite>
-    <sprite>sprites\sprite10</sprite>
-    <sprite>sprites\sRarityEffect</sprite>
-    <sprite>sprites\sShortWeapons</sprite>
-    <sprite>sprites\sShortHandles</sprite>
-    <sprite>sprites\sprite15</sprite>
-    <sprite>sprites\sprite22</sprite>
-    <sprite>sprites\sprite23</sprite>
-    <sprite>sprites\sEquipment</sprite>
-    <sprite>sprites\sSlotTexture</sprite>
-    <sprite>sprites\sInfoboxTexture</sprite>
-    <sprite>sprites\sprite21</sprite>
-    <sprite>sprites\sCollisionMask</sprite>
-    <sprite>sprites\sAnswerWheel</sprite>
-    <sprite>sprites\sMessagebox</sprite>
-    <sprite>sprites\sPortraits</sprite>
-    <sprite>sprites\sQuest</sprite>
-    <sprite>sprites\sBasicCollision</sprite>
-    <sprite>sprites\sAdvancedCollision</sprite>
-    <sprite>sprites\sNonsolidCollision</sprite>
-    <sprite>sprites\sGotoRoom</sprite>
-    <sprite>sprites\sprite34</sprite>
-    <sprite>sprites\sprite38</sprite>
-    <sprite>sprites\sTree1</sprite>
-    <sprite>sprites\sTree2</sprite>
-    <sprite>sprites\sTree3</sprite>
-    <sprite>sprites\sWater</sprite>
-    <sprite>sprites\sWaterMask</sprite>
-    <sprite>sprites\sprite39</sprite>
-    <sprite>sprites\sprite40</sprite>
-    <sprite>sprites\sBlood1</sprite>
-    <sprite>sprites\sBlood2</sprite>
-    <sprite>sprites\sBlood3</sprite>
-    <sprite>sprites\sBlood4</sprite>
-    <sprite>sprites\sBlood5</sprite>
-    <sprite>sprites\sSimpleWater</sprite>
-    <sprite>sprites\sCoin</sprite>
-    <sprite>sprites\sprite42</sprite>
-    <sprite>sprites\sEnemySlime</sprite>
-    <sprite>sprites\sHeart</sprite>
-    <sprite>sprites\sHealthBar</sprite>
-    <sprite>sprites\sprite52</sprite>
-    <sprite>sprites\sprite53</sprite>
-    <sprite>sprites\sHealthEffect</sprite>
-    <sprite>sprites\sEvent</sprite>
-    <sprite>sprites\sHUDBars</sprite>
-    <sprite>sprites\sQuickslot</sprite>
-    <sprite>sprites\sXP</sprite>
-    <sprite>sprites\sXpPoint</sprite>
-    <sprite>sprites\sXpRewardPoint</sprite>
-    <sprite>sprites\sExperienceBar</sprite>
-    <sprite>sprites\sJump</sprite>
-    <sprite>sprites\sBlob</sprite>
-    <sprite>sprites\sSlimePart</sprite>
-    <sprite>sprites\sHealthEffect2</sprite>
+    <sprites name="Environment">
+      <sprites name="Trees">
+        <sprite>sprites\sTree1</sprite>
+        <sprite>sprites\sTree2</sprite>
+        <sprite>sprites\sTree3</sprite>
+      </sprites>
+      <sprites name="Other obstacles">
+        <sprite>sprites\sSimpleWater</sprite>
+        <sprite>sprites\sWaterMask</sprite>
+        <sprite>sprites\sWater</sprite>
+      </sprites>
+      <sprites name="Containers">
+        <sprite>sprites\sChest</sprite>
+      </sprites>
+    </sprites>
+    <sprites name="Collisions">
+      <sprite>sprites\sBasicCollision</sprite>
+      <sprite>sprites\sNonsolidCollision</sprite>
+      <sprite>sprites\sAdvancedCollision</sprite>
+      <sprite>sprites\sGotoRoom</sprite>
+    </sprites>
+    <sprites name="Controllers, HUD and GUI">
+      <sprite>sprites\sCamera</sprite>
+      <sprite>sprites\sLoader</sprite>
+      <sprite>sprites\sController</sprite>
+      <sprite>sprites\sInventory</sprite>
+      <sprite>sprites\sPortraits</sprite>
+      <sprite>sprites\sShortWeapons</sprite>
+      <sprite>sprites\sShortHandles</sprite>
+      <sprite>sprites\sPlayer</sprite>
+      <sprite>sprites\sEquipment</sprite>
+      <sprite>sprites\sSlotTexture</sprite>
+      <sprite>sprites\sInfoboxTexture</sprite>
+      <sprite>sprites\sMessagebox</sprite>
+      <sprite>sprites\sAnswerWheel</sprite>
+      <sprite>sprites\sCollisionMask</sprite>
+      <sprite>sprites\sInventoryMapTEMP</sprite>
+      <sprite>sprites\sHUDBars</sprite>
+      <sprite>sprites\sHealthBar</sprite>
+      <sprite>sprites\sExperienceBar</sprite>
+      <sprite>sprites\sQuickslot</sprite>
+    </sprites>
+    <sprites name="Effects and items">
+      <sprite>sprites\sStackableItem1</sprite>
+      <sprite>sprites\sCoin</sprite>
+      <sprite>sprites\sHeart</sprite>
+      <sprite>sprites\sFreeSlot</sprite>
+      <sprite>sprites\sTestItem</sprite>
+      <sprite>sprites\sRarityEffect</sprite>
+      <sprite>sprites\sBlood1</sprite>
+      <sprite>sprites\sBlood2</sprite>
+      <sprite>sprites\sBlood4</sprite>
+      <sprite>sprites\sBlood3</sprite>
+      <sprite>sprites\sQuest</sprite>
+      <sprite>sprites\sHealthEffect</sprite>
+      <sprite>sprites\sEvent</sprite>
+      <sprite>sprites\sBlood5</sprite>
+      <sprite>sprites\sBlob</sprite>
+      <sprite>sprites\sHealthEffect2</sprite>
+      <sprite>sprites\sXpPoint</sprite>
+      <sprite>sprites\sXP</sprite>
+      <sprite>sprites\sXpRewardPoint</sprite>
+      <sprite>sprites\sSlimePart</sprite>
+    </sprites>
+    <sprites name="TEMP - RESOURCES">
+      <sprite>sprites\sprite10</sprite>
+      <sprite>sprites\sprite40</sprite>
+      <sprite>sprites\sprite38</sprite>
+      <sprite>sprites\sprite52</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -360,40 +368,67 @@
     <font>fonts\fntPixelTiny</font>
   </fonts>
   <objects name="objects">
-    <object>objects\oCamera</object>
-    <object>objects\oPlayer</object>
-    <object>objects\oController</object>
-    <object>objects\oInventory</object>
-    <object>objects\oEquipment</object>
-    <object>objects\oGold</object>
-    <object>objects\oTestItem2</object>
-    <object>objects\oTestItem3</object>
-    <object>objects\oBasicItem</object>
-    <object>objects\oChest</object>
-    <object>objects\parItem</object>
-    <object>objects\parSolid</object>
-    <object>objects\oPlayerCombat</object>
-    <object>objects\oPlayerCombatHelp</object>
-    <object>objects\oLoader</object>
-    <object>objects\oGotoRoom</object>
     <object>objects\oTEST</object>
-    <object>objects\oCollisionMask</object>
-    <object>objects\oItemText</object>
-    <object>objects\oMessagebox</object>
-    <object>objects\oExampleMessage</object>
-    <object>objects\oTestNPC</object>
-    <object>objects\oBasicCollision</object>
-    <object>objects\oAdvancedCollision</object>
-    <object>objects\oNonsolidCollision</object>
-    <object>objects\oTree1</object>
-    <object>objects\oTree2</object>
-    <object>objects\oTree3</object>
-    <object>objects\oWater</object>
-    <object>objects\parNPC</object>
-    <object>objects\oAnswer</object>
-    <object>objects\oLog</object>
-    <object>objects\oEnemySlime</object>
-    <object>objects\oSimpleWater</object>
+    <objects name="Actors">
+      <object>objects\oPlayer</object>
+      <objects name="Enemies">
+        <object>objects\oEnemySlime</object>
+        <object>objects\oSlimePart</object>
+      </objects>
+      <objects name="NPCs">
+        <object>objects\oTestNPC</object>
+        <object>objects\parNPC</object>
+      </objects>
+    </objects>
+    <objects name="Controllers">
+      <object>objects\oInventory</object>
+      <object>objects\oEquipment</object>
+      <object>objects\oController</object>
+      <object>objects\oLoader</object>
+      <object>objects\oLog</object>
+      <object>objects\oCamera</object>
+      <object>objects\oPlayerCombat</object>
+      <object>objects\oPlayerCombatHelp</object>
+      <object>objects\oMessagebox</object>
+      <object>objects\oCollisionMask</object>
+      <object>objects\oItemText</object>
+      <object>objects\oState</object>
+      <object>objects\oHUD</object>
+      <object>objects\oOptimatision</object>
+      <object>objects\oAnswer</object>
+    </objects>
+    <objects name="Dropable and items">
+      <object>objects\parItem</object>
+      <object>objects\oGold</object>
+      <object>objects\oTestItem2</object>
+      <object>objects\oBasicItem</object>
+      <object>objects\oTestItem3</object>
+      <object>objects\oHealthDrop</object>
+      <object>objects\oXpDrop</object>
+      <object>objects\oXpReward</object>
+    </objects>
+    <objects name="Collisions">
+      <object>objects\oBasicCollision</object>
+      <object>objects\oAdvancedCollision</object>
+      <object>objects\oNonsolidCollision</object>
+      <object>objects\oTransitionCollision</object>
+      <object>objects\parSolid</object>
+    </objects>
+    <objects name="Environment">
+      <objects name="Trees">
+        <object>objects\oTree2</object>
+        <object>objects\oTree3</object>
+        <object>objects\oTree1</object>
+        <object>objects\parTree</object>
+      </objects>
+      <objects name="Other obstacles">
+        <object>objects\oWater</object>
+        <object>objects\oSimpleWater</object>
+      </objects>
+      <objects name="Containers">
+        <object>objects\oChest</object>
+      </objects>
+    </objects>
     <objects name="Effects">
       <objects name="Gore">
         <object>objects\oGore1</object>
@@ -402,18 +437,12 @@
         <object>objects\oGore4</object>
         <object>objects\oShard</object>
       </objects>
+      <objects name="NonParticle">
+        <object>objects\oBasicEffect</object>
+        <object>objects\oBlob</object>
+        <object>objects\oAchievment</object>
+      </objects>
     </objects>
-    <object>objects\oHealthDrop</object>
-    <object>objects\oXpDrop</object>
-    <object>objects\oXpReward</object>
-    <object>objects\oAchievment</object>
-    <object>objects\oState</object>
-    <object>objects\oHUD</object>
-    <object>objects\oBlob</object>
-    <object>objects\oSlimePart</object>
-    <object>objects\parTree</object>
-    <object>objects\oOptimatision</object>
-    <object>objects\oBasicEffect</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\mapTest</room>
