@@ -3,7 +3,7 @@
   <spriteName>sEnemySlime</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-11</depth>
   <persistent>0</persistent>
   <parentName>parSolid</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -44,6 +44,7 @@ dir = choose(dir_left,dir_right,dir_up,dir_down);
 count = 0;
 health_alpha = 0;
 scale = 1;
+level = 1;
 
 scrEnemyIni(30,5,1);
 last_hp = hp;
@@ -205,6 +206,11 @@ else if (random(100) &gt; 80 &amp;&amp; mood = "attack")
    {
      mood = "slime";
    }
+else if (random(100) &gt; 80 &amp;&amp; hp &lt; max_hp)
+   {
+     mood = "heal";
+   }
+
 
 
 
@@ -275,6 +281,8 @@ z_mood = 0;
 
 if (can_damage &gt; 0) {can_damage--;} else {can_damage = -1;}
 if (last_hp &gt; hp) {last_hp--;}
+if (last_hp &lt; hp) {last_hp++;}
+
 if (last_hp &lt;= 0) {if (mood !="dying") {event_user(0);}}
 
 if (mood = "idle")
@@ -418,10 +426,15 @@ else {if (health_alpha &gt; 0) {health_alpha -= 0.05;}}
   
 if (health_alpha &gt; 0) 
    {
-   if (scale &gt; 1) {scale -= 0.02;}
-    draw_sprite_general(sHealthBar,1,0,0,40,8,x+10,y-10,1,1,0,c_white,c_white,c_white,c_white,health_alpha);
-   draw_sprite_part_ext(sHealthBar,0,0,0,((last_hp/max_hp)*40),8,x+10,y-10,1,1,c_white,health_alpha);
+   draw_set_font(fntPixelSmall);
    
+   if (scale &gt; 1) {scale -= 0.02;}
+    draw_sprite_general(sHealthBar,1,0,0,40,8,x-18,y-20,1,1,0,c_white,c_white,c_white,c_white,health_alpha);
+   draw_sprite_part_ext(sHealthBar,0,0,0,((last_hp/max_hp)*40),8,x-18,y-20,1,1,c_white,health_alpha);
+   
+   scrCenterText();
+   draw_text_colour(x,y-40,level,c_black,c_black,c_black,c_black,health_alpha);
+   scrCenterText(0);
 
       draw_text(x,y,string(hp)+string("#")+string(last_hp)+string("#")+string(max_hp)+string("#")+string(last_hp/max_hp));
   
@@ -467,6 +480,32 @@ if (mood = "slime")
  
       
    }   
+if (mood = "heal")
+   {
+   if( shader_is_compiled(shdLerp) )
+    {              
+        shader_set(shdLerp);        
+    
+
+    var s = sin( degtorad(lerp_value) );
+        lerp_value+=5;
+        if( lerp_value&gt;180 ) 
+            {            
+            lerp_value=0;
+            hp += irandom_range(3,5);
+            scrBasicEffect();
+                  mood = "idle";
+
+            }
+        // lerp to GREEN (0,1,0)
+        shader_set_uniform_f(colour_to_find, 0,1,0, s );       
+        draw_sprite(sprite_index,image_index,x, y);          
+         shader_reset();
+     }
+ 
+      
+   }   
+
 </string>
           </argument>
         </arguments>

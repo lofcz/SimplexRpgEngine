@@ -145,6 +145,10 @@
     <sound>sound\sndSword2</sound>
     <sound>sound\sndHealth</sound>
     <sound>sound\sndExp</sound>
+    <sound>sound\sndSlime2</sound>
+    <sound>sound\sndWoodHit1</sound>
+    <sound>sound\sndWoodHit2</sound>
+    <sound>sound\sndPoo</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Actors">
@@ -185,6 +189,7 @@
     <sprite>sprites\sQuest</sprite>
     <sprite>sprites\sBasicCollision</sprite>
     <sprite>sprites\sAdvancedCollision</sprite>
+    <sprite>sprites\sNonsolidCollision</sprite>
     <sprite>sprites\sGotoRoom</sprite>
     <sprite>sprites\sprite34</sprite>
     <sprite>sprites\sprite38</sprite>
@@ -214,10 +219,12 @@
     <sprite>sprites\sQuickslot</sprite>
     <sprite>sprites\sXP</sprite>
     <sprite>sprites\sXpPoint</sprite>
+    <sprite>sprites\sXpRewardPoint</sprite>
     <sprite>sprites\sExperienceBar</sprite>
     <sprite>sprites\sJump</sprite>
     <sprite>sprites\sBlob</sprite>
     <sprite>sprites\sSlimePart</sprite>
+    <sprite>sprites\sHealthEffect2</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -258,11 +265,18 @@
         <script>scripts\draw_text_colored.gml</script>
         <script>scripts\scrCenterText.gml</script>
         <script>scripts\mouse_in.gml</script>
+        <script>scripts\scrColorflag.gml</script>
+        <script>scripts\scrEndColorflag.gml</script>
+        <script>scripts\scrBasicEffect.gml</script>
         <script>scripts\set_sprite.gml</script>
       </scripts>
       <scripts name="Shaders">
         <script>scripts\scrShaderPrepareColor.gml</script>
         <script>scripts\scrShaderDrawColor.gml</script>
+      </scripts>
+      <scripts name="Particle effects">
+        <script>scripts\effectSprint.gml</script>
+        <script>scripts\effectExperience.gml</script>
       </scripts>
     </scripts>
     <scripts name="Components">
@@ -324,6 +338,7 @@
       </scripts>
       <scripts name="Collisions">
         <script>scripts\scrAdvancedCollisionIni.gml</script>
+        <script>scripts\scrNonsolidCollisionIni.gml</script>
       </scripts>
       <scripts name="Combat">
         <script>scripts\combatGetCriticalHit.gml</script>
@@ -369,6 +384,7 @@
     <object>objects\oTestNPC</object>
     <object>objects\oBasicCollision</object>
     <object>objects\oAdvancedCollision</object>
+    <object>objects\oNonsolidCollision</object>
     <object>objects\oTree1</object>
     <object>objects\oTree2</object>
     <object>objects\oTree3</object>
@@ -389,22 +405,27 @@
     </objects>
     <object>objects\oHealthDrop</object>
     <object>objects\oXpDrop</object>
+    <object>objects\oXpReward</object>
     <object>objects\oAchievment</object>
     <object>objects\oState</object>
     <object>objects\oHUD</object>
     <object>objects\oBlob</object>
     <object>objects\oSlimePart</object>
+    <object>objects\parTree</object>
+    <object>objects\oOptimatision</object>
+    <object>objects\oBasicEffect</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\mapTest</room>
     <room>rooms\mapHouse1</room>
     <room>rooms\mapLoading</room>
   </rooms>
-  <constants number="129">
+  <constants number="130">
     <constant name="quest_finish">2</constant>
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
-    <constant name="celkem_vlastnosti">54</constant>
+    <constant name="celkem_vlastnosti">55</constant>
+    <constant name="vlastnost_stamina_cost">54</constant>
     <constant name="vlastnost_tick_stamina_add">53</constant>
     <constant name="vlastnost_tick_stamina">52</constant>
     <constant name="vlastnost_level">51</constant>

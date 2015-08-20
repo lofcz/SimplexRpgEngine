@@ -1,0 +1,5 @@
+///scrEndColorflag()
+
+
+
+return "[/c]";

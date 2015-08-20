@@ -109,7 +109,7 @@ move_bounce_all(1);
 scrGoreMed(oPlayer.x,oPlayer.y,2);
 instance_destroy();
 scrLog("3",c_black,-1,0,0,oPlayer.x,oPlayer.y-48,fntPixelHuge);
-
+audio_play_sound(sndPoo,0,0);
 </string>
           </argument>
         </arguments>

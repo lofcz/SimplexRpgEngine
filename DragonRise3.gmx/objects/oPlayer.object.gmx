@@ -29,6 +29,8 @@
 instance_create(x,y,oPlayerCombat);
 instance_create(x,y,oState);
 instance_create(x,y,oHUD);
+instance_create(x,y,oOptimatision);
+Sname = part_system_create();
 
 //surface = surface_create(room_width,room_height);
 //surface_set_target(surface);
@@ -94,12 +96,35 @@ last_xp = 0;
 vlastnost[vlastnost_kriticka_sance] = 50;
 vlastnost[vlastnost_kriticka_nasobic] = 2;
 
-vlastnost[vlastnost_tick_stamina] = 80;
+vlastnost[vlastnost_tick_stamina] = 50;
 vlastnost[vlastnost_tick_stamina_add] = 1;
 
 stamina_tick = vlastnost[vlastnost_tick_stamina]; 
 
 sprinting = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>part_system_destroy(Sname);
 </string>
           </argument>
         </arguments>
@@ -256,12 +281,12 @@ draw_text(x,y-48,"Zlato: "+string(gold));
 stamina_dif = abs(last_stamina - vlastnost[vlastnost_stamina]);
 if (stamina_dif &lt;= 5) {stamina_bar = 0.1;}
 health_dif = abs(last_hp - vlastnost[vlastnost_zivot]);
-if (health_dif &lt;= 5) {healtha_bar = 0.1;}
-   else {stamina_bar = 1;} 
+if (health_dif &lt;= 5) {health_bar = 0.1;}
+   else {health_bar = 1;} 
 
       
-if (last_hp &lt; vlastnost[vlastnost_zivot]) {last_hp += health_dif;}
-if (last_hp &gt; vlastnost[vlastnost_zivot]) {last_hp -= health_dif;}
+if (last_hp &lt; vlastnost[vlastnost_zivot]) {last_hp += health_bar;}
+if (last_hp &gt; vlastnost[vlastnost_zivot]) {last_hp -= health_bar;}
 
 if (last_stit &lt; vlastnost[vlastnost_stit]) {last_stit++;}
 if (last_stit &gt; vlastnost[vlastnost_stit]) {last_stit--;}

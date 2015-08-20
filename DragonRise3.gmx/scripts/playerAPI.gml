@@ -160,7 +160,7 @@ math_set_epsilon(0.0000001);
 /// apiPlayerSprint()
   if (keyboard_check(vk_shift))       
            {
-            if (vlastnost[vlastnost_stamina] > 0) {vlastnost[vlastnost_stamina] -= 0.1; speed += 1; sprinting = 1;}
+            if (vlastnost[vlastnost_stamina] > 0) {vlastnost[vlastnost_stamina] -= 0.1; speed += 1; sprinting = 1; effectSprint();}
              else {sprinting = 0;} 
            }
            else {sprinting = 0;}

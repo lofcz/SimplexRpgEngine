@@ -76,7 +76,10 @@ image_speed  = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_text(oPlayer.x,oPlayer.y+60,oPlayer.vlastnost[vlastnost_vykresli_sprit]);
+            <string>x = oPlayer.x;
+y = oPlayer.y;
+
+draw_text(oPlayer.x,oPlayer.y+60,oPlayer.vlastnost[vlastnost_vykresli_sprit]);
 draw_text(oPlayer.x,oPlayer.y+80,oInventory.h_c);
 
 if (instance_number(oPlayer) &gt; 0)
@@ -95,7 +98,7 @@ yy = oPlayer.y;
 
 if (keyboard_check_pressed(vk_space))
    {
-    if (!attack)
+    if (!attack &amp;&amp; oPlayer.last_stamina &gt;= oPlayer.vlastnost[vlastnost_stamina_cost])
        {
         audio_play_sound(sndSword2,0,0);
         attack = 1;
@@ -105,6 +108,7 @@ if (keyboard_check_pressed(vk_space))
         untick = 1;
         k = 0;                                 //show_message("grrr!");
         can_damage = -1;
+        oPlayer.vlastnost[vlastnost_stamina] -= oPlayer.vlastnost[vlastnost_stamina_cost];
        }
    }
 

@@ -301,7 +301,12 @@ for(a = 0; a < celkem_vlastnosti; a++)
                            t_text += "#Život: "+string(equiped_vlastnost[idd,a]);
                            break;                                                                   
                          }
- 
+                     case(vlastnost_stamina_cost):
+                         {
+                           t_text += "#Stamina za úder: -"+string(equiped_vlastnost[idd,a]);
+                           break;                                                                   
+                         }
+
                     
                     }                    
           }      
