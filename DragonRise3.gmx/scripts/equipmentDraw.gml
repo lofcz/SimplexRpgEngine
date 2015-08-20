@@ -1,7 +1,7 @@
 #define equipmentDraw
 /// equipmentDraw()
 
-xx = x+544;
+xx = x+288;
 yy = y;
 
 if (instance_number(oPlayer) > 0)
@@ -304,6 +304,11 @@ for(a = 0; a < celkem_vlastnosti; a++)
                      case(vlastnost_stamina_cost):
                          {
                            t_text += "#Stamina za úder: -"+string(equiped_vlastnost[idd,a]);
+                           break;                                                                   
+                         }
+                     case(vlastnost_max_mana):
+                         {
+                           t_text += "#Mana: "+string(equiped_vlastnost[idd,a]);
                            break;                                                                   
                          }
 

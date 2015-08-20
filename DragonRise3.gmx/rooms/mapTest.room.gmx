@@ -18,8 +18,8 @@ global.shaders_enabled = 1;</code>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
   <makerSettings>
     <isSet>-1</isSet>
-    <w>1452</w>
-    <h>876</h>
+    <w>1438</w>
+    <h>858</h>
     <showGrid>0</showGrid>
     <showObjects>-1</showObjects>
     <showTiles>-1</showTiles>
@@ -29,8 +29,8 @@ global.shaders_enabled = 1;</code>
     <deleteUnderlyingObj>0</deleteUnderlyingObj>
     <deleteUnderlyingTiles>-1</deleteUnderlyingTiles>
     <page>0</page>
-    <xoffset>-55</xoffset>
-    <yoffset>254</yoffset>
+    <xoffset>117</xoffset>
+    <yoffset>13</yoffset>
   </makerSettings>
   <backgrounds>
     <background visible="-1" foreground="0" name="background2" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -153,6 +153,10 @@ global.shaders_enabled = 1;</code>
     <instance objName="oXpReward" x="160" y="192" name="inst_7F9C90AF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oXpReward" x="592" y="144" name="inst_17F4F839" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oXpReward" x="1184" y="224" name="inst_5C7D4062" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oNonsolidCollision" x="912" y="256" name="inst_33026146" locked="0" code="scrNonsolidCollisionIni(x,y-32,&quot;mapTest_kytka1&quot;,1);&#xA;&#xA;text[0] = &quot;Nějaká &quot;+scrColorflag(c_white)+&quot;bílá&quot;+scrEndColorflag()+&quot; kytka.&quot;&#xA;text[1] = &quot;Některé listy se dají využít.&quot;&#xA;text[2] = &quot;Použitelné jsem už otrhal.&quot;;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
+    <instance objName="oNonsolidCollision" x="656" y="144" name="inst_EE55A616" locked="0" code="scrNonsolidCollisionIni(x,y-32,&quot;mapTest_kytka1&quot;,1);&#xA;&#xA;text[0] = &quot;Nějaká &quot;+scrColorflag(c_white)+&quot;bílá&quot;+scrEndColorflag()+&quot; kytka.&quot;&#xA;text[1] = &quot;Některé listy se dají využít.&quot;&#xA;text[2] = &quot;Použitelné jsem už otrhal.&quot;;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
+    <instance objName="oNonsolidCollision" x="208" y="208" name="inst_29F07929" locked="0" code="scrNonsolidCollisionIni(x,y-32,&quot;mapTest_kytka2&quot;,1);&#xA;&#xA;text[0] = &quot;To vypadá na Kalokvět.&quot;&#xA;text[1] = &quot;Některé listy se dají využít.&quot;&#xA;text[2] = &quot;Použitelné jsem už otrhal.&quot;;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
+    <instance objName="oNonsolidCollision" x="1200" y="528" name="inst_E9D71FA5" locked="0" code="scrNonsolidCollisionIni(x,y-32,&quot;mapTest_kytka1&quot;,1);&#xA;&#xA;text[0] = &quot;Obyčejná, &quot;+scrColorflag(c_lime)+&quot;zelená&quot;+scrEndColorflag()+&quot; kytka.&quot;&#xA;text[1] = &quot;Některé listy by se možná daly využít.&quot;&#xA;text[2] = &quot;Použitelné jsem už otrhal.&quot;;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="background14" x="1600" y="1712" w="32" h="32" xo="32" yo="0" id="10006696" name="inst_AC26E277" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

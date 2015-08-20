@@ -29,7 +29,7 @@ if (mouse_x > x_x1 && mouse_x < x_x2 && mouse_y > y_y1 && mouse_y < y_y2)
                              {
                               equiped_vlastnost[equip_slot,a] = slot_vlastnosti[h_c,a];
                               oPlayer.vlastnost[a] += slot_vlastnosti[h_c,a];
-
+                                                                                           //if (a = vlastnost_max_mana) {show_message(oPlayer.vlastnost[a]);}
                              }
                          
                          for (a = 0; a<inv_atributes_total; a++)

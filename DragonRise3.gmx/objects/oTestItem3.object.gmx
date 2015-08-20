@@ -58,7 +58,7 @@ else                             {vlastnost[vlastnost_poskozeni] = 8; points += 
 if      (points &lt; 2)  {itm_info_color = rarity_junk;}
 else if (points &lt; 4)  {itm_info_color = rarity_normal;}
 else if (points &lt; 6)  {itm_info_color = rarity_fine;}
-else                  {itm_info_color = rarity_rare;}
+else                  {itm_info_color = rarity_rare; vlastnost[vlastnost_max_mana] = irandom_range(5,10);}
 
 vlastnost[vlastnost_stamina_cost] = choose(4,5);
 
@@ -95,7 +95,7 @@ itemRarity();
 {
                                                             //show_message(Id: +string(itm_id));
 inventoryPickUp(); 
- 
+
 scrLog("+ Dřevěný meč",c_white,-1,1);
 audio_play_sound(sndWeaponPickup,0,0);
 }

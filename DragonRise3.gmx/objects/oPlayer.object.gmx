@@ -75,8 +75,8 @@ for(a = 0; a &lt; celkem_vlastnosti; a++)
 {
  vlastnost[a] = 0;
 }
-vlastnost[vlastnost_max_zivot] = 20;
-vlastnost[vlastnost_zivot] = 20;
+vlastnost[vlastnost_max_zivot] = 40;
+vlastnost[vlastnost_zivot] = 40;
 vlastnost[vlastnost_max_stit] = 10;
 vlastnost[vlastnost_stit] = 10;
 vlastnost[vlastnost_max_stamina] = 15;

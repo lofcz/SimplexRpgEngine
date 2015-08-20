@@ -206,7 +206,7 @@ else if (random(100) &gt; 80 &amp;&amp; mood = "attack")
    {
      mood = "slime";
    }
-else if (random(100) &gt; 80 &amp;&amp; hp &lt; max_hp)
+else if (random(100) &gt; 90 &amp;&amp; hp &lt; max_hp)
    {
      mood = "heal";
    }
@@ -243,12 +243,37 @@ if (drop)
 //scrEnemyLoot(oGold,1,30,1,80,1);
 scrEnemyLoot(oHealthDrop,1,5,1,40,5);
 scrEnemyLoot(oXpDrop,10,12,1,70,5);
+scrEnemyLoot(oGold,1,4,1,30,4);
 
 mood = "dying";
 drop = 0;
 scrGoreExplode();
 sprite_index = noone;
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>x = xprevious;
+y = yprevious;
 </string>
           </argument>
         </arguments>
@@ -433,7 +458,7 @@ if (health_alpha &gt; 0)
    draw_sprite_part_ext(sHealthBar,0,0,0,((last_hp/max_hp)*40),8,x-18,y-20,1,1,c_white,health_alpha);
    
    scrCenterText();
-   draw_text_colour(x,y-40,level,c_black,c_black,c_black,c_black,health_alpha);
+   draw_text_colour(x,y-30,level,c_black,c_black,c_black,c_black,health_alpha);
    scrCenterText(0);
 
       draw_text(x,y,string(hp)+string("#")+string(last_hp)+string("#")+string(max_hp)+string("#")+string(last_hp/max_hp));

@@ -349,6 +349,11 @@ for(a = 0; a < celkem_vlastnosti; a++)
                            t_text += "#Stamina za úder: -"+string(slot_vlastnosti[f,a]);
                            break;                                                                   
                          }
+                    case(vlastnost_max_mana):
+                         {
+                           t_text += "#Mana: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
 
                     
                     }                    

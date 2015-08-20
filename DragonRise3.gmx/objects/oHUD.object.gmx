@@ -30,6 +30,8 @@ alpha[0] = 0;
 alpha[1] = 0;
 alpha[2] = 0;
 alpha[3] = 0;
+die = 0;
+die_alpha = 0;
 </string>
           </argument>
         </arguments>
@@ -158,7 +160,17 @@ oPlayer.vlastnost[vlastnost_stit] = min(max(0,oPlayer.vlastnost[vlastnost_stit])
      
      scrCenterText(0);
 
-     
+    if (oPlayer.last_hp &lt;= 0) { die = 1; oPlayer.can_move2 = 0;} 
+    
+    if (die)
+       {
+        die_alpha += 0.05;
+        draw_set_color(c_black);
+        draw_set_alpha(die_alpha);
+        draw_rectangle(view_xview,view_yview,view_xview+800,view_yview+600,0);
+        
+        if (die_alpha &gt;= 1) {game_restart();}
+       }
    }
    
 </string>

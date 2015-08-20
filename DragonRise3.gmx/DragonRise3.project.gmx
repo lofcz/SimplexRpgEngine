@@ -206,11 +206,11 @@
       <sprite>sprites\sQuickslot</sprite>
     </sprites>
     <sprites name="Effects and items">
+      <sprite>sprites\sTestItem</sprite>
       <sprite>sprites\sStackableItem1</sprite>
       <sprite>sprites\sCoin</sprite>
       <sprite>sprites\sHeart</sprite>
       <sprite>sprites\sFreeSlot</sprite>
-      <sprite>sprites\sTestItem</sprite>
       <sprite>sprites\sRarityEffect</sprite>
       <sprite>sprites\sBlood1</sprite>
       <sprite>sprites\sBlood2</sprite>
@@ -292,6 +292,7 @@
         <script>scripts\inventoryDraw.gml</script>
         <script>scripts\inventoryCreate.gml</script>
         <script>scripts\inventoryPickUp.gml</script>
+        <script>scripts\inventoryPickUp_new.gml</script>
         <script>scripts\inventoryDrop.gml</script>
         <script>scripts\inventoryAction.gml</script>
         <script>scripts\inventoryContains.gml</script>
@@ -401,6 +402,7 @@
       <object>objects\parItem</object>
       <object>objects\oGold</object>
       <object>objects\oTestItem2</object>
+      <object>objects\oKalokvet</object>
       <object>objects\oBasicItem</object>
       <object>objects\oTestItem3</object>
       <object>objects\oHealthDrop</object>
@@ -449,7 +451,8 @@
     <room>rooms\mapHouse1</room>
     <room>rooms\mapLoading</room>
   </rooms>
-  <constants number="130">
+  <constants number="131">
+    <constant name="c_flower">make_colour_rgb(206,174,255)</constant>
     <constant name="quest_finish">2</constant>
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
