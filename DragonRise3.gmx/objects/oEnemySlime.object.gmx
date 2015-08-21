@@ -59,6 +59,35 @@ lerp_value = 0;
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="parSolid">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>x = xprevious;
+y = yprevious;
+
+scrEnemyGetPosition();
+
+if (mood = "jump") {randomize(); bonus_damage = 10; repeat(5) {instance_create(x-random(10)+random(10),y+random(10)-random(10),oBlob);}}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="oPlayerCombat">
       <action>
         <libid>1</libid>
@@ -96,35 +125,6 @@ scrGoreFull(x,y,3,c_aqua);
 audio_play_sound(sndSlime1,0,0);
 other.can_damage = -2;
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="parSolid">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>x = xprevious;
-y = yprevious;
-
-scrEnemyGetPosition();
-
-if (mood = "jump") {randomize(); bonus_damage = 10; repeat(5) {instance_create(x-random(10)+random(10),y+random(10)-random(10),oBlob);}}
-
 </string>
           </argument>
         </arguments>

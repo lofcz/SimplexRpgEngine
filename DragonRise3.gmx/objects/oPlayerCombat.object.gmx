@@ -122,11 +122,11 @@ if (attack = 1)
    {
    k ++;
    
-   if (oPlayer.last_dir != "a")
+   //if (oPlayer.last_dir != "a")
    {
     if (mode = 1)
        {
-        if (temp_rot &lt; 75) {temp_rot += 150;} else {mode = 0; }
+        if (temp_rot &lt; 75) {temp_rot += 100;} else {mode = 0; }
        }
     if (mode = 0)
        {
@@ -138,7 +138,7 @@ if (attack = 1)
        }
 
    }
-   
+/*   
    if (oPlayer.last_dir = "a")
    {
     if (mode = 1)
@@ -150,7 +150,7 @@ if (attack = 1)
         if (temp_rot &lt; 0) {temp_rot += 5+k; k++;} else {mode = -1; temp_rot = 0;}
        }
    }
-
+*/
    }   
 
 if (oPlayer.last_dir = "d") 
@@ -158,9 +158,9 @@ if (oPlayer.last_dir = "d")
    rot = 0;   depth = -11; xx += 6; yy += 8;
 
    }
-if (oPlayer.last_dir = "w") {rot = 90;  depth = -9;  yy -= 6; xx += 10;}
+if (oPlayer.last_dir = "w") {rot = 90;  depth = -9;  yy -= 6; xx += 8;}
 if (oPlayer.last_dir = "s") {rot = -90; depth = -11; yy+= 12; xx += 10;}
-if (oPlayer.last_dir = "a") {rot = 180; depth = -11; xx -= 6; yy += 8;}
+if (oPlayer.last_dir = "a") {rot = 180; depth = -11; xx -= 5; yy += 16}
 
 
 draw_sprite_ext(sprite,image,xx+xxx,yy+yyy,scale,scale,rot+temp_rot+move_rot+dir_rot,color,alpha);

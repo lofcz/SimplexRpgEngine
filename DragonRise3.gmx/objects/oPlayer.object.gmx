@@ -40,6 +40,7 @@ Sname = part_system_create();
 blur = 0;
 load = 1;
 dir = ""; 
+h1 = 0;
 rychlost = 3.5; 
 can_move = 1;
 can_move2 = 1;
@@ -48,6 +49,7 @@ last_dir = "s";
 cyber_r = 0;
 attack_interval = 40;
 m1 = 0;
+m2 = 0;
 
 equ_draw_head         = 1;
 equ_draw_left_plate   = 1;

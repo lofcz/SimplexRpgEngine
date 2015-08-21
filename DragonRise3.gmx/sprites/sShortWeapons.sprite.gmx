@@ -7,10 +7,10 @@
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
   <bboxmode>2</bboxmode>
-  <bbox_left>5</bbox_left>
-  <bbox_right>42</bbox_right>
+  <bbox_left>1</bbox_left>
+  <bbox_right>47</bbox_right>
   <bbox_top>1</bbox_top>
-  <bbox_bottom>31</bbox_bottom>
+  <bbox_bottom>45</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
@@ -18,7 +18,7 @@
   </TextureGroups>
   <For3D>0</For3D>
   <width>48</width>
-  <height>32</height>
+  <height>48</height>
   <frames>
     <frame index="0">images\sShortWeapons_0.png</frame>
   </frames>

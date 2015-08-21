@@ -12,4 +12,3 @@ repeat(number)
                ef.sprite_index = sprite;
                ef.image_speed = random_range(0.3,0.5);
               }
-

@@ -44,6 +44,7 @@ if (can_move = 1 && can_move2 = 1)
         
     if (keyboard_check(ord("A"))) 
         {
+        if (dir != "a") {oPlayerCombat.xxx = 0; oPlayerCombat.yyy = 0; oPlayerCombat.move_rot = 0;} 
         a1 = 0
         dir = "a";        
         last_dir = dir;
@@ -52,6 +53,21 @@ if (can_move = 1 && can_move2 = 1)
         speed = rychlost;
         apiPlayerSprint();
 
+       
+       oPlayerCombat.dir_rot = +25;
+        
+        if (m2 = 0)
+           {
+            if (oPlayerCombat.xxx < 1) { oPlayerCombat.xxx += 0.5  oPlayerCombat.move_rot -= 12;} else {m2 = 1;}
+           }
+      
+            if (m2 = 1)
+           {
+            if (oPlayerCombat.xxx > -1) { oPlayerCombat.xxx -= 0.5 oPlayerCombat.move_rot += 10;} else {m2 = 0; oPlayerCombat.move_rot = 0;}
+           }
+
+      
+        
         }  
         
     if (keyboard_check(ord("D")))
