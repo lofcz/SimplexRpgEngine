@@ -58,7 +58,7 @@ if (can_move = 1 && can_move2 = 1)
         
         if (m2 = 0)
            {
-            if (oPlayerCombat.xxx < 1) { oPlayerCombat.xxx += 0.5  oPlayerCombat.move_rot -= 12;} else {m2 = 1;}
+            if (oPlayerCombat.xxx < 1) { oPlayerCombat.xxx += 0.5  oPlayerCombat.move_rot -= 15;} else {m2 = 1;}
            }
       
             if (m2 = 1)

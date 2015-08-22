@@ -52,6 +52,7 @@ last_hp = hp;
 colour_to_find = shader_get_uniform(shdLerp, "f_Colour1");
 lerp_value = 0;
 
+name = "Modrý slimák "+string("("+string(level)+")");
 
 
 </string>
@@ -458,7 +459,7 @@ if (health_alpha &gt; 0)
    draw_sprite_part_ext(sHealthBar,0,0,0,((last_hp/max_hp)*40),8,x-18,y-20,1,1,c_white,health_alpha);
    
    scrCenterText();
-   draw_text_colour(x,y-30,level,c_black,c_black,c_black,c_black,health_alpha);
+   draw_text_colour(x,y-30,name,c_black,c_black,c_black,c_black,health_alpha);
    scrCenterText(0);
 
       draw_text(x,y,string(hp)+string("#")+string(last_hp)+string("#")+string(max_hp)+string("#")+string(last_hp/max_hp));
