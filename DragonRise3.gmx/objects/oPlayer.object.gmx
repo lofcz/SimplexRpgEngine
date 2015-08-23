@@ -273,7 +273,7 @@ draw_self();
 
 
 draw_text(x,y-32,"Poškození: "+string(vlastnost[vlastnost_poskozeni]));
-draw_text(x,y-48,"Zlato: "+string(gold));
+draw_text(x,y-48,"Zlato: "+string(last_dir));
 
 //draw_text(x,y+64,vlastnost[vlastnost_vykresli_sprit]);
 //if (speed &gt; 0) {if (blur &lt; 32) {blur++}} else {if (blur &gt; 0) {blur--;}}

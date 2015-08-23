@@ -122,7 +122,7 @@ if (attack = 1)
    {
    k ++;
    
-   //if (oPlayer.last_dir != "a")
+   if (oPlayer.last_dir = "d")
    {
     if (mode = 1)
        {
@@ -136,21 +136,25 @@ if (attack = 1)
        {
         if (temp_rot &lt; 0) {temp_rot += 75+k;} else {mode = -2; temp_rot = 0;can_damage = -2;}
        }
-
-   }
-/*   
-   if (oPlayer.last_dir = "a")
+    }
+    
+ if (oPlayer.last_dir = "a")
    {
     if (mode = 1)
        {
-        if (temp_rot &gt; -50) {temp_rot -= 7;} else {mode = 0;}
+        if (temp_rot &gt;-75 ) {temp_rot -= 100;} else {mode = 0; }
        }
     if (mode = 0)
        {
-        if (temp_rot &lt; 0) {temp_rot += 5+k; k++;} else {mode = -1; temp_rot = 0;}
+        if (temp_rot &lt; 0) {temp_rot += 75+k;} else {mode = -1; temp_rot = +40; }
+       }
+    if (mode = -1)
+       {
+        if (temp_rot &gt; 0) {temp_rot -= 75+k;} else {mode = -2; temp_rot = 0;can_damage = -2;}
        }
    }
-*/
+   
+
    }   
 
 if (oPlayer.last_dir = "d") 
