@@ -40,6 +40,18 @@ if (can_move = 1 && can_move2 = 1)
         speed = rychlost;
         apiPlayerSprint();
 
+        
+          oPlayerCombat.dir_rot = -20;
+        
+        if (m1 = 0)
+           {
+            if (oPlayerCombat.xxx > -1) { oPlayerCombat.xxx -= 0.5  oPlayerCombat.move_rot -= 10;} else {m1 = 1;}
+           }
+         if (m1 = 1)
+           {
+            if (oPlayerCombat.xxx < 1) { oPlayerCombat.xxx += 0.5 oPlayerCombat.move_rot += 20;} else {m1 = 0; oPlayerCombat.move_rot = 0;}
+           }
+
         } 
         
     if (keyboard_check(ord("A"))) 
