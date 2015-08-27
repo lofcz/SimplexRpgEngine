@@ -3,35 +3,11 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-1</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="0" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>draw_console = 0;
-yy = 0;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -49,20 +25,16 @@ yy = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (keyboard_check_pressed(vk_escape))
-   {
-    draw_console = !draw_console;   
-   }
+            <string>draw_set_colour(c_black);
 
-if (draw_console)
-   {
-    if (yy &lt; 196) {yy++;}
-   }   
-   else {if (yy &gt; 0) {yy --;}}
-    yy = 0;
-  draw_set_colour(c_black);
-  draw_rectangle(0,0,800,yy,0);     
-  draw_set_colour(c_white);
+draw_rectangle(0,0,room_width,room_height,0);
+draw_set_blend_mode(bm_add);
+
+
+draw_sprite(sFlashlight,0,mouse_x,mouse_y);
+draw_set_blend_mode(bm_normal);
+
+
 </string>
           </argument>
         </arguments>
