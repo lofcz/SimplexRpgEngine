@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>sprite_index = oLoader.sBodyCanvas;
+            <string>//Unused
+sprite_index = oLoader.sBodyCanvas;
 image_speed  = 0;
 dir          = dir_down;
 </string>
