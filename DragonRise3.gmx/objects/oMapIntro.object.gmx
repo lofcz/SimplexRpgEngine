@@ -57,7 +57,7 @@ color = make_colour_rgb(r,r,r);
             <kind>1</kind>
             <string>oPlayer.can_move2 = 1;
 oHUD.draw = 1;
-
+with(parEnemy) {slowdown = 0;}
 </string>
           </argument>
         </arguments>
@@ -83,11 +83,12 @@ oHUD.draw = 1;
             <string>oHUD.draw = 0;
 oInventory.draw = 0;
 
-if (alpha &lt; 1 &amp;&amp; mode &lt; 2) {alpha += 0.02;}
+
+if (alpha &lt; 1 &amp;&amp; mode &lt; 2) {alpha += 0.02; with(parEnemy) {if (slowdown &lt; 0.95) {slowdown += 0.02;}}}
 if (mode = 0) {if (xx &lt; 250) {xx += spd; r++; color = make_colour_rgb(r,r,r); if (spd &lt; 5) {spd += 0.04;}} else {mode = 1;}}
 if (mode = 1) {if (r &lt; 255) { xx += spd; spd -= 0.1; spd = max(0,spd); r += 2; r = min(r,255); color = make_colour_rgb(r,r,r);} else {mode = 2; spd = 1;}}
 if (mode = 2) {if (xx &lt; 850) {xx += spd; if (spd &lt; 10) {spd += 0.05} if (r &gt; 0) {r -= 1; color = make_colour_rgb(r,r,r);}} else {mode = 3;}}
-if (mode = 3) {if (alpha &gt; 0) {alpha -= 0.1;} else {instance_destroy();}}
+if (mode = 3) {with(parEnemy) {if (slowdown &gt; 0) {slowdown -= 0.1;}} if (alpha &gt; 0) {alpha -= 0.1;} else {instance_destroy();}}
 
 
 draw_set_font(fntPixelHuge);

@@ -195,6 +195,34 @@ oPlayer.vlastnost[vlastnost_stit] = min(max(0,oPlayer.vlastnost[vlastnost_stit])
         
         if (die_alpha &gt;= 1) {game_restart();}
        }
+       
+       draw_set_font(fntPixelHuge);
+       draw_sprite(sSpellsUI,0,x+540,y+560);
+       if (oPlayer.spell[0] = "")
+       {
+       draw_set_alpha(0.4);
+       draw_text(x+551,y+562,"J");
+       draw_set_alpha(1);
+       }
+       else {draw_sprite(oPlayer.spell_sprite[0],0,x+540,y+560);  draw_sprite(sSpellsUI,1,x+540,y+560);}
+       draw_sprite(sSpellsUI,0,x+584,y+560);
+       if (oPlayer.spell[0] = "")
+       {
+        draw_set_alpha(0.4);
+       draw_text(x+595,y+562,"K");
+       draw_set_alpha(1);
+       }
+       else {draw_sprite(oPlayer.spell_sprite[1],0,x+584,y+560); draw_sprite(sSpellsUI,1,x+584,y+560);}
+       draw_sprite(sSpellsUI,0,x+628,y+560);
+       if (oPlayer.spell[0] = "")
+       {
+        draw_set_alpha(0.4);
+       draw_text(x+640,y+561,"L");
+       draw_set_alpha(1);
+       }
+       else {draw_sprite(oPlayer.spell_sprite[2],0,x+628,y+560);  draw_sprite(sSpellsUI,1,x+628,y+560);}
+
+
    }
    
 </string>

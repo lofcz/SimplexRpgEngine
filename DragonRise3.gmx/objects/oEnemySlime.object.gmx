@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-11</depth>
   <persistent>0</persistent>
-  <parentName>parSolid</parentName>
+  <parentName>parEnemy</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>tar_x = x+23;
+            <string>event_inherited();
+
+tar_x = x+23;
 tar_y = y;
 spd   = 1;
 mood  = "jump"
@@ -196,6 +198,8 @@ if (mood ="jump")
             <kind>1</kind>
             <string>/// Special effects
 
+if (slowdown &lt; 0.5)
+{
 randomize();
 
 // jump
@@ -211,7 +215,7 @@ else if (random(100) &gt; 90 &amp;&amp; hp &lt; max_hp)
    {
      mood = "heal";
    }
-
+}
 
 
 
@@ -313,10 +317,10 @@ if (last_hp &lt;= 0) {if (mood !="dying") {event_user(0);}}
 
 if (mood = "idle")
 {
-if (dir = dir_right) {x += spd; count += spd; if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPosition();}}
-if (dir = dir_left) {x -= spd; count += spd; if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPosition();}}
-if (dir = dir_up) {y -= spd; count += spd; if (count &gt; 32) {count = 0; event_user(2); scrEnemyGetPosition();}}
-if (dir = dir_down) {y += spd; count += spd; if (count &gt; 32) {count = 0; event_user(2); scrEnemyGetPosition();}}
+if (dir = dir_right) {x += spd*(1-slowdown); count += spd*(1-slowdown); if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPosition();}}
+if (dir = dir_left) {x -= spd*(1-slowdown); count += spd*(1-slowdown); if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPosition();}}
+if (dir = dir_up) {y -= spd*(1-slowdown); count += spd*(1-slowdown); if (count &gt; 32) {count = 0; event_user(2); scrEnemyGetPosition();}}
+if (dir = dir_down) {y += spd*(1-slowdown); count += spd*(1-slowdown); if (count &gt; 32) {count = 0; event_user(2); scrEnemyGetPosition();}}
 
 }
 if (mood = "attack")
@@ -325,10 +329,10 @@ px = oPlayer.x;
 py = oPlayer.y;
 
 
-if (dir = dir_right) {if (can_damage = -1) {x += spd; count += spd+0.2;} if (count &gt; 32) {count = 0; event_user(2); scrEnemyGetPositionAttack();}}
-if (dir = dir_left) {if (can_damage = -1) {x -= spd; count += spd+0.2;} if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPositionAttack();}}
-if (dir = dir_up) {if (can_damage = -1) {y -= spd; count += spd+0.2;} if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPositionAttack();}}
-if (dir = dir_down) {if (can_damage = -1) {y += spd; count += spd+0.2;} if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPositionAttack();}}
+if (dir = dir_right) {if (can_damage = -1) {x += spd*(1-slowdown); count += spd*(1-slowdown)+0.2;} if (count &gt; 32) {count = 0; event_user(2); scrEnemyGetPositionAttack();}}
+if (dir = dir_left) {if (can_damage = -1) {x -= spd*(1-slowdown); count += spd*(1-slowdown)+0.2;} if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPositionAttack();}}
+if (dir = dir_up) {if (can_damage = -1) {y -= spd*(1-slowdown); count += spd*(1-slowdown)+0.2;} if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPositionAttack();}}
+if (dir = dir_down) {if (can_damage = -1) {y += spd*(1-slowdown); count += spd*(1-slowdown)+0.2;} if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPositionAttack();}}
 
 }
 
