@@ -3,11 +3,11 @@
   <caption></caption>
   <width>1024</width>
   <height>768</height>
-  <vsnap>32</vsnap>
-  <hsnap>32</hsnap>
+  <vsnap>16</vsnap>
+  <hsnap>16</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>roomCreation();</code>
@@ -56,13 +56,11 @@
     <instance objName="oBasicCollision" x="0" y="288" name="inst_384D2C47" locked="0" code="" scaleX="10" scaleY="3" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="0" y="0" name="inst_80EEE872" locked="0" code="" scaleX="1" scaleY="9" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="32" y="0" name="inst_418242E9" locked="0" code="" scaleX="9" scaleY="3" colour="4294967295" rotation="0"/>
-    <instance objName="oPlayer" x="512" y="680" name="inst_95ECAFAB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oAdvancedCollision" x="48" y="96" name="inst_07CE47B5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oAdvancedCollision" x="288" y="224" name="inst_BB5A94D0" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
-    <instance objName="oAdvancedCollision" x="288" y="96" name="inst_CB4A498D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="96" y="224" name="inst_3C51EC05" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="128" y="232" name="inst_690E3E00" locked="0" code="" scaleX="1" scaleY="0.75" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="64" y="232" name="inst_704A6BA6" locked="0" code="" scaleX="1" scaleY="0.75" colour="4294967295" rotation="0"/>
+    <instance objName="oTransitionCollision" x="544" y="752" name="inst_7259882D" locked="0" code="level = mapTest;&#xA;text = &quot;Vstoupit do &quot;+&quot;[c=&quot;+string(c_yellow)+&quot;]&quot;+&quot;vavřincova kostela[/c].&quot;;&#xA;xx = x;&#xA;yy = y-64;&#xA;text_lenght = 0;&#xA;player_pos = 1;&#xA;" scaleX="4" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oRoomConroller" x="288" y="624" name="inst_C98701D8" locked="0" code="p_x = 528;&#xA;p_y = 608;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="background19" x="352" y="112" w="32" h="32" xo="128" yo="96" id="10009198" name="inst_522997FB" depth="100000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -267,6 +265,9 @@
     <tile bgName="background19" x="992" y="224" w="32" h="32" xo="96" yo="0" id="10009511" name="inst_B2B9429F" depth="100000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background19" x="992" y="256" w="32" h="32" xo="96" yo="0" id="10009512" name="inst_85D21E39" depth="100000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background14" x="736" y="96" w="32" h="32" xo="32" yo="0" id="10009526" name="inst_612D54C8" depth="100000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="background19" x="992" y="288" w="32" h="32" xo="0" yo="128" id="10009716" name="inst_E1D7512E" depth="100000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="background20" x="928" y="640" w="40" h="88" xo="32" yo="136" id="10009717" name="inst_75C421A5" depth="100000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="background20" x="48" y="624" w="40" h="88" xo="32" yo="136" id="10009718" name="inst_AE74C854" depth="100000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background14" x="336" y="320" w="32" h="32" xo="32" yo="0" id="10009007" name="inst_57005085" depth="10000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background14" x="336" y="352" w="32" h="32" xo="32" yo="0" id="10009008" name="inst_1F09AC79" depth="10000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background14" x="336" y="192" w="32" h="32" xo="32" yo="0" id="10009009" name="inst_229AAB05" depth="10000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -451,6 +452,7 @@
     <tile bgName="background19" x="608" y="32" w="32" h="64" xo="32" yo="0" id="10009707" name="inst_0463493B" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background19" x="640" y="32" w="32" h="64" xo="32" yo="0" id="10009708" name="inst_9530F022" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background19" x="672" y="32" w="32" h="64" xo="32" yo="0" id="10009709" name="inst_456F24B0" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="background19" x="704" y="32" w="32" h="64" xo="32" yo="0" id="10009719" name="inst_5F6BDBB4" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background19" x="320" y="256" w="32" h="32" xo="160" yo="0" id="10009086" name="inst_CD243B77" depth="100000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background19" x="320" y="224" w="32" h="32" xo="160" yo="0" id="10009087" name="inst_BDA03C10" depth="100000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background19" x="320" y="192" w="32" h="32" xo="192" yo="0" id="10009089" name="inst_6E2B6FC3" depth="100000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

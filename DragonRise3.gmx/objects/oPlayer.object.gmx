@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>-10</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -30,6 +30,7 @@ instance_create(x,y,oPlayerCombat);
 instance_create(x,y,oState);
 instance_create(x,y,oHUD);
 instance_create(x,y,oOptimatision);
+instance_create(x,y,oMinimap);
 Sname = part_system_create();
 
 //surface = surface_create(room_width,room_height);

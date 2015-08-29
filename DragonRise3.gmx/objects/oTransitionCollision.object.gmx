@@ -84,6 +84,7 @@ text_parsed = 0;
            
         if (keyboard_check_pressed(ord("E")) &amp;&amp; alpha &gt; 0.5)
            {
+           oController.player_pos = player_pos;
             room_goto(level);
            }
        }

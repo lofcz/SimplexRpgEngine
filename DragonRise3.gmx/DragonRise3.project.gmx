@@ -352,6 +352,9 @@
       <scripts name="Combat">
         <script>scripts\combatGetCriticalHit.gml</script>
       </scripts>
+      <scripts name="MapIntro">
+        <script>scripts\scrMapIntro.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -396,6 +399,8 @@
       <object>objects\oState</object>
       <object>objects\oHUD</object>
       <object>objects\oOptimatision</object>
+      <object>objects\oMapIntro</object>
+      <object>objects\oMinimap</object>
       <object>objects\oAnswer</object>
     </objects>
     <objects name="Dropable and items">
@@ -445,6 +450,7 @@
         <object>objects\oAchievment</object>
       </objects>
     </objects>
+    <object>objects\oRoomConroller</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\mapTest</room>

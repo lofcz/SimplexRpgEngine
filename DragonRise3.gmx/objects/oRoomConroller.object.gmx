@@ -5,10 +5,10 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>parSolid</parentName>
+  <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="0" enumb="0">
+    <event eventtype="7" enumb="4">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,36 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>m_alpha = 0;
-m_color = make_colour_rgb(0,100+random(100),0);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="oPlayerCombat">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (other.attack &amp;&amp; other.can_damage = -1) 
-{
-audio_play_sound(choose(sndWoodHit1,sndWoodHit2),0,0);
-other.can_damage = -2;
-}
-
+            <string>oPlayer.x = p_x;
+oPlayer.y = p_y;
 </string>
           </argument>
         </arguments>

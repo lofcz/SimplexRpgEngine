@@ -36,10 +36,36 @@ ini_close();
 
 
 //sga_Init();
-
+player_pos = 0;
 //sndCoin1 = sga_CreateFX("/Resources/SFX/coin.ogg",0);
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (room = mapTest)
+{
+ if (player_pos = 1) {oPlayer.x = 1536 oPlayer.y = 1792;}
+}
 </string>
           </argument>
         </arguments>
