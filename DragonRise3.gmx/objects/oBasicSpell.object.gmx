@@ -66,6 +66,32 @@ if (oPlayer.last_dir = "a") {direction = 180;}
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (type = "frozen_bolts")
+   {
+    audio_play_sound(sndIcicle1,0,0);
+   }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="2">
       <action>
         <libid>1</libid>
@@ -129,7 +155,10 @@ if (oPlayer.last_dir = "a") {direction = 180;}
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>logic = 1;
+            <string>/// Unbox
+
+logic = 1;
+randomize();
 
 if (type = "fireball")
    {
@@ -137,7 +166,18 @@ if (type = "fireball")
     speed = random_range(8,13);
     spd_boost = 0.03;
     spd_max = 20; 
+    audio_play_sound(sndFireball1,0,0);
    }
+if (type = "frozen_bolts")
+   {    
+    dmg = oPlayer.magic[spell_frozen_bolts_damage];
+    speed = random_range(12,14);
+    spd_boost = 0.06;
+    spd_max = 20; 
+    audio_play_sound(sndFireball1,0,0);
+    alarm[3] = random_range(1,8);
+   }
+
 
 </string>
           </argument>
@@ -164,6 +204,8 @@ if (type = "fireball")
             <string>if (logic)
 {
 if (type = "fireball" &amp;&amp; mode = 0) {effectFireball(x,y,2);}
+if (type = "icicle" &amp;&amp; mode = 0) {effectFrozenTrail(x,y,1);}
+
 if (speed &lt; spd_max) {speed += spd_boost;}
 
 }
@@ -192,7 +234,7 @@ if (mode = 1) {speed = 0;}
             <kind>1</kind>
             <string>if (type = "fireball")
    {
-   if (mode = 0) {mode = 1; alarm[2] = 40; speed = 0;}
+   if (mode = 0) {mode = 1; alarm[2] = 40; speed = 0; audio_play_sound(sndFireball1Explosion,0,0);}
    
     
    }
@@ -228,6 +270,8 @@ if (type = "fireball")
     other.force_aggresive = 1;
      scrLog(dmg,c_black,-1,0,0.2,x,y-32,fntPixelHuge); 
      effectFireballExplode(x,y,10); 
+      audio_play_sound(sndFireball1Explosion,0,0);
+
    }
    
 }

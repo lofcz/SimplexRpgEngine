@@ -115,6 +115,12 @@ sprinting = 0;
 spell[0] = "";
 spell[1] = "";
 spell[2] = "";
+spell_cd[0] = 0;
+spell_cd[1] = 0;
+spell_cd[2] = 0;
+temp_cd[0] = 1;
+temp_cd[1] = 1;
+temp_cd[2] = 1;
 spell_sprite[0] = sFreeSlot;
 spell_sprite[1] = sFreeSlot;
 spell_sprite[2] = sFreeSlot;
@@ -125,6 +131,7 @@ spell_index = -1;
 
 magic[spell_fireball_cost] = 20;
 magic[spell_fireball_damage] = 15;
+magic[spell_fireball_cooldown] = 80;
 </string>
           </argument>
         </arguments>
@@ -213,6 +220,7 @@ if (keyboard_check_pressed(ord("P")))
 if (keyboard_check_pressed(ord("J")))
    {
     if (spell[0] != "") {spell_index = 0; event_user(2);}
+    
    }
 }
 
@@ -221,6 +229,12 @@ if (vlastnost[vlastnost_zkusenosti] &gt; vlastnost[vlastnost_max_zkusenosti])
    event_user(1);
    
    }
+
+   
+  for (a = 0; a &lt; 3; a++)
+        {
+         if (spell_cd[a] &gt; 0) {spell_cd[a]--;}
+        }
 
 </string>
           </argument>
@@ -247,7 +261,7 @@ if (vlastnost[vlastnost_zkusenosti] &gt; vlastnost[vlastnost_max_zkusenosti])
             <string>/// Spells DB
 if (spell[spell_index] = "fireball")
    {
-    if (vlastnost[vlastnost_mana] &gt;= magic[spell_fireball_cost]) {vlastnost[vlastnost_mana] -= magic[spell_fireball_cost]; i = instance_create(x,y,oBasicSpell); i.type = "fireball";}
+    if (vlastnost[vlastnost_mana] &gt;= magic[spell_fireball_cost] &amp;&amp; spell_cd[spell_index] = 0) {spell_cd[spell_index] = magic[spell_fireball_cooldown]; temp_cd[spell_index] = spell_cd[spell_index]; vlastnost[vlastnost_mana] -= magic[spell_fireball_cost]; i = instance_create(x,y,oBasicSpell); i.type = "fireball";}
    }
 </string>
           </argument>

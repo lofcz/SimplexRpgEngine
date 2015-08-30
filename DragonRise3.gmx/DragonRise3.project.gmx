@@ -149,6 +149,10 @@
     <sound>sound\sndWoodHit1</sound>
     <sound>sound\sndWoodHit2</sound>
     <sound>sound\sndKnock</sound>
+    <sound>sound\sndFireball1</sound>
+    <sound>sound\sndFireball1Explosion</sound>
+    <sound>sound\sndIcicle1</sound>
+    <sound>sound\sIcicle1Impact</sound>
     <sound>sound\sndPoo</sound>
   </sounds>
   <sprites name="sprites">
@@ -190,6 +194,7 @@
     <sprites name="Controllers, HUD and GUI">
       <sprites name="Spells">
         <sprite>sprites\sSpellFireball</sprite>
+        <sprite>sprites\sSpellFrozenBolts</sprite>
       </sprites>
       <sprite>sprites\sCamera</sprite>
       <sprite>sprites\sLoader</sprite>
@@ -238,7 +243,6 @@
       <sprite>sprites\sprite10</sprite>
       <sprite>sprites\sprite40</sprite>
       <sprite>sprites\sprite38</sprite>
-      <sprite>sprites\sprite52</sprite>
     </sprites>
     <sprite>sprites\sprite60</sprite>
     <sprite>sprites\sSpellsUI</sprite>
@@ -303,6 +307,7 @@
         <script>scripts\effectFireball.gml</script>
         <script>scripts\effectSprint.gml</script>
         <script>scripts\effectExperience.gml</script>
+        <script>scripts\effectFrozenTrail.gml</script>
       </scripts>
     </scripts>
     <scripts name="Components">
@@ -480,16 +485,20 @@
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\mapTest</room>
     <room>rooms\cutscenePoustevnikovaPesina</room>
     <room>rooms\cutsceneVavrincuvKostel</room>
     <rooms name="Game world">
-      <room>rooms\mapTest</room>
       <room>rooms\mapHouse1</room>
       <room>rooms\mapLoading</room>
     </rooms>
   </rooms>
-  <constants number="134">
-    <constant name="spell_total">2</constant>
+  <constants number="138">
+    <constant name="spell_total">6</constant>
+    <constant name="spell_frozen_bolts_cooldown">5</constant>
+    <constant name="spell_frozen_bolts_damage">4</constant>
+    <constant name="spell_frozen_bolts_cost">3</constant>
+    <constant name="spell_fireball_cooldown">2</constant>
     <constant name="spell_fireball_damage">1</constant>
     <constant name="spell_fireball_cost">0</constant>
     <constant name="c_flower">make_colour_rgb(206,174,255)</constant>

@@ -51,6 +51,30 @@ index = 0;
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>alarm[1] = -1;
+if (idd &lt; array_length_1d(str)-1) {idd++; index = 0; actual_str = "";}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
@@ -311,7 +335,7 @@ if (path_id = 1)
    xx = x;
    yy = y-32;
    
-   if (string_length(actual_str) &lt;string_length(str[idd])) {index += 0.1; actual_str = string_copy(str[idd],0,index);}
+   if (string_length(actual_str) &lt;string_length(str[idd])) {index += 0.1; actual_str = string_copy(str[idd],0,index);} else {if (alarm[1] = -1) {alarm[1] = 60;}}
    
    draw_set_font(fntPixel);
 scrCenterText();
