@@ -18,8 +18,8 @@ global.shaders_enabled = 1;</code>
   <clearDisplayBuffer>-1</clearDisplayBuffer>
   <makerSettings>
     <isSet>-1</isSet>
-    <w>1456</w>
-    <h>876</h>
+    <w>1024</w>
+    <h>600</h>
     <showGrid>0</showGrid>
     <showObjects>-1</showObjects>
     <showTiles>-1</showTiles>
@@ -29,8 +29,8 @@ global.shaders_enabled = 1;</code>
     <deleteUnderlyingObj>0</deleteUnderlyingObj>
     <deleteUnderlyingTiles>-1</deleteUnderlyingTiles>
     <page>0</page>
-    <xoffset>1067</xoffset>
-    <yoffset>1444</yoffset>
+    <xoffset>674</xoffset>
+    <yoffset>1150</yoffset>
   </makerSettings>
   <backgrounds>
     <background visible="-1" foreground="0" name="background2" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -53,46 +53,10 @@ global.shaders_enabled = 1;</code>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="oInventory" x="320" y="224" name="inst_A7C80E19" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oGold" x="384" y="416" name="inst_DDD815DE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oGold" x="416" y="416" name="inst_2BAB5E9F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oGold" x="416" y="448" name="inst_21B3B6EF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oGold" x="384" y="448" name="inst_4B06E2D6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oGold" x="448" y="416" name="inst_1CFF89EA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oGold" x="448" y="448" name="inst_E6DAB5F6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oGold" x="480" y="416" name="inst_8DC334F7" locked="0" code="itm_number := 5;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oGold" x="480" y="448" name="inst_7748CDB6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTestItem2" x="256" y="320" name="inst_ADBA258C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTestItem2" x="256" y="352" name="inst_4900BB3D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTestItem2" x="256" y="384" name="inst_516BC490" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTestItem2" x="224" y="320" name="inst_7D2E1543" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTestItem2" x="224" y="352" name="inst_D93D08AC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTestItem2" x="224" y="384" name="inst_BD901B1B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTestItem2" x="224" y="288" name="inst_E64F8C63" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTestItem2" x="256" y="288" name="inst_44C16844" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTestItem3" x="576" y="288" name="inst_F4711C8F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTestItem3" x="608" y="320" name="inst_19F43967" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTestItem3" x="640" y="352" name="inst_2AB25CA2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTestItem3" x="640" y="288" name="inst_42245EF5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTestItem3" x="640" y="320" name="inst_DF110473" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTestItem3" x="608" y="288" name="inst_F12980FA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTestItem3" x="576" y="320" name="inst_84268CA9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTestItem3" x="576" y="352" name="inst_E285500C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTestItem3" x="608" y="352" name="inst_E7016BCD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oChest" x="448" y="224" name="inst_A62783A0" locked="0" code="scrLoot(5,oGold,25);&#xA;scrLoot(1,oGold,2);&#xA;scrLoot(7,oGold,4);&#xA;&#xA;                &#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oChest" x="1024" y="336" name="inst_FF577CA1" locked="0" code="fillFromTo(0,9,oGold,10,20);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oChest" x="1968" y="96" name="inst_DF585A48" locked="0" code="fillFromTo(0,9,oGold,5,20);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTestNPC" x="704" y="448" name="inst_C6F3E4DE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1728" y="0" name="inst_5D396CDB" locked="0" code="" scaleX="1" scaleY="6" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1760" y="128" name="inst_2D1C1484" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1792" y="192" name="inst_E4C37DAA" locked="0" code="" scaleX="2" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1856" y="256" name="inst_B361B3CF" locked="0" code="" scaleX="5" scaleY="2" colour="4294967295" rotation="0"/>
-    <instance objName="oTree1" x="96" y="32" name="inst_EF175985" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTree1" x="480" y="32" name="inst_4E49B1A6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTree2" x="128" y="480" name="inst_671DA307" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTree2" x="672" y="672" name="inst_5BFE1CBB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTree3" x="832" y="320" name="inst_7E88837F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTree3" x="992" y="64" name="inst_7F64B08C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTree1" x="288" y="1568" name="inst_F078636E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTree3" x="384" y="1312" name="inst_EAD859D6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTree3" x="704" y="1760" name="inst_4AACB26E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -101,7 +65,6 @@ global.shaders_enabled = 1;</code>
     <instance objName="oBasicCollision" x="64" y="1696" name="inst_9A5863DE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="256" y="1376" name="inst_31BEF099" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="448" y="1504" name="inst_AEC4C7CB" locked="0" code="" scaleX="3" scaleY="4" colour="4294967295" rotation="0"/>
-    <instance objName="oChest" x="496" y="1664" name="inst_9753DBB6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="160" y="1584" name="inst_948DA195" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="640" y="1536" name="inst_B4AA7037" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="688" y="1264" name="inst_661C40BF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -118,19 +81,12 @@ global.shaders_enabled = 1;</code>
     <instance objName="oTree2" x="1696" y="1120" name="inst_AF5DD251" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTree2" x="1216" y="1504" name="inst_5ACFC058" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTree3" x="1376" y="1120" name="inst_567EACFF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTree3" x="1216" y="352" name="inst_76C90EB7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTree1" x="1376" y="160" name="inst_690E76DF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1792" y="1888" name="inst_005F98CC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTree2" x="1824" y="1728" name="inst_94DDB7C5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1216" y="1312" name="inst_9EE7E16C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oEnemySlime" x="544" y="448" name="inst_A90E428E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oSimpleWater" x="1664" y="1584" name="inst_27E3B9E9" locked="0" code="" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1648" y="1552" name="inst_CA84E21E" locked="0" code="" scaleX="3" scaleY="3" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1456" y="1520" name="inst_7FF85EF2" locked="0" code="" scaleX="5" scaleY="5.5" colour="4294967295" rotation="0"/>
-    <instance objName="oEnemySlime" x="320" y="480" name="inst_0BE9798E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oEnemySlime" x="512" y="720" name="inst_02F4013C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oEnemySlime" x="928" y="624" name="inst_6208151F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oEnemySlime" x="880" y="128" name="inst_A4A58754" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1520" y="1392" name="inst_D8D56555" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1504" y="1424" name="inst_CD2B9F65" locked="0" code="" scaleX="2" scaleY="3" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1568" y="1488" name="inst_5E6C324B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -138,26 +94,9 @@ global.shaders_enabled = 1;</code>
     <instance objName="oBasicCollision" x="1456" y="1696" name="inst_AAF268C9" locked="0" code="" scaleX="1.5" scaleY="1.5" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1568" y="1696" name="inst_0EF6E800" locked="0" code="" scaleX="1.5" scaleY="1.5" colour="4294967295" rotation="0"/>
     <instance objName="oTransitionCollision" x="1536" y="1720" name="inst_4B7F94F1" locked="0" code="level = mapHouse1;&#xA;text = &quot;Vstoupit do &quot;+&quot;[c=&quot;+string(c_yellow)+&quot;]&quot;+&quot;vavřincova kostela[/c].&quot;;&#xA;xx = x;&#xA;yy = y-64;&#xA;text_lenght = 0;&#xA;player_pos = 0;&#xA;" scaleX="2" scaleY="1.5" colour="4294967295" rotation="0"/>
-    <instance objName="oAdvancedCollision" x="560" y="528" name="inst_0476DE7E" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;pařez1&quot;,1);&#xA;&#xA;text[0] = &quot;Obyčejný pařez, nic zajímavého.&quot;&#xA;text[1] = &quot;Vida, [c=&quot;+string(c_yellow)+&quot;]něco[/c] tam přece bylo.&quot;&#xA;text[2] = &quot;Vážně tam už nic není.&quot;&#xA;text[3] = &quot;Znova tam ruku strkat nebudu, ještě mě něco kousne.&quot;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oPlayer" x="464" y="360" name="inst_DDCC31FD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oAdvancedCollision" x="264" y="472" name="inst_50A5293F" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;&#xA;text[0] = &quot;Kámen, ty bys taky šahal na všechno.&quot;&#xA;text[1] = &quot;Co s ním mám asi udělat?&quot;&#xA;text[2] = &quot;Že tě to baví.&quot;&#xA;text[3] = &quot;Tak tady budeme do zítra koukat na kámen.&quot;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oAdvancedCollision" x="864" y="288" name="inst_13CD3145" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;mapTest_sloup1&quot;,1);&#xA;&#xA;text[0] = &quot;Zbytky mramorového sloupu.&quot;&#xA;text[1] = &quot;Tohle je tady ještě po minulé civilizaci.&quot;&#xA;text[2] = &quot;Počkat, co se to tam leskne?&quot;&#xA;text[3] = &quot;Byla tam [c=&quot;+string(c_red)+&quot;]červená perla[/c].&quot;&#xA;text[4] = &quot;Už tam nic není.&quot;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oAdvancedCollision" x="1072" y="368" name="inst_4ADD47A4" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;&#xA;text[0] = &quot;Zub času odvedl svojí práci.&quot;&#xA;text[1] = &quot;Za chvíli se to rozpadne.&quot;&#xA;text[2] = &quot;Mechu se tu daří skvěle.&quot;&#xA;text[3] = &quot;Tak aspoň k něčemu ten sloup je.&quot;&#xA;text[4] = &quot;Co tu zůstane po nás?&quot;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oAdvancedCollision" x="976" y="272" name="inst_E31B7C68" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;&#xA;text[0] = &quot;Tenhle ještě stojí.&quot;&#xA;text[1] = &quot;Jednoduchá korintská hlavice.&quot;&#xA;&#xA;" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
-    <instance objName="oAdvancedCollision" x="1136" y="224" name="inst_C3F135D9" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;mapTest_kmen1&quot;,1);&#xA;&#xA;text[0] = &quot;Starý kmen dubu.&quot;&#xA;text[1] = &quot;Je už hodně ztrouchnivělý.&quot;&#xA;text[2] = &quot;Vida,[c=&quot;+string(c_yellow)+&quot;] co[/c] tam bylo.&quot;;&#xA;text[3] = &quot;Už tam nic není.&quot;;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
-    <instance objName="oAdvancedCollision" x="448" y="192" name="inst_8F7A5712" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;&#xA;text[0] = &quot;Vykotlaný kmen.&quot;&#xA;text[1] = &quot;Velkolépé sídlo mravenců.&quot;&#xA;text[2] = &quot;Mech, voda a smrad.&quot;;&#xA;text[3] = &quot;Prostě trouchnivina.&quot;;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oAdvancedCollision" x="176" y="816" name="inst_80FA9B43" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;&#xA;text[0] = &quot;Vyčnívající úlomek kamene.&quot;&#xA;text[1] = &quot;Skoro ho zakrývá mech.&quot;&#xA;&#xA;&#xA;&#xA;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oState" x="64" y="128" name="inst_6C0FDFEB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oXpDrop" x="336" y="400" name="inst_D351F87C" locked="0" code="itm_number = 30;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oNonsolidCollision" x="1232" y="176" name="inst_80D7B257" locked="0" code="scrNonsolidCollisionIni(x,y-32,&quot;mapTest_kytka1&quot;,1);&#xA;&#xA;text[0] = &quot;Obyčejná, &quot;+scrColorflag(c_lime)+&quot;zelená&quot;+scrEndColorflag()+&quot; kytka.&quot;&#xA;text[1] = &quot;Některé listy by se možná daly využít.&quot;&#xA;text[2] = &quot;Použitelné jsem už otrhal.&quot;;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
-    <instance objName="oXpReward" x="160" y="192" name="inst_7F9C90AF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oXpReward" x="592" y="144" name="inst_17F4F839" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oXpReward" x="1184" y="224" name="inst_5C7D4062" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oNonsolidCollision" x="912" y="256" name="inst_33026146" locked="0" code="scrNonsolidCollisionIni(x,y-32,&quot;mapTest_kytka1&quot;,1);&#xA;&#xA;text[0] = &quot;Nějaká &quot;+scrColorflag(c_white)+&quot;bílá&quot;+scrEndColorflag()+&quot; kytka.&quot;&#xA;text[1] = &quot;Některé listy se dají využít.&quot;&#xA;text[2] = &quot;Použitelné jsem už otrhal.&quot;;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
-    <instance objName="oNonsolidCollision" x="656" y="144" name="inst_EE55A616" locked="0" code="scrNonsolidCollisionIni(x,y-32,&quot;mapTest_kytka1&quot;,1);&#xA;&#xA;text[0] = &quot;Nějaká &quot;+scrColorflag(c_white)+&quot;bílá&quot;+scrEndColorflag()+&quot; kytka.&quot;&#xA;text[1] = &quot;Některé listy se dají využít.&quot;&#xA;text[2] = &quot;Použitelné jsem už otrhal.&quot;;" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
-    <instance objName="oNonsolidCollision" x="208" y="208" name="inst_29F07929" locked="0" code="scrNonsolidCollisionIni(x,y-32,&quot;mapTest_kytka2&quot;,1);&#xA;&#xA;text[0] = &quot;To vypadá na Kalokvět.&quot;&#xA;text[1] = &quot;Některé listy se dají využít.&quot;&#xA;text[2] = &quot;Použitelné jsem už otrhal.&quot;;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
-    <instance objName="oNonsolidCollision" x="1200" y="528" name="inst_E9D71FA5" locked="0" code="scrNonsolidCollisionIni(x,y-32,&quot;mapTest_kytka1&quot;,1);&#xA;&#xA;text[0] = &quot;Obyčejná, &quot;+scrColorflag(c_lime)+&quot;zelená&quot;+scrEndColorflag()+&quot; kytka.&quot;&#xA;text[1] = &quot;Některé listy by se možná daly využít.&quot;&#xA;text[2] = &quot;Použitelné jsem už otrhal.&quot;;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
-    <instance objName="oManaPool" x="928" y="640" name="inst_B6F5656E" locked="0" code="pass = &quot;nbusr123&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oObet" x="960" y="1440" name="inst_14D3F815" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oCutsceneDayNight" x="1008" y="1456" name="inst_C1A825BE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="background14" x="1600" y="1712" w="32" h="32" xo="32" yo="0" id="10006696" name="inst_AC26E277" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

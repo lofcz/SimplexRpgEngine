@@ -7,7 +7,7 @@
   <hsnap>16</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
-  <persistent>-1</persistent>
+  <persistent>0</persistent>
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>roomCreation();</code>
@@ -16,7 +16,7 @@
   <clearDisplayBuffer>-1</clearDisplayBuffer>
   <makerSettings>
     <isSet>-1</isSet>
-    <w>1452</w>
+    <w>1456</w>
     <h>876</h>
     <showGrid>0</showGrid>
     <showObjects>-1</showObjects>
@@ -26,9 +26,9 @@
     <showViews>0</showViews>
     <deleteUnderlyingObj>0</deleteUnderlyingObj>
     <deleteUnderlyingTiles>-1</deleteUnderlyingTiles>
-    <page>0</page>
-    <xoffset>-24</xoffset>
-    <yoffset>139</yoffset>
+    <page>1</page>
+    <xoffset>-114</xoffset>
+    <yoffset>-8</yoffset>
   </makerSettings>
   <backgrounds>
     <background visible="-1" foreground="0" name="background17" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -60,7 +60,6 @@
     <instance objName="oBasicCollision" x="128" y="232" name="inst_690E3E00" locked="0" code="" scaleX="1" scaleY="0.75" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="64" y="232" name="inst_704A6BA6" locked="0" code="" scaleX="1" scaleY="0.75" colour="4294967295" rotation="0"/>
     <instance objName="oTransitionCollision" x="544" y="752" name="inst_7259882D" locked="0" code="level = mapTest;&#xA;text = &quot;Vstoupit do &quot;+&quot;[c=&quot;+string(c_yellow)+&quot;]&quot;+&quot;vavřincova kostela[/c].&quot;;&#xA;xx = x;&#xA;yy = y-64;&#xA;text_lenght = 0;&#xA;player_pos = 1;&#xA;" scaleX="4" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oRoomConroller" x="528" y="704" name="inst_C98701D8" locked="0" code="p_x = 528;&#xA;p_y = 608;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="0" y="384" name="inst_0454DAE5" locked="0" code="" scaleX="1" scaleY="12" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="32" y="512" name="inst_12696F63" locked="0" code="" scaleX="4" scaleY="3" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="32" y="736" name="inst_5F2810D4" locked="0" code="" scaleX="14" scaleY="1" colour="4294967295" rotation="0"/>
@@ -79,6 +78,7 @@
     <instance objName="oBasicCollision" x="320" y="416" name="inst_3BA62367" locked="0" code="" scaleX="1.375" scaleY="2.5" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="676" y="416" name="inst_16280F23" locked="0" code="" scaleX="1.375" scaleY="2.5" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="508" y="212" name="inst_7E7560C2" locked="0" code="" scaleX="2.25" scaleY="1.625" colour="4294967295" rotation="0"/>
+    <instance objName="oVavrinecCutscene" x="528" y="144" name="inst_0171B9AF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="background19" x="352" y="112" w="32" h="32" xo="128" yo="96" id="10009198" name="inst_522997FB" depth="100000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

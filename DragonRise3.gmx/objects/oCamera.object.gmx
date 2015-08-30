@@ -29,9 +29,14 @@
 motion = 1;
 spd    = 4;
 koe    = 10;
-target = oPlayer;
+target = 0;
+
+if (instance_number(oPlayer) &gt; 0) {target = oPlayer;}
 alarm[0] = 1;
 view = 0;
+
+if (room = cutsceneVavrincuvKostel) {target = oVavrinecCutscene;}
+if (room = cutscenePoustevnikovaPesina) {target = oObet;}
 
 
 </string>
@@ -56,8 +61,11 @@ view = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x = oPlayer.x;
+            <string>if (instance_number(oPlayer) &gt; 0)
+{
+x = oPlayer.x;
 y = oPlayer.y;
+}
 </string>
           </argument>
         </arguments>

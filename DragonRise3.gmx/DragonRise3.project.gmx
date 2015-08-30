@@ -148,6 +148,7 @@
     <sound>sound\sndSlime2</sound>
     <sound>sound\sndWoodHit1</sound>
     <sound>sound\sndWoodHit2</sound>
+    <sound>sound\sndKnock</sound>
     <sound>sound\sndPoo</sound>
   </sounds>
   <sprites name="sprites">
@@ -156,6 +157,8 @@
         <sprite>sprites\sPlayerBasic</sprite>
         <sprite>sprites\sCombatAnimationUnfinished</sprite>
         <sprite>sprites\sprite16</sprite>
+        <sprite>sprites\sVavrinec</sprite>
+        <sprite>sprites\sObet</sprite>
         <sprite>sprites\sTestNPC</sprite>
       </sprites>
       <sprites name="Foes">
@@ -225,6 +228,7 @@
       <sprite>sprites\sBlood5</sprite>
       <sprite>sprites\sBlob</sprite>
       <sprite>sprites\sHealthEffect2</sprite>
+      <sprite>sprites\sManaEffect</sprite>
       <sprite>sprites\sXpPoint</sprite>
       <sprite>sprites\sXP</sprite>
       <sprite>sprites\sXpRewardPoint</sprite>
@@ -267,7 +271,10 @@
     <background>background\background21</background>
     <background>background\background22</background>
   </backgrounds>
-  <paths name="paths"/>
+  <paths name="paths">
+    <path>paths\pthCutsceneObet1</path>
+    <path>paths\pthCutsceneVavrinec1</path>
+  </paths>
   <scripts name="scripts">
     <scripts name="Functions">
       <scripts name="APIs">
@@ -444,6 +451,7 @@
         <object>objects\parTree</object>
       </objects>
       <objects name="Other obstacles">
+        <object>objects\oManaPool</object>
         <object>objects\oWater</object>
         <object>objects\oSimpleWater</object>
       </objects>
@@ -465,12 +473,20 @@
         <object>objects\oAchievment</object>
       </objects>
     </objects>
-    <object>objects\oManaPool</object>
+    <objects name="Cutscenes">
+      <object>objects\oCutsceneDayNight</object>
+      <object>objects\oVavrinecCutscene</object>
+      <object>objects\oObet</object>
+    </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\mapTest</room>
-    <room>rooms\mapHouse1</room>
-    <room>rooms\mapLoading</room>
+    <room>rooms\cutscenePoustevnikovaPesina</room>
+    <room>rooms\cutsceneVavrincuvKostel</room>
+    <rooms name="Game world">
+      <room>rooms\mapTest</room>
+      <room>rooms\mapHouse1</room>
+      <room>rooms\mapLoading</room>
+    </rooms>
   </rooms>
   <constants number="134">
     <constant name="spell_total">2</constant>

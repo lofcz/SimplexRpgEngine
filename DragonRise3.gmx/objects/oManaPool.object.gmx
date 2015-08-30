@@ -32,6 +32,53 @@ mode = 0;
 alpha2 = 0;
 alpha3 = 0;
 alpha4 = 0;
+mana = 200;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>alarm[1] = -1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>alarm[0] = -1;
 </string>
           </argument>
         </arguments>
@@ -118,16 +165,26 @@ if (keyboard_check_pressed(vk_enter)) {if (str = pass) {activated = 1;} mode = 0
 }
 else 
      {
-      if (alpha4 &lt; 1) {alpha4 += 0.1;}
+      if (alpha4 &lt; (mana/200)) {alpha4 += 0.05;}
+      if (alpha4 &gt; (mana/200)) {alpha4 -= 0.01;}
+      
+      if (!global.night_) {if (mana &lt; 200) {if (alarm[1] = -1) {alarm[1] = 100; mana++;}}}
+
       draw_sprite_ext(sManaPool,1,x,y,1,1,0,c_white,alpha4);
       
-      if (alpha4 &gt;= 1) 
+      if (alpha4 &gt; 0) 
          {
           if (instance_number(oPlayer) &gt; 0)
              {
-              if (distance_to_object(oPlayer) = 0)
+              if (distance_to_object(oPlayer) = 0 &amp;&amp; mana &gt; 0 &amp;&amp; oPlayer.vlastnost[vlastnost_mana] &lt; oPlayer.vlastnost[vlastnost_max_mana])
                  {
+                  if (alarm[0] &lt; 1)
+                  {
                   oPlayer.vlastnost[vlastnost_mana]++;
+                  alarm[0] = 5;
+                  scrBasicEffect(1,sManaEffect,oPlayer.x,oPlayer.y-32);
+                  mana--;
+                  }
                  }
              }
          }
