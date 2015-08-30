@@ -55,6 +55,8 @@ colour_to_find = shader_get_uniform(shdLerp, "f_Colour1");
 lerp_value = 0;
 
 name = "Modrý slimák "+string("("+string(level)+")");
+force_aggresive = 0;
+force_timer = 400;
 
 
 </string>
@@ -323,6 +325,7 @@ if (dir = dir_up) {y -= spd*(1-slowdown); count += spd*(1-slowdown); if (count &
 if (dir = dir_down) {y += spd*(1-slowdown); count += spd*(1-slowdown); if (count &gt; 32) {count = 0; event_user(2); scrEnemyGetPosition();}}
 
 }
+if (force_aggresive) {if (mood = "idle") {mood = "attack";} if (force_timer &gt; 0) {force_timer--;} else {force_aggresive = 0; force_timer = 400;}}
 if (mood = "attack")
 {
 px = oPlayer.x;

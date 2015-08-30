@@ -117,9 +117,15 @@ show_message("Minimap zoom");
 
 }
 */
+if (instance_number(oPlayer) &gt; 0)
+{ 
+if (oPlayer.can_move2)
+{
 
 if (keyboard_check_pressed(ord("M"))) {draw = !draw;}
+}
 
+}
 if (instance_number(oPlayer) &gt; 0 &amp;&amp; draw) {
 //to move into view if your view follows a player or something
 

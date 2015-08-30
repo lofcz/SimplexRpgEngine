@@ -59,6 +59,7 @@ instance_activate_object(oPlayer);
 instance_activate_object(oPlayerCombat);
 instance_activate_object(oMinimap);
 instance_activate_object(oHUD);
+instance_activate_object(oDayNight);
 
 </string>
           </argument>

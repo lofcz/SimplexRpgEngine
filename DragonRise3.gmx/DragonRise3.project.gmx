@@ -238,6 +238,9 @@
     </sprites>
     <sprite>sprites\sprite60</sprite>
     <sprite>sprites\sSpellsUI</sprite>
+    <sprite>sprites\sManaPool</sprite>
+    <sprite>sprites\sCodeShard</sprite>
+    <sprite>sprites\sManaPoolCollision</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -262,6 +265,7 @@
     <background>background\background19</background>
     <background>background\background20</background>
     <background>background\background21</background>
+    <background>background\background22</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -288,6 +292,7 @@
         <script>scripts\scrShaderDrawColor.gml</script>
       </scripts>
       <scripts name="Particle effects">
+        <script>scripts\effectFireballExplode.gml</script>
         <script>scripts\effectFireball.gml</script>
         <script>scripts\effectSprint.gml</script>
         <script>scripts\effectExperience.gml</script>
@@ -409,6 +414,7 @@
       <object>objects\oMapIntro</object>
       <object>objects\oMinimap</object>
       <object>objects\oBasicSpell</object>
+      <object>objects\oDayNight</object>
       <object>objects\oAnswer</object>
     </objects>
     <objects name="Dropable and items">
@@ -459,6 +465,7 @@
         <object>objects\oAchievment</object>
       </objects>
     </objects>
+    <object>objects\oManaPool</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\mapTest</room>
