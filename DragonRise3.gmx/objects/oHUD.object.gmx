@@ -210,7 +210,8 @@ oPlayer.vlastnost[vlastnost_stit] = min(max(0,oPlayer.vlastnost[vlastnost_stit])
             draw_set_alpha(0.4);
             if (oPlayer.spell_cd[0] &gt; 0) {draw_rectangle_cd(x+540+3,y+560+3,x+572,y+592,360-((oPlayer.spell_cd[0] / oPlayer.temp_cd[0])*360))}
             draw_set_alpha(1);           
-            draw_sprite(sSpellsUI,1,x+540,y+560); draw_set_font(fntPixelSmall);  
+            draw_sprite(sSpellsUI,1,x+540,y+560); 
+            draw_set_font(fntPixelSmall);  
             draw_text_colour(x+559,y+572,"J",c_black,c_black,c_black,c_black,1); 
             draw_text_colour(x+560,y+572,"J",c_white,c_white,c_white,c_white,1);  
             draw_set_font(fntPixelHuge);
@@ -222,7 +223,19 @@ oPlayer.vlastnost[vlastnost_stit] = min(max(0,oPlayer.vlastnost[vlastnost_stit])
        draw_text(x+595,y+562,"K");
        draw_set_alpha(1);
        }
-       else {draw_sprite(oPlayer.spell_sprite[1],0,x+584,y+560); draw_sprite(sSpellsUI,1,x+584,y+560);}
+       else 
+            {
+            draw_sprite(oPlayer.spell_sprite[1],0,x+584,y+560); 
+            draw_set_alpha(0.4);
+            if (oPlayer.spell_cd[1] &gt; 0) {draw_rectangle_cd(x+584+3,y+560+3,x+616,y+592,360-((oPlayer.spell_cd[1] / oPlayer.temp_cd[1])*360))}
+            draw_set_alpha(1);           
+            draw_sprite(sSpellsUI,1,x+584,y+560);
+            draw_set_font(fntPixelSmall);  
+            draw_text_colour(x+605,y+572,"K",c_black,c_black,c_black,c_black,1); 
+            draw_text_colour(x+606,y+572,"K",c_white,c_white,c_white,c_white,1);  
+            draw_set_font(fntPixelHuge);
+
+            }
        draw_sprite(sSpellsUI,0,x+628,y+560);
        if (oPlayer.spell[0] = "")
        {

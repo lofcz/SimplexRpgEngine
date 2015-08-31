@@ -25,7 +25,7 @@ part_type_life(particle1,20,35);
 emitter1 = part_emitter_create(Sname);
 
 part_emitter_region(Sname,emitter1,xx,xx,yy,yy,0,0);
-part_emitter_stream(Sname,emitter1,particle1,number);
+part_emitter_burst(Sname,emitter1,particle1,number);
 
 particle2 = part_type_create();
 part_type_shape(particle2,pt_shape_flare);
@@ -42,6 +42,5 @@ part_type_life(particle2,30,40);
 
 emitter1 = part_emitter_create(Sname);
 part_emitter_region(Sname,emitter1,xx,xx,yy,yy,0,0);
-part_emitter_stream(Sname,emitter1,particle2,number);
-
+part_emitter_burst(Sname,emitter1,particle2,number);
 

@@ -152,7 +152,7 @@
     <sound>sound\sndFireball1</sound>
     <sound>sound\sndFireball1Explosion</sound>
     <sound>sound\sndIcicle1</sound>
-    <sound>sound\sIcicle1Impact</sound>
+    <sound>sound\sndIcicle1Impact</sound>
     <sound>sound\sndPoo</sound>
   </sounds>
   <sprites name="sprites">
@@ -194,6 +194,7 @@
     <sprites name="Controllers, HUD and GUI">
       <sprites name="Spells">
         <sprite>sprites\sSpellFireball</sprite>
+        <sprite>sprites\sSpellFireBeam</sprite>
         <sprite>sprites\sSpellFrozenBolts</sprite>
       </sprites>
       <sprite>sprites\sCamera</sprite>
@@ -303,6 +304,7 @@
         <script>scripts\scrShaderDrawColor.gml</script>
       </scripts>
       <scripts name="Particle effects">
+        <script>scripts\effectFiretrail.gml</script>
         <script>scripts\effectFireballExplode.gml</script>
         <script>scripts\effectFireball.gml</script>
         <script>scripts\effectSprint.gml</script>
@@ -426,6 +428,7 @@
       <object>objects\oMapIntro</object>
       <object>objects\oMinimap</object>
       <object>objects\oBasicSpell</object>
+      <object>objects\oLenghdirSpell</object>
       <object>objects\oDayNight</object>
       <object>objects\oAnswer</object>
     </objects>
@@ -493,8 +496,11 @@
       <room>rooms\mapLoading</room>
     </rooms>
   </rooms>
-  <constants number="138">
-    <constant name="spell_total">6</constant>
+  <constants number="141">
+    <constant name="spell_total">9</constant>
+    <constant name="spell_fire_trail_damage">8</constant>
+    <constant name="spell_fire_trail_cost">7</constant>
+    <constant name="spell_frozen_bolts_number">6</constant>
     <constant name="spell_frozen_bolts_cooldown">5</constant>
     <constant name="spell_frozen_bolts_damage">4</constant>
     <constant name="spell_frozen_bolts_cost">3</constant>

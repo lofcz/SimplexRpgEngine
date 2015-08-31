@@ -47,6 +47,7 @@ h1 = 0;
 rychlost = 3.5; 
 can_move = 1;
 can_move2 = 1;
+can_move3 = 1;
 a1 = 0;
 last_dir = "s";
 cyber_r = 0;
@@ -111,6 +112,9 @@ vlastnost[vlastnost_tick_stamina_add] = 1;
 stamina_tick = vlastnost[vlastnost_tick_stamina]; 
 
 sprinting = 0;
+magic_repeat = 0;
+magic_timer = 1;
+magic_id = "";
 
 spell[0] = "";
 spell[1] = "";
@@ -127,11 +131,26 @@ spell_sprite[2] = sFreeSlot;
 
 spell[0] = "fireball";
 spell_sprite[0] = sSpellFireball;
+spell[1] = "frozen_bolts";
+spell_sprite[1] = sSpellFrozenBolts;
+spell[2] = "fire_trail";
+spell_sprite[2] = sSpellFireBeam;
+
 spell_index = -1;
+
 
 magic[spell_fireball_cost] = 20;
 magic[spell_fireball_damage] = 15;
 magic[spell_fireball_cooldown] = 80;
+
+magic[spell_frozen_bolts_cost] = 25;
+magic[spell_frozen_bolts_damage] = 8;
+magic[spell_frozen_bolts_cooldown] = 220;   
+magic[spell_frozen_bolts_number] = 5;
+
+magic[spell_fire_trail_damage] = 4;
+magic[spell_fire_trail_cost] = 4;
+
 </string>
           </argument>
         </arguments>
@@ -155,6 +174,39 @@ magic[spell_fireball_cooldown] = 80;
           <argument>
             <kind>1</kind>
             <string>part_system_destroy(Sname);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Timeline spells DB
+
+randomize();
+
+if (magic_repeat &gt; 0) {magic_repeat--; alarm[1] = magic_timer + random(3);} else {can_move3 = 1;}
+
+if (magic_id = "frozen_bolt")
+   {
+      i = instance_create(x,y,oBasicSpell); 
+      i.type = "frozen_bolt";
+   }
 </string>
           </argument>
         </arguments>
@@ -217,11 +269,22 @@ if (keyboard_check_pressed(ord("P")))
    instance_create(x,y,oAchievment);
    }
    
-if (keyboard_check_pressed(ord("J")))
+if (keyboard_check(ord("J")))
    {
     if (spell[0] != "") {spell_index = 0; event_user(2);}
     
    }
+if (keyboard_check(ord("K")))
+   {
+    if (spell[1] != "") {spell_index = 1; event_user(2);}
+    
+   }
+if (keyboard_check(ord("L")))
+   {
+    if (spell[2] != "") {spell_index = 2; event_user(2);}
+    
+   }
+
 }
 
 if (vlastnost[vlastnost_zkusenosti] &gt; vlastnost[vlastnost_max_zkusenosti]) 
@@ -263,6 +326,15 @@ if (spell[spell_index] = "fireball")
    {
     if (vlastnost[vlastnost_mana] &gt;= magic[spell_fireball_cost] &amp;&amp; spell_cd[spell_index] = 0) {spell_cd[spell_index] = magic[spell_fireball_cooldown]; temp_cd[spell_index] = spell_cd[spell_index]; vlastnost[vlastnost_mana] -= magic[spell_fireball_cost]; i = instance_create(x,y,oBasicSpell); i.type = "fireball";}
    }
+if (spell[spell_index] = "frozen_bolts")
+   {
+    if (vlastnost[vlastnost_mana] &gt;= magic[spell_frozen_bolts_cost] &amp;&amp; spell_cd[spell_index] = 0) {spell_cd[spell_index] = magic[spell_frozen_bolts_cooldown]; temp_cd[spell_index] = spell_cd[spell_index]; vlastnost[vlastnost_mana] -= magic[spell_frozen_bolts_cost]; magic_repeat = magic[spell_frozen_bolts_number]; i = instance_create(x,y,oBasicSpell); i.type = "frozen_bolt"; alarm[1] = random_range(5,8); magic_timer = random_range(2,4); magic_id = "frozen_bolt"; can_move3 = 0; speed = 0; image_speed = 0;}
+   }
+if (spell[spell_index] = "fire_trail")
+   {
+    if (vlastnost[vlastnost_mana] &gt;= magic[spell_fire_trail_cost] &amp;&amp; spell_cd[spell_index] = 0) {if (instance_number(oLenghdirSpell) = 0) {i = instance_create(x,y,oLenghdirSpell); i.type = "fire_trail"; can_move3 = 0; speed = 0; image_speed = 0;} else {oLenghdirSpell.alarm[0] = 20;} }
+   }
+
 </string>
           </argument>
         </arguments>

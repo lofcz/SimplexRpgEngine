@@ -86,6 +86,8 @@ clr();
 #define draw_rectangle_cd
 /// draw_rectangle_cd(x1, y1, x2, y2, value)
 
+draw_set_colour(c_red);
+
 var v, x1, y1, x2, y2, xm, ym, vd, vx, vy, vl;
 v = (argument4 / 360);
 if (v <= 0) return 0 
@@ -114,3 +116,4 @@ if (vl < 1) {
 
 draw_vertex(xm + vx * (x2 - x1) / 2, ym + vy * (y2 - y1) / 2)
 draw_primitive_end()
+draw_set_colour(c_black);
