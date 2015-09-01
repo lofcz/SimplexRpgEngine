@@ -332,7 +332,7 @@ if (spell[spell_index] = "frozen_bolts")
    }
 if (spell[spell_index] = "fire_trail")
    {
-    if (vlastnost[vlastnost_mana] &gt;= magic[spell_fire_trail_cost] &amp;&amp; spell_cd[spell_index] = 0) {if (instance_number(oLenghdirSpell) = 0) {i = instance_create(x,y,oLenghdirSpell); i.type = "fire_trail"; can_move3 = 0; speed = 0; image_speed = 0;} else {oLenghdirSpell.alarm[0] = 20;} }
+    if (vlastnost[vlastnost_mana] &gt;= magic[spell_fire_trail_cost] &amp;&amp; spell_cd[spell_index] = 0) {if (instance_number(oLenghdirSpell) = 0) {i = instance_create(x,y,oLenghdirSpell); i.type = "fire_trail"; can_move3 = 0; speed = 0; image_speed = 0; vlastnost[vlastnost_mana] -= magic[spell_fire_trail_cost];} else {if (oLenghdirSpell.alarm[1] &lt; 2) {vlastnost[vlastnost_mana] -= magic[spell_fire_trail_cost]; oLenghdirSpell.alarm[1] = 20;} }   }
    }
 
 </string>

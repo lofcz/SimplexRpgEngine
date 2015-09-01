@@ -3,7 +3,7 @@
   <spriteName>sNonsolidCollision</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-12</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -41,6 +41,7 @@ if (oPlayer.last_dir = "w") {direction = 90; dir = "w"; y-=48;}
 if (oPlayer.last_dir = "s") {direction = 270;}
 if (oPlayer.last_dir = "a") {direction = 180;}
 
+alarm[4] = 5;
 </string>
           </argument>
         </arguments>
@@ -64,6 +65,37 @@ if (oPlayer.last_dir = "a") {direction = 180;}
           <argument>
             <kind>1</kind>
             <string>part_system_destroy(Sname);
+oPlayer.can_move3 = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>alarm[4] = 30;
+
+k  = instance_create(xstart,ystart,oLenghtdirSpellhelper);
+k.xx = x;
+k.yy = y;
+k.dir = dir;
+k.spd = 4;
+
 </string>
           </argument>
         </arguments>
@@ -214,10 +246,14 @@ if (logic)
 
 if (dir = "w")
    {
-    x = oPlayer.x;
+    x = oPlayer.x;         
+    //image_yscale += 0.4;
    // show_message("");
-    if (place_free(x,y-4)) {y-=4;}
-    
+    if (distance_to_object(oPlayer) &lt; 250) 
+    {
+    if (place_free(x,y-16)) {y-=16;}
+     }
+     
     for (a = 0; a &lt; point_distance(x,y,oPlayer.x,oPlayer.y) / 8; a++)
         {
          effectFiretrail(x,y+a*8,1);
@@ -343,7 +379,7 @@ if (type = "frozen_bolt")
           <argument>
             <kind>1</kind>
             <string>/// Don´t draw anything
-draw_self();
+//draw_self();
 </string>
           </argument>
         </arguments>

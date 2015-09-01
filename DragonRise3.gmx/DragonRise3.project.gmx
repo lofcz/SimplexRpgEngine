@@ -428,6 +428,7 @@
       <object>objects\oMapIntro</object>
       <object>objects\oMinimap</object>
       <object>objects\oBasicSpell</object>
+      <object>objects\oLenghtdirSpellhelper</object>
       <object>objects\oLenghdirSpell</object>
       <object>objects\oDayNight</object>
       <object>objects\oAnswer</object>
