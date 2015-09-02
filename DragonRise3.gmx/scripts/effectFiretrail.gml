@@ -21,6 +21,7 @@ part_type_gravity(particle1,0.2,270);
 part_type_orientation(particle1,0,0,0,0,1);
 part_type_blend(particle1,1);
 part_type_life(particle1,34,39);
+part_system_depth(Sname,-14);
 
 emitter1 = part_emitter_create(Sname);
 part_emitter_region(Sname,emitter1,xx,xx,yy,yy,0,0);

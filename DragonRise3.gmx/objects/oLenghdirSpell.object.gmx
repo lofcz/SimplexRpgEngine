@@ -34,14 +34,14 @@ mode = 0;
 dmg = 0;
 spd = 0;
 max_spd = 0;
-dir = "";
-
-if (oPlayer.last_dir = "d") {direction = 0;}
+//dir = oPlayer.last_dir;
+/*
+if (oPlayer.last_dir = "d") {direction = 0; dir = "d"; x+=32;}
 if (oPlayer.last_dir = "w") {direction = 90; dir = "w"; y-=48;}
-if (oPlayer.last_dir = "s") {direction = 270;}
-if (oPlayer.last_dir = "a") {direction = 180;}
-
-alarm[4] = 5;
+if (oPlayer.last_dir = "s") {direction = 270; dir = "s"; y+=48;}
+if (oPlayer.last_dir = "a") {direction = 180; dir = "a"; x-=32;}
+*/
+alarm[4] = 1;
 </string>
           </argument>
         </arguments>
@@ -71,6 +71,30 @@ oPlayer.can_move3 = 1;
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>instance_destroy();
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="4">
       <action>
         <libid>1</libid>
@@ -88,13 +112,13 @@ oPlayer.can_move3 = 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>alarm[4] = 30;
+            <string>alarm[4] = 5;
 
 k  = instance_create(xstart,ystart,oLenghtdirSpellhelper);
 k.xx = x;
 k.yy = y;
 k.dir = dir;
-k.spd = 4;
+k.spd = 6;
 
 </string>
           </argument>
@@ -167,7 +191,7 @@ k.spd = 4;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_destroy();
+            <string>if (alarm[5] = -1) {alarm[5] = 50; oPlayer.can_move3 = 1;}
 </string>
           </argument>
         </arguments>
@@ -195,24 +219,9 @@ k.spd = 4;
 logic = 1;
 randomize();
 
-if (type = "fireball")
+if (type = "fire_trail")
    {
-    dmg = oPlayer.magic[spell_fireball_damage];
-    speed = random_range(8,13);
-    spd_boost = 0.03;
-    spd_max = 20; 
-    audio_play_sound(sndFireball1,0,0);
-   }
-if (type = "frozen_bolt")
-   {    
-    dmg = oPlayer.magic[spell_frozen_bolts_damage];
-    speed = random_range(12,14);
-    spd_boost = 0.06;
-    spd_max = 20; 
-    audio_play_sound(sndIcicle1,0,0);
-    alarm[3] = random_range(1,8);
-    
-    direction += random(20)-random(20);
+    dmg = oPlayer.magic[spell_fire_trail_damage];
    }
 
 
@@ -244,11 +253,11 @@ if (logic)
 //if (type = "fireball" &amp;&amp; mode = 0) {effectFireball(x,y,2);}
 //if (type = "frozen_bolt" &amp;&amp; mode = 0) {effectFrozenTrail(x,y,1);}
 
+if (alarm[5] = -1)
+{
 if (dir = "w")
    {
     x = oPlayer.x;         
-    //image_yscale += 0.4;
-   // show_message("");
     if (distance_to_object(oPlayer) &lt; 250) 
     {
     if (place_free(x,y-16)) {y-=16;}
@@ -262,22 +271,53 @@ if (dir = "w")
    }
 if (dir = "s")
    {
-    x = oPlayer.x;
-    y = oPlayer.y+200;
+     x = oPlayer.x;         
+    if (distance_to_object(oPlayer) &lt; 250) 
+    {
+    if (place_free(x,y+16)) {y+=16;}
+     }
+     
+    for (a = 0; a &lt; point_distance(x,y,oPlayer.x,oPlayer.y) / 8; a++)
+        {
+         effectFiretrail(x,y-a*8,1);
+        }
+    
+
    }
 if (dir = "a")
    {
-    x = oPlayer.x-200;
-    y = oPlayer.y;
+     y = oPlayer.y;         
+    if (distance_to_object(oPlayer) &lt; 250) 
+    {
+    if (place_free(x-16,y)) {x-=16;}
+     }
+     
+    for (a = 0; a &lt; point_distance(x,y,oPlayer.x,oPlayer.y) / 8; a++)
+        {
+         effectFiretrail(x+a*8,y,1);
+        }
+    
+
    }
 if (dir = "d")
    {
-    x = oPlayer.x+200;
-    y = oPlayer.y;
+    y = oPlayer.y;         
+    if (distance_to_object(oPlayer) &lt; 250) 
+    {
+    if (place_free(x+16,y)) {x+=16;}
+     }
+     
+    for (a = 0; a &lt; point_distance(x,y,oPlayer.x,oPlayer.y) / 8; a++)
+        {
+         effectFiretrail(x-a*8,y,1);
+        }
+    
+
    }
 
 }
 if (mode = 1) {speed = 0;}
+}
 </string>
           </argument>
         </arguments>
@@ -333,29 +373,39 @@ if (type = "frozen_bolt")
             <kind>1</kind>
             <string>if (mode = 0)
 {
-if (type = "fireball")
-   {
-    mode = 1;
-    alarm[2] = 60;
-    other.hp -= dmg;
-    other.force_aggresive = 1;
-     scrLog(dmg,c_black,-1,0,0.2,x,y-32,fntPixelHuge); 
-     effectFireballExplode(x,y,10); 
-      audio_play_sound(sndFireball1Explosion,0,0);
-
-   }
-if (type = "frozen_bolt")
-   {
-    mode = 1;
-    alarm[2] = 60;
-    other.hp -= dmg;
-    other.force_aggresive = 1;
-     scrLog(dmg,c_black,-1,0,0.2,x,y-32,fntPixelHuge); 
-      audio_play_sound(sndIcicle1Impact,0,0);
-
-   }   
-   
+idd = other.id;
+event_user(0);  
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Collision with enemy
+
+if (type = "fire_trail")
+   {  
+     idd.force_aggresive = 1;  
+     idd.hp -= dmg;  
+     scrGoreMed(idd.x,idd.y,1);
+   }
 </string>
           </argument>
         </arguments>
@@ -379,7 +429,7 @@ if (type = "frozen_bolt")
           <argument>
             <kind>1</kind>
             <string>/// Don´t draw anything
-//draw_self();
+draw_self();
 </string>
           </argument>
         </arguments>
