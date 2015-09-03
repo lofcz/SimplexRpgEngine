@@ -54,6 +54,8 @@ if (dir = "a") {x-=12;}
 if (dir = "d") {x+=12;}
 
 //move_towards_point(xx,yy,12);
+
+if (instance_number(oLenghdirSpell) = 0) {instance_destroy();}
 </string>
           </argument>
         </arguments>
