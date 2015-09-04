@@ -191,7 +191,7 @@ k.spd = 6;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (alarm[5] = -1) {alarm[5] = 50; oPlayer.can_move3 = 1; oPlayer.spell_cd[index] = 50;}
+            <string>if (alarm[5] = -1) {alarm[5] = 50; oPlayer.can_move3 = 1; oPlayer.spell_cd[index] = 50; oPlayer.temp_cd[index] = oPlayer.spell_cd[index];}
 </string>
           </argument>
         </arguments>

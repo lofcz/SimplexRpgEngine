@@ -91,7 +91,7 @@ inventoryDraw();
 }
 else if (draw = 1)
      {
-     draw_self();
+     draw_sprite(sprite_index,-1,view_xview+32,view_yview+750)
      }
  
 // pro dnešek stačí, konstanty (tzn. axis-mapu) pro equipmnet máme hotové... jdu pást husy"

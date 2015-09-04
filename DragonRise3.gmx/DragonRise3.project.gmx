@@ -250,6 +250,7 @@
     <sprite>sprites\sManaPool</sprite>
     <sprite>sprites\sCodeShard</sprite>
     <sprite>sprites\sManaPoolCollision</sprite>
+    <sprite>sprites\sBestiary</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
