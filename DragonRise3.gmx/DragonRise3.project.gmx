@@ -204,6 +204,7 @@
       <sprite>sprites\sPortraits</sprite>
       <sprite>sprites\sShortWeapons</sprite>
       <sprite>sprites\sShortHandles</sprite>
+      <sprite>sprites\sWeaponCollision</sprite>
       <sprite>sprites\sPlayer</sprite>
       <sprite>sprites\sEquipment</sprite>
       <sprite>sprites\sSlotTexture</sprite>
@@ -234,9 +235,13 @@
       <sprite>sprites\sBlood5</sprite>
       <sprite>sprites\sBlob</sprite>
       <sprite>sprites\sHealthEffect2</sprite>
+      <sprite>sprites\sManaEffect2</sprite>
       <sprite>sprites\sManaEffect</sprite>
       <sprite>sprites\sXpPoint</sprite>
       <sprite>sprites\sXP</sprite>
+      <sprite>sprites\sStaminaEffect</sprite>
+      <sprite>sprites\sRingEffect</sprite>
+      <sprite>sprites\sSwordEffect</sprite>
       <sprite>sprites\sXpRewardPoint</sprite>
       <sprite>sprites\sSlimePart</sprite>
     </sprites>

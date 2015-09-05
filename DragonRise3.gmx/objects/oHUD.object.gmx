@@ -257,7 +257,7 @@ oPlayer.vlastnost[vlastnost_stit] = min(max(0,oPlayer.vlastnost[vlastnost_stit])
 
             }
 
-
+             draw_sprite(sBestiary,0,view_xview,view_yview+550);
    }
    
 </string>

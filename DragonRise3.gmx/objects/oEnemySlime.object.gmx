@@ -110,8 +110,11 @@ if (mood = "jump") {randomize(); bonus_damage = 10; repeat(5) {instance_create(x
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (other.attack &amp;&amp; other.can_damage = -1) 
+            <string>//effect_create_above(ef_ring,x,y,2,c_red);
+
+if (other.attack &amp;&amp; other.can_damage = -1) 
 {
+
 if (combatGetCriticalHit( oPlayer.vlastnost[vlastnost_kriticka_sance]))
    {
    dmg = oPlayer.vlastnost[vlastnost_poskozeni]*oPlayer.vlastnost[vlastnost_kriticka_nasobic];   
