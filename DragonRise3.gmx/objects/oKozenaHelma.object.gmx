@@ -38,7 +38,7 @@ randomize();
 itm_stackable           = 0;
 itm_sprite_number       = 5;
 itm_info_head           = "Kožená helma";
-itm_info_text           = "Ušitá z hověziny, poskytne ochranu proti větru a mrazu.";
+itm_info_text           = "Ušitá z hověziny, poskytne ochranu proti# větru a mrazu.";
 itm_options[0]          = "Zkombinovat";
 itm_options[1]          = "Nabídka 2";
 itm_sprite              = sprite_index;

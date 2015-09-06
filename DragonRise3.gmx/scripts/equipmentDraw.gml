@@ -254,8 +254,10 @@ if (draw_equ_infobox)
    if (mouse_check_button_released(mb_right)) {draw_equ_infobox = 0;}
    
    if (draw_equ_infobox_id = 0) {draw_equ_infobox_xx = xx+equ_axis_right_hand_x; draw_equ_infobox_yy = yy+equ_axis_right_hand_y;}
-   
-   equipmentDrawInfobox(draw_equ_infobox_xx,draw_equ_infobox_yy,draw_equ_infobox_id);  
+   if (draw_equ_infobox_id = 1) {draw_equ_infobox_xx = xx+equ_axis_head_x; draw_equ_infobox_yy = yy+equ_axis_head_y;}
+  
+
+  
    }
 
 #define equipmentDrawInfobox
@@ -273,11 +275,11 @@ yoffset = 16;
 xoffset = 16;
 
 
-height += string_height(equiped_stats[idd,inv_item_info_head]) + string_height(equiped_stats[idd,inv_item_info_text]);
+height += string_height(oInventory.equiped_stats[idd,inv_item_info_head]) + string_height(oInventory.equiped_stats[idd,inv_item_info_text]);
 
  for (a = 0; a < celkem_vlastnosti; a++)
                              {
-                            if (equiped_vlastnost[idd,a] != 0) {height += 12}
+                            if (oInventory.equiped_vlastnost[idd,a] != 0) {height += 8}    // 12
                              }
  
 
@@ -287,7 +289,7 @@ draw_rectangle(xx-width+xoffset,yy+yoffset,xx+xoffset,yy+height+yoffset,1);
 
 draw_set_font(fntText);
 scrCenterText();
-draw_text_colour(xx - (width / 2),yy + yoffset+12,equiped_stats[idd,inv_item_info_head],equiped_stats[idd,inv_item_info_color],equiped_stats[idd,inv_item_info_color],equiped_stats[idd,inv_item_info_color],equiped_stats[idd,inv_item_info_color],1);
+draw_text_colour(xx - (width / 2),yy + yoffset+12,oInventory.equiped_stats[idd,inv_item_info_head],oInventory.equiped_stats[idd,inv_item_info_color],oInventory.equiped_stats[idd,inv_item_info_color],oInventory.equiped_stats[idd,inv_item_info_color],oInventory.equiped_stats[idd,inv_item_info_color],1);
 scrCenterText(0);
 equipmentDrawAbilities(idd,width,yoffset,xx,yy,xoffset);
 
@@ -305,7 +307,7 @@ yy       = argument4;
 xoffset  = argument5;
 
 
-t_text += equiped_stats[idd,inv_item_info_text];
+t_text += oInventory.equiped_stats[idd,inv_item_info_text];
 
 for(a = 0; a < celkem_vlastnosti; a++)
       {
@@ -313,28 +315,28 @@ for(a = 0; a < celkem_vlastnosti; a++)
 
       
       
-       if (equiped_vlastnost[idd,a] > 0)
+       if (oInventory.equiped_vlastnost[idd,a] > 0)
           {
            switch(a)
                     {
                      case(vlastnost_poskozeni):
                          {
-                           t_text += "#Poškození: "+string(equiped_vlastnost[idd,a]);
+                           t_text += "#Poškození: "+string(oInventory.equiped_vlastnost[idd,a]);
                            break;                                                                   
                          }
                      case(vlastnost_max_zivot):
                          {
-                           t_text += "#Život: "+string(equiped_vlastnost[idd,a]);
+                           t_text += "#Život: "+string(oInventory.equiped_vlastnost[idd,a]);
                            break;                                                                   
                          }
                      case(vlastnost_stamina_cost):
                          {
-                           t_text += "#Stamina za úder: -"+string(equiped_vlastnost[idd,a]);
+                           t_text += "#Stamina za úder: -"+string(oInventory.equiped_vlastnost[idd,a]);
                            break;                                                                   
                          }
                      case(vlastnost_max_mana):
                          {
-                           t_text += "#Mana: "+string(equiped_vlastnost[idd,a]);
+                           t_text += "#Mana: "+string(oInventory.equiped_vlastnost[idd,a]);
                            break;                                                                   
                          }
 

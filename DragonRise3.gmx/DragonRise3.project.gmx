@@ -419,6 +419,7 @@
     </objects>
     <objects name="Controllers">
       <object>objects\oInventory</object>
+      <object>objects\oInventoryDepthHelper</object>
       <object>objects\oEquipment</object>
       <object>objects\oController</object>
       <object>objects\oLoader</object>
@@ -497,6 +498,7 @@
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\mapMainMenu</room>
     <room>rooms\mapTest</room>
     <room>rooms\cutscenePoustevnikovaPesina</room>
     <room>rooms\cutsceneVavrincuvKostel</room>

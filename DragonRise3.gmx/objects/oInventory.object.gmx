@@ -35,6 +35,7 @@ effect_scale     = 1;
 close_text       = "Zavřít";
 drop_text        = "Zahoď";
 star_text        = "Označit";
+instance_create(x,y,oInventoryDepthHelper);
 inventoryCreate(slots);
 
 
@@ -90,6 +91,8 @@ if (draw_inventory = 1)
 {
 inventoryDraw();
 }
+
+
 if (draw = 1)
      {
      if (effect_scale &lt; 1.2 &amp;&amp; draw_inventory = 1) {effect_scale += 0.02;}

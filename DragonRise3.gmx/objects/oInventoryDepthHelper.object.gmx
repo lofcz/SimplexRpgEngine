@@ -3,12 +3,12 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
-  <persistent>-1</persistent>
+  <depth>-100</depth>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="0" enumb="0">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,43 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>alarm[0] = 2;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="2" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>alarm[0] = 5;
-
-instance_activate_all();
-instance_deactivate_region(view_xview-200,view_yview-200,1200,1000,0,1);
-
-instance_activate_object(oController);
-instance_activate_object(oInventory);
-instance_activate_object(oInventoryDepthHelper);
-instance_activate_object(oPlayer);
-instance_activate_object(oPlayerCombat);
-instance_activate_object(oMinimap);
-instance_activate_object(oHUD);
-instance_activate_object(oDayNight);
-
+            <string>if (instance_number(oInventory) &gt; 0) {x = oInventory.x; y = oInventory;}
 </string>
           </argument>
         </arguments>
@@ -84,10 +48,12 @@ instance_activate_object(oDayNight);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (instance_number(oPlayer) &gt; 0)
+            <string>if (instance_number(oInventory) &gt; 0)
    {
-    x = oPlayer.x;
-    y = oPlayer.y;
+   if (oInventory.draw_equ_infobox)
+   {
+   equipmentDrawInfobox(oInventory.draw_equ_infobox_xx,oInventory.draw_equ_infobox_yy,oInventory.draw_equ_infobox_id);  
+   }
    }
 </string>
           </argument>
