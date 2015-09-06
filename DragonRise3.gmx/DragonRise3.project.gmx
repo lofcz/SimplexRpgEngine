@@ -324,6 +324,7 @@
       <scripts name="Inventory">
         <script>scripts\inventoryDraw.gml</script>
         <script>scripts\inventoryCreate.gml</script>
+        <script>scripts\inventoryExtend.gml</script>
         <script>scripts\inventoryPickUp.gml</script>
         <script>scripts\inventoryDrop.gml</script>
         <script>scripts\inventoryAction.gml</script>
@@ -498,10 +499,10 @@
     </objects>
   </objects>
   <rooms name="rooms">
-    <room>rooms\mapMainMenu</room>
     <room>rooms\mapTest</room>
     <room>rooms\cutscenePoustevnikovaPesina</room>
     <room>rooms\cutsceneVavrincuvKostel</room>
+    <room>rooms\mapMainMenu</room>
     <rooms name="Game world">
       <room>rooms\mapHouse1</room>
       <room>rooms\mapLoading</room>
