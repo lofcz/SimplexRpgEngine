@@ -31,6 +31,7 @@ draw_equipment   = 0;
 draw             = 1;
 drag_alpha       = 1;
 drag_controll    = 0;
+effect_scale     = 1;
 close_text       = "Zavřít";
 drop_text        = "Zahoď";
 star_text        = "Označit";
@@ -89,10 +90,13 @@ if (draw_inventory = 1)
 {
 inventoryDraw();
 }
-else if (draw = 1)
+if (draw = 1)
      {
-     draw_sprite(sprite_index,-1,view_xview+32,view_yview+750)
+     if (effect_scale &lt; 1.2 &amp;&amp; draw_inventory = 1) {effect_scale += 0.02;}
+     draw_sprite_ext(sprite_index,0,view_xview+48+16,view_yview+560+16,effect_scale,effect_scale,0,c_black,0.7);
+     draw_sprite(sprite_index,-1,view_xview+48+16,view_yview+560+16)
      }
+     if (effect_scale &gt; 1 &amp;&amp; draw_inventory = 0) {effect_scale -= 0.02;}
  
 // pro dnešek stačí, konstanty (tzn. axis-mapu) pro equipmnet máme hotové... jdu pást husy"
 </string>

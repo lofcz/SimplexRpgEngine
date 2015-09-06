@@ -17,7 +17,18 @@ e_slot = argument0;
       else 
            {  
            if (e_slot = 0) {oPlayerCombat.draw = 0;}
-                                                                                                                                                                                                                                             
+              
+              // NEW
+                             if (equiped_stats[equip_slot,inv_item_equip_slot] = "zbraň")
+                             {
+                             oPlayer.draw_equ[id_Mec,0] = 0;
+                             oPlayer.draw_equ[id_Mec,1] =  0;
+                             oPlayerCombat.draw = 0;
+
+                             }
+                             // /NEW
+
+                                                                                                                                                                                                                                          
             for(a = 0; a < inv_atributes_total; a++)
                   {
                    oInventory.slot[free_slot,a] = equiped_stats[e_slot,a];

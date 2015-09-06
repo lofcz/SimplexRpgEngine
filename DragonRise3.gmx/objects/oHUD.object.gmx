@@ -32,6 +32,10 @@ alpha[2] = 0;
 alpha[3] = 0;
 die = 0;
 die_alpha = 0;
+effect_scale = 1;
+draw_bestiary = 0;
+temp_inv = 0;
+temp_inv2 = 0;
 </string>
           </argument>
         </arguments>
@@ -257,7 +261,27 @@ oPlayer.vlastnost[vlastnost_stit] = min(max(0,oPlayer.vlastnost[vlastnost_stit])
 
             }
 
-             draw_sprite(sBestiary,0,view_xview,view_yview+550);
+       
+     // Bestiář
+     
+     if (keyboard_check_pressed(ord("B")))
+        {
+        draw_bestiary = ! draw_bestiary;
+        
+        if (!draw_bestiary) {oInventory.draw_inventory = temp_inv;}
+        else
+        {
+        temp_inv = oInventory.draw_inventory;
+        }
+        oInventory.draw_inventory = 0;
+        }    
+             
+     if (effect_scale &lt; 1.2 &amp;&amp; draw_bestiary = 1) {effect_scale += 0.02;}
+     draw_sprite_ext(sBestiary,0,view_xview+8+16,view_yview+560+16,effect_scale,effect_scale,0,c_black,0.7);
+     draw_sprite(sBestiary,0,view_xview+8+16,view_yview+560+16);
+     if (effect_scale &gt; 1 &amp;&amp; draw_bestiary = 0) {effect_scale -= 0.02;}
+ 
+
    }
    
 </string>

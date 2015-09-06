@@ -240,6 +240,7 @@
       <sprite>sprites\sXpPoint</sprite>
       <sprite>sprites\sXP</sprite>
       <sprite>sprites\sStaminaEffect</sprite>
+      <sprite>sprites\sHelmetEffect</sprite>
       <sprite>sprites\sRingEffect</sprite>
       <sprite>sprites\sSwordEffect</sprite>
       <sprite>sprites\sXpRewardPoint</sprite>
@@ -256,6 +257,7 @@
     <sprite>sprites\sCodeShard</sprite>
     <sprite>sprites\sManaPoolCollision</sprite>
     <sprite>sprites\sBestiary</sprite>
+    <sprite>sprites\sEquipmentIcons</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -323,7 +325,6 @@
         <script>scripts\inventoryDraw.gml</script>
         <script>scripts\inventoryCreate.gml</script>
         <script>scripts\inventoryPickUp.gml</script>
-        <script>scripts\inventoryPickUp_new.gml</script>
         <script>scripts\inventoryDrop.gml</script>
         <script>scripts\inventoryAction.gml</script>
         <script>scripts\inventoryContains.gml</script>
@@ -446,6 +447,7 @@
       <object>objects\oKalokvet</object>
       <object>objects\oBasicItem</object>
       <object>objects\oTestItem3</object>
+      <object>objects\oKozenaHelma</object>
       <object>objects\oHealthDrop</object>
       <object>objects\oXpDrop</object>
       <object>objects\oXpReward</object>
@@ -503,7 +505,9 @@
       <room>rooms\mapLoading</room>
     </rooms>
   </rooms>
-  <constants number="141">
+  <constants number="143">
+    <constant name="id_Helma">1</constant>
+    <constant name="id_Mec">0</constant>
     <constant name="spell_total">9</constant>
     <constant name="spell_fire_trail_damage">8</constant>
     <constant name="spell_fire_trail_cost">7</constant>

@@ -113,10 +113,10 @@ sprite_index = sWeaponCollision;
 
 
 
-sprite = oPlayer.vlastnost[vlastnost_vykresli_sprit];
-index  = oPlayer.vlastnost[vlastnost_vykresli_index];
+sprite = oPlayer.draw_equ[id_Mec,0];
+index  = oPlayer.draw_equ[id_Mec,1];
 
-
+      
 if (sprite != 0)
 {
 xx = oPlayer.x;
@@ -235,7 +235,7 @@ if (oPlayer.last_dir = "s")
 
 
 
-draw_self();
+//draw_self();
 
 </string>
           </argument>

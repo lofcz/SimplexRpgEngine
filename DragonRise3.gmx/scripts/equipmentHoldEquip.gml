@@ -31,7 +31,9 @@ if (mouse_x > x_x1 && mouse_x < x_x2 && mouse_y > y_y1 && mouse_y < y_y2)
                               oPlayer.vlastnost[a] += slot_vlastnosti[h_c,a];
                                                                                            //if (a = vlastnost_max_mana) {show_message(oPlayer.vlastnost[a]);}
                              }
-                         
+                             
+                          
+                             
                          for (a = 0; a<inv_atributes_total; a++)
                          {
                          equiped_stats[equip_slot,a] = temp_equip[a];
@@ -46,6 +48,17 @@ if (mouse_x > x_x1 && mouse_x < x_x2 && mouse_y > y_y1 && mouse_y < y_y2)
                    
                          if (a = inv_sprite) {slot[h_c,a] = sFreeSlot;}    
                           } 
+                          
+                             // NEW
+                             if (equiped_stats[equip_slot,inv_item_equip_slot] = "zbraň")
+                             {
+                             oPlayer.draw_equ[id_Mec,0] =  equiped_vlastnost[equip_slot,vlastnost_vykresli_sprit];
+                               oPlayer.draw_equ[id_Mec,1] =  equiped_vlastnost[equip_slot,vlastnost_vykresli_index];
+
+                             }
+                             // /NEW
+
+                          
 
                       draw_item_mouse = 0;
            

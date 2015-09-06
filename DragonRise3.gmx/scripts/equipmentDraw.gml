@@ -21,16 +21,41 @@ draw_rectangle(xx+32,yy,xx+256,yy+256,0);
 clr();
 */
 
-// Draw head slot 
+// Draw head slot --------------------------------------------------------------------------------------------------------------------------
 if (oPlayer.equ_draw_head)
 {
 draw_sprite(sSlotTexture,1,xx+equ_axis_head_x,yy+equ_axis_head_y);
+if (oInventory.equiped[1] = 1) { draw_sprite(sRarityEffect,itemRarityEffect(equiped_image[1,2]),xx+equ_axis_head_x,yy+equ_axis_head_y); }
+else {draw_sprite(sEquipmentIcons,1,xx+equ_axis_head_x,yy+equ_axis_head_y);}
+draw_sprite(equiped_image[1,0],equiped_image[1,1],xx+equ_axis_head_x,yy+equ_axis_head_y)
+
+
 if (mouse_in(xx+equ_axis_head_x,xx+equ_axis_head_x+32,yy+equ_axis_head_y,yy+equ_axis_head_y+32))
    {
    draw_hover_block(xx+equ_axis_head_x,xx+equ_axis_head_x+32,yy+equ_axis_head_y,yy+equ_axis_head_y+32);
+   
+      if (mouse_check_button_pressed(mb_left))
+      {
+       if (oInventory.equiped[1] = 1) {equipmentUnequip(1);}
+      }
+      
+    if (mouse_check_button_pressed(mb_right) && oInventory.equiped[1] = 1)
+      {
+       draw_equ_infobox = !draw_equ_infobox;
+       if (draw_equ_infobox) {draw_equ_infobox_xx = xx+equ_axis_head_x; draw_equ_infobox_yy = yy+equ_axis_head_y; draw_equ_infobox_id = 1;}
+      }
+    
+
    }
+   
+if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] = "helma" )
+   { 
+   if (oInventory.equiped[1] = 0) {draw_hover_block(xx+equ_axis_head_x,xx+equ_axis_head_x+32,yy+equ_axis_head_y,yy+equ_axis_head_y+32,c_lime,0.5);}
+   equipmentHoldEquip(1,xx+equ_axis_head_x,xx+equ_axis_head_x+32,yy+equ_axis_head_y,yy+equ_axis_head_y+32);
+   }   
+   
 }
-// Draw left plate slot 
+// Draw left plate slot  -
 if (oPlayer.equ_draw_left_plate)
 {
 draw_sprite(sSlotTexture,1,xx+equ_axis_left_plate_x,yy+equ_axis_left_plate_y);
@@ -65,6 +90,7 @@ if (oPlayer.equ_draw_right_hand)
 {
 draw_sprite(sSlotTexture,1,xx+equ_axis_right_hand_x,yy+equ_axis_right_hand_y);
 if (oInventory.equiped[0] = 1) { draw_sprite(sRarityEffect,itemRarityEffect(equiped_image[0,2]),xx+equ_axis_right_hand_x,yy+equ_axis_right_hand_y); }
+else {draw_sprite(sEquipmentIcons,0,xx+equ_axis_right_hand_x,yy+equ_axis_right_hand_y);}
 draw_sprite(equiped_image[0,0],equiped_image[0,1],xx+equ_axis_right_hand_x,yy+equ_axis_right_hand_y)
 
 if (mouse_in(xx+equ_axis_right_hand_x,xx+equ_axis_right_hand_x+32,yy+equ_axis_right_hand_y,yy+equ_axis_right_hand_y+32))

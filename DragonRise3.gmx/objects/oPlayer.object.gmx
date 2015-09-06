@@ -80,7 +80,11 @@ gold                  = 0;                                  // I am really not s
 for(a = 0; a &lt; celkem_vlastnosti; a++)
 {
  vlastnost[a] = 0;
+ draw_equ[a,0] = 0;
+  draw_equ[a,1] = 0;
+
 }
+
 for(a = 0; a &lt; spell_total; a++)
 {
  magic[spell_total] = 0;
