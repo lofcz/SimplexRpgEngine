@@ -59,7 +59,8 @@ red = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>minu += 0.5
+            <string>//minu += 0.5
+
 if sec &gt; 60
  {
   sec = 0

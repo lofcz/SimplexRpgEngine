@@ -16,15 +16,17 @@ e_slot = argument0;
          }
       else 
            {  
+                                                                                                                        //show_message(e_slot);
            if (e_slot = 0) {oPlayerCombat.draw = 0;}
               
               // NEW
-                             if (equiped_stats[equip_slot,inv_item_equip_slot] = "zbraň")
+                             if (equiped_stats[e_slot,inv_item_equip_slot] = "zbraň")
                              {
                              oPlayer.draw_equ[id_Mec,0] = 0;
                              oPlayer.draw_equ[id_Mec,1] =  0;
                              oPlayerCombat.draw = 0;
 
+                             
                              }
                              // /NEW
 
@@ -41,9 +43,9 @@ e_slot = argument0;
                for (a = 0; a < celkem_vlastnosti; a++)
                              {
                               
-                              oPlayer.vlastnost[a] -= equiped_vlastnost[equip_slot,a];
-                              slot_vlastnosti[free_slot,a] = equiped_vlastnost[equip_slot,a];
-                              equiped_vlastnost[equip_slot,a] = 0;
+                              oPlayer.vlastnost[a] -= equiped_vlastnost[e_slot,a];
+                              slot_vlastnosti[free_slot,a] = equiped_vlastnost[e_slot,a];
+                              equiped_vlastnost[e_slot,a] = 0;
                
 
 
@@ -51,7 +53,7 @@ e_slot = argument0;
 
             
             
-            for(a=0 a<10 a++)  {oInventory.slot_option[free_slot,a] = equiped_option[equip_slot,a]}
+            for(a=0 a<10 a++)  {oInventory.slot_option[free_slot,a] = equiped_option[e_slot,a]}
 
            }
      

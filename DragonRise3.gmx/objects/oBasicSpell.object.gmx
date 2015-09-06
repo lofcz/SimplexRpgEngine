@@ -278,6 +278,7 @@ if (type = "fireball")
      scrLog(dmg,c_black,-1,0,0.2,x,y-32,fntPixelHuge); 
      effectFireballExplode(x,y,10); 
       audio_play_sound(sndFireball1Explosion,0,0);
+      scrGoreMed(other.x,other.y,4);
 
    }
 if (type = "frozen_bolt")
