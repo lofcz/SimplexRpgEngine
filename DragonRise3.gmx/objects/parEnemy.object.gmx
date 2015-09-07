@@ -25,7 +25,38 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>slowdown = 0;
+            <string>/// Ini variables
+
+slowdown                      = 0;
+tar_x                         = x+23;
+tar_y                         = y;
+spd                           = 1;
+mood                          = "idle"
+can_damage                    = -1;
+drop                          = 1;
+spr[0]                        = sprite_index;
+spr[1]                        = image_index;
+zspeed                        = 0;
+z                             = 0;
+z_mood                        = 0;
+bonus_damage                  = 0;
+p                             = 0;
+in_fight                      = 0;
+image_speed                   = 0;
+dir                           = choose(dir_left,dir_right,dir_up,dir_down);
+count                         = 0;
+health_alpha                  = 0;
+scale                         = 1;              
+level                         = 1;
+hp                            = 10;
+last_hp                       = hp;
+colour_to_find                = shader_get_uniform(shdLerp, "f_Colour1");
+lerp_value                    = 0;
+force_aggresive               = 0;
+force_timer                   = 400;
+
+
+
 </string>
           </argument>
         </arguments>

@@ -25,39 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited();
+            <string>/// Initialise enemy
+event_inherited();
 
-tar_x = x+23;
-tar_y = y;
-spd   = 1;
-mood  = "jump"
-can_damage = -1;
-drop = 1;
-spr[0] = sprite_index;
-spr[1] = image_index;
-zspeed = 0;
-z = 0;
-z_mood = 0;
-bonus_damage = 0;
-p = 0;
-in_fight = 0;
+scrEnemyIni(30,5,1,choose(1,1,2),"Modrý slimák");
 
-image_speed = 0;
-dir = choose(dir_left,dir_right,dir_up,dir_down);
-count = 0;
-health_alpha = 0;
-scale = 1;
-level = 1;
-
-scrEnemyIni(30,5,1);
-last_hp = hp;
-
-colour_to_find = shader_get_uniform(shdLerp, "f_Colour1");
-lerp_value = 0;
-
-name = "Modrý slimák "+string("("+string(level)+")");
-force_aggresive = 0;
-force_timer = 400;
 
 
 </string>
@@ -158,7 +130,7 @@ other.can_damage = -2;
             <kind>1</kind>
             <string>/// Damage player
 
-with(other) {x = xprevious; y = yprevious;}
+scrEnemyCollision(other);
 
 if (can_damage = -1)
 {

@@ -2,7 +2,7 @@
 /// EnemyApi()
 /*
 
-- scrEnemyIni(health,damage,defense)
+- scrEnemyIni(health,damage,defense,level,name)
   
   Initialise enemy instance stats. Use parametrs to customize
   stats like health or damage.
@@ -21,7 +21,10 @@
   Used to drop things from enemy after death. "physics" parametr (bool)
   indicates if use physics effect. Recommended for gold. 
 
-  
+- scrEnemyCollision(with)
+
+  Returns parametred instance to previous position.
+  Input self,other,all.  
 
   
 
@@ -31,12 +34,28 @@
 
 
 #define scrEnemyIni
-/// scrEnemyIni(health,damage,defense)
+/// scrEnemyIni(health,damage,defense,levelname)
 
-hp       = argument0;
-damage   = argument1;
-defense  = argument2;
-max_hp   = hp;
+var t_hp,t_damage,t_defense,t_level,t_name;
+
+t_hp         = 10;
+t_damage     = 5;
+t_defense    = 2;
+t_level      = choose(1,1,2);
+t_name       = "Enemy";
+
+if (argument_count > 0) {t_hp       = argument[0];}
+if (argument_count > 1) {t_damage   = argument[1];}
+if (argument_count > 2) {t_defense  = argument[2];}
+if (argument_count > 3) {t_level    = argument[3];}
+if (argument_count > 4) {t_name     = argument[4];}
+
+hp       = t_hp;
+damage   = t_damage;
+defense  = t_defense;
+level    = t_level;
+max_hp   = t_hp;
+name     = t_name +string("("+string(level)+")");
 
 #define scrEnemyGetPosition
 /// scrEnemyGetPosition()
@@ -120,3 +139,17 @@ if (l >= 50)
       }
    }
 }
+#define scrEnemyCollision
+/// scrEnemyCollision(with)
+
+var object;
+
+object = self;
+
+if (argument_count > 0) {object = argument[0];}
+
+with(object)
+                 {
+                  x = xprevious;
+                  y = yprevious;
+                 }
