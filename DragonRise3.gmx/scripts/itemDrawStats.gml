@@ -2,7 +2,7 @@
  // draw_rectangle((parent).xx,(parent).yy,(parent).xx+(parent).width,(parent).yy+(parent).height,0);
  
 draw_set_font(fntText);
- 
+
  t_text = "";
 
 for(a = 0; a < celkem_vlastnosti; a++)

@@ -354,6 +354,255 @@ for(a = 0; a < celkem_vlastnosti; a++)
                            t_text += "#Mana: "+string(slot_vlastnosti[f,a]);
                            break;                                                                   
                          }
+                    case(vlastnost_sila):
+                         {
+                           t_text += "#Síla: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_obratnost):
+                         {
+                           t_text += "#Obratnost: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_kovarstvi):
+                         {
+                           t_text += "#Kovářství: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_tezarstvi):
+                         {
+                           t_text += "#Těžařství: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_odolnost):
+                         {
+                           t_text += "#Odolnost: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_vytrvalost):
+                         {
+                           t_text += "#Vytrvalost: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                     case(vlastnost_presnost):
+                         {
+                           t_text += "#Přesnost: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                     case(vlastnost_rychlost):
+                         {
+                           t_text += "#Rychlost: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_zrucnost):
+                         {
+                           t_text += "#Zručnost: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_svadeni):
+                         {
+                           t_text += "#Svádění: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_zastrasovani):
+                         {
+                           t_text += "#Zastrašování: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_dustojnost):
+                         {
+                           t_text += "#Důstojnost: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_vyrecnost):
+                         {
+                           t_text += "#Výřečnost: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_elegance):
+                         {
+                           t_text += "#Elegance: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_cest):
+                         {
+                           t_text += "#Čest: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                         
+                    case(vlastnost_kapsarstvi):
+                         {
+                           t_text += "#Kapsářství: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                     case(vlastnost_paceni_zanmku):
+                         {
+                           t_text += "#Páčení zámků: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                     case(vlastnost_vule):
+                         {
+                           t_text += "#Vůle: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_inteligence):
+                         {
+                           t_text += "#Inteligence: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_ritualy):
+                         {
+                           t_text += "#Rituály: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_tradicni_magie):
+                         {
+                           t_text += "#Tradiční magie: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_astralni_videni):
+                         {
+                           t_text += "#Astrální vidění: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_mece):
+                         {
+                           t_text += "#Meče: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_dyky):
+                         {
+                           t_text += "#Dýky: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_luky):
+                         {
+                           t_text += "#Lukostřelba: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                     case(vlastnost_kopi):
+                         {
+                           t_text += "#Kopí: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                     case(vlastnost_jednorucni):
+                         {
+                           t_text += "#Jednoruční zbraně: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_dvojrucni):
+                         {
+                           t_text += "#Dvojruční zbraně: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_stity):
+                         {
+                           t_text += "#Štíty: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_rezistence_vse):
+                         {
+                           t_text += "#Ochrana proti všem elementům: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_rezistence_zeme):
+                         {
+                           t_text += "#Ochrana proti zemi: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_rezistence_ohen):
+                         {
+                           t_text += "#Ochrana proti ohni: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_rezistence_voda):
+                         {
+                           t_text += "#Ochrana proti vodě: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_rezistence_temnota):
+                         {
+                           t_text += "#Ochrana proti temnotě: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                         
+                     case(vlastnost_rezistence_svetlo):
+                         {
+                           t_text += "#Ochrana proti světlu: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_rezistence_vitr):
+                         {
+                           t_text += "#Ochrana proti vodě: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_zivot):
+                         {
+                           t_text += "#Obnoví zdraví: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_mana):
+                         {
+                           t_text += "#Obnoví manu: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_stamina):
+                         {
+                           t_text += "#Obnoví výdrž: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                         
+                    case(vlastnost_max_stamina):
+                         {
+                           t_text += "#Výdrž: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_kriticka_sance):
+                         {
+                           t_text += "#Šance na kritický úder: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_kriticka_nasobic):
+                         {
+                           t_text += "#Násobič kritického úderu: "+string(slot_vlastnosti[f,a])+"%";
+                           break;                                                                   
+                         }
+                    case(vlastnost_stit):
+                         {
+                           t_text += "#Obnoví štít: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_max_stit):
+                         {
+                           t_text += "#Štít: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_zkusenosti):
+                         {
+                           t_text += "#Přidá zkušenosti: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_max_zkusenosti):
+                         {
+                           t_text += "#Zvýší tkušenosti potřebné k dosažení další úravně: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_level):
+                         {
+                           t_text += "#Zváší úroveň: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_tick_stamina):
+                         {
+                           t_text += "#Zvýší rychlost obnovy výdrže: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_tick_stamina_add):
+                         {
+                           t_text += "#Zváší množství obnovené výdrže: "+string(slot_vlastnosti[f,a]);
+                           break;                                                                   
+                         }
+
 
                     
                     }                    

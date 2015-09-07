@@ -28,13 +28,14 @@
             <string>/// Initialize item
 
 scrItemSetUp(0,0);
-scrItemBasic(3);
+scrItemBasic(5);
 
 //*********** Prefix **************
 image_index = 5;
 randomize();
 
 //****** Item settings ************
+
 itm_stackable           = 0;
 itm_sprite_number       = 5;
 itm_info_head           = "Kožená helma";
@@ -44,6 +45,7 @@ itm_options[1]          = "Nabídka 2";
 itm_sprite              = sprite_index;
 itm_equip_slot          = "helma";
 
+/*
 vlastnost[vlastnost_vykresli_sprit] = sShortWeapons;
 vlastnost[vlastnost_vykresli_index] = 0;
 
@@ -63,6 +65,13 @@ else                  {itm_info_color = rarity_rare; vlastnost[vlastnost_max_man
 //vlastnost[vlastnost_stamina_cost] = choose(4,5);
 
 //itm_info_text += "#Poškození: "+string(vlastnost[vlastnost_poskozeni]);
+*/
+
+for (i = 10; i &lt; 51; i++)
+    {
+     vlastnost[i] = irandom_range(3,8);
+    }
+
 //*********** Suffix *****************
 
 scrItemOptions();
