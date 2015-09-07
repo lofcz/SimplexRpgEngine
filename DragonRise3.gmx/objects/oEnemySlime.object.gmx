@@ -40,6 +40,7 @@ z = 0;
 z_mood = 0;
 bonus_damage = 0;
 p = 0;
+in_fight = 0;
 
 image_speed = 0;
 dir = choose(dir_left,dir_right,dir_up,dir_down);
@@ -322,15 +323,17 @@ if (last_hp &lt;= 0) {if (mood !="dying") {event_user(0);}}
 
 if (mood = "idle")
 {
+if (force_aggresive) {if (mood = "idle") {mood = "attack"; in_fight = 1;} if (force_timer &gt; 0) {force_timer--;} else {force_aggresive = 0; force_timer = 400;}}
+
 if (dir = dir_right) {x += spd*(1-slowdown); count += spd*(1-slowdown); if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPosition();}}
 if (dir = dir_left) {x -= spd*(1-slowdown); count += spd*(1-slowdown); if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPosition();}}
 if (dir = dir_up) {y -= spd*(1-slowdown); count += spd*(1-slowdown); if (count &gt; 32) {count = 0; event_user(2); scrEnemyGetPosition();}}
 if (dir = dir_down) {y += spd*(1-slowdown); count += spd*(1-slowdown); if (count &gt; 32) {count = 0; event_user(2); scrEnemyGetPosition();}}
 
 }
-if (force_aggresive) {if (mood = "idle") {mood = "attack";} if (force_timer &gt; 0) {force_timer--;} else {force_aggresive = 0; force_timer = 400;}}
 if (mood = "attack")
 {
+in_fight = 1;
 px = oPlayer.x;
 py = oPlayer.y;
 
@@ -447,14 +450,15 @@ if (instance_number(oPlayer) &gt; 0)
        {
         mood = "attack";
        }
-    if (distance_to_object(oPlayer) &gt; 128 &amp;&amp; mood = "attack")
+    if (distance_to_object(oPlayer) &gt; 196 &amp;&amp; mood != "idle" &amp;&amp; !force_aggresive)
        {
+        in_fight = 0;
         mood = "idle";
        }
 
    }
    
-if (mood = "attack")
+if (in_fight)
    {
     if (health_alpha &lt; 1) {health_alpha += 0.05;}
    }
