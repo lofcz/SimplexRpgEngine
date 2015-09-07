@@ -1,22 +1,25 @@
-Pøíbìh
+PÅ™Ã­bÄ›h
 -------
 
 [PROLOG]
-Hra zaèíná u Vavøincova kostela v noci, venku je bouøe, hustì prší a vítr se silnì opírá do oken. 
-Vavøinec nervóznì pøechází po pokoji a sleduje bouøi. Náhle kdosi slabì zabuší na dveøe. Vavøinec nejprve
-vyletí strachy, ale poté opatrnì otevøe a vyjde ven. Na zápraí leí v kalui krve mrtvá ena. Má bodné zranìní na
-hrudi, rána je hluboká, zpùsobená nejspíše dlouhou dıkou nebo rapírem. Nikdo z vesnice obì nezná a proto se Vavøinec
-rozhodne povolat královského písaøe. Ten je ovšem tìce nemocnı a tak pøípad svìøí svému pomocníku Seanovi. Sean
-je sirotek, kterého si královskı písaø všiml jednoho dne na ulici, kdy mu nevìdomky pomohl chytit zlodìje šperkù.
-Pøípad zavradìné eny je první, kterı má Sean øešit samostatnì. Sean pøijídí do Holohlav a ujímá se vyšetøování. 
+Hra zaÄÃ­nÃ¡ u VavÅ™incova kostela v noci, venku je bouÅ™e, hustÄ› prÅ¡Ã­ a vÃ­tr se silnÄ› opÃ­rÃ¡ do oken. 
+VavÅ™inec nervÃ³znÄ› pÅ™echÃ¡zÃ­ po pokoji a sleduje bouÅ™i. NÃ¡hle kdosi slabÄ› zabuÅ¡Ã­ na dveÅ™e. VavÅ™inec nejprve
+vyletÃ­ strachy, ale potÃ© opatrnÄ› otevÅ™e a vyjde ven. Na zÃ¡praÅ¾Ã­ leÅ¾Ã­ v kaluÅ¾i krve mrtvÃ¡ Å¾ena. MÃ¡ bodnÃ© zranÄ›nÃ­ na
+hrudi, rÃ¡na je hlubokÃ¡, zpÅ¯sobenÃ¡ nejspÃ­Å¡e dlouhou dÃ½kou nebo rapÃ­rem. Nikdo z vesnice obÄ›Å¥ neznÃ¡ a proto se VavÅ™inec
+rozhodne povolat krÃ¡lovskÃ©ho pÃ­saÅ™e. Ten je ovÅ¡em tÄ›Å¾ce nemocnÃ½ a tak pÅ™Ã­pad svÄ›Å™Ã­ svÃ©mu pomocnÃ­ku Seanovi. Sean
+je sirotek, kterÃ©ho si krÃ¡lovskÃ½ pÃ­saÅ™ vÅ¡iml jednoho dne na ulici, kdyÅ¾ mu nevÄ›domky pomohl chytit zlodÄ›je Å¡perkÅ¯.
+PÅ™Ã­pad zavraÅ¾dÄ›nÃ© Å¾eny je prvnÃ­, kterÃ½ mÃ¡ Sean Å™eÅ¡it samostatnÄ›. Sean pÅ™ijÃ­Å¾dÃ­ do Holohlav a ujÃ­mÃ¡ se vyÅ¡etÅ™ovÃ¡nÃ­. 
+
+[Kapitola prvnÃ­]
+Sean zkoumÃ¡ mrtvolu, po ohledÃ¡nÃ­ se rozhodne zajÃ­t do vesnice a vyslechnout vesniÄany. Holohlavy jsou malÃ¡ vesniÄka, tvoÅ™enÃ¡ hospodou U ZlatÃ©ho lva, radnicÃ­, BlanÄinÃ½m mÃ¡zhausem, BylynkÃ¡Å™stvÃ­ Filipa, kovÃ¡Å™stvÃ­m, nÄ›kolika domy a okolnÃ­mi poli.
 
 
 Postavy
 -------
 
-Vavøinec
-- Tøicátník, knìz, povìrèivı. 
-Vavøinec je knìzem ve svém kostele. V mládí se chtìl stát kováøem, ale kvùli špatné konstituci 
-ho otec dal do uèení [vavøincùv pøedchùdce]. Vavøinec se nauèil základy latiny, èíst a psát. 
-Je velmi konzervativní a bojí se povìr. Své stádo vede k poslušnosti vùèi bohu a pøijmutí 
-svého osudu. Kdy nechce o nìèem mluvit, zaène odøíkávat otèenáš.  
+VavÅ™inec
+- TÅ™icÃ¡tnÃ­k, knÄ›z, povÄ›rÄivÃ½. 
+VavÅ™inec je knÄ›zem ve svÃ©m kostele. V mlÃ¡dÃ­ se chtÄ›l stÃ¡t kovÃ¡Å™em, ale kvÅ¯li Å¡patnÃ© konstituci 
+ho otec dal do uÄenÃ­ [vavÅ™incÅ¯v pÅ™edchÅ¯dce]. VavÅ™inec se nauÄil zÃ¡klady latiny, ÄÃ­st a psÃ¡t. 
+Je velmi konzervativnÃ­ a bojÃ­ se povÄ›r. SvÃ© stÃ¡do vede k posluÅ¡nosti vÅ¯Äi bohu a pÅ™ijmutÃ­ 
+svÃ©ho osudu. KdyÅ¾ nechce o nÄ›Äem mluvit, zaÄne odÅ™Ã­kÃ¡vat otÄenÃ¡Å¡.  
