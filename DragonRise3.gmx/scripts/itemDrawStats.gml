@@ -1,6 +1,7 @@
 //clr(c_white,1);
  // draw_rectangle((parent).xx,(parent).yy,(parent).xx+(parent).width,(parent).yy+(parent).height,0);
  
+draw_set_font(fntText);
  
  t_text = "";
 

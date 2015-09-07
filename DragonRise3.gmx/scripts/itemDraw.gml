@@ -1,6 +1,7 @@
 /// itemDraw()
 
 draw_set_color(c_black);
+draw_set_font(fntText);
 
 if (speed > 0)
    {
