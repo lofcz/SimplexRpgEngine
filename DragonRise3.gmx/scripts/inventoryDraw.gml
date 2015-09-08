@@ -105,7 +105,7 @@ draw_rectangle(x,used_y+128,x+256+32,used_y+256,1);
   if (proceed) {hover_alpha = 1;}
 clr(c_black,hover_alpha);
 draw_sprite(sInfoboxTexture,0,x,used_y+128);
-draw_rectangle_colour(x+2,used_y+128,x+287,used_y+319-32,c_black,c_black,c_black,c_black,1);
+draw_rectangle_colour(x+2,used_y+128,x+287,used_y+322,c_black,c_black,c_black,c_black,1);
 
 if (hover = 1)
   {

@@ -42,12 +42,37 @@ leny=y2-y1
 //lengths
 sizex=width/lenx
 sizey=height/leny
-draw = 1;
+draw = 0;
 alpha = 0;
 
 zoom_x = room_width;
 zoom_y = room_height;
 zoom_level = 1;
+m_alpha = 1;
+alarm[0] = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw = 1;
 </string>
           </argument>
         </arguments>

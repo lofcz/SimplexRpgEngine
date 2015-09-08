@@ -54,9 +54,9 @@ scrEnemyIni(30,5,1,choose(1,1,2),"Modrý slimák");
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x = xprevious;
-y = yprevious;
+            <string>/// Collide
 
+scrEnemyCollision(self);
 scrEnemyGetPosition();
 
 if (mood = "jump") {randomize(); bonus_damage = 10; repeat(5) {instance_create(x-random(10)+random(10),y+random(10)-random(10),oBlob);}}
@@ -83,29 +83,9 @@ if (mood = "jump") {randomize(); bonus_damage = 10; repeat(5) {instance_create(x
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//effect_create_above(ef_ring,x,y,2,c_red);
+            <string>/// Get damage and handle it
 
-if (other.attack &amp;&amp; other.can_damage = -1) 
-{
-
-if (combatGetCriticalHit( oPlayer.vlastnost[vlastnost_kriticka_sance]))
-   {
-   dmg = oPlayer.vlastnost[vlastnost_poskozeni]*oPlayer.vlastnost[vlastnost_kriticka_nasobic];   
-   scrLog(dmg,c_black,-1,0,0.2,x,y-32,fntPixelHuge);
-   }
-else
-    {
-   dmg = oPlayer.vlastnost[vlastnost_poskozeni];   
-   scrLog(dmg,c_black,-1,0,0.2,x,y-32,fntPixelHuge);    
-    }
-hp -= dmg;
-
-scale = 1.4;
-//other.can_damage = 20;
-scrGoreFull(x,y,3,c_aqua);
-audio_play_sound(sndSlime1,0,0);
-other.can_damage = -2;
-}
+scrEnemyGetDamage();
 </string>
           </argument>
         </arguments>
@@ -131,25 +111,16 @@ other.can_damage = -2;
             <string>/// Damage player
 
 scrEnemyCollision(other);
+scrEnemyDamage(oPlayer,15);
 
-if (can_damage = -1)
-{
-dmg = damage + bonus_damage;
-oPlayer.vlastnost[vlastnost_zivot] -= dmg;
-scrGoreFull(oPlayer.x,oPlayer.y);
-scrEnemyGetPosition();
-scrLog(dmg,c_black,-1,0,0,oPlayer.x,oPlayer.y-48,fntPixelHuge);
-can_damage = 15;
-}
+
 
 if (mood ="jump")
-   {
- 
+   { 
     if (dir = dir_up) {dir = dir_down; y-= 4;}
     else if (dir = dir_down) {dir = dir_up; y += 4;}
     else if (dir = dir_right) {dir = dir_left; x -= 4;}
     else if (dir = dir_left) {dir = dir_right; x += 4;}
-
     mood = "jump";
    }
 </string>
@@ -223,15 +194,11 @@ else if (random(100) &gt; 90 &amp;&amp; hp &lt; max_hp)
 
 if (drop)
 {
-//scrEnemyLoot(oGold,1,30,1,80,1);
 scrEnemyLoot(oHealthDrop,1,5,1,40,5);
 scrEnemyLoot(oXpDrop,10,12,1,70,5);
 scrEnemyLoot(oGold,1,4,1,30,4);
 
-mood = "dying";
-drop = 0;
-scrGoreExplode();
-sprite_index = noone;
+scrEnemyDie(true);
 }
 </string>
           </argument>
@@ -255,8 +222,9 @@ sprite_index = noone;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x = xprevious;
-y = yprevious;
+            <string>/// Return to last position
+
+scrEnemyCollision(self);
 </string>
           </argument>
         </arguments>
@@ -279,7 +247,9 @@ y = yprevious;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (z_mood = 2) {
+            <string>/// Draw self
+
+if (z_mood = 2) {
 zspeed = 0;
 z = 0;
 z_mood = 0;

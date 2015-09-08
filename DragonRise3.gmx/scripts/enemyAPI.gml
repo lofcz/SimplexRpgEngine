@@ -1,8 +1,8 @@
 #define enemyAPI
-/// EnemyApi()
+/// EnemyApi([information])                                                                 -
 /*
 
-- scrEnemyIni(health,damage,defense,level,name)
+- scrEnemyIni(health[real],damage[real],defense[real],level[int],name[string])
   
   Initialise enemy instance stats. Use parametrs to customize
   stats like health or damage.
@@ -16,19 +16,29 @@
   Returns new direction for "attack" state of enemy.
   Algorithm finds best way to the player.
   
-- scrEnemyLoot(item,number_min,number_max,physics,chance,repeat)
+- scrEnemyLoot(item[int],number_min[int],number_max[int],physics[bool],chance[real],repeat[int])
   
   Used to drop things from enemy after death. "physics" parametr (bool)
   indicates if use physics effect. Recommended for gold. 
 
-- scrEnemyCollision(with)
+- scrEnemyCollision(with[object])
 
   Returns parametred instance to previous position.
   Input self,other,all.  
 
+- scrEnemyDamage(object[object],cooldown[real])
+
+  Delivers damage to target obhect, cooldowns secures 
+  multiple hitting.   
+
+- scrEnemyGetDamage()
+
+  Handles damage deliver from player. 
   
+- scrEnemyDie(blood)
 
-
+   Changes enemy state to "dying", you can specify, if 
+   you wish to use blood effect.
 
 
 
@@ -153,3 +163,70 @@ with(object)
                   x = xprevious;
                   y = yprevious;
                  }
+#define scrEnemyDamage
+/// scrEnemyDamage(object,cooldown)
+
+var object,cd;
+
+object = -1;
+cd     = 15;
+
+if (argument_count > 0) {object = argument[0];}
+if (argument_count > 1) {cd     = argument[1];}
+
+
+if (can_damage = -1 && object != -1)
+{
+dmg = damage + bonus_damage;
+object.vlastnost[vlastnost_zivot] -= dmg;
+scrGoreFull(object.x,object.y);
+scrEnemyGetPosition();
+scrLog(dmg,c_black,-1,0,0,object.x,object.y-48,fntPixelHuge);
+can_damage = cd;
+}
+
+
+#define scrEnemyGetDamage
+/// scrEnemyGetDamage()
+
+
+if (other.attack && other.can_damage = -1) 
+{
+
+if (combatGetCriticalHit( oPlayer.vlastnost[vlastnost_kriticka_sance]))
+   {
+   dmg = oPlayer.vlastnost[vlastnost_poskozeni]*oPlayer.vlastnost[vlastnost_kriticka_nasobic];   
+   scrLog(dmg,c_black,-1,0,0.2,x,y-32,fntPixelHuge);
+   }
+else
+    {
+   dmg = oPlayer.vlastnost[vlastnost_poskozeni];   
+   scrLog(dmg,c_black,-1,0,0.2,x,y-32,fntPixelHuge);    
+    }
+hp -= dmg;
+
+scale = 1.4;
+scrGoreFull(x,y,3,c_aqua);
+audio_play_sound(sndSlime1,0,0);
+other.can_damage = -2;
+}
+
+
+#define scrEnemyDie
+/// scrEnemyDie(blood)
+
+var blood;
+
+blod = true;
+
+if (argument_count > 0) {blood = argument[0];}
+
+
+mood = "dying";
+drop = 0;
+sprite_index = noone;
+
+if (blood)
+   {
+   scrGoreExplode();
+   }

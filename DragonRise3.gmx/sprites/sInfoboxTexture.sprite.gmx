@@ -10,7 +10,7 @@
   <bbox_left>0</bbox_left>
   <bbox_right>287</bbox_right>
   <bbox_top>0</bbox_top>
-  <bbox_bottom>159</bbox_bottom>
+  <bbox_bottom>195</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
@@ -18,7 +18,7 @@
   </TextureGroups>
   <For3D>0</For3D>
   <width>288</width>
-  <height>160</height>
+  <height>196</height>
   <frames>
     <frame index="0">images\sInfoboxTexture_0.png</frame>
   </frames>
