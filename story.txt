@@ -1,3 +1,7 @@
+Rámcová představa
+-----------------
+2D LRPG, detektivka. Důraz kladen na lootování, silnou interaktivitu prostředí. Umístěno ve fantasy středověku. Kombinace českého a fantasy prostředí. Linearita. 
+
 Příběh
 -------
 
@@ -11,7 +15,7 @@ je sirotek, kterého si královský písař všiml jednoho dne na ulici, když m
 Případ zavražděné ženy je první, který má Sean řešit samostatně. Sean přijíždí do Holohlav a ujímá se vyšetřování. 
 
 [Kapitola první]
-Sean zkoumá mrtvolu, po ohledání se rozhodne zajít do vesnice a vyslechnout vesničany. Holohlavy jsou malá vesnička, tvořená hospodou U Zlatého lva, radnicí, Blančiným mázhausem, Bylynkářství Filipa, kovářstvím, několika domy a okolními poli.
+Sean zkoumá mrtvolu, po ohledání ostatků se rozhodne zajít do vesnice a vyslechnout vesničany. Holohlavy jsou malá vesnička, tvořená hospodou U Zlatého lva, radnicí, Blančiným mázhausem, bylynkářstvím Filipa, kovářstvím, několika domy a okolními poli. V poslední době to tu jde od desíti k pěti. Kupce ze severu odrazují dračí útoky, kterými jsou zasaženy cesty přes Stínolesy, jižní cesta je stihnuta velkými suchy. Obchod vázne. Zvyšují se ceny potravin i surovin. Ve vesnici začíná chybět dovozní zboží. Vesničané jsou nerudní a nabručení. Se Seanem se bavit nechtějí, na otázky se mu dostává úsečných odpovědí. Na královského písaře vesničané zvysoka kašlou. Po promarněném dni zajde Sean do hospody. Za pultem stojí hostinský Matyáš. Je to chlap jako hora, rukama by mohl drtit kameny. Kouká nevrle, prý co si vašnosta bude přát. 
 
 
 Postavy
