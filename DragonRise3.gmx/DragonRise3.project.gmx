@@ -258,6 +258,7 @@
     <sprite>sprites\sManaPoolCollision</sprite>
     <sprite>sprites\sBestiary</sprite>
     <sprite>sprites\sEquipmentIcons</sprite>
+    <sprite>sprites\sBestiar</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -434,6 +435,7 @@
       <object>objects\oState</object>
       <object>objects\oHUD</object>
       <object>objects\oOptimatision</object>
+      <object>objects\oBestiar</object>
       <object>objects\oMapIntro</object>
       <object>objects\oMinimap</object>
       <object>objects\oBasicSpell</object>

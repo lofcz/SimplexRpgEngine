@@ -55,37 +55,10 @@ scrEnemyIni(30,5,1,choose(1,1,2),"Modrý slimák");
           <argument>
             <kind>1</kind>
             <string>/// Collide
-
-scrEnemyCollision(self);
-scrEnemyGetPosition();
+event_inherited();
 
 if (mood = "jump") {randomize(); bonus_damage = 10; repeat(5) {instance_create(x-random(10)+random(10),y+random(10)-random(10),oBlob);}}
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="oPlayerCombat">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Get damage and handle it
-
-scrEnemyGetDamage();
 </string>
           </argument>
         </arguments>
@@ -115,7 +88,7 @@ scrEnemyDamage(oPlayer,15);
 
 
 
-if (mood ="jump")
+if (mood = "jump")
    { 
     if (dir = dir_up) {dir = dir_down; y-= 4;}
     else if (dir = dir_down) {dir = dir_up; y += 4;}
@@ -200,31 +173,6 @@ scrEnemyLoot(oGold,1,4,1,30,4);
 
 scrEnemyDie(true);
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Return to last position
-
-scrEnemyCollision(self);
 </string>
           </argument>
         </arguments>
