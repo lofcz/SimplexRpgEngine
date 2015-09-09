@@ -185,13 +185,14 @@ if y&gt;oMinimap.y1
 if x&lt;oMinimap.x2
 if y&lt;oMinimap.y2
 if distance_to_object(oPlayer) &lt; 500
+{
 
 m_alpha = 5-(distance_to_object(oPlayer)/100)
 draw_set_alpha(m_alpha);
 draw_circle_colour(oMinimap.x+((x-oMinimap.x1)*oMinimap.sizex),oMinimap.y+((y-oMinimap.y1)*oMinimap.sizey),2,c_red,c_red,false)
 draw_set_alpha(1);
 
-
+}
 }
 //draw_set_color(c_);
 with (parTree)
@@ -201,13 +202,13 @@ if y&gt;oMinimap.y1
 if x&lt;oMinimap.x2
 if y&lt;oMinimap.y2
 if distance_to_object(oPlayer) &lt; 500
-
+{
 m_alpha = 5-(distance_to_object(oPlayer)/100)
 draw_set_alpha(m_alpha);
 draw_rectangle_colour(oMinimap.x+((x-oMinimap.x1)*oMinimap.sizex),oMinimap.y+((y-oMinimap.y1)*oMinimap.sizey),oMinimap.x+((x-oMinimap.x1)*oMinimap.sizex)+4,oMinimap.y+((y-oMinimap.y1)*oMinimap.sizey)+4,m_color,m_color,m_color,m_color,0)
 draw_set_alpha(1);
 
-
+}
 }
 
 }
