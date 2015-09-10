@@ -32,6 +32,8 @@
  
  draw_text(x,y,abs(dd));
 image_angle += min(abs(dd), 10) * sign(dd);
+
+
 </string>
           </argument>
         </arguments>

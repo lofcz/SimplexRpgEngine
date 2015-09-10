@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>if (instance_number(oInventory) &gt; 0) {x = oInventory.x; y = oInventory;}
+
+
 </string>
           </argument>
         </arguments>

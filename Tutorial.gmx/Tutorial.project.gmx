@@ -12,9 +12,14 @@
   <paths name="paths"/>
   <objects name="objects">
     <object>objects\object0</object>
+    <object>objects\oTest</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\room0_new</room>
     <room>rooms\room0</room>
+    <room>rooms\Game_Dataw</room>
+    <room>rooms\Game_Data_new</room>
+    <room>rooms\Game_Data</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
