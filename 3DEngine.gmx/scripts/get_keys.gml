@@ -6,3 +6,4 @@ k_u = keyboard_check_direct(ord('W'))
 k_d = keyboard_check_direct(ord('S'))
 
 k_a = keyboard_check(vk_space)
+k_shift = keyboard_check(vk_shift)

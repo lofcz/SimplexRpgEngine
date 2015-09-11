@@ -62,6 +62,8 @@ zspeed          = 0
 zgravity        = 0.21
 
 movespeedmax    = 3
+movespeedmaxw   = 3;  //Walking
+movespeedmaxr   = 5;  //Running
 jumpspeed       = 6
 terminalvelocity= 8
 accel           = 0.4
@@ -158,6 +160,12 @@ if(k_l){
 if(k_r){
     xspeed = median(-movespeedmax,movespeedmax,xspeed + lengthdir_x(accel,direction - 90))
     yspeed = median(-movespeedmax,movespeedmax,yspeed + lengthdir_y(accel,direction - 90))
+}
+if(k_shift){
+    movespeedmax=movespeedmaxr;
+}
+else {
+    movespeedmax=movespeedmaxw;
 }
 
 if(xspeed != 0){
