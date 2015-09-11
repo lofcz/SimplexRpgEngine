@@ -196,7 +196,7 @@ if(scrD3dCheckCollision(x,y,zbottom - 1 + zspeed,ztop - 1 + zspeed))
 {
 
 rezonate = 0;
-    if(zspeed &lt; 0){//Precise collision towards the floor
+    if(zspeed &lt; 0){
         while(!scrD3dCheckCollision(x,y,zbottom-1,ztop-1)){
             z -= 1
             zbottom = z

@@ -28,7 +28,7 @@
             <string>randomize();
 
 z=oPlayer.z+16
-//zup=oPlayer.zdirection
+zup=oPlayer.ztilt
 direction=oPlayer.direction+random(10)-random(10);
 speed=random_range(8,12);
 bullet_speed=20;
@@ -38,6 +38,8 @@ zbottom = z-2;
 ztop = z+2;
 
 n = 0;
+
+
 </string>
           </argument>
         </arguments>
@@ -61,6 +63,7 @@ n = 0;
           <argument>
             <kind>1</kind>
             <string>//draw_self();
+z-=zup/10;
   
       tex = sprite_get_texture(sNoone,0);
   d3d_transform_set_identity()
@@ -76,6 +79,10 @@ n = 0;
 z += l;  
   
 direction += l;
+
+zbottom = z-8;
+ztop = z+8;
+
   if(scrD3dCheckCollision(x,y,zbottom ,ztop))
 {
 
