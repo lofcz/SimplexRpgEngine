@@ -37,6 +37,7 @@ level[level_speed] = 60;
 level[level_persistent] = 0;
 level[level_colour] = 12632256;
 level[level_showcolour] = -1;
+z = 0;
 
 event_user(0);
 draw_set_font(fnt_lucida);
@@ -68,7 +69,7 @@ object_addd = -1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with(all) {show_message(string(object_index)) if (object_index &gt; oLevelDesigner.highest_index) {oLevelDesigner.highest_index = real(object_index);}}
+            <string>with(all) {if (object_index &gt; oLevelDesigner.highest_index) {oLevelDesigner.highest_index = real(object_index);}}
 //show_message(highest_index);
 
 </string>
@@ -129,10 +130,7 @@ file = file_text_open_read(working_directory + "\Game_Data.room.gmx");
           <argument>
             <kind>1</kind>
             <string> 
-   for(a = 0; a &lt; array_length_1d(str); a++)
-       {
-        draw_text(x,y+a*20,str[a]);
-       }
+  
 
        
 if (mouse_check_button_pressed(mb_left))
@@ -296,6 +294,18 @@ for (a = 0; a &lt; highest_index+2; a++)
 if (mouse_check_button(mb_left) and object_addd != -1 ) {i = instance_create(mouse_x,mouse_y,object_addd); with(i) {move_snap(sprite_get_width(sprite_index),sprite_get_height(sprite_index))}}
 
 draw_text(mouse_x,mouse_y-200,object_addd)
+
+
+
+d3d_transform_set_identity()
+d3d_transform_add_rotation_x(90)
+d3d_transform_add_translation(x,y,z+16)
+ for(a = 0; a &lt; array_length_1d(str); a++)
+       {
+        draw_text(x,y-500+a*20,str[a]);
+       }
+
+d3d_transform_set_identity()
 </string>
           </argument>
         </arguments>

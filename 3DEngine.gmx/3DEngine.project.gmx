@@ -3,7 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="1" name="datafiles">
+  <datafiles number="2" name="datafiles">
     <datafile>
       <name>Game_Data.room.gmx</name>
       <exists>-1</exists>
@@ -21,6 +21,23 @@
       </ConfigOptions>
       <filename>Game_Data.room.gmx</filename>
     </datafile>
+    <datafile>
+      <name>wall_hor.gmmod</name>
+      <exists>-1</exists>
+      <size>128</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>wall_hor.gmmod</filename>
+    </datafile>
   </datafiles>
   <NewExtensions/>
   <sounds name="sound"/>
@@ -29,13 +46,19 @@
     <sprite>sprites\sTest2</sprite>
     <sprite>sprites\sNoone</sprite>
     <sprite>sprites\sprite3</sprite>
+    <sprite>sprites\sprite4</sprite>
+    <sprite>sprites\sprite5</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\texture_wall1</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <script>scripts\file_text_write_string_ln.gml</script>
     <script>scripts\file_text_write_real_ln.gml</script>
     <script>scripts\color_to_dec.gml</script>
+    <script>scripts\get_keys.gml</script>
+    <script>scripts\scrD3dCheckCollision.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_lucida</font>
@@ -46,11 +69,21 @@
     <object>objects\oTest</object>
     <object>objects\oTest2</object>
     <object>objects\oTest3</object>
+    <object>objects\oCamera</object>
+    <object>objects\oPlayer</object>
+    <object>objects\parSolid</object>
+    <object>objects\oPlayerCamera</object>
+    <object>objects\oControl</object>
+    <object>objects\object10</object>
+    <object>objects\oBullet</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\room1</room>
     <room>rooms\mapLevelDesigner</room>
   </rooms>
-  <constants number="11">
+  <constants number="13">
+    <constant name="BIGGESTHURDLEWALK">8</constant>
+    <constant name="MOUSESENSITIVITY">0.8</constant>
     <constant name="level_showcolour">9</constant>
     <constant name="level_colour">8</constant>
     <constant name="level_persistent">7</constant>

@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>parSolid</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,6 +26,63 @@
           <argument>
             <kind>1</kind>
             <string>//show_message(object_get_name(object_index));
+
+  x1 = x-16;
+  x2 = x+16;
+  y1 = y;
+  y2 = y;
+  z1 = 32;
+  z2 = 0;
+  tex = background_get_texture(texture_wall1);
+    z = 16;
+  myModel = d3d_model_create();
+d3d_model_load( myModel, "wall_hor.gmmod");
+
+
+ztop = z
+zbottom = z-1
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (instance_number(oCamera) &gt; 0)
+{
+if (oCamera.d3d)
+{
+ 
+ 
+//  d3d_draw_wall(x1,y1,z1,x2,y2,z2,tex,1,1);
+//  d3d_draw_wall(x1,y1,z1+32,x2,y2,z2+32,tex,1,1);
+ // d3d_draw_wall(x1,y1,z1-32,x2,y2,z2-32,tex,1,1);
+  //      d3d_draw_block(x1,y1,z1,x2,y2,z2,tex,1,1)
+  d3d_model_draw( myModel, x, y, z1, tex);
+  }
+  
+  else {draw_self();}
+  
+  }
+  
+   d3d_model_draw( myModel, x, y, z2, tex);
+
 </string>
           </argument>
         </arguments>
