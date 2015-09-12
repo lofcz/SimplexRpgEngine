@@ -27,8 +27,8 @@
     <deleteUnderlyingObj>0</deleteUnderlyingObj>
     <deleteUnderlyingTiles>-1</deleteUnderlyingTiles>
     <page>1</page>
-    <xoffset>-77</xoffset>
-    <yoffset>-111</yoffset>
+    <xoffset>-170</xoffset>
+    <yoffset>-147</yoffset>
   </makerSettings>
   <backgrounds>
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -93,8 +93,6 @@
     <instance objName="oTest" x="1024" y="96" name="inst_29389AC5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTest" x="1120" y="96" name="inst_0B074D7F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTest" x="1152" y="96" name="inst_203B4DB7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTest2" x="512" y="192" name="inst_E64A6BCE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTest2" x="608" y="192" name="inst_1F40F371" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTest" x="480" y="224" name="inst_B1C05B3F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTest" x="608" y="160" name="inst_97ED55CF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTest" x="640" y="160" name="inst_E8BD07F0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

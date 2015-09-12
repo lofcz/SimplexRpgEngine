@@ -32,8 +32,11 @@ draw = 1;
   d3d_set_hidden(true);
   d3d_set_lighting(false);
  d3d_set_culling(false);
-  d3d_set_fog(true,c_black,10,300);
+// d3d_set_fog(true, c_black, 0, 600); 
 
+             //  d3d_light_define_ambient(c_red);
+//  d3d_light_define_point(1, 200, 123, 50, 2000, c_white);
+// d3d_light_enable(1, true);
 
 </string>
           </argument>

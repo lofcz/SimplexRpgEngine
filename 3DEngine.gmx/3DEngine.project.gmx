@@ -3,7 +3,126 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="2" name="datafiles">
+  <datafiles number="12" name="datafiles">
+    <datafile>
+      <name>block64.gmmod</name>
+      <exists>-1</exists>
+      <size>128</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>block64.gmmod</filename>
+    </datafile>
+    <datafile>
+      <name>gold.gmmod</name>
+      <exists>-1</exists>
+      <size>595966</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>gold.gmmod</filename>
+    </datafile>
+    <datafile>
+      <name>particleBrick.gmmod</name>
+      <exists>-1</exists>
+      <size>125</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>particleBrick.gmmod</filename>
+    </datafile>
+    <datafile>
+      <name>block32.gmmod</name>
+      <exists>-1</exists>
+      <size>128</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>block32.gmmod</filename>
+    </datafile>
+    <datafile>
+      <name>wall_hor64.gmmod</name>
+      <exists>-1</exists>
+      <size>129</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>wall_hor64.gmmod</filename>
+    </datafile>
+    <datafile>
+      <name>cone6X6X6.gmmod</name>
+      <exists>-1</exists>
+      <size>126</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>cone6X6X6.gmmod</filename>
+    </datafile>
+    <datafile>
+      <name>glass_animation.bao</name>
+      <exists>-1</exists>
+      <size>1354672</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>glass_animation.bao</filename>
+    </datafile>
     <datafile>
       <name>Game_Data.room.gmx</name>
       <exists>-1</exists>
@@ -38,19 +157,43 @@
       </ConfigOptions>
       <filename>wall_hor.gmmod</filename>
     </datafile>
+    <datafile>
+      <name>Ultimate3D.dll</name>
+      <exists>-1</exists>
+      <size>1175552</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>Ultimate3D.dll</filename>
+    </datafile>
   </datafiles>
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprite>sprites\sTest</sprite>
+    <sprite>sprites\sprite6</sprite>
     <sprite>sprites\sTest2</sprite>
+    <sprite>sprites\sprite7</sprite>
     <sprite>sprites\sNoone</sprite>
     <sprite>sprites\sprite3</sprite>
     <sprite>sprites\sprite4</sprite>
     <sprite>sprites\sprite5</sprite>
+    <sprite>sprites\sGold</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\texture_wall1</background>
+    <background>background\background1</background>
+    <background>background\bg_texture</background>
+    <background>background\tex_sky</background>
+    <background>background\texGold</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -59,7 +202,31 @@
     <script>scripts\color_to_dec.gml</script>
     <script>scripts\get_keys.gml</script>
     <script>scripts\scrD3dCheckCollision.gml</script>
+    <script>scripts\d3d_draw_line.gml</script>
+    <scripts name="s">
+      <script>scripts\importMD2.gml</script>
+      <script>scripts\readChar.gml</script>
+      <script>scripts\readFloat.gml</script>
+      <script>scripts\readShort.gml</script>
+      <script>scripts\readInt.gml</script>
+      <script>scripts\normals.gml</script>
+    </scripts>
+    <script>scripts\d3d_check_mouse_block_prepare.gml</script>
+    <script>scripts\d3d_check_mouse_block.gml</script>
+    <scripts name="asd">
+      <script>scripts\scr_create_vb_model.gml</script>
+      <script>scripts\scr_create_animation_vertex_format.gml</script>
+      <script>scripts\scr_load_animation.gml</script>
+      <script>scripts\scr_load_animation_frame_data.gml</script>
+      <script>scripts\scr_draw_animation_frame.gml</script>
+      <script>scripts\scr_delete_animation.gml</script>
+      <script>scripts\buffer_read_chars.gml</script>
+      <script>scripts\scr_TranspoInverse.gml</script>
+    </scripts>
   </scripts>
+  <shaders name="shaders">
+    <shader type="GLSLES">shaders\sh_blend.shader</shader>
+  </shaders>
   <fonts name="fonts">
     <font>fonts\fnt_lucida</font>
     <font>fonts\font1</font>
@@ -69,6 +236,7 @@
     <object>objects\oTest</object>
     <object>objects\oTest2</object>
     <object>objects\oTest3</object>
+    <object>objects\object12</object>
     <object>objects\oCamera</object>
     <object>objects\oPlayer</object>
     <object>objects\parSolid</object>
@@ -76,6 +244,10 @@
     <object>objects\oControl</object>
     <object>objects\object10</object>
     <object>objects\oBullet</object>
+    <object>objects\oTestInter</object>
+    <object>objects\oCone1</object>
+    <object>objects\oPhysicsParticle</object>
+    <object>objects\oGold</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\room1</room>

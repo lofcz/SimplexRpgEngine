@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite(sBestiar,0,view_xview+800-256,view_yview+155);
+            <string>//draw_sprite(sBestiar,0,view_xview+800-256,view_yview+155);
 </string>
           </argument>
         </arguments>

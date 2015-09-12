@@ -59,12 +59,12 @@ xspeed          = 0
 yspeed          = 0
 zspeed          = 0
 
-zgravity        = 0.21
+zgravity        = 0.1
 
 movespeedmax    = 3
 movespeedmaxw   = 3;  //Walking
 movespeedmaxr   = 5;  //Running
-jumpspeed       = 6
+jumpspeed       = 3
 terminalvelocity= 8
 accel           = 0.4
 
@@ -125,14 +125,16 @@ get_keys()
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (mouse_check_button_pressed(mb_left))
+            <string>event_inherited();
+
+if (mouse_check_button_pressed(mb_left))
 {
 repeat(10)
 {
 instance_create(x,y,oBullet);
 }
 }
-
+image_angle = direction;
 
 if (keyboard_check_pressed(vk_escape)) {game_end();}
 
@@ -270,7 +272,11 @@ zbottom     = z
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///
+            <string>//draw_self();
+//tex_id = background_get_texture(tex_sky);
+//d3d_draw_ellipsoid(-1000,-1000,-1000,room_width+500,room_height+500,1000,tex_id,1,1,24);
+d3d_draw_floor(x-6,y-6,z,x + 6,y + 6,z+5,-1,2,2)
+
 </string>
           </argument>
         </arguments>

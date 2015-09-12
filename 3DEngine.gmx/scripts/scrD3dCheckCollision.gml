@@ -4,8 +4,10 @@ with(parSolid){
             with(other){
                 
                 if(place_meeting(argument0,argument1,other)){
-                   
-                    return other.id
+                    coll_name = object_get_name(other.object_index);
+                    coll_id   = other.id;
+
+                    return other.id;
                 }
             }
         }
