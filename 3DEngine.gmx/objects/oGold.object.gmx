@@ -56,7 +56,9 @@ z2  = z;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>d3d_transform_add_translation(x,y,z2)
+            <string>d3d_transform_set_rotation_z(direction);
+direction += 4;
+d3d_transform_add_translation(x,y,z2)
 
      d3d_model_draw( myModel, 0, 0, 0, tex);
  d3d_transform_set_identity();

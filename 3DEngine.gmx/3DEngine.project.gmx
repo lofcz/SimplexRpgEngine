@@ -3,7 +3,7 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="12" name="datafiles">
+  <datafiles number="14" name="datafiles">
     <datafile>
       <name>block64.gmmod</name>
       <exists>-1</exists>
@@ -37,6 +37,23 @@
         </Config>
       </ConfigOptions>
       <filename>gold.gmmod</filename>
+    </datafile>
+    <datafile>
+      <name>m40.gmmod</name>
+      <exists>-1</exists>
+      <size>46828</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>m40.gmmod</filename>
     </datafile>
     <datafile>
       <name>particleBrick.gmmod</name>
@@ -122,6 +139,23 @@
         </Config>
       </ConfigOptions>
       <filename>glass_animation.bao</filename>
+    </datafile>
+    <datafile>
+      <name>gun1.gmmod</name>
+      <exists>-1</exists>
+      <size>277</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>gun1.gmmod</filename>
     </datafile>
     <datafile>
       <name>Game_Data.room.gmx</name>

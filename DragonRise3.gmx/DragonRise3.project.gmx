@@ -394,6 +394,7 @@
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shdColor.shader</shader>
     <shader type="GLSLES">shaders\shdLerp.shader</shader>
+    <shader type="GLSLES">shaders\shader2.shader</shader>
   </shaders>
   <fonts name="fonts">
     <font>fonts\fntText</font>
@@ -510,7 +511,13 @@
       <room>rooms\mapLoading</room>
     </rooms>
   </rooms>
-  <constants number="143">
+  <constants number="149">
+    <constant name="cNAN">999</constant>
+    <constant name="bestiaryEnemySlime">0</constant>
+    <constant name="bestiary_monster_details">3</constant>
+    <constant name="bestiary_monster_sprite">2</constant>
+    <constant name="bestiary_monster_text">1</constant>
+    <constant name="bestiary_monster_title">0</constant>
     <constant name="id_Helma">1</constant>
     <constant name="id_Mec">0</constant>
     <constant name="spell_total">9</constant>

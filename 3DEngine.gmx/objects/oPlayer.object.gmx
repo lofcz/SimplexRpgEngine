@@ -26,11 +26,14 @@
           <argument>
             <kind>1</kind>
             <string>///Cam variables
+  myModel = d3d_model_create();
+d3d_model_load( myModel, "m40.gmmod");
 
 event_inherited();
-
+dir_look = 0;
 z           = 0
 zheight     = 16
+pitch = 0;
 
 ztop        = z + zheight
 zbottom     = z
@@ -101,6 +104,27 @@ rezonate = 0;
 if (controll)
 {
 get_keys()
+}
+
+
+//Mouse Look Code
+
+dir_look -=(display_mouse_get_x()-display_get_width()/2)/4
+pitch += (display_mouse_get_y()-display_get_height()/2)/4
+
+look = degtorad(-pitch)/2+.5
+if look&gt;.5 then{ look = .5}
+   if pitch&lt;-89
+ {pitch=-89};
+ if pitch&gt;89
+ {pitch=89};
+ 
+if dir_look&gt;360 {
+dir_look = 0
+}
+
+if dir_look&lt;0 {
+dir_look = 360
 }
 
 </string>
@@ -275,7 +299,24 @@ zbottom     = z
             <string>//draw_self();
 //tex_id = background_get_texture(tex_sky);
 //d3d_draw_ellipsoid(-1000,-1000,-1000,room_width+500,room_height+500,1000,tex_id,1,1,24);
-d3d_draw_floor(x-6,y-6,z,x + 6,y + 6,z+5,-1,2,2)
+z_add = pitch;
+//z_add=-oPlayer.pitch
+
+//d3d_transform_add_rotation_y(-z_add);
+d3d_transform_add_rotation_z(direction);
+d3d_transform_add_translation(x,y,2)
+
+//d3d_transform_set_rotation_z(direction)
+//d3d_transform_add_rotation_x(z_speed*5)
+//d3d_transform_add_rotation_y(-z_add);
+
+//d3d_transform_set_scaling(3,3,3);
+//d3d_transform_add_translation(x,y,8)
+
+     //d3d_model_draw( myModel,-10-z_add/15,-8-(z_add/50),0, -1);
+       d3d_model_draw( myModel, -10, 0, 0, -1);
+
+ d3d_transform_set_identity();
 
 </string>
           </argument>
