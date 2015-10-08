@@ -243,6 +243,11 @@ if (keyboard_check_pressed(vk_enter))
       with(oController) {event_user(1);}
       }
    }
+   
+if (keyboard_check_pressed(ord("P")))
+   {
+   room_goto(room1);
+   }
 </string>
           </argument>
         </arguments>

@@ -511,8 +511,9 @@
       <room>rooms\mapLoading</room>
     </rooms>
   </rooms>
-  <constants number="149">
+  <constants number="150">
     <constant name="cNAN">999</constant>
+    <constant name="bestiaryEnemySlime2">1</constant>
     <constant name="bestiaryEnemySlime">0</constant>
     <constant name="bestiary_monster_details">3</constant>
     <constant name="bestiary_monster_sprite">2</constant>

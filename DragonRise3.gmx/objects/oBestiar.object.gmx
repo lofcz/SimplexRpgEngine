@@ -48,20 +48,25 @@ for (a = 0; a &lt; 10; a++)
          {
           alpha[a,b] = 1;
           text[a,b] = "";
+          monster[a,b] = "";
          }
      title[a] = "";
      xx[a] = v_x + a*48; // I am a fucking virtuos
      yy[a] = v_y + 48+a*68;
+     monster[a,bestiary_monster_sprite] = sFreeSlot;
+     yyy[a] = yy[a];
+     i_alpha[a] = 1;
     }
     
     
-title[bestiaryEnemySlime] = "Hvozdy Holohav";
+title[0] = "Hvozdy Holohav";
 
 monster[bestiaryEnemySlime,bestiary_monster_title]    = "Slimák rosolovitý";
 monster[bestiaryEnemySlime,bestiary_monster_text]     = "Tichý obyvatel temných lesních zákoutí. Nesnáší světlo.";
 monster[bestiaryEnemySlime,bestiary_monster_sprite]   = sEnemySlime;
 monster[bestiaryEnemySlime,bestiary_monster_details]  = "Lorem Ipsum" + scrColorflag(c_red) + " dolor sit amet" +scrEndColorflag() + "#consectetur adipiscing elit";
 
+monster[bestiaryEnemySlime2,bestiary_monster_title]    = "Slimák stínobrodý";
 </string>
           </argument>
         </arguments>
@@ -99,15 +104,23 @@ if (item_selected = -1) {yy[a] = v_y + 48+a*68;}
 else 
      {
      yy[a] =  v_y + 48+a*68 - real_spd; 
-     if (spd &lt; spd_max) {spd += 0.01;} real_spd += spd;
+     yyy[a] = v_y + 48+a*68;
+     if (spd &lt; spd_max) {spd += 0.01;} 
+     if(!pass) {real_spd += spd;}
      if (yy[a] &lt; v_y+48) {yy[a] = v_y+48; pass = 1;} else {pass = 0;}
      
-
+     if (a != item_selected) {if (i_alpha[a] &gt; 0) {i_alpha[a] -= 0.05;}}
      }
 
-draw_sprite_ext(sBestiar,1,v_x,yy[a],1,1,0,c_white,alpha[page,a]);
 
-if (mouse_in(xx,xx+256,yy[a],yy[a]+68) &amp;&amp; mode = 0)
+draw_set_font(fntPixel);
+
+draw_set_alpha(i_alpha[a]);
+draw_sprite_ext(sBestiar,1,v_x,yy[a],1,1,0,c_white,i_alpha[a]);
+draw_text(v_x+70,yy[a]+5,monster[a,bestiary_monster_title]);
+draw_set_alpha(1);
+
+if (mouse_in(xx,xx+256,yy[a],yy[a]+68) &amp;&amp; item_selected = -1 &amp;&amp; mode = 0)
    {
    draw_sprite_ext(sBestiar,1,v_x,yy[a],1,1,0,c_red,alpha[page,a]);  // DEBUG
      
@@ -120,11 +133,20 @@ if (mouse_in(xx,xx+256,yy[a],yy[a]+68) &amp;&amp; mode = 0)
    
   
 }
- if (pass) 
+q = 0;
+if (item_selected != -1)
+{
+if (yy[item_selected] &lt;= v_y+48)
+   {
+    q = 1;
+   }
+}
+   
+ if (pass || q) 
     {
     pass2 = 0;
     
-     if (rec_height &lt; 315-48-64) {if (spd2 &lt; spd_max2) {spd2 += 0.1;} rec_height += spd2;} 
+     if (rec_height &lt; 315-48-64) {if (spd2 &lt; spd_max2) {spd2 += 0.2;} rec_height += spd2;} 
      else {pass2 = 1;}    
      rec_height = min(rec_height,315-48-64);
      
