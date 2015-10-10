@@ -1,4 +1,4 @@
-/// scrCenterTex(true)
+/// scrCenterText(center)
 
 statement = 1;
 

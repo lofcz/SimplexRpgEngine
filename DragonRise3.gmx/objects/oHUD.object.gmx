@@ -267,6 +267,7 @@ oPlayer.vlastnost[vlastnost_stit] = min(max(0,oPlayer.vlastnost[vlastnost_stit])
      if (keyboard_check_pressed(ord("B")))
         {
         draw_bestiary = ! draw_bestiary;
+        if (instance_number(oBestiar) &gt; 0) {oBestiar.activated = !oBestiar.activated;}
         
         if (!draw_bestiary) {oInventory.draw_inventory = temp_inv;}
         else

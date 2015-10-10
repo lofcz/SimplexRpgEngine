@@ -28,7 +28,7 @@
             <string>/// Initialise enemy
 event_inherited();
 
-scrEnemyIni(30,5,1,choose(1,1,2),"Modrý slimák");
+scrEnemyIni(30,5,1,choose(1,1,2),"Modrý slimák",bestiaryEnemySlime,0);
 
 
 

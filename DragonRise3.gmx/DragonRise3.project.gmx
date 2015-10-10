@@ -259,6 +259,7 @@
     <sprite>sprites\sBestiary</sprite>
     <sprite>sprites\sEquipmentIcons</sprite>
     <sprite>sprites\sBestiar</sprite>
+    <sprite>sprites\sUnknownBestiary</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -389,6 +390,9 @@
       <scripts name="MapIntro">
         <script>scripts\scrMapIntro.gml</script>
       </scripts>
+      <scripts name="Bestiary">
+        <script>scripts\scrBestiaryInit.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -397,14 +401,23 @@
     <shader type="GLSLES">shaders\shader2.shader</shader>
   </shaders>
   <fonts name="fonts">
-    <font>fonts\fntText</font>
-    <font>fonts\fntTextSmall</font>
-    <font>fonts\fntRetroBig</font>
-    <font>fonts\fntRetroSmall</font>
-    <font>fonts\fntPixel</font>
-    <font>fonts\fntPixelHuge</font>
-    <font>fonts\fntPixelSmall</font>
-    <font>fonts\fntPixelTiny</font>
+    <fonts name="Standard game fonts">
+      <fonts name="Text (arial)">
+        <font>fonts\fntText</font>
+        <font>fonts\fntTextSmall</font>
+      </fonts>
+      <fonts name="Retro (vcr osd mono)">
+        <font>fonts\fntRetroSmall</font>
+        <font>fonts\fntRetroBig</font>
+      </fonts>
+      <fonts name="Pixel (uni 05)">
+        <font>fonts\fntPixelHuge</font>
+        <font>fonts\fntPixel</font>
+        <font>fonts\fntPixelTiny</font>
+        <font>fonts\fntPixelSmall</font>
+      </fonts>
+      <font>fonts\fntUnicode</font>
+    </fonts>
   </fonts>
   <objects name="objects">
     <object>objects\oTEST</object>
@@ -511,10 +524,13 @@
       <room>rooms\mapLoading</room>
     </rooms>
   </rooms>
-  <constants number="150">
+  <constants number="153">
+    <constant name="cEULER">2.7182818284590452353602874713526624977572470936999595749669676277240766303535475945713821785251664274</constant>
     <constant name="cNAN">999</constant>
     <constant name="bestiaryEnemySlime2">1</constant>
     <constant name="bestiaryEnemySlime">0</constant>
+    <constant name="bestiary_monster_killed">5</constant>
+    <constant name="bestiary_monster_race">4</constant>
     <constant name="bestiary_monster_details">3</constant>
     <constant name="bestiary_monster_sprite">2</constant>
     <constant name="bestiary_monster_text">1</constant>

@@ -25,48 +25,74 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>mode = 0;
-page = 0;
-item_selected  = -1;
-spd = 0;
-spd_max = 2;
-real_spd = 0;
-rec_height = 0;
-spd2 = 4;
-spd_max2 = cNAN;
-pass2 = 0;
-detail_alpha = 0;
+            <string>/// Init and call db of enemies
 
-active = bestiaryEnemySlime;
+scrBestiaryInit();
+event_user(0);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Documentation
+/*
 
-v_x = view_xview+800-256;
-v_y = view_yview+155;  
 
-for (a = 0; a &lt; 10; a++)
-    {
-     for (b = 0; b &lt; 5; b++)
-         {
-          alpha[a,b] = 1;
-          text[a,b] = "";
-          monster[a,b] = "";
-         }
-     title[a] = "";
-     xx[a] = v_x + a*48; // I am a fucking virtuos
-     yy[a] = v_y + 48+a*68;
-     monster[a,bestiary_monster_sprite] = sFreeSlot;
-     yyy[a] = yy[a];
-     i_alpha[a] = 1;
-    }
-    
-    
+Important arrays
+  - unlocked[n,m] (bool) [Checks if target enemy m is unlocked in bestiary page n]
+  - monster[n,bestiary_] (int [C]) [Informations about enemy (sprite,name,text...)] 
+  - title[n] (string) [Page title, fe. "Brave mountains"]
+  
+Important vars
+  -       
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Enemies DB
+        
 title[0] = "Hvozdy Holohav";
 
-monster[bestiaryEnemySlime,bestiary_monster_title]    = "Slimák rosolovitý";
-monster[bestiaryEnemySlime,bestiary_monster_text]     = "Tichý obyvatel temných lesních zákoutí. Nesnáší světlo.";
-monster[bestiaryEnemySlime,bestiary_monster_sprite]   = sEnemySlime;
-monster[bestiaryEnemySlime,bestiary_monster_details]  = "Lorem Ipsum" + scrColorflag(c_red) + " dolor sit amet" +scrEndColorflag() + "#consectetur adipiscing elit";
+monster[bestiaryEnemySlime,bestiary_monster_title]      = "Slimák rosolovitý";
+monster[bestiaryEnemySlime,bestiary_monster_text]       = "Tichý obyvatel temných lesních zákoutí. Nesnáší světlo.";
+monster[bestiaryEnemySlime,bestiary_monster_sprite]     = sEnemySlime;
+monster[bestiaryEnemySlime,bestiary_monster_details]    = "Lorem Ipsum" + scrColorflag(c_red) + " dolor sit amet" +scrEndColorflag() + "#consectetur adipiscing elit";
+monster[bestiaryEnemySlime,bestiary_monster_race]       = "Divoké zvíře";
 
-monster[bestiaryEnemySlime2,bestiary_monster_title]    = "Slimák stínobrodý";
+monster[bestiaryEnemySlime2,bestiary_monster_title]   = "Slimák stínobrodý";
 </string>
           </argument>
         </arguments>
@@ -89,10 +115,15 @@ monster[bestiaryEnemySlime2,bestiary_monster_title]    = "Slimák stínobrodý";
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>xx = view_xview+800-256;
+            <string>if (activated) { if (activated_x &gt; -256) {activated_x -= activated_speed;  if (activated_speed &lt; 7) {activated_speed += 0.2;}}}
+if (!activated) {if (activated_x &lt; 0) {activated_x += activated_speed} else {activated_speed = 2;}}
+
+if (activated_x &lt; -256 &amp;&amp; activated) {activated_x = -256;}
+
+xx = view_xview+800+activated_x;
 yy = view_yview+155;  
 
-v_x = view_xview+800-256;
+v_x = view_xview+800+activated_x;
 v_y = view_yview+155;  
 pass = 0;
 
@@ -100,24 +131,40 @@ draw_sprite(sBestiar,0,xx,yy);
 
 for (a = 0; a &lt; 4; a++)
 {
+f = page*4+a; // monster[n,m] -&gt; monster[n]
+
 if (item_selected = -1) {yy[a] = v_y + 48+a*68;}
 else 
      {
+
      yy[a] =  v_y + 48+a*68 - real_spd; 
      yyy[a] = v_y + 48+a*68;
      if (spd &lt; spd_max) {spd += 0.01;} 
      if(!pass) {real_spd += spd;}
      if (yy[a] &lt; v_y+48) {yy[a] = v_y+48; pass = 1;} else {pass = 0;}
      
+     
      if (a != item_selected) {if (i_alpha[a] &gt; 0) {i_alpha[a] -= 0.05;}}
      }
 
-
+   
 draw_set_font(fntPixel);
 
 draw_set_alpha(i_alpha[a]);
+
+
+
+if (unlocked[f])
+{
 draw_sprite_ext(sBestiar,1,v_x,yy[a],1,1,0,c_white,i_alpha[a]);
+draw_sprite_ext(monster[a,bestiary_monster_sprite],0,v_x+32,yy[a]+32,1,1,0,c_white,i_alpha[a]);
 draw_text(v_x+70,yy[a]+5,monster[a,bestiary_monster_title]);
+draw_text_colour(v_x+70,yy[a]+20,monster[a,bestiary_monster_race],c_ltgray,c_ltgray,c_ltgray,c_ltgray,i_alpha[a]);
+
+draw_set_font(fntPixelTiny);
+draw_text_colour(v_x+70,yy[a]+42,"Poraženo: " + string(monster[a,bestiary_monster_killed]),c_black,c_black,c_black,c_black,i_alpha[a]);
+draw_set_font(fntPixel);
+
 draw_set_alpha(1);
 
 if (mouse_in(xx,xx+256,yy[a],yy[a]+68) &amp;&amp; item_selected = -1 &amp;&amp; mode = 0)
@@ -127,12 +174,28 @@ if (mouse_in(xx,xx+256,yy[a],yy[a]+68) &amp;&amp; item_selected = -1 &amp;&amp; 
      if (mouse_check_button_pressed(mb_left))
         {
          item_selected = a;
+         exit;
          //show_message(a);  // DEBUG
         }
    }
+}   
+else
+    {
+    draw_sprite_ext(sBestiar,1,v_x,yy[a],1,1,0,c_white,i_alpha[a]);
+    draw_text(v_x+70,yy[a]+5,"?????");
+    draw_text_colour(v_x+70,yy[a]+20,"?????",c_ltgray,c_ltgray,c_ltgray,c_ltgray,i_alpha[a]);
    
+    
+    if (mouse_in(xx,xx+256,yy[a],yy[a]+68) &amp;&amp; item_selected = -1 &amp;&amp; mode = 0)
+   {
+   draw_sprite_ext(sBestiar,1,v_x,yy[a],1,1,0,c_red,alpha[page,a]);  // DEBUG
+   }
+   
+    }
   
 }
+
+// Better dropdown
 q = 0;
 if (item_selected != -1)
 {
@@ -144,25 +207,58 @@ if (yy[item_selected] &lt;= v_y+48)
    
  if (pass || q) 
     {
+    draw_set_alpha(1);
     pass2 = 0;
     
-     if (rec_height &lt; 315-48-64) {if (spd2 &lt; spd_max2) {spd2 += 0.2;} rec_height += spd2;} 
+     if (rec_height &lt; 315-48-64 &amp;&amp; mode = 0) {if (spd2 &lt; spd_max2) {spd2 += 0.2;} rec_height += spd2;} 
      else {pass2 = 1;}    
-     rec_height = min(rec_height,315-48-64);
+     if (mode = 0) {rec_height = min(rec_height,315-48-64);}
      
      draw_set_color(c_white);
-     draw_rectangle(v_x,v_y+48+64,v_x+256,v_y+48+64+rec_height,1);
+     draw_sprite_part(sBestiar,5,0,100,256,rec_height,v_x,v_y+48+64);
+     //draw_rectangle(v_x,v_y+48+64,v_x+256,v_y+48+64+rec_height,1);
+    
+ yy[0] =  v_y + 48;  
+      
+   if (mouse_in(xx,xx+256,yy[0],yy[0]+68) &amp;&amp; item_selected != -1)
+   {
+   draw_sprite_ext(sBestiar,1,v_x,yy[0],1,1,0,c_red,1);  // DEBUG
+   
+   if (mouse_check_button_pressed(mb_left))
+      {
+      // return to normal
+      if (mode = 0) {mode = 1;}
+      }
+   }
     }
 
 if (pass2)
    {
-    if (detail_alpha &lt; 1) {detail_alpha += 0.05;}
+    if (detail_alpha &lt; 1 &amp;&amp; mode = 0) {detail_alpha += 0.05;}
     
     draw_set_font(fntPixel);
     
     draw_set_alpha(detail_alpha);
-    draw_text_colored(v_x+5,v_y+70+48,monster[active,bestiary_monster_details]);
+    draw_text_colored(v_x+11,v_y+70+48,monster[active,bestiary_monster_details]);
     draw_set_alpha(1);
+   }
+   
+draw_sprite(sBestiar,2,v_x,v_y);
+draw_set_colour(c_white);
+draw_set_font(fntPixelHuge);
+scrCenterText();
+draw_text(v_x+128,v_y+20,title[page]);
+scrCenterText(0);
+
+if (mode = 1)
+   {
+   if (rec_height &gt; 0) {rec_height -= spd2;}
+   if (detail_alpha &gt; 0) {detail_alpha -= 0.05;}
+
+   if (rec_height &lt;= 0)
+{   
+item_selected = -1;
+}
    }
 
 </string>

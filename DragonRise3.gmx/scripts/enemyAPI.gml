@@ -44,28 +44,31 @@
 
 
 #define scrEnemyIni
-/// scrEnemyIni(health,damage,defense,levelname)
+/// scrEnemyIni(health,damage,defense,level,name,bestiary_name)
 
-var t_hp,t_damage,t_defense,t_level,t_name;
+var t_hp,t_damage,t_defense,t_level,t_name,t_bestiary;
 
 t_hp         = 10;
 t_damage     = 5;
 t_defense    = 2;
 t_level      = choose(1,1,2);
 t_name       = "Enemy";
+t_bestiary   = bestiaryEnemySlime;
 
 if (argument_count > 0) {t_hp       = argument[0];}
 if (argument_count > 1) {t_damage   = argument[1];}
 if (argument_count > 2) {t_defense  = argument[2];}
 if (argument_count > 3) {t_level    = argument[3];}
 if (argument_count > 4) {t_name     = argument[4];}
+if (argument_count > 5) {t_bestiary = argument[5];}
 
 hp       = t_hp;
 damage   = t_damage;
 defense  = t_defense;
 level    = t_level;
 max_hp   = t_hp;
-name     = t_name +string("("+string(level)+")");
+name     = t_name + string(" ("+string(level)+")");
+bestiary = t_bestiary;
 
 #define scrEnemyGetPosition
 /// scrEnemyGetPosition()
@@ -230,3 +233,10 @@ if (blood)
    {
    scrGoreExplode();
    }
+   
+if (instance_number(oBestiar) > 0) 
+   {
+   oBestiar.monster[bestiary,bestiary_monster_killed]++;
+   oBestiar.unlocked[bestiary] = 1;
+    
+   } 
