@@ -400,6 +400,13 @@
         <script>scripts\stateDraw.gml</script>
         <script>scripts\stateIni.gml</script>
       </scripts>
+      <scripts name="Minimap">
+        <script>scripts\minimapInit.gml</script>
+        <script>scripts\minimapDraw.gml</script>
+      </scripts>
+      <scripts name="Day night cycle">
+        <script>scripts\daynightInitialise.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <shaders name="shaders">

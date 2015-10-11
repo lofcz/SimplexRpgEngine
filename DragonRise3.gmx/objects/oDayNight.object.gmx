@@ -25,17 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.night_ = 1
-hour =12
-minu =0
-sec = 0
+            <string>/// Set up
 
-fase = 0
-to = 1
-
-color = c_black
-col = 0
-red = 0
+daynightInitialise(12);
 
 </string>
           </argument>
@@ -59,49 +51,67 @@ red = 0
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//minu += 0.5
+            <string>/// Handle time flow
 
-if sec &gt; 60
+minu += 3;
+
+if (sec &gt; 60)
  {
-  sec = 0
-  minu += 1
+  sec = 0;
+  minu += 1;
  }
-if minu &gt; 59
+ 
+if (minu &gt; 59)
  {
-  minu = 0
-  hour += 1
+  minu = 0;
+  hour += 1;
  }
-if hour &gt; 23
-  hour = 0
-//TEMPO /\
+ 
+if (hour &gt; 23)
+  {
+  hour = 0;
+  }
 
-// \/ SET THE ALPHA RESPECT OF THE TIME OF THE DAY \/ (see more in the draw event)
-hh = (hour)+(minu/60)
-to = -1
-if hour &gt; 12
+hh = hour+minu/60;
+to = -1;
+
+if (hour &gt; 12)
  {
-  hh = (hour-12)+(minu/60)
-  to = 1
+  hh = (hour-12)+(minu/60);
+  to = 1;
  }
 
-fase = ((12-hh)/12)
-if to = 1
-  fase = 1-((12-hh)/12)
+fase = (12-hh)/12;
 
-if to = -1
-  fase*=1.3
+if (to = 1)
+   {
+   fase = 1-((12-hh)/12);
+   }
 
-//set the value of red in the morning (between 6 am and 7 am), or if you are in the
-//north pole between 18 and 19
-if hour = 18
-  red = ((minu)/60)*255
-if hour = 19
-  red = 255-(((minu)/60)*255)
+if (to = -1)
+   {
+   fase*=1.3;
+   }
 
-//
-global.night_ = 0
-if (hour &gt; 20) or (hour &lt; 5)//Between 9PM and 5AM, we have night, else we have day
-  global.night_ = 1
+
+if (hour = 18)
+ {
+  red = ((minu)/60)*255;
+ }
+ 
+if (hour = 19)
+ {
+  red = 255-(((minu)/60)*255);
+ }
+
+
+night = 0;
+
+if (hour &gt; 20 || hour &lt; 5)
+   {
+    night = 1;
+   }
+
 </string>
           </argument>
         </arguments>
@@ -124,21 +134,30 @@ if (hour &gt; 20) or (hour &lt; 5)//Between 9PM and 5AM, we have night, else we 
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_alpha = fase-0.10
-if to = 1
-  image_alpha = fase-0.30
+            <string>/// Draw day-night cycle
 
-if image_alpha &gt; 0.7
-  image_alpha = 0.7
-redr = ((red/255))*239
-redg = ((red/255))*92
-redb = ((red/255))*50
-draw_set_alpha(image_alpha)
-col = make_color_rgb(redr,redg,50)
-draw_set_color(col)
-draw_rectangle(view_xview-1,view_yview-1,view_xview+view_wview+1,view_yview+view_hview+1,false)
-draw_set_alpha(1)
-draw_set_color(c_white)
+image_alpha = fase-0.1;
+
+if (to = 1)
+   {
+   image_alpha = fase-0.3;
+   } 
+
+if (image_alpha &gt; 0.7)
+   {
+  image_alpha = 0.7;
+   }
+   
+redr = ((red/255))*239;
+redg = ((red/255))*92;
+redb = ((red/255))*50;
+col  = make_color_rgb(redr,redg,50);
+
+draw_set_alpha(image_alpha);
+draw_set_color(col);
+draw_rectangle(view_xview-1,view_yview-1,view_xview+view_wview+1,view_yview+view_hview+1,0);
+draw_set_alpha(1);
+draw_set_color(c_white);
 </string>
           </argument>
         </arguments>
