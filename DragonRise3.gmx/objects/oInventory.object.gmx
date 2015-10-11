@@ -25,19 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>slots            = 27;
-draw_inventory   = 0;
-draw_equipment   = 0;
-draw             = 1;
-drag_alpha       = 1;
-drag_controll    = 0;
-effect_scale     = 1;
-close_text       = "Zavřít";
-drop_text        = "Zahoď";
-star_text        = "Označit";
-instance_create(x,y,oInventoryDepthHelper);
-inventoryCreate(slots);
+            <string>/// Initialise
 
+inventoryCreate(27);
+inventoryOptionsSetUp("Zavřít","Zahodit","Označit","Odznačit");
 
 
 </string>
@@ -62,46 +53,9 @@ inventoryCreate(slots);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x = view_xview;
-y = view_yview;
-draw_set_font(fntText);
+            <string>/// Draw inventory
 
-if (instance_number(oPlayer) &gt; 0)
-{ 
-if (oPlayer.can_move2)
-{
-if (keyboard_check_pressed(ord("I")))
-{
-draw_inventory = !draw_inventory;
-hover_alpha = 0;
-} 
-if (keyboard_check_pressed(ord("O")))
-{
-draw_equipment = !draw_equipment;
-} 
-}
-}
-
-if (draw_equipment = 1)
-{
-equipmentDraw();
-}
-
-if (draw_inventory = 1)
-{
-inventoryDraw();
-}
-
-
-if (draw = 1)
-     {
-     if (effect_scale &lt; 1.2 &amp;&amp; draw_inventory = 1) {effect_scale += 0.02;}
-     draw_sprite_ext(sprite_index,0,view_xview+48+16,view_yview+560+16,effect_scale,effect_scale,0,c_black,0.7);
-     draw_sprite(sprite_index,-1,view_xview+48+16,view_yview+560+16)
-     }
-     if (effect_scale &gt; 1 &amp;&amp; draw_inventory = 0) {effect_scale -= 0.02;}
- 
-// pro dnešek stačí, konstanty (tzn. axis-mapu) pro equipmnet máme hotové... jdu pást husy"
+inventoryDrawWrapper(view_xview,view_yview);
 </string>
           </argument>
         </arguments>

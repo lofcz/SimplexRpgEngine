@@ -25,12 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>sprite = -1;
-text = "";
-color = c_white;
-spd = 0.02;
-a = 0;
-p = 0;
+            <string>/// Initialise
+
+sprite = -1;
+text   = "";
+color  = c_white;
+spd    = 0.02;
+a      = 0;
+p      = 0;
 </string>
           </argument>
         </arguments>
@@ -53,7 +55,9 @@ p = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_alpha -= spd;
+            <string>/// Handle list
+
+image_alpha -= spd;
 if (image_alpha &lt;= 0) {instance_destroy();}
 p += 0.02;
 
@@ -82,8 +86,7 @@ else {y -= 0.1;}
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-
+            <string>/// Draw log
 
 draw_set_font(font);
 draw_set_color(color);

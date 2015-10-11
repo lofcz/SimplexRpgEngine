@@ -42,8 +42,8 @@ for(a=0 a<optionnumber a++)
          if (slot_option[hover_idd,a] != star_text) {draw_text(hover_xx+4+16,hover_yy+(a*16)+16,slot_option[hover_idd,a]);}
          else 
               {
-               if (slot[hover_idd,inv_item_star]) {draw_text(hover_xx+4+16,hover_yy+(a*16)+16,"Odznačit");}
-               else {draw_text(hover_xx+4+16,hover_yy+(a*16)+16,"Označit");}
+               if (slot[hover_idd,inv_item_star]) {draw_text(hover_xx+4+16,hover_yy+(a*16)+16,star_text2);}
+               else {draw_text(hover_xx+4+16,hover_yy+(a*16)+16,star_text);}
 
               }
          if (mouse_x > hover_xx-20 && mouse_x < hover_xx+20+width && mouse_y > hover_yy+(a*16)+16 && mouse_y < hover_yy+(a*16)+28)

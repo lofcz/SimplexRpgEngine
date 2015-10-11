@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>alarm[0] = 2;
+            <string>/// Call alarm with delay
+
+alarm[0] = 2;
 </string>
           </argument>
         </arguments>
@@ -48,7 +50,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>alarm[0] = 5;
+            <string>/// Optimize FOV
+
+alarm[0] = 5;
 
 instance_activate_all();
 instance_deactivate_region(view_xview-200,view_yview-200,1200,1000,0,1);
@@ -61,6 +65,7 @@ instance_activate_object(oPlayerCombat);
 instance_activate_object(oMinimap);
 instance_activate_object(oHUD);
 instance_activate_object(oDayNight);
+instance_activate_object(oBestiar);
 
 </string>
           </argument>
@@ -84,7 +89,9 @@ instance_activate_object(oDayNight);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (instance_number(oPlayer) &gt; 0)
+            <string>/// Jump to player position
+
+if (instance_number(oPlayer) &gt; 0)
    {
     x = oPlayer.x;
     y = oPlayer.y;

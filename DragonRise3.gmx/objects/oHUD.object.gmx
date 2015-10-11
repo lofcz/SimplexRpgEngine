@@ -25,17 +25,19 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw = 1;
-alpha[0] = 0;
-alpha[1] = 0;
-alpha[2] = 0;
-alpha[3] = 0;
-die = 0;
-die_alpha = 0;
-effect_scale = 1;
-draw_bestiary = 0;
-temp_inv = 0;
-temp_inv2 = 0;
+            <string>/// Set up
+
+draw           = 1;
+alpha[0]       = 0;
+alpha[1]       = 0;
+alpha[2]       = 0;
+alpha[3]       = 0;
+die            = 0;
+die_alpha      = 0;
+effect_scale   = 1;
+draw_bestiary  = 0;
+temp_inv       = 0;
+temp_inv2      = 0;
 </string>
           </argument>
         </arguments>
@@ -58,7 +60,9 @@ temp_inv2 = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (instance_number(oPlayer) &gt; 0) {x = oPlayer.x; y = oPlayer.y;}
+            <string>/// Jump to player position
+
+if (instance_number(oPlayer) &gt; 0) {x = oPlayer.x; y = oPlayer.y;}
 
 </string>
           </argument>
@@ -82,7 +86,9 @@ temp_inv2 = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x = view_xview;
+            <string>/// Draw HUD
+
+x = view_xview;
 y = view_yview;
 
 if (instance_number(oPlayer) &gt; 0 &amp;&amp; draw)

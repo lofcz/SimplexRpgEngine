@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw                          = 0;
+            <string>/// Set up 
+
+draw = 0;
 </string>
           </argument>
         </arguments>
@@ -48,7 +50,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x = view_xview+32;
+            <string>/// Draw self
+
+x = view_xview+32;
 y = view_yview;
 
 if (oInventory.draw_inventory) {x += 256;}
@@ -58,7 +62,7 @@ if (!draw) {draw_self();}
 xx = x;
 yy = y;
 
-//draw_
+
 </string>
           </argument>
         </arguments>

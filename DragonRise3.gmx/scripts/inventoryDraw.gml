@@ -611,3 +611,55 @@ for(a = 0; a < celkem_vlastnosti; a++)
 
 
 draw_text(x+4,used_y+128+24+height,t_text);
+#define inventoryDrawWrapper
+/// inventoryDrawWrapper(x,y)
+
+var tX,tY;
+
+tX = view_xview;
+tY = view_yview;
+
+if (argument_count > 0) {tX = argument[0];}
+if (argument_count > 1) {tY = argument[1];}
+
+
+x = tX;
+y = tY;
+draw_set_font(fntText);
+
+if (instance_number(oPlayer) > 0)
+{ 
+if (oPlayer.can_move2)
+{
+if (keyboard_check_pressed(ord("I")))
+{
+draw_inventory = !draw_inventory;
+hover_alpha = 0;
+} 
+if (keyboard_check_pressed(ord("O")))
+{
+draw_equipment = !draw_equipment;
+} 
+}
+}
+
+if (draw_equipment = 1)
+{
+equipmentDraw();
+}
+
+if (draw_inventory = 1)
+{
+inventoryDraw();
+}
+
+
+if (draw = 1)
+     {
+     if (effect_scale < 1.2 && draw_inventory = 1) {effect_scale += 0.02;}
+     draw_sprite_ext(sprite_index,0,view_xview+48+16,view_yview+560+16,effect_scale,effect_scale,0,c_black,0.7);
+     draw_sprite(sprite_index,-1,view_xview+48+16,view_yview+560+16)
+     }
+     if (effect_scale > 1 && draw_inventory = 0) {effect_scale -= 0.02;}
+ 
+

@@ -25,14 +25,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>text = "Západní les";
+            <string>/// Set up
+
+text              = "Západní les";
 oPlayer.can_move2 = 0;
-alpha = 0;
-spd = 2;
-xx = 0;
-mode = 0;
-r = 0;
-color = make_colour_rgb(r,r,r);
+alpha             = 0;
+spd               = 2;
+xx                = 0;
+mode              = 0;
+r                 = 0;
+g                 = 0;
+b                 = 0;
+color             = make_colour_rgb(r,g,b);
 </string>
           </argument>
         </arguments>
@@ -55,8 +59,11 @@ color = make_colour_rgb(r,r,r);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>oPlayer.can_move2 = 1;
-oHUD.draw = 1;
+            <string>/// Reset affected vars
+
+oPlayer.can_move2 = 1;
+oHUD.draw         = 1;
+
 with(parEnemy) {slowdown = 0;}
 </string>
           </argument>
@@ -80,7 +87,9 @@ with(parEnemy) {slowdown = 0;}
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>oHUD.draw = 0;
+            <string>/// Draw intro
+
+oHUD.draw = 0;
 oInventory.draw = 0;
 
 

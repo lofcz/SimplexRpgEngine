@@ -25,10 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>list = ds_list_create();
-list_alpha = ds_list_create();
+            <string>/// Create lists
 
-
+stateIni("L");
 </string>
           </argument>
         </arguments>
@@ -51,7 +50,9 @@ list_alpha = ds_list_create();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ds_list_destroy(list);
+            <string>/// Free lists
+
+ds_list_destroy(list);
 ds_list_destroy(list_alpha);
 </string>
           </argument>
@@ -75,7 +76,9 @@ ds_list_destroy(list_alpha);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_destroy();
+            <string>/// Destroy self
+
+instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -98,30 +101,9 @@ ds_list_destroy(list_alpha);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x = view_xview;
-y = view_yview+512;
-draw_set_font(fntPixel);
-xx = x;
-yy = y;
-//draw_text(x,y-32,ds_list_size(list));
+            <string>/// Draw log
 
-for (a = 0; a &lt; ds_list_size(list); a++)
-    {
-    
-    draw_set_alpha(ds_list_find_value(list_alpha,a))
-     draw_text_colour(xx,yy,list[| a],c_black,c_black,c_black,c_black,ds_list_find_value(list_alpha,a));
-     
-     if (ds_list_find_value(list_alpha,a) &lt; 1) {yy += 16*ds_list_find_value(list_alpha,a)}
-      else {yy += 16;} 
-     if (a = 0) {value = ds_list_find_value(list_alpha,a); ds_list_replace(list_alpha,a,value-0.01); if (value &lt;= 0) {ds_list_delete(list,a); ds_list_delete(list_alpha,a);}}
-    }
-    
-    if (keyboard_check_pressed(ord("L")))
-       {
-        ds_list_add(list,"AAA");
-         ds_list_add(list_alpha,2);
-
-       }
+stateDraw(view_xview,view_yview+500);
 </string>
           </argument>
         </arguments>

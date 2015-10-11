@@ -11,7 +11,8 @@
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>roomCreation();
-//scrMapIntro("Poutníkova pěšina");
+scrMapIntro("Poutníkova pěšina",0,0,0);
+
 global.shaders_enabled = 1;</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
@@ -28,7 +29,7 @@ global.shaders_enabled = 1;</code>
     <showViews>-1</showViews>
     <deleteUnderlyingObj>0</deleteUnderlyingObj>
     <deleteUnderlyingTiles>-1</deleteUnderlyingTiles>
-    <page>0</page>
+    <page>1</page>
     <xoffset>-261</xoffset>
     <yoffset>-160</yoffset>
   </makerSettings>

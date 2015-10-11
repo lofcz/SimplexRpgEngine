@@ -335,6 +335,7 @@
         <script>scripts\inventoryCombinations.gml</script>
         <script>scripts\inventorySwitchPre.gml</script>
         <script>scripts\inventoryNumber.gml</script>
+        <script>scripts\inventoryOptionsSetUp.gml</script>
         <script>scripts\inventoryDelete.gml</script>
       </scripts>
       <scripts name="Chest">
@@ -385,6 +386,8 @@
         <script>scripts\scrNonsolidCollisionIni.gml</script>
       </scripts>
       <scripts name="Combat">
+        <script>scripts\combatHandle.gml</script>
+        <script>scripts\combatSetUp.gml</script>
         <script>scripts\combatGetCriticalHit.gml</script>
       </scripts>
       <scripts name="MapIntro">
@@ -392,6 +395,10 @@
       </scripts>
       <scripts name="Bestiary">
         <script>scripts\scrBestiaryInit.gml</script>
+      </scripts>
+      <scripts name="State">
+        <script>scripts\stateDraw.gml</script>
+        <script>scripts\stateIni.gml</script>
       </scripts>
     </scripts>
   </scripts>

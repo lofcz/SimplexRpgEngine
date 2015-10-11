@@ -25,17 +25,21 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>angle  = 0;
+            <string>/// Set up
+
+angle  = 0;
 motion = 1;
 spd    = 4;
 koe    = 10;
 target = 0;
+view   = 0;
+
+alarm[0] = 1;
 
 if (instance_number(oPlayer) &gt; 0) {target = oPlayer;}
-alarm[0] = 1;
-view = 0;
 
-if (room = cutsceneVavrincuvKostel) {target = oVavrinecCutscene;}
+
+if (room = cutsceneVavrincuvKostel)     {target = oVavrinecCutscene;}
 if (room = cutscenePoustevnikovaPesina) {target = oObet;}
 
 
@@ -61,7 +65,9 @@ if (room = cutscenePoustevnikovaPesina) {target = oObet;}
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (instance_number(oPlayer) &gt; 0)
+            <string>/// Jump to player position
+
+if (instance_number(oPlayer) &gt; 0)
 {
 x = oPlayer.x;
 y = oPlayer.y;
@@ -88,10 +94,10 @@ y = oPlayer.y;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (motion = 1)
-   {
-    
-   
+            <string>/// Flow if motion is enabled, else call jump
+
+if (motion = 1)
+   {       
     if (instance_number(target) &gt; 0)
        {
        spd = ((distance_to_object(target)/koe))
@@ -105,14 +111,18 @@ y = oPlayer.y;
        }
    
    }
+if (abs(view) &gt;=360) {view = 0;}   
+view_angle[0] = view;
+
+
 /*   
+DEBUG - ROTATE VIEW
+
 if (mouse_check_button(mb_right))
    {
     view += 2;
    }
 */
-if (abs(view) &gt;=360) {view = 0;}   
-view_angle[0] = view;
 </string>
           </argument>
         </arguments>
@@ -135,8 +145,7 @@ view_angle[0] = view;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//draw_self();
-//draw_text(x,y+80,spd);
+            <string>/// Don't draw anything
 </string>
           </argument>
         </arguments>

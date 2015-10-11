@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>animate = 0;
+            <string>/// Set up
+
+animate = 0;
 </string>
           </argument>
         </arguments>
@@ -152,7 +154,7 @@ if (type = "chest")
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Don´t draw anything
+            <string>/// Don't draw anything
 </string>
           </argument>
         </arguments>

@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (instance_number(oInventory) &gt; 0) {x = oInventory.x; y = oInventory;}
+            <string>/// Set position 
+
+if (instance_number(oInventory) &gt; 0) {x = oInventory.x; y = oInventory.y;}
 
 
 </string>
@@ -50,12 +52,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (instance_number(oInventory) &gt; 0)
+            <string>/// Draw equipment infobocx when needed
+
+if (instance_number(oInventory) &gt; 0)
    {
-   if (oInventory.draw_equ_infobox)
-   {
-   equipmentDrawInfobox(oInventory.draw_equ_infobox_xx,oInventory.draw_equ_infobox_yy,oInventory.draw_equ_infobox_id);  
-   }
+    if (oInventory.draw_equ_infobox)
+       {
+       equipmentDrawInfobox(oInventory.draw_equ_infobox_xx,oInventory.draw_equ_infobox_yy,oInventory.draw_equ_infobox_id);  
+       }
    }
 </string>
           </argument>

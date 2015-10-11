@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>type = "melee";
+            <string>/// Set up
+
+type = "melee";
 
 sprite     = sShortHandles;
 image      = 0;
@@ -58,7 +60,9 @@ alpha      = 1
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (instance_number(oPlayer) &gt; 0)
+            <string>/// Draw weapon hilt
+
+if (instance_number(oPlayer) &gt; 0)
 {
 xx = oPlayer.x;
 yy = oPlayer.y;

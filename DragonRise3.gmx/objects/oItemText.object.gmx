@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (distance_to_point(mouse_x,mouse_y) &gt; 0) {instance_destroy();}
+            <string>/// Draw item stats
+
+if (distance_to_point(mouse_x,mouse_y) &gt; 0) {instance_destroy();}
 if (instance_number((parent)) = 0) {instance_destroy();}
 if (parent.p = 0) {instance_destroy();}
 

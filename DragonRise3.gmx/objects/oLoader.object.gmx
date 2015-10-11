@@ -25,14 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>sHairPlainRaven               = sprite_add("Resources/Sprites/BodyCanvas/sHairPlainRaven.png",4,0,0,16,24);
+            <string>/// Add body parts
+
+sHairPlainRaven               = sprite_add("Resources/Sprites/BodyCanvas/sHairPlainRaven.png",4,0,0,16,24);
 sHairPlainLime                = sprite_add("Resources/Sprites/BodyCanvas/sHairPlainLime.png",4,0,0,16,24);
 sHairPlainBlonde              = sprite_add("Resources/Sprites/BodyCanvas/sHairPlainBlonde.png",4,0,0,16,24);
 
 sBodyCanvas     = sprite_add("Resources/Sprites/BodyCanvas/sBodyCanvas.png",7,0,0,16,24);
 
-
-//room_goto_next();sHairPlainRaven
 </string>
           </argument>
         </arguments>
@@ -55,7 +55,9 @@ sBodyCanvas     = sprite_add("Resources/Sprites/BodyCanvas/sBodyCanvas.png",7,0,
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*
+            <string>/// TODO
+
+/*
 if (check = 0)
    {
     check = 1;

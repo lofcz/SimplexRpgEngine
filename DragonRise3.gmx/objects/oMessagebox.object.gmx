@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed = 0;
+            <string>/// Set up
+
+image_speed = 0;
 
 for(a = 0; a &lt; dialogue_lenght; a++) {message_head[a] = ""; message_text[a] = ""; message_head[a] = "";}
               
@@ -54,8 +56,7 @@ bac_alpha = 0;
 
 if (instance_number(parNPC) &gt; 0)
    {
-    parNPC.talking = 1;
-   
+    parNPC.talking = 1;   
    }
 </string>
           </argument>
@@ -79,15 +80,16 @@ if (instance_number(parNPC) &gt; 0)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>oInventory.draw_inventory = inv_state;
-oPlayer.can_move2 = 1;
+            <string>/// Reset variables
+
+oInventory.draw_inventory = inv_state;
+oPlayer.can_move2         = 1;
 
 if (!oInventory.draw_inventory) {oInventory.draw = 1;}
 
 if (instance_number(parNPC) &gt; 0)
    {
     parNPC.talking = 0;
-   
    }
 
 </string>
@@ -112,7 +114,9 @@ if (instance_number(parNPC) &gt; 0)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (option[message_current] = -1)
+            <string>/// Handle dialogue
+
+if (option[message_current] = -1)
    {
      if (message_text[message_current+1] = "") {draw = 0;}
    else 
@@ -130,7 +134,11 @@ if (instance_number(parNPC) &gt; 0)
            // show_message(message_current+string(" ")+string(oMessagebox.option[oMessagebox.message_current]));
            an = instance_create(view_xview+350,view_yview+320,oAnswer);
            an.parent = (parent);
-           with((parent)) {action_id = oMessagebox.option[oMessagebox.message_current]; event_user(14);}
+           with((parent)) 
+           {
+           action_id = oMessagebox.option[oMessagebox.message_current]; 
+           event_user(14);
+           }
           }
 
 </string>
@@ -155,10 +163,12 @@ if (instance_number(parNPC) &gt; 0)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x = view_xview+5;
+            <string>/// Draw dialogue
+
+x = view_xview+5;
 y = view_yview-10;
 
-oInventory.draw = 0;
+if (instance_number(oInventory) &gt; 0) {oInventory.draw = 0;}
 
 if (bac_alpha &lt; 0.3 &amp;&amp; draw) {bac_alpha += 0.01;}
 clr(c_black,bac_alpha);
