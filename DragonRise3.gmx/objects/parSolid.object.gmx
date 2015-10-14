@@ -25,11 +25,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with(other)
+            <string>/// Return player to previous position
+
+with(other)
            {
             x = xprevious;
-            y = yprevious;
-           
+            y = yprevious;           
            }
 </string>
           </argument>

@@ -25,8 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>alpha = 0;
-alarm[0] = 1;
+            <string>/// Set up
+
+alpha       = 0;
+alarm[0]    = 1;
 text_parsed = 0;
 </string>
           </argument>
@@ -50,7 +52,9 @@ text_parsed = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>text_parsed = dialogueParse(text);
+            <string>/// Parse collision text
+
+text_parsed = dialogueParse(text);
 </string>
           </argument>
         </arguments>
@@ -73,7 +77,9 @@ text_parsed = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (instance_number(oPlayer) &gt; 0)
+            <string>/// Handle interaction and collision
+
+if (instance_number(oPlayer) &gt; 0)
    {
     if (distance_to_object(oPlayer) &lt; 32)
        {
@@ -112,7 +118,9 @@ text_parsed = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with(other) {x = xprevious; y = yprevious;}
+            <string>/// Return player to previous position
+
+with(other) {x = xprevious; y = yprevious;}
 
 </string>
           </argument>
@@ -136,12 +144,12 @@ text_parsed = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Dont draw anything
+            <string>/// Don't draw anything
+
+
 draw_set_font(fntPixel);
-//scrCenterText();
 draw_set_alpha(alpha/2);
 draw_roundrect_colour_ext(xx-string_width(text_parsed)/2-10,yy-string_height(text_parsed)/2,xx+string_width(text_parsed)/2+10,yy+string_height(text_parsed)/2+4,20,20,c_black,c_black,0);
-//draw_text(x,y+100,text_lenght);
 draw_set_alpha(alpha);
 draw_set_color(c_white);
 draw_text_colored(xx-string_width(text_parsed)/2,yy-string_height(text_parsed)/2,text);

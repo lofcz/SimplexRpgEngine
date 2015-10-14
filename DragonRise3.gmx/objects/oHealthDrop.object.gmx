@@ -25,8 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>stav = "idle";
-image_speed = 0;
+            <string>/// Set up
+
+stav          = "idle";
+image_speed   = 0;
 secure_pickup = 15;
 </string>
           </argument>
@@ -50,11 +52,14 @@ secure_pickup = 15;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (stav = "idle" &amp;&amp; secure_pickup &lt;= 0)
+            <string>/// Pick up
+
+if (stav = "idle" &amp;&amp; secure_pickup &lt;= 0)
 {
 oPlayer.vlastnost[vlastnost_zivot] += itm_number;
+stav                                = "delete";
+
 scrLog("+ "+string(itm_number),c_red,sHealthEffect,0,0.4);
-stav = "delete";
 audio_play_sound(sndHealth,0,0);
 }
 
@@ -81,7 +86,9 @@ audio_play_sound(sndHealth,0,0);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self()
+            <string>/// Draw self
+
+draw_self()
 
 if (speed &gt; 0)
    {

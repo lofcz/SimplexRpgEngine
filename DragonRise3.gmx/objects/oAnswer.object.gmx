@@ -25,18 +25,20 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_alpha = 1;
-mode = 0;
+            <string>/// Set up
+
+image_alpha = 1;
+mode        = 0;
 image_speed = 0;
-clicked = 0;
-cd = 0;
+clicked     = 0;
+cd          = 0;
 
 for(a = 0; a &lt; 6; a++)
 {
-polozka[a] = "";
+polozka[a]           = "";
 polozka_activated[a] = 0;
-index_alpha[a] = 0;
-polozka_color[a] = 0;
+index_alpha[a]       = 0;
+polozka_color[a]     = 0;
 }
 
 
@@ -63,7 +65,9 @@ polozka_color[a] = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (cd)
+            <string>/// Draw answer circle
+
+if (cd)
 {
 
 draw_self();

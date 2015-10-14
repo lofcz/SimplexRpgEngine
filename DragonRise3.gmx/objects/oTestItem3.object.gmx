@@ -92,11 +92,11 @@ itemRarity();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (loot = 0)
-{
-                                                            //show_message(Id: +string(itm_id));
-inventoryPickUp(); 
+            <string>/// Loot
 
+if (loot = 0)
+{
+inventoryPickUp(); 
 scrLog("+ Dřevěný meč",c_white,sSwordEffect,1);
 audio_play_sound(sndWeaponPickup,0,0);
 }
@@ -148,7 +148,9 @@ instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>itemDraw()
+            <string>/// Draw self
+
+itemDraw()
 
 </string>
           </argument>

@@ -53,65 +53,7 @@ daynightInitialise(12);
             <kind>1</kind>
             <string>/// Handle time flow
 
-minu += 3;
-
-if (sec &gt; 60)
- {
-  sec = 0;
-  minu += 1;
- }
- 
-if (minu &gt; 59)
- {
-  minu = 0;
-  hour += 1;
- }
- 
-if (hour &gt; 23)
-  {
-  hour = 0;
-  }
-
-hh = hour+minu/60;
-to = -1;
-
-if (hour &gt; 12)
- {
-  hh = (hour-12)+(minu/60);
-  to = 1;
- }
-
-fase = (12-hh)/12;
-
-if (to = 1)
-   {
-   fase = 1-((12-hh)/12);
-   }
-
-if (to = -1)
-   {
-   fase*=1.3;
-   }
-
-
-if (hour = 18)
- {
-  red = ((minu)/60)*255;
- }
- 
-if (hour = 19)
- {
-  red = 255-(((minu)/60)*255);
- }
-
-
-night = 0;
-
-if (hour &gt; 20 || hour &lt; 5)
-   {
-    night = 1;
-   }
-
+daynightFlow(0);
 </string>
           </argument>
         </arguments>
@@ -136,28 +78,8 @@ if (hour &gt; 20 || hour &lt; 5)
             <kind>1</kind>
             <string>/// Draw day-night cycle
 
-image_alpha = fase-0.1;
+daynightDraw();
 
-if (to = 1)
-   {
-   image_alpha = fase-0.3;
-   } 
-
-if (image_alpha &gt; 0.7)
-   {
-  image_alpha = 0.7;
-   }
-   
-redr = ((red/255))*239;
-redg = ((red/255))*92;
-redb = ((red/255))*50;
-col  = make_color_rgb(redr,redg,50);
-
-draw_set_alpha(image_alpha);
-draw_set_color(col);
-draw_rectangle(view_xview-1,view_yview-1,view_xview+view_wview+1,view_yview+view_hview+1,0);
-draw_set_alpha(1);
-draw_set_color(c_white);
 </string>
           </argument>
         </arguments>

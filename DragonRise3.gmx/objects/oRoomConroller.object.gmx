@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>oPlayer.x = p_x;
+            <string>/// Save player position to vec2
+
+oPlayer.x = p_x;
 oPlayer.y = p_y;
 </string>
           </argument>

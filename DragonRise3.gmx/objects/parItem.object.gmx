@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>move_bounce_all(1);
+            <string>/// Simple physics (bouncy castle)
+
+move_bounce_all(1);
 </string>
           </argument>
         </arguments>
@@ -48,7 +50,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>move_bounce_all(1);
+            <string>/// Simple physics (bouncy castle)
+
+move_bounce_all(1);
 </string>
           </argument>
         </arguments>

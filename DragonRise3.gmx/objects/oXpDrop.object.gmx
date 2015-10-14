@@ -25,15 +25,16 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>stav = "idle";
-mode = 0;
-m1 = choose(0,1);
-iamge_speed = 0.2;
-secure_pickup = 15;
-image_index = irandom(10);
+            <string>/// Set up
 
-image_xscale = random_range(1,1.2);
-image_yscale = image_xscale;
+stav          = "idle";
+mode          = 0;
+m1            = choose(0,1);
+iamge_speed   = 0.2;
+secure_pickup = 15;
+image_index   = irandom(10);
+image_xscale  = random_range(1,1.2);
+image_yscale  = image_xscale;
 </string>
           </argument>
         </arguments>
@@ -56,11 +57,14 @@ image_yscale = image_xscale;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (stav = "idle" &amp;&amp; secure_pickup &lt;= 0)
+            <string>/// Pick up
+
+if (stav = "idle" &amp;&amp; secure_pickup &lt;= 0)
 {
 oPlayer.vlastnost[vlastnost_zkusenosti] += itm_number;
+stav                                     = "delete";
+
 scrLog("+ "+string(itm_number),c_lime,sXP,0,0.5);
-stav = "delete";
 audio_play_sound(sndExp,0,0);
 }
 
@@ -87,7 +91,9 @@ audio_play_sound(sndExp,0,0);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_index = 0;
+            <string>/// Reset image index
+
+image_index = 0;
 </string>
           </argument>
         </arguments>
@@ -110,7 +116,9 @@ audio_play_sound(sndExp,0,0);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (m1 = 0) {if (image_xscale &lt; 1.2) {image_xscale += 0.02; image_yscale = image_xscale;} else {m1 = 1;}}
+            <string>/// Draw self
+
+if (m1 = 0) {if (image_xscale &lt; 1.2) {image_xscale += 0.02; image_yscale = image_xscale;} else {m1 = 1;}}
 if (m1 = 1) {if (image_xscale &gt; 1) {image_xscale -= 0.02; image_yscale = image_xscale;} else {m1 = 0;}}
 
 if (mode = 0) {image_speed = 0.2;} 

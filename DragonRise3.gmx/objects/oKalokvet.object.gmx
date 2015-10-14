@@ -69,13 +69,13 @@ scrItemOptions()
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (loot = 0)
+            <string>/// Loot
+
+if (loot = 0)
 {
-                                                            //show_message(Id: +string(itm_id));
 inventoryPickUp(); 
 audio_play_sound(sndRindPickup,0,0);
 scrLog("+ Kalokvět",c_flower,-1);
-
 }
 </string>
           </argument>
@@ -125,7 +125,9 @@ instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>itemDraw()
+            <string>/// Draw item
+
+itemDraw()
 </string>
           </argument>
         </arguments>

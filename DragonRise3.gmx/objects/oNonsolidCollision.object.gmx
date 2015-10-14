@@ -25,11 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>status = 0;
-alpha = 0;
-draw = 0;
+            <string>/// Set up
+
+status   = 0;
+alpha    = 0;
+draw     = 0;
 alarm[0] = 1;
-alpha2 = 0;
+alpha2   = 0;
 </string>
           </argument>
         </arguments>
@@ -52,11 +54,12 @@ alpha2 = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>/// Parse dialogue sentences
+
+
 for (i = 0; i &lt; array_length_1d(text); i++)
 {
 parsed_text[i] = dialogueParse(text[i]);
-//show_message(parsed_text[i]);
 }
 
 
@@ -82,7 +85,9 @@ parsed_text[i] = dialogueParse(text[i]);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (instance_number(oPlayer) &gt; 0)
+            <string>/// Handle interaction
+
+if (instance_number(oPlayer) &gt; 0)
 {
 if (distance_to_object(oPlayer) &lt; 16)
    {
@@ -166,12 +171,9 @@ if (idd = "mapTest_kytka2")
             <kind>1</kind>
             <string>/// Draw nothing
 
-//draw_text(xx,yy,text[status])
-
 if (draw)
 {
 draw_set_font(fntPixel);
-//scrCenterText();
 draw_set_alpha(alpha/2);
 draw_roundrect_colour_ext(xx-string_width(parsed_text[status])/2-10,yy-string_height(parsed_text[status])/2,xx+string_width(parsed_text[status])/2+10,yy+string_height(parsed_text[status])/2+4,20,20,c_black,c_black,0);
 draw_set_alpha(alpha);
@@ -181,7 +183,7 @@ draw_set_alpha(1);
 scrCenterText(0);
 }
 else 
-     {
+{
 draw_set_font(fntPixel);
 scrCenterText();
 draw_set_alpha(alpha/2);
@@ -191,8 +193,7 @@ draw_set_color(c_white);
 draw_text(xx,yy,"E");
 draw_set_alpha(1);
 scrCenterText(0);
-
-     }
+}
 
 
 

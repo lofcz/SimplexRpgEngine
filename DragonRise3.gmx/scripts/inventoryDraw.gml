@@ -662,4 +662,3 @@ if (draw = 1)
      }
      if (effect_scale > 1 && draw_inventory = 0) {effect_scale -= 0.02;}
  
-

@@ -137,7 +137,7 @@ instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Draw (s)elf
+            <string>/// Draw self
 itemDraw()
 
 if (secure_pickup &gt; 0) {secure_pickup --;}

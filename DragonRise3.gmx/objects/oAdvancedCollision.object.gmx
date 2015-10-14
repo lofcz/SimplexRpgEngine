@@ -25,10 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>status = 0;
-alpha = 0;
-draw = 0;
+            <string>/// Set up
+
+status   = 0;
+alpha    = 0;
+draw     = 0;
 alarm[0] = 1;
+
+
+
 </string>
           </argument>
         </arguments>
@@ -51,11 +56,11 @@ alarm[0] = 1;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>/// Parse dialogue sentences
+
 for (i = 0; i &lt; array_length_1d(text); i++)
 {
 parsed_text[i] = dialogueParse(text[i]);
-//show_message(parsed_text[i]);
 }
 
 
@@ -81,7 +86,9 @@ parsed_text[i] = dialogueParse(text[i]);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (instance_number(oPlayer) &gt; 0)
+            <string>/// Handle collision and interaction
+
+if (instance_number(oPlayer) &gt; 0)
 {
 if (distance_to_object(oPlayer) &lt; 6)
    {
@@ -127,7 +134,9 @@ if (keyboard_check_pressed(ord("E")) &amp;&amp; alpha &gt; 0.8 &amp;&amp; !draw)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (idd = "pařez1")
+            <string>/// Interaction DB
+
+if (idd = "pařez1")
    {
     if (status = 1) {scrEnemyLoot(oGold,1,5,1,100,4);}
    

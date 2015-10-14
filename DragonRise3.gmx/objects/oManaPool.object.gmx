@@ -25,14 +25,16 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed = 0;
-activated = 0;
-alpha = 0;
-mode = 0;
-alpha2 = 0;
-alpha3 = 0;
-alpha4 = 0;
-mana = 200;
+            <string>/// Set up
+
+image_speed = 0;
+activated   = 0;
+alpha       = 0;
+mode        = 0;
+alpha2      = 0;
+alpha3      = 0;
+alpha4      = 0;
+mana        = 200;
 </string>
           </argument>
         </arguments>
@@ -55,7 +57,9 @@ mana = 200;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>alarm[1] = -1;
+            <string>/// Exit timer
+
+alarm[1] = -1;
 </string>
           </argument>
         </arguments>
@@ -78,7 +82,9 @@ mana = 200;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>alarm[0] = -1;
+            <string>/// Exit timer
+
+alarm[0] = -1;
 </string>
           </argument>
         </arguments>
@@ -101,7 +107,9 @@ mana = 200;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite(sManaPool,0,x,y);
+            <string>/// Handle mana pool
+
+draw_sprite(sManaPool,0,x,y);
 
 xx = x+50;
 yy = y-16;

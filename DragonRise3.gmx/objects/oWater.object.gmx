@@ -25,11 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>rot = 0;
-a = random(64);
-mode = 0;
-b= 0;
-mode1 = 0;
+            <string>/// Set up
+
+// TODO - UNFINISHED OBJECT
+
+rot      = 0;
+a        = random(64);
+mode     = 0;
+b        = 0;
+mode1    = 0;
 </string>
           </argument>
         </arguments>
@@ -52,7 +56,9 @@ mode1 = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>/// Draw shader based water
+
+
 if (mode = 0) 
 {
 if (a &lt; 64) {a+=0.1;} else {mode=1}

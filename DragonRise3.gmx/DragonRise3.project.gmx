@@ -395,6 +395,7 @@
       </scripts>
       <scripts name="Bestiary">
         <script>scripts\scrBestiaryInit.gml</script>
+        <script>scripts\scrBestiaryDraw.gml</script>
       </scripts>
       <scripts name="State">
         <script>scripts\stateDraw.gml</script>
@@ -406,13 +407,16 @@
       </scripts>
       <scripts name="Day night cycle">
         <script>scripts\daynightInitialise.gml</script>
+        <script>scripts\daynightDraw.gml</script>
+        <script>scripts\daynightFlow.gml</script>
       </scripts>
     </scripts>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shdColor.shader</shader>
     <shader type="GLSLES">shaders\shdLerp.shader</shader>
-    <shader type="GLSLES">shaders\shader2.shader</shader>
+    <shader type="GLSLES">shaders\shdGaussHor.shader</shader>
+    <shader type="GLSLES">shaders\shdGaussVer.shader</shader>
   </shaders>
   <fonts name="fonts">
     <fonts name="Standard game fonts">
@@ -473,16 +477,20 @@
       <object>objects\oAnswer</object>
     </objects>
     <objects name="Dropable and items">
-      <object>objects\parItem</object>
-      <object>objects\oGold</object>
-      <object>objects\oTestItem2</object>
-      <object>objects\oKalokvet</object>
-      <object>objects\oBasicItem</object>
-      <object>objects\oTestItem3</object>
-      <object>objects\oKozenaHelma</object>
-      <object>objects\oHealthDrop</object>
-      <object>objects\oXpDrop</object>
-      <object>objects\oXpReward</object>
+      <objects name="Dropable">
+        <object>objects\oXpDrop</object>
+        <object>objects\oXpReward</object>
+        <object>objects\oHealthDrop</object>
+      </objects>
+      <objects name="Items">
+        <object>objects\oGold</object>
+        <object>objects\oTestItem2</object>
+        <object>objects\oKalokvet</object>
+        <object>objects\oBasicItem</object>
+        <object>objects\oTestItem3</object>
+        <object>objects\oKozenaHelma</object>
+        <object>objects\parItem</object>
+      </objects>
     </objects>
     <objects name="Collisions">
       <object>objects\oBasicCollision</object>
@@ -527,6 +535,7 @@
       <object>objects\oVavrinecCutscene</object>
       <object>objects\oObet</object>
     </objects>
+    <object>objects\oPause</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\mapTest</room>
