@@ -1,4 +1,4 @@
-Rámcová představa
+﻿Rámcová představa
 -----------------
 2D LRPG, detektivka. Důraz kladen na lootování, silnou interaktivitu prostředí. Umístěno ve fantasy středověku. Kombinace českého a fantasy prostředí. Linearita. 
 
@@ -27,3 +27,10 @@ Vavřinec je knězem ve svém kostele. V mládí se chtěl stát kovářem, ale 
 ho otec dal do učení [vavřincův předchůdce]. Vavřinec se naučil základy latiny, číst a psát. 
 Je velmi konzervativní a bojí se pověr. Své stádo vede k poslušnosti vůči bohu a přijmutí 
 svého osudu. Když nechce o něčem mluvit, začne odříkávat otčenáš.  
+
+Valérie
+- Dvacátnice, pomocnice šenkýřky, uzavřená žena.
+Valérie je drobná žena, která pracuje pro 
+
+
+

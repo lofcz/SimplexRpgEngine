@@ -176,7 +176,7 @@ else
       if (alpha4 &lt; (mana/200)) {alpha4 += 0.05;}
       if (alpha4 &gt; (mana/200)) {alpha4 -= 0.01;}
       
-      if (!global.night_) {if (mana &lt; 200) {if (alarm[1] = -1) {alarm[1] = 100; mana++;}}}
+      if (!oDayNight.night) {if (mana &lt; 200) {if (alarm[1] = -1) {alarm[1] = 100; mana++;}}}
 
       draw_sprite_ext(sManaPool,1,x,y,1,1,0,c_white,alpha4);
       
