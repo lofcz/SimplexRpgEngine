@@ -417,6 +417,12 @@
     <shader type="GLSLES">shaders\shdLerp.shader</shader>
     <shader type="GLSLES">shaders\shdGaussHor.shader</shader>
     <shader type="GLSLES">shaders\shdGaussVer.shader</shader>
+    <shader type="GLSLES">shaders\shdSepia.shader</shader>
+    <shader type="GLSLES">shaders\shdJrpg.shader</shader>
+    <shader type="GLSLES">shaders\shdInvert.shader</shader>
+    <shader type="GLSLES">shaders\shdThermal.shader</shader>
+    <shader type="GLSLES">shaders\shdSketch.shader</shader>
+    <shader type="GLSLES">shaders\shdGreyscale.shader</shader>
   </shaders>
   <fonts name="fonts">
     <fonts name="Standard game fonts">
@@ -536,6 +542,7 @@
       <object>objects\oObet</object>
     </objects>
     <object>objects\oPause</object>
+    <object>objects\oScreenShader</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\mapTest</room>
@@ -547,7 +554,15 @@
       <room>rooms\mapLoading</room>
     </rooms>
   </rooms>
-  <constants number="153">
+  <constants number="161">
+    <constant name="shaderSketch">5</constant>
+    <constant name="shaderThermal">4</constant>
+    <constant name="shaderJrpg">3</constant>
+    <constant name="shaderInvert">2</constant>
+    <constant name="shaderSepia">1</constant>
+    <constant name="shaderGrayscale">0</constant>
+    <constant name="shaderAmount">0</constant>
+    <constant name="shdNoone">-1</constant>
     <constant name="cEULER">2.7182818284590452353602874713526624977572470936999595749669676277240766303535475945713821785251664274</constant>
     <constant name="cNAN">999</constant>
     <constant name="bestiaryEnemySlime2">1</constant>
