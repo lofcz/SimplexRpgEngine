@@ -25,13 +25,13 @@ for (a=0; a<array_height_2d(slot); a++)
  draw_sprite(sSlotTexture,0,xx,yy);
  clr();
  draw_rectangle(xx,yy,xx+32,yy+32,1);
- 
 
 
 
                                                                                           //draw_text(xx,yy,slot[0,inv_slot_stackable]);
  draw_sprite(sRarityEffect,itemRarityEffect(slot[a,inv_item_effect]),xx,yy); 
  draw_sprite(slot[a,inv_sprite],slot[a,inv_sprite_number],xx,yy);
+  draw_sprite(sSlotOutline,0,xx,yy);
  if (slot[a,inv_item_star] = 1) {draw_sprite(sRarityEffect,5,xx,yy);}
  //draw_text(xx,yy,slot[a,inv_id]); 
                                                                                           //  draw_text(xx,yy,slot[a,inv_item_equip_slot]);
@@ -42,15 +42,16 @@ for (a=0; a<array_height_2d(slot); a++)
      scrValueIndex(slot[a,inv_number],a);
     }
 
-   
- clr(c_yellow,0.7);
- if (mouse_x > xx && mouse_x < xx+32 && mouse_y > yy && mouse_y < yy+32)
- {  
- if (!proceed)
+   if (!proceed)
   { 
+   clr(c_yellow,hover_slot_alpha[a]);
    draw_rectangle(xx,yy,xx+32,yy+32,0);  
   }
+  
+ if (mouse_x > xx && mouse_x < xx+32 && mouse_y > yy && mouse_y < yy+32)
+ {  
 
+  if (hover_slot_alpha[a] < 0.5) {hover_slot_alpha[a] += 0.03;}
   hover    = 1;
  hover_id = a;
  hover_x  = xx;
@@ -63,6 +64,8 @@ for (a=0; a<array_height_2d(slot); a++)
 
 
  } 
+ else {if (hover_slot_alpha[a] > 0) {hover_slot_alpha[a] -= 0.03}}
+ 
  clr();
  
 if(combine)
@@ -89,9 +92,10 @@ if(combine)
      
      } 
  }    
-    
- xx+=32;
- if (xx > x+256) {yy+=32; xx=x;}
+
+     
+ xx+=36;//32
+ if (xx > x+256) {yy+=36; xx=x;} //32
 
 }
 used_y = yy;

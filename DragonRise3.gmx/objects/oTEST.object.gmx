@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>//Unused
-sprite_index = oLoader.sBodyCanvas;
+//sprite_index = oLoader.sBodyCanvas;
 image_speed  = 0;
 dir          = dir_down;
 </string>
@@ -51,8 +51,8 @@ dir          = dir_down;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self();
-draw_sprite(oLoader.sHairPlainRaven,dir,x,y);
+            <string>//draw_self();
+//draw_sprite(oLoader.sHairPlainRaven,dir,x,y);
 </string>
           </argument>
         </arguments>

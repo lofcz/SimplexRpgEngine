@@ -39,7 +39,9 @@ ini_close();
 
 player_pos = 0;
 
+// Convert sprites to fonts
 
+fontDamage = font_add_sprite(sFntDamage,ord("0"),1,2);
 </string>
           </argument>
         </arguments>

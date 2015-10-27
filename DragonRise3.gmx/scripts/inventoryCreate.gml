@@ -25,7 +25,8 @@ if (argument_count > 0) {slots = argument[0]}
 
 for (a=0; a < slots; a++)
 {
- slot[a] = 0;
+ slot[a]                 = 0;
+ hover_slot_alpha[a]     = 0;
  
  for(b=0;b<inv_atributes_total;b++)
                   {

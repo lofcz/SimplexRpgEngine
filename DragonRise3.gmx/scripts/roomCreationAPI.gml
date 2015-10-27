@@ -27,3 +27,19 @@ if (instance_number(oController) = 0 && controller = 1)
    {
      instance_create(0,0,oController);
    }
+if (instance_number(oBestiar) = 0)
+   {
+     instance_create(0,0,oBestiar);
+   }
+if (instance_number(oScreenShader) = 0)
+   {
+     instance_create(0,0,oScreenShader);
+   }
+if (instance_number(oState) = 0)
+   {
+     instance_create(0,0,oState);
+   }
+if (instance_number(oInventory) = 0)
+   {
+     instance_create(0,0,oInventory);
+   }

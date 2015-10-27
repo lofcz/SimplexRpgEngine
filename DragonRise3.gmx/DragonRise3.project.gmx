@@ -197,6 +197,9 @@
         <sprite>sprites\sSpellFireBeam</sprite>
         <sprite>sprites\sSpellFrozenBolts</sprite>
       </sprites>
+      <sprites name="Fonts">
+        <sprite>sprites\sFntDamage</sprite>
+      </sprites>
       <sprite>sprites\sCamera</sprite>
       <sprite>sprites\sLoader</sprite>
       <sprite>sprites\sController</sprite>
@@ -216,6 +219,7 @@
       <sprite>sprites\sHUDBars</sprite>
       <sprite>sprites\sHealthBar</sprite>
       <sprite>sprites\sExperienceBar</sprite>
+      <sprite>sprites\sSlotOutline</sprite>
       <sprite>sprites\sQuickslot</sprite>
     </sprites>
     <sprites name="Effects and items">
@@ -259,6 +263,7 @@
     <sprite>sprites\sBestiary</sprite>
     <sprite>sprites\sEquipmentIcons</sprite>
     <sprite>sprites\sBestiar</sprite>
+    <sprite>sprites\sLightmapCircle</sprite>
     <sprite>sprites\sUnknownBestiary</sprite>
   </sprites>
   <backgrounds name="background">
@@ -273,6 +278,7 @@
     <background>background\background8</background>
     <background>background\background9</background>
     <background>background\background10</background>
+    <background>background\background23</background>
     <background>background\background11</background>
     <background>background\background12</background>
     <background>background\background13</background>
@@ -304,6 +310,7 @@
         <script>scripts\draw_text_colored.gml</script>
         <script>scripts\scrCenterText.gml</script>
         <script>scripts\mouse_in.gml</script>
+        <script>scripts\instance_nnearest.gml</script>
         <script>scripts\scrColorflag.gml</script>
         <script>scripts\scrEndColorflag.gml</script>
         <script>scripts\scrBasicEffect.gml</script>
@@ -413,16 +420,21 @@
     </scripts>
   </scripts>
   <shaders name="shaders">
-    <shader type="GLSLES">shaders\shdColor.shader</shader>
-    <shader type="GLSLES">shaders\shdLerp.shader</shader>
-    <shader type="GLSLES">shaders\shdGaussHor.shader</shader>
-    <shader type="GLSLES">shaders\shdGaussVer.shader</shader>
-    <shader type="GLSLES">shaders\shdSepia.shader</shader>
-    <shader type="GLSLES">shaders\shdJrpg.shader</shader>
-    <shader type="GLSLES">shaders\shdInvert.shader</shader>
-    <shader type="GLSLES">shaders\shdThermal.shader</shader>
-    <shader type="GLSLES">shaders\shdSketch.shader</shader>
-    <shader type="GLSLES">shaders\shdGreyscale.shader</shader>
+    <shaders name="ScreenFX">
+      <shader type="GLSLES">shaders\shdColor.shader</shader>
+      <shader type="GLSLES">shaders\shdLerp.shader</shader>
+      <shader type="GLSLES">shaders\shdGaussHor.shader</shader>
+      <shader type="GLSLES">shaders\shdGaussVer.shader</shader>
+      <shader type="GLSLES">shaders\shdSepia.shader</shader>
+      <shader type="GLSLES">shaders\shdJrpg.shader</shader>
+      <shader type="GLSLES">shaders\shdInvert.shader</shader>
+      <shader type="GLSLES">shaders\shdThermal.shader</shader>
+      <shader type="GLSLES">shaders\shdSketch.shader</shader>
+      <shader type="GLSLES">shaders\shdGreyscale.shader</shader>
+    </shaders>
+    <shaders name="Lightmap">
+      <shader type="GLSLES">shaders\shdLightmap.shader</shader>
+    </shaders>
   </shaders>
   <fonts name="fonts">
     <fonts name="Standard game fonts">
@@ -445,6 +457,8 @@
   </fonts>
   <objects name="objects">
     <object>objects\oTEST</object>
+    <object>objects\oLightmap</object>
+    <object>objects\oLightCircle</object>
     <objects name="Actors">
       <object>objects\oPlayer</object>
       <objects name="Enemies">
@@ -546,15 +560,17 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\mapTest</room>
+    <room>rooms\mapHolohlavy</room>
     <room>rooms\cutscenePoustevnikovaPesina</room>
     <room>rooms\cutsceneVavrincuvKostel</room>
     <room>rooms\mapMainMenu</room>
     <rooms name="Game world">
       <room>rooms\mapHouse1</room>
-      <room>rooms\mapLoading</room>
     </rooms>
   </rooms>
-  <constants number="161">
+  <constants number="163">
+    <constant name="lightmap_y">1</constant>
+    <constant name="lightmap_x">0</constant>
     <constant name="shaderSketch">5</constant>
     <constant name="shaderThermal">4</constant>
     <constant name="shaderJrpg">3</constant>

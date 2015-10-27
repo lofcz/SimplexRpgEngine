@@ -1,6 +1,6 @@
-///scrLog(text,color,sprite,override_rarity,animation_speed,x,y,font,shatter)
+///scrLog(text,color,sprite,override_rarity,animation_speed,x,y,font,mode)
 
-var text,color,sprite,override,ani,xx,yy;
+var text,color,sprite,override,ani,xx,yy,mode;
 text     = "Nedefinovaný log"
 color    = c_lime;
 sprite   = -1;
@@ -9,7 +9,7 @@ ani      = 0.2;
 xx       = oPlayer.x-32;
 yy       = oPlayer.y-48;
 font     = fntPixel;
-
+mode     = "normal";
 
 if (argument_count > 0) {text     = string(argument[0]);}
 if (argument_count > 1) {color    = argument[1];}
@@ -19,6 +19,7 @@ if (argument_count > 4) {ani      = argument[4];}
 if (argument_count > 5) {xx       = argument[5];}
 if (argument_count > 6) {yy       = argument[6];}
 if (argument_count > 7) {font     = argument[7];}
+if (argument_count > 8) {mode     = argument[8];}
 
 if (override) 
    {
@@ -56,3 +57,4 @@ log.color  = color;
 log.ani    = ani;
 log.parsed = dialogueParse(text);
 log.font   = font;
+log.mode   = mode;

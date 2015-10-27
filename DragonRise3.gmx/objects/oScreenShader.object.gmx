@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>-999999</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -80,7 +80,7 @@ clr();
 
 if (mouse_wheel_up()) {shader_active++;}
 if (mouse_wheel_down()) {shader_active--;}
-
+/*
 // Grayscale
 if (shader_active = shaderGrayscale)
    {
@@ -145,8 +145,10 @@ if (shader_active = shaderSketch)
    if (mouse_check_button(mb_left)) {amountSketchVar = 1;}
    if (amountSketchVar &gt; 0) {amountSketchVar -= 0.005;}
    }   
-   
+*/   
 draw_text(300,100,"Shader active: " + string(shader_active));
+
+
 </string>
           </argument>
         </arguments>

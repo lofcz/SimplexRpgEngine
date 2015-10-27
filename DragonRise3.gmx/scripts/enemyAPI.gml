@@ -199,12 +199,12 @@ if (other.attack && other.can_damage = -1)
 if (combatGetCriticalHit( oPlayer.vlastnost[vlastnost_kriticka_sance]))
    {
    dmg = oPlayer.vlastnost[vlastnost_poskozeni]*oPlayer.vlastnost[vlastnost_kriticka_nasobic];   
-   scrLog(dmg,c_black,-1,0,0.2,x,y-32,fntPixelHuge);
+   scrLog(dmg,c_white,-1,0,0.2,x,y-32,oController.fontDamage,"combat");
    }
 else
     {
    dmg = oPlayer.vlastnost[vlastnost_poskozeni];   
-   scrLog(dmg,c_black,-1,0,0.2,x,y-32,fntPixelHuge);    
+   scrLog(dmg,c_white,-1,0,0.2,x,y-32,oController.fontDamage,"combat");    
     }
 hp -= dmg;
 

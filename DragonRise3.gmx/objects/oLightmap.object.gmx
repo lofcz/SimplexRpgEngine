@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>-1</persistent>
+  <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -25,15 +25,44 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Call alarm with delay
+            <string>/// Set up
 
-alarm[0] = 2;
+application_surface_draw_enable(false);
+
+lightPower   = 0.95;
+lightSurface = surface_create(room_width, room_height);
+ambientUni   = shader_get_uniform(shdLightmap, "u_fAmbient");
+lightSampler = shader_get_sampler_index(shdLightmap, "u_sLight");
+
+// Create lists
+lightPointsList    = ds_list_create();
+lightPointsColor   = ds_list_create();
+lightPointsSize    = ds_list_create();
+lightPointsSizeMax = ds_list_create();
+lightPointsSizeMin = ds_list_create();
+lightPointsMode    = ds_list_create();
+
+lightmap = ds_grid_create(64,8);
+lightmap_real_size = 0;
+
+for (a = 0; a &lt; instance_number(oLightCircle); a++)
+    {
+     actual_point = instance_nnearest(x,y,oLightCircle,a);
+     
+     lightmap[# lightmap_x,a] = actual_point.x; 
+     lightmap[# lightmap_y,a] = actual_point.y; 
+     
+     lightmap_real_size++;     
+     with(actual_point) {instance_deactivate_object(self);}
+     
+     show_message(a);
+    }
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="0">
+    <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -50,23 +79,11 @@ alarm[0] = 2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Optimize FOV
-
-alarm[0] = 5;
-
-instance_activate_all();
-instance_deactivate_region(view_xview-200,view_yview-200,1200,1000,0,1);
-
-instance_activate_object(oController);
-instance_activate_object(oInventory);
-instance_activate_object(oInventoryDepthHelper);
-instance_activate_object(oPlayer);
-instance_activate_object(oPlayerCombat);
-instance_activate_object(oMinimap);
-instance_activate_object(oHUD);
-instance_activate_object(oDayNight);
-instance_activate_object(oBestiar);
-instance_activate_object(oScreenShader);
+            <string>shader_set(shdLightmap);
+shader_set_uniform_f(ambientUni, lightPower);
+texture_set_stage(lightSampler, surface_get_texture(lightSurface));
+draw_surface(application_surface, 0, 0);
+shader_reset();
 </string>
           </argument>
         </arguments>
@@ -89,13 +106,23 @@ instance_activate_object(oScreenShader);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Jump to player position
+            <string>/// Draw lightmap
 
-if (instance_number(oPlayer) &gt; 0)
-   {
-    x = oPlayer.x;
-    y = oPlayer.y;
-   }
+surface_set_target(lightSurface);
+draw_clear_alpha(c_black,1);
+draw_set_blend_mode(bm_add);
+
+//draw_sprite_ext(spr_lightcookie_purple, 0, obj_player.x, obj_player.y, 1, 1, point_direction(obj_player.x, obj_player.y, mouse_x, mouse_y), c_white, 1);
+for (a = 0; a &lt; lightmap_real_size; a++)
+    { 
+     draw_sprite(sLightmapCircle,0,lightmap[# lightmap_x,a],lightmap[# lightmap_y,a]);   
+    
+    }
+
+draw_set_blend_mode(bm_normal);
+surface_reset_target();
+
+
 </string>
           </argument>
         </arguments>
