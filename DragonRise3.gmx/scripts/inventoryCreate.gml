@@ -20,6 +20,7 @@ draw                 = 1;
 drag_alpha           = 1;
 drag_controll        = 0;
 effect_scale         = 1;
+inventory_title      = "Inventář";
 
 if (argument_count > 0) {slots = argument[0]}
 

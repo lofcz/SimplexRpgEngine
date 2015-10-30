@@ -31,6 +31,9 @@ else {stack_index = 0;}
 
 //draw_set_font(fntRetroSmall);
 //draw_rectangle_colour(xx+16,yy+16,xx+32,yy+32,c_gray,c_gray,c_gray,c_gray,0);
+clr(c_white,0.5);
+draw_roundrect_ext(xx+17-(string_width(string(ret))/2),yy+16,xx+22+(string_width(string(ret))/2),yy+30,10,10,0);
+clr();
 draw_text_colour(xx+17,yy+16,ret,c_dkgray,c_dkgray,c_dkgray,c_dkgray,1);
 draw_text_colour(xx+16,yy+16,ret,c_black,c_black,c_black,c_black,1);
 draw_set_font(fntText);

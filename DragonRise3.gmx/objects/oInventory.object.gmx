@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>/// Initialise
 
-inventoryCreate(27);
+inventoryCreate(24);
 inventoryOptionsSetUp("Zavřít","Zahodit","Označit","Odznačit");
 
 

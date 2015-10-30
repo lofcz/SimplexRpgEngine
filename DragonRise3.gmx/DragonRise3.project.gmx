@@ -190,6 +190,7 @@
       <sprite>sprites\sNonsolidCollision</sprite>
       <sprite>sprites\sAdvancedCollision</sprite>
       <sprite>sprites\sGotoRoom</sprite>
+      <sprite>sprites\sTransitionCollision</sprite>
     </sprites>
     <sprites name="Controllers, HUD and GUI">
       <sprites name="Spells">
@@ -202,6 +203,7 @@
       </sprites>
       <sprite>sprites\sCamera</sprite>
       <sprite>sprites\sLoader</sprite>
+      <sprite>sprites\sParticleMask</sprite>
       <sprite>sprites\sController</sprite>
       <sprite>sprites\sInventory</sprite>
       <sprite>sprites\sPortraits</sprite>
@@ -220,6 +222,7 @@
       <sprite>sprites\sHealthBar</sprite>
       <sprite>sprites\sExperienceBar</sprite>
       <sprite>sprites\sSlotOutline</sprite>
+      <sprite>sprites\sInventoryTitle</sprite>
       <sprite>sprites\sQuickslot</sprite>
     </sprites>
     <sprites name="Effects and items">
@@ -264,6 +267,8 @@
     <sprite>sprites\sEquipmentIcons</sprite>
     <sprite>sprites\sBestiar</sprite>
     <sprite>sprites\sLightmapCircle</sprite>
+    <sprite>sprites\sCoinAnimated</sprite>
+    <sprite>sprites\sCoinSingle</sprite>
     <sprite>sprites\sUnknownBestiary</sprite>
   </sprites>
   <backgrounds name="background">
@@ -279,6 +284,7 @@
     <background>background\background9</background>
     <background>background\background10</background>
     <background>background\background23</background>
+    <background>background\background24</background>
     <background>background\background11</background>
     <background>background\background12</background>
     <background>background\background13</background>
@@ -326,6 +332,7 @@
         <script>scripts\effectFireball.gml</script>
         <script>scripts\effectSprint.gml</script>
         <script>scripts\effectExperience.gml</script>
+        <script>scripts\effectSmoke.gml</script>
         <script>scripts\effectFrozenTrail.gml</script>
       </scripts>
     </scripts>
@@ -440,6 +447,7 @@
     <fonts name="Standard game fonts">
       <fonts name="Text (arial)">
         <font>fonts\fntText</font>
+        <font>fonts\fntTextBold</font>
         <font>fonts\fntTextSmall</font>
       </fonts>
       <fonts name="Retro (vcr osd mono)">
@@ -452,6 +460,7 @@
         <font>fonts\fntPixelTiny</font>
         <font>fonts\fntPixelSmall</font>
       </fonts>
+      <font>fonts\fntRingbearer</font>
       <font>fonts\fntUnicode</font>
     </fonts>
   </fonts>
@@ -517,6 +526,7 @@
       <object>objects\oAdvancedCollision</object>
       <object>objects\oNonsolidCollision</object>
       <object>objects\oTransitionCollision</object>
+      <object>objects\oRoomTransition</object>
       <object>objects\parSolid</object>
       <object>objects\oRoomConroller</object>
     </objects>
@@ -548,6 +558,9 @@
         <object>objects\oBasicEffect</object>
         <object>objects\oBlob</object>
         <object>objects\oAchievment</object>
+      </objects>
+      <objects name="Particles">
+        <object>objects\oSmokeEmmitor</object>
       </objects>
     </objects>
     <objects name="Cutscenes">
@@ -698,7 +711,7 @@
     <constant name="equ_axis_left_plate_x">32</constant>
     <constant name="equ_axis_right_plate_y">32</constant>
     <constant name="equ_axis_right_plate_x">160</constant>
-    <constant name="equ_axis_head_y">0</constant>
+    <constant name="equ_axis_head_y">2</constant>
     <constant name="equ_axis_head_x">96</constant>
     <constant name="dir_left">0</constant>
     <constant name="dir_right">1</constant>
@@ -711,8 +724,8 @@
     <constant name="rarity_artifact">c_aqua</constant>
     <constant name="rarity_mythic">c_fuchsia</constant>
     <constant name="rarity_set">make_color_rgb(176,250,157)</constant>
-    <constant name="rarity_rare">c_green</constant>
-    <constant name="rarity_fine">c_blue</constant>
+    <constant name="rarity_rare">c_lime</constant>
+    <constant name="rarity_fine">c_aqua</constant>
     <constant name="rarity_normal">c_black</constant>
     <constant name="rarity_junk">c_dkgray</constant>
     <constant name="inv_item_star">13</constant>

@@ -47,13 +47,13 @@ if (mouse_in(xx+equ_axis_head_x,xx+equ_axis_head_x+32,yy+equ_axis_head_y,yy+equ_
     
 
    }
+draw_sprite(sSlotOutline,0,xx+equ_axis_head_x-2,yy+equ_axis_head_y-2);  
    
 if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] = "helma" )
    { 
    if (oInventory.equiped[1] = 0) {draw_hover_block(xx+equ_axis_head_x,xx+equ_axis_head_x+32,yy+equ_axis_head_y,yy+equ_axis_head_y+32,c_lime,0.5);}
    equipmentHoldEquip(1,xx+equ_axis_head_x,xx+equ_axis_head_x+32,yy+equ_axis_head_y,yy+equ_axis_head_y+32);
-   }   
-   
+   }    
 }
 // Draw left plate slot  -
 if (oPlayer.equ_draw_left_plate)

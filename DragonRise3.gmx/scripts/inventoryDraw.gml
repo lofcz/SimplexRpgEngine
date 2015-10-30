@@ -2,7 +2,7 @@
 /// inventoryDraw(x,y)
 
 xx             = x;
-yy             = y;
+yy             = y+36;
 hover          = 0;
 hover_id       = 0;
 hover_x        = 0;
@@ -14,7 +14,17 @@ pre_switch     = 0;
  if (c_a < 0.1) {c_a += 0.01;}
  }
  else {c_a = 0;}
-
+ 
+ clr();
+ draw_set_font(fntPixelHuge);
+ draw_sprite(sInventoryTitle,0,x,y);
+ scrCenterText();
+ draw_text(x+144,y+16,inventory_title);
+ draw_set_font(fntPixel);
+// draw_text(x+144,y+24,oPlayer.gold);
+ scrCenterText(0);
+ draw_set_font(fntText);
+ 
 for (a=0; a<array_height_2d(slot); a++)
 {
 
@@ -31,8 +41,6 @@ for (a=0; a<array_height_2d(slot); a++)
                                                                                           //draw_text(xx,yy,slot[0,inv_slot_stackable]);
  draw_sprite(sRarityEffect,itemRarityEffect(slot[a,inv_item_effect]),xx,yy); 
  draw_sprite(slot[a,inv_sprite],slot[a,inv_sprite_number],xx,yy);
-  draw_sprite(sSlotOutline,0,xx,yy);
- if (slot[a,inv_item_star] = 1) {draw_sprite(sRarityEffect,5,xx,yy);}
  //draw_text(xx,yy,slot[a,inv_id]); 
                                                                                           //  draw_text(xx,yy,slot[a,inv_item_equip_slot]);
                                                                                    
@@ -93,7 +101,9 @@ if(combine)
      } 
  }    
 
-     
+ draw_sprite(sSlotOutline,0,xx,yy);
+ if (slot[a,inv_item_star] = 1) {draw_sprite(sRarityEffect,5,xx,yy);}
+ 
  xx+=36;//32
  if (xx > x+256) {yy+=36; xx=x;} //32
 
@@ -106,11 +116,19 @@ draw_rectangle(x,used_y+128,x+256+32,used_y+256,0);
 clr();
 draw_rectangle(x,used_y+128,x+256+32,used_y+256,1);
 */
+draw_set_font(fntTextBold);
+
   if (proceed) {hover_alpha = 1;}
-clr(c_black,hover_alpha);
+  clr(c_black,hover_alpha);
+
 draw_sprite(sInfoboxTexture,0,x,used_y+128);
 draw_rectangle_colour(x+2,used_y+128,x+287,used_y+322,c_black,c_black,c_black,c_black,1);
 
+clr(c_black,hover_alpha/2);
+  draw_roundrect_ext(x,used_y+128,x+287,used_y+128+28,16,16,0);
+clr(c_black,hover_alpha);  
+  draw_roundrect_ext(x,used_y+128,x+287,used_y+128+28,16,16,1);
+  
 if (hover = 1)
   {
   if (slot[hover_id,inv_item_info_head] != "") { if (hover_alpha < 1) {hover_alpha += 0.1;} } else {if (hover_alpha > 0 && !proceed) {hover_alpha -= 0.1;} }
@@ -122,13 +140,14 @@ if (hover = 1)
    else {f = hover_idd;}
   if (proceed) {hover_alpha = 1;}  
    clr(slot[f,inv_item_info_color],hover_alpha);
-   draw_text(x+128,used_y+128+8,slot[f,inv_item_info_head]);
+   scrCenterText();
+   draw_text(x+128,used_y+128+12,slot[f,inv_item_info_head]);
    clr(c_black,hover_alpha);
-   
+      
+draw_set_font(fntText);
   
       if (slot[f,inv_slot_stackable] = 1)
       {
-      scrCenterText();
       draw_text_colour(x+256+8,used_y+137,"x"+string(slot[f,inv_number]),c_black,c_black,c_black,c_black,1);
       }
  

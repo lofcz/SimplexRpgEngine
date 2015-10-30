@@ -38,6 +38,8 @@ effect_scale   = 1;
 draw_bestiary  = 0;
 temp_inv       = 0;
 temp_inv2      = 0;
+draw_stats     = 0;
+stats_alpha    = 0;
 </string>
           </argument>
         </arguments>
@@ -288,7 +290,8 @@ oPlayer.vlastnost[vlastnost_stit] = min(max(0,oPlayer.vlastnost[vlastnost_stit])
      draw_sprite(sBestiary,0,view_xview+8+16,view_yview+560+16);
      if (effect_scale &gt; 1 &amp;&amp; draw_bestiary = 0) {effect_scale -= 0.02;}
  
-
+     draw_set_font(fntPixel);
+     draw_text(view_xview+200,y+570,string(oPlayer.gold));
    }
    
 </string>
