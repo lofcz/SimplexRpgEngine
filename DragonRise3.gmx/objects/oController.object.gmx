@@ -39,9 +39,17 @@ ini_close();
 
 player_pos = 0;
 
-// Convert sprites to fonts
+// Global grid
+grid = mp_grid_create(0,0,room_width div 16, room_height div 16,16,16);
+mp_grid_add_instances(grid,parTree,0);
 
+
+
+
+// Convert sprites to fonts
 fontDamage = font_add_sprite(sFntDamage,ord("0"),1,2);
+
+
 </string>
           </argument>
         </arguments>
@@ -70,6 +78,30 @@ if (room = mapTest)
 {
  if (player_pos = 1) {oPlayer.x = 1536 oPlayer.y = 1792;}
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//mp_grid_draw(grid);
+
 </string>
           </argument>
         </arguments>

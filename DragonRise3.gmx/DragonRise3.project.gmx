@@ -161,6 +161,7 @@
         <sprite>sprites\sPlayerBasic</sprite>
         <sprite>sprites\sCombatAnimationUnfinished</sprite>
         <sprite>sprites\sprite16</sprite>
+        <sprite>sprites\sprite91</sprite>
         <sprite>sprites\sVavrinec</sprite>
         <sprite>sprites\sObet</sprite>
         <sprite>sprites\sTestNPC</sprite>
@@ -256,6 +257,7 @@
     <sprites name="TEMP - RESOURCES">
       <sprite>sprites\sprite10</sprite>
       <sprite>sprites\sprite40</sprite>
+      <sprite>sprites\sButterfly</sprite>
       <sprite>sprites\sprite38</sprite>
     </sprites>
     <sprite>sprites\sprite60</sprite>
@@ -270,6 +272,7 @@
     <sprite>sprites\sCoinAnimated</sprite>
     <sprite>sprites\sCoinSingle</sprite>
     <sprite>sprites\sUnknownBestiary</sprite>
+    <sprite>sprites\sprite90</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -544,6 +547,9 @@
       </objects>
       <objects name="Containers">
         <object>objects\oChest</object>
+      </objects>
+      <objects name="Vivid">
+        <object>objects\oBasicVivid</object>
       </objects>
     </objects>
     <objects name="Effects">

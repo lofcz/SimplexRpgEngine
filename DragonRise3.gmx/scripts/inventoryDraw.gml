@@ -112,7 +112,7 @@ used_y = yy;
 
 /*
 clr(c_white)
-draw_rectangle(x,used_y+128,x+256+32,used_y+256,0);
+draw_rectangle(x,used_y+128dr,x+256+32,used_y+256,0);
 clr();
 draw_rectangle(x,used_y+128,x+256+32,used_y+256,1);
 */
@@ -125,9 +125,9 @@ draw_sprite(sInfoboxTexture,0,x,used_y+128);
 draw_rectangle_colour(x+2,used_y+128,x+287,used_y+322,c_black,c_black,c_black,c_black,1);
 
 clr(c_black,hover_alpha/2);
-  draw_roundrect_ext(x,used_y+128,x+287,used_y+128+28,16,16,0);
+//  draw_roundrect_ext(x,used_y+128,x+287,used_y+128+28,16,16,0);
 clr(c_black,hover_alpha);  
-  draw_roundrect_ext(x,used_y+128,x+287,used_y+128+28,16,16,1);
+//  draw_roundrect_ext(x,used_y+128,x+287,used_y+128+28,16,16,1);
   
 if (hover = 1)
   {

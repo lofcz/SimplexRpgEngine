@@ -28,6 +28,55 @@
             <string>/// Set up
 event_inherited();
 
+//ds_priority_add(akce,"prochazka2",5);
+
+//ds_priority_add(akce,"prochazka2",10);
+//ds_priority_add(akce,"prochazka3",8);
+//ds_priority_add(akce,"prochazka-1",2);
+
+//alarm[0] = 1;
+/*
+LoF Diaries - NPC
+
+Ok, takže GOAP vážené dámy a pánové? 
+No to mě tak trochu poser.
+
+Př:
+
+1) Chci si dojít pokecat s kovářem (eng1)
+2) Hráč mě přijde znásilnit (eng1000)
+3) Chci mu utéct (eng1001)
+
+-&gt; takže uteču
+zavolám DB, ve které uchovávám všemožné sračky co bych rád a jejich prioritu (eng)
+Tak jsem utekl, zavolám zpropadenou DB a ptám se, co bych ještě rád.
+Do záznamu přidám "jen tak se poflakovat (eng2)" a budu se flákat.
+*/
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Call GOAP DB
+
+event_user(12);
 </string>
           </argument>
         </arguments>
@@ -170,6 +219,101 @@ dialogueNext()
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="22">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// GOAP DB
+
+if (ds_priority_size(akce) &gt; 0)
+   {
+   queue++;
+   provadena_akce = ds_priority_find_max(akce);
+   show_message(provadena_akce);
+   
+if (provadena_akce = "prochazka2")
+   {
+    show_message(""+ string(id) + " NASTAVUJE X,Y,S");
+    
+    goapX = x+48;
+    goapY = y+32;
+    goapS = 0.5;
+    
+    myPath = path_add();
+    if (mp_grid_path(oController.grid,myPath,x,y,goapX,goapY,0))
+       {
+       path_start(myPath,1,path_action_stop,0);
+       }
+       else {show_message("Nemohu najít cestu :(");}
+   }
+if (string_count("pohyb_k_mysi",provadena_akce) &gt; 0)
+   {
+   show_message(""+ string(id) + " NASTAVUJE X,Y,S");
+   number = abs(ds_priority_find_max(akce));
+
+    goapX = listX[| number];
+    goapY = listY[| number];
+    goapS = listS[| number];
+    
+    myPath = path_add();
+    if (mp_grid_path(oController.grid,myPath,x,y,goapX,goapY,0))
+       {
+       path_start(myPath,1,path_action_stop,0);
+       show_message("X: "+string(x)+"#"+"Y: "+string(y)+"#"+"Xx: "+string(goapX)+"#"+"Yy: "+string(goapY)+"#");
+       }
+       else {show_message("Nemohu najít cestu :(");}
+   
+   }
+   
+   }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="8">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Work finished
+
+ds_priority_delete_max(akce);
+event_user(12); // GOAP DB
+//goapRunning = 0;
+image_speed = 0;
+image_index = 0;
+path_delete(myPath);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -190,6 +334,41 @@ dialogueNext()
             <string>/// Draw self
 
 event_inherited();
+
+/*
+if (ds_priority_size(akce) &gt; 0)
+{
+akce2 = ds_priority_create();
+ds_priority_copy(akce2,akce);
+
+for (a = 0; a &lt;= ds_priority_size(akce2); a++)
+    {
+     m =  ds_priority_find_max(akce2);
+     v =  ds_priority_find_priority(akce2,m);
+     
+     draw_text(x+40,y+a*15,m+" ("+string(v)+")");
+     ds_priority_delete_max(akce2);
+     
+     if (a = ds_priority_size(akce2)-1)
+        {
+         draw_text(x+40,y+a*15+30,"Ted provadim: "+string(provadena_akce));
+        }
+    }
+    
+ds_priority_destroy(akce2);
+}
+if (mouse_check_button_pressed(mb_left))
+   {
+   // ADD STACK TO DB
+   ds_list_add(listX,mouse_x);
+   ds_list_add(listY,mouse_y);
+   ds_list_add(listS,random_range(0.5,1.5));
+   
+   stack--;
+   ds_priority_add(akce,"pohyb_k_mysi"+string(abs(stack)),stack);
+   event_user(12);
+   }
+*/
 </string>
           </argument>
         </arguments>

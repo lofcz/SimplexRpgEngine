@@ -29,9 +29,9 @@ global.shaders_enabled = 1;</code>
     <showViews>-1</showViews>
     <deleteUnderlyingObj>0</deleteUnderlyingObj>
     <deleteUnderlyingTiles>-1</deleteUnderlyingTiles>
-    <page>0</page>
-    <xoffset>-349</xoffset>
-    <yoffset>-144</yoffset>
+    <page>1</page>
+    <xoffset>58</xoffset>
+    <yoffset>58</yoffset>
   </makerSettings>
   <backgrounds>
     <background visible="-1" foreground="0" name="background2" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
@@ -54,8 +54,8 @@ global.shaders_enabled = 1;</code>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="oInventory" x="320" y="224" name="inst_A7C80E19" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oPlayer" x="464" y="360" name="inst_DDCC31FD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oInventory" x="528" y="264" name="inst_A7C80E19" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oPlayer" x="448" y="336" name="inst_DDCC31FD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oGold" x="384" y="416" name="inst_DDD815DE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oGold" x="416" y="416" name="inst_2BAB5E9F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oGold" x="416" y="448" name="inst_21B3B6EF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -84,7 +84,7 @@ global.shaders_enabled = 1;</code>
     <instance objName="oChest" x="448" y="224" name="inst_A62783A0" locked="0" code="scrLoot(5,oGold,25);&#xA;scrLoot(1,oGold,2);&#xA;scrLoot(7,oGold,4);&#xA;&#xA;                &#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oChest" x="1024" y="336" name="inst_FF577CA1" locked="0" code="fillFromTo(0,9,oGold,10,20);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oChest" x="1968" y="96" name="inst_DF585A48" locked="0" code="fillFromTo(0,9,oGold,5,20);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTestNPC" x="704" y="448" name="inst_C6F3E4DE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oTestNPC" x="608" y="408" name="inst_C6F3E4DE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1728" y="0" name="inst_5D396CDB" locked="0" code="" scaleX="1" scaleY="6" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1760" y="128" name="inst_2D1C1484" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1792" y="192" name="inst_E4C37DAA" locked="0" code="" scaleX="2" scaleY="2" colour="4294967295" rotation="0"/>

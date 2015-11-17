@@ -244,7 +244,7 @@ if (direction = 0) {if (mood = "walk") {dir = "d"; image_speed = 0.3;}}
    if dir="stand_d" {if image_index &gt;=10.5 {image_index=8} if (image_index &lt; 8) {image_index = 8;}}
    if dir="stand_a" {if image_index &gt;7 {image_index=4} if (image_index &lt; 4) {image_index = 4;}}
    if dir="stand_w" {if image_index &gt;15 {image_index=12} if (image_index &lt; 12) {image_index = 12;}}
-    if dir="stand_s" {image_index=0 image_speed = 0;}
+   if dir="stand_s" {image_index=0 image_speed = 0;}
 
 
 </string>
