@@ -25,5 +25,7 @@
     <frame index="2">images\sSlotTexture_2.png</frame>
     <frame index="3">images\sSlotTexture_3.png</frame>
     <frame index="4">images\sSlotTexture_4.png</frame>
+    <frame index="5">images\sSlotTexture_5.png</frame>
+    <frame index="6">images\sSlotTexture_6.png</frame>
   </frames>
 </sprite>

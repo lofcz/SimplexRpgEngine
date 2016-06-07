@@ -3,12 +3,12 @@
 
 if (animate = 1)
    {
-    image_speed = 0.3;
+    image_speed = animate_speed;
     if (s_b > 0) {s_b -= 0.05;}
    }
 if (animate = 2)
    {
-    image_speed = -0.3;
+    image_speed = -animate_speed;
    }
 if (animate = 0)
    {
@@ -28,13 +28,11 @@ if (open)
              // draw_rectangle_colour(xx,yy,xx+32,yy+32,c_gray,c_gray,c_gray,c_gray,0);
               draw_sprite(sSlotTexture,3,xx,yy);
               draw_rectangle_colour(xx,yy,xx+31,yy+31,0,c_black,c_black,c_black,1);
-                 // draw_text(xx,yy,fill[a]);
+              draw_sprite(sSlotTexture, 5, xx, yy);
 
               if (mouse_x > xx && mouse_x < xx+32 && mouse_y > yy && mouse_y < yy+32)
                     {
-                     clr(c_yellow,0.4);
-                     draw_rectangle_colour(xx,yy,xx+32,yy+32,c_yellow,c_yellow,c_yellow,c_yellow,0);
-                     clr();
+                     draw_sprite_ext(sSlotTexture, 6, xx, yy, 1, 1, 0, c_white, 0.4);
                      
                        if (oInventory.drag && mouse_check_button_released(mb_left) && fill[a] = 0)
                         {

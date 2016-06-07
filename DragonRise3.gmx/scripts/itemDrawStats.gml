@@ -1,7 +1,7 @@
-//clr(c_white,1);
- // draw_rectangle((parent).xx,(parent).yy,(parent).xx+(parent).width,(parent).yy+(parent).height,0);
- 
-draw_set_font(fntText);
+/// itemDrawStats()
+
+draw_set_font(fntPixelSmall);
+offset = 24;
 
  t_text = "";
 
@@ -27,18 +27,17 @@ for(a = 0; a < celkem_vlastnosti; a++)
           }      
       }
 t_text_height = string_height(t_text);
-if (t_text_height > 0) {t_text_height -= 20;}
-
- 
+t_text_height += offset; 
 draw_sprite_stretched(sInfoboxTexture,0,(parent).xx,(parent).yy,(parent).width,(parent).height+t_text_height);
-clr(c_black,1);
- draw_rectangle((parent).xx,(parent).yy,(parent).xx+(parent).width,(parent).yy+(parent).height+t_text_height,1);
- 
+
+
+draw_set_font(fntPixel);
 scrCenterText();
 clr((parent).itm_info_color);
 draw_text((parent).xx+128,(parent).yy+16,(parent).itm_info_head);
 clr();
 scrCenterText(0);
 
+draw_set_font(fntPixelSmall);
 draw_text_colored((parent).xx+4,(parent).yy+24,(parent).itm_info_text);
 draw_text((parent).xx+4,(parent).yy+12+string_height((parent).itm_info_text),t_text);

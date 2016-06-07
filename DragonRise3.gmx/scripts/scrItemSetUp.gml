@@ -1,4 +1,4 @@
-///scrItemSetUp(animation_speed,show_number)
+/// scrItemSetUp(animation_speed,show_number)
 
 animate     = 0;
 show_number = 0;

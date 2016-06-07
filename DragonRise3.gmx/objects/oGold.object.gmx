@@ -33,8 +33,8 @@ scrItemBasic(1);
 
 //****** Item settings ************
 itm_stackable           = 1;
-itm_info_head           = "Nice, white item";
-itm_info_text           = "Guten morgen!#a#a#a";
+itm_info_head           = "Zlatky";
+itm_info_text           = "Budoucnost schovaná v lesklém#kousku zlata.";
 itm_options[0]          = "***** option 0";
 itm_options[1]          = "***** option 1";
 itm_sprite              = sprite_index;
@@ -76,7 +76,7 @@ if (loot = 0)
 {
 oPlayer.gold += itm_number;
 
-if (itm_number &lt; 5) {scrLog("+ "+string(itm_number) + " Mince",c_yellow,sCoin);}
+if (itm_number &lt; 5) {scrLog("+ "+string(itm_number) + " Mincí",c_yellow,sCoin);}
 else {scrLog("+ "+string(itm_number) + " Mincí",c_yellow,sCoin);}
 instance_destroy();
 

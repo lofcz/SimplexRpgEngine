@@ -202,6 +202,9 @@
       <sprites name="Fonts">
         <sprite>sprites\sFntDamage</sprite>
       </sprites>
+      <sprites name="Main menu">
+        <sprite>sprites\sNewGame</sprite>
+      </sprites>
       <sprite>sprites\sCamera</sprite>
       <sprite>sprites\sLoader</sprite>
       <sprite>sprites\sParticleMask</sprite>
@@ -362,6 +365,8 @@
         <script>scripts\scrChestDraw.gml</script>
         <script>scripts\scrLoot.gml</script>
         <script>scripts\fillFromTo.gml</script>
+        <script>scripts\scrChestSetUp.gml</script>
+        <script>scripts\scrChestUnload.gml</script>
       </scripts>
       <scripts name="Items">
         <script>scripts\scrItemBasic.gml</script>
@@ -507,6 +512,8 @@
       <object>objects\oLenghdirSpell</object>
       <object>objects\oDayNight</object>
       <object>objects\oAnswer</object>
+      <object>objects\oScreenShader</object>
+      <object>objects\oPause</object>
     </objects>
     <objects name="Dropable and items">
       <objects name="Dropable">
@@ -574,8 +581,10 @@
       <object>objects\oVavrinecCutscene</object>
       <object>objects\oObet</object>
     </objects>
-    <object>objects\oPause</object>
-    <object>objects\oScreenShader</object>
+    <objects name="GUI">
+      <object>objects\oMainMenu</object>
+      <object>objects\oMainMenuPar</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\mapTest</room>

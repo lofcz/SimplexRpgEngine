@@ -1,3 +1,5 @@
+/// scrItemBasic(itemID)
+
 itm_stackable             = 0;
 itm_id                    = 0;
 itm_number                = 1;

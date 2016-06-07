@@ -25,27 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Initialise cargo 
-
-
-// ****************** Edit part *****************
-slots          = 9;
-slots_row      = 3;
-unlocked       = 1;
-open_key       = "E";
-active_dis     = 64;
-open_dis       = 32;
-locked_message = "Tak tahle truhlička je zavřená, hóšo.";
-
-s_r = 1;
-s_g = 1;
-s_b = 1;
-s_a = 1;
-//***********************************************
-
-
-scrChestIni();
-
+            <string>/// Initialise
+scrChestSetUp(9, 3, true, "Zamčeno");
 </string>
           </argument>
         </arguments>
@@ -70,13 +51,7 @@ scrChestIni();
             <kind>1</kind>
             <string>/// Destroy collision mask
 
-if (instance_number((idd)) &gt; 0)
-   {
-   with((idd))
-              {
-               instance_destroy();
-              }
-   }
+scrChestUnload();
 </string>
           </argument>
         </arguments>
@@ -99,7 +74,7 @@ if (instance_number((idd)) &gt; 0)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Unload the cargo
+            <string>/// Fill chest with cargo (from creation code)
 
 scrChestFill();
 
@@ -126,7 +101,9 @@ scrChestFill();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (animate = 1) {image_index = 3; image_speed = 0; animate = 0;}
+            <string>/// Handle close/open state
+
+if (animate = 1) {image_index = 3; image_speed = 0; animate = 0;}
 if (animate = 2) {image_index = 0; image_speed = 0; animate = 0;}
 
 </string>
