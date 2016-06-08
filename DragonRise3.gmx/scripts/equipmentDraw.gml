@@ -20,7 +20,19 @@ clr(c_black,0.7);
 draw_rectangle(xx+32,yy,xx+256,yy+256,0);
 clr();
 */
+clr();
+ draw_set_font(fntPixelHuge);
+ draw_sprite(sInventoryTitle,2,xx,yy);
+ scrCenterText();
+ draw_text(xx+124,yy+16,"Výstroj");
+ draw_set_font(fntPixel);
+// draw_text(x+144,y+24,oPlayer.gold);
+ scrCenterText(0);
+ draw_set_font(fntText);
+ 
+yy = yy + 36;
 
+draw_sprite_stretched(sUnknownBestiary, 0, xx, yy, 256, 256);
 // Draw head slot --------------------------------------------------------------------------------------------------------------------------
 if (oPlayer.equ_draw_head)
 {
@@ -259,6 +271,7 @@ if (draw_equ_infobox)
 
   
    }
+yy = yy - 36;
 
 #define equipmentDrawInfobox
 /// equipmentDrawInfobox(x,y,id,yoffset,xoffset)

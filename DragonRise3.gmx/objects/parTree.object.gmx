@@ -33,6 +33,8 @@ m_color = make_colour_rgb(0,100+random(100),0);
 image_speed = 0;
 value = random_range(-45,45);
 mode = 0;
+
+event_inherited();
 </string>
           </argument>
         </arguments>

@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>/// Basic variables
 
+event_inherited();
 image_speed    = 0;
 dir            = "s";
 act            = 0;

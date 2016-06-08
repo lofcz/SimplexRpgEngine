@@ -16,6 +16,7 @@ draw_equ_infobox_id  = 0;
 hover_alpha          = 0;
 draw_inventory       = 0;
 draw_equipment       = 0;
+draw_quest           = 0;
 draw                 = 1;
 drag_alpha           = 1;
 drag_controll        = 0;

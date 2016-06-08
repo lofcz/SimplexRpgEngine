@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>/// Initialise
 scrChestSetUp(9, 3, true, "Zamčeno");
+event_inherited();
 </string>
           </argument>
         </arguments>

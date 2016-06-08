@@ -663,6 +663,10 @@ if (keyboard_check_pressed(ord("O")))
 {
 draw_equipment = !draw_equipment;
 } 
+if (keyboard_check_pressed(ord("Q")))
+{
+draw_quest = !draw_quest;
+} 
 }
 }
 

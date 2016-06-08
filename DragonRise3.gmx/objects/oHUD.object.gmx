@@ -40,6 +40,8 @@ temp_inv       = 0;
 temp_inv2      = 0;
 draw_stats     = 0;
 stats_alpha    = 0;
+draw_quest     = 0;
+effect_scale2  = 0;
 </string>
           </argument>
         </arguments>

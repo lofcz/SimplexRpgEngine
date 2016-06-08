@@ -276,6 +276,7 @@
     <sprite>sprites\sCoinSingle</sprite>
     <sprite>sprites\sUnknownBestiary</sprite>
     <sprite>sprites\sprite90</sprite>
+    <sprite>sprites\sQuestIcon</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -431,6 +432,9 @@
         <script>scripts\daynightInitialise.gml</script>
         <script>scripts\daynightDraw.gml</script>
         <script>scripts\daynightFlow.gml</script>
+      </scripts>
+      <scripts name="Core">
+        <script>scripts\scrBasicTransform.gml</script>
       </scripts>
     </scripts>
   </scripts>

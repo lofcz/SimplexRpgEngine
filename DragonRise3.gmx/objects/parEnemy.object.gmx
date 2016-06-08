@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>/// Ini variables
 
+event_inherited();
 slowdown                      = 0;
 tar_x                         = x+23;
 tar_y                         = y;

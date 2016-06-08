@@ -28,6 +28,7 @@
             <string>/// Set-up
 
 player_pos = 0;
+event_inherited();
 </string>
           </argument>
         </arguments>

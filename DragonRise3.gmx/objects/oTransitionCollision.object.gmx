@@ -30,6 +30,7 @@
 alpha       = 0;
 alarm[0]    = 1;
 text_parsed = 0;
+event_inherited();
 </string>
           </argument>
         </arguments>
