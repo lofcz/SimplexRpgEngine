@@ -588,10 +588,10 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\mapTest</room>
+    <room>rooms\mapMainMenu</room>
     <room>rooms\mapHolohlavy</room>
     <room>rooms\cutscenePoustevnikovaPesina</room>
     <room>rooms\cutsceneVavrincuvKostel</room>
-    <room>rooms\mapMainMenu</room>
     <rooms name="Game world">
       <room>rooms\mapHouse1</room>
     </rooms>

@@ -11,7 +11,7 @@
   <colour>12632256</colour>
   <showcolour>-1</showcolour>
   <code>roomCreation();
-scrMapIntro("Poutníkova pěšina",0,0,0);
+//scrMapIntro("Poutníkova pěšina",0,0,0);
 
 global.shaders_enabled = 1;</code>
   <enableViews>-1</enableViews>

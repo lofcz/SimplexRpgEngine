@@ -8,6 +8,33 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>oX = sprite_get_xoffset(sprite_index);
+oY = sprite_get_yoffset(sprite_index);
+limX = 30;
+limSpd = 5;
+limAmt = 0.1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -25,7 +52,16 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (mouse_x &gt; x - sprite_get_xoffset(sprite_index) 
+            <string>
+
+if (mouse_x &gt; x - oX &amp;&amp; mouse_x &lt; x + oX &amp;&amp; mouse_y &gt; y - oY &amp;&amp; mouse_y &lt; y + oY)
+    {
+     if (x &lt; xstart + limX) { x = lerp(x, x + limX, limAmt);}  
+    }
+else
+    {
+     if (x &gt; xstart) { x = lerp(x, xstart, limAmt);}  
+    }
 </string>
           </argument>
         </arguments>

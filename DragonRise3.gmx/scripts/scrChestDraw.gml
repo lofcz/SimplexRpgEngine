@@ -28,7 +28,6 @@ if (open)
              // draw_rectangle_colour(xx,yy,xx+32,yy+32,c_gray,c_gray,c_gray,c_gray,0);
               draw_sprite(sSlotTexture,3,xx,yy);
               draw_rectangle_colour(xx,yy,xx+31,yy+31,0,c_black,c_black,c_black,1);
-              draw_sprite(sSlotTexture, 5, xx, yy);
 
               if (mouse_x > xx && mouse_x < xx+32 && mouse_y > yy && mouse_y < yy+32)
                     {
@@ -79,7 +78,8 @@ if (open)
                         }
 
                     }
-              
+                            draw_sprite(sSlotTexture, 5, xx, yy);
+
               xx += 32;
               if (xx >= x+(slots_row*16))
                  {
