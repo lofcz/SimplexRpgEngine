@@ -123,8 +123,8 @@ other.can_damage = -2;
             <string>if (mode = 0) {if (value &lt; 45) {value++;} else {mode = 1;}}
 if (mode = 1) {if (value &gt; -45) {value--;} else {mode = 0;}}
 
-draw_sprite_ext(sprite_index,0,x,y,image_xscale,image_yscale,image_angle+2*sin(degtorad(value)),c_white,1);
-draw_sprite(sprite_index,1,x,y);
+draw_sprite_ext(sprite_index,0,x,y,image_xscale,image_yscale,image_angle+2*sin(degtorad(value)),c_white,image_alpha);
+draw_sprite_ext(sprite_index,1,x,y, image_xscale, image_yscale, image_angle, c_white, image_alpha);
 
 </string>
           </argument>

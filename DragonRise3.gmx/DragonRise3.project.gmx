@@ -320,6 +320,7 @@
       <scripts name="Common">
         <script>scripts\scrInventoryParseString.gml</script>
         <script>scripts\clr.gml</script>
+        <script>scripts\scl.gml</script>
         <script>scripts\draw_text_colored.gml</script>
         <script>scripts\scrCenterText.gml</script>
         <script>scripts\mouse_in.gml</script>
@@ -434,7 +435,7 @@
         <script>scripts\daynightFlow.gml</script>
       </scripts>
       <scripts name="Core">
-        <script>scripts\scrBasicTransform.gml</script>
+        <script>scripts\scrBasicTransformScale.gml</script>
       </scripts>
     </scripts>
   </scripts>
