@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>/// Set up
 event_inherited();
+alarm[1] = 1;
 
 //ds_priority_add(akce,"prochazka2",5);
 
@@ -52,6 +53,29 @@ zavolám DB, ve které uchovávám všemožné sračky co bych rád a jejich pri
 Tak jsem utekl, zavolám zpropadenou DB a ptám se, co bych ještě rád.
 Do záznamu přidám "jen tak se poflakovat (eng2)" a budu se flákat.
 */
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>scrQuestEntryAdd(0, "První úkol", "Text prvního úkolu", "Zlato: 100x");
 </string>
           </argument>
         </arguments>

@@ -277,6 +277,7 @@
     <sprite>sprites\sUnknownBestiary</sprite>
     <sprite>sprites\sprite90</sprite>
     <sprite>sprites\sQuestIcon</sprite>
+    <sprite>sprites\sprite93</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -437,6 +438,9 @@
       <scripts name="Core">
         <script>scripts\scrBasicTransformScale.gml</script>
       </scripts>
+      <scripts name="Quest">
+        <script>scripts\scrQuestEntryAdd.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -510,6 +514,7 @@
       <object>objects\oHUD</object>
       <object>objects\oOptimatision</object>
       <object>objects\oBestiar</object>
+      <object>objects\oQuest</object>
       <object>objects\oMapIntro</object>
       <object>objects\oMinimap</object>
       <object>objects\oBasicSpell</object>

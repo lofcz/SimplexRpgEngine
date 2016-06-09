@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Basic transfirmation
+            <string>/// Basic transformation
 
 event_inherited();
 //scrBasicTransformScale(0.1, 2, 2, 0, 0);

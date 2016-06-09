@@ -43,3 +43,7 @@ if (instance_number(oInventory) = 0)
    {
      instance_create(0,0,oInventory);
    }
+if (instance_number(oQuest) = 0)
+   {
+     instance_create(0,0,oQuest);
+   }
