@@ -67,6 +67,7 @@ instance_activate_object(oHUD);
 instance_activate_object(oDayNight);
 instance_activate_object(oBestiar);
 instance_activate_object(oScreenShader);
+instance_activate_object(oQuest);
 </string>
           </argument>
         </arguments>

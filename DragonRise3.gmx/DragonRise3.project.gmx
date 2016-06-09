@@ -440,6 +440,7 @@
       </scripts>
       <scripts name="Quest">
         <script>scripts\scrQuestEntryAdd.gml</script>
+        <script>scripts\scrQuestEntryRemove.gml</script>
       </scripts>
     </scripts>
   </scripts>
@@ -598,9 +599,9 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\mapTest</room>
+    <room>rooms\cutscenePoustevnikovaPesina</room>
     <room>rooms\mapMainMenu</room>
     <room>rooms\mapHolohlavy</room>
-    <room>rooms\cutscenePoustevnikovaPesina</room>
     <room>rooms\cutsceneVavrincuvKostel</room>
     <rooms name="Game world">
       <room>rooms\mapHouse1</room>

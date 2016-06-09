@@ -28,6 +28,7 @@
             <string>/// Set up
 event_inherited();
 alarm[1] = 1;
+a = 2;
 
 //ds_priority_add(akce,"prochazka2",5);
 
@@ -76,6 +77,7 @@ Do záznamu přidám "jen tak se poflakovat (eng2)" a budu se flákat.
           <argument>
             <kind>1</kind>
             <string>scrQuestEntryAdd(0, "První úkol", "Text prvního úkolu", "Zlato: 100x");
+scrQuestEntryAdd(1, "Druhý úkol", "Text druhého úkolu", "Zlato: 1100x");
 </string>
           </argument>
         </arguments>
@@ -101,6 +103,30 @@ Do záznamu přidám "jen tak se poflakovat (eng2)" a budu se flákat.
             <string>/// Call GOAP DB
 
 event_user(12);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>scrQuestEntryAdd(a, "Druhý úkol" + string(a), "Text druhého úkolu", "Zlato: 1100x");
+a++;
 </string>
           </argument>
         </arguments>

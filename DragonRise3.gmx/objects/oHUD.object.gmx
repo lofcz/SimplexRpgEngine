@@ -299,8 +299,9 @@ oPlayer.vlastnost[vlastnost_stit] = min(max(0,oPlayer.vlastnost[vlastnost_stit])
          if (keyboard_check_pressed(ord("Q")))
         {
         draw_quest = ! draw_quest;
+        if (instance_number(oQuest) &gt; 0) {oQuest.active = !oQuest.active;}
         }
-        if (instance_number(oQuest) &gt; 0) {oQuest.activated = !oQuest.activated;}
+        
         
      if (effect_scale2 &lt; 1.2 &amp;&amp; draw_quest = 1) {effect_scale2 += 0.02;}
      draw_sprite_ext(sQuestIcon,0,view_xview+96+8,view_yview+560+16,effect_scale2,effect_scale2,0,c_black,0.7);

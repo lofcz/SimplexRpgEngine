@@ -37,7 +37,11 @@ active         = false;
 activeAlpha    = 0;
 entriesPerPage = 5;
 pages          = 0;
-questActiveID  = 0;
+questActiveID  = -1;
+
+tY     = 0;
+tempYY = 0;
+tA     = 0;
 </string>
           </argument>
         </arguments>
@@ -74,49 +78,6 @@ Important vars
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="10">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Enemies DB
-        
-title[0] = "Hvozdy Holohav";
-
-monster[bestiaryEnemySlime,bestiary_monster_title]      = "Slimák rosolovitý";
-monster[bestiaryEnemySlime,bestiary_monster_text]       = "Tichý obyvatel temných lesních zákoutí. Nesnáší světlo.";
-monster[bestiaryEnemySlime,bestiary_monster_sprite]     = sEnemySlime;
-monster[bestiaryEnemySlime,bestiary_monster_details]    = "Lorem Ipsum" + scrColorflag(c_red) + " dolor sit amet" +scrEndColorflag() + "#consectetur adipiscing elit";
-monster[bestiaryEnemySlime,bestiary_monster_race]       = "Divoké zvíře";
-
-monster[bestiaryEnemySlime2,bestiary_monster_title]      = "Slimák stínobrodý";
-monster[bestiaryEnemySlime2,bestiary_monster_text]       = "Tichý obyvatel temných lesních zákoutí. Nesnáší světlo.";
-monster[bestiaryEnemySlime2,bestiary_monster_sprite]     = sEnemySlime;
-monster[bestiaryEnemySlime2,bestiary_monster_details]    = "Lorem Ipsum" + scrColorflag(c_red) + " dolor sit amet" +scrEndColorflag() + "#consectetur adipiscing elit";
-monster[bestiaryEnemySlime2,bestiary_monster_race]       = "Divoké zvíře";
-
-monster[bestiaryEnemySlime,bestiary_monster_killed] = 10;
-unlocked[0] = 1;
-
-monster[bestiaryEnemySlime2,bestiary_monster_killed] = 100;
-unlocked[1] = 1;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -137,16 +98,67 @@ unlocked[1] = 1;
             <string>/// Draw quest
 xx = view_xview;
 yy = view_yview;
+//tempYY = 0;
+qY = 0;
+
+clr();
+draw_set_font(fntPixel);
 
 if (active)
     {
-     if (activeAlpha &lt; 1) {activeAlpha = lerp(activeAplha, 1, 0.1);}
+     if (activeAlpha &lt; 1) {activeAlpha = lerp(activeAlpha, 1, 0.1);}
      entries = ds_list_size(questListID);
      
      for (i = 0; i &lt; entries; i++)
         {
-         draw_text_colored(xx, yy, questListTitle[| i]);
-         yy += (string_width(questListTitle[| i]) + string_width(questListText[| i]) + string_width(questListReward[| i]) + 16);
+         doInc = true;
+         a = 0.4;
+         tempID    = ds_list_find_value(oQuest.questListID, i);
+         tempY     = yy-view_yview;
+         if (questActiveID != -1) {}
+         qY += (string_height(questListTitle[| i]) + 16 + string_height(questListText[| i]));
+
+         if (mouse_x &gt; xx &amp;&amp; mouse_x &lt; xx + 512 &amp;&amp; mouse_y &gt; yy &amp;&amp; mouse_y &lt; yy + + string_height(questListTitle[| i]))
+            {
+             a = 0.8;
+             if (mouse_check_button_pressed(mb_left))
+                {
+                 tempYY   = (string_height(questListTitle[| i]) + 16 + string_height(questListText[| i]));
+                 tY = 0;
+                 if (questActiveID = -1) {questActiveID = tempID;}
+                 else {questActiveID = -1;}
+                 
+                }
+              if (mouse_check_button_pressed(mb_right))
+                {
+                 scrQuestEntryRemove(tempID); 
+                 tY = 0;            
+                }
+            } 
+         clr(c_white, a);
+         draw_rectangle(xx, yy, xx + 512, real(yy) + string_height(questListTitle[| i]), 0); 
+         clr();
+         markDone = "";
+         if (questListCompleted[| i] == true) { markDone = "" + scrColorflag(c_lime) + " (Splněno)" + scrEndColorflag();}
+         draw_text_colored(xx + 4, yy, questListTitle[| i] + string(markDone));
+         yy += (string_height(questListTitle[| i]) + 8);
+         
+          if (questActiveID == tempID &amp;&amp; doInc)
+          {
+           doInc = false;
+           
+           if (yy-view_yview &lt;= tempYY-tY+24+(i*48)) {tY = lerp(tY,tempYY-tY+50+(i*48),0.1); yy += tY;}
+           else
+            {
+             draw_text_colored(xx, yy, questListTitle[| i]);
+             yy += real(string_height(questListTitle[| questActiveID]) + 16);
+             draw_set_font(fntPixelSmall);    
+             draw_text_colored(xx, yy, questListText[| questActiveID]);   
+             yy +=  + string_height(questListText[| questActiveID])
+             draw_set_font(fntPixel);
+            }   
+                 
+          }
         }
     }
 </string>
