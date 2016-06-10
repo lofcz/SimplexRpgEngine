@@ -108,6 +108,7 @@ if (active)
     {
      if (activeAlpha &lt; 1) {activeAlpha = lerp(activeAlpha, 1, 0.1);}
      entries = ds_list_size(questListID);
+     doDraw = true;
      
      for (i = 0; i &lt; entries; i++)
         {
@@ -116,7 +117,7 @@ if (active)
          tempID    = ds_list_find_value(oQuest.questListID, i);
          tempY     = yy-view_yview;
          if (questActiveID != -1) {}
-         qY += (string_height(questListTitle[| i]) + 16 + string_height(questListText[| i]));
+         if (i != 0) {qY += string_height(questListTitle[| i]) + 16;}
 
          if (mouse_x &gt; xx &amp;&amp; mouse_x &lt; xx + 512 &amp;&amp; mouse_y &gt; yy &amp;&amp; mouse_y &lt; yy + + string_height(questListTitle[| i]))
             {
@@ -125,8 +126,9 @@ if (active)
                 {
                  tempYY   = (string_height(questListTitle[| i]) + 16 + string_height(questListText[| i]));
                  tY = 0;
-                 if (questActiveID = -1) {questActiveID = tempID;}
+                 if (questActiveID = -1 || questActiveID != tempID) {questActiveID = tempID;}
                  else {questActiveID = -1;}
+                 doDraw = false;
                  
                 }
               if (mouse_check_button_pressed(mb_right))
@@ -143,11 +145,11 @@ if (active)
          draw_text_colored(xx + 4, yy, questListTitle[| i] + string(markDone));
          yy += (string_height(questListTitle[| i]) + 8);
          
-          if (questActiveID == tempID &amp;&amp; doInc)
+          if (questActiveID == tempID &amp;&amp; doInc &amp;&amp; doDraw)
           {
            doInc = false;
            
-           if (yy-view_yview &lt;= tempYY-tY+24+(i*48)) {tY = lerp(tY,tempYY-tY+50+(i*48),0.1); yy += tY;}
+           if (yy-view_yview &lt;= tempYY-tY+24+i*30) {tY = lerp(tY,tempYY-tY+50,0.1); yy += tY;}
            else
             {
              draw_text_colored(xx, yy, questListTitle[| i]);
