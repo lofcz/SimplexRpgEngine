@@ -119,9 +119,9 @@ if (active)
          tempID    = ds_list_find_value(oQuest.questListID, i);
          tempY     = yy-view_yview;
          if (questActiveID != -1) {}
-         if (i != page*entriesPerPage) {qY += string_height(string(questListTitle[| i])) + 16;}
+         if (i !=  min(entries, (page*entriesPerPage)+entriesPerPage)) {qY += string_height(string(questListTitle[| i])) + 16;}
 
-         if (mouse_x &gt; xx &amp;&amp; mouse_x &lt; xx + 512 &amp;&amp; mouse_y &gt; yy &amp;&amp; mouse_y &lt; yy + + string_height(string(questListTitle[| i])))
+         if (mouse_x &gt; xx &amp;&amp; mouse_x &lt; xx + 512 &amp;&amp; mouse_y &gt; yy &amp;&amp; mouse_y &lt; yy + string_height(string(questListTitle[| i])))
             {
              a = 0.8;
              if (mouse_check_button_pressed(mb_left))
@@ -143,6 +143,7 @@ if (active)
          draw_rectangle(xx, yy, xx + 512, real(yy) + string_height(string(questListTitle[| i])), 0); 
          clr();
          markDone = "";
+         normalizedI = (i - min(entries, (page*entriesPerPage)));
          
          if (questListCompleted[| i] == true) { markDone = "" + scrColorflag(c_lime) + " (Splněno)" + scrEndColorflag();}
          draw_text_colored(xx + 4, yy, questListPrefix[| i] + " " + questListTitle[| i] + string(markDone));
@@ -154,19 +155,19 @@ if (active)
            
     
            
-           if (yy-view_yview &lt;= tempYY-tY+24+i*30) 
+           if (yy-view_yview &lt;= tempYY-tY+24 + normalizedI*30) 
            {
            tY = lerp(tY,tempYY-tY+50,0.1);
            yy += tY;        
            clr(c_white,0.2);
-           draw_rectangle(xx,i*31+24+view_yview,xx+512,yy-1,0);
+           draw_rectangle(xx,normalizedI*31+24+view_yview,xx+512,yy-1,0);
            clr();
-           zY = yy*1.02;
+           zY = (yy + normalizedI + 3);
            }
            else
             {
             clr(c_white,0.2);
-            draw_rectangle(xx,i*31+24+view_yview,xx+512,zY+2,0);
+            draw_rectangle(xx,normalizedI*31+24+view_yview,xx+512,zY,0);
             clr();
              draw_text_colored(xx, yy, questListTitle[| i]);
              yy += real(string_height(questListTitle[| questActiveID]) + 16);
