@@ -44,6 +44,9 @@ questActiveID  = -1;
 tY     = 0;
 tempYY = 0;
 tA     = 0;
+yMax   = 0;
+dT     = true;
+preT   = 0;
 </string>
           </argument>
         </arguments>
@@ -108,14 +111,19 @@ draw_set_font(fntPixel);
 
 if (active)
     {
-     if (activeAlpha &lt; 1) {activeAlpha = lerp(activeAlpha, 1, 0.1);}
-     entries = ds_list_size(questListID);
-     doDraw = true;
+     entries  = ds_list_size(questListID);
+     doDraw   = true;
+     decAplha = true;
+     
+     clr(c_black, 0.1);
+     //draw_rectangle(xx, yy, xx + 512, yMax, false);
+     //draw_rectangle(xx, yy, xx + 512, yMax, true);
+     clr();
      
      for (i = page*entriesPerPage; i &lt; min(entries, (page*entriesPerPage)+entriesPerPage); i++)
         {
          doInc = true;
-         a = 0.4;
+         a = 0.6;
          tempID    = ds_list_find_value(oQuest.questListID, i);
          tempY     = yy-view_yview;
          if (questActiveID != -1) {}
@@ -126,11 +134,22 @@ if (active)
              a = 0.8;
              if (mouse_check_button_pressed(mb_left))
                 {
-                 tempYY   = (string_height(string(questListTitle[| i])) + 16 + string_height(string(questListText[| i])));
+                 tempYY  = 32;
+                 draw_set_font(fntPixel);
+                 tempYY += string_height(string(questListTitle[| i]));
+                 draw_set_font(fntPixelSmall);
+                 tempYY += string_height(string(questListReward[| i]));
+                 tempYY += string_height(string(questListText[| i]));
+                 draw_set_font(fntPixel);
+                 dT = true;
+                 
+                 //show_message(tempYY);
+                 
                  tY = 0;
                  if (questActiveID = -1 || questActiveID != tempID) {questActiveID = tempID;}
                  else {questActiveID = -1;}
                  doDraw = false;
+                 activeAlpha = 0;
                  
                 }
               if (mouse_check_button_pressed(mb_right))
@@ -140,48 +159,65 @@ if (active)
                 }
             } 
          clr(c_white, a);
-         draw_rectangle(xx, yy, xx + 512, real(yy) + string_height(string(questListTitle[| i])), 0); 
-         clr();
+         draw_rectangle(xx, yy, xx + 512, real(yy) + string_height(string(questListTitle[| i])), false); 
+         clr(c_black, a + 0.1);
+         draw_rectangle(xx, yy, xx + 513, real(yy) + string_height(string(questListTitle[| i])), true); 
+         clr();         
          markDone = "";
          normalizedI = (i - min(entries, (page*entriesPerPage)));
          
          if (questListCompleted[| i] == true) { markDone = "" + scrColorflag(c_lime) + " (Splněno)" + scrEndColorflag();}
          draw_text_colored(xx + 4, yy, questListPrefix[| i] + " " + questListTitle[| i] + string(markDone));
          yy += (string_height(questListTitle[| i]) + 8);
+         dropdownAlpha = 0.4;
+         math_set_epsilon(0.001);
          
           if (questActiveID == tempID &amp;&amp; doInc &amp;&amp; doDraw)
           {
            doInc = false;
-           
     
-           
-           if (yy-view_yview &lt;= tempYY-tY+24 + normalizedI*30) 
+           //show_message("From: " + string(yy-view_yview &lt;= tempYY-tY+24) + "#To: " + string(tempYY-tY+24 + normalizedI*30));
+           if (tY &lt; tempYY-1) 
            {
-           tY = lerp(tY,tempYY-tY+50,0.1);
+           tY = lerp(tY,tempYY,0.1);
+           
+           if (preT = tY) {dt = false;}
+           preT = tY
            yy += tY;        
-           clr(c_white,0.2);
-           draw_rectangle(xx,normalizedI*31+24+view_yview,xx+512,yy-1,0);
+           clr(c_white, dropdownAlpha);
+           draw_rectangle(xx,normalizedI*31+24+view_yview,xx+512,yy-1,false);
+           clr(c_black, dropdownAlpha + 0.05);
+           draw_rectangle(xx,normalizedI*31+24+view_yview,xx+512,yy-1,true);
            clr();
-           zY = (yy + normalizedI + 3);
+           zY = tY;
            }
            else
             {
-            clr(c_white,0.2);
-            draw_rectangle(xx,normalizedI*31+24+view_yview,xx+512,zY,0);
+            clr(c_white,dropdownAlpha);
+            draw_rectangle(xx,normalizedI*31+24+view_yview,xx+512,view_yview + tempYY + normalizedI*31 + 32,false);
+            clr(c_black, dropdownAlpha + 0.05);
+            draw_rectangle(xx,normalizedI*31+24+view_yview,xx+512,view_yview + tempYY + normalizedI*31 + 32,true);
             clr();
-             draw_text_colored(xx, yy, questListTitle[| i]);
+            if (activeAlpha &lt; 1 ) {activeAlpha = lerp(activeAlpha, 1, 0.1); decAplha = false;}
+            
+             clr(c_black, activeAlpha);
+             draw_text_colored(xx + 16, yy, questListTitle[| i]);
              yy += real(string_height(questListTitle[| questActiveID]) + 16);
              draw_set_font(fntPixelSmall);    
-             draw_text_colored(xx, yy, questListText[| questActiveID]);   
-             yy +=  + string_height(questListText[| questActiveID])
+             draw_text_colored(xx + 16, yy, questListText[| questActiveID]);   
+             yy += string_height(questListText[| questActiveID]) + 16;
+             draw_text_colored(xx + 16, yy, "Odměna: " + questListReward[| questActiveID]);
+             yy += string_height(questListReward[| questActiveID]);
              draw_set_font(fntPixel);
+             clr();
             }   
                  
           }
           
           
         }
-             clr(c_white, 0.4);
+        
+             clr(c_white, 0.6);
              draw_rectangle(xx, yy, xx + 512, real(yy) + 32, 0); 
              clr();
              draw_text(xx, yy, "Strana " + string(page+1) + " / " + string(floor(entries/entriesPerPage)+1) + ", " + string(entries) + " úkolů aktivních.");
@@ -206,8 +242,11 @@ if (active)
                         }
                     }
                  
-                }        
+                }
+        yMax = yy;
+                
     }
+    
 </string>
           </argument>
         </arguments>

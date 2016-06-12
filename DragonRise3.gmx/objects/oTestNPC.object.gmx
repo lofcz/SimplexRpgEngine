@@ -76,7 +76,7 @@ Do záznamu přidám "jen tak se poflakovat (eng2)" a budu se flákat.
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scrQuestEntryAdd(0, "První úkol", "Text prvního úkolu", "Zlato: 100x", "" + scrColorflag(c_yellow) + "[Hlavní úkol]" + scrEndColorflag());
+            <string>scrQuestEntryAdd(0, "První úkol", "Text prvního úkolu#Pokračování#Textu", "Zlato: 100x", "" + scrColorflag(c_yellow) + "[Hlavní úkol]" + scrEndColorflag());
 scrQuestEntryAdd(1, "Druhý úkol", "Text druhého úkolu", "Zlato: 1100x", "");
 </string>
           </argument>
