@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-12</depth>
+  <depth>-120</depth>
   <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -122,11 +122,13 @@ if (active)
      
      for (i = page*entriesPerPage; i &lt; min(entries, (page*entriesPerPage)+entriesPerPage); i++)
         {
-         doInc = true;
-         a = 0.6;
+         doInc     = true;
+         a         = 0.6;
          tempID    = ds_list_find_value(oQuest.questListID, i);
+         pos       = ds_list_find_index(oQuest.questListID, tempID);
          tempY     = yy-view_yview;
-         if (questActiveID != -1) {}
+         
+         
          if (i !=  min(entries, (page*entriesPerPage)+entriesPerPage)) {qY += string_height(string(questListTitle[| i])) + 16;}
 
          if (mouse_x &gt; xx &amp;&amp; mouse_x &lt; xx + 512 &amp;&amp; mouse_y &gt; yy &amp;&amp; mouse_y &lt; yy + string_height(string(questListTitle[| i])))
@@ -146,16 +148,20 @@ if (active)
                  //show_message(tempYY);
                  
                  tY = 0;
-                 if (questActiveID = -1 || questActiveID != tempID) {questActiveID = tempID;}
+                 if (questActiveID = -1 || questActiveID != pos) {questActiveID = pos;}
                  else {questActiveID = -1;}
                  doDraw = false;
                  activeAlpha = 0;
                  
                 }
               if (mouse_check_button_pressed(mb_right))
-                {
-                 scrQuestEntryRemove(tempID); 
+                {                 
+                 scrQuestEntryRemove(pos); 
                  tY = 0;            
+                 doDraw = false;
+                 questActiveID = -1;
+                 show_message(tempID);
+                 break;
                 }
             } 
          clr(c_white, a);
@@ -172,7 +178,7 @@ if (active)
          dropdownAlpha = 0.4;
          math_set_epsilon(0.001);
          
-          if (questActiveID == tempID &amp;&amp; doInc &amp;&amp; doDraw)
+          if (questActiveID == pos &amp;&amp; doInc &amp;&amp; doDraw)
           {
            doInc = false;
     
@@ -201,13 +207,14 @@ if (active)
             if (activeAlpha &lt; 1 ) {activeAlpha = lerp(activeAlpha, 1, 0.1); decAplha = false;}
             
              clr(c_black, activeAlpha);
-             draw_text_colored(xx + 16, yy, questListTitle[| i]);
-             yy += real(string_height(questListTitle[| questActiveID]) + 16);
+             draw_text_colored(xx + 256 - (string_width(string(questListTitle[| i])) / 2), yy, questListTitle[| i]);
+             //draw_line(xx + 256 - (string_width(questListTitle[| i]) / 2) - 16, yy + real(string_height(questListTitle[| questActiveID])),xx + 256 + (string_width(questListTitle[| i]) / 2) + 16, yy + real(string_height(questListTitle[| questActiveID]))); 
+             yy += real(string_height(string(questListTitle[| questActiveID])) + 16);
              draw_set_font(fntPixelSmall);    
-             draw_text_colored(xx + 16, yy, questListText[| questActiveID]);   
-             yy += string_height(questListText[| questActiveID]) + 16;
-             draw_text_colored(xx + 16, yy, "Odměna: " + questListReward[| questActiveID]);
-             yy += string_height(questListReward[| questActiveID]);
+             draw_text_colored(xx + 16, yy, string(questListText[| questActiveID]));   
+             yy += string_height(string(questListText[| questActiveID])) + 16;
+             draw_text_colored(xx + 16, yy, "Odměna: " + string(questListReward[| questActiveID]));
+             yy += string_height(string(questListReward[| questActiveID]));
              draw_set_font(fntPixel);
              clr();
             }   

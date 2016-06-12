@@ -278,6 +278,7 @@
     <sprite>sprites\sprite90</sprite>
     <sprite>sprites\sQuestIcon</sprite>
     <sprite>sprites\sprite93</sprite>
+    <sprite>sprites\sFadedLine</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>

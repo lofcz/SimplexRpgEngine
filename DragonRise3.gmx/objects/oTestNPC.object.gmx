@@ -28,7 +28,7 @@
             <string>/// Set up
 event_inherited();
 alarm[1] = 1;
-a = 2;
+a = 10;
 
 //ds_priority_add(akce,"prochazka2",5);
 
