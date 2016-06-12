@@ -1,0 +1,6 @@
+/// scrQuestEnum()
+
+enum enumQuests
+{
+questVitejVSimplexu
+}
