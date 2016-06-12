@@ -442,8 +442,15 @@
       <scripts name="Quest">
         <script>scripts\scrQuestEntryAdd.gml</script>
         <script>scripts\scrQuestEntryRemove.gml</script>
+        <script>scripts\scrQuestEntrySetCompleted.gml</script>
+        <script>scripts\scrQuestEntryGetCompleted.gml</script>
+        <script>scripts\scrQuestEntryGetText.gml</script>
+        <script>scripts\scrQuestEntryGetReward.gml</script>
+        <script>scripts\scrQuestEntrySetReward.gml</script>
+        <script>scripts\scrQuestEntrySetText.gml</script>
       </scripts>
     </scripts>
+    <script>scripts\scrQuestEnum.gml</script>
   </scripts>
   <shaders name="shaders">
     <shaders name="ScreenFX">

@@ -101,8 +101,10 @@ Important vars
           <argument>
             <kind>1</kind>
             <string>/// Draw quest
+yOffset = 32;
+
 xx = view_xview;
-yy = view_yview;
+yy = view_yview + yOffset;
 //tempYY = 0;
 qY = 0;
 
@@ -115,15 +117,22 @@ if (active)
      doDraw   = true;
      decAplha = true;
      
-     clr(c_black, 0.1);
-     //draw_rectangle(xx, yy, xx + 512, yMax, false);
-     //draw_rectangle(xx, yy, xx + 512, yMax, true);
+     draw_set_font(fntPixelHuge);
+     
      clr();
+     draw_roundrect(xx, view_yview, xx + 512, view_yview + 28, true);
+     clr(c_black, 0.7);
+     draw_roundrect(xx, view_yview, xx + 512, view_yview + 28, false);
+     clr(c_white, 1);
+     draw_text(xx + 256 - (string_width("Deník")  / 2), view_yview, "Deník ");
+     
+     draw_set_font(fntPixel);
+     
      
      for (i = page*entriesPerPage; i &lt; min(entries, (page*entriesPerPage)+entriesPerPage); i++)
         {
          doInc     = true;
-         a         = 0.6;
+         a         = 0.7;
          tempID    = ds_list_find_value(oQuest.questListID, i);
          pos       = ds_list_find_index(oQuest.questListID, tempID);
          tempY     = yy-view_yview;
@@ -133,7 +142,7 @@ if (active)
 
          if (mouse_x &gt; xx &amp;&amp; mouse_x &lt; xx + 512 &amp;&amp; mouse_y &gt; yy &amp;&amp; mouse_y &lt; yy + string_height(string(questListTitle[| i])))
             {
-             a = 0.8;
+             a = 0.9;
              if (mouse_check_button_pressed(mb_left))
                 {
                  tempYY  = 32;
@@ -160,19 +169,18 @@ if (active)
                  tY = 0;            
                  doDraw = false;
                  questActiveID = -1;
-                 show_message(tempID);
                  break;
                 }
             } 
-         clr(c_white, a);
-         draw_rectangle(xx, yy, xx + 512, real(yy) + string_height(string(questListTitle[| i])), false); 
-         clr(c_black, a + 0.1);
-         draw_rectangle(xx, yy, xx + 513, real(yy) + string_height(string(questListTitle[| i])), true); 
-         clr();         
+         clr(c_dkgray, a);
+         draw_roundrect(xx, yy, xx + 513, real(yy) + string_height(string(questListTitle[| i])), false); 
+         clr(c_black, min(a + 0.3, 1));
+         draw_roundrect(xx, yy, xx + 513, real(yy) + string_height(string(questListTitle[| i])), true); 
+         clr(c_white);         
          markDone = "";
          normalizedI = (i - min(entries, (page*entriesPerPage)));
          
-         if (questListCompleted[| i] == true) { markDone = "" + scrColorflag(c_lime) + " (Splněno)" + scrEndColorflag();}
+         if (questListCompleted[| i] == true) { markDone = "" + scrColorflag(c_yellow) + " (Splněno)" + scrEndColorflag();}
          draw_text_colored(xx + 4, yy, questListPrefix[| i] + " " + questListTitle[| i] + string(markDone));
          yy += (string_height(questListTitle[| i]) + 8);
          dropdownAlpha = 0.4;
@@ -190,25 +198,28 @@ if (active)
            if (preT = tY) {dt = false;}
            preT = tY
            yy += tY;        
-           clr(c_white, dropdownAlpha);
-           draw_rectangle(xx,normalizedI*31+24+view_yview,xx+512,yy-1,false);
-           clr(c_black, dropdownAlpha + 0.05);
-           draw_rectangle(xx,normalizedI*31+24+view_yview,xx+512,yy-1,true);
+           clr(c_dkgray, dropdownAlpha);
+           draw_roundrect(xx,normalizedI*31+24+view_yview + yOffset,xx+512,yy-31 + yOffset,false);
+           clr(c_black, dropdownAlpha + 0.5);
+           draw_roundrect(xx,normalizedI*31+24+view_yview + yOffset,xx+512,yy-31 + yOffset,true);
            clr();
            zY = tY;
            }
            else
             {
-            clr(c_white,dropdownAlpha);
-            draw_rectangle(xx,normalizedI*31+24+view_yview,xx+512,view_yview + tempYY + normalizedI*31 + 32,false);
-            clr(c_black, dropdownAlpha + 0.05);
-            draw_rectangle(xx,normalizedI*31+24+view_yview,xx+512,view_yview + tempYY + normalizedI*31 + 32,true);
+            clr(c_dkgray,dropdownAlpha);
+            draw_roundrect(xx,normalizedI*31+24+view_yview+yOffset,xx+512,view_yview + tempYY + normalizedI*31 + 30 + yOffset,false);
+            clr(c_black, dropdownAlpha + 0.5);
+            draw_roundrect(xx,normalizedI*31+24+view_yview+yOffset,xx+512,view_yview + tempYY + normalizedI*31 + 30 + yOffset,true);
             clr();
             if (activeAlpha &lt; 1 ) {activeAlpha = lerp(activeAlpha, 1, 0.1); decAplha = false;}
             
-             clr(c_black, activeAlpha);
+             clr(c_black, activeAlpha / 3);
+             draw_roundrect_ext(xx + 256 - (string_width(string(questListTitle[| i])) / 2) - 64, yy, xx + 256 + (string_width(string(questListTitle[| i])) / 2) + 64, yy + real(string_height(string(questListTitle[| questActiveID]))), 16, 16, false);            
+          
+             clr(c_white, activeAlpha);
              draw_text_colored(xx + 256 - (string_width(string(questListTitle[| i])) / 2), yy, questListTitle[| i]);
-             //draw_line(xx + 256 - (string_width(questListTitle[| i]) / 2) - 16, yy + real(string_height(questListTitle[| questActiveID])),xx + 256 + (string_width(questListTitle[| i]) / 2) + 16, yy + real(string_height(questListTitle[| questActiveID]))); 
+             //draw_line(xx + 256 - (string_width(string(questListTitle[| i])) / 2) - 16, yy + real(string_height(string(questListTitle[| questActiveID]))),xx + 256 + (string_width(string(questListTitle[| i])) / 2) + 16, yy + real(string_height(string(questListTitle[| questActiveID])))); 
              yy += real(string_height(string(questListTitle[| questActiveID])) + 16);
              draw_set_font(fntPixelSmall);    
              draw_text_colored(xx + 16, yy, string(questListText[| questActiveID]));   
@@ -224,10 +235,13 @@ if (active)
           
         }
         
-             clr(c_white, 0.6);
-             draw_rectangle(xx, yy, xx + 512, real(yy) + 32, 0); 
+             clr(c_dkgray, 0.6);
+             draw_roundrect_ext(xx, yy, xx + 512, real(yy) + 25, 4, 4, false); 
              clr();
-             draw_text(xx, yy, "Strana " + string(page+1) + " / " + string(floor(entries/entriesPerPage)+1) + ", " + string(entries) + " úkolů aktivních.");
+             draw_roundrect_ext(xx, yy, xx + 512, real(yy) + 25, 4, 4,  true); 
+             
+             clr(c_white);
+             draw_text(xx + 256 - string_width(string("Strana " + string(page+1) + " / " + string(floor(entries/entriesPerPage)+1) + ", " + string(entries) + " úkolů aktivních.")) / 2, yy, "Strana " + string(page+1) + " / " + string(floor(entries/entriesPerPage)+1) + ", " + string(entries) + " úkolů aktivních.");
              
              if (floor(entries/entriesPerPage) &gt; 0)
                 {

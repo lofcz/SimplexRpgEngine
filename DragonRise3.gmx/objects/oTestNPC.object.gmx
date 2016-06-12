@@ -76,8 +76,11 @@ Do záznamu přidám "jen tak se poflakovat (eng2)" a budu se flákat.
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scrQuestEntryAdd(0, "První úkol", "Text prvního úkolu#Pokračování#Textu", "Zlato: 100x", "" + scrColorflag(c_yellow) + "[Hlavní úkol]" + scrEndColorflag());
+            <string>scrQuestEntryAdd(enumQuests.questVitejVSimplexu, "První úkol", "Text prvního úkolu#Pokračování#Textu", "Zlato: 100x", "" + scrColorflag(c_yellow) + "[Hlavní úkol]" + scrEndColorflag());
 scrQuestEntryAdd(1, "Druhý úkol", "Text druhého úkolu", "Zlato: 1100x", "");
+
+scrQuestEntrySetCompleted(1);
+scrQuestEntrySetText(0, "Dokončil jsi úkol!");
 </string>
           </argument>
         </arguments>
@@ -251,8 +254,16 @@ if (action_id = 0)
       }
   if (index = 4)
       {
-      dialogueMessage("OK","Čekáme "+string("[c="+string(c_orange)+string("]")) +string("jen na tebe")+string("[/c]")+string(".#Přijď a zůčastni se epického dobrodružství."));
-      //dialogueEnd();
+      if (!scrQuestEntryGetCompleted(0))
+      {
+      dialogueMessage("OK","Dokončil jsi úkol! "+string("[c="+string(c_orange)+string("]")) +string("jen na tebe")+string("[/c]")+string(".#Přijď a zůčastni se epického dobrodružství."));
+      scrQuestEntrySetCompleted(0);
+      }
+      else
+      {
+      dialogueMessage("OK","Vyzvedl jsi odměnu "+string("[c="+string(c_orange)+string("]")) +string("jen na tebe")+string("[/c]")+string(".#Přijď a zůčastni se epického dobrodružství."));
+      scrQuestEntryRemove(0);   
+      }
       }
   if (index = 5)
       {
