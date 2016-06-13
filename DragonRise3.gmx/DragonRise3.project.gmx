@@ -164,6 +164,7 @@
         <sprite>sprites\sprite91</sprite>
         <sprite>sprites\sVavrinec</sprite>
         <sprite>sprites\sObet</sprite>
+        <sprite>sprites\sBylinkarka</sprite>
         <sprite>sprites\sTestNPC</sprite>
       </sprites>
       <sprites name="Foes">
@@ -503,6 +504,7 @@
       </objects>
       <objects name="NPCs">
         <object>objects\oTestNPC</object>
+        <object>objects\oTestNpc2</object>
         <object>objects\parNPC</object>
       </objects>
     </objects>
