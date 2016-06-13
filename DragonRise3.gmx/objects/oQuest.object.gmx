@@ -241,7 +241,9 @@ if (active)
              draw_roundrect_ext(xx, yy, xx + 512, real(yy) + 25, 4, 4,  true); 
              
              clr(c_white);
-             draw_text(xx + 256 - string_width(string("Strana " + string(page+1) + " / " + string(floor(entries/entriesPerPage)+1) + ", " + string(entries) + " úkolů aktivních.")) / 2, yy, "Strana " + string(page+1) + " / " + string(floor(entries/entriesPerPage)+1) + ", " + string(entries) + " úkolů aktivních.");
+             text = "Žádné aktivní úkoly";
+             if (entries &gt; 0) {text =  "Strana " + string(page+1) + " / " + string(floor(entries/entriesPerPage)+1) + ", " + string(entries) + " " + scrInflect("úkol", entries) + " " + scrInflect("aktivní", entries) + "."}
+             draw_text(xx + 256 - (string_width(text) / 2), yy, text);
              
              if (floor(entries/entriesPerPage) &gt; 0)
                 {

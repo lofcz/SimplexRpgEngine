@@ -331,6 +331,8 @@
         <script>scripts\scrColorflag.gml</script>
         <script>scripts\scrEndColorflag.gml</script>
         <script>scripts\scrBasicEffect.gml</script>
+        <script>scripts\plainInitEnums.gml</script>
+        <script>scripts\scrInflect.gml</script>
         <script>scripts\set_sprite.gml</script>
       </scripts>
       <scripts name="Shaders">
@@ -437,7 +439,7 @@
         <script>scripts\daynightDraw.gml</script>
         <script>scripts\daynightFlow.gml</script>
       </scripts>
-      <scripts name="Core">
+      <scripts name="Basic transformations">
         <script>scripts\scrBasicTransformScale.gml</script>
       </scripts>
       <scripts name="Quest">
@@ -451,7 +453,6 @@
         <script>scripts\scrQuestEntrySetText.gml</script>
       </scripts>
     </scripts>
-    <script>scripts\scrQuestEnum.gml</script>
   </scripts>
   <shaders name="shaders">
     <shaders name="ScreenFX">
