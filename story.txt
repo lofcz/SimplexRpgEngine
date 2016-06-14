@@ -15,7 +15,7 @@ je sirotek, kterého si královský písař všiml jednoho dne na ulici, když m
 Případ zavražděné ženy je první, který má Petr řešit samostatně. Petr přijíždí do Holohlav a ujímá se vyšetřování. 
 
 [Kapitola první]
-Petr zkoumá mrtvolu, po ohledání ostatků se rozhodne zajít do vesnice a vyslechnout vesničany. Holohlavy jsou malá vesnička, tvořená hospodou U Zlatého lva, radnicí, Blančiným mázhausem, bylinkářstvím Filipa, kovářstvím, několika domy a okolními poli. V poslední době to tu jde od desíti k pěti. Kupce ze severu odrazují dračí útoky, kterými jsou zasaženy cesty přes Stínolesy, jižní cesta je stihnuta velkými suchy. Obchod vázne. Zvyšují se ceny potravin i surovin. Ve vesnici začíná chybět dovozní zboží. Vesničané jsou nerudní a nabručení. S Petrem se bavit nechtějí, na otázky se mu dostává úsečných odpovědí. Na královského písaře vesničané zvysoka kašlou. Po promarněném dni zajde Sean do hospody. Za pultem stojí hostinský Matyáš. Je to chlap jako hora, rukama by mohl drtit kameny. Kouká nevrle, prý co si vašnosta bude přát. Saem si objedná pivo a fazolový guláš, posadí se k místním chlapiskům, Bivoj, Horác a Jorik. Pracují na polích, pomáhají s čím je potřeba. Moc se bratřit nechtěji, ale pořádná runda žitné pálenky jim rozváže jazyk. Rozpovídají se o Vavřincovi. Nadávají na toho páprdu, který nutí své ovečky chodit každou neděli ke zpovědi a pak jim ukládá odříkat stovky otčenášů. Sean se rozhodne promluvit si s oním bohabojným pastýřem osobně.  Fara vypadá sešle, ale trávník kolem ní je pečlivě udržovaný. Když Sean otevře masivní, železem pobité dveře vyvalí se ven chlad. Tlusté zdi vysály všechno teplo, které tu kdy bylo. Není divu, že to tady vesničané nemají rádi. Uvnitř jsou dvě řady prázdných lavic, na konci chodby majestátně stojí oltář. 
+Petr zkoumá mrtvolu, po ohledání ostatků se rozhodne zajít do vesnice a vyslechnout vesničany. Holohlavy jsou malá vesnička, tvořená hospodou U Zlatého Lva, radnicí, Blančiným mázhausem, bylinkářstvím Filipa, kovářstvím, několika domy a okolními poli. V poslední době to tu jde od desíti k pěti. Kupce ze severu odrazují dračí útoky, kterými jsou zasaženy cesty přes Stínolesy, jižní cesta je stihnuta velkými suchy. Obchod vázne. Zvyšují se ceny potravin i surovin. Ve vesnici začíná chybět dovozní zboží. Vesničané jsou nerudní a nabručení. S Petrem se bavit nechtějí, na otázky se mu dostává úsečných odpovědí. Na královského písaře vesničané zvysoka kašlou. Po promarněném dni zajde Sean do hospody. Za pultem stojí hostinský Matyáš. Je to chlap jako hora, rukama by mohl drtit kameny. Kouká nevrle, prý co si vašnosta bude přát. Saem si objedná pivo a fazolový guláš, posadí se k místním chlapiskům, Bivoj, Horác a Jorik. Pracují na polích, pomáhají s čím je potřeba. Moc se bratřit nechtěji, ale pořádná runda žitné pálenky jim rozváže jazyk. Rozpovídají se o Vavřincovi. Nadávají na toho páprdu, který nutí své ovečky chodit každou neděli ke zpovědi a pak jim ukládá odříkat stovky otčenášů. Petr se rozhodne promluvit si s oním bohabojným pastýřem osobně. Fara vypadá sešle, ale trávník kolem ní je pečlivě udržovaný. Když Sean otevře masivní, železem pobité dveře vyvalí se ven chlad. Tlusté zdi vysály všechno teplo, které tu kdy bylo. Není divu, že to tady vesničané nemají rádi. Uvnitř jsou dvě řady prázdných lavic, na konci chodby majestátně stojí oltář. 
 Napravo od oltáře má svojí komůrku Vavřinec, nalevo je místnost vyhrazená pro návštěvy z řad svaté církve. Z Vavřincovy komory se ozývá hlasitý monolog: "Vy, kdož se hříchů zlolajných dopouštíte, smilníce, závidíce, pyšní a lakomí, na vás čeká sedm pekel, kde sukuby a démoni tančí ďábelské rejdy, kde se ozývá skučení hříšníků a kde věčný oheň stravuje jejich duše, tam najdete své místo. Obraťte se k našemu pánu, k jedinému bohu, neboť milosrdenství jeho je nekonečné. Smyjte své hříchy, kajte se a naleznete boží mír. Amen." Petr se musí pousmát, představivost Vavřincovi rozhodně nechybí. Řeč utichla, Vavřinec asi zvětřil návštěvníka. Už vychází ze svého pokoje, na svůj věk jde překvapivě vyrovnaně a pevným krokem. Z očí mu ještě jiskří energie. Pohlédne na Petra, povšimne si znaku královského písaře a když vidí, že návštěvník rozhovar nezačne, neochotně pozdraví. "Vítej v Holohlavech královský písaři a ve skromném stánku našeho pána." "Buď zdráv Vavřinci, prosím omluv, že tě ruším od tvého svatého poslání, ale věnuj mi chvíli času. Jak víš, přijel jsem vyšetřit vraždu oné záhadné ženy. Ty jsi ji našel jako první, pověz mi vše co si z oné noci pamatuješ." 										
 
 
@@ -31,11 +31,29 @@ svého osudu. Když nechce o něčem mluvit, začne mumlat sedmero smrtelných h
 každou neděli ke zpovědi a ukládá jim odříkat desítky otčenášů.
 
 Matouš
-- Majitel Holohlavské hospůdky, náruživý kuchař, mírně při těle, ale má sílu. Vypadá jako zlý a nevrlý chlap, ale v jádru je to docela dobrák. Stále miluje svojí ženu Magdu.
+- Majitel Holohlavské hospůdky, náruživý kuchař, mírně při těle, ale má sílu. Vypadá jako zlý a nevrlý chlap, ale v 
+ jádru je to docela dobrák. Stále miluje svojí ženu Magdu. Rád vzpomíná na staré dobré časy a po večerech si sedne ke svým stálým 
+ hostům. Matouš nesnáší šejdíře, ani Vavřinec mu moc nevoní, ale nemá odvahu místního faráře otevřeně napadnout. Na druhou stranu
+ dokáže ocenit tvrdou práci slušným penízem.
+
+Magda
+- Žena hospodského Matouše, rozverná třicátnice, která je pověstná počtem chlapů, se kterými Matouše podvádí. Ráda koketuje,
+před vzdělanci předstírá, že je z vyšších společenských vrstev. Někdy bývá opilá a vyvolává v Holohlavech menší pozdvižení.
 
 Valérie
-- Dvacátnice, pomocnice šenkýřky Magdy, uzavřená žena.
-Valérie je drobná žena, která pracuje pro 
+- Kuchařka v Matoušově hospodě. Valérie je zakořklá stará panna, závidí Rozárce její mládí a pozitivní přístup k životu. Je tajně 
+zamilovaná do Vavřince, Magdu tajně pomlouvá, ostentativně čte bibli.
+
+Rozárka
+- Dvacetileté děvče, které obsluhuje v Matoušově hospodě. Sirotek, bývalá prostitutka, Matouš se jí ujal v sedmnácti. S ním má velmi
+vřelý vztah, Matouš ji považuje za svoji dceru. Rozárka se zamiluje do Petra a později mu pomůže s vyšetřováním. Rozárka je pořád 
+veselá, usměvavá. Vavřince nemá příliš v lásce, nelíbí se jí jeho věčné kázání a podezřívá ho ze zapletení do vraždy dívky.
+
+Petr
+- Zástupce královského písaře, zamilovaný do rozárky, vyšetřovatel vraždy záhadné dívky. Zvědavý čahoun, zručný bojovník, kterého
+pro jeho mládí spousta protivníků podceňuje. 
+
+
 
 
 
