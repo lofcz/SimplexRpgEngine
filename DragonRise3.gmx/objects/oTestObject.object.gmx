@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>self</parentName>
+  <parentName>parSolid</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -33,7 +33,10 @@ slowdown = 0;
 mood = "idle";
 //cutsceneX = x;
 //cutsceneY = y;
-
+     splashMessage      = false;
+     splashMessageTime  = -1;    
+     splashMessageAlpha = 0;
+     splashMessageAlphaSpeed = 0.1;
 </string>
           </argument>
         </arguments>
@@ -59,12 +62,10 @@ mood = "idle";
             <string>draw_self();
 
 
-if (timeline_running &amp;&amp; (timeline_position &gt; (timeline_max_moment(timeline_index) + global.cutsceneTime)))
+if (timeline_running &amp;&amp; (timeline_position &gt;= (timeline_max_moment(timeline_index))))
     {
      timeline_running = false
      spd = tempSpd;
-     //show_message("" + string(id) + ": Ukončuji cutscene" + "#Pozice: " + string(timeline_position) + " / " + string(timeline_max_moment(timeline_index)));
-     //timeline_index = -1;
      timeline_position = 0;
     }
 if (timeline_running)
@@ -75,13 +76,28 @@ if (timeline_running)
 if (mood == "cutscene" &amp;&amp; distance_to_point(real(cutsceneX), real(cutsceneY)) &gt; 1)
 {
 move_towards_point(real(cutsceneX), real(cutsceneY), real(spd));
-show_message(cutsceneX);
 }
-else if (mood == "cutscene" &amp;&amp; distance_to_point(real(cutsceneX), real(cutsceneY)) &lt;1)
+else if (mood == "cutscene" &amp;&amp; distance_to_point(real(cutsceneX), real(cutsceneY)) &lt; real(spd))
     {
      mood = "idle";
      spd = 0;
+     speed = 0;
     }
+/*if (mood == "cutscene_message" &amp;&amp; splashMessageTime &gt; 0)
+    {
+     splashMessageTime--;
+     
+     if (splashMessageAlpha &lt; 1) {splashMessageAlpha = lerp(splashMessageAlpha, 1, splashMessageAlphaSpeed);}
+     
+     if (splashMessageTime &lt;= 0)
+        {
+         mood               = "idle";
+         splashMessageAlpha = 0;
+        }  
+        
+                      
+    }*/
+
 </string>
           </argument>
         </arguments>

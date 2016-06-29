@@ -9,6 +9,11 @@ for (i = 0; i < threads; i++)
     {
     global.cutsceneThread[i] = timeline_add();
     global.cutsceneOwner[i]  = 0;
+    
+    for (j = 0; j < 16; j++)
+        {
+         global.cutsceneArgument[i, j] = 0;
+        }
     } 
     
 global.tempThreads  = threads;

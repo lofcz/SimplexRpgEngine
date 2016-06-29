@@ -128,15 +128,15 @@ with(other)
             <kind>1</kind>
             <string>/// Handle basic draw
 
-if (splashMessageTime != -1)
+if (splashMessageTime != -1 || splashMessageAlpha &gt; 0)
     {
     var xx,yy;
     xx = x;
     yy = y - sprite_get_height(sprite_index);
     parsedText = dialogueParse(splashMessage);
      
-     if (splashMessageAlpha &lt; 1) {splashMessageAlpha = lerp(splashMessageAlpha, 1, 0.1);}
-     if (splashMessageTime &gt; 0) {splashMessageTime--;} else {splashMessageTime = -1; splashMessageAlpha = 0;}
+     if (splashMessageAlpha &lt; 1) {splashMessageAlpha = lerp(splashMessageAlpha, 1, splashMessageAlphaSpeed);}
+     if (splashMessageTime &gt; 0) {splashMessageTime--;} else {splashMessageTime = -1; mood = "idle";}
      
      
 draw_set_alpha(splashMessageAlpha/2);
@@ -146,6 +146,10 @@ draw_set_color(c_white);
 draw_text_colored(xx-string_width(parsedText)/2,yy-string_height(parsedText)/2,splashMessage);
 draw_set_alpha(1);
 scrCenterText(0);
+    }
+if (splashMessageAlpha &gt; 0 &amp;&amp; splashMessageTime = -1 )
+    {
+     splashMessageAlpha -= 0.1;
     }
 
 </string>

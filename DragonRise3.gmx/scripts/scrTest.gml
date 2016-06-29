@@ -8,5 +8,5 @@ with(global.cutsceneOwner[global.cutsceneArgument[global.index, 0]])
     timeToPerform = 40;
     tempSpd = spd;
     }
-global.index++;
+//global.index++;
 

@@ -465,6 +465,9 @@
         <script>scripts\scrCutsceneSetID.gml</script>
       </scripts>
     </scripts>
+    <script>scripts\scrCutsceneMoveTowardsPoint.gml</script>
+    <script>scripts\scrCutsceneSplashMessage.gml</script>
+    <script>scripts\scrCutscenePlay.gml</script>
     <script>scripts\scrTest.gml</script>
   </scripts>
   <shaders name="shaders">
@@ -623,6 +626,9 @@
     </objects>
     <object>objects\oTestObject</object>
   </objects>
+  <timelines name="timelines">
+    <timeline>timelines\cutsceneTest</timeline>
+  </timelines>
   <rooms name="rooms">
     <room>rooms\mapTest</room>
     <room>rooms\cutscenePoustevnikovaPesina</room>

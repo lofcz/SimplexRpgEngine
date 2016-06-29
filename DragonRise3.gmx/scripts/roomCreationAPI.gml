@@ -8,9 +8,10 @@
 
 #define roomCreation
 /// roomCreation(camera,controller)
+
 randomize();
 
-
+var camera, controller;
 camera     = 1;
 controller = 1;
 
