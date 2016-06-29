@@ -452,7 +452,20 @@
         <script>scripts\scrQuestEntrySetReward.gml</script>
         <script>scripts\scrQuestEntrySetText.gml</script>
       </scripts>
+      <scripts name="Cutscene">
+        <script>scripts\scrCutscenePrepare.gml</script>
+        <script>scripts\scrCutsceneEnd.gml</script>
+        <script>scripts\scrCutsceneAddMoment.gml</script>
+        <script>scripts\scrCutsceneMomentMove.gml</script>
+        <script>scripts\scrCutsceneMomentEmpty.gml</script>
+        <script>scripts\scrCutsceneMomentMessage.gml</script>
+        <script>scripts\scrCutsceneAssign.gml</script>
+        <script>scripts\scrCutsceneStart.gml</script>
+        <script>scripts\scrCutsceneSetArguments.gml</script>
+        <script>scripts\scrCutsceneSetID.gml</script>
+      </scripts>
     </scripts>
+    <script>scripts\scrTest.gml</script>
   </scripts>
   <shaders name="shaders">
     <shaders name="ScreenFX">
@@ -602,11 +615,13 @@
       <object>objects\oCutsceneDayNight</object>
       <object>objects\oVavrinecCutscene</object>
       <object>objects\oObet</object>
+      <object>objects\oCutscene</object>
     </objects>
     <objects name="GUI">
       <object>objects\oMainMenu</object>
       <object>objects\oMainMenuPar</object>
     </objects>
+    <object>objects\oTestObject</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\mapTest</room>

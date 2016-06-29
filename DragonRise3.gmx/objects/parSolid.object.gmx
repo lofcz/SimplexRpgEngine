@@ -36,6 +36,11 @@ basicTransform       = Transformations.none;
 basicTransformXScale = 1;
 bacicTransformYScale = 1;
 basicTransformAmt    = 0.2;
+
+splashMessage      = "";
+splashMessageTime  = -1;
+splashMessageAlpha = 0;
+
 </string>
           </argument>
         </arguments>
@@ -99,6 +104,50 @@ with(other)
             x = xprevious;
             y = yprevious;           
            }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="73">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Handle basic draw
+
+if (splashMessageTime != -1)
+    {
+    var xx,yy;
+    xx = x;
+    yy = y - sprite_get_height(sprite_index);
+    parsedText = dialogueParse(splashMessage);
+     
+     if (splashMessageAlpha &lt; 1) {splashMessageAlpha = lerp(splashMessageAlpha, 1, 0.1);}
+     if (splashMessageTime &gt; 0) {splashMessageTime--;} else {splashMessageTime = -1; splashMessageAlpha = 0;}
+     
+     
+draw_set_alpha(splashMessageAlpha/2);
+draw_roundrect_colour_ext(xx - string_width(parsedText) / 2 - 10,yy - string_height(parsedText)/2,xx+string_width(parsedText)/2+10,yy+string_height(parsedText)/2+4,20,20,c_black,c_black,0);
+draw_set_alpha(splashMessageAlpha);
+draw_set_color(c_white);
+draw_text_colored(xx-string_width(parsedText)/2,yy-string_height(parsedText)/2,splashMessage);
+draw_set_alpha(1);
+scrCenterText(0);
+    }
+
 </string>
           </argument>
         </arguments>

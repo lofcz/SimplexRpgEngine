@@ -30,8 +30,8 @@ event_inherited();
 
 scrEnemyIni(30,5,1,choose(1,1,2),"Modrý slimák",bestiaryEnemySlime,0);
 
-
-
+timeToPerform = 0;
+tempSpd = spd;
 </string>
           </argument>
         </arguments>
@@ -197,6 +197,19 @@ scrEnemyDie(true);
             <kind>1</kind>
             <string>/// Draw self
 
+if (timeline_running &amp;&amp; (timeline_position &gt; (timeline_max_moment(timeline_index) + global.cutsceneTime)))
+    {
+     timeline_running = false
+     spd = tempSpd;
+     //show_message("" + string(id) + ": Ukončuji cutscene" + "#Pozice: " + string(timeline_position) + " / " + string(timeline_max_moment(timeline_index)));
+     //timeline_index = -1;
+     timeline_position = 0;
+    }
+if (timeline_running)
+    {
+     draw_text(x, y - 32, "Cutscene"); // Debug
+    }
+
 if (z_mood = 2) {
 zspeed = 0;
 z = 0;
@@ -211,6 +224,19 @@ if (last_hp &lt; hp) {last_hp++;}
 
 if (last_hp &lt;= 0) {if (mood !="dying") {event_user(0);}}
 
+if (mood == "cutscene" &amp;&amp; distance_to_point(cutsceneX, cutsceneY) &gt; 0)
+{
+if (dir = dir_right) {x += spd*(1-slowdown);}
+if (dir = dir_left) {x -= spd*(1-slowdown);}
+if (dir = dir_up) {y -= spd*(1-slowdown);}
+if (dir = dir_down) {y += spd*(1-slowdown);}
+
+}
+else if (mood == "cutscene" &amp;&amp; distance_to_point(cutsceneX, cutsceneY) == 0)
+    {
+     mood = "idle";
+    }
+    
 if (mood = "idle")
 {
 if (force_aggresive) {if (mood = "idle") {mood = "attack"; in_fight = 1;} if (force_timer &gt; 0) {force_timer--;} else {force_aggresive = 0; force_timer = 400;}}

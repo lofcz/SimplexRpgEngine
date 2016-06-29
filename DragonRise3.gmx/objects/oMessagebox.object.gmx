@@ -30,7 +30,8 @@
 image_speed = 0;
 
 for(a = 0; a &lt; dialogue_lenght; a++) {message_head[a] = ""; message_text[a] = ""; message_head[a] = "";}
-              
+
+alarm_set(0,1);          
 message_number  = 0;
 message_current = 0;
 break_on_index  = -1;
@@ -42,6 +43,9 @@ draw            = 1;
 idd             = 0;
 c               = 0;
 done            = 0;
+effect          = "fadeIn";
+ta              = 0;
+
 
 for(a=0; a&lt;20; a++)
          {
@@ -91,7 +95,30 @@ if (instance_number(parNPC) &gt; 0)
    {
     parNPC.talking = 0;
    }
-
+oCamera.target = oPlayer;      
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>oCamera.target = (parent);   
 </string>
           </argument>
         </arguments>
@@ -118,14 +145,15 @@ if (instance_number(parNPC) &gt; 0)
 
 if (option[message_current] = -1)
    {
-     if (message_text[message_current+1] = "") {draw = 0;}
+     if (message_text[message_current+1] = "") {draw = 0; effect = "nothing"; ta = 0;}
    else 
         {
           if (pos &gt;= string_length(message_text[message_current]))
           { 
-         pos = 1;
-         message_current++; 
-      
+        // pos = 1;
+        // message_current++; 
+        effect = "fadeInOnly";
+        ta = 0;
          }       
         }
      }
@@ -139,6 +167,9 @@ if (option[message_current] = -1)
            action_id = oMessagebox.option[oMessagebox.message_current]; 
            event_user(14);
            }
+           effect = "nothing";
+           ta = 0;
+           
           }
 
 </string>
@@ -168,6 +199,11 @@ if (option[message_current] = -1)
 x = view_xview+5;
 y = view_yview-10;
 
+if (effect == "fadeOut") {if (ta &gt; 0) {ta -= 0.05;} else {ta = 0; pos = 1; message_current++; effect = "fadeIn";}}
+if (effect == "fadeIn") {if (ta &lt; 1) {ta += 0.05;} else {ta = 1; effect = "false";}}
+if (effect == "fadeInOnly") {if (ta &gt; 0) {ta -= 0.05;} else {ta = 1; pos = 1; message_current++; effect = "false";}}
+if (effect == "fadeInOnlyNoNext") {if (ta &lt; 1) {ta += 0.05;} else {ta = 1; effect = "false";}}
+
 if (instance_number(oInventory) &gt; 0) {oInventory.draw = 0;}
 
 if (bac_alpha &lt; 0.3 &amp;&amp; draw) {bac_alpha += 0.01;}
@@ -188,6 +224,7 @@ draw_set_font(fntPixel);
 scrCenterText();
 draw_text(x+230,y+25,message_head[message_current]);
 scrCenterText(0);
+clr(c_black, ta);
 draw_text_colored(x+150,y+40,str);
 
 
@@ -200,17 +237,14 @@ if (mouse_check_button_pressed(mb_left) &amp;&amp; draw &amp;&amp; instance_numb
         {
           if (pos &gt;= string_length(message_text[message_current]))
           { 
-         pos = 1;
-         message_current++; 
-      
+          if (effect == "false") {effect = "fadeOut";}
+     
          }       
         }
      }
      else 
           {
            // show_message(message_current+string(" ")+string(oMessagebox.option[oMessagebox.message_current]));
-
-
           }
    }
 if (draw &amp;&amp; instance_number(oAnswer) = 0)
@@ -224,6 +258,8 @@ if (draw &amp;&amp; instance_number(oAnswer) = 0)
      }
    
    }   
+   
+
 
 </string>
           </argument>
