@@ -206,3 +206,32 @@ if (stamina_tick > 0 && !sprinting) {stamina_tick --;}
         vlastnost[vlastnost_stamina] += vlastnost[vlastnost_tick_stamina_add];
         }
        }
+#define apiPlayerDraw
+/// apiPlayerDraw()
+
+draw_self();
+
+stamina_dif = abs(last_stamina - vlastnost[vlastnost_stamina]);
+health_dif  = abs(last_hp - vlastnost[vlastnost_zivot]);
+
+if (stamina_dif <= 5) {stamina_bar = 0.1;}
+if (health_dif <= 5)  {health_bar = 0.1;}
+else {health_bar = 1;} 
+
+      
+if (last_hp < vlastnost[vlastnost_zivot]) {last_hp += health_bar;}
+if (last_hp > vlastnost[vlastnost_zivot]) {last_hp -= health_bar;}
+
+if (last_stit < vlastnost[vlastnost_stit]) {last_stit++;}
+if (last_stit > vlastnost[vlastnost_stit]) {last_stit--;}
+
+if (last_mana < vlastnost[vlastnost_mana]) {last_mana++;}
+if (last_mana > vlastnost[vlastnost_mana]) {last_mana--;}
+
+if (last_stamina < vlastnost[vlastnost_stamina]) {last_stamina += stamina_bar;}
+if (last_stamina > vlastnost[vlastnost_stamina]) {last_stamina -= stamina_bar;}
+
+if (last_xp < vlastnost[vlastnost_zkusenosti]) {last_xp++;}
+if (last_xp > vlastnost[vlastnost_zkusenosti]) {last_xp--;}
+
+if (last_hp <= 0 && last_hp != -666) {last_hp = -666; scrGoreExplode(10,10);}

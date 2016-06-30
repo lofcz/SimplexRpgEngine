@@ -72,6 +72,10 @@ if (timeline_running)
     {
      draw_text(x, y - 32, "Cutscene"); // Debug
     }
+else 
+    {
+     if (image_alpha &gt; 0) {image_alpha -= 0.05;} else {instance_destroy();}
+    }
     
 if (mood == "cutscene" &amp;&amp; distance_to_point(real(cutsceneX), real(cutsceneY)) &gt; 1)
 {

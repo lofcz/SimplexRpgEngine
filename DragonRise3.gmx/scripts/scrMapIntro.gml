@@ -1,4 +1,4 @@
-/// scrMapIntro(text,r,g,b)
+/// scrMapIntro(text, r, g, b)
 
 var text,i,r,g,b;
 

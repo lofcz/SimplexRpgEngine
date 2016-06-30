@@ -453,22 +453,17 @@
         <script>scripts\scrQuestEntrySetText.gml</script>
       </scripts>
       <scripts name="Cutscene">
-        <script>scripts\scrCutscenePrepare.gml</script>
-        <script>scripts\scrCutsceneEnd.gml</script>
-        <script>scripts\scrCutsceneAddMoment.gml</script>
-        <script>scripts\scrCutsceneMomentMove.gml</script>
-        <script>scripts\scrCutsceneMomentEmpty.gml</script>
-        <script>scripts\scrCutsceneMomentMessage.gml</script>
-        <script>scripts\scrCutsceneAssign.gml</script>
-        <script>scripts\scrCutsceneStart.gml</script>
-        <script>scripts\scrCutsceneSetArguments.gml</script>
-        <script>scripts\scrCutsceneSetID.gml</script>
+        <script>scripts\scrCutscenePlay.gml</script>
+        <script>scripts\scrCutsceneToggle.gml</script>
+        <script>scripts\scrCutsceneMoveTowardsPoint.gml</script>
+        <script>scripts\scrCutsceneSplashMessage.gml</script>
+      </scripts>
+      <scripts name="Pause">
+        <script>scripts\scrPauseIni.gml</script>
+        <script>scripts\scrPauseFree.gml</script>
+        <script>scripts\scrPauseDraw.gml</script>
       </scripts>
     </scripts>
-    <script>scripts\scrCutsceneMoveTowardsPoint.gml</script>
-    <script>scripts\scrCutsceneSplashMessage.gml</script>
-    <script>scripts\scrCutscenePlay.gml</script>
-    <script>scripts\scrTest.gml</script>
   </scripts>
   <shaders name="shaders">
     <shaders name="ScreenFX">

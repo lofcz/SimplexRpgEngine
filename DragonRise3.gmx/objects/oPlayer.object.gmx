@@ -341,47 +341,15 @@ if (keyboard_check_pressed(vk_escape))
             <kind>1</kind>
             <string>/// TEST
 
+/***************************************************
+    Příklad cutscény
+***************************************************/
 var ins1, ins2;
 ins1 = instance_create(x-100, y+100, oTestObject); ins1.name = "První objekt";
 ins2 = instance_create(x+100, y+100, oTestObject); ins2.name = "Druhý objekt";
 
-/***************************************************
-    Příklad cutscény
-***************************************************/
 scrCutscenePlay(ins1, cutsceneTest, false, 1);
 
-
-//scrCutscenePrepare(2, 220);
-
-//scrCutsceneAssign(ins1, 0);
-//scrCutsceneAssign(ins2, 1);
-
-// Poslední událost musí být na prvním místě
-//scrCutsceneSetArguments(3, "Tohle je ukázka paramteru 123", "A");
-//scrCutsceneAddMoment(0, 200, scrTest);
-
-// Ostatní události následují v pořadí
-//scrCutsceneSetArguments(0, "Zpráva 3", "150", 85, 5);
-//scrCutsceneAddMoment(0, 1, scrTest);
-
-//scrCutsceneSetArguments(1, "Zpráva 45", "C");
-//scrCutsceneAddMoment(0, 5, scrTest);
-
-//scrCutsceneSetArguments(1, dir_left, ins2.x, ins2.y - 100, 5);
-//scrCutsceneAddMoment(1, 15, scrCutsceneMomentMove);
-
-//scrCutsceneSetArguments(0, dir_left, ins2.x, ins2.y + 100, 5);
-//scrCutsceneAddMoment(1, 500, scrCutsceneMomentMove);
-
-//scrCutsceneSetArguments(scrCutsceneSetID(), dir_right, x - 100, y, 5, 1);
-//scrCutsceneAddMoment(1, 105, scrCutsceneMomentMove);
-
-//scrCutsceneStart();
-
-
-//scrCutsceneAddMoment(0, 0, scrCutsceneMomentMove(0, dir_up, ins.x, ins.y - 100, 4));
-//scrCutsceneAddMoment(0, 100 * room_speed, scrCutsceneMomentMessage(0, "Tohle je zpráva", 80));
-//scrCutsceneAddMoment(0, 200 * room_speed, scrCutsceneMomentEmpty());
 </string>
           </argument>
         </arguments>
@@ -489,44 +457,9 @@ vlastnost[vlastnost_level]++;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//draw_surface_ext(surface,0,0,1,1,0,c_white,1);
-draw_self();
+            <string>/// Draw player
 
-//surface_set_target(surface);
-//surface_reset_target();
-
-
-draw_text(x,y-32,"Poškození: "+string(vlastnost[vlastnost_poskozeni]));
-draw_text(x,y-48,"Zlato: "+string(last_dir));
-
-//draw_text(x,y+64,vlastnost[vlastnost_vykresli_sprit]);
-//if (speed &gt; 0) {if (blur &lt; 32) {blur++}} else {if (blur &gt; 0) {blur--;}}
-// blurdirection = point_direction(x, y, xprevious, yprevious);
-//motion_blur(blur, blurdirection);
-
-stamina_dif = abs(last_stamina - vlastnost[vlastnost_stamina]);
-if (stamina_dif &lt;= 5) {stamina_bar = 0.1;}
-health_dif = abs(last_hp - vlastnost[vlastnost_zivot]);
-if (health_dif &lt;= 5) {health_bar = 0.1;}
-   else {health_bar = 1;} 
-
-      
-if (last_hp &lt; vlastnost[vlastnost_zivot]) {last_hp += health_bar;}
-if (last_hp &gt; vlastnost[vlastnost_zivot]) {last_hp -= health_bar;}
-
-if (last_stit &lt; vlastnost[vlastnost_stit]) {last_stit++;}
-if (last_stit &gt; vlastnost[vlastnost_stit]) {last_stit--;}
-
-if (last_mana &lt; vlastnost[vlastnost_mana]) {last_mana++;}
-if (last_mana &gt; vlastnost[vlastnost_mana]) {last_mana--;}
-
-if (last_stamina &lt; vlastnost[vlastnost_stamina]) {last_stamina += stamina_bar;}
-if (last_stamina &gt; vlastnost[vlastnost_stamina]) {last_stamina -= stamina_bar;}
-
-if (last_xp &lt; vlastnost[vlastnost_zkusenosti]) {last_xp++;}
-if (last_xp &gt; vlastnost[vlastnost_zkusenosti]) {last_xp--;}
-
-//if (last_hp &lt;= 0 &amp;&amp; last_hp != -666) {last_hp = -666; scrGoreExplode(10,10);}
+apiPlayerDraw();
 </string>
           </argument>
         </arguments>

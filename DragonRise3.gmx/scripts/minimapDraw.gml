@@ -1,7 +1,5 @@
 /// minimapDraw()
 
-
-
 x1       = 0;
 y1       = 0;
 x2       = zoom_x;

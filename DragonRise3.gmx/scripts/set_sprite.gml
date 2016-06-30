@@ -1,7 +1,7 @@
-/// set_sprite(sprite,image_speed,target)
+/// set_sprite(sprite, image_speed, target)
 
 sprite = noone;
-spd = 0;
+spd    = 0;
 target = self;
 
 if (argument_count > 0) {sprite    = argument[0];}

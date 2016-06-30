@@ -25,26 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>screen = screen_save("temp.dr3");
-instance_deactivate_all(1);
-s = sprite_add("temp.dr3",0,0,0,0,0);
+            <string>/// Prepare pause
 
-activated = 0;
-alarm[0] = 1;
-
-uni_resolution_hoz = shader_get_uniform(shdGaussHor,"resolution");
-uni_resolution_vert = shader_get_uniform(shdGaussVer,"resolution");
-var_resolution_x = 800;
-var_resolution_y = 600;
-
-shader_enabled = true;
-
-final_surface = surface_create(800,600);
-
-mass = 0;
-
-uni_mass_h = shader_get_uniform(shdGaussHor,"mass");
-uni_mass_v = shader_get_uniform(shdGaussVer,"mass");
+scrPauseIni(0.04);
 </string>
           </argument>
         </arguments>
@@ -67,8 +50,9 @@ uni_mass_v = shader_get_uniform(shdGaussVer,"mass");
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>sprite_delete(s);
-instance_activate_all();
+            <string>/// Free memory
+
+scrPauseFree();
 </string>
           </argument>
         </arguments>
@@ -91,7 +75,9 @@ instance_activate_all();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>activated = 1;
+            <string>/// Activate self
+
+activated = 1;
 </string>
           </argument>
         </arguments>
@@ -114,26 +100,9 @@ instance_activate_all();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (mass &lt; 1) {mass += 0.04;}  
+            <string>/// Draw pause
 
-shader_set(shdGaussHor);
-
-shader_set_uniform_f(uni_resolution_hoz, var_resolution_x, var_resolution_y);
-shader_set_uniform_f(uni_mass_h, mass);    
-draw_sprite(s,0,0,0);
-shader_reset();
-
-shader_set(shdGaussVer);
-
-shader_set_uniform_f(uni_resolution_vert, var_resolution_x, var_resolution_y);
-shader_set_uniform_f(uni_mass_v, mass);
-     
-shader_reset();
-
-
-draw_text(view_xview,view_yview,"PAUSED");
-
-if (keyboard_check_pressed(vk_escape) &amp;&amp; activated) {instance_destroy();}
+scrPauseDraw();
 </string>
           </argument>
         </arguments>

@@ -1,7 +1,6 @@
-/// minimapInit(height,width,actionKey)
+/// minimapInit(height, width, actionKey)
 
 var iHeight,iWidth,iActionKey;
-
 iHeight    = 100;
 iWidth     = 100;
 iActionKey = "M";
