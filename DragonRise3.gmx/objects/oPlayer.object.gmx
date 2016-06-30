@@ -260,7 +260,7 @@ apiPlayerMoveStand();
             <kind>1</kind>
             <string>/// Handle movement
 
-scrWeatherRainSpawn();
+//scrWeatherRainSpawn();
 
 if (load &gt; 0) {load -- } else {load = -1; event_user(0);}
 apiPlayerMove();
