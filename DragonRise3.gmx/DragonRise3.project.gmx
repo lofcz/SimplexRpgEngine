@@ -280,6 +280,7 @@
     <sprite>sprites\sQuestIcon</sprite>
     <sprite>sprites\sprite93</sprite>
     <sprite>sprites\sFadedLine</sprite>
+    <sprite>sprites\sRainSplash</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -463,6 +464,11 @@
         <script>scripts\scrPauseFree.gml</script>
         <script>scripts\scrPauseDraw.gml</script>
       </scripts>
+      <scripts name="Weather">
+        <script>scripts\scrWeatherRainIni.gml</script>
+        <script>scripts\scrWeatherRainSpawn.gml</script>
+        <script>scripts\scrWeatherRainDraw.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -604,6 +610,8 @@
         <object>objects\oBasicEffect</object>
         <object>objects\oBlob</object>
         <object>objects\oAchievment</object>
+        <object>objects\oRain</object>
+        <object>objects\oRainSplash</object>
       </objects>
       <objects name="Particles">
         <object>objects\oSmokeEmmitor</object>
