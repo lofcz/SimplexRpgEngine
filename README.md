@@ -1,5 +1,5 @@
 ![](https://s31.postimg.org/4be7ykezv/Logo_Makr_1.png)
-
+<img align="center" src="https://s31.postimg.org/4be7ykezv/Logo_Makr_1.png">
 Engine pro GMS, který umožňuje i jednotlivcům tvořit velké hry svých snů. Masivní výkon, předpřipravená řešení v podobě komponent, externí vývojářské nástroje napsané v C# pro ještě rychlejší vývoj, odladěné prostředí, jednoduché k použití a extrémně efektivní. Snadné přidávání vlástních komponent na bázi code-injection. Simplex poráží RPG Maker i YOYO RPG v každém směru a nechává je v dálce za sebou, je zdarma, má otevřený zdrojový kód a rozšiřující se bázi komponent. 
 Neváhej a přidej se k nám. :)
 
