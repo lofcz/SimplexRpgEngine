@@ -1,0 +1,8 @@
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexTextManger\SimplexTextManger\bin\Debug\SimplexTextManger.exe
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexTextManger\SimplexTextManger\bin\Debug\SimplexTextManger.pdb
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexTextManger\SimplexTextManger\obj\Debug\SimplexTextManger.csprojResolveAssemblyReference.cache
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexTextManger\SimplexTextManger\obj\Debug\SimplexTextManger.Form1.resources
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexTextManger\SimplexTextManger\obj\Debug\SimplexTextManger.Properties.Resources.resources
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexTextManger\SimplexTextManger\obj\Debug\SimplexTextManger.csproj.GenerateResource.Cache
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexTextManger\SimplexTextManger\obj\Debug\SimplexTextManger.exe
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexTextManger\SimplexTextManger\obj\Debug\SimplexTextManger.pdb
