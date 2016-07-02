@@ -1,4 +1,4 @@
-<img align="middle" src="https://img.shields.io/badge/Build-nestabiln%C3%AD-red.svg">
+<img src="https://img.shields.io/badge/Verze-0.1--DEV-yellow.svg"> <img src="https://img.shields.io/github/commits-since/lofcz/SimplexRpgEngine.svg?maxAge=2592000">
 <br><br>
 <img align="middle" src="https://s31.postimg.org/4be7ykezv/Logo_Makr_1.png">
 <br>
