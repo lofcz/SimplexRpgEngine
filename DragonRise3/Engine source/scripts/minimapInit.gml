@@ -27,5 +27,6 @@ zoom_y         = room_height;
 zoom_level     = 1;
 m_alpha        = 1;
 action_key     = iActionKey;
+draw           = true;
 
 alarm[0]       = 1;

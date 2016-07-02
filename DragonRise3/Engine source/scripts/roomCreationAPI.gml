@@ -48,3 +48,4 @@ if (instance_number(oQuest) = 0)
    {
      instance_create(0,0,oQuest);
    }
+global.shaders_enabled = true;

@@ -641,11 +641,13 @@
     <timeline>timelines\cutsceneTest</timeline>
   </timelines>
   <rooms name="rooms">
+    <room>rooms\mapMyFirstGame</room>
     <room>rooms\mapTest</room>
     <room>rooms\cutscenePoustevnikovaPesina</room>
     <room>rooms\mapMainMenu</room>
     <room>rooms\mapHolohlavy</room>
     <room>rooms\cutsceneVavrincuvKostel</room>
+    <room>rooms\mapDefault</room>
     <rooms name="Game world">
       <room>rooms\mapHouse1</room>
     </rooms>

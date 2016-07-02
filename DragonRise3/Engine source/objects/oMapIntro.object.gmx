@@ -63,6 +63,8 @@ color             = make_colour_rgb(r,g,b);
 
 oPlayer.can_move2 = 1;
 oHUD.draw         = 1;
+oInventory.draw   = 1;
+oMinimap.draw     = 1;
 
 with(parEnemy) {slowdown = 0;}
 </string>
@@ -91,7 +93,7 @@ with(parEnemy) {slowdown = 0;}
 
 oHUD.draw = 0;
 oInventory.draw = 0;
-
+oMinimap.draw = 0;
 
 if (alpha &lt; 1 &amp;&amp; mode &lt; 2) {alpha += 0.02; with(parEnemy) {if (slowdown &lt; 0.95) {slowdown += 0.02;}}}
 if (mode = 0) {if (xx &lt; 250) {xx += spd; r++; color = make_colour_rgb(r,r,r); if (spd &lt; 5) {spd += 0.04;}} else {mode = 1;}}
