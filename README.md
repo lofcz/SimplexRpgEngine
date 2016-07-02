@@ -14,4 +14,4 @@ Top-on-GMS engine, umožňující rapidní vývoj moderních RPG her. Vhodný pr
 
 ![](https://s32.postimg.org/ax2xymtw5/Bezejmenn.png)
 
-Budoucnost máš na dosah, začni [zde](https://github.com/lofcz/SimplexRpgEngine/wiki).
+**Budoucnost máš na dosah, začni [zde](https://github.com/lofcz/SimplexRpgEngine/wiki).**
