@@ -13,5 +13,5 @@ Neváhej a přidej se k nám. :)
 - Složka *sourceEngine* obsahuje GMX projekt, ve složce *sourceIDE* najdeš vývojářské nástroje pro práci s enginem.
 - Po otevření projektu se načte playground hra Dragon Rise 3, na které si můžeš vyzkoušet možnosti enginu.
 
-### Dokumentace
-Veškeré informace o použití enginu, jeho rozšiřování a modifikaci najdeš v oficiální referenční dokumentaci [zde](https://github.com/lofcz/SimplexRpgEngine/wiki/Dokumentace/).
+### Wiki
+Veškeré informace o použití enginu, jeho rozšiřování a modifikaci najdeš v oficiální referenční dokumentaci [zde](https://github.com/lofcz/SimplexRpgEngine/wiki).
