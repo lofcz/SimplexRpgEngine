@@ -1,4 +1,4 @@
-<img src="https://img.shields.io/badge/Verze-0.1--DEV-yellow.svg"> <img src="https://img.shields.io/badge/Status-V%20po%C5%99%C3%A1dku-green.svg">
+<img src="https://img.shields.io/badge/Verze-0.1--DEV-yellow.svg"> <img src="https://img.shields.io/badge/Status-V%20po%C5%99%C3%A1dku-green.svg"> <img src="https://img.shields.io/badge/License-MIT-blue.svg">
 <br><br>
 <img align="middle" src="https://s31.postimg.org/4be7ykezv/Logo_Makr_1.png">
 <br>
