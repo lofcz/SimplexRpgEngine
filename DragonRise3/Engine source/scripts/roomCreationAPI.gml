@@ -48,4 +48,8 @@ if (instance_number(oQuest) = 0)
    {
      instance_create(0,0,oQuest);
    }
+if (instance_number(oTalentMenu) = 0)
+   {
+     instance_create(0,0,oTalentMenu);
+   }
 global.shaders_enabled = true;

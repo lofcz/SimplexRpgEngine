@@ -354,6 +354,7 @@
         <script>scripts\effectExperience.gml</script>
         <script>scripts\effectSmoke.gml</script>
         <script>scripts\effectFrozenTrail.gml</script>
+        <script>scripts\effectTalentUp.gml</script>
       </scripts>
     </scripts>
     <scripts name="Components">
@@ -641,13 +642,13 @@
     <timeline>timelines\cutsceneTest</timeline>
   </timelines>
   <rooms name="rooms">
-    <room>rooms\mapMyFirstGame</room>
     <room>rooms\mapTest</room>
     <room>rooms\cutscenePoustevnikovaPesina</room>
     <room>rooms\mapMainMenu</room>
     <room>rooms\mapHolohlavy</room>
     <room>rooms\cutsceneVavrincuvKostel</room>
     <room>rooms\mapDefault</room>
+    <room>rooms\mapMyFirstGame</room>
     <rooms name="Game world">
       <room>rooms\mapHouse1</room>
     </rooms>

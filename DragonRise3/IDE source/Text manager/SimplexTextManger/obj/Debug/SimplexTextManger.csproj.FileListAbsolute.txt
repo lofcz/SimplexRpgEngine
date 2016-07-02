@@ -6,3 +6,5 @@ c:\users\matěj\documents\visual studio 2015\Projects\SimplexTextManger\SimplexT
 c:\users\matěj\documents\visual studio 2015\Projects\SimplexTextManger\SimplexTextManger\obj\Debug\SimplexTextManger.csproj.GenerateResource.Cache
 c:\users\matěj\documents\visual studio 2015\Projects\SimplexTextManger\SimplexTextManger\obj\Debug\SimplexTextManger.exe
 c:\users\matěj\documents\visual studio 2015\Projects\SimplexTextManger\SimplexTextManger\obj\Debug\SimplexTextManger.pdb
+C:\Users\Matěj\Documents\DragonRise3\DragonRise3\IDE source\Text manager\SimplexTextManger\obj\Debug\SimplexTextManger.exe
+C:\Users\Matěj\Documents\DragonRise3\DragonRise3\IDE source\Text manager\SimplexTextManger\obj\Debug\SimplexTextManger.pdb

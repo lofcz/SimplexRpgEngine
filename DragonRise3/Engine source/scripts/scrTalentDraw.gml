@@ -39,10 +39,10 @@ else if (tTree == talentEnum.treeWarrior) {draw_sprite(sTalentsWarrior, tID, xx,
 else if (tTree == talentEnum.treeMage) {draw_sprite(sTalentsMage, tID, xx, yy);}
 }
 
-if (telentLevel[tTree, tID] != 0)
+if (telentLevel[tTree, tID] != 0 && telentLevel[tTree, tID] != telentLevelMax[tTree, tID])
 {
 alg("center", fntPixelSmall);
-draw_text(xx, yy, string(telentLevel[tTree, tID]) + " / " + string(telentLevelMax[tTree, tID]))
+draw_text(xx + 16, yy - 8, string(telentLevel[tTree, tID]) + " / " + string(telentLevelMax[tTree, tID]))
 alg();
 }
 if (telentLevel[tTree, tID] == telentLevelMax[tTree, tID])
@@ -59,7 +59,18 @@ if (mouse_in(xx, xx + 32, yy, yy + 32))
      if (tTree == talentEnum.treeWarrior) {drawText = telentWarriorText[tID, telentLevel[tTree, tID]]; drawTextTitle = telentWarriorTextTitle[tID];}
      if (tTree == talentEnum.treeMage) {drawText = telentMageText[tID, telentLevel[tTree, tID]]; drawTextTitle = telentMageTextTitle[tID];}
   
-    
+     if (mouse_check_button_pressed(mb_left))
+        {
+         if (oPlayer.talentPoints > 0)
+            {
+             if (telentLevel[tTree, tID] < telentLevelMax[tTree, tID])
+                {
+                 telentLevel[tTree, tID]++;
+                 oPlayer.talentPoints--;
+                 effectTalentUp(xx + 16, yy + 16, 10);
+                }
+            }
+        }
     }
 
 

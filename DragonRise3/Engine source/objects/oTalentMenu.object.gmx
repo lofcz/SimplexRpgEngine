@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>-999</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -26,12 +26,13 @@
           <argument>
             <kind>1</kind>
             <string>channel_mask = shader_get_uniform(shdColor, "f_ChannelMask");
-oHUD.draw = false;
 bacAlpha = 0;
-mode = "in";
+mode = "";
 drawTextTitle = "";
 drawText = "";
 extAlpha = 0;
+draw = 0;
+Sname = part_system_create();
 
 treeName[0] = "Zloděj";
 treeName[1] = "Válečník";
@@ -40,15 +41,46 @@ treeName[2] = "Mág";
 selectedTree = 0;
 
 telentLevel[talentEnum.treeThief, 0]    = 0;
-telentLevelMax[talentEnum.treeThief, 0] = 0;
-telentThiefText[0, 0] = "Toto je " + scrColorflag(c_red) + "ukázkový" + scrEndColorflag() + " text.#Pokračování " + scrColorflag(c_red) + "tohoto" + scrEndColorflag() + " textu.";
-telentThiefTextTitle[0] = "Test názvu";
+telentLevelMax[talentEnum.treeThief, 0] = 9;
 
+for(i = 0; i &lt; 10; i++)
+{
+telentThiefText[0, i] = "Stíny ti umožní zhmotnit se na nedaleké pozici. #Záblesk neumožňuje procházet zdmi, ani jinými překážkami.##Přebíjcí doba" + scrColorflag(c_lime) + ": 12 -&gt; 11" + scrEndColorflag() + " ";
+
+}
+telentThiefText[0, 0] = "Stíny ti umožní zhmotnit se na#nedaleké pozici. Záblesk neumožňuje#procházet zdmi, ani jinými#překážkami.##" + scrColorflag(c_yellow) + "Odemkne záblesk.";
+telentThiefText[0, 1] = "Stíny ti umožní zhmotnit se na#nedaleké pozici. Záblesk neumožňuje#procházet zdmi, ani jinými#překážkami.##Přebíjcí doba" + scrColorflag(c_lime) + ": 12 -&gt; 11" + scrEndColorflag() + " ";
+telentThiefText[0, 2] = "Stíny ti umožní zhmotnit se na#nedaleké pozici. Záblesk neumožňuje#procházet zdmi, ani jinými#překážkami.##Přebíjecí doba: " + scrColorflag(c_lime) + "11-&gt;10" + scrEndColorflag() + "#Výdrž:" + scrColorflag(c_red) + " 8 -&gt; 9" + scrEndColorflag() + "#Šance na stínový úder: " + scrColorflag(c_lime) + "0 -&gt; 10%";
+
+telentThiefTextTitle[0] = "Úder ze stínů";
 
 enum talentEnum
 {
 treeThief, treeWarrior, treeMage
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>part_system_destroy(Sname);
 </string>
           </argument>
         </arguments>
@@ -71,17 +103,19 @@ treeThief, treeWarrior, treeMage
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x = view_xview;
+            <string>if (draw)
+{
+x = view_xview;
 y = view_yview;
 hover = false;
 
 if (mode == "in")
     {
-     if (bacAlpha &lt; 1) {bacAlpha += 0.1;}
+     if (bacAlpha &lt; 1) {bacAlpha += 0.1;  oHUD.draw = false;}
     }
 if (mode == "out")
     {
-     if (bacAlpha &gt; 0) {bacAlpha -= 0.1;} else {instance_destroy(); oHUD.draw = true;}
+     if (bacAlpha &gt; 0) {bacAlpha -= 0.1;} else {draw = false; mode = ""; oHUD.draw = true;}
     }
     
 clr(c_black, bacAlpha / 2);
@@ -102,9 +136,14 @@ if (point_in_rectangle(mouse_x, mouse_y, x + 768, y, x + 800, y + 32))
 clr(c_white, bacAlpha);
 alg("center", fntPixelHuge);
 draw_text(x + 400, y + 16, treeName[selectedTree]);
+alg("center", fntPixel);
+
+bS = "Nemáš žádné body talentů";
+if (oPlayer.talentPoints &gt; 0) {bs = "Máš " + string(oPlayer.talentPoints) + " " + scrInflect("bod", oPlayer.talentPoints) + " schopností";}
+draw_text(x + 400, y + 36, bs);
 alg();
     
-// Strom: Válečník
+// Strom: Zloděj
 if (selectedTree == 0)
     {
       scrTalentDraw(x + 100, y + 100, talentEnum.treeThief, 0, x + 200, y + 115);
@@ -115,9 +154,9 @@ clr();
 if (hover) {extAlpha = lerp(extAlpha, 1, 0.1);} else {if (extAlpha &gt; 0) {extAlpha -= 0.1;}}
 
 clr(c_black, extAlpha); 
-draw_roundrect(x + 544, y + 48, x + 790, y + 590, true);
+draw_roundrect(x + 544, y + 48, x + 795, y + 590, true);
 clr(c_black, extAlpha / 3); 
-draw_roundrect(x + 544, y + 48, x + 790, y + 590, false);
+draw_roundrect(x + 544, y + 48, x + 795, y + 590, false);
 
 clr(c_white, extAlpha); 
 alg("center", fntPixel);
@@ -127,6 +166,7 @@ draw_set_font(fntPixelSmall);
 draw_text_colored(x + 546, y + 100, drawText);
  
 clr();
+}
 
 </string>
           </argument>

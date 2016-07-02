@@ -156,7 +156,7 @@ magic[spell_fire_trail_damage] = 0.8;
 magic[spell_fire_trail_cost] = 4;
 
 skillPoints  = 0;
-talentPoints = 0;
+talentPoints = 10;
 spellPoints  = 0;
 
 </string>

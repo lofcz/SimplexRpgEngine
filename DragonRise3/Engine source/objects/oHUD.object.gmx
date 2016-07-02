@@ -218,7 +218,7 @@ oPlayer.vlastnost[vlastnost_stit] = min(max(0,oPlayer.vlastnost[vlastnost_stit])
         }
      if (mouse_check_button_pressed(mb_left) &amp;&amp; point_in_circle(x+256, y+576, mouse_x, mouse_y, 16))
         {
-         if (instance_number(oTalentMenu) == 0) {instance_create(x, y, oTalentMenu);}
+         if (oTalentMenu.mode = "") {oTalentMenu.mode = "in"; oTalentMenu.draw = true;}
         }
 
      
