@@ -532,6 +532,7 @@
   </fonts>
   <objects name="objects">
     <object>objects\oTEST</object>
+    <object>objects\oTestObject</object>
     <object>objects\oLightmap</object>
     <object>objects\oLightCircle</object>
     <objects name="Actors">
@@ -574,6 +575,7 @@
       <object>objects\oAnswer</object>
       <object>objects\oScreenShader</object>
       <object>objects\oPause</object>
+      <object>objects\oTalentMenu</object>
     </objects>
     <objects name="Dropable and items">
       <objects name="Dropable">
@@ -648,8 +650,6 @@
       <object>objects\oMainMenu</object>
       <object>objects\oMainMenuPar</object>
     </objects>
-    <object>objects\oTestObject</object>
-    <object>objects\oTalentMenu</object>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\cutsceneTest</timeline>

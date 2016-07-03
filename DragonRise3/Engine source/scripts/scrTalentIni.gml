@@ -14,6 +14,9 @@ treeName[0]   = "Zloděj";
 treeName[1]   = "Válečník";
 treeName[2]   = "Mág";
 selectedTree  = 0;
+ico1S         = 1;
+ico2S         = 1;
+ico3S         = 1;
 
 for (i = 0; i < 10; i++)
     {

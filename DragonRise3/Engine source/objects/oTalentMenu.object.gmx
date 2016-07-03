@@ -106,7 +106,9 @@ if (mode == "out")
 clr(c_black, bacAlpha / 2);
 draw_rectangle(x, y, x + 800, y + 600, false);
 clr(c_black, bacAlpha);
-draw_sprite(sTalentMenuIcons, 0, x + 768, y);
+draw_sprite_ext(sTalentMenuIcons, 0, x + 768 + 16, y + 16, ico3S, ico3S, 0, c_white, 1);
+if (mouse_in(x + 768, x + 768 + 32, y, y + 32)) {if (ico3S &lt; 1.3) {ico3S = lerp(ico3S, 1.3, 0.1);}} else {if (ico3S &gt; 1) {ico3S = lerp(ico3S, 1, 0.1);}}
+
 
 if (point_in_rectangle(mouse_x, mouse_y, x + 768, y, x + 800, y + 32))
     {
@@ -127,6 +129,12 @@ bs = "Nemáš žádné body talentů";
 if (oPlayer.talentPoints &gt; 0) {bs = "Máš " + string(oPlayer.talentPoints) + " " + scrInflect("bod", oPlayer.talentPoints) + " talentů";}
 draw_text(x + 400, y + 36, bs);
 alg();
+// Navigace
+draw_sprite_ext(sTalentMenuIcons, 2, x + 266, y + 32, ico1S, ico1S, 0, c_white, 1);
+draw_sprite_ext(sTalentMenuIcons, 1, x + 536, y + 32, ico2S, ico2S, 0, c_white, 1);
+
+if (mouse_in(x + 266 - 16, x + 266 + 16, y + 16, y + 48)) {if (ico1S &lt; 1.3) {ico1S = lerp(ico1S, 1.3, 0.1);}} else {if (ico1S &gt; 1) {ico1S = lerp(ico1S, 1, 0.1);}}
+if (mouse_in(x + 536 - 16, x + 536 + 16, y + 16, y + 48)) {if (ico2S &lt; 1.3) {ico2S = lerp(ico2S, 1.3, 0.1);}} else {if (ico2S &gt; 1) {ico2S = lerp(ico2S, 1, 0.1);}}
     
 // Strom: Zloděj
 if (selectedTree == 0)
