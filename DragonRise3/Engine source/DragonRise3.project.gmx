@@ -476,8 +476,13 @@
         <script>scripts\scrWeatherRainSpawn.gml</script>
         <script>scripts\scrWeatherRainDraw.gml</script>
       </scripts>
+      <scripts name="Talents menu">
+        <script>scripts\scrTalentSetText.gml</script>
+        <script>scripts\scrTalentCreate.gml</script>
+        <script>scripts\scrTalentIni.gml</script>
+        <script>scripts\scrTalentDraw.gml</script>
+      </scripts>
     </scripts>
-    <script>scripts\scrTalentDraw.gml</script>
   </scripts>
   <shaders name="shaders">
     <shaders name="ScreenFX">

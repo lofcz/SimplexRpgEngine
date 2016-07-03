@@ -25,39 +25,16 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>channel_mask = shader_get_uniform(shdColor, "f_ChannelMask");
-bacAlpha = 0;
-mode = "";
-drawTextTitle = "";
-drawText = "";
-extAlpha = 0;
-draw = 0;
-Sname = part_system_create();
+            <string>/// Initialise
 
-treeName[0] = "Zloděj";
-treeName[1] = "Válečník";
-treeName[2] = "Mág";
+scrTalentIni();
 
-selectedTree = 0;
-
-telentLevel[talentEnum.treeThief, 0]    = 0;
-telentLevelMax[talentEnum.treeThief, 0] = 9;
-
-for(i = 0; i &lt; 10; i++)
-{
-telentThiefText[0, i] = "Stíny ti umožní zhmotnit se na nedaleké pozici. #Záblesk neumožňuje procházet zdmi, ani jinými překážkami.##Přebíjcí doba" + scrColorflag(c_lime) + ": 12 -&gt; 11" + scrEndColorflag() + " ";
-
-}
-telentThiefText[0, 0] = "Stíny ti umožní zhmotnit se na#nedaleké pozici. Záblesk neumožňuje#procházet zdmi, ani jinými#překážkami.##" + scrColorflag(c_yellow) + "Odemkne záblesk.";
-telentThiefText[0, 1] = "Stíny ti umožní zhmotnit se na#nedaleké pozici. Záblesk neumožňuje#procházet zdmi, ani jinými#překážkami.##Přebíjcí doba" + scrColorflag(c_lime) + ": 12 -&gt; 11" + scrEndColorflag() + " ";
-telentThiefText[0, 2] = "Stíny ti umožní zhmotnit se na#nedaleké pozici. Záblesk neumožňuje#procházet zdmi, ani jinými#překážkami.##Přebíjecí doba: " + scrColorflag(c_lime) + "11-&gt;10" + scrEndColorflag() + "#Výdrž:" + scrColorflag(c_red) + " 8 -&gt; 9" + scrEndColorflag() + "#Šance na stínový úder: " + scrColorflag(c_lime) + "0 -&gt; 10%";
-
-telentThiefTextTitle[0] = "Úder ze stínů";
-
-enum talentEnum
-{
-treeThief, treeWarrior, treeMage
-}
+// Talenty: Zloděj
+scrTalentCreate(talentEnum.treeThief, 0, 0, 9, "Záblesk", x + 100, y + 150);    
+    scrTalentSetText(talentEnum.treeThief, 0, 0, "Stíny ti umožní zhmotnit se na#nedaleké pozici. Záblesk neumožňuje#procházet zdmi, ani jinými#překážkami.##" + scrColorflag(c_yellow) + "Odemkne záblesk.");
+    scrTalentSetText(talentEnum.treeThief, 0, 1, "Stíny ti umožní zhmotnit se na#nedaleké pozici. Záblesk neumožňuje#procházet zdmi, ani jinými#překážkami.##Přebíjcí doba" + scrColorflag(c_lime) + ": 12 -&gt; 11" + scrEndColorflag() + " ");
+    scrTalentSetText(talentEnum.treeThief, 0, 2, "Stíny ti umožní zhmotnit se na#nedaleké pozici. Záblesk neumožňuje#procházet zdmi, ani jinými#překážkami.##Přebíjecí doba: " + scrColorflag(c_lime) + "11-&gt;10" + scrEndColorflag() + "#Výdrž:" + scrColorflag(c_red) + " 8 -&gt; 9" + scrEndColorflag() + "#Šance na stínový úder: " + scrColorflag(c_lime) + "0 -&gt; 10%");
+    
 </string>
           </argument>
         </arguments>
@@ -80,7 +57,9 @@ treeThief, treeWarrior, treeMage
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>part_system_destroy(Sname);
+            <string>/// Free memory
+
+part_system_destroy(Sname);
 </string>
           </argument>
         </arguments>
@@ -107,6 +86,10 @@ treeThief, treeWarrior, treeMage
 {
 x = view_xview;
 y = view_yview;
+
+// Talenty
+if (drawType = "talents")
+{
 hover = false;
 
 if (mode == "in")
@@ -146,7 +129,10 @@ alg();
 // Strom: Zloděj
 if (selectedTree == 0)
     {
-      scrTalentDraw(x + 100, y + 100, talentEnum.treeThief, 0, x + 200, y + 115);
+     for (i = 0; i &lt; array_length_1d(telentThiefTextTitle); i++)
+        {
+         scrTalentDraw(x + telentX[talentEnum.treeThief, i], y + telentY[talentEnum.treeThief, i], talentEnum.treeThief, i);
+        }
     }
 clr();
 
@@ -166,6 +152,13 @@ draw_set_font(fntPixelSmall);
 draw_text_colored(x + 546, y + 100, drawText);
  
 clr();
+}
+
+// Kouzla
+if (drawType = "spells")
+{
+
+}
 }
 
 </string>
