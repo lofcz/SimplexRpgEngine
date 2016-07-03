@@ -31,9 +31,11 @@ scrTalentIni();
 
 // Talenty: Zloděj
 scrTalentCreate(talentEnum.treeThief, 0, 0, 9, "Záblesk", x + 100, y + 150);    
-    scrTalentSetText(talentEnum.treeThief, 0, 0, "Stíny ti umožní zhmotnit se na#nedaleké pozici. Záblesk neumožňuje#procházet zdmi, ani jinými#překážkami.##" + scrColorflag(c_yellow) + "Odemkne záblesk.");
-    scrTalentSetText(talentEnum.treeThief, 0, 1, "Stíny ti umožní zhmotnit se na#nedaleké pozici. Záblesk neumožňuje#procházet zdmi, ani jinými#překážkami.##Přebíjcí doba" + scrColorflag(c_lime) + ": 12 -&gt; 11" + scrEndColorflag() + " ");
-    scrTalentSetText(talentEnum.treeThief, 0, 2, "Stíny ti umožní zhmotnit se na#nedaleké pozici. Záblesk neumožňuje#procházet zdmi, ani jinými#překážkami.##Přebíjecí doba: " + scrColorflag(c_lime) + "11-&gt;10" + scrEndColorflag() + "#Výdrž:" + scrColorflag(c_red) + " 8 -&gt; 9" + scrEndColorflag() + "#Šance na stínový úder: " + scrColorflag(c_lime) + "0 -&gt; 10%");
+    scrTalentSetText("Stíny ti umožní zhmotnit se na#nedaleké pozici. Záblesk neumožňuje#procházet zdmi, ani jinými#překážkami.##" + scrColorflag(c_yellow) + "Odemkne záblesk.");
+    scrTalentSetText("Stíny ti umožní zhmotnit se na#nedaleké pozici. Záblesk neumožňuje#procházet zdmi, ani jinými#překážkami.##Přebíjcí doba" + scrColorflag(c_lime) + ": 12 -&gt; 11" + scrEndColorflag() + " ");
+    scrTalentSetText("Stíny ti umožní zhmotnit se na#nedaleké pozici. Záblesk neumožňuje#procházet zdmi, ani jinými#překážkami.##Přebíjecí doba: " + scrColorflag(c_lime) + "11-&gt;10" + scrEndColorflag() + "#Výdrž:" + scrColorflag(c_red) + " 8 -&gt; 9" + scrEndColorflag() + "#Šance na stínový úder: " + scrColorflag(c_lime) + "0 -&gt; 10%");
+
+scrTalentCreate(talentEnum.treeThief, 1, 0, 9, "Hbité prsty", x + 164, y + 150, 0, 4);    
     
 </string>
           </argument>
@@ -121,8 +123,8 @@ alg("center", fntPixelHuge);
 draw_text(x + 400, y + 16, treeName[selectedTree]);
 alg("center", fntPixel);
 
-bS = "Nemáš žádné body talentů";
-if (oPlayer.talentPoints &gt; 0) {bs = "Máš " + string(oPlayer.talentPoints) + " " + scrInflect("bod", oPlayer.talentPoints) + " schopností";}
+bs = "Nemáš žádné body talentů";
+if (oPlayer.talentPoints &gt; 0) {bs = "Máš " + string(oPlayer.talentPoints) + " " + scrInflect("bod", oPlayer.talentPoints) + " talentů";}
 draw_text(x + 400, y + 36, bs);
 alg();
     

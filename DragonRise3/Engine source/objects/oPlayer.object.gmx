@@ -160,6 +160,17 @@ magic[spell_fire_trail_cost] = 4;
 skillPoints  = 0;
 talentPoints = 10;
 spellPoints  = 0;
+ 
+statusList        = ds_list_create();
+statusTimeList    = ds_list_create();
+statusSpriteList  = ds_list_create();
+statusScaleList   = ds_list_create();
+statusAlphaList   = ds_list_create();
+statusMTimeList   = ds_list_create();
+statusColorList   = ds_list_create();
+statusNList       = ds_list_create();
+
+testStatus = 0;
 
 </string>
           </argument>
@@ -354,11 +365,17 @@ if (keyboard_check_pressed(vk_escape))
 /***************************************************
     Příklad cutscény
 ***************************************************/
+
+/*
 var ins1, ins2;
 ins1 = instance_create(x-100, y+100, oTestObject); ins1.name = "První objekt";
 ins2 = instance_create(x+100, y+100, oTestObject); ins2.name = "Druhý objekt";
 
 scrCutscenePlay(ins1, cutsceneTest, false, 1);
+*/
+
+testStatus++;
+scrAffecstAdd("poison", 60 * 10, 0, choose(c_red, c_lime), choose(1, 2, 3));
 
 </string>
           </argument>
@@ -471,6 +488,15 @@ skillPoints++;
             <string>/// Draw player
 
 apiPlayerDraw();
+
+clr(c_black, 0.5);
+draw_ring_part(x, y, 64, 6, 128, 128, 0, 360, true, c_black, false);
+clr()
+draw_ring_part(x, y, 64, 6, 128, 128, 90, 360 * (last_hp / vlastnost[vlastnost_max_zivot]), true, c_red, true);
+draw_ring_part(x, y, 64, 1, 128, 128, 90, 360 * (last_hp / vlastnost[vlastnost_max_zivot]), true, c_black, false);
+draw_ring_part(x, y, 64+6, 1, 128, 128, 90, 360 * (last_hp / vlastnost[vlastnost_max_zivot]), true, c_black, false);
+
+scrAffectsUpdate();
 </string>
           </argument>
         </arguments>

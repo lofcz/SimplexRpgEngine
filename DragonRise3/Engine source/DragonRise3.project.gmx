@@ -286,6 +286,8 @@
     <sprite>sprites\sTalentsThief</sprite>
     <sprite>sprites\sTalentsMage</sprite>
     <sprite>sprites\sTalentsWarrior</sprite>
+    <sprite>sprites\sprite102</sprite>
+    <sprite>sprites\sAffects</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -481,6 +483,12 @@
         <script>scripts\scrTalentCreate.gml</script>
         <script>scripts\scrTalentIni.gml</script>
         <script>scripts\scrTalentDraw.gml</script>
+      </scripts>
+      <scripts name="Affects">
+        <script>scripts\scrAffecstAdd.gml</script>
+        <script>scripts\scrAffecstAddStacks.gml</script>
+        <script>scripts\scrAffecstAddTime.gml</script>
+        <script>scripts\scrAffectsUpdate.gml</script>
       </scripts>
     </scripts>
   </scripts>
