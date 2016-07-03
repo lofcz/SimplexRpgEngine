@@ -234,4 +234,4 @@ if (last_stamina > vlastnost[vlastnost_stamina]) {last_stamina -= stamina_bar;}
 if (last_xp < vlastnost[vlastnost_zkusenosti]) {last_xp++;}
 if (last_xp > vlastnost[vlastnost_zkusenosti]) {last_xp--;}
 
-if (last_hp <= 0 && last_hp != -666) {last_hp = -666; scrGoreExplode(10,10);}
+if (last_hp <= 0 && last_hp != 0) {last_hp = 0; scrGoreExplode(10,10);}

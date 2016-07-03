@@ -114,7 +114,7 @@ if (point_in_rectangle(mouse_x, mouse_y, x + 768, y, x + 800, y + 32))
         }
     }
    
-    
+   
 // Hlavička
 clr(c_white, bacAlpha);
 alg("center", fntPixelHuge);

@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>set_sprite(sPlayerBasic,0);
+            <string>/// Initialise
+
+set_sprite(sPlayerBasic,0);
 instance_create(x,y,oPlayerCombat);
 instance_create(x,y,oState);
 instance_create(x,y,oHUD);
@@ -181,7 +183,9 @@ spellPoints  = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>part_system_destroy(Sname);
+            <string>/// Free PSystem
+
+part_system_destroy(Sname);
 </string>
           </argument>
         </arguments>

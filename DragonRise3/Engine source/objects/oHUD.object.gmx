@@ -223,18 +223,6 @@ oPlayer.vlastnost[vlastnost_stit] = min(max(0,oPlayer.vlastnost[vlastnost_stit])
 
      
      scrCenterText(0);
-
-    if (oPlayer.last_hp &lt;= 0) { die = 1; oPlayer.can_move2 = 0;} 
-    
-    if (die)
-       {
-        die_alpha += 0.05;
-        draw_set_color(c_black);
-        draw_set_alpha(die_alpha);
-        draw_rectangle(view_xview,view_yview,view_xview+800,view_yview+600,0);
-        
-        if (die_alpha &gt;= 1) {game_restart();}
-       }
        
        draw_set_font(fntPixelHuge);
        draw_sprite(sSpellsUI,0,x+540,y+560);
@@ -335,6 +323,18 @@ oPlayer.vlastnost[vlastnost_stit] = min(max(0,oPlayer.vlastnost[vlastnost_stit])
      if (effect_scale2 &gt; 1 &amp;&amp; draw_quest = 0) {effect_scale2 -= 0.02;}
 
    }
+   
+    if (oPlayer.last_hp &lt;= 0) { die = 1; oPlayer.can_move2 = 0;} 
+    
+    if (die)
+       {
+        die_alpha += 0.05;
+        draw_set_color(c_black);
+        draw_set_alpha(die_alpha);
+        draw_rectangle(view_xview,view_yview,view_xview+800,view_yview+600,0);
+        
+        if (die_alpha &gt;= 1) {game_restart();}
+       }
    
 </string>
           </argument>

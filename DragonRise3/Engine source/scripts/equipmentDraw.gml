@@ -45,7 +45,7 @@ draw_sprite(equiped_image[1,0],equiped_image[1,1],xx+equ_axis_head_x,yy+equ_axis
 if (mouse_in(xx+equ_axis_head_x,xx+equ_axis_head_x+32,yy+equ_axis_head_y,yy+equ_axis_head_y+32))
    {
    draw_hover_block(xx+equ_axis_head_x,xx+equ_axis_head_x+32,yy+equ_axis_head_y,yy+equ_axis_head_y+32);
-   
+
       if (mouse_check_button_pressed(mb_left))
       {
        if (oInventory.equiped[1] = 1) {equipmentUnequip(1);}
