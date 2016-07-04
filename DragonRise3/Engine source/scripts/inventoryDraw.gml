@@ -8,6 +8,7 @@ hover_id       = 0;
 hover_x        = 0;
 hover_y        = 0;
 pre_switch     = 0;
+pages          = ((array_length_1d(hover_slot_alpha) div slotsPerPage) + 1);
 
  if(combine)
  {
@@ -19,15 +20,34 @@ pre_switch     = 0;
  draw_set_font(fntPixelHuge);
  draw_sprite(sInventoryTitle,0,x,y);
  scrCenterText();
- draw_text(x+144,y+16,inventory_title);
- draw_set_font(fntPixel);
+ draw_text(x+144,y+14,inventory_title);
+ draw_set_font(fntPixelSmall);
+ draw_text(x + 144, y + 28, "Strana " + string(currentPage + 1) + " / " + string(pages));
 // draw_text(x+144,y+24,oPlayer.gold);
  scrCenterText(0);
- draw_set_font(fntText);
  
-for (a=0; a<array_height_2d(slot); a++)
+ // Pagination
+ draw_set_font(fntPixelHuge);
+ draw_text(x + 14, y + 2, "<");
+ draw_text(x + 256 + 14, y + 2, ">");
+ 
+ if (mouse_in(x, x + 32, y, y + 32))
+    {
+     if (mouse_check_button_pressed(mb_left))
+        {
+         if (currentPage > 0) {currentPage--;}
+        }
+    }
+   if (mouse_in(x + 256, x + 256 + 32, y, y + 32))
+    {
+     if (mouse_check_button_pressed(mb_left))
+        {
+         if (currentPage < (pages - 1)) {currentPage++;}
+        }
+    }
+ 
+for (a = (currentPage*slotsPerPage); a < min(array_height_2d(slot), ((currentPage*slotsPerPage) + slotsPerPage)); a++)
 {
-
 /* 
  clr(c_white);
  draw_rectangle(xx,yy,xx+32,yy+32,0);
@@ -116,13 +136,12 @@ draw_rectangle(x,used_y+128dr,x+256+32,used_y+256,0);
 clr();
 draw_rectangle(x,used_y+128,x+256+32,used_y+256,1);
 */
-draw_set_font(fntTextBold);
+draw_set_font(fntPixel);
 
   if (proceed) {hover_alpha = 1;}
   clr(c_black,hover_alpha);
 
-draw_sprite(sInfoboxTexture,0,x,used_y+128);
-draw_rectangle_colour(x+2,used_y+128,x+287,used_y+322,c_black,c_black,c_black,c_black,1);
+draw_sprite(sInfoboxTexture,0,x,used_y+32);
 
 clr(c_black,hover_alpha/2);
 //  draw_roundrect_ext(x,used_y+128,x+287,used_y+128+28,16,16,0);
@@ -141,20 +160,21 @@ if (hover = 1)
   if (proceed) {hover_alpha = 1;}  
    clr(slot[f,inv_item_info_color],hover_alpha);
    scrCenterText();
-   draw_text(x+128,used_y+128+12,slot[f,inv_item_info_head]);
+   alg("center", fntPixel);
+   draw_text(x+128,used_y+32+12,slot[f,inv_item_info_head]);
    clr(c_black,hover_alpha);
       
-draw_set_font(fntText);
+draw_set_font(fntPixelSmall);
   
       if (slot[f,inv_slot_stackable] = 1)
       {
-      draw_text_colour(x+256+8,used_y+137,"x"+string(slot[f,inv_number]),c_black,c_black,c_black,c_black,1);
+      draw_text_colour(x+256+8,used_y+(32+17),"x"+string(slot[f,inv_number]),c_black,c_black,c_black,c_black,1);
       }
  
  scrCenterText(0);
    
   
-   draw_text_colored(x+4,used_y+128+24,slot[f,inv_item_info_text]);
+   draw_text_colored(x+4,used_y+32+24,slot[f,inv_item_info_text]);
    inventoryDrawStats(string_height(slot[f,inv_item_info_text]));
    clr();                                                                      //  for(a=0 a<10 a++) { draw_text(x+4,used_y+196+a*16,slot_option[hover_id,a]); }
   }
@@ -633,7 +653,8 @@ for(a = 0; a < celkem_vlastnosti; a++)
       }
 
 
-draw_text(x+4,used_y+128+24+height,t_text);
+draw_text(x+4,used_y+32+24+height,t_text);
+
 #define inventoryDrawWrapper
 /// inventoryDrawWrapper(x,y)
 

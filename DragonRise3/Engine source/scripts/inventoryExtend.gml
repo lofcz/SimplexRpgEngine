@@ -2,7 +2,6 @@
 
 with(oInventory)
 {
-
 var plus;
 plus                = 3;
 
@@ -24,7 +23,7 @@ for (a = slots; a < slots+plus; a++)
                    
                        
                   }
-                  
+       
  for(c=0 c<10 c++)
  {
   slot_option[a,c] = "";
@@ -32,6 +31,7 @@ for (a = slots; a < slots+plus; a++)
  }
                   
  slot[a,inv_sprite] = sFreeSlot;
+ hover_slot_alpha[a] = 0;
  
  for(d=0; d<celkem_vlastnosti; d++)
           {

@@ -22,6 +22,8 @@ drag_alpha           = 1;
 drag_controll        = 0;
 effect_scale         = 1;
 inventory_title      = "Inventář";
+currentPage          = 0;
+slotsPerPage         = 40;
 
 if (argument_count > 0) {slots = argument[0]}
 
