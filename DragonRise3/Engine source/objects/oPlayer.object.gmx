@@ -50,6 +50,7 @@ rychlost = 3.5;
 can_move = 1;
 can_move2 = 1;
 can_move3 = 1;
+can_move4 = 1;
 a1 = 0;
 last_dir = "s";
 cyber_r = 0;

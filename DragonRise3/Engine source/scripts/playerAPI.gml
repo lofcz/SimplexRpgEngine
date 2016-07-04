@@ -16,7 +16,7 @@
 math_set_epsilon(0.0000001);
 apiPlayerRegenerate()
 
-if (can_move = 1 && can_move2 = 1 && can_move3 = 1) 
+if (can_move && can_move2 && can_move3 && can_move4) 
     {   
     if (keyboard_check(ord("W"))) 
         {

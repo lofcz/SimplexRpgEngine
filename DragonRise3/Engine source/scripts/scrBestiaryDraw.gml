@@ -33,14 +33,16 @@ else
      yy[a] = v_y + 48+a*68;
      
      if (a = item_selected) {yy[a] =  v_y + 48+a*68 - real_spd;}
-     yyy[a] = v_y + 48+a*68;
+
      if (spd < spd_max) {spd += 0.01;} 
      if(!pass) {real_spd += spd;}
      if (yy[a] < v_y+48) {yy[a] = v_y+48; pass = 1;} else {pass = 0;}
      
      
      if (a != item_selected && mode = 0) {if (i_alpha[a] > 0) {i_alpha[a] -= 0.05;}}
-     }
+     
+     tempYY = view_yview;
+     }     
      }
 
   
@@ -52,7 +54,8 @@ draw_set_alpha(i_alpha[a]);
 
 if (unlocked[f])
 {
-draw_sprite_ext(sBestiar,1,v_x,yy[a],1,1,0,c_white,i_alpha[a]);
+if (item_selected != a) {draw_sprite_ext(sBestiar,1,v_x,yy[a],1,1,0,c_white,i_alpha[a]);}
+else if (mode = 1) {draw_sprite_ext(sBestiar,2,v_x,yy[a] - tempYY + view_yview,1,1,0,c_white,i_alpha[a]);} else {draw_sprite_ext(sBestiar,1,v_x,yy[a],1,1,0,c_white,i_alpha[a]);}
 draw_sprite_ext(monster[a,bestiary_monster_sprite],0,v_x+32,yy[a]+32,1,1,0,c_white,i_alpha[a]);
 draw_text(v_x+70,yy[a]+5,monster[a,bestiary_monster_title]);
 draw_text_colour(v_x+70,yy[a]+20,monster[a,bestiary_monster_race],c_ltgray,c_ltgray,c_ltgray,c_ltgray,i_alpha[a]);
@@ -129,9 +132,13 @@ if (pass2 && mode != 1)
    {    
     if (detail_alpha < 1 && mode = 0 && item_selected != -1) {detail_alpha += 0.05;}
     
-    draw_set_font(fntPixel);    
+    draw_set_font(fntPixelSmall);    
     draw_set_alpha(detail_alpha);
-    draw_text_colored(v_x+11,v_y+70+48,monster[active,bestiary_monster_details]);
+    n = monster[active,bestiary_monster_text];
+    nH = string_height(n);
+    draw_text_colored(v_x+13,v_y+70+48,n); 
+    draw_set_font(fntPixelTiny);   
+    draw_text_colored(v_x+13,v_y+70+48+nH+8,monster[active,bestiary_monster_details]);
     draw_set_alpha(1);
    }
 
