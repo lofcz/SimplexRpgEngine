@@ -84,8 +84,8 @@ if (mood = "jump") {randomize(); bonus_damage = 10; repeat(5) {instance_create(x
             <string>/// Damage player
 
 scrEnemyCollision(other);
+scrEnemyApplyAffect("poison", secToSteps(2), 0, c_red, 1, 20, true, 0, true);
 scrEnemyDamage(oPlayer,15);
-
 
 
 if (mood = "jump")

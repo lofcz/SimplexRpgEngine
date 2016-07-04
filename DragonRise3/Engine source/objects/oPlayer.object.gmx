@@ -496,7 +496,7 @@ draw_ring_part(x, y, 64, 6, 128, 128, 90, 360 * (last_hp / vlastnost[vlastnost_m
 draw_ring_part(x, y, 64, 1, 128, 128, 90, 360 * (last_hp / vlastnost[vlastnost_max_zivot]), true, c_black, false);
 draw_ring_part(x, y, 64+6, 1, 128, 128, 90, 360 * (last_hp / vlastnost[vlastnost_max_zivot]), true, c_black, false);
 
-scrAffectsUpdate();
+
 </string>
           </argument>
         </arguments>

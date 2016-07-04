@@ -1,4 +1,4 @@
-/// scrAffecstAddStacks(affect, time, relative, resetTime)
+/// scrAffecstAddTime(affect, time, relative, resetTime)
 
 var affect, sN, relative, rT;
 affect = "poison";

@@ -342,6 +342,7 @@
         <script>scripts\scrBasicEffect.gml</script>
         <script>scripts\plainInitEnums.gml</script>
         <script>scripts\scrInflect.gml</script>
+        <script>scripts\secToSteps.gml</script>
         <script>scripts\set_sprite.gml</script>
       </scripts>
       <scripts name="Shaders">
@@ -357,6 +358,7 @@
         <script>scripts\effectSmoke.gml</script>
         <script>scripts\effectFrozenTrail.gml</script>
         <script>scripts\effectTalentUp.gml</script>
+        <script>scripts\effectPoison.gml</script>
       </scripts>
     </scripts>
     <scripts name="Components">

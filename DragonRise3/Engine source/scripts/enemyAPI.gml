@@ -240,3 +240,32 @@ if (instance_number(oBestiar) > 0)
    oBestiar.unlocked[bestiary] = 1;
     
    } 
+#define scrEnemyApplyAffect
+/// scrEnemyApplyAffect(affect, time, imageIndex, color, stackNumber, chance%, resetTime, addTime, addOnlyOnHit)
+
+var affect, time, iI, c, sN, chance, rT, aOOH;
+affect = "poison";
+time   = 60;
+iI     = 0;
+color  = c_lime;
+sN     = 1;
+chance = 100;
+rT     = true;
+aT     = 0;
+aOOH   = true;
+
+if (argument_count > 0) {affect = argument[0];}
+if (argument_count > 1) {time   = argument[1];}
+if (argument_count > 2) {iI     = argument[2];}
+if (argument_count > 3) {c      = argument[3];}
+if (argument_count > 4) {sN     = argument[4];}
+if (argument_count > 5) {chance = argument[5];}
+if (argument_count > 6) {rT     = argument[6];}
+if (argument_count > 7) {aT     = argument[7];}
+if (argument_count > 7) {aOOH   = argument[8];}
+
+if (chance / random(100) > 0.5 && (can_damage = -1 || !aOOH)) 
+    {
+     scrAffecstAdd(affect, time, iI, c, sN);
+     if (rT) {scrAffecstAddTime(affect, aT, true, true);}
+    }

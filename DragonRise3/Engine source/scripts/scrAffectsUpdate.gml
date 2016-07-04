@@ -1,24 +1,34 @@
 /// scrAffectsUpdate()
 
-var index, pos, xx, yy, xxx, yyy, offset, lineN;
+var index, pos, xx, yy, xxx, yyy, offset, lineN, doTick;
 xx     = view_xview + 620;
 yy     = view_yview + 142;
 offset = 46;
 lineN  = 4;
+doTick = false;
+
+ticks++;
+if (ticks >= maxTicks) {ticks = 0; doTick = true;}
 
 for (i = 0; i < ds_list_size(oPlayer.statusList) i++)
-    {
+    {     
      bC = oPlayer.statusList[| i];
-     // Poison
-     if (bC == "poison")
-        {
-          oPlayer.vlastnost[vlastnost_zivot] -= 0.01;        
-        }
-        
-              
-      // Actual update
-      
-      oPlayer.statusTimeList[| i] -= 1;
+     
+     // Spawn tick
+     if (doTick)
+     {
+        // Poison
+        if (bC == "poison")
+            {
+            oPlayer.vlastnost[vlastnost_zivot] -= (0.1 * oPlayer.statusNList[| i]);  
+            effectPoison(oPlayer.x, oPlayer.y, 2 * (round(oPlayer.statusNList[| i] / 2) + 1) + irandom(3));     
+            format = string_format((0.1 * oPlayer.statusNList[| i]), round((0.1 * oPlayer.statusNList[| i])), 1);
+            scrLog(format,c_red,-1,0,0,oPlayer.x - (string_width(format) / 2),oPlayer.y-48,fntPixel);
+            }
+     }
+                      
+      // Actual update     
+      oPlayer.statusTimeList[| i] -= 1;     
       if (oPlayer.statusTimeList[| i ] <= 0)
         {
          oPlayer.statusAlphaList[| i] = lerp(oPlayer.statusAlphaList[| i], 0, 0.1);
