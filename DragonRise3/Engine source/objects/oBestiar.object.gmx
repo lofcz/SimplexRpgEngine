@@ -283,6 +283,7 @@ for (i = (currentPage * entriesPerPage); i &lt; (((currentPage * entriesPerPage)
         {
         if (j == entryActive) {continue;}
         entryAlpha[j] = lerp(entryAlpha[j], 1, 0.1);
+        if (entryActive == 0) {entryAlpha[j] = 1;}
         }
               
         if (shiftY &gt; 0) {shiftY = lerp(shiftY, 0, 0.1);}

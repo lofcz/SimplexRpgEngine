@@ -28,7 +28,7 @@
             <string>/// Initialise enemy
 event_inherited();
 
-scrEnemyIni(30,5,1,choose(1,1,2),"Modrý slimák",bestiaryEnemySlime,0);
+scrEnemyIni(30,5,1,choose(1,1,2),"Modrý slimák",bestiaryEnemySlime,scrColorflag(c_blue) + "Modrý slimák" + scrEndColorflag());
 
 timeToPerform = 0;
 tempSpd = spd;
@@ -85,8 +85,12 @@ if (mood = "jump") {randomize(); bonus_damage = 10; repeat(5) {instance_create(x
 
 // Fixed order: Collide -&gt; Apply affect(s) -&gt; Deal damage
 scrEnemyCollision(other);
-scrEnemyApplyAffect("poison", secToSteps(2), 0, c_red, 1, 20, true, 0, true);
-scrEnemyDamage(oPlayer,15);
+if (scrEnemyApplyAffect("poison", secToSteps(2), 0, c_red, 1, 20, true, 0, true))
+    {
+    stateAddEntry(coloredName + "tě otrávil!");
+    }
+scrEnemyDamage(oPlayer,15, coloredName + " ti způsobil [flagDamage] [flagPoints] poškození.");
+
 
 
 if (mood = "jump")

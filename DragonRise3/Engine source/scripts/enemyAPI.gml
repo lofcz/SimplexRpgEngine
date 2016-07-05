@@ -44,9 +44,9 @@
 
 
 #define scrEnemyIni
-/// scrEnemyIni(health,damage,defense,level,name,bestiary_name)
+/// scrEnemyIni(health, damage, defense, level,name, bestiary_name, coloredName)
 
-var t_hp,t_damage,t_defense,t_level,t_name,t_bestiary;
+var t_hp,t_damage,t_defense,t_level,t_name,t_bestiary,t_cName;
 
 t_hp         = 10;
 t_damage     = 5;
@@ -54,6 +54,7 @@ t_defense    = 2;
 t_level      = choose(1,1,2);
 t_name       = "Enemy";
 t_bestiary   = bestiaryEnemySlime;
+t_cName      = scrColorflag(c_red) + "Enemy" + scrEndColorflag();
 
 if (argument_count > 0) {t_hp       = argument[0];}
 if (argument_count > 1) {t_damage   = argument[1];}
@@ -61,14 +62,17 @@ if (argument_count > 2) {t_defense  = argument[2];}
 if (argument_count > 3) {t_level    = argument[3];}
 if (argument_count > 4) {t_name     = argument[4];}
 if (argument_count > 5) {t_bestiary = argument[5];}
+if (argument_count > 6) {t_cName    = argument[6];}
 
-hp       = t_hp;
-damage   = t_damage;
-defense  = t_defense;
-level    = t_level;
-max_hp   = t_hp;
-name     = t_name + string(" ("+string(level)+")");
-bestiary = t_bestiary;
+hp          = t_hp;
+damage      = t_damage;
+defense     = t_defense;
+level       = t_level;
+max_hp      = t_hp;
+name        = t_name + string(" ("+string(level)+")");
+bestiary    = t_bestiary;
+coloredName = t_cName
+dmg         = 0;
 
 #define scrEnemyGetPosition
 /// scrEnemyGetPosition()
@@ -167,26 +171,45 @@ with(object)
                   y = yprevious;
                  }
 #define scrEnemyDamage
-/// scrEnemyDamage(object,cooldown)
+/// scrEnemyDamage(object, cooldown, stateLog)
 
-var object,cd;
+var object, cd, sL;
 
 object = -1;
 cd     = 15;
+sL     = "";
 
 if (argument_count > 0) {object = argument[0];}
 if (argument_count > 1) {cd     = argument[1];}
+if (argument_count > 2) {sL     = argument[2];}
 
 
 if (can_damage = -1 && object != -1)
 {
-dmg = damage + bonus_damage;
+dmg                                = damage + bonus_damage;
 object.vlastnost[vlastnost_zivot] -= dmg;
+dmg                               += choose(-1, -2, 0, 1, 2); 
+
 scrGoreFull(object.x,object.y);
 scrEnemyGetPosition();
 scrLog(dmg,c_black,-1,0,0,object.x,object.y-48,fntPixelHuge);
 can_damage = cd;
+if (sL != "") 
+    {
+    if (string_count("[flagDamage]", sL) != 0)
+        {
+         sL = string_replace(sL, "[flagDamage]", scrColorflag(c_red) + string(dmg) + scrEndColorflag());
+        }
+    if (string_count("[flagPoints]", sL) != 0)
+        {
+         sL = string_replace(sL, "[flagPoints]", scrInflect("bod", dmg));
+        }
+    stateAddEntry(sL);
+    }
+return true;
 }
+
+return false;
 
 
 #define scrEnemyGetDamage
@@ -195,15 +218,17 @@ can_damage = cd;
 
 if (other.attack && other.can_damage = -1) 
 {
+dmg = 0;
+if (scrAffectsGetStacks("flash") != -1) {dmg += (scrAffectsGetStacks("flash") * scrAffectsGetStacks("flash")); scrAffectsRemove("flash", -1);}
 
 if (combatGetCriticalHit( oPlayer.vlastnost[vlastnost_kriticka_sance]))
    {
-   dmg = oPlayer.vlastnost[vlastnost_poskozeni]*oPlayer.vlastnost[vlastnost_kriticka_nasobic];   
+   dmg += oPlayer.vlastnost[vlastnost_poskozeni]*oPlayer.vlastnost[vlastnost_kriticka_nasobic];   
    scrLog(dmg,c_white,-1,0,0.2,x,y-32,oController.fontDamage,"combat");
    }
 else
     {
-   dmg = oPlayer.vlastnost[vlastnost_poskozeni];   
+   dmg += oPlayer.vlastnost[vlastnost_poskozeni];   
    scrLog(dmg,c_white,-1,0,0.2,x,y-32,oController.fontDamage,"combat");    
     }
 hp -= dmg;
@@ -268,4 +293,6 @@ if (chance / random(100) > 0.5 && (can_damage = -1 || !aOOH))
     {
      scrAffecstAdd(affect, time, iI, c, sN);
      if (rT) {scrAffecstAddTime(affect, aT, true, true);}
+     return true;
     }
+return false;

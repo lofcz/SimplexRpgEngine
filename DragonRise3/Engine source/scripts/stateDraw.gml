@@ -1,30 +1,59 @@
-/// stateDraw(x,y)
+/// stateDraw(x, y, entries)
+
+var e;
+e  = 5;
 
 x  = view_xview;
-y  = view_yview+512;
+y  = view_yview+500;
 
 if (argument_count > 0) {x = argument[0];}
 if (argument_count > 1) {y = argument[1];}
+if (argument_count > 2) {e = argument[2];}
 xx = x;
 yy = y;
+tempDraw = false;
 
-draw_set_font(fntPixel);
-//draw_text(x,y-32,ds_list_size(list));
+draw_set_font(fntPixelTiny);
 
-for (a = 0; a < ds_list_size(list); a++)
+for (a = 0; a < min(ds_list_size(list), e); a++)
     {
-    
     draw_set_alpha(ds_list_find_value(list_alpha,a))
-     draw_text_colour(xx,yy,list[| a],c_black,c_black,c_black,c_black,ds_list_find_value(list_alpha,a));
-     
-     if (ds_list_find_value(list_alpha,a) < 1) {yy += 16*ds_list_find_value(list_alpha,a)}
-      else {yy += 16;} 
-     if (a = 0) {value = ds_list_find_value(list_alpha,a); ds_list_replace(list_alpha,a,value-0.01); if (value <= 0) {ds_list_delete(list,a); ds_list_delete(list_alpha,a);}}
-    }
-    
-    if (keyboard_check_pressed(vk_key))
-       {
-        ds_list_add(list,"AAA");
-         ds_list_add(list_alpha,2);
+    clr(c_black, max(ds_list_find_value(list_alpha,a), 0));
+    draw_text_colored(xx, yy, list[| a]);
+    clr();
 
-       }
+    
+     if (list_alpha[| a] < 1) {yy += (16 * list_alpha[| a]);}
+     else {yy += 16;} 
+     
+     if (a = 0) 
+        {
+        value = list_alpha[| a];
+        list_alpha[| a] = (value - 0.01); // Fade
+        if (value <= 0) 
+            {
+            ds_list_delete(list,a); 
+            ds_list_delete(list_alpha,a); 
+            tempDraw = true;
+            break;
+            }
+        }     
+    }
+
+if (tempDraw)
+    {
+for (a = 0; a < min(ds_list_size(list), e); a++)
+    {
+    draw_set_alpha(ds_list_find_value(list_alpha,a))
+    clr(c_black, max(ds_list_find_value(list_alpha,a), 0));
+    draw_text_colored(xx, yy, list[| a]);
+    clr();
+
+    
+     if (list_alpha[| a] < 1) {yy += (16 * list_alpha[| a]);}
+     else {yy += 16;}  
+    }     
+       
+    }
+
+
