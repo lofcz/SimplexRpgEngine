@@ -16,6 +16,8 @@ namespace SimplexTextManger
             InitializeComponent();
         }
 
+        int cP = 0;
+
         private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
             // Render output
@@ -23,6 +25,7 @@ namespace SimplexTextManger
             Color c = Color.Black;
             int i = 0;
             bool end = false;
+            cP = richTextBox1.SelectionStart;
 
             foreach(char znak in richTextBox1.Text)
             {
@@ -70,6 +73,12 @@ namespace SimplexTextManger
         {
             string o = "";
             if (c == Color.Red) { o = "red"; }
+            if (c == Color.Green) { o = "green"; }
+            if (c == Color.Yellow) { o = "yellow"; }
+            if (c == Color.Lime) { o = "lime"; }
+            if (c == Color.Blue) { o = "blue"; }
+
+            //MessageBox.Show(c.ToString());
 
             return o;
         }
@@ -109,6 +118,26 @@ namespace SimplexTextManger
                 i++;
             }
             Clipboard.SetText(o);
+        }
+
+        private void richTextBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != 13)
+            {
+                richTextBox1.SelectionStart = cP;
+                richTextBox1.Focus();
+            }
+        }
+
+        private void richTextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+          //  var cP = richTextBox1.SelectionStart;
+          //  MessageBox.Show(cP.ToString());
+        }
+
+        private void richTextBox1_Click(object sender, EventArgs e)
+        {
+            cP = richTextBox1.SelectionStart;
         }
     }
 }

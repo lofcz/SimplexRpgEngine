@@ -8,3 +8,9 @@ c:\users\matěj\documents\visual studio 2015\Projects\SimplexTextManger\SimplexT
 c:\users\matěj\documents\visual studio 2015\Projects\SimplexTextManger\SimplexTextManger\obj\Debug\SimplexTextManger.pdb
 C:\Users\Matěj\Documents\DragonRise3\DragonRise3\IDE source\Text manager\SimplexTextManger\obj\Debug\SimplexTextManger.exe
 C:\Users\Matěj\Documents\DragonRise3\DragonRise3\IDE source\Text manager\SimplexTextManger\obj\Debug\SimplexTextManger.pdb
+C:\Users\Matěj\Documents\DragonRise3\DragonRise3\IDE source\Text manager\SimplexTextManger\bin\Debug\SimplexTextManger.exe
+C:\Users\Matěj\Documents\DragonRise3\DragonRise3\IDE source\Text manager\SimplexTextManger\bin\Debug\SimplexTextManger.pdb
+C:\Users\Matěj\Documents\DragonRise3\DragonRise3\IDE source\Text manager\SimplexTextManger\obj\Debug\SimplexTextManger.csprojResolveAssemblyReference.cache
+C:\Users\Matěj\Documents\DragonRise3\DragonRise3\IDE source\Text manager\SimplexTextManger\obj\Debug\SimplexTextManger.Form1.resources
+C:\Users\Matěj\Documents\DragonRise3\DragonRise3\IDE source\Text manager\SimplexTextManger\obj\Debug\SimplexTextManger.Properties.Resources.resources
+C:\Users\Matěj\Documents\DragonRise3\DragonRise3\IDE source\Text manager\SimplexTextManger\obj\Debug\SimplexTextManger.csproj.GenerateResource.Cache

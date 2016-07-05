@@ -493,6 +493,7 @@
         <script>scripts\scrTalentSetText.gml</script>
         <script>scripts\scrTalentCreate.gml</script>
         <script>scripts\scrTalentIni.gml</script>
+        <script>scripts\scrTalentUpgradeDB.gml</script>
         <script>scripts\scrTalentDraw.gml</script>
       </scripts>
       <scripts name="Affects">

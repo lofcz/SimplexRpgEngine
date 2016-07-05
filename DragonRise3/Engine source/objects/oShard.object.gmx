@@ -25,9 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>speed     = random_range(1,3); 
-direction = random(360); 
-friction  = 0.02;
+            <string>speed      = random_range(1,3); 
+direction  = random(360); 
+friction   = 0.02;
+actAsSolid = true;
 </string>
           </argument>
         </arguments>
@@ -50,7 +51,10 @@ friction  = 0.02;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>move_bounce_all(1);
+            <string>if (actAsSolid)
+{
+move_bounce_all(1);
+}
 </string>
           </argument>
         </arguments>

@@ -19,4 +19,5 @@ for (i = 0; i < sN; i++)
  shard._h = size;
  shard.sprite_index = sprite_index;
  shard.image_single = image_index; 
+ shard.actAsSolid = false;
 }

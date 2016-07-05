@@ -75,7 +75,7 @@ for (i = 0; i < ds_list_size(oPlayer.statusList) i++)
       time = oPlayer.statusMTimeList[| i];   
       if (is_undefined(time)) {time = 1;}  
       
-      if (!ds_list_empty(oPlayer.statusList))
+      if (!ds_list_empty(oPlayer.statusTimeList))
       {
       
       draw_ring_part(xxx, yyy, 16*scale, 4, 64, 64, 90, (oPlayer.statusTimeList[| i] / time) * 360, true, oPlayer.statusColorList[| i], true); 

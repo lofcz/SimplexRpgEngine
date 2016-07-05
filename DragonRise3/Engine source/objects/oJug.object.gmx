@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>parSolid</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -28,6 +28,7 @@
             <string>hp = 10;
 contentList  = ds_list_create();
 contentListN = ds_list_create();
+event_inherited();
 </string>
           </argument>
         </arguments>
@@ -87,6 +88,7 @@ dmg += oPlayer.vlastnost[vlastnost_poskozeni];
 hp -= dmg;
 other.can_damage = -2;
 scrGoreExplodeDropShards(irandom_range(3, 5), 8);
+scrLog(dmg,c_white,-1,0,0.2,x,y-32,oController.fontDamage,"combat");    
 
 audio_play_sound(choose(sndSwordHitCrate1, sndSwordHitCrate2), 1, 0);
 }
