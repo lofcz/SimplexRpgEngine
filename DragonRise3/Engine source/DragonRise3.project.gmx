@@ -148,6 +148,8 @@
     <sound>sound\sndSlime2</sound>
     <sound>sound\sndWoodHit1</sound>
     <sound>sound\sndWoodHit2</sound>
+    <sound>sound\sndSwordHitCrate2</sound>
+    <sound>sound\sndSwordHitCrate1</sound>
     <sound>sound\sndKnock</sound>
     <sound>sound\sndFireball1</sound>
     <sound>sound\sndFireball1Explosion</sound>
@@ -185,6 +187,7 @@
       </sprites>
       <sprites name="Containers">
         <sprite>sprites\sChest</sprite>
+        <sprite>sprites\sJug</sprite>
       </sprites>
     </sprites>
     <sprites name="Collisions">
@@ -261,6 +264,7 @@
       <sprite>sprites\sSlimePart</sprite>
     </sprites>
     <sprites name="TEMP - RESOURCES">
+      <sprite>sprites\sprite107</sprite>
       <sprite>sprites\sprite10</sprite>
       <sprite>sprites\sprite40</sprite>
       <sprite>sprites\sButterfly</sprite>
@@ -385,8 +389,8 @@
         <script>scripts\scrChestFill.gml</script>
         <script>scripts\scrChestIni.gml</script>
         <script>scripts\scrChestDraw.gml</script>
-        <script>scripts\scrLoot.gml</script>
-        <script>scripts\fillFromTo.gml</script>
+        <script>scripts\scrChestAddLoot.gml</script>
+        <script>scripts\scrChestAddLootFromTo.gml</script>
         <script>scripts\scrChestSetUp.gml</script>
         <script>scripts\scrChestUnload.gml</script>
       </scripts>
@@ -424,6 +428,7 @@
         <script>scripts\scrGoreMed.gml</script>
         <script>scripts\scrGoreLight.gml</script>
         <script>scripts\scrGoreExplode.gml</script>
+        <script>scripts\scrGoreExplodeDropShards.gml</script>
       </scripts>
       <scripts name="Collisions">
         <script>scripts\scrAdvancedCollisionIni.gml</script>
@@ -497,6 +502,9 @@
         <script>scripts\scrAffecstAddTime.gml</script>
         <script>scripts\scrAffectsRemove.gml</script>
         <script>scripts\scrAffectsUpdate.gml</script>
+      </scripts>
+      <scripts name="Breakable containers">
+        <script>scripts\scrBCAddLoot.gml</script>
       </scripts>
     </scripts>
   </scripts>
@@ -624,6 +632,7 @@
       </objects>
       <objects name="Containers">
         <object>objects\oChest</object>
+        <object>objects\oJug</object>
       </objects>
       <objects name="Vivid">
         <object>objects\oBasicVivid</object>

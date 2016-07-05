@@ -95,3 +95,13 @@ if (hover_info && p = 1 )
         else {depth = -1;}
    
    }
+   
+if (animateDrop)
+    {
+     direction = animateDropDir;
+     image_angle = direction;
+     
+     speed = animateDropForce;
+     animateDropForce = lerp(animateDropForce, 0, 0.02);
+     if (animateDropForce <= 0) {animateDrop = false;}
+    }

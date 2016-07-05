@@ -17,6 +17,10 @@ o                         = 0;
 itm_sound                 = 0;
 itm_equip_slot            = "";
 spd_down                  = 0;
+animateDrop               = 0;
+animateDropDir            = 0;
+animateDropForce          = 0;
+
 
 
 for(a=0 a<10 a++)                  {itm_options[a] = "";}

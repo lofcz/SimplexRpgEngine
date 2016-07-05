@@ -1,4 +1,4 @@
-///fillFromTo(from,to,item,count_min,count_max);
+/// scrChestAddLootFromTo(from, to, item, count_min, count_max);
 
 from  = 1;
 to    = 2;
@@ -21,5 +21,5 @@ for(a = from; a < to; a++)
       {
       count = irandom_range(count_min,count_max);
       
-      scrLoot(a,item,count);
+      scrChestAddLoot(a,item,count);
       }

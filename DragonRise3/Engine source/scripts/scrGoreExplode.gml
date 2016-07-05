@@ -4,6 +4,10 @@ var xsize,ysize;
 xsize = 10;
 ysize = 10;
 
+if (argument_count > 0) {xsize = argument[0];}
+if (argument_count > 1) {ysize = argument[1];}
+
+
 for( i = x - sprite_xoffset; i < x - sprite_xoffset + sprite_width; i += xsize) 
 {
  for( j = y - sprite_yoffset; j < y - sprite_yoffset + sprite_height; j += ysize) 
@@ -16,5 +20,6 @@ for( i = x - sprite_xoffset; i < x - sprite_xoffset + sprite_width; i += xsize)
  shard._h = ysize;
  shard.sprite_index = sprite_index;
  shard.image_single = image_index; 
+
  } 
 }
