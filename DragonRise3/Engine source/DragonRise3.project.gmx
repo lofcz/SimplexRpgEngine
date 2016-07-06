@@ -149,6 +149,7 @@
     <sound>sound\sndWoodHit1</sound>
     <sound>sound\sndWoodHit2</sound>
     <sound>sound\sndSwordHitCrate2</sound>
+    <sound>sound\sndSwordCutBush</sound>
     <sound>sound\sndSwordHitCrate1</sound>
     <sound>sound\sndKnock</sound>
     <sound>sound\sndFireball1</sound>
@@ -295,6 +296,7 @@
     <sprite>sprites\sprite102</sprite>
     <sprite>sprites\sAffects</sprite>
     <sprite>sprites\sParticleGrass</sprite>
+    <sprite>sprites\sSamplerGreen</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -514,6 +516,7 @@
         <script>scripts\scrBCAddLoot.gml</script>
       </scripts>
     </scripts>
+    <script>scripts\convertAngleToRad.gml</script>
   </scripts>
   <shaders name="shaders">
     <shaders name="ScreenFX">
@@ -690,7 +693,8 @@
       <room>rooms\mapHouse1</room>
     </rooms>
   </rooms>
-  <constants number="166">
+  <constants number="167">
+    <constant name="cStaticInstance">"staticInstance"</constant>
     <constant name="lightmap_y">1</constant>
     <constant name="lightmap_x">0</constant>
     <constant name="shaderSketch">5</constant>

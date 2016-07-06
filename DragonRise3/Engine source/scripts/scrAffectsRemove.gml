@@ -27,3 +27,5 @@ if (stacks = -1)
          ds_list_delete(oPlayer.statusColorList, pos);
          ds_list_delete(oPlayer.statusNList, pos);  
 }
+
+drawAffects = 0;

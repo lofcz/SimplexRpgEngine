@@ -96,6 +96,7 @@ if (other.attack &amp;&amp; other.can_damage = -1)
 {
 audio_play_sound(choose(sndWoodHit1,sndWoodHit2),0,0);
 other.can_damage = -2;
+scrGoreExplodeDropShards(irandom_range(3,7), 8, sprite_index);
 }
 
 </string>

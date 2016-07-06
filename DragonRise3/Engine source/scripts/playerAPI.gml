@@ -91,6 +91,7 @@ if (can_move && can_move2 && can_move3 && can_move4)
         direction = 360;
         speed = rychlost;
         apiPlayerSprint();
+        tempN += 15;
 
         
        oPlayerCombat.dir_rot = -20;
@@ -103,10 +104,10 @@ if (can_move && can_move2 && can_move3 && can_move4)
            {
             if (oPlayerCombat.xxx < 1) { oPlayerCombat.xxx += 0.5 oPlayerCombat.move_rot += 20;} else {m1 = 0; oPlayerCombat.move_rot = 0;}
            }
-       /*
-        if (image_index > 8 && image_index < 9) {oPlayerCombat.xxx = 1; oPlayerCombat.move_rot += 30;}
+        text = string(sin(convertAngleToRad(tempN)));
+        if (image_index > 8 && image_index < 9) {oPlayerCombat.xxx = 1; oPlayerCombat.move_rot += (30 * sin(convertAngleToRad(tempN)));}
         else if (image_index > 10 && image_index < 11) {oPlayerCombat.xxx = -1; oPlayerCombat.move_rot -= 10;}
-        else {oPlayerCombat.xxx = 0; oPlayerCombat.move_rot = 0;} */
+        else {oPlayerCombat.xxx = 0; oPlayerCombat.move_rot = 0; tempN = 0;} 
         }  
         
         

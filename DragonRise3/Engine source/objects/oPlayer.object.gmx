@@ -58,6 +58,8 @@ attack_interval = 40;
 m1 = 0;
 m2 = 0;
 can_damage = -1;
+tempN = 0;
+text = "";
 
 equ_draw_head         = 1;
 equ_draw_left_plate   = 1;
@@ -496,6 +498,7 @@ talentPoints++;
             <string>/// Draw player
 
 apiPlayerDraw();
+draw_text(x, y - 32, text);
 
 clr(c_black, 0.5);
 draw_ring_part(x, y, 64, 6, 128, 128, 0, 360, true, c_black, false);

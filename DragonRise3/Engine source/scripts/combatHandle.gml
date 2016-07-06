@@ -5,20 +5,12 @@ x           = oPlayer.x;
 y           = oPlayer.y;
 image_speed = 0;
 
-
-draw_text(oPlayer.x,oPlayer.y+60,oPlayer.vlastnost[vlastnost_vykresli_sprit]);
-draw_text(oPlayer.x,oPlayer.y+80,oInventory.h_c);
-
 if (instance_number(oPlayer) > 0)
 {     
-//sprite_index = oPlayer.vlastnost[vlastnost_vykresli_sprit];
 sprite_index = sWeaponCollision;
-
-
 
 sprite = oPlayer.draw_equ[id_Mec,0];
 index  = oPlayer.draw_equ[id_Mec,1];
-
       
 if (sprite != 0)
 {
@@ -56,11 +48,11 @@ if (attack = 1)
    {
     if (mode = 1)
        {
-        if (temp_rot < 75) {temp_rot += 100;} else {mode = 0; }
+        if (temp_rot < 75) {temp_rot += 100;} else {mode = 0;}
        }
     if (mode = 0)
        {
-        if (temp_rot > -100) {temp_rot -= 50+k;} else {mode = -1; temp_rot = -100; }
+        if (temp_rot > -100) {temp_rot -= 50+k;} else {mode = -1; temp_rot = -100;}
        }
     if (mode = -1)
        {
@@ -90,8 +82,8 @@ if (attack = 1)
 if (oPlayer.last_dir = "d") 
    {
    rot = 0;   depth = -11; xx += 6; yy += 8;
-
    }
+   
 if (oPlayer.last_dir = "w") {rot = 90;  depth = -9;  yy -= 6; xx += 8;}
 if (oPlayer.last_dir = "s") {rot = -90; depth = -11; yy+= 12; xx += 10;}
 if (oPlayer.last_dir = "a") {rot = 180; depth = -11; xx -= 5; yy += 16}

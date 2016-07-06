@@ -13,8 +13,8 @@ if (spr == -1) {spr = sprite_index;}
 
 for (i = 0; i < sN; i++) 
 {
- xx = (random(sprite_get_width(spr) - sprite_get_xoffset(spr)) - random(sprite_get_width(spr) - sprite_get_xoffset(spr)));
- yy = (random(sprite_get_height(spr) - sprite_get_yoffset(spr)) - random(sprite_get_height(spr) - sprite_get_yoffset(spr)));
+ xx = abs(random(sprite_get_width(spr) - sprite_get_xoffset(spr)) - random(sprite_get_width(spr) - sprite_get_xoffset(spr)));
+ yy = abs(random(sprite_get_height(spr) - sprite_get_yoffset(spr)) - random(sprite_get_height(spr) - sprite_get_yoffset(spr)));
  
  shard = instance_create(x + xx , y + yy, oShard); 
  shard._x = xx;

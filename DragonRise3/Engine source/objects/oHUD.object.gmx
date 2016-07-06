@@ -228,11 +228,11 @@ oPlayer.vlastnost[vlastnost_stit] = min(max(0,oPlayer.vlastnost[vlastnost_stit])
      alg("center", fntPixelSmall);
      draw_text(x+390,y+560,string(oPlayer.last_xp)+" / "+string(oPlayer.vlastnost[vlastnost_max_zkusenosti]));
      alg("center", fntPixel);
-     if (oPlayer.skillPoints == 0) {draw_text(x+256,y+574,string(oPlayer.vlastnost[vlastnost_level]));}
-     else {draw_text(x+256,y+574,"+" + string(oPlayer.skillPoints))}
+     if (oPlayer.talentPoints == 0) {draw_text(x+256,y+574,string(oPlayer.vlastnost[vlastnost_level]));}
+     else {draw_text(x+256,y+574,"+" + string(oPlayer.talentPoints))}
      alg();
      
-     if (oPlayer.skillPoints &gt; 0)
+     if (oPlayer.talentPoints &gt; 0)
         {
          if (skillPointsM = 0)
             {
