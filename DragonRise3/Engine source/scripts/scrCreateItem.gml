@@ -24,6 +24,9 @@ instance.drop_id                   = id;
 instance.image_index               = instance.itm_sprite_number;
 instance.sprite_index              = instance.itm_sprite;
 instance.o                         = 1;
+instance.animateDropDir            = 0;
+instance.animateDropForce          = 0;
+instance.animateDrop               = 0;
 
 for(a=0 a<10 a++)                        {instance.itm_options[a] = oInventory.switch_option[a];}
 for(a=0 a<celkem_vlastnosti a++)         {instance.vlastnost[a] = oInventory.slot_vlastnosti[oInventory.h_c,a];}

@@ -145,9 +145,9 @@ if (shader_active = shaderSketch)
    if (mouse_check_button(mb_left)) {amountSketchVar = 1;}
    if (amountSketchVar &gt; 0) {amountSketchVar -= 0.005;}
    }   
-*/   
+   
 draw_text(300,100,"Shader active: " + string(shader_active));
-
+*/
 
 </string>
           </argument>

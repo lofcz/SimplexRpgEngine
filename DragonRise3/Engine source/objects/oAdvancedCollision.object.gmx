@@ -30,6 +30,11 @@
 status   = 0;
 alpha    = 0;
 draw     = 0;
+mode     = 0;
+tA       = 1;
+tile     = -1;
+flag     = 1;
+
 alarm[0] = 1;
 event_inherited();
 
@@ -62,6 +67,8 @@ for (i = 0; i &lt; array_length_1d(text); i++)
 {
 parsed_text[i] = dialogueParse(text[i]);
 }
+
+tile     = tile_layer_find(tL, x, y);
 
 
 </string>
@@ -112,6 +119,95 @@ if (keyboard_check_pressed(ord("E")) &amp;&amp; alpha &gt; 0.8 &amp;&amp; !draw)
     alpha = 0;
    }
 }
+
+if (mode == 1)
+    {
+     if (tile == -1) {instance_destroy();}   
+     else
+     {
+     tA = lerp(tA, 0, 0.1);
+     tile_set_alpha(tile, tA);
+     if (tA &lt; 0.02 &amp;&amp; flag) {flag = 0; event_user(1);}
+     if (tA &lt; 0.02) {tile_delete(tile); instance_destroy();}
+     }     
+
+    }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="oPlayerCombat">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Handle onHit event
+
+if (hitType == "breakableWood")
+{
+if (other.attack &amp;&amp; other.can_damage = -1 &amp;&amp; mode == 0) 
+{
+dmg = 0;
+dmg += oPlayer.vlastnost[vlastnost_poskozeni];   
+
+hp -= dmg;
+other.can_damage = -2;
+global.tX = x;
+global.tY = y;
+with(oPlayer) {effectShardDrop(global.tX, global.tY, irandom_range(3,6));}
+scrLog(dmg,c_white,-1,0,0.2,x,y-32,oController.fontDamage,"combat");    
+
+audio_play_sound(choose(sndSwordHitCrate1, sndSwordHitCrate2), 1, 0);
+
+if (hp &lt;= 0) {mode = 1;}
+}
+}
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Destroy DB
+
+if (level == mapTest)
+    {
+     if (idd = "pařez1")
+        {
+        scrItemInstantiate(oGold, 4, 8, true, 5);
+        }
+    }
 </string>
           </argument>
         </arguments>
@@ -136,6 +232,9 @@ if (keyboard_check_pressed(ord("E")) &amp;&amp; alpha &gt; 0.8 &amp;&amp; !draw)
             <kind>1</kind>
             <string>/// Interaction DB
 
+// Holohlavy - venkov
+if (level == mapTest)
+{
 if (idd = "pařez1")
    {
     if (status = 1) {scrEnemyLoot(oGold,1,5,1,100,4);}
@@ -151,6 +250,7 @@ if (idd = "mapTest_kmen1")
     if (status = 2) {scrEnemyLoot(oGold,1,5,1,100,3);}
    
    }
+}
 
 
 
@@ -181,7 +281,9 @@ if (idd = "mapTest_kmen1")
 
 //draw_text(xx,yy,text[status])
 
-if (draw)
+if (mode == 0)
+{
+if (draw &amp;&amp; text[0] != "")
 {
 
 draw_set_font(fntPixel);
@@ -194,8 +296,8 @@ draw_text_colored(xx-string_width(parsed_text[status])/2,yy-string_height(parsed
 draw_set_alpha(1);
 scrCenterText(0);
 }
-else 
-     {
+else if (text[0] != "")
+{
 draw_set_font(fntPixel);
 scrCenterText();
 draw_set_alpha(alpha/2);
@@ -205,9 +307,8 @@ draw_set_color(c_white);
 draw_text(xx,yy,"E");
 draw_set_alpha(1);
 scrCenterText(0);
-
-     }
-
+}
+}
 
 
 </string>

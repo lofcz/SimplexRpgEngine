@@ -24,18 +24,19 @@ if (tTree == talentEnum.treeThief) {if (telentThiefRegID[tID, 0] != -1) {if (tel
 //else if (tTree == talentEnum.treeMage) {draw_sprite(sTalentsMage, tID, xx, yy);}
 
 if (!c || !c1) {cA = 0.5;}
-
+cAA = (cA - (1 - bacAlpha));
+cAA = max(0, cAA);
 
 if (telentLevel[tTree, tID] == telentLevelMax[tTree, tID])
     {
     if (global.shaders_enabled)
         {
         shader_set(shdColor);
-        shader_set_uniform_f(channel_mask, 1, 1, 0, 1);
+        shader_set_uniform_f(channel_mask, 1, 1, 0, cAA);
         
-        if (tTree == talentEnum.treeThief) {draw_sprite_ext(sTalentsThief, tID, xx, yy, 1, 1 , 0, c_white, cA);}
-        else if (tTree == talentEnum.treeWarrior) {draw_sprite_ext(sTalentsWarrior, tID, xx, yy, 1, 1 , 0, c_white, cA);}
-        else if (tTree == talentEnum.treeMage) {draw_sprite_ext(sTalentsMage, tID, xx, yy, 1, 1 , 0, c_white, cA);}
+        if (tTree == talentEnum.treeThief) {draw_sprite_ext(sTalentsThief, tID, xx, yy, talentScale[0, tID], talentScale[0, tID], 0, c_white, cAA);}
+        else if (tTree == talentEnum.treeWarrior) {draw_sprite_ext(sTalentsWarrior, tID, xx, yy, talentScale[1, tID], talentScale[1, tID], 0, c_white, cAA);}
+        else if (tTree == talentEnum.treeMage) {draw_sprite_ext(sTalentsMage, tID, xx, yy, talentScale[2, tID], talentScale[2, tID], 0, c_white, cAA);}
                         
         shader_reset();
         }
@@ -44,9 +45,9 @@ if (telentLevel[tTree, tID] == telentLevelMax[tTree, tID])
     }
 else 
 {
-if (tTree == talentEnum.treeThief) {draw_sprite_ext(sTalentsThief, tID, xx, yy, talentScale[0, tID], talentScale[0, tID] , 0, c_white, cA);}
-else if (tTree == talentEnum.treeWarrior) {draw_sprite_ext(sTalentsWarrior, tID, xx, yy, talentScale[1, tID], talentScale[1, tID] , 0, c_white, cA);}
-else if (tTree == talentEnum.treeMage) {draw_sprite_ext(sTalentsMage, tID, xx, yy, talentScale[2, tID], talentScale[2, tID] , 0, c_white, cA);}
+if (tTree == talentEnum.treeThief) {draw_sprite_ext(sTalentsThief, tID, xx, yy, talentScale[0, tID], talentScale[0, tID] , 0, c_white, cAA);}
+else if (tTree == talentEnum.treeWarrior) {draw_sprite_ext(sTalentsWarrior, tID, xx, yy, talentScale[1, tID], talentScale[1, tID] , 0, c_white, cAA);}
+else if (tTree == talentEnum.treeMage) {draw_sprite_ext(sTalentsMage, tID, xx, yy, talentScale[2, tID], talentScale[2, tID] , 0, c_white, cAA);}
 }
 
 if (telentLevel[tTree, tID] != 0 && telentLevel[tTree, tID] != telentLevelMax[tTree, tID])
@@ -65,7 +66,7 @@ alg();
 if (mouse_in(xx - 16, xx + 16, yy - 16, yy + 16))
     {
      hover = true;
-     if (tTree == talentEnum.treeThief) {drawText = telentThiefText[tID, telentLevel[tTree, tID]]; drawTextTitle = telentThiefTextTitle[tID]; if (!c) {drawText += "##" + scrColorflag(c_red) + "Nejprve potřebuješ talent " + string(telentThiefTextTitle[telentThiefRegID[tID, 0]]) + "#na úrovni " + string(telentThiefRegLvl[tID, 0]);} if (!c1) {drawText += "##" + scrColorflag(c_red) + "Nejprve potřebuješ talent " + string(telentThiefTextTitle[telentThiefRegID[tID, 1]]) + "#na úrovni " + string(telentThiefRegLvl[tID, 1]);} talentScale[0, tID] = lerp(talentScale[0, tID], 1.25, 0.1);}
+     if (tTree == talentEnum.treeThief) {drawText = telentThiefText[tID, telentLevel[tTree, tID]]; drawTextTitle = telentThiefTextTitle[tID]; if (!c) {drawText += "##" + scrColorflag(c_red) + "Nejprve potřebuješ talent#" + string(telentThiefTextTitle[telentThiefRegID[tID, 0]]) + " na úrovni " + string(telentThiefRegLvl[tID, 0]);} if (!c1) {drawText += "##" + scrColorflag(c_red) + "Nejprve potřebuješ talent " + string(telentThiefTextTitle[telentThiefRegID[tID, 1]]) + "#na úrovni " + string(telentThiefRegLvl[tID, 1]);} talentScale[0, tID] = lerp(talentScale[0, tID], 1.25, 0.1);}
      if (tTree == talentEnum.treeWarrior) {drawText = telentWarriorText[tID, telentLevel[tTree, tID]]; drawTextTitle = telentWarriorTextTitle[tID];}
      if (tTree == talentEnum.treeMage) {drawText = telentMageText[tID, telentLevel[tTree, tID]]; drawTextTitle = telentMageTextTitle[tID];}
   

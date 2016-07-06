@@ -44,8 +44,14 @@ scrTalentCreate(talentEnum.treeThief, 0, 0, 5, "Dobrodruh", x + 100, y + 70);
     scrTalentSetText("Zkušený dobrodruh rozumí okolní#přírodě. Vybroušené instinkty ti #umožní vyhnout se nebezpečí dřív,#než ho zpozoruješ.##Zdraví:" + scrColorflag(c_lime) + " 8 -&gt; 10" + scrEndColorflag() + "#Stamina: " + scrColorflag(c_lime) + "3 -&gt; 4#" + scrEndColorflag() + "Zručnost: " + scrColorflag(c_lime) + "2 -&gt; 3" + scrEndColorflag() + "#" + "Rezistence vůči zemi: "+ scrColorflag(c_lime) + "2 -&gt; 3#" + scrEndColorflag() + "Přesnost: " + scrColorflag(c_lime)  + "1 -&gt; 2" + scrEndColorflag());
     scrTalentSetText("Zkušený dobrodruh rozumí okolní#přírodě. Vybroušené instinkty ti #umožní vyhnout se nebezpečí dřív,#než ho zpozoruješ.##Zdraví:" + scrColorflag(c_lime) + " 10" + scrEndColorflag() + "#Stamina: " + scrColorflag(c_lime) + "4#" + scrEndColorflag() + "Zručnost: " + scrColorflag(c_lime) + "3" + scrEndColorflag() + "#" + "Rezistence vůči zemi: "+ scrColorflag(c_lime) + "3#" + scrEndColorflag() + "Přesnost: " + scrColorflag(c_lime)  + "2" + scrEndColorflag());
 
-scrTalentCreate(talentEnum.treeThief, 1, 0, 9, "Hbité prsty", x + 148, y + 70 + 48, 0, 4);    
-
+scrTalentCreate(talentEnum.treeThief, 1, 0, 9, "Hbité prsty", x + 148, y + 70 + 48, 0, 4); 
+    
+   
+scrTalentCreate(talentEnum.treeThief, 2, 0, 3, "Lovec", x + 52, y + 70 + 48, 0, 4);    
+    scrTalentSetText("Žádná část úlovku nepřijde nazmar.#Trpělivý, tichý lovec číhající na svojí#kořist. Neviditelný, skrytý ve stínech#a přesto děsivě smrtelný.##Lov: " + scrColorflag(c_lime) + "0 -&gt; 1");
+    scrTalentSetText("Žádná část úlovku nepřijde nazmar.#Trpělivý, tichý lovec číhající na svojí#kořist. Neviditelný, skrytý ve stínech#a přesto děsivě smrtelný.##Lov: " + scrColorflag(c_lime) + "1 -&gt; 2#" + scrEndColorflag() + "Bonusová kořist ze zvěře: " + scrColorflag(c_lime) + "0 -&gt; 3%");
+    scrTalentSetText("Žádná část úlovku nepřijde nazmar.#Trpělivý, tichý lovec číhající na svojí#kořist. Neviditelný, skrytý ve stínech#a přesto děsivě smrtelný.##Lov: " + scrColorflag(c_lime) + "2 -&gt; 3#" + scrEndColorflag() + "Bonusová kořist ze zvěře: " + scrColorflag(c_lime) + "3 -&gt; 10%");
+    scrTalentSetText("Žádná část úlovku nepřijde nazmar.#Trpělivý, tichý lovec číhající na svojí#kořist. Neviditelný, skrytý ve stínech#a přesto děsivě smrtelný.##Lov: " + scrColorflag(c_lime) + "3#" + scrEndColorflag() + "Bonusová kořist ze zvěře: " + scrColorflag(c_lime) + "10%");
 
 for (i = 0; i &lt; max(array_length_2d(telentLevel, 0), array_length_2d(telentLevel, 1), array_length_2d(telentLevel, 2)); i++)
     {

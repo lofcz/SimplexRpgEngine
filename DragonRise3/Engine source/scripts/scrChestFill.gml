@@ -20,6 +20,10 @@ for (a = 0; a < slots; a++)
       b.drop_id         = id;
       b.slot            = a;
       b.show_number     = 1;
+      b.animateDrop     = 0;
+      b.animateDropDir  = 0;
+      b.animateDropForce          = 0;
+      
       loot[a,ext_name]  = -1;
       fill[a]           = 1;
      }

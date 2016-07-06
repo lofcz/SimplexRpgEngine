@@ -294,6 +294,7 @@
     <sprite>sprites\sprite106</sprite>
     <sprite>sprites\sprite102</sprite>
     <sprite>sprites\sAffects</sprite>
+    <sprite>sprites\sParticleGrass</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -366,6 +367,9 @@
         <script>scripts\effectTalentUp.gml</script>
         <script>scripts\effectPoison.gml</script>
         <script>scripts\effectShodowPort.gml</script>
+        <script>scripts\scr_particle.gml</script>
+        <script>scripts\effectShardDrop.gml</script>
+        <script>scripts\effectGrass.gml</script>
       </scripts>
     </scripts>
     <scripts name="Components">
@@ -404,6 +408,7 @@
         <script>scripts\itemRarityEffect.gml</script>
         <script>scripts\itemAddSlotDescription.gml</script>
         <script>scripts\scrCreateItem.gml</script>
+        <script>scripts\scrItemInstantiate.gml</script>
         <script>scripts\scrValueIndex.gml</script>
       </scripts>
       <scripts name="Equipment">
@@ -431,6 +436,7 @@
         <script>scripts\scrGoreExplodeDropShards.gml</script>
       </scripts>
       <scripts name="Collisions">
+        <script>scripts\scrAdvancedCollisionSetText.gml</script>
         <script>scripts\scrAdvancedCollisionIni.gml</script>
         <script>scripts\scrNonsolidCollisionIni.gml</script>
       </scripts>
@@ -684,7 +690,7 @@
       <room>rooms\mapHouse1</room>
     </rooms>
   </rooms>
-  <constants number="165">
+  <constants number="166">
     <constant name="lightmap_y">1</constant>
     <constant name="lightmap_x">0</constant>
     <constant name="shaderSketch">5</constant>
@@ -723,7 +729,8 @@
     <constant name="quest_finish">2</constant>
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
-    <constant name="celkem_vlastnosti">55</constant>
+    <constant name="celkem_vlastnosti">56</constant>
+    <constant name="vlastnost_lov">55</constant>
     <constant name="vlastnost_stamina_cost">54</constant>
     <constant name="vlastnost_tick_stamina_add">53</constant>
     <constant name="vlastnost_tick_stamina">52</constant>
