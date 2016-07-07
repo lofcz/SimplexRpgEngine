@@ -20,7 +20,7 @@ yy = oPlayer.y;
 
 if (keyboard_check_pressed(vk_space))
    {
-    if (!attack && oPlayer.last_stamina >= oPlayer.vlastnost[vlastnost_stamina_cost])
+    if (!attack && oPlayer.vlastnost[vlastnost_stamina] >= oPlayer.vlastnost[vlastnost_stamina_cost] && attackMode == "attack")
        {
         audio_play_sound(sndSword2,0,0);
         attack = 1;
@@ -31,7 +31,10 @@ if (keyboard_check_pressed(vk_space))
         k = 0;                                 //show_message("grrr!");
         can_damage = -1;
         oPlayer.vlastnost[vlastnost_stamina] -= oPlayer.vlastnost[vlastnost_stamina_cost];
-       }
+        ss = instance_create(x, y, oSwordSwing);
+        ss.dir = oPlayer.last_dir;
+        attackMode = "attack";
+         }
    }
 
 if (tick > 0)
@@ -89,7 +92,13 @@ if (oPlayer.last_dir = "s") {rot = -90; depth = -11; yy+= 12; xx += 10;}
 if (oPlayer.last_dir = "a") {rot = 180; depth = -11; xx -= 5; yy += 16}
 
 
-draw_sprite_ext(sprite,image,xx+xxx,yy+yyy,scale,scale,rot+temp_rot+move_rot+dir_rot,color,alpha);
+if (attackMode == "attack") {draw_sprite_ext(sprite,image,xx+xxx,yy+yyy,scale,scale,rot+temp_rot+move_rot+dir_rot,color,alpha);}
+if (attackMode == "parry") 
+    {
+    parryAngle += 5;
+    if (parryTimer < (parryTimerMax/2)) {parryAngle += 5;} else {parryAngle -= 5;}
+    draw_sprite_ext(sprite,image,xx+xxx,yy+yyy,scale,scale,parryAngle,color,alpha)
+    }
 x = xx;
 y = yy;
 

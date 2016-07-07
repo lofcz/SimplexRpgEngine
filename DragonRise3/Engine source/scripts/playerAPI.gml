@@ -23,9 +23,9 @@ if (can_move && can_move2 && can_move3 && can_move4)
         a1 = 0
         dir = "w";
         last_dir = dir;
-        image_speed = (0.25+(rychlost/100));
+        image_speed = (0.25+(temp_rychlost/100));
         direction = 90;
-        speed = rychlost;
+        speed = temp_rychlost;
         apiPlayerSprint();
         
         } 
@@ -35,9 +35,9 @@ if (can_move && can_move2 && can_move3 && can_move4)
         a1 = 0
         dir = "s";
         last_dir = dir;
-        image_speed = (0.25+(rychlost/100));
+        image_speed = (0.25+(temp_rychlost/100));
         direction = 270;
-        speed = rychlost;
+        speed = temp_rychlost;
         apiPlayerSprint();
 
         
@@ -56,13 +56,13 @@ if (can_move && can_move2 && can_move3 && can_move4)
         
     if (keyboard_check(ord("A"))) 
         {
-        if (dir != "a") {oPlayerCombat.xxx = 0; oPlayerCombat.yyy = 0; oPlayerCombat.move_rot = 0;} 
+        //if (dir != "a") {oPlayerCombat.xxx = 0; oPlayerCombat.yyy = 0; oPlayerCombat.move_rot = 0;} 
         a1 = 0
         dir = "a";        
         last_dir = dir;
-        image_speed = (0.25+(rychlost/100));
+        image_speed = (0.25+(temp_rychlost/100));
         direction = 180;
-        speed = rychlost;
+        speed = temp_rychlost;
         apiPlayerSprint();
 
        
@@ -87,11 +87,12 @@ if (can_move && can_move2 && can_move3 && can_move4)
         a1 = 0
         dir = "d";
         last_dir = dir;
-        image_speed = (0.25+(rychlost/100));
+        image_speed = (0.25+(temp_rychlost/100));
         direction = 360;
-        speed = rychlost;
+        speed = temp_rychlost;
         apiPlayerSprint();
         tempN += 15;
+        z = lerp(z, 30, 0.3);
 
         
        oPlayerCombat.dir_rot = -20;
@@ -105,10 +106,28 @@ if (can_move && can_move2 && can_move3 && can_move4)
             if (oPlayerCombat.xxx < 1) { oPlayerCombat.xxx += 0.5 oPlayerCombat.move_rot += 20;} else {m1 = 0; oPlayerCombat.move_rot = 0;}
            }
         text = string(sin(convertAngleToRad(tempN)));
-        if (image_index > 8 && image_index < 9) {oPlayerCombat.xxx = 1; oPlayerCombat.move_rot += (30 * sin(convertAngleToRad(tempN)));}
+        if (image_index > 8 && image_index < 9) {oPlayerCombat.xxx = 1; oPlayerCombat.move_rot += z; }
         else if (image_index > 10 && image_index < 11) {oPlayerCombat.xxx = -1; oPlayerCombat.move_rot -= 10;}
-        else {oPlayerCombat.xxx = 0; oPlayerCombat.move_rot = 0; tempN = 0;} 
+        else {oPlayerCombat.xxx = 0; oPlayerCombat.move_rot = 0; tempN = 0; z = 0; }                
         }  
+        
+        if (keyboard_check_pressed(ord("N")))
+            {
+             if (oPlayerCombat.attack = 0 &&  oPlayerCombat.attackMode == "attack" && oPlayer.vlastnost[vlastnost_stamina] >= oPlayer.vlastnost[vlastnost_parry_cost])
+                {
+                 oPlayerCombat.attackMode = "parry";
+                 oPlayerCombat.parryTimer = oPlayerCombat.parryTimerMax;
+                 oPlayer.vlastnost[vlastnost_stamina] -= oPlayer.vlastnost[vlastnost_parry_cost];
+                 oPlayer.parrySlowdown = oPlayerCombat.parryTimerSlowdown;
+                 oPlayerCombat.parryAngle = 0;
+                }
+            }
+            
+        if (oPlayerCombat.parryTimer > 0)
+            {
+             oPlayerCombat.parryTimer--;
+             if (oPlayerCombat.parryTimer <= 0) {oPlayerCombat.attackMode = "attack"; oPlayer.parrySlowdown = 100;}
+            }
         
         
         

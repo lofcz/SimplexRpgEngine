@@ -1,4 +1,4 @@
-/// combatSetUp(type,attack_key)
+/// combatSetUp(type, attack_key)
 
 var AttackKey,Type;
 
@@ -34,6 +34,11 @@ yyy        = 0;
 move_rot   = 0;
 dir_rot    = 0;
 can_damage = 0;
+attackMode = "attack";
+parryTimer = 0;
+parryTimerMax = 10;
+parryTimerSlowdown = 40;
+
 
 sprite_index = sprite;
 image_speed  = 0;

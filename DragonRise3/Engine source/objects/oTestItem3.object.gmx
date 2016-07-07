@@ -62,6 +62,7 @@ else if (points &lt; 6)  {itm_info_color = rarity_fine;}
 else                  {itm_info_color = rarity_rare; vlastnost[vlastnost_max_mana] = irandom_range(5,10);}
 
 vlastnost[vlastnost_stamina_cost] = choose(4,5);
+vlastnost[vlastnost_parry_cost] = choose(2,3);
 
 //itm_info_text += "#Poškození: "+string(vlastnost[vlastnost_poskozeni]);
 //*********** Suffix *****************

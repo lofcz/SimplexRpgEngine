@@ -297,6 +297,9 @@
     <sprite>sprites\sAffects</sprite>
     <sprite>sprites\sParticleGrass</sprite>
     <sprite>sprites\sSamplerGreen</sprite>
+    <sprite>sprites\sprite110</sprite>
+    <sprite>sprites\sprite111</sprite>
+    <sprite>sprites\sSwordSwing</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -445,6 +448,7 @@
       <scripts name="Combat">
         <script>scripts\combatHandle.gml</script>
         <script>scripts\combatSetUp.gml</script>
+        <script>scripts\combatGetParry.gml</script>
         <script>scripts\combatGetCriticalHit.gml</script>
       </scripts>
       <scripts name="MapIntro">
@@ -677,6 +681,7 @@
       <object>objects\oMainMenu</object>
       <object>objects\oMainMenuPar</object>
     </objects>
+    <object>objects\oSwordSwing</object>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\cutsceneTest</timeline>
@@ -693,7 +698,7 @@
       <room>rooms\mapHouse1</room>
     </rooms>
   </rooms>
-  <constants number="167">
+  <constants number="168">
     <constant name="cStaticInstance">"staticInstance"</constant>
     <constant name="lightmap_y">1</constant>
     <constant name="lightmap_x">0</constant>
@@ -733,7 +738,8 @@
     <constant name="quest_finish">2</constant>
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
-    <constant name="celkem_vlastnosti">56</constant>
+    <constant name="celkem_vlastnosti">57</constant>
+    <constant name="vlastnost_parry_cost">56</constant>
     <constant name="vlastnost_lov">55</constant>
     <constant name="vlastnost_stamina_cost">54</constant>
     <constant name="vlastnost_tick_stamina_add">53</constant>

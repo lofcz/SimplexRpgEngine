@@ -1,5 +1,5 @@
-/// combatGetCriticalHit(chance)
-// Input is in % 
+/// combatGetCriticalHit(chance%)
+ 
 randomize();
 
 var chance;

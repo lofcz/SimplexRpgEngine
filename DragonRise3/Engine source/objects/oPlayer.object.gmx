@@ -42,6 +42,7 @@ Sname = part_system_create();
 //draw_clear_alpha(c_white,0);
 //surface_reset_target();
 
+z = 0;
 blur = 0;
 load = 1;
 dir = ""; 
@@ -60,6 +61,8 @@ m2 = 0;
 can_damage = -1;
 tempN = 0;
 text = "";
+parrySlowdown = 100;
+temp_rychlost = rychlost;
 
 equ_draw_head         = 1;
 equ_draw_left_plate   = 1;
@@ -291,7 +294,7 @@ apiPlayerMoveStand();
 
 if (load &gt; 0) {load -- } else {load = -1; event_user(0);}
 apiPlayerMove();
-    
+temp_rychlost = ((rychlost / 100) * parrySlowdown);    
     
 cyber_r ++;
 //surface_set_target(surface);
