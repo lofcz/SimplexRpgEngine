@@ -6,6 +6,7 @@
 Top-on-GMS engine, umožňující rapidní vývoj moderních RPG her. Vhodný pro jednotlivce i velké skupiny. 
 * Systém komponent, řešící základní i pokročilé RPG problémy (inventář, výstroj, bestiář, talenty...)
 * Externí C# nástroje pro zvýšení efektivity práce v enginu.
+* Unikátní systém in-game vývoje, který umožňuje hru tvořit přímo za běhu. 
 * Extrémní výkon, vysoká optimalizace.
 * Pokročilé efekty - GLSL / HLSL shadery, 2D fyzika, sprite exploze, počasí, střídání dne a noci...
 * Zcela zdarma, otevřený zrojový kód, MIT licence.
