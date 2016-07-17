@@ -377,13 +377,13 @@ if (keyboard_check_pressed(vk_escape))
     Příklad cutscény
 ***************************************************/
 
-/*
+
 var ins1, ins2;
-ins1 = instance_create(x-100, y+100, oTestObject); ins1.name = "První objekt";
+ins1 = instance_create(x-100, y+100, oTestNpc2); ins1.name = "První objekt";
 ins2 = instance_create(x+100, y+100, oTestObject); ins2.name = "Druhý objekt";
 
-scrCutscenePlay(ins1, cutsceneTest, false, 1);
-*/
+scrCutscenePlay(ins1, DemoCutscene, false, 1);
+
 
 
 </string>

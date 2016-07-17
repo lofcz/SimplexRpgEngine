@@ -19,85 +19,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Test TIMELINE MOMENT 0
-
-scrCutsceneMoveTowardsPoint(self, x + 100, y, 4);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-  </entry>
-  <entry>
-    <step>1</step>
-    <event>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>// Lof's Code</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-  </entry>
-  <entry>
-    <step>2</step>
-    <event>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>// Lof's Code</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-  </entry>
-  <entry>
-    <step>3</step>
-    <event>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>// Lof's Code</string>
+            <string>/// Step: 0</string>
           </argument>
         </arguments>
       </action>
@@ -122,10 +44,7 @@ scrCutsceneMoveTowardsPoint(self, x + 100, y, 4);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// TEST TIMELINE MOMENT 100
-
-scrCutsceneMoveTowardsPoint(self, x, y + 100, 4);
-</string>
+            <string>/// Step: 25</string>
           </argument>
         </arguments>
       </action>
@@ -150,10 +69,7 @@ scrCutsceneMoveTowardsPoint(self, x, y + 100, 4);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// TEST TIMELINE MOMENT 100
-
-scrCutsceneMoveTowardsPoint(self, x - 100, y, 4);
-</string>
+            <string>/// Step: 50</string>
           </argument>
         </arguments>
       </action>
@@ -178,17 +94,14 @@ scrCutsceneMoveTowardsPoint(self, x - 100, y, 4);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// TEST TIMELINE MOMENT 100
-
-scrCutsceneMoveTowardsPoint(self, x, y - 100, 4);
-</string>
+            <string>/// Step: 75</string>
           </argument>
         </arguments>
       </action>
     </event>
   </entry>
   <entry>
-    <step>76</step>
+    <step>100</step>
     <event>
       <action>
         <libid>1</libid>
@@ -206,15 +119,14 @@ scrCutsceneMoveTowardsPoint(self, x, y - 100, 4);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scrCutsceneSplashMessage( self, "Ukázkový text", 60, 0.05);
-</string>
+            <string>/// Step: 100</string>
           </argument>
         </arguments>
       </action>
     </event>
   </entry>
   <entry>
-    <step>200</step>
+    <step>125</step>
     <event>
       <action>
         <libid>1</libid>
@@ -232,8 +144,32 @@ scrCutsceneMoveTowardsPoint(self, x, y - 100, 4);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// End cutscene
-</string>
+            <string>/// Step: 125</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>150</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Step: 150</string>
           </argument>
         </arguments>
       </action>

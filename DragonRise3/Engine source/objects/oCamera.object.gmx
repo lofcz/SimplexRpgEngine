@@ -198,7 +198,25 @@ if (mouse_check_button(mb_right))
 if (keyboard_check_pressed(ord("H")))
     {
      debug = !debug;
-     if (!debug) {target = oPlayer;}
+     if (!debug) 
+        {
+        target = oPlayer;
+        
+        if (ds_list_size(listX) &gt; 0)
+        {
+        head = get_string("Název cutscény", "Cutscene");
+        file = file_text_open_write("cutscene.simplexcs");
+        file_text_write_string(file, "[TITLE]" + head);  
+        file_text_writeln(file);     
+        
+        for (i = 0; i &lt; ds_list_size(listX); i++)
+            {
+             file_text_write_string(file, "CP:" + string(listX[| i ]) + "," + string(listY[| i ]));  
+             file_text_writeln(file);           
+            }
+        file_text_close(file);
+        }
+        }
     }
 if (debug)
     {

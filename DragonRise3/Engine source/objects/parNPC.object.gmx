@@ -51,6 +51,13 @@ listY          = ds_list_create();
 listS          = ds_list_create();
 queue          = 1;
 mood           = "";
+spd            = 0;
+tempSpd        = 0;
+
+splashMessage           = false;
+splashMessageTime       = -1;    
+splashMessageAlpha      = 0;
+splashMessageAlphaSpeed = 0.1;
 
 akce = ds_priority_create();
 mp_potential_settings(30,30,10,0);
@@ -106,6 +113,9 @@ alarm[0] = 1;
 
 draw_self();
 
+
+if (mood != "cutscene")
+{
 if (turn_to_player) 
    {
    if (turn_timer &gt; 0) {turn_timer--;} 
@@ -230,7 +240,42 @@ if (instance_number(oPlayer) &gt; 0)
            event_user(15);
         }
    }
-   
+}
+else
+{
+draw_text(x + 48, y, dir);
+
+if (timeline_running &amp;&amp; (timeline_position &gt;= (timeline_max_moment(timeline_index))))
+    {
+     timeline_running = false
+     spd = tempSpd;
+     timeline_position = 0;
+    }
+if (timeline_running)
+    {
+     draw_text(x, y - 32, "Cutscene"); // Debug
+    }
+else 
+    {
+     if (image_alpha &gt; 0) {image_alpha -= 0.05;} else {instance_destroy();}
+    }
+    
+if (mood == "cutscene" &amp;&amp; distance_to_point(real(cutsceneX), real(cutsceneY)) &gt; 1)
+{
+move_towards_point(real(cutsceneX), real(cutsceneY), real(spd));
+
+if (x &gt; xprevious) {dir = "d";}
+else if (x &lt; xprevious) {dir = "a";}
+else if (y &lt; xprevious) {dir = "w";}
+else if (y &gt; xprevious) {dir = "s";}
+}
+else if (mood == "cutscene" &amp;&amp; distance_to_point(real(cutsceneX), real(cutsceneY)) &lt; real(spd))
+    {
+     mood = "idle";
+     spd = 0;
+     speed = 0;
+    }
+}
 /*
 if (goapRunning) 
    {

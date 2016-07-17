@@ -329,7 +329,6 @@
     <background>background\background22</background>
   </backgrounds>
   <paths name="paths">
-    <paths name="Cutscenes"/>
     <path>paths\pthCutsceneObet1</path>
     <path>paths\pthCutsceneVavrinec1</path>
   </paths>
@@ -696,6 +695,8 @@
   <timelines name="timelines">
     <timeline>timelines\cutsceneTest</timeline>
     <timeline>timelines\ctsTestNPC1</timeline>
+    <timeline>timelines\DemoCutscene</timeline>
+    <timeline>timelines\MyFirstCutscene</timeline>
   </timelines>
   <rooms name="rooms">
     <room>rooms\mapTest</room>
