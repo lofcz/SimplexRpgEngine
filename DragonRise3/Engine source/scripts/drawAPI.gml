@@ -175,3 +175,75 @@ repeat(argument4)
     ax = bx
     ay = by
 }
+#define draw_rectangle_dashed
+/// draw_rectangle_dashed(x1, y1, x2, y2, col1, col2, col3, col4, size)
+
+var x1, y1, x2, y2, c1, c2, c3, c4, size;
+
+x1   = view_xview + 40;
+y1   = view_yview + 40;
+x2   = view_xview + 200;
+y2   = view_yview + 100;
+c1   = c_white;
+size = 4;
+
+c2 = c1; c3 = c1; c4 = c1;
+
+if (argument_count > 0) {x1 = argument[0];}
+if (argument_count > 1) {y1 = argument[1];}
+if (argument_count > 2) {x2 = argument[2];}
+if (argument_count > 3) {y2 = argument[3];}
+
+draw_primitive_begin(pr_linelist);
+
+// Up 
+for (i = 0; i < ceil((x2 - x1) / size); i++)
+    {
+     draw_vertex_colour(x1 + (i * size), y1, c1, 1);
+    }
+    
+// Down
+for (i = 0; i < ceil((x2 - x1) / size); i++)
+    {
+     draw_vertex_colour(x1 + (i * size), y2, c1, 1);
+    } 
+       
+// Left
+for (i = 0; i < ceil((y2 - y1) / size) + 1; i++)
+    {
+     draw_vertex_colour(x1, y1 + (i * size), c1, 1);
+    }
+    
+// Right
+for (i = 0; i < ceil((y2 - y1) / size) + 1; i++)
+    {
+     draw_vertex_colour(x2, y1 + (i * size), c1, 1);
+    }
+
+draw_primitive_end();
+
+#define draw_line_dashed
+/// draw_line_dashed(x1, y2, x2, y2)
+
+var x1, y1, x2, y2, size, dx, dy, i, yy;
+x1   = view_xview + 40;
+y1   = view_yview + 40;
+x2   = view_xview + 200;
+y2   = view_yview + 100; 
+size = 2;
+
+if (argument_count > 0) {x1 = argument[0];}
+if (argument_count > 1) {y1 = argument[1];}
+if (argument_count > 2) {x2 = argument[2];}
+if (argument_count > 3) {y2 = argument[3];}
+
+dx = x2 - x1;
+dy = y2 - y1;
+
+draw_primitive_begin(pr_pointlist);
+for (i = x1; i < x2 ; i += size) 
+    {
+        yy = (y1 + dy * (i - x1) / dx);
+        draw_vertex_colour(i, yy, c_white, 1);
+    }
+draw_primitive_end();

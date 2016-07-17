@@ -25,31 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Game object transform properties
+            <string>/// Initialise
 
-enum Transformations
-{
-none, scale, position
-}
-
-basicTransform       = Transformations.none;
-basicTransformXScale = 1;
-bacicTransformYScale = 1;
-basicTransformAmt    = 0.2;
-
-splashMessage      = "";
-splashMessageTime  = -1;
-splashMessageAlpha = 0;
-
-hp       = -1;
-affect   = "";
-
+oPlayer.can_move5 = false;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="2">
+    <event eventtype="1" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -66,24 +50,16 @@ affect   = "";
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Basic transformations
+            <string>/// Return to normal state
 
-if (basicTransform == Transformations.scale)
-    {
-     image_xscale = lerp(image_xscale, basicTransformXScale, basicTransformAmt);
-     image_yscale = lerp(image_yscale, basicTransformYScale, basicTransformAmt); 
-     
-     if (image_xscale == basicTransformXScale &amp;&amp; image_yscale == basicTransformYScale)
-        {
-         basicTransform = Transformations.none;
-        }
-    }
+oPlayer.can_move5 = true;
+with(parEnemy) {slowdown = 0;}
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="4" ename="oPlayer">
+    <event eventtype="7" enumb="10">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -100,19 +76,15 @@ if (basicTransform == Transformations.scale)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Return player to previous position
+            <string>/// Lock picked DB
 
-with(other)
-           {
-            x = xprevious;
-            y = yprevious;           
-           }
+show_message("Lock picked");
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="73">
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -129,32 +101,8 @@ with(other)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Handle basic draw
-
-if (splashMessageTime != -1 || splashMessageAlpha &gt; 0)
-    {
-    var xx,yy;
-    xx = x;
-    yy = y - sprite_get_height(sprite_index);
-    parsedText = dialogueParse(splashMessage);
-     
-     if (splashMessageAlpha &lt; 1) {splashMessageAlpha = lerp(splashMessageAlpha, 1, splashMessageAlphaSpeed);}
-     if (splashMessageTime &gt; 0) {splashMessageTime--;} else {splashMessageTime = -1; mood = "idle";}
-     
-     
-draw_set_alpha(splashMessageAlpha/2);
-draw_roundrect_colour_ext(xx - string_width(parsedText) / 2 - 10,yy - string_height(parsedText)/2,xx+string_width(parsedText)/2+10,yy+string_height(parsedText)/2+4,20,20,c_black,c_black,0);
-draw_set_alpha(splashMessageAlpha);
-draw_set_color(c_white);
-draw_text_colored(xx-string_width(parsedText)/2,yy-string_height(parsedText)/2,splashMessage);
-draw_set_alpha(1);
-scrCenterText(0);
-    }
-if (splashMessageAlpha &gt; 0 &amp;&amp; splashMessageTime = -1 )
-    {
-     splashMessageAlpha -= 0.1;
-    }
-
+            <string>with(parEnemy) {if (slowdown &lt; 1) {slowdown = lerp(slowdown, 1, 0.02);}}
+scrLockpickingDraw(x, y);
 </string>
           </argument>
         </arguments>

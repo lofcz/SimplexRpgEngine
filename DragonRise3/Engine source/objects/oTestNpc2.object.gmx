@@ -54,6 +54,9 @@ zavolám DB, ve které uchovávám všemožné sračky co bych rád a jejich pri
 Tak jsem utekl, zavolám zpropadenou DB a ptám se, co bych ještě rád.
 Do záznamu přidám "jen tak se poflakovat (eng2)" a budu se flákat.
 */
+
+scrCutscenePlay(self, ctsTestNPC1, false, 1);
+
 </string>
           </argument>
         </arguments>

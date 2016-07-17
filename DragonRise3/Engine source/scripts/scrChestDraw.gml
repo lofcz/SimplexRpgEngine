@@ -118,7 +118,13 @@ draw_set_alpha(1);
 scrCenterText(0);
 
                      }
-                     else {draw_text_colour(x,y-32,locked_message,c_black,c_black,c_black,c_black,text_alpha);}
+                     else 
+                        {
+                        draw_set_font(fntPixel);
+                        draw_text_colour(x,y-32,locked_message,c_black,c_black,c_black,c_black,text_alpha);
+                        if (keyboard_check_pressed(ord("E"))) {if (instance_number(oLockpickingScreen) == 0) {scrLockpickingIni(3); scrLockpickingAddTumblerCombination(0, 0, "1"); scrLockpickingAddTumblerCombination(2, 0, "1,0")}}
+
+                         }
                      
                       draw_set_halign(fa_left);
                       draw_set_valign(fa_top);

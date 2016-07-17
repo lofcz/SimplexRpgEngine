@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>/// Set up
 
+event_inherited();
+
 status   = 0;
 alpha    = 0;
 draw     = 0;
@@ -36,7 +38,6 @@ tile     = -1;
 flag     = 1;
 
 alarm[0] = 1;
-event_inherited();
 
 
 </string>

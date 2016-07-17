@@ -329,6 +329,7 @@
     <background>background\background22</background>
   </backgrounds>
   <paths name="paths">
+    <paths name="Cutscenes"/>
     <path>paths\pthCutsceneObet1</path>
     <path>paths\pthCutsceneVavrinec1</path>
   </paths>
@@ -344,6 +345,7 @@
         <script>scripts\scrInventoryParseString.gml</script>
         <script>scripts\clr.gml</script>
         <script>scripts\alg.gml</script>
+        <script>scripts\fnt.gml</script>
         <script>scripts\scl.gml</script>
         <script>scripts\draw_text_colored.gml</script>
         <script>scripts\scrCenterText.gml</script>
@@ -372,8 +374,8 @@
         <script>scripts\effectTalentUp.gml</script>
         <script>scripts\effectPoison.gml</script>
         <script>scripts\effectShodowPort.gml</script>
-        <script>scripts\scr_particle.gml</script>
         <script>scripts\effectShardDrop.gml</script>
+        <script>scripts\effectRealFire.gml</script>
         <script>scripts\effectGrass.gml</script>
       </scripts>
     </scripts>
@@ -401,6 +403,7 @@
         <script>scripts\scrChestAddLoot.gml</script>
         <script>scripts\scrChestAddLootFromTo.gml</script>
         <script>scripts\scrChestSetUp.gml</script>
+        <script>scripts\scrChestSetLocked.gml</script>
         <script>scripts\scrChestUnload.gml</script>
       </scripts>
       <scripts name="Items">
@@ -518,6 +521,11 @@
       </scripts>
       <scripts name="Breakable containers">
         <script>scripts\scrBCAddLoot.gml</script>
+      </scripts>
+      <scripts name="Lockpicking">
+        <script>scripts\scrLockpickingAddTumblerCombination.gml</script>
+        <script>scripts\scrLockpickingDraw.gml</script>
+        <script>scripts\scrLockpickingIni.gml</script>
       </scripts>
     </scripts>
     <script>scripts\convertAngleToRad.gml</script>
@@ -666,6 +674,7 @@
         <object>objects\oAchievment</object>
         <object>objects\oRain</object>
         <object>objects\oRainSplash</object>
+        <object>objects\oSwordSwing</object>
       </objects>
       <objects name="Particles">
         <object>objects\oSmokeEmmitor</object>
@@ -681,10 +690,12 @@
       <object>objects\oMainMenu</object>
       <object>objects\oMainMenuPar</object>
     </objects>
-    <object>objects\oSwordSwing</object>
+    <object>objects\oLockpickingScreen</object>
+    <object>objects\oDebugCamera</object>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\cutsceneTest</timeline>
+    <timeline>timelines\ctsTestNPC1</timeline>
   </timelines>
   <rooms name="rooms">
     <room>rooms\mapTest</room>

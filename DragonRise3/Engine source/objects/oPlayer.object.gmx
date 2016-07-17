@@ -52,6 +52,7 @@ can_move = 1;
 can_move2 = 1;
 can_move3 = 1;
 can_move4 = 1;
+can_move5 = 1;
 a1 = 0;
 last_dir = "s";
 cyber_r = 0;
@@ -182,7 +183,6 @@ statusColorList   = ds_list_create();
 statusNList       = ds_list_create();
 
 testStatus = 0;
-
 </string>
           </argument>
         </arguments>

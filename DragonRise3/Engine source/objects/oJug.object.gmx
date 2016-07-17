@@ -25,10 +25,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>hp = 10;
+            <string>event_inherited();
+
+hp = 10;
 contentList  = ds_list_create();
 contentListN = ds_list_create();
-event_inherited();
+
 </string>
           </argument>
         </arguments>
@@ -118,7 +120,7 @@ audio_play_sound(choose(sndSwordHitCrate1, sndSwordHitCrate2), 1, 0);
 xx = x;
 yy = y;
 
-if (hp &lt;= 0)
+if (hp &lt;= 0 &amp;&amp; safe)
     {
      for (i = 0; i &lt; ds_list_size(contentList); i++)
         {
