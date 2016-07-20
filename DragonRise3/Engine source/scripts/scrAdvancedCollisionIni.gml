@@ -9,9 +9,8 @@ hp       = 10;
 tL       = 1000000;
 indexer  = 0;
 level    = -1;
-
-level = room;
-text[0] = "";
+level    = room;
+text[0]  = "";
 
 if (argument_count > 0) {xx       = argument[0];}
 if (argument_count > 1) {yy       = argument[1];}

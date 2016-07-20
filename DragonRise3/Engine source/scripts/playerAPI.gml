@@ -105,7 +105,7 @@ if (can_move && can_move2 && can_move3 && can_move4 && can_move5)
            {
             if (oPlayerCombat.xxx < 1) { oPlayerCombat.xxx += 0.5 oPlayerCombat.move_rot += 20;} else {m1 = 0; oPlayerCombat.move_rot = 0;}
            }
-        text = string(sin(convertAngleToRad(tempN)));
+        text = string(sin(degtorad(tempN)));
         if (image_index > 8 && image_index < 9) {oPlayerCombat.xxx = 1; oPlayerCombat.move_rot += z; }
         else if (image_index > 10 && image_index < 11) {oPlayerCombat.xxx = -1; oPlayerCombat.move_rot -= 10;}
         else {oPlayerCombat.xxx = 0; oPlayerCombat.move_rot = 0; tempN = 0; z = 0; }                

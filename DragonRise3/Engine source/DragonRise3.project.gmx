@@ -359,6 +359,7 @@
         <script>scripts\plainInitEnums.gml</script>
         <script>scripts\scrInflect.gml</script>
         <script>scripts\secToSteps.gml</script>
+        <script>scripts\scrDice.gml</script>
         <script>scripts\set_sprite.gml</script>
       </scripts>
       <scripts name="Shaders">
@@ -530,7 +531,6 @@
         <script>scripts\scrLockpickingIni.gml</script>
       </scripts>
     </scripts>
-    <script>scripts\convertAngleToRad.gml</script>
   </scripts>
   <shaders name="shaders">
     <shaders name="ScreenFX">
@@ -714,7 +714,7 @@
       <room>rooms\mapHouse1</room>
     </rooms>
   </rooms>
-  <constants number="168">
+  <constants number="169">
     <constant name="cStaticInstance">"staticInstance"</constant>
     <constant name="lightmap_y">1</constant>
     <constant name="lightmap_x">0</constant>
@@ -754,7 +754,8 @@
     <constant name="quest_finish">2</constant>
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
-    <constant name="celkem_vlastnosti">57</constant>
+    <constant name="celkem_vlastnosti">58</constant>
+    <constant name="vlastnost_stesti">57</constant>
     <constant name="vlastnost_parry_cost">56</constant>
     <constant name="vlastnost_lov">55</constant>
     <constant name="vlastnost_stamina_cost">54</constant>

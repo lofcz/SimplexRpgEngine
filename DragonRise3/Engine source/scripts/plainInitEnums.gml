@@ -17,5 +17,5 @@ treeThief, treeWarrior, treeMage
 
 enum layerEnum
 {
-layer1 = 1000000, layer2 = 100000, layer3 = 10000, layer4 = 1000
+layer1 = 1000001, layer2 = 100002, layer3 = 10003, layer4 = 1004
 }

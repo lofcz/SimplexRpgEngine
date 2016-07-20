@@ -42,4 +42,3 @@ if (dir == "w")
 
 idleImage = image_index div 3 * 3;    
 return image_index;        
-
