@@ -1,0 +1,9 @@
+c:\users\matěj\documents\visual studio 2015\Projects\CutsceneGenerator\CutsceneGenerator\bin\Debug\CutsceneGenerator.exe.config
+c:\users\matěj\documents\visual studio 2015\Projects\CutsceneGenerator\CutsceneGenerator\bin\Debug\CutsceneGenerator.exe
+c:\users\matěj\documents\visual studio 2015\Projects\CutsceneGenerator\CutsceneGenerator\bin\Debug\CutsceneGenerator.pdb
+c:\users\matěj\documents\visual studio 2015\Projects\CutsceneGenerator\CutsceneGenerator\obj\Debug\CutsceneGenerator.csprojResolveAssemblyReference.cache
+c:\users\matěj\documents\visual studio 2015\Projects\CutsceneGenerator\CutsceneGenerator\obj\Debug\CutsceneGenerator.Form1.resources
+c:\users\matěj\documents\visual studio 2015\Projects\CutsceneGenerator\CutsceneGenerator\obj\Debug\CutsceneGenerator.Properties.Resources.resources
+c:\users\matěj\documents\visual studio 2015\Projects\CutsceneGenerator\CutsceneGenerator\obj\Debug\CutsceneGenerator.csproj.GenerateResource.Cache
+c:\users\matěj\documents\visual studio 2015\Projects\CutsceneGenerator\CutsceneGenerator\obj\Debug\CutsceneGenerator.exe
+c:\users\matěj\documents\visual studio 2015\Projects\CutsceneGenerator\CutsceneGenerator\obj\Debug\CutsceneGenerator.pdb
