@@ -76,11 +76,11 @@ Do záznamu přidám "jen tak se poflakovat (eng2)" a budu se flákat.
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scrQuestEntryAdd(enumQuests.questVitejVSimplexu, "První úkol", "Text prvního úkolu#Pokračování#Textu", "Zlato: 100x", "" + scrColorflag(c_yellow) + "[Hlavní úkol]" + scrEndColorflag());
-scrQuestEntryAdd(1, "Druhý úkol", "Text druhého úkolu", "Zlato: 1100x", "");
+            <string>scrQuestEntryAdd(enumQuests.questVitejVSimplexu, "Welcome to Simplex Engine!", "Take a tour and explore power of the Simplex!", "Your own RPG game", "" + scrColorflag(c_yellow) + "[Dev quest]" + scrEndColorflag());
+scrQuestEntryAdd(1, "Star project repository", "Enjoying? Take a second and rate us with star. #Thanks!", "Gold: 100", "");
 
 scrQuestEntrySetCompleted(1);
-scrQuestEntrySetText(0, "Dokončil jsi úkol!");
+scrQuestEntrySetText(0, "You are doing good.");
 </string>
           </argument>
         </arguments>
@@ -156,8 +156,8 @@ a++;
 
 if (status = 0 )
    {
-   dialogueMessage("Lance","Čekáme "+string("[c="+string(c_orange)+string("]")) +string("jen na tebe")+string("[/c]")+string(".#Přijď a zůčastni se epického dobrodružství."));
-   dialogueMessage("kkt","Čekáme "+string("[c="+string(c_orange)+string("]")) +string("jen na tebe")+string("[/c]")+string(".#Přijď a zůčastni se epického dobrodružství."));
+   dialogueMessage("LoF","I greet you, mighty developer! With " + scrColorflag(c_blue) + "Simplex" + scrEndColorflag() + ", making games is fun.#Tutorials, documentation and more can be found in project repository.", 0);
+   dialogueMessage("LoF","I almost forgot, thanks for using Simplex!", 0);
    dialogueOptions(0);
    
    }
@@ -190,15 +190,15 @@ switch(action_id)
                  case (0):
                       {
                         
-                        if (oPlayer.vlastnost[vlastnost_poskozeni] &gt; 0) {oAnswer.polozka[0] = "Mám poškození vyšší než 0!"; oAnswer.polozka_activated[0] = 1;}
-                        else {oAnswer.polozka[0] = "Mám poškození vyšší než 0! (Poškození &gt; 0)";}
+                        if (oPlayer.vlastnost[vlastnost_poskozeni] &gt; 0) {oAnswer.polozka[0] = "Create my own game!"; oAnswer.polozka_activated[0] = 1;}
+                        else {oAnswer.polozka[0] = "Create my own game! (Complete tutorial)";}
                         
-                        oAnswer.polozka[4] = "Uvidíme se později";                        
+                        oAnswer.polozka[4] = "See ya later, LoF!";                        
                         oAnswer.polozka_activated[4] = 1;
 
                           
-                          if (oPlayer.gold &gt; 10) {oAnswer.polozka[1] = "Mám to zlato!"; oAnswer.polozka_activated[1] = 1;}
-                        else {oAnswer.polozka[1] = "Mám to zlato! (Zlato &gt; 10)";}
+                        if (oPlayer.gold &gt; 10) {oAnswer.polozka[1] = "Here's a gift for you!"; oAnswer.polozka_activated[1] = 1;}
+                        else {oAnswer.polozka[1] = "Here's a gift for you! (Give ten gold coins)";}
                         
                       
                       }
@@ -254,6 +254,7 @@ if (action_id = 0)
       }
   if (index = 4)
       {
+      /*
       if (!scrQuestEntryGetCompleted(0))
       {
       dialogueMessage("OK","Dokončil jsi úkol! "+string("[c="+string(c_orange)+string("]")) +string("jen na tebe")+string("[/c]")+string(".#Přijď a zůčastni se epického dobrodružství."));
@@ -263,7 +264,8 @@ if (action_id = 0)
       {
       dialogueMessage("OK","Vyzvedl jsi odměnu "+string("[c="+string(c_orange)+string("]")) +string("jen na tebe")+string("[/c]")+string(".#Přijď a zůčastni se epického dobrodružství."));
       scrQuestEntryRemove(0);   
-      }
+      }*/
+      dialogueMessage("LoF", "Till then!", 0);    
       }
   if (index = 5)
       {

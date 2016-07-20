@@ -33,14 +33,14 @@ pages          = ((array_length_1d(hover_slot_alpha) div slotsPerPage) + 1);
  
  if (mouse_in(x, x + 32, y, y + 32))
     {
-     if (mouse_check_button_pressed(mb_left))
+     if (mouse_check_button_pressed(mb_left) || mouse_check_button_pressed(mb_right))
         {
          if (currentPage > 0) {currentPage--;}
         }
     }
    if (mouse_in(x + 256, x + 256 + 32, y, y + 32))
     {
-     if (mouse_check_button_pressed(mb_left))
+     if (mouse_check_button_pressed(mb_left) || mouse_check_button_pressed(mb_right))
         {
          if (currentPage < (pages - 1)) {currentPage++;}
         }

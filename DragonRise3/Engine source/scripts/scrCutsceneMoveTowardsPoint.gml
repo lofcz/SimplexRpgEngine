@@ -15,3 +15,9 @@ obj.mood      = "cutscene";
 obj.cutsceneX = xx;
 obj.cutsceneY = yy;
 obj.spd       = s;
+
+if (floor(xx) > floor(x)) {dir = "d";}
+else if (floor(xx) < floor(x)) {dir = "a";}
+else if (floor(yy) > floor(y)) {dir = "s";}
+else if (floor(yy) < floor(y)) {dir = "w";}
+ 

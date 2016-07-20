@@ -53,6 +53,7 @@ queue          = 1;
 mood           = "";
 spd            = 0;
 tempSpd        = 0;
+idleImage      = image_index;
 
 splashMessage           = false;
 splashMessageTime       = -1;    
@@ -243,6 +244,7 @@ if (instance_number(oPlayer) &gt; 0)
 }
 else
 {
+scrNpcGetImageIndex(dir, idleImage, 0.1);
 draw_text(x + 48, y, dir);
 
 if (timeline_running &amp;&amp; (timeline_position &gt;= (timeline_max_moment(timeline_index))))
@@ -257,47 +259,32 @@ if (timeline_running)
     }
 else 
     {
-     if (image_alpha &gt; 0) {image_alpha -= 0.05;} else {instance_destroy();}
+     //if (image_alpha &gt; 0) {image_alpha -= 0.05;} else {instance_destroy();}
+     mood = "idle";
+     speed = 0;
+     timeline_running = false;
+     timeline_index = -1;
+     spd = 0;
+     speed = 0;
     }
     
 if (mood == "cutscene" &amp;&amp; distance_to_point(real(cutsceneX), real(cutsceneY)) &gt; 1)
 {
 move_towards_point(real(cutsceneX), real(cutsceneY), real(spd));
 
-if (x &gt; xprevious) {dir = "d";}
-else if (x &lt; xprevious) {dir = "a";}
-else if (y &lt; xprevious) {dir = "w";}
-else if (y &gt; xprevious) {dir = "s";}
+//if (floor(x) &gt; floor(xprevious)) {dir = "d"; show_message("");}
+//if (floor(x) &lt; floor(xprevious)) {dir = "a";}
+//if (floor(y) &lt; floor(yprevious)) {dir = "w";}
+//if (floor(y) &gt; floor(yprevious)) {dir = "s";}
 }
 else if (mood == "cutscene" &amp;&amp; distance_to_point(real(cutsceneX), real(cutsceneY)) &lt; real(spd))
     {
-     mood = "idle";
-     spd = 0;
-     speed = 0;
+   //  mood = "idle";
+  //   spd = 0;
+   //  speed = 0;
     }
 }
-/*
-if (goapRunning) 
-   {
-    draw_text(x-100,y,direction);
-   
-    math_set_epsilon(0.0001);
 
-   if (direction = 270) {if (mood = "walk") {dir = "s"; image_speed = 0.3;}}
-   if (direction = 90) {if (mood = "walk") {dir = "w"; image_speed = 0.3;}}
-   if (direction = 180) {if (mood = "walk") {dir = "a"; image_speed = 0.3;}}
-   if (direction = 0) {if (mood = "walk") {dir = "d"; image_speed = 0.3;}}
-
-   if dir="d" {if image_index &gt;=10.5 {image_index=8} if (image_index &lt; 8) {image_index = 8;}}
-   if dir="a" {if image_index &gt;7 {image_index=4} if (image_index &lt; 4) {image_index = 4;}}
-   if dir="w" {if image_index &gt;15 {image_index=12} if (image_index &lt; 12) {image_index = 12;}}
-    if dir="s" {if image_index &gt;3 {image_index=0} if (image_index &lt;= 0) {image_index = 0;}}
-
-   if dir="stand_d" {if image_index &gt;=10.5 {image_index=8} if (image_index &lt; 8) {image_index = 8;}}
-   if dir="stand_a" {if image_index &gt;7 {image_index=4} if (image_index &lt; 4) {image_index = 4;}}
-   if dir="stand_w" {if image_index &gt;15 {image_index=12} if (image_index &lt; 12) {image_index = 12;}}
-   if dir="stand_s" {image_index=0 image_speed = 0;}
-   }*/
 </string>
           </argument>
         </arguments>

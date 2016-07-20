@@ -148,7 +148,7 @@ oPlayer.vlastnost[vlastnost_stit] = min(max(0,oPlayer.vlastnost[vlastnost_stit])
      if (oPlayer.vlastnost[vlastnost_max_zivot] &gt; 0)
      {
      if (oPlayer.last_hp &lt; 0) {oPlayer.last_hp = 0;}
-     draw_sprite_part(sHUDBars,3,27,0,oPlayer.last_hp / oPlayer.vlastnost[vlastnost_max_zivot] * sprite_get_width(sHUDBars),sprite_get_height(sHUDBars),x+627,y);
+     draw_sprite_part(sHudBarsSubs,1,0,0,oPlayer.last_hp / oPlayer.vlastnost[vlastnost_max_zivot] * sprite_get_width(sHudBarsSubs),sprite_get_height(sHudBarsSubs),x+628,y+4);
      }
      draw_sprite(sHUDBars,2,x+600,y);
      draw_text(x+710,y+12,round(oPlayer.last_hp));
@@ -168,7 +168,7 @@ oPlayer.vlastnost[vlastnost_stit] = min(max(0,oPlayer.vlastnost[vlastnost_stit])
      draw_sprite(sHUDBars,11,x+600,y+30);
      if (oPlayer.vlastnost[vlastnost_max_stit] &gt; 0)
      {
-     draw_sprite_part(sHUDBars,5,27,0,oPlayer.last_stit / oPlayer.vlastnost[vlastnost_max_stit] * sprite_get_width(sHUDBars),sprite_get_height(sHUDBars),x+627,y+30);
+     draw_sprite_part(sHudBarsSubs,2,0,0,oPlayer.last_stit / oPlayer.vlastnost[vlastnost_max_stit] * sprite_get_width(sHudBarsSubs),sprite_get_height(sHudBarsSubs),x+628,y+34);
      }
      draw_text(x+710,y+42,round(oPlayer.last_stit));
      
@@ -187,7 +187,7 @@ oPlayer.vlastnost[vlastnost_stit] = min(max(0,oPlayer.vlastnost[vlastnost_stit])
      draw_sprite(sHUDBars,9,x+600,y+60);
      if (oPlayer.vlastnost[vlastnost_max_mana] &gt; 0)
      {
-     draw_sprite_part(sHUDBars,1,27,0,oPlayer.last_mana / oPlayer.vlastnost[vlastnost_max_mana] * sprite_get_width(sHUDBars),sprite_get_height(sHUDBars),x+627,y+60);
+     draw_sprite_part(sHudBarsSubs,0,0,0,oPlayer.last_mana / oPlayer.vlastnost[vlastnost_max_mana] * sprite_get_width(sHudBarsSubs),sprite_get_height(sHudBarsSubs),x+628,y+64);
      }
      draw_text(x+710,y+72,round(oPlayer.last_mana));
      
@@ -206,7 +206,7 @@ oPlayer.vlastnost[vlastnost_stit] = min(max(0,oPlayer.vlastnost[vlastnost_stit])
      draw_sprite(sHUDBars,12,x+600,y+90);
      if (oPlayer.vlastnost[vlastnost_max_stamina] &gt; 0)
      {
-     draw_sprite_part(sHUDBars,7,27,0,oPlayer.last_stamina / oPlayer.vlastnost[vlastnost_max_stamina] * sprite_get_width(sHUDBars),sprite_get_height(sHUDBars),x+627,y+90);
+     draw_sprite_part(sHudBarsSubs,3,0,0,oPlayer.last_stamina / oPlayer.vlastnost[vlastnost_max_stamina] * sprite_get_width(sHudBarsSubs),sprite_get_height(sHudBarsSubs),x+628,y+94);
      }
      draw_text(x+710,y+102,round(oPlayer.last_stamina));
 

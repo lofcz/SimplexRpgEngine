@@ -217,6 +217,7 @@
       <sprite>sprites\sController</sprite>
       <sprite>sprites\sInventory</sprite>
       <sprite>sprites\sPortraits</sprite>
+      <sprite>sprites\sprite113</sprite>
       <sprite>sprites\sShortWeapons</sprite>
       <sprite>sprites\sShortHandles</sprite>
       <sprite>sprites\sWeaponCollision</sprite>
@@ -228,6 +229,7 @@
       <sprite>sprites\sAnswerWheel</sprite>
       <sprite>sprites\sCollisionMask</sprite>
       <sprite>sprites\sInventoryMapTEMP</sprite>
+      <sprite>sprites\sHudBarsSubs</sprite>
       <sprite>sprites\sHUDBars</sprite>
       <sprite>sprites\sHealthBar</sprite>
       <sprite>sprites\sExperienceBarSubs</sprite>
@@ -338,6 +340,7 @@
         <script>scripts\playerAPI.gml</script>
         <script>scripts\drawAPI.gml</script>
         <script>scripts\enemyAPI.gml</script>
+        <script>scripts\npcAPI.gml</script>
         <script>scripts\roomCreationAPI.gml</script>
       </scripts>
       <scripts name="Common">
@@ -568,10 +571,6 @@
     </fonts>
   </fonts>
   <objects name="objects">
-    <object>objects\oTEST</object>
-    <object>objects\oTestObject</object>
-    <object>objects\oLightmap</object>
-    <object>objects\oLightCircle</object>
     <objects name="Actors">
       <object>objects\oPlayer</object>
       <objects name="Enemies">
@@ -613,6 +612,12 @@
       <object>objects\oScreenShader</object>
       <object>objects\oPause</object>
       <object>objects\oTalentMenu</object>
+      <object>objects\oLockpickingScreen</object>
+      <object>objects\oDebugCamera</object>
+      <object>objects\oTEST</object>
+      <object>objects\oLightmap</object>
+      <object>objects\oTestObject</object>
+      <object>objects\oLightCircle</object>
     </objects>
     <objects name="Dropable and items">
       <objects name="Dropable">
@@ -689,13 +694,12 @@
       <object>objects\oMainMenu</object>
       <object>objects\oMainMenuPar</object>
     </objects>
-    <object>objects\oLockpickingScreen</object>
-    <object>objects\oDebugCamera</object>
   </objects>
   <timelines name="timelines">
     <timeline>timelines\cutsceneTest</timeline>
     <timeline>timelines\ctsTestNPC1</timeline>
     <timeline>timelines\DemoCutscene</timeline>
+    <timeline>timelines\cts1</timeline>
     <timeline>timelines\MyFirstCutscene</timeline>
   </timelines>
   <rooms name="rooms">
@@ -704,8 +708,8 @@
     <room>rooms\mapMainMenu</room>
     <room>rooms\mapHolohlavy</room>
     <room>rooms\cutsceneVavrincuvKostel</room>
-    <room>rooms\mapDefault</room>
     <room>rooms\mapMyFirstGame</room>
+    <room>rooms\mapDefault</room>
     <rooms name="Game world">
       <room>rooms\mapHouse1</room>
     </rooms>

@@ -55,7 +55,7 @@ Tak jsem utekl, zavolám zpropadenou DB a ptám se, co bych ještě rád.
 Do záznamu přidám "jen tak se poflakovat (eng2)" a budu se flákat.
 */
 
-scrCutscenePlay(self, DemoCutscene, false, 1);
+scrCutscenePlay(self, cts1, false, 1);
 
 </string>
           </argument>
@@ -426,6 +426,8 @@ if (mouse_check_button_pressed(mb_left))
    event_user(12);
    }
 */
+
+draw_text(x, y - 32, "Idle image: " + string(idleImage));
 </string>
           </argument>
         </arguments>

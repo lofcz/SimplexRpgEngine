@@ -224,26 +224,3 @@ draw_primitive_end();
 
 #define draw_line_dashed
 /// draw_line_dashed(x1, y2, x2, y2)
-
-var x1, y1, x2, y2, size, dx, dy, i, yy;
-x1   = view_xview + 40;
-y1   = view_yview + 40;
-x2   = view_xview + 200;
-y2   = view_yview + 100; 
-size = 2;
-
-if (argument_count > 0) {x1 = argument[0];}
-if (argument_count > 1) {y1 = argument[1];}
-if (argument_count > 2) {x2 = argument[2];}
-if (argument_count > 3) {y2 = argument[3];}
-
-dx = x2 - x1;
-dy = y2 - y1;
-
-draw_primitive_begin(pr_pointlist);
-for (i = x1; i < x2 ; i += size) 
-    {
-        yy = (y1 + dy * (i - x1) / dx);
-        draw_vertex_colour(i, yy, c_white, 1);
-    }
-draw_primitive_end();

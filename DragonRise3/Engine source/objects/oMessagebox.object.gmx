@@ -29,7 +29,7 @@
 
 image_speed = 0;
 
-for(a = 0; a &lt; dialogue_lenght; a++) {message_head[a] = ""; message_text[a] = ""; message_head[a] = "";}
+for(a = 0; a &lt; dialogue_lenght; a++) {message_head[a] = ""; message_text[a] = ""; message_head[a] = ""; message_image[a] = -1;}
 
 alarm_set(0,1);          
 message_number  = 0;
@@ -204,7 +204,7 @@ if (effect == "fadeIn") {if (ta &lt; 1) {ta += 0.05;} else {ta = 1; effect = "fa
 if (effect == "fadeInOnly") {if (ta &gt; 0) {ta -= 0.05;} else {ta = 1; pos = 1; message_current++; effect = "false";}}
 if (effect == "fadeInOnlyNoNext") {if (ta &lt; 1) {ta += 0.05;} else {ta = 1; effect = "false";}}
 
-if (instance_number(oInventory) &gt; 0) {oInventory.draw = 0;}
+if (instance_number(oInventory) &gt; 0) {oInventory.draw_inventory = 0;}
 
 if (bac_alpha &lt; 0.3 &amp;&amp; draw) {bac_alpha += 0.01;}
 clr(c_black,bac_alpha);
@@ -212,7 +212,7 @@ draw_rectangle_colour(view_xview,view_yview,view_xview+1024,view_yview+768,c_bla
 clr();
 
 draw_self();
-if (message_index[message_current] != -1) {draw_sprite_ext(sPortraits,message_index[message_current],x,y,1,1,0,c_white,image_alpha); }
+if (message_image[message_current] != -1) {draw_sprite_ext(sPortraits,message_image[message_current],x,y+32,1,1,0,c_white,image_alpha); }
 draw_sprite_ext(sprite_index,1,x,y,1,1,0,c_white,image_alpha);
 
 

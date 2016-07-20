@@ -38,15 +38,21 @@ freeCamera = false;
 lockedPosX = -1;
 lockedPosY = -1;
 selectedTool = 0;
+subtool = 0;
 tool[0] = "camera";
 tool[1] = "cutsceneMaker";
 
 toolText[0] = "Plovoucí kamera";
 toolText[1] = "Tvorba cutscén";
+
+subtoolText[0, 0] = "";
+subtoolText[1, 0] = "Tvorba cesty";
+subtoolText[1, 1] = "Nastavení rychlosti";
 alarm[0] = 1;
 
 listX = ds_list_create();
 listY = ds_list_create();
+listSpeed = ds_list_create();
 
 if (instance_number(oPlayer) &gt; 0) {target = oPlayer;}
 
@@ -55,6 +61,33 @@ if (room = cutsceneVavrincuvKostel)     {target = oVavrinecCutscene;}
 if (room = cutscenePoustevnikovaPesina) {target = oObet;}
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Free memory
+
+ds_list_destroy(listX);
+ds_list_destroy(listY);
+ds_list_destroy(listSpeed);
 </string>
           </argument>
         </arguments>
@@ -85,7 +118,7 @@ x = oPlayer.x;
 y = oPlayer.y;
 }
 
-target = oTestNpc2;
+//target = oTestNpc2;
 </string>
           </argument>
         </arguments>
@@ -211,7 +244,7 @@ if (keyboard_check_pressed(ord("H")))
         
         for (i = 0; i &lt; ds_list_size(listX); i++)
             {
-             file_text_write_string(file, "CP:" + string(listX[| i ]) + "," + string(listY[| i ]));  
+             file_text_write_string(file, "CP:" + string(listX[| i ]) + "," + string(listY[| i ]) + "," + string(listSpeed[| i ]));  
              file_text_writeln(file);           
             }
         file_text_close(file);
@@ -260,7 +293,10 @@ if (debug)
          draw_rectangle_colour(posX, posY, posX + 32, posY + 32, c_blue, c_blue, c_blue, c_blue, false);   
          alg("center");
          clr(c_black, 0.8);
-         draw_text(posX + 16, posY + 16, string(i));   
+         fnt();
+         draw_text(posX + 16, posY + 16, string(i));
+         fnt(fntPixelTiny);   
+         draw_text(posX + 16, posY + 24, string(listSpeed[| i]));
          alg();  
         }
     
@@ -287,11 +323,15 @@ if (debug)
     // Cutscene maker
     if (selectedTool == 1)
     {
+    if (subtool == 0)
+    {
     if (mouse_check_button_pressed(mb_left))
         {
          ds_list_add(listX, mouse_x div 32 * 32);
          ds_list_add(listY, mouse_y div 32 * 32);
+         ds_list_add(listSpeed, 4);
         }
+    }    
     }
     
     }

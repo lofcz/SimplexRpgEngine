@@ -198,16 +198,27 @@ draw_set_font(fntPixel);
 draw_set_halign(fa_left);
 
 
-
-
+fnt(fntPixel);
+if (string_width(polozka[1]) &gt; 256) {fnt(fntPixelSmall);} else {fnt(fntPixel);}
 draw_text_colour(x+130,y-12,polozka[1],c[1],c[1],c[1],c[1],1);
+fnt(fntPixel);
+if (string_width(polozka[2]) &gt; 256) {fnt(fntPixelSmall);} else {fnt(fntPixel);}
 draw_text_colour(x+150,y+52,polozka[2],c[2],c[2],c[2],c[2],1);
+fnt(fntPixel);
+if (string_width(polozka[3]) &gt; 256) {fnt(fntPixelSmall);} else {fnt(fntPixel);}
 draw_text_colour(x+130,y+115,polozka[3],c[3],c[3],c[3],c[3],1);
+fnt(fntPixel);
 
 draw_set_halign(fa_right);
+if (string_width(polozka[0]) &gt; 256) {fnt(fntPixelSmall);} else {fnt(fntPixel);}
 draw_text_colour(x+10,y-12,polozka[0],c[0],c[0],c[0],c[0],1);
+fnt(fntPixel);
+if (string_width(polozka[5]) &gt; 256) {fnt(fntPixelSmall);} else {fnt(fntPixel);}
 draw_text_colour(x-20,y+52,polozka[5],c[5],c[5],c[5],c[5],1);
+fnt(fntPixel);
+if (string_width(polozka[4]) &gt; 256) {fnt(fntPixelSmall);} else {fnt(fntPixel);}
 draw_text_colour(x+10,y+115,polozka[4],c[4],c[4],c[4],c[4],1);
+fnt(fntPixel);
 draw_set_halign(fa_left);
 }
 else {if (oMessagebox.pos &gt;= string_length(oMessagebox.message_text[oMessagebox.message_current])) {cd = 1}}
