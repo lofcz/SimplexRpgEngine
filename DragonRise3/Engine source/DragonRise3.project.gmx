@@ -220,6 +220,7 @@
       <sprite>sprites\sprite113</sprite>
       <sprite>sprites\sShortWeapons</sprite>
       <sprite>sprites\sShortHandles</sprite>
+      <sprite>sprites\sStatus</sprite>
       <sprite>sprites\sWeaponCollision</sprite>
       <sprite>sprites\sPlayer</sprite>
       <sprite>sprites\sEquipment</sprite>
@@ -271,6 +272,7 @@
       <sprite>sprites\sprite10</sprite>
       <sprite>sprites\sprite40</sprite>
       <sprite>sprites\sButterfly</sprite>
+      <sprite>sprites\sprite115</sprite>
       <sprite>sprites\sprite38</sprite>
     </sprites>
     <sprite>sprites\sprite60</sprite>
@@ -280,6 +282,7 @@
     <sprite>sprites\sManaPoolCollision</sprite>
     <sprite>sprites\sBestiary</sprite>
     <sprite>sprites\sEquipmentIcons</sprite>
+    <sprite>sprites\sCrafting</sprite>
     <sprite>sprites\sBestiar</sprite>
     <sprite>sprites\sLightmapCircle</sprite>
     <sprite>sprites\sCoinAnimated</sprite>
@@ -302,6 +305,7 @@
     <sprite>sprites\sprite110</sprite>
     <sprite>sprites\sprite111</sprite>
     <sprite>sprites\sSwordSwing</sprite>
+    <sprite>sprites\sprite116_Recon1_zps6e9a49c7</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -529,6 +533,16 @@
         <script>scripts\scrLockpickingAddTumblerCombination.gml</script>
         <script>scripts\scrLockpickingDraw.gml</script>
         <script>scripts\scrLockpickingIni.gml</script>
+      </scripts>
+      <scripts name="Trails">
+        <script>scripts\scrTrailUpdate.gml</script>
+        <script>scripts\scrTrailAddLine.gml</script>
+        <script>scripts\scrTrailDrift.gml</script>
+        <script>scripts\scrTrailScatter.gml</script>
+        <script>scripts\scrTrailDraw.gml</script>
+        <script>scripts\scrTrailDestroy.gml</script>
+        <script>scripts\scrTrailSetUp.gml</script>
+        <script>scripts\scrTrailCreate.gml</script>
       </scripts>
     </scripts>
   </scripts>

@@ -170,7 +170,6 @@ global.shaders_enabled = 1;</code>
     <instance objName="oNonsolidCollision" x="688" y="208" name="inst_9F95BB15" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3);&#xA;" scaleX="0.375" scaleY="0.375" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="592" y="176" name="inst_1752AE0E" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3);&#xA;" scaleX="0.375" scaleY="0.375" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="528" y="80" name="inst_071830B1" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3);" scaleX="0.625" scaleY="0.625" colour="4294967295" rotation="0"/>
-    <instance objName="oDebugCamera" x="240" y="544" name="inst_1E8A9F49" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oPerlinWater" x="1664" y="1584" name="inst_372DC6F8" locked="0" code="strenghtVal = 150;&#xA;" scaleX="1" scaleY="0.5" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>

@@ -675,14 +675,34 @@ if (instance_number(oPlayer) > 0)
 { 
 if (oPlayer.can_move2)
 {
-if (keyboard_check_pressed(ord("I")))
+if (keyboard_check_pressed(ord("I")) && oHUD.iconActive[hudIcons.inventory])
 {
 draw_inventory = !draw_inventory;
 hover_alpha = 0;
+
+if (draw_inventory)
+{
+oHUD.iconActive[hudIcons.crafting]  = true;
+oHUD.iconActive[hudIcons.equipment] = true;
+oHUD.iconActive[hudIcons.quest]     = false;
+oHUD.iconActive[hudIcons.status]    = false;
+if (oHUD.draw_equipment) {draw_equipment = true; oHUD.scale_equipment = 1}
+}
+else
+{
+oHUD.iconActive[hudIcons.crafting]  = false;
+oHUD.iconActive[hudIcons.equipment] = false;
+oHUD.iconActive[hudIcons.quest]     = true;
+oHUD.iconActive[hudIcons.status]    = true;
+draw_equipment = false;
+//oHUD.iconActive[hudIcons.equipment] = false;
+//oHUD.scale_equipment = 1;
+}
+
 } 
 if (keyboard_check_pressed(ord("O")))
 {
-draw_equipment = !draw_equipment;
+//draw_equipment = !draw_equipment;
 } 
 if (keyboard_check_pressed(ord("Q")))
 {
@@ -704,9 +724,13 @@ inventoryDraw();
 
 if (draw = 1)
      {
-     if (effect_scale < 1.2 && draw_inventory = 1) {effect_scale += 0.02;}
-     draw_sprite_ext(sprite_index,0,view_xview+48+16,view_yview+560+16,effect_scale,effect_scale,0,c_black,0.7);
-     draw_sprite(sprite_index,-1,view_xview+48+16,view_yview+560+16)
+     if (effect_scale < 1.2 && draw_inventory) {effect_scale += 0.02;}
+     
+     tempAlpha = min(0.7, oHUD.iconAlpha[hudIcons.inventory]);
+     if (oHUD.iconAlpha[hudIcons.inventory] < 1) {tempAlpha = 0;}    
+     draw_sprite_ext(sprite_index,0,view_xview+48+16,view_yview+560+16,effect_scale,effect_scale,0,c_black,tempAlpha);
+    
+      draw_sprite_ext(sprite_index,-1,view_xview+48+16,view_yview+560+16, oHUD.iconAlpha[hudIcons.inventory],  oHUD.iconAlpha[hudIcons.inventory],  0, c_white, oHUD.iconAlpha[hudIcons.inventory])
      }
-     if (effect_scale > 1 && draw_inventory = 0) {effect_scale -= 0.02;}
+     if (effect_scale > 1 && !draw_inventory) {effect_scale -= 0.02;}
  
