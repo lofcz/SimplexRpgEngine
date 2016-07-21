@@ -41,13 +41,16 @@ selectedTool = 0;
 subtool = 0;
 tool[0] = "camera";
 tool[1] = "cutsceneMaker";
+tool[2] = "propertiesEditor";
 
 toolText[0] = "Plovoucí kamera";
 toolText[1] = "Tvorba cutscén";
+toolText[2] = "Úprava vlastností";
 
 subtoolText[0, 0] = "";
 subtoolText[1, 0] = "Tvorba cesty";
 subtoolText[1, 1] = "Nastavení rychlosti";
+subtoolText[2, 0] = "Úprava hodnoty";
 alarm[0] = 1;
 
 listX = ds_list_create();
@@ -330,6 +333,34 @@ if (debug)
          ds_list_add(listX, mouse_x div 32 * 32);
          ds_list_add(listY, mouse_y div 32 * 32);
          ds_list_add(listSpeed, 4);
+        }
+    }    
+    }
+    
+    // Properties
+    if (selectedTool == 2)
+    {
+    if (subtool == 0)
+    {
+    if (mouse_check_button_pressed(mb_left))
+        {
+          if (instance_place(mouse_x, mouse_y, oPerlinWater) != noone)
+          {
+            var i;
+            i = instance_place(mouse_x, mouse_y, oPerlinWater);
+            
+            i.strenghtVal += 20;
+          }
+        }
+        if (mouse_check_button_pressed(mb_right))
+        {
+          if (instance_place(mouse_x, mouse_y, oPerlinWater) != noone)
+          {
+            var i;
+            i = instance_place(mouse_x, mouse_y, oPerlinWater);
+            
+            i.strenghtVal -= 20;
+          }
         }
     }    
     }

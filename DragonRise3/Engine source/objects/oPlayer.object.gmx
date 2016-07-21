@@ -183,6 +183,8 @@ statusColorList   = ds_list_create();
 statusNList       = ds_list_create();
 
 testStatus = 0;
+
+time = 0;
 </string>
           </argument>
         </arguments>
@@ -295,6 +297,7 @@ apiPlayerMoveStand();
 if (load &gt; 0) {load -- } else {load = -1; event_user(0);}
 apiPlayerMove();
 temp_rychlost = ((rychlost / 100) * parrySlowdown);    
+time+=0.02;;
     
 cyber_r ++;
 //surface_set_target(surface);

@@ -52,6 +52,12 @@ amountThermalVar = 1;
 amountSketchUni = shader_get_uniform(shdSketch,"intensity");
 resolutionSkecthUni  = shader_get_uniform(shdSketch,"resolution");
 amountSketchVar = 1;
+
+// Confusion
+timeConfusion = shader_get_uniform(shdConfusion, "time");
+alphaConfusion = shader_get_uniform(shdConfusion, "maxAlpha");
+alphaConfusionVal = 0.2;
+mode = 0;
 </string>
           </argument>
         </arguments>
@@ -80,7 +86,7 @@ clr();
 
 if (mouse_wheel_up()) {shader_active++;}
 if (mouse_wheel_down()) {shader_active--;}
-/*
+
 // Grayscale
 if (shader_active = shaderGrayscale)
    {
@@ -144,10 +150,24 @@ if (shader_active = shaderSketch)
    
    if (mouse_check_button(mb_left)) {amountSketchVar = 1;}
    if (amountSketchVar &gt; 0) {amountSketchVar -= 0.005;}
-   }   
+   }  
+   
+// Confusion
+if (shader_active = shaderConfusion)
+   {
+   shader_set(shdConfusion);
+   shader_set_uniform_f(timeConfusion, oPlayer.time);
+   shader_set_uniform_f(alphaConfusion,alphaConfusionVal);
+   draw_surface(application_surface,0,0);
+   
+    if (mode = 1) {if (alphaConfusionVal &gt; 0) {alphaConfusionVal -= 0.005;}}
+       if (mouse_check_button(mb_left)) {mode = 0;}
+       if (mode = 0) {if (alphaConfusionVal &lt; 0.2) {alphaConfusionVal += 0.005;} else {mode = 1;}}
+   shader_reset();
+   }    
    
 draw_text(300,100,"Shader active: " + string(shader_active));
-*/
+
 
 </string>
           </argument>

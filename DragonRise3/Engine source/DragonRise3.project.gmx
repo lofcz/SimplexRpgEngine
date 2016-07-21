@@ -548,6 +548,8 @@
     <shaders name="Lightmap">
       <shader type="GLSLES">shaders\shdLightmap.shader</shader>
     </shaders>
+    <shader type="GLSLES">shaders\shdConfusion.shader</shader>
+    <shader type="GLSLES">shaders\shdPerlinNoiseWater.shader</shader>
   </shaders>
   <fonts name="fonts">
     <fonts name="Standard game fonts">
@@ -654,6 +656,7 @@
       <objects name="Other obstacles">
         <object>objects\oManaPool</object>
         <object>objects\oWater</object>
+        <object>objects\oPerlinWater</object>
         <object>objects\oSimpleWater</object>
       </objects>
       <objects name="Containers">
@@ -714,10 +717,11 @@
       <room>rooms\mapHouse1</room>
     </rooms>
   </rooms>
-  <constants number="169">
+  <constants number="170">
     <constant name="cStaticInstance">"staticInstance"</constant>
     <constant name="lightmap_y">1</constant>
     <constant name="lightmap_x">0</constant>
+    <constant name="shaderConfusion">6</constant>
     <constant name="shaderSketch">5</constant>
     <constant name="shaderThermal">4</constant>
     <constant name="shaderJrpg">3</constant>
