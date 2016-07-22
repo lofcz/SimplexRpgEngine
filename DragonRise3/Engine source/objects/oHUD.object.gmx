@@ -55,6 +55,15 @@ draw_status     = 0;
 scale_status    = 1;
 spellsxPlus     = 16;
 expxPlus        = 8;
+craftingTitle   = "Výroba";
+craftingMenuAlpha = 1;
+craftingMenuIndex[0] = "Vytvořit předmět";
+craftingMenuIndex[1] = "Vylepšit předmět";
+craftingMenuIndex[2] = "Zušlechtit materiál";
+drawCraftingMenu = 1;
+craftingSelectedIndex = -1;
+selectedIndexY = -1;
+
 
 iconActive[hudIcons.bestiary]  = true;
 iconActive[hudIcons.inventory] = true;
@@ -429,6 +438,10 @@ oPlayer.vlastnost[vlastnost_stit] = min(max(0,oPlayer.vlastnost[vlastnost_stit])
         draw_bestiary = ! draw_bestiary;
         if (instance_number(oBestiar) &gt; 0) {oBestiar.activated = !oBestiar.activated;}
         }                  
+        
+// Draw crafting
+if (draw_crafting) {scrCraftingDraw();}
+
 }
    
 if (oPlayer.last_hp &lt;= 0) { die = 1; oPlayer.can_move2 = 0;}     

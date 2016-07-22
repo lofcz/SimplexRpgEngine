@@ -301,6 +301,7 @@
     <sprite>sprites\sprite102</sprite>
     <sprite>sprites\sAffects</sprite>
     <sprite>sprites\sParticleGrass</sprite>
+    <sprite>sprites\sSeaWater</sprite>
     <sprite>sprites\sSamplerGreen</sprite>
     <sprite>sprites\sprite110</sprite>
     <sprite>sprites\sprite111</sprite>
@@ -544,6 +545,9 @@
         <script>scripts\scrTrailSetUp.gml</script>
         <script>scripts\scrTrailCreate.gml</script>
       </scripts>
+      <scripts name="Crafting">
+        <script>scripts\scrCraftingDraw.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -563,6 +567,8 @@
       <shader type="GLSLES">shaders\shdLightmap.shader</shader>
     </shaders>
     <shader type="GLSLES">shaders\shdConfusion.shader</shader>
+    <shader type="GLSLES">shaders\shdOverlight.shader</shader>
+    <shader type="GLSLES">shaders\shdSeaWater.shader</shader>
     <shader type="GLSLES">shaders\shdPerlinNoiseWater.shader</shader>
   </shaders>
   <fonts name="fonts">
@@ -671,6 +677,7 @@
         <object>objects\oManaPool</object>
         <object>objects\oWater</object>
         <object>objects\oPerlinWater</object>
+        <object>objects\oSeaWater</object>
         <object>objects\oSimpleWater</object>
       </objects>
       <objects name="Containers">
@@ -731,10 +738,11 @@
       <room>rooms\mapHouse1</room>
     </rooms>
   </rooms>
-  <constants number="170">
+  <constants number="171">
     <constant name="cStaticInstance">"staticInstance"</constant>
     <constant name="lightmap_y">1</constant>
     <constant name="lightmap_x">0</constant>
+    <constant name="shaderOverlight">7</constant>
     <constant name="shaderConfusion">6</constant>
     <constant name="shaderSketch">5</constant>
     <constant name="shaderThermal">4</constant>

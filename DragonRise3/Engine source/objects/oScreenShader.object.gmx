@@ -58,6 +58,12 @@ timeConfusion = shader_get_uniform(shdConfusion, "time");
 alphaConfusion = shader_get_uniform(shdConfusion, "maxAlpha");
 alphaConfusionVal = 0.2;
 mode = 0;
+
+// overlight
+overlightTime = shader_get_uniform(shdOverlight, "iGlobalTime");
+overlightRes  = shader_get_uniform(shdOverlight, "iResolution");
+
+
 </string>
           </argument>
         </arguments>
@@ -164,7 +170,16 @@ if (shader_active = shaderConfusion)
        if (mouse_check_button(mb_left)) {mode = 0;}
        if (mode = 0) {if (alphaConfusionVal &lt; 0.2) {alphaConfusionVal += 0.005;} else {mode = 1;}}
    shader_reset();
-   }    
+   }   
+   
+if (shader_active = shaderOverlight)
+   { 
+      shader_set(shdOverlight);
+      shader_set_uniform_f(overlightTime, oPlayer.time);
+      shader_set_uniform_f(overlightRes, 800, 600);
+      draw_surface(application_surface,0,0);   
+      shader_reset();
+   }
    
 draw_text(300,100,"Shader active: " + string(shader_active));
 
