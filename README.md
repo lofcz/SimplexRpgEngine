@@ -11,6 +11,7 @@ Top-on-GMS engine, umožňující rapidní vývoj moderních RPG her. Vhodný pr
 * Pokročilé efekty - GLSL / HLSL shadery, 2D fyzika, sprite exploze, počasí, střídání dne a noci...
 * Zcela zdarma, otevřený zrojový kód, MIT licence.
 * Možnost integrace do stávajících GMS projektů.
+* Libovolné rozlišení hry, responsivní UI layout.
 * Poráží RPG Maker a YOYO RPG v každém směru.
 
 ![](https://s32.postimg.org/ax2xymtw5/Bezejmenn.png)
