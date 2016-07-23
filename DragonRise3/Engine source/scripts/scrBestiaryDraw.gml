@@ -7,8 +7,9 @@ if (!activated) {if (activated_x < 0) {activated_x += activated_speed} else {act
 
 if (activated_x < -256 && activated) {activated_x = -256;}
 
-v_x  = view_xview+800+activated_x;
-v_y  = view_yview+155;  
+
+v_x  = (view_xview + view_wview[0] + activated_x);
+v_y  = (view_yview + 155);  
 pass = 0;
 
 draw_sprite(sBestiar,0,v_x,v_y);

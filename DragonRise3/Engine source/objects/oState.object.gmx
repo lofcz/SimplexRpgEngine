@@ -103,7 +103,7 @@ instance_destroy();
             <kind>1</kind>
             <string>/// Draw log
 
-stateDraw(view_xview, view_yview + 480, 5);
+stateDraw(view_xview, view_yview + 480 + oHUD.yoffset, 5);
 </string>
           </argument>
         </arguments>

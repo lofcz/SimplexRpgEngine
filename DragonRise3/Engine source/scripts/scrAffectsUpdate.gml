@@ -55,7 +55,7 @@ for (i = 0; i < ds_list_size(oPlayer.statusList) i++)
         }             
           
       // Draw before deleteion to avoid is_undefinied usage
-      xxx   = xx + ((i * offset) - ((i div lineN) * (lineN * offset)));
+      xxx   = xx + ((i * offset) - ((i div lineN) * (lineN * offset)) + oHUD.normalxoffset);
       yyy   = yy + ((i div lineN) * offset);     
       scale =  oPlayer.statusScaleList[| i];
       al    = oPlayer.statusAlphaList[| i ];

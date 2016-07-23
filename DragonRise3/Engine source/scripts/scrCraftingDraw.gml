@@ -234,5 +234,48 @@ else
             
             scrCraftingDB(craftingEnum.craftCraft, craftingSelectedItem);            
           }
+          
+       // Crafting details form - Upgrade item
+         if (craftingSelectedIndex == 1 && craftingHelper == -1 && !craftingDetails)
+            {
+             tempX = xpos;
+             tempY = ypos + 96; 
+             color = c_white;
+                        
+             if (oInventory.drag = 1 && oInventory.equip_sprite_s[3] = materialEnum.materialNone)
+                {
+                 color = c_lime;
+                }
+             
+             // Draw slot for item to be upgraded      
+             clr(color, 0.1);
+             draw_roundrect(tempX + 96, tempY, tempX + 128, tempY + 32, false);
+             clr();
+             draw_roundrect(tempX + 96, tempY, tempX + 128, tempY + 32, true);
+             
+             if (upgradingItemSprite > 0) {draw_sprite(sTestItem, upgradingItemSprite, tempX + 96, tempY);}
+             
+             if (mouse_in(tempX + 96, tempX + 128, tempY, tempY + 32) && color == c_lime)
+                {
+                  // Put in
+                  if (mouse_check_button_released(mb_left) && upgradingItemID = -1)
+                     {
+                      oInventory.pre_switch                               = true;
+                      oInventory.draw_item_mouse                          = false;
+                      oInventory.slot[oInventory.h_c, inv_item_beingUsed] = true;
+                      upgradingItemID                                     = oInventory.equip_sprite_s[6];
+                      upgradingItemSlotID                                 = oInventory.h_c;
+                      upgradingItemSprite                                 = oInventory.equip_sprite_s[1];
+                     }
+                 
+                  // Take out
+                  if (mouse_check_button_pressed(mb_left) && upgradingItemID != -1)
+                    {
+                     upgradingItemSprite = 0;  
+                     upgradingItemID     = -1;                   
+                    }
+                }      
+                  
+            }       
 
 }

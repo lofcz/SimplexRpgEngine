@@ -419,7 +419,7 @@
     <option_quitkey>true</option_quitkey>
     <option_resolution>0</option_resolution>
     <option_savekey>true</option_savekey>
-    <option_scale>-1</option_scale>
+    <option_scale>0</option_scale>
     <option_scaleprogress>true</option_scaleprogress>
     <option_sci_UseSCI>0</option_sci_UseSCI>
     <option_sci_serverLocation></option_sci_serverLocation>
@@ -428,7 +428,7 @@
     <option_shortcircuit>True</option_shortcircuit>
     <option_showcursor>True</option_showcursor>
     <option_showprogress>1</option_showprogress>
-    <option_sizeable>False</option_sizeable>
+    <option_sizeable>True</option_sizeable>
     <option_stayontop>false</option_stayontop>
     <option_sync_vertex>0</option_sync_vertex>
     <option_textureGroup0_border>2</option_textureGroup0_border>

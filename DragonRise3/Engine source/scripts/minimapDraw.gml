@@ -7,8 +7,8 @@ y1       = 0;
 x2       = zoom_x;
 y2       = zoom_y;
 m_alpha  = 1;
-x        = view_xview+(800-width);
-y        = view_yview+(600-height);
+x        = view_xview+(view_wview - width);
+y        = view_yview+(view_hview - height);
 
 if (instance_number(oPlayer) > 0)
    { 

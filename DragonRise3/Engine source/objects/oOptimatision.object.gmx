@@ -55,7 +55,7 @@ alarm[0] = 2;
 alarm[0] = 5;
 
 instance_activate_all();
-instance_deactivate_region(view_xview-200,view_yview-200,1200,1000,0,1);
+instance_deactivate_region(view_xview-200,view_yview-200,1200 + (view_wview - 800),1000 + (view_hview + 600),0,1);
 
 instance_activate_object(oController);
 instance_activate_object(oInventory);

@@ -4,7 +4,7 @@ var e;
 e  = 5;
 
 x  = view_xview;
-y  = view_yview+500;
+y  = (view_yview + 500 + oHUD.yoffset);
 
 if (argument_count > 0) {x = argument[0];}
 if (argument_count > 1) {y = argument[1];}

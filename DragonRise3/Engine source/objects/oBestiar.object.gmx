@@ -154,8 +154,8 @@ unlocked[1] = 1;
 
 //scrBestiaryDraw();
 
-x = view_xview + 800;
-y = view_yview + 150;
+x = (view_xview + view_wview);
+y = (view_yview + 150);
 
 // Computations
 nX    = (x - drawX);
