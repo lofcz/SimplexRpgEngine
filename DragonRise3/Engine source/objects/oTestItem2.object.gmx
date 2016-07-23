@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>/// Initialize item
 scrItemSetUp(0,0)
-scrItemBasic(2);
+scrItemBasic(itemEnum.itemPearlRed);
 
 //****** Object settings **********
 image_index = 1;
@@ -42,6 +42,7 @@ itm_info_head           = "Nice, shit item";
 itm_options[0]          = "Super option1";
 itm_options[1]          = "Shit option1";
 itm_sprite_number       = 1;
+itm_materialType        = materialEnum.materialWood;
 
 
 //*********************************

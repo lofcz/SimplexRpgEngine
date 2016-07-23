@@ -282,6 +282,7 @@
     <sprite>sprites\sManaPoolCollision</sprite>
     <sprite>sprites\sBestiary</sprite>
     <sprite>sprites\sEquipmentIcons</sprite>
+    <sprite>sprites\sCraftingIcons</sprite>
     <sprite>sprites\sCrafting</sprite>
     <sprite>sprites\sBestiar</sprite>
     <sprite>sprites\sLightmapCircle</sprite>
@@ -425,6 +426,7 @@
         <script>scripts\itemAddSlotDescription.gml</script>
         <script>scripts\scrCreateItem.gml</script>
         <script>scripts\scrItemInstantiate.gml</script>
+        <script>scripts\itemDbEnum.gml</script>
         <script>scripts\scrValueIndex.gml</script>
       </scripts>
       <scripts name="Equipment">
@@ -546,6 +548,8 @@
         <script>scripts\scrTrailCreate.gml</script>
       </scripts>
       <scripts name="Crafting">
+        <script>scripts\scrCraftingSetItemKnown.gml</script>
+        <script>scripts\scrCraftingDB.gml</script>
         <script>scripts\scrCraftingDraw.gml</script>
       </scripts>
     </scripts>
@@ -650,6 +654,7 @@
       <objects name="Items">
         <object>objects\oGold</object>
         <object>objects\oTestItem2</object>
+        <object>objects\oMaterialGreenGem</object>
         <object>objects\oKalokvet</object>
         <object>objects\oBasicItem</object>
         <object>objects\oTestItem3</object>
@@ -738,7 +743,7 @@
       <room>rooms\mapHouse1</room>
     </rooms>
   </rooms>
-  <constants number="171">
+  <constants number="175">
     <constant name="cStaticInstance">"staticInstance"</constant>
     <constant name="lightmap_y">1</constant>
     <constant name="lightmap_x">0</constant>
@@ -780,7 +785,9 @@
     <constant name="quest_finish">2</constant>
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
-    <constant name="celkem_vlastnosti">58</constant>
+    <constant name="celkem_vlastnosti">60</constant>
+    <constant name="vlastnost_bonusove_poskozeni_vuci_zviratum">59</constant>
+    <constant name="vlastnost_stackSezehnuti">58</constant>
     <constant name="vlastnost_stesti">57</constant>
     <constant name="vlastnost_parry_cost">56</constant>
     <constant name="vlastnost_lov">55</constant>
@@ -893,6 +900,8 @@
     <constant name="rarity_fine">c_aqua</constant>
     <constant name="rarity_normal">c_black</constant>
     <constant name="rarity_junk">c_dkgray</constant>
+    <constant name="inv_item_beingUsed">15</constant>
+    <constant name="inv_item_materialType">14</constant>
     <constant name="inv_item_star">13</constant>
     <constant name="inv_item_equip_slot">12</constant>
     <constant name="inv_item_sound">11</constant>
@@ -908,7 +917,7 @@
     <constant name="inv_number">1</constant>
     <constant name="inv_id">0</constant>
     <constant name="mInventoryID">0</constant>
-    <constant name="inv_atributes_total">14</constant>
+    <constant name="inv_atributes_total">16</constant>
     <constant name="event_user_destroy">0</constant>
   </constants>
   <help>

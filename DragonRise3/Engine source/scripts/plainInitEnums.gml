@@ -24,3 +24,13 @@ enum hudIcons
 {
 bestiary, inventory, quest, crafting, equipment, status
 }
+
+enum craftingEnum
+{
+craftCraft, craftInfo
+}
+
+enum materialEnum
+{
+materialNone, materialMetal, materialWood, materialHerb
+}

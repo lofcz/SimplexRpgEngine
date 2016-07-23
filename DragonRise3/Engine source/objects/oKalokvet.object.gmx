@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>/// Initialize item
 scrItemSetUp(0,0)
-scrItemBasic(4);
+scrItemBasic(itemEnum.itemHerbKalokvet);
 
 //****** Object settings **********
 image_index = 4;

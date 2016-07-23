@@ -181,7 +181,7 @@ if (shader_active = shaderOverlight)
       shader_reset();
    }
    
-draw_text(300,100,"Shader active: " + string(shader_active));
+draw_text(600,400,"Shader active: " + string(shader_active));
 
 
 </string>

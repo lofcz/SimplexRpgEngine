@@ -28,7 +28,7 @@
             <string>/// Set up
 
 itm_stackable             = 0;
-itm_id                    = 0;
+itm_id                    = itemEnum.itemBasicItem;
 itm_number                = 1;
 itm_sprite_number         = 0;
 itm_sprite                = sTestItem;

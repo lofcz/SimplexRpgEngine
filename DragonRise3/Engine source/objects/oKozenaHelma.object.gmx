@@ -28,7 +28,7 @@
             <string>/// Initialize item
 
 scrItemSetUp(0,0);
-scrItemBasic(5);
+scrItemBasic(itemEnum.itemHelmetLeather);
 
 //*********** Prefix **************
 image_index = 5;

@@ -61,14 +61,15 @@ for (a = (currentPage*slotsPerPage); a < min(array_height_2d(slot), ((currentPag
                                                                                           //draw_text(xx,yy,slot[0,inv_slot_stackable]);
  draw_sprite(sRarityEffect,itemRarityEffect(slot[a,inv_item_effect]),xx,yy); 
  draw_sprite(slot[a,inv_sprite],slot[a,inv_sprite_number],xx,yy);
- //draw_text(xx,yy,slot[a,inv_id]); 
-                                                                                          //  draw_text(xx,yy,slot[a,inv_item_equip_slot]);
+ //draw_text(xx,yy,slot[a,inv_id]);                                                                //  draw_text(xx,yy,slot[a,inv_item_equip_slot]);
                                                                                    
  
  if (slot[a,inv_slot_stackable] = 1)
     {
      scrValueIndex(slot[a,inv_number],a);
     }
+    
+   if (slot[a,inv_item_beingUsed]) {clr(c_black, 0.5); draw_rectangle(xx, yy, xx + 32, yy + 32, false); clr();}     
 
    if (!proceed)
   { 
@@ -195,7 +196,7 @@ clr();
         h_dec_x = view_xview;
         h_dec_y = view_yview;        
         }
-        if (mouse_check_button_pressed(mb_left) && drag = 0 && proceed = 0 && slot[hover_id,inv_id] != 0)
+        if (mouse_check_button_pressed(mb_left) && drag = 0 && proceed = 0 && slot[hover_id,inv_id] != 0 && !slot[hover_id, inv_item_beingUsed])
            {
             h_c = hover_id;
             drag = 1;
@@ -215,7 +216,11 @@ clr();
              if (a = inv_sprite) {equip_sprite_s[0] = slot[hover_id,a]; }
              if (a = inv_sprite_number) {equip_sprite_s[1] = slot[hover_id,a]; }
              if (a = inv_item_effect) {equip_sprite_s[2] = slot[hover_id,a]; }
-             if (a = inv_id) {use_this_id = a;}
+             if (a = inv_item_materialType) {equip_sprite_s[3] = slot[hover_id,a]; }
+             if (a = inv_item_beingUsed) {equip_sprite_s[4] = slot[hover_id,a]; }
+             if (a = inv_number) {equip_sprite_s[5] = slot[hover_id,a]; }
+             
+             if (a = inv_id) {use_this_id = a; equip_sprite_s[6] = slot[hover_id,a];}
            
              
                 if(a!= inv_item_info_head && a!= inv_item_info_text && a!= inv_options && a!= inv_item_equip_slot)
@@ -259,7 +264,7 @@ clr();
              
                 if(a!= inv_item_info_head && a!= inv_item_info_text && a!= inv_options && a!= inv_item_equip_slot)
                    {
-                   slot[hover_id,a] = 0;
+                   slot[hover_id,a] = 0; 
                    }
                    else {slot[hover_id,a] = "";}     
                   
@@ -310,7 +315,7 @@ clr();
                     
                    for (a = 0; a<inv_atributes_total; a++)
                    {           
-                   slot[switch_slot,a] = switch_temp[0,a];      
+                   if (a!= inv_item_beingUsed) { slot[switch_slot,a] = switch_temp[0,a]; }     
                    }
          
                 
@@ -377,6 +382,16 @@ for(a = 0; a < celkem_vlastnosti; a++)
           {
            switch(a)
                     {
+                    case(vlastnost_bonusove_poskozeni_vuci_zviratum):
+                         {
+                           t_text += "#Poškození vůči zvířatům: "+string(slot_vlastnosti[f,a]) + "%";
+                           break;                                                                   
+                         }
+                    case(vlastnost_stackSezehnuti):
+                         {
+                           t_text += "#Šance na sežehnutí při zásahu: "+string(slot_vlastnosti[f,a]) + "%";
+                           break;                                                                   
+                         }
                      case(vlastnost_poskozeni):
                          {
                            t_text += "#Poškození: "+string(slot_vlastnosti[f,a]);

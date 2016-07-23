@@ -55,14 +55,40 @@ draw_status     = 0;
 scale_status    = 1;
 spellsxPlus     = 16;
 expxPlus        = 8;
+craftingHelper  = -1;
 craftingTitle   = "Výroba";
 craftingMenuAlpha = 1;
 craftingMenuIndex[0] = "Vytvořit předmět";
 craftingMenuIndex[1] = "Vylepšit předmět";
 craftingMenuIndex[2] = "Zušlechtit materiál";
+craftingTitleHelper = "";
+
 drawCraftingMenu = 1;
 craftingSelectedIndex = -1;
 selectedIndexY = -1;
+craftingPageSelected = 0;
+craftingKnownItems = ds_list_create();
+craftingItemsNewFlag[0, 48] = false;
+craftingEntriesPerPage = 48;
+craftingEntriesPerRow  = 8;
+craftingItemsSprite[0, 48] = 0;
+craftingItemsName[0, 48] = "";
+craftingSelectedItem = -1;
+craftingDetails = false;
+craftingDetailsHeight = 0;
+craftingDetailsAlpha = 0;
+craftingSlot[10, 5] = 0;
+craftingDetailsText[0, 48] = "";
+craftingTitleHelper2 = "";
+
+craftingSlotFree[10] = true;
+craftingSlotSprite[10] = -1;
+craftingSlotID[10] = 0;
+craftingSlotItemID[10] = -1;
+craftingSlotNumber[10] = -1;
+// TEST
+craftingItemsSprite[0, 3] = 3; // Wooden sword
+scrCraftingSetItemKnown(3, "Dřevěný meč", "Poškození: " + scrColorflag(c_lime) + "5" + scrEndColorflag() + " - " + scrColorflag(c_lime) + "8#" + scrEndColorflag() + "Stamina na úder: " + scrColorflag(c_red) + "4 " + scrEndColorflag() + "- " + scrColorflag(c_red) + "5#");
 
 
 iconActive[hudIcons.bestiary]  = true;

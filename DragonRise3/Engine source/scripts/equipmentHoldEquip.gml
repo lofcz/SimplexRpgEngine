@@ -20,8 +20,9 @@ if (mouse_x > x_x1 && mouse_x < x_x2 && mouse_y > y_y1 && mouse_y < y_y2)
                          equiped_image[equip_slot,0] =  equip_sprite_s[0];
                          equiped_image[equip_slot,1] =  equip_sprite_s[1];
                          equiped_image[equip_slot,2] =  equip_sprite_s[2];
-                                                                                                                                                                      
-                       
+                         equiped_image[equip_slot,3] =  equip_sprite_s[3];                                                                                                                                                        
+                         equiped_image[equip_slot,4] =  equip_sprite_s[4];      
+                                         
                          drag = 0;
                          drag_controll = 0;
 

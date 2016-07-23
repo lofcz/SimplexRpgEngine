@@ -28,7 +28,7 @@
             <string>/// Initialize item
 
 scrItemSetUp(0,0)
-scrItemBasic(1);
+scrItemBasic(itemEnum.itemGold);
 
 
 //****** Item settings ************

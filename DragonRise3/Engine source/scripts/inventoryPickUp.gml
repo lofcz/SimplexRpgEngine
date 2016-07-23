@@ -119,8 +119,8 @@ oInventory.slot[free_slot,inv_item_info_head]         = itm_info_head;
 oInventory.slot[free_slot,inv_item_info_text]         = itm_info_text;
 oInventory.slot[free_slot,inv_item_info_color]        = itm_info_color;
 oInventory.slot[free_slot,inv_item_equip_slot]        = itm_equip_slot;
+oInventory.slot[free_slot,inv_item_materialType]      = itm_materialType;
 
                                                                                                                       //show_message(oInventory.slot[free_slot,inv_item_equip_slot])
-
 for(a=0 a<10 a++)                  {oInventory.slot_option[free_slot,a] = itm_options[a];}
 for(a=0; a<celkem_vlastnosti; a++) {oInventory.slot_vlastnosti[free_slot,a] = vlastnost[a];}

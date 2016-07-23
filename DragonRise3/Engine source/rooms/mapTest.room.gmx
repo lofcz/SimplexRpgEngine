@@ -171,6 +171,10 @@ global.shaders_enabled = 1;</code>
     <instance objName="oNonsolidCollision" x="592" y="176" name="inst_1752AE0E" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3);&#xA;" scaleX="0.375" scaleY="0.375" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="528" y="80" name="inst_071830B1" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3);" scaleX="0.625" scaleY="0.625" colour="4294967295" rotation="0"/>
     <instance objName="oPerlinWater" x="1664" y="1584" name="inst_372DC6F8" locked="0" code="strenghtVal = 150;&#xA;" scaleX="1" scaleY="0.5" colour="4294967295" rotation="0"/>
+    <instance objName="oMaterialGreenGem" x="288" y="288" name="inst_D3071958" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oMaterialGreenGem" x="288" y="320" name="inst_9106D6B0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oMaterialGreenGem" x="288" y="352" name="inst_8C3F8952" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oMaterialGreenGem" x="288" y="384" name="inst_CDA23D47" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="background14" x="1600" y="1712" w="32" h="32" xo="32" yo="0" id="10006696" name="inst_AC26E277" depth="1000001" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
