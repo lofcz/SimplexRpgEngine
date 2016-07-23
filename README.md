@@ -17,5 +17,5 @@ Top-on-GMS engine, umožňující rapidní vývoj moderních RPG her. Vhodný pr
 
 **Budoucnost máš na dosah, začni [zde](https://github.com/lofcz/SimplexRpgEngine/wiki).**
 
-<sub><sup>Copyright © 2016 Matěj Štágl.</sup></sub>
+<sub><sup>Copyright © 2016 Matěj Štágl.</sup></sub>  
 <sub><sup>[Čtěte licenci, pod kterou je projekt dostupný.](https://github.com/lofcz/SimplexRpgEngine/blob/master/license.md)</sup></sub>
