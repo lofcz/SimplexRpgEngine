@@ -9,7 +9,7 @@ Top-on-GMS engine, umožňující rapidní vývoj moderních RPG her. Vhodný pr
 * Unikátní systém in-game vývoje, který umožňuje hru tvořit přímo za běhu. 
 * Extrémní výkon, vysoká optimalizace.
 * Pokročilé efekty - GLSL / HLSL shadery, 2D fyzika, sprite exploze, počasí, střídání dne a noci...
-* Zcela zdarma, otevřený zrojový kód, MIT licence.
+* Zcela zdarma, otevřený zrojový kód, GPL2.0 licence.
 * Možnost integrace do stávajících GMS projektů.
 * Libovolné rozlišení hry, responsivní UI layout.
 * Poráží RPG Maker a YOYO RPG v každém směru.
