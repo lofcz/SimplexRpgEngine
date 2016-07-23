@@ -1,4 +1,5 @@
 Tento program je svobodný software: 
+
 můžete jej šířit a upravovat podle ustanovení Obecné veřejné licence GNU (GNU General Public Licence), 
 vydávané nadací Free Software Foundation, a to buď podle 2. verze této Licence anebo (podle vašeho uvážení) kterékoli pozdější verze.
 
