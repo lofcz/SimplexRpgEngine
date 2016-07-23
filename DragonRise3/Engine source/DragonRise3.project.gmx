@@ -308,6 +308,7 @@
     <sprite>sprites\sprite111</sprite>
     <sprite>sprites\sSwordSwing</sprite>
     <sprite>sprites\sprite116_Recon1_zps6e9a49c7</sprite>
+    <sprite>sprites\sLockIcon</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -743,7 +744,7 @@
       <room>rooms\mapHouse1</room>
     </rooms>
   </rooms>
-  <constants number="175">
+  <constants number="192">
     <constant name="cStaticInstance">"staticInstance"</constant>
     <constant name="lightmap_y">1</constant>
     <constant name="lightmap_x">0</constant>
@@ -785,7 +786,24 @@
     <constant name="quest_finish">2</constant>
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
-    <constant name="celkem_vlastnosti">60</constant>
+    <constant name="celkem_vlastnosti">77</constant>
+    <constant name="vlastnost_upgradeID3">76</constant>
+    <constant name="vlastnost_upgradeID2">75</constant>
+    <constant name="vlastnost_upgradeID1">74</constant>
+    <constant name="vlastnost_upgradeBaked3">73</constant>
+    <constant name="vlastnost_upgradeBaked2">72</constant>
+    <constant name="vlastnost_upgradeBaked1">71</constant>
+    <constant name="vlastnost_upgradeText3">70</constant>
+    <constant name="vlastnost_upgradeText2">69</constant>
+    <constant name="vlastnost_upgradeText1">68</constant>
+    <constant name="vlastnost_upgradeSprite3">67</constant>
+    <constant name="vlastnost_upgradeSprite2">66</constant>
+    <constant name="vlastnost_upgradeSprite1">65</constant>
+    <constant name="vlastnost_upgradeMaterial3">64</constant>
+    <constant name="vlastnost_upgradeMaterial2">63</constant>
+    <constant name="vlastnost_upgradeMaterial1">62</constant>
+    <constant name="vlastnost_maxUpgrade">61</constant>
+    <constant name="vlastnost_upgradeSloty">60</constant>
     <constant name="vlastnost_bonusove_poskozeni_vuci_zviratum">59</constant>
     <constant name="vlastnost_stackSezehnuti">58</constant>
     <constant name="vlastnost_stesti">57</constant>

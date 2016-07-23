@@ -1,4 +1,4 @@
-///inventryContains(id,slt)
+/// inventoryContains(id, slot)
 
 idd = 1;
 slt = -1;

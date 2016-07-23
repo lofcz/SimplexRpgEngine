@@ -1,4 +1,4 @@
-///inventryNumber(id)
+/// inventoryNumber(id)
 
 idd = 1;
 ret = 0;

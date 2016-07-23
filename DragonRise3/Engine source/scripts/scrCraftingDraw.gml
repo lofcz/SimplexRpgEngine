@@ -236,7 +236,7 @@ else
           }
           
        // Crafting details form - Upgrade item
-         if (craftingSelectedIndex == 1 && craftingHelper == -1 && !craftingDetails)
+         if (craftingSelectedIndex == 1)
             {
              tempX = xpos;
              tempY = ypos + 96; 
@@ -255,7 +255,8 @@ else
              
              if (upgradingItemSprite > 0) {draw_sprite(sTestItem, upgradingItemSprite, tempX + 96, tempY);}
              
-             if (mouse_in(tempX + 96, tempX + 128, tempY, tempY + 32) && color == c_lime)
+             // Slot for input item
+             if (mouse_in(tempX + 96, tempX + 128, tempY, tempY + 32) && (color == c_lime || upgradingItemID != -1))
                 {
                   // Put in
                   if (mouse_check_button_released(mb_left) && upgradingItemID = -1)
@@ -269,13 +270,224 @@ else
                      }
                  
                   // Take out
-                  if (mouse_check_button_pressed(mb_left) && upgradingItemID != -1)
+                  if (mouse_check_button_pressed(mb_left))
                     {
-                     upgradingItemSprite = 0;  
-                     upgradingItemID     = -1;                   
+                     // Remove all unatached materials
+                     for (i = 0; i < 3; i++)
+                        {
+                         if (upgradingItemSlotID > 0)
+                         {
+                         if (enchantItemSprite[i] > 0)
+                            {
+                             oInventory.slot[enchantItemSlotID[i], inv_item_beingUsed] = false;
+                             enchantItemID[i]     = -1;
+                             enchantItemSlotID[i] = -1;
+                             enchantItemSprite[i] = 0;                             
+                            }
+                         }
+                        }    
+                       
+                     // Remove upgraded item 
+                     upgradingItemSprite = -1;  
+                     upgradingItemID     = -1;      
+                     oInventory.slot[upgradingItemSlotID, inv_item_beingUsed] = false;   
+                     upgradingItemSlotID = -1;                                                
                     }
                 }      
-                  
+              
+           
+            // Slot for upgrade material
+            if (upgradingItemID != -1)
+                {
+                 // Draw all upgrade slots
+                 for (i = 0; i < oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_maxUpgrade]; i++)
+                 {
+                 color = c_white;
+                 
+                 if (oInventory.drag = 1 && (oInventory.equip_sprite_s[3] = oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeMaterial1 + i] && (oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeMaterial1 + i] != materialEnum.materialNone)))
+                    {
+                     color = c_lime;
+                    }
+                 
+                 // Attach item  
+                 if (mouse_in(tempX, tempX + 32, tempY + 32 + (48 * i), tempY + 64 + (48 * i)) && (color == c_lime || enchantItemSprite[i] != 0))
+                    {
+                        // If slot is free, attach item
+                        if (mouse_check_button_released(mb_left) && oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeSprite1 + i] = 0)
+                            {
+                             oInventory.pre_switch                               = true;
+                             oInventory.draw_item_mouse                          = false;
+                             oInventory.slot[oInventory.h_c, inv_item_beingUsed] = true;
+                             enchantItemID[i]                                    = oInventory.equip_sprite_s[6];
+                             enchantItemSlotID[i]                                = oInventory.h_c;
+                             enchantItemSprite[i]                                = oInventory.equip_sprite_s[1];
+                            }    
+                             
+                       // If attached item isnt'baked, remove it    
+                       if (mouse_check_button_pressed(mb_left) && !oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeBaked1 + i])
+                            {
+                             oInventory.slot[enchantItemSlotID[i], inv_item_beingUsed] = false;
+                             enchantItemID[i]     = -1;
+                             enchantItemSlotID[i] = -1;
+                             enchantItemSprite[i] = 0;                                                        
+                            }           
+                    }
+                    
+                 clr(color, 0.1);
+                 draw_roundrect(tempX, tempY + 32 + (48 * i), tempX + 32, tempY + 64 + (48 * i), false);
+                 clr();
+                 draw_roundrect(tempX, tempY + 32 + (48 * i), tempX + 32, tempY + 64 + (48 * i), true);      
+                 
+                 // Draw sprite & text for equiped slots
+                 if (enchantItemSprite[i] <= 0)
+                    {
+                     if (oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeSprite1 + i] > 0)
+                        {
+                         draw_sprite(sTestItem, oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeSprite1 + i], tempX, tempY + 32 + (48 * i));                        
+                         clr(c_white, 1);
+                         fnt(fntPixelTiny);
+                         draw_text_colored(tempX + 40, tempY + 32 + (48 * i), scrCraftingGetMaterialText(oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeID1 + i], 1));
+                         draw_sprite(sLockIcon, 0, tempX + 16, tempY  + (48 * (i + 1))); 
+                         
+                                             
+                        }               
+                    }
+                else
+                    {
+                    if (enchantItemSprite[i] > 0) 
+                    {
+                    draw_sprite(sTestItem, enchantItemSprite[i], tempX, tempY + 32 + (48 * i));
+                    clr(c_white, 1);
+                    fnt(fntPixelTiny);
+                    draw_text_colored(tempX + 40, tempY + 32 + (48 * i), scrCraftingGetMaterialText(enchantItemID[i], 1));
+                    
+                    // Draw lock icon for baked slots
+                    if (oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeBaked1 + i])
+                        {
+                         draw_sprite(sLockIcon, 0, tempX + 16, tempY  + (48 * (i + 1))); 
+                        }
+                    }
+                    }                 
+                 }             
+                } 
+                
+                             
+                // Draw navigation
+                // ******************************************                
+                textColor = c_gray;
+                bcgColor  = c_black;
+                
+                // Check for ability to confirm crafting
+                if (upgradingItemSlotID >= 0)
+                {
+                for (i = 0; i < 3; i++)
+                    {
+                     if (enchantItemSprite[i] > 0 && !oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeBaked1 + i])
+                        {
+                         textColor = c_lime;
+                         break;
+                        }
+                    }  
+                }
+                   
+                // Check for on-hover event
+                if (mouse_in(tempX + 16, tempX + 112, tempY + 170, tempY + 190))
+                    {
+                     bcgColor = c_yellow;
+                     
+                     // Confirm crafting
+                     if (mouse_check_button_pressed(mb_left))
+                        {
+                        for (i = 0; i < 3; i++)
+                            {
+                            if (enchantItemSprite[i] > 0 && !oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeBaked1 + i])
+                                {
+                                inventoryDelete(enchantItemID[i], 1);
+                                oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeBaked1 + i] = true;
+                                oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeSprite1 + i] = enchantItemSprite[i];  
+                                oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeID1 + i] = enchantItemID[i];                                  
+                                oInventory.slot[enchantItemSlotID[i], inv_item_beingUsed] = false;                                                                                         
+                                }
+                            }
+                            
+                         // Remove all unatached materials
+                         for (i = 0; i < 3; i++)
+                            {
+                             if (upgradingItemSlotID > 0)
+                                {
+                                if (enchantItemSprite[i] > 0 && !oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeBaked1 + i])
+                                    {
+                                     oInventory.slot[enchantItemSlotID[i], inv_item_beingUsed] = false;
+                                     enchantItemID[i]     = -1;
+                                     enchantItemSlotID[i] = -1;
+                                     enchantItemSprite[i] = 0;                             
+                                    }
+                                }
+                            }    
+                       
+                        // Remove upgraded item 
+                        upgradingItemSprite = -1;  
+                        upgradingItemID     = -1;      
+                        if (upgradingItemSlotID > 0) {oInventory.slot[upgradingItemSlotID, inv_item_beingUsed] = false;}   
+                        upgradingItemSlotID = -1;                                                    
+                        }
+                    }
+                    
+                // Draw "upgrade button"
+                clr(bcgColor, 0.4);
+                draw_roundrect(tempX + 16, tempY + 170, tempX + 112, tempY + 190, false);
+                clr(c_black, 1);
+                draw_roundrect(tempX + 16, tempY + 170, tempX + 112, tempY + 190, true);
+                alg("center", fntPixelSmall);
+                clr(textColor, 1);
+                draw_text(tempX + 64, tempY + 180, "[Vylepšit]");     
+                
+                // Draw "abort" button
+                bcgColor = c_black;
+                
+                if (mouse_in(tempX + 128, tempX + 240, tempY + 170, tempY + 190))
+                    {
+                     bcgColor = c_yellow;
+                     
+                     if (mouse_check_button_pressed(mb_left))
+                        {
+                         // Remove all unatached materials
+                         for (i = 0; i < 3; i++)
+                            {
+                             if (upgradingItemSlotID > 0)
+                                {
+                                if (enchantItemSprite[i] > 0 )
+                                    {
+                                     oInventory.slot[enchantItemSlotID[i], inv_item_beingUsed] = false;
+                                     enchantItemID[i]     = -1;
+                                     enchantItemSlotID[i] = -1;
+                                     enchantItemSprite[i] = 0;                             
+                                    }
+                                }
+                            }    
+                       
+                        // Remove upgraded item 
+                        upgradingItemSprite = -1;  
+                        upgradingItemID     = -1;      
+                        if (upgradingItemSlotID > 0) {oInventory.slot[upgradingItemSlotID, inv_item_beingUsed] = false;}   
+                        upgradingItemSlotID = -1;  
+                        
+                        // Return to main menu
+                        craftingHelper = -1;
+                        craftingTitleHelper = "";
+                        craftingSelectedIndex = -1;
+                        craftingMenuAlpha = 1;
+                        }                     
+                    }     
+                    
+                clr(bcgColor, 0.4);
+                draw_roundrect(tempX + 128, tempY + 170, tempX + 240, tempY + 190, false);
+                clr(c_black, 1);
+                draw_roundrect(tempX + 128, tempY + 170, tempX + 240, tempY + 190, true);
+                alg("center", fntPixelSmall);
+                clr(c_white, 1);
+                draw_text(tempX + 184, tempY + 180, "[Zrušit]");          
+                                      
             }       
 
 }

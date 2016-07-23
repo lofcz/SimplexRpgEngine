@@ -47,6 +47,8 @@ itm_equip_slot          = "zbraň";
 
 vlastnost[vlastnost_vykresli_sprit] = sShortWeapons;
 vlastnost[vlastnost_vykresli_index] = 0;
+vlastnost[vlastnost_upgradeSloty] = 3;
+vlastnost[vlastnost_upgradeMaterial1] = materialEnum.materialWood;
 
 pre = irandom_range(0,100);
 

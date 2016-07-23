@@ -1,4 +1,4 @@
-/// scrAction(id,option_numer)
+/// inventoryAction(id, option_numer)
 
 idd    = 0;
 number = 0;
