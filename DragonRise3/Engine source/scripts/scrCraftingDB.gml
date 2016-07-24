@@ -225,3 +225,35 @@ for (q = 0; q < 10; q++)
       craftingSlotItemID[q] = -1;
     }
     }
+#define scrCraftingDbMaterialEnricht
+/// scrCraftingDbMaterialEnricht(id, addItem)
+
+var in, ai, ti, tr;
+in  = 0;
+ai  = false;
+tr  = 1;
+
+
+if (argument_count > 0) {in = argument[0];}
+if (argument_count > 1) {ai = argument[1];}
+
+if (in == itemEnum.itemPearlRed)
+    {
+     if (ai) {ti = instance_create(x, y, oRedPearlLvl2); with(ti) {inventoryPickUp();}}
+     tr  = itemEnum.itemPearlRedLvl2;
+    }
+    
+return (tr - 1);
+
+#define scrCraftingDbMaterialEnrichtText
+/// scrCraftingDbMaterialEnrichtText(id)
+
+var in, t;
+in = 0;
+t  = "";
+
+if (argument_count > 0) {in = argument[0];}
+
+if (in == itemEnum.itemPearlRed) {t = "Vzácná " + scrColorflag(c_red) + "červená " + scrEndColorflag() + "perla.";}
+
+return t;

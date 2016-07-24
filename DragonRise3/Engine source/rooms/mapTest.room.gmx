@@ -124,7 +124,6 @@ global.shaders_enabled = 1;</code>
     <instance objName="oTree1" x="1376" y="160" name="inst_690E76DF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1792" y="1888" name="inst_005F98CC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTree2" x="1824" y="1728" name="inst_94DDB7C5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oBasicCollision" x="1216" y="1312" name="inst_9EE7E16C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oEnemySlime" x="544" y="448" name="inst_A90E428E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1648" y="1552" name="inst_CA84E21E" locked="0" code="" scaleX="3" scaleY="3" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1456" y="1520" name="inst_7FF85EF2" locked="0" code="" scaleX="5" scaleY="5.5" colour="4294967295" rotation="0"/>
@@ -175,6 +174,7 @@ global.shaders_enabled = 1;</code>
     <instance objName="oMaterialGreenGem" x="288" y="320" name="inst_9106D6B0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oMaterialGreenGem" x="288" y="352" name="inst_8C3F8952" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oMaterialGreenGem" x="288" y="384" name="inst_CDA23D47" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oAdvancedCollision" x="1232" y="1328" name="inst_59258F38" locked="0" code="/// Initialise&#xA;&#xA;scrMinimapAddWaypoint(id, x, y, &quot;Poklad&quot;, &quot;x&quot;, c_yellow);&#xA;&#xA;scrAdvancedCollisionIni(x, y-32, &quot;skála1&quot;, 1);&#xA;    scrAdvancedCollisionSetText(&quot;Kus kamene.&quot;);&#xA;    scrAdvancedCollisionSetText(&quot;Mohl by to být granit, ale přes mech to nejde určit přesně.&quot;);&#xA;    scrAdvancedCollisionSetText(&quot;Někdo si z něj udělal skrýš, je tam pár &quot; + scrColorflag(c_yellow) + &quot;zlatek&quot; + scrEndColorflag() + &quot;.&quot;);&#xA;    scrAdvancedCollisionSetText(&quot;Už tam nic není.&quot;);&#xA;" scaleX="-1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="background14" x="1600" y="1712" w="32" h="32" xo="32" yo="0" id="10006696" name="inst_AC26E277" depth="1000001" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

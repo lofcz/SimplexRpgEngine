@@ -3,10 +3,10 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="13" name="datafiles">
-    <datafiles number="13" name="Resources">
-      <datafiles number="13" name="Sprites">
-        <datafiles number="13" name="BodyCanvas">
+  <datafiles number="14" name="datafiles">
+    <datafiles number="14" name="Resources">
+      <datafiles number="14" name="Sprites">
+        <datafiles number="14" name="BodyCanvas">
           <datafile>
             <name>sBodyCanvas.png</name>
             <exists>-1</exists>
@@ -77,7 +77,7 @@
           </datafile>
         </datafiles>
       </datafiles>
-      <datafiles number="13" name="SFX">
+      <datafiles number="14" name="SFX">
         <datafile>
           <name>coins.wav</name>
           <exists>-1</exists>
@@ -274,8 +274,10 @@
       <sprite>sprites\sButterfly</sprite>
       <sprite>sprites\sprite115</sprite>
       <sprite>sprites\sprite38</sprite>
+      <sprite>sprites\sprite116_Recon1_zps6e9a49c7</sprite>
+      <sprite>sprites\sprite60</sprite>
+      <sprite>sprites\sprite122_Items2</sprite>
     </sprites>
-    <sprite>sprites\sprite60</sprite>
     <sprite>sprites\sSpellsUI</sprite>
     <sprite>sprites\sManaPool</sprite>
     <sprite>sprites\sCodeShard</sprite>
@@ -307,7 +309,6 @@
     <sprite>sprites\sprite110</sprite>
     <sprite>sprites\sprite111</sprite>
     <sprite>sprites\sSwordSwing</sprite>
-    <sprite>sprites\sprite116_Recon1_zps6e9a49c7</sprite>
     <sprite>sprites\sLockIcon</sprite>
   </sprites>
   <backgrounds name="background">
@@ -478,8 +479,10 @@
         <script>scripts\stateIni.gml</script>
       </scripts>
       <scripts name="Minimap">
-        <script>scripts\minimapInit.gml</script>
-        <script>scripts\minimapDraw.gml</script>
+        <script>scripts\scrMinimapRemoveWaypoint.gml</script>
+        <script>scripts\scrMinimapAddWaypoint.gml</script>
+        <script>scripts\scrMinimapIni.gml</script>
+        <script>scripts\scrMinimapDraw.gml</script>
       </scripts>
       <scripts name="Day night cycle">
         <script>scripts\daynightInitialise.gml</script>
@@ -655,6 +658,7 @@
       <objects name="Items">
         <object>objects\oGold</object>
         <object>objects\oTestItem2</object>
+        <object>objects\oRedPearlLvl2</object>
         <object>objects\oMaterialGreenGem</object>
         <object>objects\oKalokvet</object>
         <object>objects\oBasicItem</object>

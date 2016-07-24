@@ -241,6 +241,11 @@ if (idd = "pařez1")
     if (status = 1) {scrEnemyLoot(oGold,1,5,1,100,4);}
    
    }
+if (idd = "skála1")
+   {
+    if (status = 2) {scrEnemyLoot(oGold,1,5,1,100,6); scrMinimapRemoveWaypoint(id);}
+   
+   }
 if (idd = "mapTest_sloup1")
    {
     if (status = 3) {scrEnemyLoot(oTestItem2,1,1,1,100,1);}

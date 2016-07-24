@@ -254,6 +254,7 @@ else
              draw_roundrect(tempX + 96, tempY, tempX + 128, tempY + 32, true);
              
              if (upgradingItemSprite > 0) {draw_sprite(sTestItem, upgradingItemSprite, tempX + 96, tempY);}
+
              
              // Slot for input item
              if (mouse_in(tempX + 96, tempX + 128, tempY, tempY + 32) && (color == c_lime || upgradingItemID != -1))
@@ -336,7 +337,14 @@ else
                  clr(color, 0.1);
                  draw_roundrect(tempX, tempY + 32 + (48 * i), tempX + 32, tempY + 64 + (48 * i), false);
                  clr();
-                 draw_roundrect(tempX, tempY + 32 + (48 * i), tempX + 32, tempY + 64 + (48 * i), true);      
+                 draw_roundrect(tempX, tempY + 32 + (48 * i), tempX + 32, tempY + 64 + (48 * i), true);  
+                  
+                 
+                 // Draw icon for empty slots
+                 if (enchantItemSprite[i] <= 0 && oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeSprite1 + i] <= 0 && oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeMaterial1 + i] > 0)
+                 {   
+                 draw_sprite(sCraftingIcons, oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeMaterial1 + i], tempX, tempY + 32 + (48 * i));
+                 }
                  
                  // Draw sprite & text for equiped slots
                  if (enchantItemSprite[i] <= 0)
@@ -354,6 +362,8 @@ else
                     }
                 else
                     {
+
+
                     if (enchantItemSprite[i] > 0) 
                     {
                     draw_sprite(sTestItem, enchantItemSprite[i], tempX, tempY + 32 + (48 * i));
@@ -488,6 +498,142 @@ else
                 clr(c_white, 1);
                 draw_text(tempX + 184, tempY + 180, "[Zrušit]");          
                                       
-            }       
+            }  
+            
+      // Crafting details form - material enrichtment
+      if (craftingSelectedIndex == 2) 
+        {
+         tempX = xpos;
+         tempY = ypos + 96; 
+         color = c_white;
+         
+         if (oInventory.drag = 1 && oInventory.equip_sprite_s[3] != materialEnum.materialNone)
+            {
+             if (oInventory.equip_sprite_s[5] >= 4) {color = c_lime;}
+             else {color = c_orange;}
+            }
+         
+         // Draw input slot
+         clr(color, 0.1);
+         draw_roundrect(tempX + 64, tempY, tempX + 96, tempY + 32, false);
+         clr();
+         draw_roundrect(tempX + 64, tempY, tempX + 96, tempY + 32, true);
+
+         // Draw output slot
+         clr(c_white, 0.1);
+         draw_roundrect(tempX + 144, tempY, tempX + 176, tempY + 32, false);
+         clr();
+         draw_roundrect(tempX + 144, tempY, tempX + 176, tempY + 32, true);
+
+                  
+         clr(c_white, 1);
+         draw_text(tempX + 38, tempY + 4, "4x");
+         draw_text(tempX + 106, tempY + 4, "-->");
+         if (enrichtItemSprite > 0) {draw_sprite(sTestItem, enrichtItemSprite, tempX + 64, tempY);}
+         if (enrichtingOutputSprite > 0) 
+            {
+            draw_sprite(sTestItem, enrichtingOutputSprite, tempX + 144, tempY);
+            fnt(fntPixelSmall);
+            draw_text_colored(tempX, tempY + 48, scrCraftingDbMaterialEnrichtText(enrichtItemID));
+            }
+        // Slot for input item
+        if (mouse_in(tempX + 64, tempX + 96, tempY, tempY + 32) && (color == c_lime || enrichtItemID != -1))
+            {
+            // Put in
+            if (mouse_check_button_released(mb_left) && enrichtItemID = -1 && oInventory.equip_sprite_s[5] >= 4)
+                {
+                 oInventory.pre_switch                               = true;
+                 oInventory.draw_item_mouse                          = false;
+                 oInventory.slot[oInventory.h_c, inv_item_beingUsed] = true;
+                 enrichtItemID                                       = oInventory.equip_sprite_s[6];
+                 enrichtItemSlotID                                   = oInventory.h_c;
+                 enrichtItemSprite                                   = oInventory.equip_sprite_s[1];
+                 
+                 enrichtingOutputSprite = scrCraftingDbMaterialEnricht(enrichtItemID);
+                 }
+                 
+            // Take out
+            if (mouse_check_button_pressed(mb_left))
+                {
+                // Reset enricht variables
+                enrichtItemSprite = 0;  
+                enrichtItemID     = -1;      
+                oInventory.slot[enrichtItemSlotID, inv_item_beingUsed] = false;   
+                enrichtItemSlotID = -1;        
+                enrichtingOutputSprite = 0;                      
+                }
+            } 
+            
+                 // Draw navigation
+                // ******************************************                
+                textColor = c_gray;
+                bcgColor  = c_black;
+                
+                // Check for ability to confirm crafting
+                if (enrichtItemSlotID >= 0)
+                    { 
+                     textColor = c_lime;
+                    }
+                   
+                // Check for on-hover event
+                if (mouse_in(tempX + 16, tempX + 112, tempY + 170, tempY + 190))
+                    {
+                     bcgColor = c_yellow;
+                     
+                     // Confirm material upgrade
+                     if (mouse_check_button_pressed(mb_left))
+                        {
+                         inventoryDelete(enrichtItemID, 4);
+                         oInventory.slot[enrichtItemSlotID, inv_item_beingUsed] = false;
+                         scrCraftingDbMaterialEnricht(enrichtItemID, true);
+                         enrichtItemID = -1;
+                         enrichtItemSprite = 0;
+                         enrichtItemSlotID = -1;        
+                         enrichtingOutputSprite = 0;         
+                        }                                                    
+                    }
+                    
+                    
+                // Draw "upgrade button"
+                clr(bcgColor, 0.4);
+                draw_roundrect(tempX + 16, tempY + 170, tempX + 112, tempY + 190, false);
+                clr(c_black, 1);
+                draw_roundrect(tempX + 16, tempY + 170, tempX + 112, tempY + 190, true);
+                alg("center", fntPixelSmall);
+                clr(textColor, 1);
+                draw_text(tempX + 64, tempY + 180, "[Zušlechtit]");     
+                
+                // Draw "abort" button
+                bcgColor = c_black;
+                
+                if (mouse_in(tempX + 128, tempX + 240, tempY + 170, tempY + 190))
+                    {
+                     bcgColor = c_yellow;
+                     
+                     if (mouse_check_button_pressed(mb_left))
+                        {                          
+                        // Remove attached material
+                        enrichtItemID       = 0;  
+                        enrichtItemSlotID   = -1;      
+                        if (enrichtItemSlotID > 0) {oInventory.slot[enrichtItemSlotID, inv_item_beingUsed] = false;}   
+                        enrichtItemSlotID   = -1;
+                        enrichtingOutputSprite = 0;  
+                        
+                        // Return to main menu
+                        craftingHelper = -1;
+                        craftingTitleHelper = "";
+                        craftingSelectedIndex = -1;
+                        craftingMenuAlpha = 1;
+                        }                     
+                    }     
+                    
+                clr(bcgColor, 0.4);
+                draw_roundrect(tempX + 128, tempY + 170, tempX + 240, tempY + 190, false);
+                clr(c_black, 1);
+                draw_roundrect(tempX + 128, tempY + 170, tempX + 240, tempY + 190, true);
+                alg("center", fntPixelSmall);
+                clr(c_white, 1);
+                draw_text(tempX + 184, tempY + 180, "[Zrušit]");                                                       
+        }          
 
 }

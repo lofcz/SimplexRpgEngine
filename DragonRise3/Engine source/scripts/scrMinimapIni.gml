@@ -1,6 +1,6 @@
-/// minimapInit(height, width, actionKey)
+/// scrMinimapIni(height, width, actionKey)
 
-var iHeight,iWidth,iActionKey;
+var iHeight, iWidth, iActionKey;
 iHeight    = 100;
 iWidth     = 100;
 iActionKey = "M";
@@ -28,5 +28,13 @@ zoom_level     = 1;
 m_alpha        = 1;
 action_key     = iActionKey;
 draw           = true;
+pointList      = ds_list_create();
+pointListText  = ds_list_create();
+pointListX     = ds_list_create();
+pointListY     = ds_list_create();
+pointListSymbol = ds_list_create();
+pointListColor = ds_list_create();
+hoverAlpha    = 0;
+lastI          = -1;
 
 alarm[0]       = 1;
