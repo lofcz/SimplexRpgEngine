@@ -1,4 +1,4 @@
-<img src="https://img.shields.io/badge/Verze-0.1--DEV-yellow.svg"> <img src="https://img.shields.io/badge/Status-V%20po%C5%99%C3%A1dku-green.svg"> <img src="https://img.shields.io/badge/License-GPL2.0-blue.svg">
+<img src="https://img.shields.io/badge/Verze-0.1--DEV-yellow.svg"> <img src="https://img.shields.io/badge/Status-V%20po%C5%99%C3%A1dku-green.svg"> <img src="https://img.shields.io/badge/License-LGPL2.1-blue.svg">
 <br><br>
 <img align="middle" src="https://s31.postimg.org/4be7ykezv/Logo_Makr_1.png">
 <br>
@@ -9,7 +9,7 @@ Top-on-GMS engine, umožňující rapidní vývoj moderních RPG her. Vhodný pr
 * Unikátní systém in-game vývoje, který umožňuje hru tvořit přímo za běhu. 
 * Extrémní výkon, vysoká optimalizace.
 * Pokročilé efekty - GLSL / HLSL shadery, 2D fyzika, sprite exploze, počasí, střídání dne a noci...
-* Zcela zdarma, otevřený zrojový kód, GPL2.0 licence.
+* Zcela zdarma, otevřený zrojový kód, LGPL2.1 licence.
 * Možnost integrace do stávajících GMS projektů.
 * Libovolné rozlišení hry, responsivní UI layout.
 * Poráží RPG Maker a YOYO RPG v každém směru.
