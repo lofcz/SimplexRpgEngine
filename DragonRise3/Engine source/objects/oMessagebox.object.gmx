@@ -31,7 +31,7 @@ image_speed = 0;
 
 for(a = 0; a &lt; dialogue_lenght; a++) {message_head[a] = ""; message_text[a] = ""; message_head[a] = ""; message_image[a] = -1;}
 
-alarm_set(0,1);          
+alarm[0] = 1;          
 message_number  = 0;
 message_current = 0;
 break_on_index  = -1;
