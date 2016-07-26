@@ -277,6 +277,7 @@
       <sprite>sprites\sprite116_Recon1_zps6e9a49c7</sprite>
       <sprite>sprites\sprite60</sprite>
       <sprite>sprites\sprite122_Items2</sprite>
+      <sprite>sprites\sprite123_tilee</sprite>
     </sprites>
     <sprite>sprites\sSpellsUI</sprite>
     <sprite>sprites\sManaPool</sprite>
@@ -310,6 +311,9 @@
     <sprite>sprites\sprite111</sprite>
     <sprite>sprites\sSwordSwing</sprite>
     <sprite>sprites\sLockIcon</sprite>
+    <sprite>sprites\sTeleport</sprite>
+    <sprite>sprites\sAreaEffect</sprite>
+    <sprite>sprites\sCopyright</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -556,7 +560,18 @@
         <script>scripts\scrCraftingDB.gml</script>
         <script>scripts\scrCraftingDraw.gml</script>
       </scripts>
+      <scripts name="Portals">
+        <script>scripts\scrPortalIni.gml</script>
+      </scripts>
+      <scripts name="Shop">
+        <script>scripts\scrShopDraw.gml</script>
+        <script>scripts\scrShopActivate.gml</script>
+        <script>scripts\scrShopPrepare.gml</script>
+        <script>scripts\scrShopAddItem.gml</script>
+        <script>scripts\scrShopIni.gml</script>
+      </scripts>
     </scripts>
+    <script>scripts\scrSpriteDissolve.gml</script>
   </scripts>
   <shaders name="shaders">
     <shaders name="ScreenFX">
@@ -578,6 +593,8 @@
     <shader type="GLSLES">shaders\shdOverlight.shader</shader>
     <shader type="GLSLES">shaders\shdSeaWater.shader</shader>
     <shader type="GLSLES">shaders\shdPerlinNoiseWater.shader</shader>
+    <shader type="GLSLES">shaders\shdRipple.shader</shader>
+    <shader type="GLSLES">shaders\shdShockwave.shader</shader>
   </shaders>
   <fonts name="fonts">
     <fonts name="Standard game fonts">
@@ -622,6 +639,7 @@
       <object>objects\oLoader</object>
       <object>objects\oLog</object>
       <object>objects\oCamera</object>
+      <object>objects\oCopyright</object>
       <object>objects\oPlayerCombat</object>
       <object>objects\oPlayerCombatHelp</object>
       <object>objects\oMessagebox</object>
@@ -648,6 +666,7 @@
       <object>objects\oLightmap</object>
       <object>objects\oTestObject</object>
       <object>objects\oLightCircle</object>
+      <object>objects\oAreaScript</object>
     </objects>
     <objects name="Dropable and items">
       <objects name="Dropable">
@@ -689,6 +708,7 @@
         <object>objects\oPerlinWater</object>
         <object>objects\oSeaWater</object>
         <object>objects\oSimpleWater</object>
+        <object>objects\oTeleport</object>
       </objects>
       <objects name="Containers">
         <object>objects\oChest</object>
@@ -713,6 +733,7 @@
         <object>objects\oRain</object>
         <object>objects\oRainSplash</object>
         <object>objects\oSwordSwing</object>
+        <object>objects\oDissolveParticle</object>
       </objects>
       <objects name="Particles">
         <object>objects\oSmokeEmmitor</object>
@@ -744,11 +765,12 @@
     <room>rooms\cutsceneVavrincuvKostel</room>
     <room>rooms\mapMyFirstGame</room>
     <room>rooms\mapDefault</room>
+    <room>rooms\mapCopyright</room>
     <rooms name="Game world">
       <room>rooms\mapHouse1</room>
     </rooms>
   </rooms>
-  <constants number="192">
+  <constants number="193">
     <constant name="cStaticInstance">"staticInstance"</constant>
     <constant name="lightmap_y">1</constant>
     <constant name="lightmap_x">0</constant>
@@ -790,7 +812,8 @@
     <constant name="quest_finish">2</constant>
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
-    <constant name="celkem_vlastnosti">77</constant>
+    <constant name="celkem_vlastnosti">78</constant>
+    <constant name="vlastnost_cena">77</constant>
     <constant name="vlastnost_upgradeID3">76</constant>
     <constant name="vlastnost_upgradeID2">75</constant>
     <constant name="vlastnost_upgradeID1">74</constant>

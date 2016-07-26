@@ -3,7 +3,7 @@
   <spriteName>sTestNPC</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-9</depth>
+  <depth>-7</depth>
   <persistent>0</persistent>
   <parentName>parNPC</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -29,6 +29,9 @@
 event_inherited();
 alarm[1] = 1;
 a = 10;
+scrShopIni();
+
+scrShopAddItem();
 
 //ds_priority_add(akce,"prochazka2",5);
 
@@ -197,8 +200,9 @@ switch(action_id)
                         oAnswer.polozka_activated[4] = 1;
 
                           
-                        if (oPlayer.gold &gt; 10) {oAnswer.polozka[1] = "Here's a gift for you!"; oAnswer.polozka_activated[1] = 1;}
-                        else {oAnswer.polozka[1] = "Here's a gift for you! (Give ten gold coins)";}
+                        oAnswer.polozka[1] = "What do you sale?"; 
+                        oAnswer.polozka_activated[1] = 1;
+
                         
                       
                       }
@@ -242,7 +246,8 @@ if (action_id = 0)
       }
      if (index = 1)
       {
-      show_message("Return z ANSWERsystemu#INDEX: 1");
+       scrShopActivate();
+       open = true;
       }
   if (index = 2)
       {

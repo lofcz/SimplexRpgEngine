@@ -1,5 +1,5 @@
 #define inventoryDraw
-/// inventoryDraw(x,y)
+/// inventoryDraw(x, y)
 
 xx             = x;
 yy             = y+36;

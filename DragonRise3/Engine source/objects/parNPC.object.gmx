@@ -54,6 +54,10 @@ mood           = "";
 spd            = 0;
 tempSpd        = 0;
 idleImage      = image_index;
+isBusy         = false;
+isShop         = false;
+shopActive     = false;
+open           = false;
 
 splashMessage           = false;
 splashMessageTime       = -1;    
@@ -116,6 +120,8 @@ draw_self();
 
 
 if (mood != "cutscene")
+{
+if (!shopActive)
 {
 if (turn_to_player) 
    {
@@ -241,6 +247,11 @@ if (instance_number(oPlayer) &gt; 0)
            event_user(15);
         }
    }
+ }
+ else
+    {
+     if (shopActive) {scrShopDraw();}
+    }
 }
 else
 {

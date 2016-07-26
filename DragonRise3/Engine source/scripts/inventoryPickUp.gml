@@ -1,8 +1,12 @@
 #define inventoryPickUp
-/// inventoryPickUp()
+/// inventoryPickUp(count)
 
+var n;
 in_inv    = 0;
 free_slot = -1;
+n         = -1;
+
+if (argument_count > 0) {n = argument[0];}
 
 if (itm_stackable = 1)
 {
@@ -17,11 +21,11 @@ if (itm_stackable = 1)
              }         
          } 
  if (in_inv = 1)
-    {
-                                                                                          //show_message("Sound: "+string(itm_sound));
-      //if (itm_sound != 0) {audio_play_sound(itm_sound,0,0);}     
-     oInventory.slot[in_slot,inv_number] += itm_number;
-     event_user(event_user_destroy);
+    {                                                                                 //show_message("Sound: "+string(itm_sound));
+      //if (itm_sound != 0) {audio_play_sound(itm_sound,0,0);}              
+     if (loot != 2) {oInventory.slot[in_slot,inv_number] += itm_number; event_user(event_user_destroy);}
+     else if (n != -1) {itm_number -= n; oInventory.slot[in_slot,inv_number] += n; if (itm_number <= 0) {event_user(event_user_destroy);}}
+     
     }
  else
      {
@@ -45,8 +49,17 @@ if (itm_stackable = 1)
                                                                                           
                                                                                           // show_message("Sound: "+string(itm_sound));
             //if (itm_sound != 0) {audio_play_sound(itm_sound,0,0);}                                                                              
+            if (n == -1)
+            {
             inventoryPickUpParam(1);                                                                              
             event_user(event_user_destroy);
+            }
+            else if (loot == 2)
+                    {
+                     inventoryPickUpParam(1, n);
+                     itm_number -= n;
+                     if (itm_number <= 0) {event_user(event_user_destroy);}
+                    }
            }
      
      
@@ -84,12 +97,14 @@ else
     }
 
 #define inventoryPickUpParam
-///inventoryPickUpParam(stackable)
+///inventoryPickUpParam(stackable, count)
 
+var param_stackable, count;
 param_stackable = 0;
+count           = -1;
 
 if (argument_count > 0) {param_stackable = argument[0];}
-
+if (argument_count > 1) {count           = argument[1];}
 
 if (param_stackable = 1)
    {
@@ -97,7 +112,8 @@ if (param_stackable = 1)
    oInventory.slot[free_slot,inv_sprite]         = itm_sprite;
    oInventory.slot[free_slot,inv_slot_stackable] = 1;
    oInventory.slot[free_slot,inv_sprite_number]  = itm_sprite_number;
-   oInventory.slot[free_slot,inv_number]        += itm_number;  
+   if (count == -1) {oInventory.slot[free_slot,inv_number] += itm_number; }
+   else {oInventory.slot[free_slot,inv_number]        += count;} 
 
 
    

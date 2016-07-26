@@ -37,17 +37,17 @@ scrCenterText(0);                                                               
 }
 
 
-if (loot = 1)   
+if (loot)   
    {
    
     if (instance_number((drop_id)) > 0)
       {
-      if (f = 1)
+      if (f == 1)
        {
                                                                                                                         //effect_create_above(ef_ring,x,y-80,1,c_green);
        p = 1;
        }
-      if (f = 0)
+      if (f == 0)
            {
                                                                                                                        //effect_create_above(ef_ring,x,y+80,1,c_red);
             p = 0;
@@ -57,13 +57,12 @@ if (loot = 1)
    }
 
 if (hover_info && p = 1 )
-   {
-   
-  
-   
+   {   
      if (distance_to_point(mouse_x,mouse_y) = 0)
         {
          depth = -2;
+         if (loot == 2) {depth = -8;}
+         draw_text(x, y, vlastnost[vlastnost_cena]);
          if (instance_number(oItemText) = 0) {i = instance_create(x,y,oItemText); i.parent = (id);}
                                                                                                                         //itemDrawStats()
         
@@ -85,14 +84,19 @@ if (hover_info && p = 1 )
                   }
                else 
                     {
-                     inventoryPickUp();
+                     if (loot != 2) {inventoryPickUp();}
+                     else {if (oPlayer.gold >= vlastnost[vlastnost_cena]) {inventoryPickUp(1); oPlayer.gold -= vlastnost[vlastnost_cena];}}
                    
                     }
                 (drop_id).fill[slot] = 0;
                }            
             }
         }
-        else {depth = -1;}
+        else 
+            {
+             depth = -1;
+             if (loot == 2) {depth = -8;}
+            }
    
    }
    

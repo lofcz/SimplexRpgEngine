@@ -1,0 +1,3 @@
+/// scrShopActivate()
+
+shopActive = true;

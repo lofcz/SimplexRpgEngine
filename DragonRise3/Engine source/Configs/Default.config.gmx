@@ -436,8 +436,14 @@
     <option_textureGroup0_parent>&lt;none&gt;</option_textureGroup0_parent>
     <option_textureGroup0_scaled>0</option_textureGroup0_scaled>
     <option_textureGroup0_targets>9223372036854775807</option_textureGroup0_targets>
-    <option_textureGroup_count>1</option_textureGroup_count>
+    <option_textureGroup1_border>16</option_textureGroup1_border>
+    <option_textureGroup1_nocropping>-1</option_textureGroup1_nocropping>
+    <option_textureGroup1_parent>&lt;none&gt;</option_textureGroup1_parent>
+    <option_textureGroup1_scaled>-1</option_textureGroup1_scaled>
+    <option_textureGroup1_targets>9223372036854775807</option_textureGroup1_targets>
+    <option_textureGroup_count>2</option_textureGroup_count>
     <option_textureGroups0>Default</option_textureGroups0>
+    <option_textureGroups1>TexPage1</option_textureGroups1>
     <option_tizen_app_id>http://yourdomain/DragonRise3</option_tizen_app_id>
     <option_tizen_build_version>0</option_tizen_build_version>
     <option_tizen_display_name>DragonRise3</option_tizen_display_name>

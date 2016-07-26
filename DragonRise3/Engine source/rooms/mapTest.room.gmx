@@ -83,10 +83,9 @@ global.shaders_enabled = 1;</code>
     <instance objName="oTestItem3" x="608" y="352" name="inst_E7016BCD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oChest" x="448" y="224" name="inst_A62783A0" locked="0" code="scrChestSetLocked();&#xA;&#xA;scrChestAddLoot(5,oGold,25);&#xA;scrChestAddLoot(1,oGold,2);&#xA;scrChestAddLoot(7,oGold,4);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oChest" x="1024" y="336" name="inst_FF577CA1" locked="0" code="scrChestAddLootFromTo(0,9,oGold,10,20);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oChest" x="1976" y="72" name="inst_DF585A48" locked="0" code="scrChestAddLootFromTo(0, 9, oGold, 5, 20);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTestNPC" x="608" y="408" name="inst_C6F3E4DE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oBasicCollision" x="1728" y="0" name="inst_5D396CDB" locked="0" code="" scaleX="1" scaleY="6" colour="4294967295" rotation="0"/>
-    <instance objName="oBasicCollision" x="1760" y="128" name="inst_2D1C1484" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="1728" y="0" name="inst_5D396CDB" locked="0" code="" scaleX="0.25" scaleY="4" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="1728" y="128" name="inst_2D1C1484" locked="0" code="" scaleX="2.25" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1792" y="192" name="inst_E4C37DAA" locked="0" code="" scaleX="2" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1856" y="256" name="inst_B361B3CF" locked="0" code="" scaleX="5" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="oTree1" x="96" y="32" name="inst_EF175985" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -175,6 +174,29 @@ global.shaders_enabled = 1;</code>
     <instance objName="oMaterialGreenGem" x="288" y="352" name="inst_8C3F8952" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oMaterialGreenGem" x="288" y="384" name="inst_CDA23D47" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oAdvancedCollision" x="1232" y="1328" name="inst_59258F38" locked="0" code="/// Initialise&#xA;&#xA;scrMinimapAddWaypoint(id, x, y, &quot;Poklad&quot;, &quot;x&quot;, c_yellow);&#xA;&#xA;scrAdvancedCollisionIni(x, y-32, &quot;skála1&quot;, 1);&#xA;    scrAdvancedCollisionSetText(&quot;Kus kamene.&quot;);&#xA;    scrAdvancedCollisionSetText(&quot;Mohl by to být granit, ale přes mech to nejde určit přesně.&quot;);&#xA;    scrAdvancedCollisionSetText(&quot;Někdo si z něj udělal skrýš, je tam pár &quot; + scrColorflag(c_yellow) + &quot;zlatek&quot; + scrEndColorflag() + &quot;.&quot;);&#xA;    scrAdvancedCollisionSetText(&quot;Už tam nic není.&quot;);&#xA;" scaleX="-1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oTeleport" x="1912" y="72" name="inst_63B8B140" locked="0" code="/// Initialise portal&#xA;&#xA;scrPortalIni(true, 1424, 296);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="1736" y="0" name="inst_9A7EAA23" locked="0" code="" scaleX="8.75" scaleY="0.25" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="2008" y="8" name="inst_92837E3C" locked="0" code="" scaleX="0.25" scaleY="3.61290311813354" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="1920" y="120" name="inst_2A116290" locked="0" code="" scaleX="2.75" scaleY="0.25" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="1920" y="88" name="inst_168C3359" locked="0" code="" scaleX="0.25" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="1888" y="88" name="inst_DDD24820" locked="0" code="" scaleX="1" scaleY="0.25" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="1888" y="56" name="inst_987F6642" locked="0" code="" scaleX="0.25" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="1856" y="56" name="inst_E97BDFCC" locked="0" code="" scaleX="1" scaleY="0.25" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="1856" y="8" name="inst_451033F8" locked="0" code="" scaleX="0.25" scaleY="1.5" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="1736" y="120" name="inst_B11CA94C" locked="0" code="" scaleX="2" scaleY="0.25" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="1800" y="184" name="inst_FF840AEC" locked="0" code="" scaleX="1.75" scaleY="0.25" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="1856" y="184" name="inst_3E577EA2" locked="0" code="" scaleX="0.25" scaleY="2.25" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="1864" y="248" name="inst_AE91EC80" locked="0" code="" scaleX="4.75" scaleY="0.25" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="1856" y="64" name="inst_38DC7398" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="1888" y="96" name="inst_C17F16F3" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="1920" y="128" name="inst_F6415962" locked="0" code="" scaleX="3" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="oTeleport" x="1432" y="256" name="inst_8479073F" locked="0" code="/// Initialise portal&#xA;&#xA;scrPortalIni(true, 1960, 80);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oGold" x="1928" y="16" name="inst_790D65C2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oGold" x="1952" y="8" name="inst_8C2CCD5F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oGold" x="1944" y="40" name="inst_D602314D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oGold" x="1968" y="32" name="inst_55A2813F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oGold" x="1976" y="56" name="inst_128D5DD4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oGold" x="1976" y="8" name="inst_C8FA0FED" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="background14" x="1600" y="1712" w="32" h="32" xo="32" yo="0" id="10006696" name="inst_AC26E277" depth="1000001" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -2361,7 +2383,7 @@ global.shaders_enabled = 1;</code>
     <tile bgName="background11" x="1520" y="1392" w="32" h="160" xo="288" yo="0" id="10006717" name="inst_DE5EEFFD" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background11" x="1552" y="1424" w="32" h="128" xo="320" yo="32" id="10006718" name="inst_A6F49014" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background11" x="1488" y="1424" w="32" h="128" xo="256" yo="32" id="10006719" name="inst_2417557A" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="background1" x="1952" y="32" w="32" h="32" xo="192" yo="160" id="10007128" name="inst_01BA5225" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="background1" x="1864" y="16" w="32" h="32" xo="192" yo="160" id="10007128" name="inst_01BA5225" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background15" x="384" y="1504" w="32" h="32" xo="32" yo="160" id="10007129" name="inst_E2C8533F" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background15" x="800" y="1120" w="32" h="32" xo="32" yo="160" id="10007130" name="inst_D1E23E6B" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background15" x="224" y="928" w="32" h="32" xo="0" yo="128" id="10007131" name="inst_03F1A7F5" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
