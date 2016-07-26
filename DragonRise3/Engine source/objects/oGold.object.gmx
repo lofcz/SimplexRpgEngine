@@ -27,9 +27,8 @@
             <kind>1</kind>
             <string>/// Initialize item
 
-scrItemSetUp(0,0)
-scrItemBasic(itemEnum.itemGold);
-
+scrItemSetUp(0,0, itemEnum.itemGold)
+image_index = 0;
 
 //****** Item settings ************
 itm_stackable           = 1;
@@ -39,7 +38,7 @@ itm_options[0]          = "***** option 0";
 itm_options[1]          = "***** option 1";
 itm_sprite              = sprite_index;
 
-scrItemOptions()
+scrItemSetUpFinalize()
 //*********************************
 
 

@@ -225,6 +225,7 @@
       <sprite>sprites\sPlayer</sprite>
       <sprite>sprites\sEquipment</sprite>
       <sprite>sprites\sSlotTexture</sprite>
+      <sprite>sprites\sSlotTextureHD</sprite>
       <sprite>sprites\sInfoboxTexture</sprite>
       <sprite>sprites\sMessagebox</sprite>
       <sprite>sprites\sAnswerWheel</sprite>
@@ -236,6 +237,7 @@
       <sprite>sprites\sExperienceBarSubs</sprite>
       <sprite>sprites\sExperienceBar</sprite>
       <sprite>sprites\sSlotOutline</sprite>
+      <sprite>sprites\sSlotOutlineHD</sprite>
       <sprite>sprites\sInventoryTitle</sprite>
       <sprite>sprites\sQuickslot</sprite>
     </sprites>
@@ -422,12 +424,14 @@
         <script>scripts\scrChestUnload.gml</script>
       </scripts>
       <scripts name="Items">
-        <script>scripts\scrItemBasic.gml</script>
         <script>scripts\scrItemSetUp.gml</script>
-        <script>scripts\scrItemOptions.gml</script>
+        <script>scripts\scrItemSetProperties.gml</script>
+        <script>scripts\scrItemSetOptions.gml</script>
+        <script>scripts\scrItemSetUpFinalize.gml</script>
+        <script>scripts\scrItemBasic.gml</script>
         <script>scripts\itemDraw.gml</script>
         <script>scripts\itemDrawStats.gml</script>
-        <script>scripts\itemRarity.gml</script>
+        <script>scripts\scrItemRarity.gml</script>
         <script>scripts\itemRarityEffect.gml</script>
         <script>scripts\itemAddSlotDescription.gml</script>
         <script>scripts\scrCreateItem.gml</script>

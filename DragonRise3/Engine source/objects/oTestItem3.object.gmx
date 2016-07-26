@@ -70,8 +70,7 @@ vlastnost[vlastnost_parry_cost] = choose(2,3);
 //itm_info_text += "#Poškození: "+string(vlastnost[vlastnost_poskozeni]);
 //*********** Suffix *****************
 
-scrItemOptions();
-itemRarity();
+scrItemSetUpFinalize(true);
 
 //************************************
 </string>

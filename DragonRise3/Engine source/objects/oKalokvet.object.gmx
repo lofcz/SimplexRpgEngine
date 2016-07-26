@@ -45,7 +45,7 @@ itm_sprite_number       = 4;
 
 //*********************************
 
-scrItemOptions()
+scrItemSetUpFinalize()
 
 </string>
           </argument>

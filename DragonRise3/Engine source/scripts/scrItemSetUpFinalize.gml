@@ -1,4 +1,9 @@
-/// scrItemOptions()
+/// scrItemSetUpFinalize(addRarityToName)
+
+var artn;
+artn = false;
+
+if (argument_count > 0) {artn = argument[0];}
 
 for (a = 0; a < 10; a++)
     {
@@ -16,3 +21,5 @@ for (a = 0; a < 10; a++)
 height        = 32+string_height_ext(itm_info_text,16,256);
 width         = 256;
 vlastnost[vlastnost_maxUpgrade] = vlastnost[vlastnost_upgradeSloty];
+
+if (artn) {scrItemRarity();}

@@ -1,13 +1,13 @@
 /// scrShopIni()
 
 isShop      = true;
-slotsPerRow = 4;
+slotsPerRow = 3;
 rows        = 3;
 pages       = 1;
 shopActive  = false;
 open        = false;
 
-slots       = (slotsPerRow * rows * pages);
+slots       = 15;
 
 for (i = 0; i < slots; i++)
     {

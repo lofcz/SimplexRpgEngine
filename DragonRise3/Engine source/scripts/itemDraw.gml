@@ -1,3 +1,4 @@
+#define itemDraw
 /// itemDraw()
 
 draw_set_color(c_black);
@@ -25,8 +26,8 @@ f = (drop_id).open
 if (p = 1)
 {
 if (loot) {draw_sprite(sRarityEffect,itemRarityEffect(itm_info_color),x,y);}
-draw_self();
-
+if (loot != 2) {draw_self();}
+else {draw_sprite_ext(sprite_index, image_index, x, y, 0.75, 0.75, 0, c_white, 0.8);}
 if (show_number)
 {
 draw_set_font(fntTextSmall);
@@ -58,11 +59,13 @@ if (loot)
 
 if (hover_info && p = 1 )
    {   
+     fnt(fntPixelTiny);
+     if (loot == 2) {draw_text(x, y, vlastnost[vlastnost_cena]);}
+     
      if (distance_to_point(mouse_x,mouse_y) = 0)
         {
          depth = -2;
          if (loot == 2) {depth = -8;}
-         draw_text(x, y, vlastnost[vlastnost_cena]);
          if (instance_number(oItemText) = 0) {i = instance_create(x,y,oItemText); i.parent = (id);}
                                                                                                                         //itemDrawStats()
         
@@ -109,3 +112,13 @@ if (animateDrop)
      animateDropForce = lerp(animateDropForce, 0, 0.02);
      if (animateDropForce <= 0) {animateDrop = false;}
     }
+
+#define scrItemImageIndex
+/// scrItemImageIndex(itemID)
+
+var n;
+n = 1;
+
+if (argument_count > 0) {n = argument[0];}
+
+image_index = (n);

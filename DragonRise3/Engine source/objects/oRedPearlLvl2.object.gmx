@@ -26,28 +26,12 @@
           <argument>
             <kind>1</kind>
             <string>/// Initialize item
-scrItemSetUp(0,0)
-scrItemBasic(itemEnum.itemPearlRedLvl2);
 
-//****** Object settings **********
-image_index = itemEnum.itemPearlRedLvl2;
+scrItemSetUp(0, 0, itemEnum.itemPearlRedLvl2);
+scrItemSetProperties(true, "Red pearl level 2", "Nice, red pearl", materialEnum.materialWood, "");
+scrItemSetOptions("Option n1", "Option n2", "Option n3");
+scrItemSetUpFinalize();
 
-
-
-//*********************************
-
-//****** Item settings ************
-itm_stackable           = 1;
-itm_info_head           = "Red pearl lvl 2";
-itm_options[0]          = "Super option1";
-itm_options[1]          = "Shit option1";
-itm_sprite_number       = image_index - 1;
-itm_materialType        = materialEnum.materialWood;
-
-
-//*********************************
-
-scrItemOptions()
 
 </string>
           </argument>

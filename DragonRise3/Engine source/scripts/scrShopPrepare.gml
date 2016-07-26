@@ -1,11 +1,13 @@
 
 var xx, yy, tar_x, tar_y;
-xx = (x - (((slotsPerRow / 2) * 36) - 16));
-yy = (y - (rows * 36 + 16));
+xx = x + 32;
+yy = y - 80;
 tar_x = xx + 16;
 tar_y = yy + 16;
+tX = 0;
+tY = 0;
 
-for (a = 0; a < slots; a++)
+for (a = 0; a < 5 * 3; a++)
     {
   //    if (a!= 0) {tar_x = xx + 32;}
     //  tar_y = yy + 16;
@@ -19,8 +21,8 @@ for (a = 0; a < slots; a++)
       b.hover_info      = 1;
       b.xx               = tar_x;
       b.yy               = tar_y;
-      b.x                = xx + (4 * a);
-      b.y                = yy;
+      b.x                = xx + tX;
+      b.y                = yy + tY;
       b.loot            = 2;
       b.drop_id         = id;
       b.slot            = a;
@@ -28,22 +30,16 @@ for (a = 0; a < slots; a++)
       b.animateDrop     = 0;
       b.animateDropDir  = 0;
       b.animateDropForce = 0;
-      b.depth           = -8;
       b.vlastnost[vlastnost_cena] = 10;
       
       loot[a,ext_name]  = -1;
       fill[a]           = 1;
      }
      
-     xx += 32;  
-       
-       if (xx >= (x + ((slotsPerRow / 2 * 36) - 16)))
-             {
-             yy += 32;
-             xx  = (x - (((slotsPerRow / 2) * 36) - 16));
-             }      
-       tar_x = xx + 16;
-       tar_y = yy + 16;      
+     tX += 24;
+     if (tX >= 120) {tX = 0; tY += 24;}     
+       tar_x = xx + 16 + tX;
+       tar_y = yy + 16 + tY;      
        
      //  show_message(tar_x);
 

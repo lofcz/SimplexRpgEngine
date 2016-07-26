@@ -30,7 +30,7 @@
 hp = 10;
 contentList  = ds_list_create();
 contentListN = ds_list_create();
-
+safe = true;
 </string>
           </argument>
         </arguments>

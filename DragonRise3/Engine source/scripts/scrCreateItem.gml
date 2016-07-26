@@ -13,6 +13,7 @@ instance.itm_info_head             = oInventory.switch_temp[inv_item_info_head];
 instance.itm_info_color            = oInventory.switch_temp[inv_item_info_color];
 instance.itm_effect                = oInventory.switch_temp[inv_item_effect];
 instance.itm_equip_slot            = oInventory.switch_temp[inv_item_equip_slot];
+instance.itm_materialType           = oInventory.switch_temp[inv_item_materialType];
 
 instance.on_click                  = 1;
 instance.hover_info                = 1;

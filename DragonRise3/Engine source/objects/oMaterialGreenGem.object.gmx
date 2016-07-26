@@ -47,7 +47,7 @@ itm_materialType        = materialEnum.materialWood;
 
 //*********************************
 
-scrItemOptions()
+scrItemSetUpFinalize()
 
 </string>
           </argument>
