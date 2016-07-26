@@ -1,4 +1,4 @@
-[](https://s31.postimg.org/4y5ls00gr/Logo_Makr_28.png)
+![](https://s31.postimg.org/4y5ls00gr/Logo_Makr_28.png)
 
 Tento program je svobodný software: 
 
