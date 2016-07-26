@@ -75,14 +75,18 @@ for (i = 0; i < ds_list_size(oPlayer.statusList) i++)
       time = oPlayer.statusMTimeList[| i];   
       if (is_undefined(time)) {time = 1;}  
       
-      if (!ds_list_empty(oPlayer.statusTimeList) && !ds_list_empty(oPlayer.statusMTimeList))
+      if (!is_undefined(oPlayer.statusTimeList[| i]))
       {
+      if (!ds_list_empty(oPlayer.statusTimeList) && !ds_list_empty(oPlayer.statusMTimeList))
+      {      
+      tl = oPlayer.statusTimeList[| i];
       
-      draw_ring_part(xxx, yyy, 16*scale, 4, 64, 64, 90, (oPlayer.statusTimeList[| i] / time) * 360, true, oPlayer.statusColorList[| i], true); 
+      if (time == 0) {time = 1;}
+      draw_ring_part(xxx, yyy, 16*scale, 4, 64, 64, 90, (tl / real(time)) * 360, true, oPlayer.statusColorList[| i], true); 
 
       // outline
-      draw_ring_part(xxx, yyy, (16+4)*scale, 1, 64, 64, 90, (oPlayer.statusTimeList[| i] / time) * 360, true, c_black, true); 
-      draw_ring_part(xxx, yyy, (16)*scale, 1, 64, 64, 90, (oPlayer.statusTimeList[| i] / time) * 360, true, c_black, true); 
+      draw_ring_part(xxx, yyy, (16+4)*scale, 1, 64, 64, 90, (tl / time) * 360, true, c_black, true); 
+      draw_ring_part(xxx, yyy, (16)*scale, 1, 64, 64, 90, (tl / time) * 360, true, c_black, true); 
       
       if (scale > 1) {oPlayer.statusScaleList[| i] = lerp(oPlayer.statusScaleList[| i], 1, 0.1);}
       
@@ -90,5 +94,6 @@ for (i = 0; i < ds_list_size(oPlayer.statusList) i++)
       clr(c_black, al * 3);
       alg("center", fntPixel);
       if (oPlayer.statusNList[| i] > 1) {draw_text(xxx + 12, yyy + 16, string(oPlayer.statusNList[| i]) + "x");}
+      }
       }
     }
