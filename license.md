@@ -9,5 +9,5 @@ Tento program je šířen v naději, že bude užitečný, avšak BEZ JAKÉKOLI 
 Neposkytují se ani odvozené záruky OBCHODOVATELNOSTI anebo VHODNOSTI PRO URČITÝ ÚČEL.
 Další podrobnosti hledejte v Obecné veřejné licenci GNU.
 
-**Podmínkou využití programu je ponechání souboru mapSplashscreen.gmx.room, který se zobrazí při spuštění aplikace nejméně na pět vteřin.
-Obsah souboru zůstane nepozměněn od oficiálně dostupné verze.**
+**Podmínkou využití programu je ponechání souborů mapSplashscreen.room.gmx, oCopyright.object.gmx, sCopyright.sprite.gmx a scrSpriteDissolve.script.gmx. Soubor mapSplashscreen.room.gmx musí být zobrazen jako první místnost.
+Obsah těchto souborů zůstane nepozměněn od oficiálně dostupné verze.**
