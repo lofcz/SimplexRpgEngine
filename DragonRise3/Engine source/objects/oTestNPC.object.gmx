@@ -202,7 +202,7 @@ switch(action_id)
                         oAnswer.polozka_activated[4] = 1;
 
                           
-                        oAnswer.polozka[1] = "What do you sale?"; 
+                        oAnswer.polozka[1] = "What do you sell?"; 
                         oAnswer.polozka_activated[1] = 1;
 
                         

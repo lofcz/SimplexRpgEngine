@@ -8,6 +8,8 @@ yy = y - 80;//view_yview + 36;
 tX = 0;
 tY = 0;
 
+if (playerDir != oPlayer.dir) {shopActive = false;}
+
 clr(c_black, 0.4);
 draw_roundrect(x - 96, y - 80, x + 30, y - 8, false);
 clr();

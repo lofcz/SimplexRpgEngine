@@ -29,7 +29,7 @@ if (loot) {draw_sprite(sRarityEffect,itemRarityEffect(itm_info_color),x,y);}
 if (loot != 2) {draw_self();}
 else {sprite_index = sMask26x26; draw_sprite_ext(sTestItem, realIndex, x, y, 0.75, 0.75, 0, c_white, 0.8);}
 
-if (show_number)
+if (show_number && loot != 2)
 {
 draw_set_font(fntTextSmall);
 scrCenterText();
@@ -60,8 +60,6 @@ if (loot)
 
 if (hover_info && p = 1 )
    {   
-     fnt(fntPixelTiny);
-     if (loot == 2) {draw_text(x, y, vlastnost[vlastnost_cena]);}
      
      if (distance_to_point(mouse_x,mouse_y) = 0)
         {
