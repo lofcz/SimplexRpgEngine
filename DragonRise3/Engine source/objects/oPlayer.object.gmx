@@ -505,6 +505,7 @@ talentPoints++;
             <string>/// Draw player
 
 apiPlayerDraw();
+/*
 draw_text(x, y - 32, text);
 
 clr(c_black, 0.5);
@@ -513,7 +514,7 @@ clr()
 draw_ring_part(x, y, 64, 6, 128, 128, 90, 360 * (last_hp / vlastnost[vlastnost_max_zivot]), true, c_red, true);
 draw_ring_part(x, y, 64, 1, 128, 128, 90, 360 * (last_hp / vlastnost[vlastnost_max_zivot]), true, c_black, false);
 draw_ring_part(x, y, 64+6, 1, 128, 128, 90, 360 * (last_hp / vlastnost[vlastnost_max_zivot]), true, c_black, false);
-
+*/
 
 </string>
           </argument>

@@ -3,7 +3,7 @@
   <spriteName>sTestNPC</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-7</depth>
+  <depth>-11</depth>
   <persistent>0</persistent>
   <parentName>parNPC</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -32,6 +32,8 @@ a = 10;
 scrShopIni();
 
 scrShopAddItem();
+scrShopSetDiscount();
+scrShopSetStock()
 
 //ds_priority_add(akce,"prochazka2",5);
 

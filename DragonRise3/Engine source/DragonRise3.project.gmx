@@ -316,6 +316,7 @@
     <sprite>sprites\sTeleport</sprite>
     <sprite>sprites\sAreaEffect</sprite>
     <sprite>sprites\sCopyright</sprite>
+    <sprite>sprites\sMask26x26</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -572,6 +573,10 @@
         <script>scripts\scrShopActivate.gml</script>
         <script>scripts\scrShopPrepare.gml</script>
         <script>scripts\scrShopAddItem.gml</script>
+        <script>scripts\scrShopSetStock.gml</script>
+        <script>scripts\scrShopResetStockFlags.gml</script>
+        <script>scripts\scrShopSetPrice.gml</script>
+        <script>scripts\scrShopSetDiscount.gml</script>
         <script>scripts\scrShopIni.gml</script>
       </scripts>
     </scripts>
@@ -774,7 +779,7 @@
       <room>rooms\mapHouse1</room>
     </rooms>
   </rooms>
-  <constants number="193">
+  <constants number="194">
     <constant name="cStaticInstance">"staticInstance"</constant>
     <constant name="lightmap_y">1</constant>
     <constant name="lightmap_x">0</constant>
@@ -816,7 +821,8 @@
     <constant name="quest_finish">2</constant>
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
-    <constant name="celkem_vlastnosti">78</constant>
+    <constant name="celkem_vlastnosti">79</constant>
+    <constant name="vlastnost_originalniCena">78</constant>
     <constant name="vlastnost_cena">77</constant>
     <constant name="vlastnost_upgradeID3">76</constant>
     <constant name="vlastnost_upgradeID2">75</constant>

@@ -27,7 +27,8 @@ if (p = 1)
 {
 if (loot) {draw_sprite(sRarityEffect,itemRarityEffect(itm_info_color),x,y);}
 if (loot != 2) {draw_self();}
-else {draw_sprite_ext(sprite_index, image_index, x, y, 0.75, 0.75, 0, c_white, 0.8);}
+else {sprite_index = sMask26x26; draw_sprite_ext(sTestItem, realIndex, x, y, 0.75, 0.75, 0, c_white, 0.8);}
+
 if (show_number)
 {
 draw_set_font(fntTextSmall);
@@ -65,7 +66,15 @@ if (hover_info && p = 1 )
      if (distance_to_point(mouse_x,mouse_y) = 0)
         {
          depth = -2;
-         if (loot == 2) {depth = -8;}
+         if (loot == 2) 
+            {
+            depth = -8;
+            (drop_id).thumbnailImage = realIndex;
+            (drop_id).thumbnailPrice = vlastnost[vlastnost_cena];            
+            (drop_id).thumbnailCount = itm_number;  
+            (drop_id).thumbnailOriginalPrice = vlastnost[vlastnost_originalniCena];
+            }
+         
          if (instance_number(oItemText) = 0) {i = instance_create(x,y,oItemText); i.parent = (id);}
                                                                                                                         //itemDrawStats()
         

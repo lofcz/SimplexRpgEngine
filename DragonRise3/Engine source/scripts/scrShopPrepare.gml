@@ -24,13 +24,16 @@ for (a = 0; a < 5 * 3; a++)
       b.x                = xx + tX;
       b.y                = yy + tY;
       b.loot            = 2;
-      b.drop_id         = id;
+      b.drop_id         = (id);
       b.slot            = a;
       b.show_number     = 1;
       b.animateDrop     = 0;
       b.animateDropDir  = 0;
       b.animateDropForce = 0;
       b.vlastnost[vlastnost_cena] = 10;
+      b.vlastnost[vlastnost_originalniCena] = b.vlastnost[vlastnost_cena];
+
+      item[a] = (b.id);
       
       loot[a,ext_name]  = -1;
       fill[a]           = 1;

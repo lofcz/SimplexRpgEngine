@@ -8,13 +8,21 @@ shopActive  = false;
 open        = false;
 
 slots       = 15;
+thumbnailImage = -1;
+thumbnailPrice = -1;
+thumbnailCount = -1;
+thumbnailOriginalPrice = -1;
+hoverSlot = -1;
+
+item[slots] = -1;
 
 for (i = 0; i < slots; i++)
     {
      slot[i, 0] = -1; // Item to be sold (id)
      slot[i, 1] = 0;  // Item price
      slot[i, 2] = 1;  // Item quantity
-     slot[i, 3] = 0;  // % Discount        
+     slot[i, 3] = 0;  // % Discount      
+     slotFlag[i] = "";  
     }
     
 for (a = 0; a < slots; a++)

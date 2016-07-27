@@ -56,6 +56,7 @@ itm_info_head             = oInventory.drop[inv_item_info_head];
 itm_info_color            = oInventory.drop[inv_item_info_color];
 itm_effect                = oInventory.drop[inv_item_effect];
 itm_equip_slot            = oInventory.drop[inv_item_equip_slot];
+itm_materialType          = oInventory.drop[inv_item_materialType];
 animateDrop               = 0;
 animateDropDir            = 0;
 animateDropForce          = 0;
