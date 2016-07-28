@@ -123,6 +123,16 @@ halfxoffset   = (normalxoffset / 2)
 spellsxPlus  += halfxoffset;
 yoffset       = (view_hview - 600);
 
+spell1max_x=x+540+spellsxPlus+18;
+spell1min_x=x+540+spellsxPlus-18;
+spell2max_x=x+584+spellsxPlus+18;
+spell2min_x=x+584+spellsxPlus-18;
+spell3max_x=x+628+spellsxPlus+18;
+spell3min_x=x+628+spellsxPlus-18;
+spellmax_y=y+560+yoffset+18;
+spellmin_y=y+560+yoffset-18;
+
+can_draw = 0;
 </string>
           </argument>
         </arguments>
@@ -148,6 +158,116 @@ yoffset       = (view_hview - 600);
             <string>/// Destroy PSystem
 
 part_system_destroy(Sname);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Spell menu
+
+normalxoffset = (view_wview - 800);
+halfxoffset   = (normalxoffset / 2)
+spellsxPlus  += halfxoffset;
+yoffset       = (view_hview - 600);
+
+spell1max_x=x+540+spellsxPlus+30;
+spell1min_x=x+540+spellsxPlus-8;
+spell2max_x=x+584+spellsxPlus+30;
+spell2min_x=x+584+spellsxPlus-8;
+spell3max_x=x+628+spellsxPlus+30;
+spell3min_x=x+628+spellsxPlus-8;
+spellmax_y=y+560+yoffset+30;
+spellmin_y=y+560+yoffset-10;
+
+
+if (mouse_check_button_pressed(mb_left))
+    {
+    if (mouse_y&lt;spellmax_y)&amp;&amp;(mouse_y&gt;spellmin_y)
+        {
+        if ((mouse_x&lt;spell1max_x)&amp;&amp;(mouse_x&gt;spell1min_x))
+            {
+            spell_transformed_index = 0;
+            can_draw = 1
+            }
+        else if ((mouse_x&lt;spell2max_x)&amp;&amp;(mouse_x&gt;spell2min_x))
+            {
+            spell_transformed_index = 1;
+            can_draw = 1
+            }
+        else if ((mouse_x&lt;spell3max_x)&amp;&amp;(mouse_x&gt;spell3min_x))
+            {
+            spell_transformed_index = 2;
+            can_draw = 1
+            }
+        else{
+            }
+        }
+    else
+        {
+        }  
+    }
+    
+if (mouse_check_button_released(mb_left))
+   {
+   can_draw = 0;
+   if ((mouse_y&lt;spellmax_y)&amp;&amp;(mouse_y&gt;spellmin_y))
+        {
+        if ((mouse_x&lt;spell1max_x)&amp;&amp;(mouse_x&gt;spell1min_x))
+            {
+            spell_transformed_index2 = 0;
+            can_draw = 0;
+            }
+        else if ((mouse_x&lt;spell2max_x)&amp;&amp;(mouse_x&gt;spell2min_x))
+            {
+            spell_transformed_index2 = 1;
+            can_draw = 0;
+            }
+        else if ((mouse_x&lt;spell3max_x)&amp;&amp;(mouse_x&gt;spell3min_x))
+            {
+            spell_transformed_index2 = 2;
+            can_draw = 0;
+            }
+        else    
+            {
+            can_draw = 0;
+            exit;
+            }
+    
+        // oPlayer.spell[spell_transformed_index] &lt;---&gt; oPlayer.spell[spell_transformed_index2]
+        spell_value = oPlayer.spell[spell_transformed_index];
+        oPlayer.spell[spell_transformed_index] = oPlayer.spell[spell_transformed_index2];
+        oPlayer.spell[spell_transformed_index2] = spell_value;
+    
+        // oPlayer.spell_sprite[spell_transformed_index] &lt;---&gt; oPlayer.spell_sprite[spell_transformed_index2]
+        spell_value = oPlayer.spell_sprite[spell_transformed_index];
+        oPlayer.spell_sprite[spell_transformed_index] = oPlayer.spell_sprite[spell_transformed_index2];
+        oPlayer.spell_sprite[spell_transformed_index2] = spell_value;
+    
+        }
+    else
+        {
+        exit;
+        } 
+    }
+    
+
 </string>
           </argument>
         </arguments>
@@ -499,6 +619,12 @@ if (die)
         
         if (die_alpha &gt;= 1) {game_restart();}
        }
+       
+//Draw cursor
+if (can_draw = 1)
+    {
+    draw_sprite(oPlayer.spell_sprite[spell_transformed_index],0,mouse_x-16,mouse_y-16);
+    }
    
 </string>
           </argument>
