@@ -182,56 +182,53 @@ part_system_destroy(Sname);
             <kind>1</kind>
             <string>///Spell menu
 
-normalxoffset = (view_wview - 800);
+//I have no idea what is it - LofoviŠílenostiTV
+normalxoffset = (view_wview - 800); 
 halfxoffset   = (normalxoffset / 2)
 spellsxPlus  += halfxoffset;
 yoffset       = (view_hview - 600);
 
-spell1max_x=x+540+spellsxPlus+30;
-spell1min_x=x+540+spellsxPlus-8;
-spell2max_x=x+584+spellsxPlus+30;
+//position of spells
+spell1max_x=x+540+spellsxPlus+30; //Max_x for 1st spell (position of 1st spell)
+spell1min_x=x+540+spellsxPlus-8;  //Min_x for 1st spell (...)
+spell2max_x=x+584+spellsxPlus+30; //etc.. (2nd spell)
 spell2min_x=x+584+spellsxPlus-8;
 spell3max_x=x+628+spellsxPlus+30;
 spell3min_x=x+628+spellsxPlus-8;
-spellmax_y=y+560+yoffset+30;
-spellmin_y=y+560+yoffset-10;
+spellmax_y=y+560+yoffset+30;      //Max_y for spells
+spellmin_y=y+560+yoffset-10;      //Min_y for spells
 
-
+//Set 1st spell for swap
 if (mouse_check_button_pressed(mb_left))
     {
-    if (mouse_y&lt;spellmax_y)&amp;&amp;(mouse_y&gt;spellmin_y)
+    if (mouse_y&lt;spellmax_y)&amp;&amp;(mouse_y&gt;spellmin_y) //if mouse is on position of spells sprite
         {
-        if ((mouse_x&lt;spell1max_x)&amp;&amp;(mouse_x&gt;spell1min_x))
+        if ((mouse_x&lt;spell1max_x)&amp;&amp;(mouse_x&gt;spell1min_x)) //... on spell 1
             {
-            spell_transformed_index = 0;
-            can_draw = 1
+            spell_transformed_index = 0;//set 1st variable
+            can_draw = 1 //"cursor sprite" can draw - viz. draw event
             }
-        else if ((mouse_x&lt;spell2max_x)&amp;&amp;(mouse_x&gt;spell2min_x))
+        else if ((mouse_x&lt;spell2max_x)&amp;&amp;(mouse_x&gt;spell2min_x))//... on spell 2
             {
             spell_transformed_index = 1;
             can_draw = 1
             }
-        else if ((mouse_x&lt;spell3max_x)&amp;&amp;(mouse_x&gt;spell3min_x))
+        else if ((mouse_x&lt;spell3max_x)&amp;&amp;(mouse_x&gt;spell3min_x))//... on spell 3
             {
             spell_transformed_index = 2;
             can_draw = 1
             }
-        else{
-            }
         }
-    else
-        {
-        }  
     }
-    
+//Set 2nd spell for swap    
 if (mouse_check_button_released(mb_left))
    {
-   can_draw = 0;
-   if ((mouse_y&lt;spellmax_y)&amp;&amp;(mouse_y&gt;spellmin_y))
+   can_draw = 0;//stop_drawing "cursor sprite"
+   if ((mouse_y&lt;spellmax_y)&amp;&amp;(mouse_y&gt;spellmin_y))//if mouse is on position of spells sprite...
         {
         if ((mouse_x&lt;spell1max_x)&amp;&amp;(mouse_x&gt;spell1min_x))
             {
-            spell_transformed_index2 = 0;
+            spell_transformed_index2 = 0;//set 2nd variable
             can_draw = 0;
             }
         else if ((mouse_x&lt;spell2max_x)&amp;&amp;(mouse_x&gt;spell2min_x))
@@ -251,11 +248,14 @@ if (mouse_check_button_released(mb_left))
             }
     
         // oPlayer.spell[spell_transformed_index] &lt;---&gt; oPlayer.spell[spell_transformed_index2]
+        // Swap properties of spells with index "1st variable" (spell_transformed_index) and "2nd variable" (spell_transformed_index2)
+        // Spell_value = just helpful var
         spell_value = oPlayer.spell[spell_transformed_index];
         oPlayer.spell[spell_transformed_index] = oPlayer.spell[spell_transformed_index2];
         oPlayer.spell[spell_transformed_index2] = spell_value;
     
         // oPlayer.spell_sprite[spell_transformed_index] &lt;---&gt; oPlayer.spell_sprite[spell_transformed_index2]
+        // Swap sprites of spells with index "1st variable" (spell_transformed_index) and "2nd variable" (spell_transformed_index2)
         spell_value = oPlayer.spell_sprite[spell_transformed_index];
         oPlayer.spell_sprite[spell_transformed_index] = oPlayer.spell_sprite[spell_transformed_index2];
         oPlayer.spell_sprite[spell_transformed_index2] = spell_value;
