@@ -577,6 +577,7 @@
         <script>scripts\scrShopResetStockFlags.gml</script>
         <script>scripts\scrShopSetPrice.gml</script>
         <script>scripts\scrShopSetDiscount.gml</script>
+        <script>scripts\scrShopSetInfo.gml</script>
         <script>scripts\scrShopIni.gml</script>
       </scripts>
     </scripts>

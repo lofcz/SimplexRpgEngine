@@ -66,7 +66,7 @@ if (hover_info && p = 1 )
          depth = -2;
          if (loot == 2) 
             {
-            depth = -8;
+            depth = -12;
             (drop_id).thumbnailImage = realIndex;
             (drop_id).thumbnailPrice = vlastnost[vlastnost_cena];            
             (drop_id).thumbnailCount = itm_number;  
@@ -105,7 +105,7 @@ if (hover_info && p = 1 )
         else 
             {
              depth = -1;
-             if (loot == 2) {depth = -8;}
+             if (loot == 2) {depth = -12;}
             }
    
    }
