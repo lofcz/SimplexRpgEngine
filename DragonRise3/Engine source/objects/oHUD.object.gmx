@@ -118,21 +118,16 @@ iconAlpha[hudIcons.crafting]  = 0.6;
 iconAlpha[hudIcons.equipment] = 0.6;
 iconAlpha[hudIcons.status]    = 1;
 
-normalxoffset = (view_wview - 800);
+normalxoffset = (view_wview - view_wview); 
 halfxoffset   = (normalxoffset / 2)
 spellsxPlus  += halfxoffset;
-yoffset       = (view_hview - 600);
+yoffset       = (view_hview - view_hview);
 
-spell1max_x=x+540+spellsxPlus+18;
-spell1min_x=x+540+spellsxPlus-18;
-spell2max_x=x+584+spellsxPlus+18;
-spell2min_x=x+584+spellsxPlus-18;
-spell3max_x=x+628+spellsxPlus+18;
-spell3min_x=x+628+spellsxPlus-18;
-spellmax_y=y+560+yoffset+18;
-spellmin_y=y+560+yoffset-18;
+baseFormulaX = (x + 540);
+spellMinY    = (y + 560 + yoffset - 10);
+spellMaxY    = (y + 560 + yoffset + 30);
 
-can_draw = 0;
+can_draw = false;
 </string>
           </argument>
         </arguments>
@@ -158,116 +153,6 @@ can_draw = 0;
             <string>/// Destroy PSystem
 
 part_system_destroy(Sname);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Spell menu
-
-//I have no idea what is it - LofoviŠílenostiTV
-normalxoffset = (view_wview - 800); 
-halfxoffset   = (normalxoffset / 2)
-spellsxPlus  += halfxoffset;
-yoffset       = (view_hview - 600);
-
-//position of spells
-spell1max_x=x+540+spellsxPlus+30; //Max_x for 1st spell (position of 1st spell)
-spell1min_x=x+540+spellsxPlus-8;  //Min_x for 1st spell (...)
-spell2max_x=x+584+spellsxPlus+30; //etc.. (2nd spell)
-spell2min_x=x+584+spellsxPlus-8;
-spell3max_x=x+628+spellsxPlus+30;
-spell3min_x=x+628+spellsxPlus-8;
-spellmax_y=y+560+yoffset+30;      //Max_y for spells
-spellmin_y=y+560+yoffset-10;      //Min_y for spells
-
-//Set 1st spell for swap
-if (mouse_check_button_pressed(mb_left))
-    {
-    if (mouse_y&lt;spellmax_y)&amp;&amp;(mouse_y&gt;spellmin_y) //if mouse is on position of spells sprite
-        {
-        if ((mouse_x&lt;spell1max_x)&amp;&amp;(mouse_x&gt;spell1min_x)) //... on spell 1
-            {
-            spell_transformed_index = 0;//set 1st variable
-            can_draw = 1 //"cursor sprite" can draw - viz. draw event
-            }
-        else if ((mouse_x&lt;spell2max_x)&amp;&amp;(mouse_x&gt;spell2min_x))//... on spell 2
-            {
-            spell_transformed_index = 1;
-            can_draw = 1
-            }
-        else if ((mouse_x&lt;spell3max_x)&amp;&amp;(mouse_x&gt;spell3min_x))//... on spell 3
-            {
-            spell_transformed_index = 2;
-            can_draw = 1
-            }
-        }
-    }
-//Set 2nd spell for swap    
-if (mouse_check_button_released(mb_left))
-   {
-   can_draw = 0;//stop_drawing "cursor sprite"
-   if ((mouse_y&lt;spellmax_y)&amp;&amp;(mouse_y&gt;spellmin_y))//if mouse is on position of spells sprite...
-        {
-        if ((mouse_x&lt;spell1max_x)&amp;&amp;(mouse_x&gt;spell1min_x))
-            {
-            spell_transformed_index2 = 0;//set 2nd variable
-            can_draw = 0;
-            }
-        else if ((mouse_x&lt;spell2max_x)&amp;&amp;(mouse_x&gt;spell2min_x))
-            {
-            spell_transformed_index2 = 1;
-            can_draw = 0;
-            }
-        else if ((mouse_x&lt;spell3max_x)&amp;&amp;(mouse_x&gt;spell3min_x))
-            {
-            spell_transformed_index2 = 2;
-            can_draw = 0;
-            }
-        else    
-            {
-            can_draw = 0;
-            exit;
-            }
-    
-        // oPlayer.spell[spell_transformed_index] &lt;---&gt; oPlayer.spell[spell_transformed_index2]
-        // Swap properties of spells with index "1st variable" (spell_transformed_index) and "2nd variable" (spell_transformed_index2)
-        // Spell_value = just helpful var
-        spell_value = oPlayer.spell[spell_transformed_index];
-        oPlayer.spell[spell_transformed_index] = oPlayer.spell[spell_transformed_index2];
-        oPlayer.spell[spell_transformed_index2] = spell_value;
-    
-        // oPlayer.spell_sprite[spell_transformed_index] &lt;---&gt; oPlayer.spell_sprite[spell_transformed_index2]
-        // Swap sprites of spells with index "1st variable" (spell_transformed_index) and "2nd variable" (spell_transformed_index2)
-        spell_value = oPlayer.spell_sprite[spell_transformed_index];
-        oPlayer.spell_sprite[spell_transformed_index] = oPlayer.spell_sprite[spell_transformed_index2];
-        oPlayer.spell_sprite[spell_transformed_index2] = spell_value;
-    
-        }
-    else
-        {
-        exit;
-        } 
-    }
-    
-
 </string>
           </argument>
         </arguments>
@@ -618,12 +503,80 @@ if (die)
         draw_rectangle(view_xview,view_yview,view_xview+view_wview,view_yview+view_hview,0);
         
         if (die_alpha &gt;= 1) {game_restart();}
-       }
-       
-//Draw cursor
-if (can_draw = 1)
+}
+
+// Spell switching
+/// Spell switching
+
+/*
+Athor: @VaclavVal
+Revision: @LoFCZ
+Version: 1.1
+*/
+
+normalxoffset = (view_wview - view_wview); 
+halfxoffset   = (normalxoffset / 2)
+spellsxPlus  += halfxoffset;
+yoffset       = (view_hview - view_hview);
+
+baseFormulaX = (x + 540 + spellsxPlus);
+spellMinY    = (y + 560 + yoffset - 10);
+spellMaxY    = (y + 560 + yoffset + 30);
+
+for (i = 0; i &lt; 3; i++)
     {
-    draw_sprite(oPlayer.spell_sprite[spell_transformed_index],0,mouse_x-16,mouse_y-16);
+     spellMinX[i] = (baseFormulaX + (44 * i) - 8);
+     spellMaxX[i] = (baseFormulaX + (44 * i) + 30);     
+    }
+
+// Pick up spell
+for (i = 0; i &lt; 3; i++)
+    {
+     if (mouse_check_button_pressed(mb_left))
+        {
+         if (mouse_in(spellMinX[i], spellMaxX[i], spellMinY, spellMaxY))
+            {
+             spell_transformed_index = i;
+             can_draw = true;
+             break;
+            }
+        }
+    }
+    
+// Put spell to the new slot
+if (mouse_check_button_released(mb_left))
+   {
+    can_draw = false;
+    
+    for (i = 0; i &lt; 3; i++)
+        {
+         if (mouse_in(spellMinX[i], spellMaxX[i], spellMinY, spellMaxY))
+            {
+             // Store temp vars
+             spell_transformed_index2 = i;             
+             spell_value              = oPlayer.spell[spell_transformed_index];
+             spell_value2             = oPlayer.spell_sprite[spell_transformed_index];
+             spell_cd_switch          = oPlayer.spell_cd[spell_transformed_index];
+             spell_cd_switch2         = oPlayer.temp_cd[spell_transformed_index];
+                   
+             // Switch actual values
+             oPlayer.spell[spell_transformed_index]         = oPlayer.spell[spell_transformed_index2];
+             oPlayer.spell[spell_transformed_index2]        = spell_value;
+             oPlayer.spell_cd[spell_transformed_index]      = oPlayer.spell_cd[spell_transformed_index2];
+             oPlayer.spell_cd[spell_transformed_index2]     = spell_cd_switch;
+             oPlayer.temp_cd[spell_transformed_index]       = oPlayer.temp_cd[spell_transformed_index2];
+             oPlayer.temp_cd[spell_transformed_index2]      = spell_cd_switch2;
+             oPlayer.spell_sprite[spell_transformed_index]  = oPlayer.spell_sprite[spell_transformed_index2];
+             oPlayer.spell_sprite[spell_transformed_index2] = spell_value2;             
+             break;
+            }          
+        }
+    }    
+       
+// Draw temp spell
+if (can_draw)
+    {
+     draw_sprite(oPlayer.spell_sprite[spell_transformed_index], 0, (mouse_x - 16), (mouse_y - 16));
     }
    
 </string>
