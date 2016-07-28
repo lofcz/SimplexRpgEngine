@@ -19,6 +19,14 @@ if (thumbnailImage != -1)
     {
      draw_sprite(sTestItem, thumbnailImage, x - (64 - 16), y - 80);
     }
+else
+    {
+     // Draw shop info
+     fnt(fntPixelTiny);
+     clr(c_white);
+     draw_text_colored(x - 92, y - 80, shopText);
+     clr();
+    }
 
 if (thumbnailPrice != -1)
     {
@@ -31,10 +39,12 @@ if (thumbnailPrice != -1)
 
      draw_text_colored(x - 90, y - 48, "Cena: " + string(thumbnailPrice) + priceText);
      
-     
+     if (thumbnailCount != -1)
+     {
      if (slotFlag[hoverSlot] == "") {draw_text( x - 90, y - 32, "Skladem: " + string(thumbnailCount));}
      else if (slotFlag[hoverSlot] == "+") {draw_text_colored(x - 90, y - 32, "Skladem: " + scrColorflag(c_lime) + string(thumbnailCount) + scrEndColorflag() + " ");}
      else if (slotFlag[hoverSlot] == "-") {draw_text_colored(x - 90, y - 32, "Skladem: " + scrColorflag(c_red) + string(thumbnailCount) + scrEndColorflag() + " ");}
+     }
     }
     
 for (i = 0; i < slots; i++)

@@ -13,6 +13,7 @@ thumbnailPrice = -1;
 thumbnailCount = -1;
 thumbnailOriginalPrice = -1;
 hoverSlot = -1;
+shopText = "";
 
 item[slots] = -1;
 

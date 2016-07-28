@@ -156,7 +156,10 @@
     <sound>sound\sndFireball1Explosion</sound>
     <sound>sound\sndIcicle1</sound>
     <sound>sound\sndIcicle1Impact</sound>
+    <sound>sound\sndError</sound>
     <sound>sound\sndPoo</sound>
+    <sound>sound\sndInventoryExtend</sound>
+    <sound>sound\sndBuyItem</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Actors">
@@ -217,7 +220,6 @@
       <sprite>sprites\sController</sprite>
       <sprite>sprites\sInventory</sprite>
       <sprite>sprites\sPortraits</sprite>
-      <sprite>sprites\sprite113</sprite>
       <sprite>sprites\sShortWeapons</sprite>
       <sprite>sprites\sShortHandles</sprite>
       <sprite>sprites\sStatus</sprite>
@@ -582,6 +584,7 @@
       </scripts>
     </scripts>
     <script>scripts\scrSpriteDissolve.gml</script>
+    <script>scripts\scrWordwrap.gml</script>
   </scripts>
   <shaders name="shaders">
     <shaders name="ScreenFX">

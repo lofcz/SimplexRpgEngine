@@ -1,11 +1,13 @@
-/// inventoryExtend(slots)
+/// inventoryExtend(slots, playSound)
 
 with(oInventory)
 {
-var plus;
-plus                = 3;
+var plus, snd;
+plus = 3;
+snd  = true;
 
 if (argument_count > 0) {plus = argument[0]}
+if (argument_count > 1) {snd  = argument[1]}
 
 for (a = slots; a < slots+plus; a++)
 {
@@ -40,5 +42,7 @@ for (a = slots; a < slots+plus; a++)
 
           }
 }
+
+if (snd) {audio_play_sound(sndInventoryExtend, 0, 0);}
 slots += plus;
 }

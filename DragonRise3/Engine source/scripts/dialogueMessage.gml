@@ -15,8 +15,10 @@ if (argument_count > 3) {force = argument[3];}
 if (instance_number(oMessagebox) = 0) {instance_create(view_xview,view_yview,oMessagebox);} // V podstatě statická třída
 
 oMessagebox.message_head[oMessagebox.message_number]   = head;
-oMessagebox.message_text[oMessagebox.message_number]   = text;
+oMessagebox.message_text[oMessagebox.message_number]   = scrWordwrap(text, 550, fntPixel);
 oMessagebox.message_image[oMessagebox.message_number]  = pI;
+
+show_message(text);
 
 oMessagebox.message_number++;
 oMessagebox.idd++;

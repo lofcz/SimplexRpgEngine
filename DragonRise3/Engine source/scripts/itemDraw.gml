@@ -80,7 +80,10 @@ if (hover_info && p = 1 )
             {
             if (on_click)
                {
+               if (loot != 2 || (loot == 2 && oPlayer.gold >= vlastnost[vlastnost_cena])) 
+               {              
                if (instance_number(oItemText) > 0) {with(oItemText) {instance_destroy();}}
+               }
                
                if (object_get_name(object_index) = "oGold") 
                   {
@@ -95,7 +98,8 @@ if (hover_info && p = 1 )
                else 
                     {
                      if (loot != 2) {inventoryPickUp();}
-                     else {if (oPlayer.gold >= vlastnost[vlastnost_cena]) {inventoryPickUp(1); oPlayer.gold -= vlastnost[vlastnost_cena];}}
+                     else {if (oPlayer.gold >= vlastnost[vlastnost_cena]) {inventoryPickUp(1); audio_play_sound(sndBuyItem, 0, 0); oPlayer.gold -= vlastnost[vlastnost_cena];} else {audio_play_sound(sndError, 0, 0);}}
+                     
                    
                     }
                 (drop_id).fill[slot] = 0;
