@@ -3,10 +3,10 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="14" name="datafiles">
-    <datafiles number="14" name="Resources">
-      <datafiles number="14" name="Sprites">
-        <datafiles number="14" name="BodyCanvas">
+  <datafiles number="15" name="datafiles">
+    <datafiles number="15" name="Resources">
+      <datafiles number="15" name="Sprites">
+        <datafiles number="15" name="BodyCanvas">
           <datafile>
             <name>sBodyCanvas.png</name>
             <exists>-1</exists>
@@ -77,7 +77,7 @@
           </datafile>
         </datafiles>
       </datafiles>
-      <datafiles number="14" name="SFX">
+      <datafiles number="15" name="SFX">
         <datafile>
           <name>coins.wav</name>
           <exists>-1</exists>
@@ -131,6 +131,23 @@
         </datafile>
       </datafiles>
     </datafiles>
+    <datafile>
+      <name>myPrefab.simplexPrefab</name>
+      <exists>-1</exists>
+      <size>150</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>myPrefab.simplexPrefab</filename>
+    </datafile>
   </datafiles>
   <NewExtensions/>
   <sounds name="sound">
@@ -342,6 +359,9 @@
       <sprite>sprites\sprite123_tilee</sprite>
       <sprite>sprites\sprite102</sprite>
     </sprites>
+    <sprite>sprites\sFence</sprite>
+    <sprite>sprites\sFenceDesigner</sprite>
+    <sprite>sprites\sConstructionSiteMask</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -612,7 +632,12 @@
       <scripts name="Simple lighting">
         <script>scripts\scrSimpleLightIni.gml</script>
       </scripts>
+      <scripts name="Real time building">
+        <script>scripts\scrBuiltSctructureCompleted.gml</script>
+        <script>scripts\scrBuildPrefab.gml</script>
+      </scripts>
     </scripts>
+    <script>scripts\scrCheckForNeighbours.gml</script>
   </scripts>
   <shaders name="shaders">
     <shaders name="ScreenFX">
@@ -792,6 +817,7 @@
       <object>objects\oMainMenu</object>
       <object>objects\oMainMenuPar</object>
     </objects>
+    <object>objects\oFence</object>
   </objects>
   <timelines name="timelines">
     <timelines name="Cutscenes">

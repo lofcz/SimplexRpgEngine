@@ -120,8 +120,15 @@ scrCenterText(0);
                      }
                      else 
                         {
-                        draw_set_font(fntPixel);
-                        draw_text_colour(x,y-32,locked_message,c_black,c_black,c_black,c_black,text_alpha);
+draw_set_font(fntPixel);
+scrCenterText();
+draw_set_alpha(text_alpha/2);
+draw_roundrect_colour_ext(x-string_width("Zamčeno")/2-10,y-string_height("E")/2-32,x+string_width("Zamčeno")/2+10,y+string_height("E")/2+4-32,20,20,c_black,c_black,0);
+draw_set_alpha(text_alpha);
+draw_set_color(c_white);
+draw_text(x,y-32,"Zamčeno");
+draw_set_alpha(1);
+scrCenterText(0);
                         if (keyboard_check_pressed(ord("E")) && distance_to_object(oPlayer) < open_dis && text = 1) {if (instance_number(oLockpickingScreen) == 0) {scrLockpickingIni(3); scrLockpickingAddTumblerCombination(0, 0, "1"); scrLockpickingAddTumblerCombination(2, 0, "1,0")}}
 
                          }

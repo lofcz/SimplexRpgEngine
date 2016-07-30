@@ -44,6 +44,7 @@ splashMessageAlpha = 0;
 hp       = -1;
 affect   = "";
 
+canColide = true;
 </string>
           </argument>
         </arguments>
@@ -102,11 +103,14 @@ if (basicTransform == Transformations.scale)
             <kind>1</kind>
             <string>/// Return player to previous position
 
+if (canColide)
+{
 with(other)
            {
             x = xprevious;
             y = yprevious;           
            }
+}
 </string>
           </argument>
         </arguments>
