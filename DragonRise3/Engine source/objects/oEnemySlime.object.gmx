@@ -32,6 +32,7 @@ scrEnemyIni(30,5,1,choose(1,1,2),"Slime",bestiaryEnemySlime,scrColorflag(c_blue)
 
 timeToPerform = 0;
 tempSpd = spd;
+safeDying = true;
 </string>
           </argument>
         </arguments>
@@ -268,6 +269,7 @@ if (dir = dir_down) {if (can_damage = -1) {y += spd*(1-slowdown); count += spd*(
 
 if (mood = "dying")
 {
+if (safeDying) {safeDying = false; scrGoreExplodeDropShards(32, 8, spr[0]);}
 draw_sprite_ext(spr[0],spr[1],x,y,1,1,0,c_white,image_alpha);
 if (image_alpha &gt; 0) {image_alpha -= 0.02;} else {instance_destroy();}   
 }

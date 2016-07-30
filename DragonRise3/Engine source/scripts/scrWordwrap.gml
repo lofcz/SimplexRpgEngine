@@ -40,7 +40,6 @@ while (string_length(str) > 0)
             }
     }
 fnt();
-
 // Add rest of last line to output.   
 out += outLine;
 return out;

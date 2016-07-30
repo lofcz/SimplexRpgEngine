@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-10</depth>
   <persistent>-1</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>self</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -26,6 +26,13 @@
           <argument>
             <kind>1</kind>
             <string>/// Initialise
+
+sprLight = sBasicLight;
+sprLightIndex = 0;
+scale = 2;
+color = c_white;
+sprAlpha = 0.5;
+rot = 0;
 
 set_sprite(sPlayerBasic,0);
 instance_create(x,y,oPlayerCombat);

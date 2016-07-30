@@ -166,8 +166,6 @@
       <sprites name="NPC">
         <sprite>sprites\sPlayerBasic</sprite>
         <sprite>sprites\sCombatAnimationUnfinished</sprite>
-        <sprite>sprites\sprite16</sprite>
-        <sprite>sprites\sprite91</sprite>
         <sprite>sprites\sVavrinec</sprite>
         <sprite>sprites\sObet</sprite>
         <sprite>sprites\sBylinkarka</sprite>
@@ -188,6 +186,10 @@
         <sprite>sprites\sSimpleWater</sprite>
         <sprite>sprites\sWaterMask</sprite>
         <sprite>sprites\sWater</sprite>
+        <sprite>sprites\sSeaWater</sprite>
+        <sprite>sprites\sManaPool</sprite>
+        <sprite>sprites\sManaPoolCollision</sprite>
+        <sprite>sprites\sTeleport</sprite>
       </sprites>
       <sprites name="Containers">
         <sprite>sprites\sChest</sprite>
@@ -214,62 +216,117 @@
       <sprites name="Main menu">
         <sprite>sprites\sNewGame</sprite>
       </sprites>
-      <sprite>sprites\sCamera</sprite>
-      <sprite>sprites\sLoader</sprite>
-      <sprite>sprites\sParticleMask</sprite>
-      <sprite>sprites\sController</sprite>
-      <sprite>sprites\sInventory</sprite>
-      <sprite>sprites\sPortraits</sprite>
-      <sprite>sprites\sShortWeapons</sprite>
-      <sprite>sprites\sShortHandles</sprite>
-      <sprite>sprites\sStatus</sprite>
-      <sprite>sprites\sWeaponCollision</sprite>
+      <sprites name="Inventory">
+        <sprite>sprites\sSlotTexture</sprite>
+        <sprite>sprites\sSlotTextureHD</sprite>
+        <sprite>sprites\sInfoboxTexture</sprite>
+        <sprite>sprites\sSlotOutline</sprite>
+        <sprite>sprites\sSlotOutlineHD</sprite>
+        <sprite>sprites\sQuickslot</sprite>
+        <sprite>sprites\sInventoryTitle</sprite>
+        <sprite>sprites\sRarityEffect</sprite>
+        <sprite>sprites\sFreeSlot</sprite>
+      </sprites>
+      <sprites name="UI Icons">
+        <sprite>sprites\sInventory</sprite>
+        <sprite>sprites\sBestiary</sprite>
+        <sprite>sprites\sEquipment</sprite>
+        <sprite>sprites\sQuestIcon</sprite>
+        <sprite>sprites\sStatus</sprite>
+        <sprite>sprites\sCrafting</sprite>
+        <sprite>sprites\sLockIcon</sprite>
+        <sprite>sprites\sSpellsUI</sprite>
+        <sprite>sprites\sTalentMenuIcons</sprite>
+      </sprites>
+      <sprites name="HUD Bars">
+        <sprite>sprites\sHUDBars</sprite>
+        <sprite>sprites\sHudBarsSubs</sprite>
+        <sprite>sprites\sHealthBar</sprite>
+        <sprite>sprites\sExperienceBarSubs</sprite>
+        <sprite>sprites\sExperienceBar</sprite>
+      </sprites>
+      <sprites name="Controllers icons">
+        <sprite>sprites\sCamera</sprite>
+        <sprite>sprites\sLoader</sprite>
+        <sprite>sprites\sParticleMask</sprite>
+        <sprite>sprites\sController</sprite>
+        <sprite>sprites\sCollisionMask</sprite>
+        <sprite>sprites\sLightMask</sprite>
+        <sprite>sprites\sFirefly</sprite>
+        <sprite>sprites\sAreaEffect</sprite>
+      </sprites>
+      <sprites name="Crafting / equipment icons">
+        <sprite>sprites\sCraftingIcons</sprite>
+        <sprite>sprites\sEquipmentIcons</sprite>
+      </sprites>
+      <sprites name="Dialogue">
+        <sprite>sprites\sPortraits</sprite>
+        <sprite>sprites\sMessagebox</sprite>
+        <sprite>sprites\sAnswerWheel</sprite>
+      </sprites>
+      <sprites name="Talents">
+        <sprite>sprites\sTalentsThief</sprite>
+        <sprite>sprites\sTalentsMage</sprite>
+        <sprite>sprites\sTalentsWarrior</sprite>
+      </sprites>
+      <sprites name="Basic light sources">
+        <sprite>sprites\sBasicLight</sprite>
+        <sprite>sprites\sbasicLightLinear</sprite>
+      </sprites>
+      <sprites name="Combat, weapons">
+        <sprite>sprites\sShortWeapons</sprite>
+        <sprite>sprites\sShortHandles</sprite>
+        <sprite>sprites\sWeaponCollision</sprite>
+        <sprite>sprites\sSwordSwing</sprite>
+      </sprites>
+      <sprites name="Masks">
+        <sprite>sprites\sMask26x26</sprite>
+        <sprite>sprites\sCopyright</sprite>
+      </sprites>
+      <sprites name="Bestiary">
+        <sprite>sprites\sBestiar</sprite>
+        <sprite>sprites\sUnknownBestiary</sprite>
+      </sprites>
       <sprite>sprites\sPlayer</sprite>
-      <sprite>sprites\sEquipment</sprite>
-      <sprite>sprites\sSlotTexture</sprite>
-      <sprite>sprites\sSlotTextureHD</sprite>
-      <sprite>sprites\sInfoboxTexture</sprite>
-      <sprite>sprites\sMessagebox</sprite>
-      <sprite>sprites\sAnswerWheel</sprite>
-      <sprite>sprites\sCollisionMask</sprite>
-      <sprite>sprites\sInventoryMapTEMP</sprite>
-      <sprite>sprites\sHudBarsSubs</sprite>
-      <sprite>sprites\sHUDBars</sprite>
-      <sprite>sprites\sHealthBar</sprite>
-      <sprite>sprites\sExperienceBarSubs</sprite>
-      <sprite>sprites\sExperienceBar</sprite>
-      <sprite>sprites\sSlotOutline</sprite>
-      <sprite>sprites\sSlotOutlineHD</sprite>
-      <sprite>sprites\sInventoryTitle</sprite>
-      <sprite>sprites\sQuickslot</sprite>
     </sprites>
     <sprites name="Effects and items">
-      <sprite>sprites\sTestItem</sprite>
-      <sprite>sprites\sStackableItem1</sprite>
-      <sprite>sprites\sCoin</sprite>
-      <sprite>sprites\sHeart</sprite>
-      <sprite>sprites\sFreeSlot</sprite>
-      <sprite>sprites\sRarityEffect</sprite>
-      <sprite>sprites\sBlood1</sprite>
-      <sprite>sprites\sBlood2</sprite>
-      <sprite>sprites\sBlood4</sprite>
-      <sprite>sprites\sBlood3</sprite>
-      <sprite>sprites\sQuest</sprite>
-      <sprite>sprites\sHealthEffect</sprite>
-      <sprite>sprites\sEvent</sprite>
-      <sprite>sprites\sBlood5</sprite>
-      <sprite>sprites\sBlob</sprite>
-      <sprite>sprites\sHealthEffect2</sprite>
-      <sprite>sprites\sManaEffect2</sprite>
-      <sprite>sprites\sManaEffect</sprite>
-      <sprite>sprites\sXpPoint</sprite>
-      <sprite>sprites\sXP</sprite>
-      <sprite>sprites\sStaminaEffect</sprite>
-      <sprite>sprites\sHelmetEffect</sprite>
-      <sprite>sprites\sRingEffect</sprite>
-      <sprite>sprites\sSwordEffect</sprite>
-      <sprite>sprites\sXpRewardPoint</sprite>
-      <sprite>sprites\sSlimePart</sprite>
+      <sprites name="Items">
+        <sprite>sprites\sTestItem</sprite>
+        <sprite>sprites\sStackableItem1</sprite>
+      </sprites>
+      <sprites name="Effects">
+        <sprite>sprites\sCoin</sprite>
+        <sprite>sprites\sHeart</sprite>
+        <sprite>sprites\sBlood1</sprite>
+        <sprite>sprites\sBlood2</sprite>
+        <sprite>sprites\sBlood4</sprite>
+        <sprite>sprites\sBlood3</sprite>
+        <sprite>sprites\sBlood5</sprite>
+        <sprite>sprites\sHealthEffect</sprite>
+        <sprite>sprites\sEvent</sprite>
+        <sprite>sprites\sBlob</sprite>
+        <sprite>sprites\sHealthEffect2</sprite>
+        <sprite>sprites\sManaEffect2</sprite>
+        <sprite>sprites\sManaEffect</sprite>
+        <sprite>sprites\sXpPoint</sprite>
+        <sprite>sprites\sXP</sprite>
+        <sprite>sprites\sStaminaEffect</sprite>
+        <sprite>sprites\sHelmetEffect</sprite>
+        <sprite>sprites\sRingEffect</sprite>
+        <sprite>sprites\sSwordEffect</sprite>
+        <sprite>sprites\sXpRewardPoint</sprite>
+        <sprite>sprites\sCoinAnimated</sprite>
+        <sprite>sprites\sCoinSingle</sprite>
+        <sprite>sprites\sSlimePart</sprite>
+        <sprite>sprites\sQuest</sprite>
+        <sprite>sprites\sCodeShard</sprite>
+        <sprite>sprites\sFadedLine</sprite>
+      </sprites>
+      <sprites name="Particles">
+        <sprite>sprites\sParticleGrass</sprite>
+        <sprite>sprites\sAffects</sprite>
+        <sprite>sprites\sRainSplash</sprite>
+      </sprites>
     </sprites>
     <sprites name="TEMP - RESOURCES">
       <sprite>sprites\sprite107</sprite>
@@ -281,44 +338,10 @@
       <sprite>sprites\sprite116_Recon1_zps6e9a49c7</sprite>
       <sprite>sprites\sprite60</sprite>
       <sprite>sprites\sprite122_Items2</sprite>
+      <sprite>sprites\sInventoryMapTEMP</sprite>
       <sprite>sprites\sprite123_tilee</sprite>
+      <sprite>sprites\sprite102</sprite>
     </sprites>
-    <sprite>sprites\sSpellsUI</sprite>
-    <sprite>sprites\sManaPool</sprite>
-    <sprite>sprites\sCodeShard</sprite>
-    <sprite>sprites\sManaPoolCollision</sprite>
-    <sprite>sprites\sBestiary</sprite>
-    <sprite>sprites\sEquipmentIcons</sprite>
-    <sprite>sprites\sCraftingIcons</sprite>
-    <sprite>sprites\sCrafting</sprite>
-    <sprite>sprites\sBestiar</sprite>
-    <sprite>sprites\sLightmapCircle</sprite>
-    <sprite>sprites\sCoinAnimated</sprite>
-    <sprite>sprites\sCoinSingle</sprite>
-    <sprite>sprites\sUnknownBestiary</sprite>
-    <sprite>sprites\sprite90</sprite>
-    <sprite>sprites\sQuestIcon</sprite>
-    <sprite>sprites\sprite93</sprite>
-    <sprite>sprites\sFadedLine</sprite>
-    <sprite>sprites\sRainSplash</sprite>
-    <sprite>sprites\sTalentMenuIcons</sprite>
-    <sprite>sprites\sTalentsThief</sprite>
-    <sprite>sprites\sTalentsMage</sprite>
-    <sprite>sprites\sTalentsWarrior</sprite>
-    <sprite>sprites\sprite106</sprite>
-    <sprite>sprites\sprite102</sprite>
-    <sprite>sprites\sAffects</sprite>
-    <sprite>sprites\sParticleGrass</sprite>
-    <sprite>sprites\sSeaWater</sprite>
-    <sprite>sprites\sSamplerGreen</sprite>
-    <sprite>sprites\sprite110</sprite>
-    <sprite>sprites\sprite111</sprite>
-    <sprite>sprites\sSwordSwing</sprite>
-    <sprite>sprites\sLockIcon</sprite>
-    <sprite>sprites\sTeleport</sprite>
-    <sprite>sprites\sAreaEffect</sprite>
-    <sprite>sprites\sCopyright</sprite>
-    <sprite>sprites\sMask26x26</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -346,6 +369,7 @@
     <background>background\background20</background>
     <background>background\background21</background>
     <background>background\background22</background>
+    <background>background\A4_Server_Tiles_zps6mjyu46o</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\pthCutsceneObet1</path>
@@ -378,6 +402,8 @@
         <script>scripts\secToSteps.gml</script>
         <script>scripts\scrDice.gml</script>
         <script>scripts\set_sprite.gml</script>
+        <script>scripts\scrSpriteDissolve.gml</script>
+        <script>scripts\scrWordwrap.gml</script>
       </scripts>
       <scripts name="Shaders">
         <script>scripts\scrShaderPrepareColor.gml</script>
@@ -397,6 +423,7 @@
         <script>scripts\effectShardDrop.gml</script>
         <script>scripts\effectRealFire.gml</script>
         <script>scripts\effectGrass.gml</script>
+        <script>scripts\effectFirefly.gml</script>
       </scripts>
     </scripts>
     <scripts name="Components">
@@ -582,9 +609,10 @@
         <script>scripts\scrShopSetInfo.gml</script>
         <script>scripts\scrShopIni.gml</script>
       </scripts>
+      <scripts name="Simple lighting">
+        <script>scripts\scrSimpleLightIni.gml</script>
+      </scripts>
     </scripts>
-    <script>scripts\scrSpriteDissolve.gml</script>
-    <script>scripts\scrWordwrap.gml</script>
   </scripts>
   <shaders name="shaders">
     <shaders name="ScreenFX">
@@ -598,16 +626,16 @@
       <shader type="GLSLES">shaders\shdThermal.shader</shader>
       <shader type="GLSLES">shaders\shdSketch.shader</shader>
       <shader type="GLSLES">shaders\shdGreyscale.shader</shader>
+      <shader type="GLSLES">shaders\shdConfusion.shader</shader>
+      <shader type="GLSLES">shaders\shdRipple.shader</shader>
+      <shader type="GLSLES">shaders\shdOverlight.shader</shader>
+      <shader type="GLSLES">shaders\shdShockwave.shader</shader>
+      <shader type="GLSLES">shaders\shdPerlinNoiseWater.shader</shader>
+      <shader type="GLSLES">shaders\shdSeaWater.shader</shader>
     </shaders>
     <shaders name="Lightmap">
       <shader type="GLSLES">shaders\shdLightmap.shader</shader>
     </shaders>
-    <shader type="GLSLES">shaders\shdConfusion.shader</shader>
-    <shader type="GLSLES">shaders\shdOverlight.shader</shader>
-    <shader type="GLSLES">shaders\shdSeaWater.shader</shader>
-    <shader type="GLSLES">shaders\shdPerlinNoiseWater.shader</shader>
-    <shader type="GLSLES">shaders\shdRipple.shader</shader>
-    <shader type="GLSLES">shaders\shdShockwave.shader</shader>
   </shaders>
   <fonts name="fonts">
     <fonts name="Standard game fonts">
@@ -679,6 +707,7 @@
       <object>objects\oLightmap</object>
       <object>objects\oTestObject</object>
       <object>objects\oLightCircle</object>
+      <object>objects\oLight</object>
       <object>objects\oAreaScript</object>
     </objects>
     <objects name="Dropable and items">
@@ -728,6 +757,7 @@
         <object>objects\oJug</object>
       </objects>
       <objects name="Vivid">
+        <object>objects\oFirefly</object>
         <object>objects\oBasicVivid</object>
       </objects>
     </objects>
@@ -764,11 +794,13 @@
     </objects>
   </objects>
   <timelines name="timelines">
-    <timeline>timelines\cutsceneTest</timeline>
-    <timeline>timelines\ctsTestNPC1</timeline>
-    <timeline>timelines\DemoCutscene</timeline>
-    <timeline>timelines\cts1</timeline>
-    <timeline>timelines\MyFirstCutscene</timeline>
+    <timelines name="Cutscenes">
+      <timeline>timelines\cutsceneTest</timeline>
+      <timeline>timelines\ctsTestNPC1</timeline>
+      <timeline>timelines\DemoCutscene</timeline>
+      <timeline>timelines\cts1</timeline>
+      <timeline>timelines\MyFirstCutscene</timeline>
+    </timelines>
   </timelines>
   <rooms name="rooms">
     <room>rooms\mapTest</room>

@@ -22,3 +22,29 @@ draw_set_color(col);
 draw_rectangle(view_xview-1,view_yview-1,view_xview+view_wview+1,view_yview+view_hview+1,0);
 draw_set_alpha(1);
 draw_set_color(c_white);
+
+
+if (alpha > 0)
+{
+surface_set_target(surf);
+draw_clear(c_black);
+
+draw_set_blend_mode(bm_src_color);
+if (instance_number(oLight) > 0)
+{
+with(oLight)
+    {
+     draw_sprite_ext(sprite, index, x - view_xview, y - view_yview, scale, scale, rot, color, alpha);
+    }
+}
+
+    
+with(oPlayer)
+    {
+     draw_sprite_ext(sprLight, sprLightIndex, x - view_xview, y - view_yview, scale, scale, rot, color, sprAlpha);    
+    }
+draw_set_blend_mode(bm_normal);
+surface_reset_target();
+
+draw_surface_ext(surf, view_xview, view_yview, 1, 1, 0, c_white, alpha);
+}

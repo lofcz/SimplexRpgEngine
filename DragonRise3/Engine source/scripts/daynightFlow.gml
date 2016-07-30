@@ -27,7 +27,29 @@ if (minu > 59)
 if (hour > 23)
   {
   hour = 0;
+  day++;
+  event_user(0);
   }
+
+if (day >= 7)
+  {
+   day = 0; 
+   week++;
+   event_user(1);
+  }
+
+if (week > 3)
+    {
+     month++;
+     week = 0;
+     event_user(2);
+    }
+if (month > 11)
+    {
+     month = 0;
+     year++;
+     event_user(3);
+    }
 
 hh = hour+minu/60;
 to = -1;
@@ -68,3 +90,12 @@ if (hour > 20 || hour < 5)
    {
     night = 1;
    }
+   
+if (night)
+    {
+     if (alpha < 0.9) {alpha += 0.01;}
+    }
+else
+    {
+     if (alpha > 0) {alpha -= 0.01;}
+    }
