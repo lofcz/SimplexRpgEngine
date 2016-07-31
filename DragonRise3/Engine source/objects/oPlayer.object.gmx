@@ -396,7 +396,7 @@ ins2 = instance_create(x+100, y+100, oTestObject); ins2.name = "Druhý objekt";
 scrCutscenePlay(ins1, DemoCutscene, false, 1);
 */
 
-
+scrScreenShake(10, 0.2);
 </string>
           </argument>
         </arguments>
@@ -513,13 +513,28 @@ talentPoints++;
 
 if (instance_number(oFence) &gt; 0)
     {
+     fenceFound  = false;
+     maxAttempts = instance_number(oFence);
+     attempts    = 0;
      iB = instance_nearest(x, y, oFence);
-     iD = distance_to_object(iB);
+     iD = distance_to_object(iB);     
      
-     if (iD &lt; 5)
+     if (iD &lt; 15 &amp;&amp; iD &gt; 0)
+     {
+     while(!fenceFound &amp;&amp; (attempts &lt; maxAttempts))
+     {
+      iB = instance_nnearest(x, y, oFence, attempts);
+      iD = distance_to_object(iB);
+      
+      if (!iB.built) {fenceFound = true;}
+      attempts++;
+     }
+     
+     if (iD &lt; 15 &amp;&amp; iD &gt; 0)
         {
          iB.drawText = true;
         }
+     }
     }
 </string>
           </argument>

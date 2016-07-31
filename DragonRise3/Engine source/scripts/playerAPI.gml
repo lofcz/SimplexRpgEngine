@@ -260,8 +260,63 @@ if (last_hp <= 0 && last_hp != 0) {last_hp = 0; scrGoreExplode(10,10);}
 
 with(oPlayer)
 {
-if (last_dir == "s")
+if (!place_empty(x, y))
+{
+tX = x;
+tY = y;
+
+// Get distances
+while(!place_empty(tX, tY)) {tX--;}
+dis[0] = abs(x - tX);
+
+tX = x;
+tY = y;    
+
+while(!place_empty(tX, tY)) {tX++;}
+dis[1] = abs(x - tX);
+
+tX = x;
+tY = y;    
+
+while(!place_empty(tX, tY)) {tY++;}
+dis[2] = abs(y - tY);
+
+tX = x;
+tY = y;    
+
+while(!place_empty(tX, tY)) {tY--;}
+dis[3] = abs(y - tY);
+
+// Get min distance and prioritize last direction
+minDistance   = min(dis[0], dis[1], dis[2], dis[3]);
+deltaDistance = 0;
+
+if (last_dir == "s") {deltaDistance = dis[2];}
+if (last_dir == "w") {deltaDistance = dis[3];}
+if (last_dir == "d") {deltaDistance = dis[1];}
+if (last_dir == "a") {deltaDistance = dis[0];}
+
+difDistance = abs(deltaDistance - minDistance);
+
+if (difDistance < 3) 
     {
-     while(!place_empty(x, y)) {y--;}
+     if (last_dir == "s") {y += dis[2];}
+     if (last_dir == "w") {y -= dis[3];}
+     if (last_dir == "d") {x += dis[1];}
+     if (last_dir == "a") {x -= dis[0];}     
     }
+else
+    {
+     for (i = 0; i < 3; i++)
+        {
+         if (minDistance == dis[i])
+            {
+             if (i == 0) {x -= dis[i];}
+             if (i == 1) {x += dis[i];}
+             if (i == 2) {y += dis[i];}
+             if (i == 3) {y -= dis[i];}             
+            }
+        }
+    }
+}
 }

@@ -57,6 +57,9 @@ listX = ds_list_create();
 listY = ds_list_create();
 listSpeed = ds_list_create();
 
+screenShake = 0;
+screenShakeFade = 0;
+
 if (instance_number(oPlayer) &gt; 0) {target = oPlayer;}
 
 
@@ -148,6 +151,8 @@ y = oPlayer.y;
 
 if (!debug)
 {
+   scrScreenShakeUpdate();
+   
 if (motion = 1)
    {       
     if (instance_number(target) &gt; 0)
@@ -161,7 +166,7 @@ if (motion = 1)
         }
         else {speed = 0;}
        }
-   
+
    }
 if (abs(view) &gt;=360) {view = 0;}   
 view_angle[0] = view;

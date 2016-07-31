@@ -36,6 +36,7 @@ drawText = false;
 canCheck = true;
 
 canColide = false;
+tempBuilt = false;
 </string>
           </argument>
         </arguments>
@@ -158,8 +159,8 @@ else if (!neighbour[neighbourEnum.right] &amp;&amp; neighbour[neighbourEnum.down
     }
 image_angle = 0;
 direction = 0;
-apiPlayerUnstuck();
-if (built) {canColide = true;}
+//if (!tempBuilt) {apiPlayerUnstuck();}
+if (built) {tempBuilt = true; canColide = true;}
 </string>
           </argument>
         </arguments>
@@ -206,6 +207,7 @@ if (distance_to_point(mouse_x, mouse_y) == 0)
     {
      if (mouse_check_button_pressed(mb_left))
         {
+         tempBuilt= built;
          built = true;
          global.result = 1;
          scrBuiltSctructureCompleted();

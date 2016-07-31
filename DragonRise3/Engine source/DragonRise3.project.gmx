@@ -641,7 +641,8 @@
         <script>scripts\scrBuildPrefab.gml</script>
       </scripts>
       <scripts name="Screen shake">
-        <script>scripts\scrScreenShakeInit.gml</script>
+        <script>scripts\scrScreenShakeUpdate.gml</script>
+        <script>scripts\scrScreenShake.gml</script>
       </scripts>
     </scripts>
     <script>scripts\scrCheckForNeighbours.gml</script>

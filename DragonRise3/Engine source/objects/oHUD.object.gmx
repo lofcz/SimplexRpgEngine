@@ -128,6 +128,8 @@ spellMinY    = (y + 560 + yoffset - 10);
 spellMaxY    = (y + 560 + yoffset + 30);
 
 can_draw = false;
+
+
 </string>
           </argument>
         </arguments>
