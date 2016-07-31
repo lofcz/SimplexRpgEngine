@@ -255,3 +255,13 @@ if (last_xp < vlastnost[vlastnost_zkusenosti]) {last_xp++;}
 if (last_xp > vlastnost[vlastnost_zkusenosti]) {last_xp--;}
 
 if (last_hp <= 0 && last_hp != 0) {last_hp = 0; scrGoreExplode(10,10);}
+#define apiPlayerUnstuck
+/// apiPlayerUnstuck()
+
+with(oPlayer)
+{
+if (last_dir == "s")
+    {
+     while(!place_empty(x, y)) {y--;}
+    }
+}

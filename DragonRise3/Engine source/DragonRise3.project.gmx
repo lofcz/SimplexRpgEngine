@@ -362,6 +362,7 @@
     <sprite>sprites\sFence</sprite>
     <sprite>sprites\sFenceDesigner</sprite>
     <sprite>sprites\sConstructionSiteMask</sprite>
+    <sprite>sprites\sBrokenJug</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -387,9 +388,12 @@
     <background>background\background18</background>
     <background>background\background19</background>
     <background>background\background20</background>
+    <background>background\ruins</background>
     <background>background\background21</background>
     <background>background\background22</background>
     <background>background\A4_Server_Tiles_zps6mjyu46o</background>
+    <background>background\TileE__1_</background>
+    <background>background\background29</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\pthCutsceneObet1</path>
@@ -636,6 +640,9 @@
         <script>scripts\scrBuiltSctructureCompleted.gml</script>
         <script>scripts\scrBuildPrefab.gml</script>
       </scripts>
+      <scripts name="Screen shake">
+        <script>scripts\scrScreenShakeInit.gml</script>
+      </scripts>
     </scripts>
     <script>scripts\scrCheckForNeighbours.gml</script>
   </scripts>
@@ -776,6 +783,7 @@
         <object>objects\oSeaWater</object>
         <object>objects\oSimpleWater</object>
         <object>objects\oTeleport</object>
+        <object>objects\oFence</object>
       </objects>
       <objects name="Containers">
         <object>objects\oChest</object>
@@ -817,7 +825,6 @@
       <object>objects\oMainMenu</object>
       <object>objects\oMainMenuPar</object>
     </objects>
-    <object>objects\oFence</object>
   </objects>
   <timelines name="timelines">
     <timelines name="Cutscenes">

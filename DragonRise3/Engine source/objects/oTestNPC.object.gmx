@@ -36,7 +36,7 @@ scrShopSetDiscount();
 scrShopSetStock()
 scrShopSetInfo("Nově mám na prodej nějaké perly, pořád sháním dřevěné meče.");
 
-scrBuildPrefab(x, y, "myPrefab", false);
+//scrBuildPrefab(x, y, "myPrefab", false);
 
 //ds_priority_add(akce,"prochazka2",5);
 

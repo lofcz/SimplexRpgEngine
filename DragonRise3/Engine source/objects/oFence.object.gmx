@@ -34,6 +34,8 @@ sprite_index = sFence;
 built = false;
 drawText = false;
 canCheck = true;
+
+canColide = false;
 </string>
           </argument>
         </arguments>
@@ -57,7 +59,7 @@ canCheck = true;
           <argument>
             <kind>1</kind>
             <string>tA = image_angle;
-event_user(0);
+//event_user(0);
 
 </string>
           </argument>
@@ -156,6 +158,8 @@ else if (!neighbour[neighbourEnum.right] &amp;&amp; neighbour[neighbourEnum.down
     }
 image_angle = 0;
 direction = 0;
+apiPlayerUnstuck();
+if (built) {canColide = true;}
 </string>
           </argument>
         </arguments>
