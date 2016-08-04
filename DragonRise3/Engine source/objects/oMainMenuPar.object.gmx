@@ -30,6 +30,8 @@ oY = sprite_get_yoffset(sprite_index);
 limX = 30;
 limSpd = 5;
 limAmt = 0.1;
+
+
 </string>
           </argument>
         </arguments>

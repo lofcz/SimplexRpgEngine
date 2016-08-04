@@ -1,6 +1,5 @@
 /// draw_text_colored(x, y, str)
 
-
     var xx, yy, str, st, et, ct, l, h, stl, pc, dx, dy, dp, p, c, ds, i;
     xx = argument0;
     yy = argument1;

@@ -1,15 +1,15 @@
-///scrGoreExplodeDropShards(shardsNumber, size, sprite)
+///scrGoreExplodeDropShards(shardsNumber, size, sprite, index)
 
-var sN, xx, yy, size, spr;
+var sN, xx, yy, size, spr, in;
 sN   = 10;
 size = 16;
-spr  = -1;
+spr  = sprite_index;
+in   = image_index;
 
 if (argument_count > 0) {sN   = argument[0];}
 if (argument_count > 1) {size = argument[1];}
 if (argument_count > 2) {spr  = argument[2];}
-
-if (spr == -1) {spr = sprite_index;} 
+if (argument_count > 3) {in   = argument[3];}
 
 for (i = 0; i < sN; i++) 
 {
@@ -22,7 +22,7 @@ for (i = 0; i < sN; i++)
  shard._w = size; 
  shard._h = size;
  shard.sprite_index = spr;
- shard.image_single = image_index; 
+ shard.image_single = in; 
  shard.actAsSolid = false;
  shard.force      = true;
 }

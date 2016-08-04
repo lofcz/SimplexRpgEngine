@@ -3,7 +3,7 @@
   <spriteName>sFenceDesigner</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-11</depth>
   <persistent>0</persistent>
   <parentName>parSolid</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -37,6 +37,8 @@ canCheck = true;
 
 canColide = false;
 tempBuilt = false;
+
+tA = 0;
 </string>
           </argument>
         </arguments>
@@ -191,17 +193,23 @@ if (!built) {if (image_alpha &gt; 0.3) {image_alpha = lerp(image_alpha, 0.3, 0.1
 
 if (drawText)
     {
-     draw_text(x, y, "E");
+     drawXSize = 24;
+     cc = c_gray;
+     if (inventoryNumber(itemEnum.itemWood) &gt; 0) {cc = c_lime;}
+     depth = -12;     
+     draw_symbol(x - (string_width("1x dřevo") / 2) - (drawXSize), y - 32, sTestItem, itemEnum.itemWood, "1x dřevo", drawXSize, 1, fntPixel, cc);
      
-     if (keyboard_check_released(ord("E")))
+     if (keyboard_check_released(ord("E")) &amp;&amp; (cc == c_lime))
         {
          built = true;
+         inventoryDelete(itemEnum.itemWood, 1);
          global.result = 1;
          scrBuiltSctructureCompleted();
          if (global.result == 1) {show_message("Dostavěl jsi plot.");}
          event_user(0);
         }
     }
+else {depth = -11;}
     
 if (distance_to_point(mouse_x, mouse_y) == 0)
     {

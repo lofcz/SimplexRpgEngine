@@ -224,3 +224,49 @@ draw_primitive_end();
 
 #define draw_line_dashed
 /// draw_line_dashed(x1, y2, x2, y2)
+#define draw_symbol
+/// draw_symbol(x, y, sprite, index, text, symbolSize, alpha, font, color)
+
+var xx, yy, s, i, t, ss, xs, ys, a, tt, c;
+
+xx = x;
+yy = y;
+s  = sprite_index;
+i  = -1;
+t  = "Sample text [draw_symbol]";
+ss = 24;
+a  = 1;
+f  = fntPixel;
+c  = c_white;
+
+if (argument_count > 0) {xx = argument[0];}
+if (argument_count > 1) {yy = argument[1];}
+if (argument_count > 2) {s  = argument[2];}
+if (argument_count > 3) {i  = argument[3];}
+if (argument_count > 4) {t  = argument[4];}
+if (argument_count > 5) {ss = argument[5];}
+if (argument_count > 6) {a  = argument[6];}
+if (argument_count > 7) {f  = argument[7];}
+if (argument_count > 8) {c  = argument[8];}
+
+xs = (ss / sprite_get_width(s));
+ys = (ss / sprite_get_height(s));
+
+
+fnt(f);
+clr(c_black, 0.5);
+draw_roundrect(xx + (ss * max(xs, ys)), yy, xx + (string_width(t) * 2) - (ss * max(xs, ys) + 16), yy + string_height(t), false);
+
+clr(c_black, 0.6);
+draw_circle(xx + (ss / 2), yy + (ss / 2), ss * max(xs, ys) - 4, false);
+
+clr(c_black, 1);
+draw_circle(xx + (ss / 2), yy + (ss / 2), ss * max(xs, ys) - 4, true);
+clr();
+
+
+draw_sprite_ext(s, max(i - 1, 0), xx, yy, xs, ys, 0, c_white, a);
+
+clr(c);
+draw_text(xx + ss + 8, yy, t);
+fnt();

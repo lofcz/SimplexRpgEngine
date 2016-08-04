@@ -2,5 +2,13 @@
 
 enum itemEnum
 {
-itemBasicItem, itemGold, itemPearlRed, itemSwordWooden, itemHerbKalokvet, itemHelmetLeather, itemPearlGreen, itemPearlRedLvl2
+itemBasicItem, 
+itemGold, 
+itemPearlRed, 
+itemSwordWooden, 
+itemHerbKalokvet, 
+itemHelmetLeather, 
+itemPearlGreen, 
+itemPearlRedLvl2,
+itemWood
 }

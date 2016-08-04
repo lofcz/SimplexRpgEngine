@@ -298,6 +298,7 @@
       </sprites>
       <sprites name="Masks">
         <sprite>sprites\sMask26x26</sprite>
+        <sprite>sprites\sCopyright2</sprite>
         <sprite>sprites\sCopyright</sprite>
       </sprites>
       <sprites name="Bestiary">
@@ -422,6 +423,7 @@
         <script>scripts\scrEndColorflag.gml</script>
         <script>scripts\scrBasicEffect.gml</script>
         <script>scripts\plainInitEnums.gml</script>
+        <script>scripts\position_free.gml</script>
         <script>scripts\scrInflect.gml</script>
         <script>scripts\secToSteps.gml</script>
         <script>scripts\scrDice.gml</script>
@@ -664,6 +666,8 @@
       <shader type="GLSLES">shaders\shdOverlight.shader</shader>
       <shader type="GLSLES">shaders\shdShockwave.shader</shader>
       <shader type="GLSLES">shaders\shdPerlinNoiseWater.shader</shader>
+      <shader type="GLSLES">shaders\shdVignette.shader</shader>
+      <shader type="GLSLES">shaders\shdTest.shader</shader>
       <shader type="GLSLES">shaders\shdSeaWater.shader</shader>
     </shaders>
     <shaders name="Lightmap">
@@ -753,6 +757,7 @@
         <object>objects\oGold</object>
         <object>objects\oTestItem2</object>
         <object>objects\oRedPearlLvl2</object>
+        <object>objects\oWoodLvl1</object>
         <object>objects\oMaterialGreenGem</object>
         <object>objects\oKalokvet</object>
         <object>objects\oBasicItem</object>
@@ -849,10 +854,11 @@
       <room>rooms\mapHouse1</room>
     </rooms>
   </rooms>
-  <constants number="194">
+  <constants number="195">
     <constant name="cStaticInstance">"staticInstance"</constant>
     <constant name="lightmap_y">1</constant>
     <constant name="lightmap_x">0</constant>
+    <constant name="shaderVignette">8</constant>
     <constant name="shaderOverlight">7</constant>
     <constant name="shaderConfusion">6</constant>
     <constant name="shaderSketch">5</constant>

@@ -63,6 +63,12 @@ mode = 0;
 overlightTime = shader_get_uniform(shdOverlight, "iGlobalTime");
 overlightRes  = shader_get_uniform(shdOverlight, "iResolution");
 
+// Vignette
+vignetteSettings = shader_get_uniform(shdVignette, "u_settings");
+vignetteSettingsM = shader_get_uniform(shdVignette, "u_vignette_m");
+vignetteSettingsP = shader_get_uniform(shdVignette, "u_vignette_p");
+vignetteSettingsColor = shader_get_uniform(shdVignette, "u_vignette_colour");
+
 
 </string>
           </argument>
@@ -177,6 +183,22 @@ if (shader_active = shaderOverlight)
       shader_set(shdOverlight);
       shader_set_uniform_f(overlightTime, oPlayer.time);
       shader_set_uniform_f(overlightRes, 800, 600);
+      draw_surface(application_surface,0,0);   
+      shader_reset();
+   }
+   
+if (shader_active = shaderVignette)
+   { 
+      baseX = ((view_xview div view_wview) * view_wview);
+      baseY = ((view_yview div view_hview) * view_hview);
+      qX = ((oPlayer.x - baseX) / view_wview);
+      qY = ((oPlayer.y - baseY) / view_hview);      
+
+      shader_set(shdVignette);
+      shader_set_uniform_f(vignetteSettings, 1.2, 1.9, 0.06, 1); //vignette inner circle size, vignette outter circle size, noise strength, noise enable (1 or 0 only).
+      shader_set_uniform_f(vignetteSettingsColor, 245, 223, 201);
+      shader_set_uniform_f(vignetteSettingsM, 1.0, 255, 1.0);
+      shader_set_uniform_f(vignetteSettingsP, qX, qY);
       draw_surface(application_surface,0,0);   
       shader_reset();
    }
