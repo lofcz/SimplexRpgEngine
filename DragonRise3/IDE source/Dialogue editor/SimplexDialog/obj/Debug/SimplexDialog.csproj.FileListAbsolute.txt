@@ -1,0 +1,9 @@
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexDialog\SimplexDialog\bin\Debug\SimplexDialog.exe.config
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexDialog\SimplexDialog\bin\Debug\SimplexDialog.exe
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexDialog\SimplexDialog\bin\Debug\SimplexDialog.pdb
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexDialog\SimplexDialog\obj\Debug\SimplexDialog.csprojResolveAssemblyReference.cache
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexDialog\SimplexDialog\obj\Debug\SimplexDialog.Form1.resources
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexDialog\SimplexDialog\obj\Debug\SimplexDialog.Properties.Resources.resources
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexDialog\SimplexDialog\obj\Debug\SimplexDialog.csproj.GenerateResource.Cache
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexDialog\SimplexDialog\obj\Debug\SimplexDialog.exe
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexDialog\SimplexDialog\obj\Debug\SimplexDialog.pdb

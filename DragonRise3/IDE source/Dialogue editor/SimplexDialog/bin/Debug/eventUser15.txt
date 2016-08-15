@@ -1,0 +1,15 @@
+// test dialog
+if (status == 0)
+   {
+    dialogueMessage("Test DIALOG 1", "", 0)
+
+if (Test DIALOG 2)
+   {
+   }
+    dialogueMessage("Test DIALOG 4", "", 0)
+
+if (Test DIALOG 7)
+   {
+   }
+    dialogueMessage("Test DIALOG 9", "", 0)
+   }
