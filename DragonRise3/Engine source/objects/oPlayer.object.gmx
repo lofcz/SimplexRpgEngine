@@ -38,7 +38,7 @@ set_sprite(sPlayerBasic,0);
 instance_create(x,y,oPlayerCombat);
 instance_create(x,y,oState);
 instance_create(x,y,oHUD);
-instance_create(x,y,oOptimatision);
+instance_create(x,y,oOptimize);
 instance_create(x,y,oMinimap);
 instance_create(x,y,oDayNight);
 
@@ -177,9 +177,10 @@ magic[spell_flash_cost] = 8;
 magic[spell_flash_cooldown] = 60;
 
 
-skillPoints  = 0;
-talentPoints = 10;
-spellPoints  = 0;
+skillPoints    = 10;
+propertyPoints = 5;
+talentPoints   = 10;
+spellPoints    = 0;
  
 statusList        = ds_list_create();
 statusTimeList    = ds_list_create();

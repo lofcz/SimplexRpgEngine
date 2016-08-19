@@ -69,6 +69,7 @@ instance_activate_object(oBestiar);
 instance_activate_object(oScreenShader);
 instance_activate_object(oQuest);
 instance_activate_object(oTalentMenu);
+instance_activate_object(oStatusMenu);
 </string>
           </argument>
         </arguments>

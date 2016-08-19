@@ -52,4 +52,8 @@ if (instance_number(oTalentMenu) = 0)
    {
      instance_create(0,0,oTalentMenu);
    }
+if (instance_number(oStatusMenu) = 0)
+   {
+     instance_create(0,0,oStatusMenu);
+   }
 global.shaders_enabled = true;

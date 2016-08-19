@@ -177,6 +177,8 @@
     <sound>sound\sndPoo</sound>
     <sound>sound\sndInventoryExtend</sound>
     <sound>sound\sndBuyItem</sound>
+    <sound>sound\sndSkillUp</sound>
+    <sound>sound\sndMenuClick1</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="Actors">
@@ -364,6 +366,7 @@
     <sprite>sprites\sFenceDesigner</sprite>
     <sprite>sprites\sConstructionSiteMask</sprite>
     <sprite>sprites\sBrokenJug</sprite>
+    <sprite>sprites\sUpgradeIcons</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -725,7 +728,7 @@
       <object>objects\oItemText</object>
       <object>objects\oState</object>
       <object>objects\oHUD</object>
-      <object>objects\oOptimatision</object>
+      <object>objects\oOptimize</object>
       <object>objects\oBestiar</object>
       <object>objects\oQuest</object>
       <object>objects\oMapIntro</object>
@@ -738,6 +741,7 @@
       <object>objects\oScreenShader</object>
       <object>objects\oPause</object>
       <object>objects\oTalentMenu</object>
+      <object>objects\oStatusMenu</object>
       <object>objects\oLockpickingScreen</object>
       <object>objects\oDebugCamera</object>
       <object>objects\oTEST</object>
@@ -854,7 +858,7 @@
       <room>rooms\mapHouse1</room>
     </rooms>
   </rooms>
-  <constants number="195">
+  <constants number="197">
     <constant name="cStaticInstance">"staticInstance"</constant>
     <constant name="lightmap_y">1</constant>
     <constant name="lightmap_x">0</constant>
@@ -897,7 +901,9 @@
     <constant name="quest_finish">2</constant>
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
-    <constant name="celkem_vlastnosti">79</constant>
+    <constant name="upgradableProperties">58</constant>
+    <constant name="celkem_vlastnosti">80</constant>
+    <constant name="vlastnost_alchymie">79</constant>
     <constant name="vlastnost_originalniCena">78</constant>
     <constant name="vlastnost_cena">77</constant>
     <constant name="vlastnost_upgradeID3">76</constant>
@@ -948,9 +954,9 @@
     <constant name="vlastnost_rezistence_ohen">31</constant>
     <constant name="vlastnost_rezistence_zeme">30</constant>
     <constant name="vlastnost_rezistence_vse">29</constant>
-    <constant name="vlastnost_stity">28</constant>
-    <constant name="vlastnost_dvojrucni">27</constant>
-    <constant name="vlastnost_jednorucni">26</constant>
+    <constant name="vlastnost_dvojrucni">28</constant>
+    <constant name="vlastnost_jednorucni">27</constant>
+    <constant name="vlastnost_stity">26</constant>
     <constant name="vlastnost_kopi">25</constant>
     <constant name="vlastnost_luky">24</constant>
     <constant name="vlastnost_dyky">23</constant>

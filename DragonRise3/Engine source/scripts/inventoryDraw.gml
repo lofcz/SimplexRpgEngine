@@ -657,7 +657,7 @@ for(a = 0; a < celkem_vlastnosti; a++)
                          }
                     case(vlastnost_tick_stamina_add):
                          {
-                           t_text += "#Zváší množství obnovené výdrže: "+string(slot_vlastnosti[f,a]);
+                           t_text += "#Zvýší množství obnovené výdrže: "+string(slot_vlastnosti[f,a]);
                            break;                                                                   
                          }
 

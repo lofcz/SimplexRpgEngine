@@ -320,3 +320,366 @@ else
     }
 }
 }
+#define apiPlayerGetProperty
+/// apiPlayerGetProperty(index)
+
+var index, text, cbu, hint, ut;
+index = 0;
+text  = "";
+cbu   = true;
+hint  = "";
+ut    = 0;
+
+if (argument_count > 0) {index = argument[0];}
+
+ switch(index)
+                    {
+                    case(vlastnost_bonusove_poskozeni_vuci_zviratum):
+                         {
+                           text = "Poškození vůči zvířatům";
+                           cbu  = false;
+                           break;                                                                   
+                         }
+                    case(vlastnost_stackSezehnuti):
+                         {
+                           text = "Šance na sežehnutí při zásahu";
+                           cbu  = false;
+                           break;                                                                   
+                         }
+                     case(vlastnost_poskozeni):
+                         {
+                           text = "Poškození";
+                           cbu  = false;
+                           break;                                                                   
+                         }
+                     case(vlastnost_max_zivot):
+                         {
+                           text = "Život";
+                           cbu  = false;
+                           break;                                                                   
+                         }
+                     case(vlastnost_stamina_cost):
+                         {
+                           text = "Stamina za úder";
+                           cbu  = false;
+                           break;                                                                   
+                         }
+                    case(vlastnost_max_mana):
+                         {
+                           text = "Mana"; 
+                           cbu  = false;                          
+                           break;                                                                   
+                         }
+                    case(vlastnost_sila):
+                         {
+                           text = "Síla";
+                           hint = "Síla zvyšuje tvé fyzické poškození.";
+                           break;                                                                   
+                         }
+                    case(vlastnost_obratnost):
+                         {
+                           text = "Obratnost";
+                           break;                                                                   
+                         }
+                    case(vlastnost_kovarstvi):
+                         {
+                           text = "Kovářství";
+                           ut   = 1;
+                           break;                                                                   
+                         }
+                    case(vlastnost_tezarstvi):
+                         {
+                           text = "Těžařství";
+                           ut   = 1;
+                           break;                                                                   
+                         }    
+                    case(vlastnost_alchymie):
+                         {
+                           text = "Alchymie";
+                           ut   = 1;
+                           break;                                                                   
+                         }                 
+                    case(vlastnost_odolnost):
+                         {
+                           text = "Odolnost";
+                           break;                                                                   
+                         }
+                    case(vlastnost_vytrvalost):
+                         {
+                           text = "Vytrvalost";
+                           break;                                                                   
+                         }
+                     case(vlastnost_presnost):
+                         {
+                           text = "Přesnost";
+                           break;                                                                   
+                         }
+                     case(vlastnost_rychlost):
+                         {
+                           text = "Rychlost";
+                           break;                                                                   
+                         }
+                    case(vlastnost_zrucnost):
+                         {
+                           text = "Odolnost";
+                           break;                                                                   
+                         }
+                    case(vlastnost_svadeni):
+                         {
+                           text = "Svádění";
+                           ut   = 2;
+                           break;                                                                   
+                         }
+                    case(vlastnost_zastrasovani):
+                         {
+                           text = "Zastrašování";
+                           ut   = 2;
+                           break;                                                                   
+                         }
+                    case(vlastnost_dustojnost):
+                         {
+                           text = "Důstojnost";
+                           ut   = 2;
+                           break;                                                                   
+                         }
+                    case(vlastnost_vyrecnost):
+                         {
+                           text = "Výřečnost";
+                           ut   = 2;
+                           break;                                                                   
+                         }
+                    case(vlastnost_elegance):
+                         {
+                           text = "Elegance";
+                           ut   = 2;
+                           break;                                                                   
+                         }
+                    case(vlastnost_cest):
+                         {
+                           text = "Čest";
+                           ut   = 4;
+                           break;                                                                   
+                         }
+                         
+                    case(vlastnost_kapsarstvi):
+                         {
+                           text = "Kapsářství";
+                           ut   = 4;
+                           break;                                                                   
+                         }
+                     case(vlastnost_paceni_zanmku):
+                         {
+                           text = "Páčení zámků";
+                           ut   = 4;
+                           break;                                                                   
+                         }
+                     case(vlastnost_vule):
+                         {
+                           text = "Vůle";
+                           ut   = 3;
+                           break;                                                                   
+                         }
+                    case(vlastnost_inteligence):
+                         {
+                           text = "Inteligence";
+                           break;                                                                   
+                         }
+                    case(vlastnost_ritualy):
+                         {
+                           text = "Rituály";
+                           ut   = 3;
+                           break;                                                                   
+                         }
+                    case(vlastnost_tradicni_magie):
+                         {
+                           text = "Tradiční magie";
+                           ut   = 3;
+                           break;                                                                   
+                         }
+                    case(vlastnost_astralni_videni):
+                         {
+                           text = "Astrální vidění";
+                           ut   = 3;
+                           break;                                                                   
+                         }
+                    case(vlastnost_mece):
+                         {
+                           text = "Meče";
+                           ut   = 5
+                           break;                                                                   
+                         }
+                    case(vlastnost_dyky):
+                         {
+                           text = "Dýky";
+                           ut   = 5;
+                           break;                                                                   
+                         }
+                    case(vlastnost_luky):
+                         {
+                           text = "Lukostřelba";
+                           ut   = 5;
+                           break;                                                                   
+                         }
+                     case(vlastnost_kopi):
+                         {
+                           text = "Kopí";
+                           ut   = 5;
+                           break;                                                                   
+                         }
+                     case(vlastnost_jednorucni):
+                         {
+                           text = "Jednoruční zbraně";
+                           ut   = 5;
+                           break;                                                                   
+                         }
+                    case(vlastnost_dvojrucni):
+                         {
+                           text = "Dvojruční zbraně";
+                           ut   = 5;
+                           break;                                                                   
+                         }
+                    case(vlastnost_stity):
+                         {
+                           text = "Štíty";
+                           ut   = 5;
+                           break;                                                                   
+                         }
+                    case(vlastnost_rezistence_vse):
+                         {
+                           text = "Obecná ochrana vůči poškození";
+                           cbu  = false;
+                           ut   = 667;
+                           break;                                                                   
+                         }
+                    case(vlastnost_rezistence_zeme):
+                         {
+                           text = "Země";
+                           cbu  = false;
+                           ut   = 666;
+                           break;                                                                   
+                         }
+                    case(vlastnost_rezistence_ohen):
+                         {
+                           text = "Oheň";
+                           cbu  = false;
+                           ut   = 666;
+                           break;                                                                   
+                         }
+                    case(vlastnost_rezistence_voda):
+                         {
+                           text = "Voda";
+                           cbu  = false;
+                           ut   = 666;
+                           break;                                                                   
+                         }
+                    case(vlastnost_rezistence_temnota):
+                         {
+                           text = "Temnota";
+                           cbu  = false;
+                           ut   = 666;
+                           break;                                                                   
+                         }
+                         
+                     case(vlastnost_rezistence_svetlo):
+                         {
+                           text = "Světlo";
+                           cbu  = false;
+                           ut   = 666;
+                           break;                                                                   
+                         }
+                    case(vlastnost_rezistence_vitr):
+                         {
+                           text = "Vítr";
+                           cbu  = false;
+                           ut   = 666;
+                           break;                                                                   
+                         }
+                    case(vlastnost_zivot):
+                         {
+                           text = "Zdraví";
+                           cbu  = false;
+                           break;                                                                   
+                         }
+                    case(vlastnost_mana):
+                         {
+                           text = "Mana";
+                           cbu  = false;
+                           break;                                                                   
+                         }
+                    case(vlastnost_stamina):
+                         {
+                           text = "Stamina";
+                           cbu  = false;
+                           break;                                                                   
+                         }
+                         
+                    case(vlastnost_max_stamina):
+                         {
+                           text = "Stamina";
+                           cbu  = false;
+                           break;                                                                   
+                         }
+                    case(vlastnost_kriticka_sance):
+                         {
+                           text = "Šance na kritický úder";
+                           cbu  = false;
+                           break;                                                                   
+                         }
+                    case(vlastnost_kriticka_nasobic):
+                         {
+                           text = "Násobitel kritického úderu";
+                           cbu  = false;
+                           break;                                                                   
+                         }
+                    case(vlastnost_stit):
+                         {
+                           text = "Štít";
+                           cbu  = false;
+                           break;                                                                   
+                         }
+                    case(vlastnost_max_stit):
+                         {
+                           text = "Štít";
+                           cbu  = false;
+                           break;                                                                   
+                         }
+                    case(vlastnost_zkusenosti):
+                         {
+                           text = "Zkušenosti";
+                           cbu  = false;
+                           break;                                                                   
+                         }
+                    case(vlastnost_max_zkusenosti):
+                         {
+                           text = "Zkušenosti potřebné k dosažení další úrovně";
+                           cbu  = false;
+                           break;                                                                   
+                         }
+                    case(vlastnost_level):
+                         {
+                           text = "Úroveň hrdiny";
+                           cbu  = false;
+                           break;                                                                   
+                         }
+                    case(vlastnost_tick_stamina):
+                         {
+                           text = "Rychlost regenerace staminy";
+                           cbu  = false;
+                           break;                                                                   
+                         }
+                    case(vlastnost_tick_stamina_add):
+                         {
+                           text = "Množství obnovené staminy";
+                           cbu  = false;
+                           break;                                                                   
+                         }
+                         
+                    
+}
+
+returnedArray[0] = text;
+returnedArray[1] = cbu;
+returnedArray[2] = ut;
+returnedArray[3] = hint;
+
+if (returnedArray[0] != "") {return true;} else {return false;}
