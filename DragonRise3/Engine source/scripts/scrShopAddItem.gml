@@ -1,14 +1,14 @@
-/// scrShopAddItem(slot, id)
+/// scrShopAddItem(slot, item, count)
 
-//slot[irandom(10), 0] = itemEnum.itemPearlRedLvl2;
+var slot, n, count;
+slot  = 0;
+item  = oRedPearlLvl2;
+count = 1;
 
-loot[0, ext_name] = oRedPearlLvl2;
-loot[0, ext_number] = 2;
+if (argument_count > 0) {slot  = argument[0];}
+if (argument_count > 1) {item  = argument[1];}
+if (argument_count > 2) {count = argument[2];}
 
-loot[1, ext_name] = oRedPearlLvl2;
-loot[1, ext_number] = 5;
-
-loot[2, ext_name] = oRedPearlLvl2;
-loot[2, ext_number] = 10;
-
-scrShopPrepare();
+loot[slot, ext_name] = item;
+loot[slot, ext_number] = count;
+scrShopPrepare(slot);

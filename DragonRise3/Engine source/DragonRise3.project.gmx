@@ -367,6 +367,9 @@
     <sprite>sprites\sConstructionSiteMask</sprite>
     <sprite>sprites\sBrokenJug</sprite>
     <sprite>sprites\sUpgradeIcons</sprite>
+    <sprite>sprites\sprite130_achievements</sprite>
+    <sprite>sprites\sMedalsType</sprite>
+    <sprite>sprites\sAchievements</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -433,6 +436,7 @@
         <script>scripts\set_sprite.gml</script>
         <script>scripts\scrSpriteDissolve.gml</script>
         <script>scripts\scrWordwrap.gml</script>
+        <script>scripts\scrCheckForNeighbours.gml</script>
       </scripts>
       <scripts name="Shaders">
         <script>scripts\scrShaderPrepareColor.gml</script>
@@ -649,8 +653,11 @@
         <script>scripts\scrScreenShakeUpdate.gml</script>
         <script>scripts\scrScreenShake.gml</script>
       </scripts>
+      <scripts name="Achievements">
+        <script>scripts\scrAchievementRegister.gml</script>
+        <script>scripts\scrAchievementUnlock.gml</script>
+      </scripts>
     </scripts>
-    <script>scripts\scrCheckForNeighbours.gml</script>
   </scripts>
   <shaders name="shaders">
     <shaders name="ScreenFX">
@@ -690,6 +697,7 @@
       </fonts>
       <fonts name="Pixel (uni 05)">
         <font>fonts\fntPixelHuge</font>
+        <font>fonts\fntPixelBig</font>
         <font>fonts\fntPixel</font>
         <font>fonts\fntPixelTiny</font>
         <font>fonts\fntPixelSmall</font>
@@ -704,7 +712,9 @@
       <objects name="Enemies">
         <object>objects\oEnemySlime</object>
         <object>objects\oSlimePart</object>
-        <object>objects\parEnemy</object>
+        <objects name="Parents">
+          <object>objects\parEnemy</object>
+        </objects>
       </objects>
       <objects name="NPCs">
         <object>objects\oTestNPC</object>
@@ -749,6 +759,7 @@
       <object>objects\oTestObject</object>
       <object>objects\oLightCircle</object>
       <object>objects\oLight</object>
+      <object>objects\oAchievement</object>
       <object>objects\oAreaScript</object>
     </objects>
     <objects name="Dropable and items">
@@ -815,7 +826,7 @@
       <objects name="NonParticle">
         <object>objects\oBasicEffect</object>
         <object>objects\oBlob</object>
-        <object>objects\oAchievment</object>
+        <object>objects\oAchievmentOld</object>
         <object>objects\oRain</object>
         <object>objects\oRainSplash</object>
         <object>objects\oSwordSwing</object>

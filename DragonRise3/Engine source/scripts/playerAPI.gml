@@ -338,12 +338,14 @@ if (argument_count > 0) {index = argument[0];}
                          {
                            text = "Poškození vůči zvířatům";
                            cbu  = false;
+                           ut   = 1000;
                            break;                                                                   
                          }
                     case(vlastnost_stackSezehnuti):
                          {
                            text = "Šance na sežehnutí při zásahu";
                            cbu  = false;
+                           ut   = 1000;
                            break;                                                                   
                          }
                      case(vlastnost_poskozeni):

@@ -129,6 +129,9 @@ spellMaxY    = (y + 560 + yoffset + 30);
 
 can_draw = false;
 
+scrAchievementRegister(0, "Objevil jsi Simplex!", "Vítej, vývojáři.", 0, medalEnum.diamond);
+
+scrAchievementUnlock(0);
 
 </string>
           </argument>

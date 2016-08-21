@@ -1,0 +1,13 @@
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexMainForm\SimplexMainForm\bin\Debug\SimplexMainForm.exe.config
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexMainForm\SimplexMainForm\bin\Debug\SimplexMainForm.exe
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexMainForm\SimplexMainForm\bin\Debug\SimplexMainForm.pdb
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexMainForm\SimplexMainForm\obj\Debug\SimplexMainForm.csprojResolveAssemblyReference.cache
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexMainForm\SimplexMainForm\obj\Debug\SimplexMainForm.Form1.resources
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexMainForm\SimplexMainForm\obj\Debug\SimplexMainForm.Properties.Resources.resources
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexMainForm\SimplexMainForm\obj\Debug\SimplexMainForm.csproj.GenerateResource.Cache
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexMainForm\SimplexMainForm\obj\Debug\SimplexMainForm.exe
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexMainForm\SimplexMainForm\obj\Debug\SimplexMainForm.pdb
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexMainForm\SimplexMainForm\bin\Debug\ScintillaNET.dll
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexMainForm\SimplexMainForm\bin\Debug\ScintillaNET.xml
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexMainForm\SimplexMainForm\obj\Debug\SimplexMainForm.CodeEditor.resources
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexMainForm\SimplexMainForm\obj\Debug\SimplexMainForm.Object.resources

@@ -262,7 +262,7 @@ draw_text_colored(xx + xoffset, yy + yoffset + 128, "Stamina: " + string(round(o
 
 // Lastly player's resistances
 fnt();
-xx   = view_xview + 300;
+xx   = view_xview + 260;
 yy   = view_yview + 380;
 ti   = 0;
 
@@ -287,6 +287,34 @@ for (i = 0; i &lt; celkem_vlastnosti; i++)
         
      ti++; // Normalized interated index
     } 
+    
+// Player's bonuses, last thing, I swear
+fnt();
+xx   = view_xview + 500;
+yy   = view_yview + 380;
+ti   = 0;
+
+draw_text_colored(xx + xoffset, yy + yoffset, "Bonusy");
+clr(c_white, activatedAlpha / 2);
+draw_line(xx + xoffset, yy + yoffset + 24, xx + xoffset + 220, yy + yoffset + 24);
+clr(c_white, activatedAlpha)
+
+fnt(fntPixelSmall);
+tempY = 32;
+for (i = 0; i &lt; celkem_vlastnosti; i++)  
+    {
+     // If searched property is defined in player's properties and it's a bonus, unupgradable property
+     if (apiPlayerGetProperty(i)) 
+        {
+         if (returnedArray[2] == 1000 &amp;&amp; !returnedArray[1] &amp;&amp; oPlayer.vlastnost[i] &gt; 0)
+         {
+          draw_text_colored(xx + xoffset, yy + yoffset + tempY, returnedArray[0] + ": " + scrColorflag(propertyColor[i]) + string(oPlayer.vlastnost[i]) + scrEndColorflag() + " ");
+          tempY += 22;
+         }
+        }
+        
+     ti++;
+    }
     
 fnt();
 clr();

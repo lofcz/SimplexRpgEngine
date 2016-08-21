@@ -34,3 +34,13 @@ enum materialEnum
 {
 materialNone, materialMetal, materialWood, materialHerb
 }
+
+enum neighbourEnum
+{
+right, left, down, up
+}
+
+enum medalEnum
+{
+bronze, silver, gold, platinum, diamond
+}

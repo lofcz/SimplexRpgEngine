@@ -5,4 +5,4 @@ t = "";
 
 if (argument_count > 0) {t = argument[0];}
 
-shopText = scrWordwrap(t, 128, fntPixelTiny);
+shopText = scrWordwrap(t, 64, fntPixelTiny);

@@ -15,7 +15,6 @@ void main()
 
 //######################_==_YOYO_SHADER_MARKER_==_######################@~varying vec2 var_texcoord;
 varying vec4 v_vColour;
-
 uniform vec4 u_settings;
 uniform vec3 u_vignette_colour;
 
@@ -28,7 +27,7 @@ void main()
 {
     vec4 base = texture2D( gm_BaseTexture, var_texcoord );
 
-    float vignette = distance( vec2(0.5, 0.5), var_texcoord );
+    float vignette = distance( vec2(0.4, 0.4), var_texcoord );
     vignette = u_settings.x - vignette * u_settings.y;
     vec3 vignette_colour = (u_vignette_colour / 255.0) * vignette;
 
