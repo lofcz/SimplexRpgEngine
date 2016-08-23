@@ -30,10 +30,12 @@ event_inherited();
 alarm[1] = 1;
 a = 10;
 scrShopIni();
+scrShopAddItem(0, oTestItem2, 10);
+scrShopAddItem(1, oRedPearlLvl2, 1);
 
-scrShopAddItem();
+scrShopPrepare();
 scrShopSetDiscount();
-scrShopSetStock()
+//scrShopSetStock()
 scrShopSetInfo("Nejlepší ceny!");
 
 //scrBuildPrefab(x, y, "myPrefab", false);

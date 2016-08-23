@@ -48,6 +48,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AchievementClass.cs" />
+    <Compile Include="Achievements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Achievements.Designer.cs">
+      <DependentUpon>Achievements.cs</DependentUpon>
+    </Compile>
     <Compile Include="CodeEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +67,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Globalization.cs" />
     <Compile Include="Object.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +76,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Achievements.resx">
+      <DependentUpon>Achievements.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CodeEditor.resx">
       <DependentUpon>CodeEditor.cs</DependentUpon>
     </EmbeddedResource>

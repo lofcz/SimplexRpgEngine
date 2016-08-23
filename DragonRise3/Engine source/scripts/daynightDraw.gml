@@ -23,6 +23,12 @@ draw_rectangle(view_xview-1,view_yview-1,view_xview+view_wview+1,view_yview+view
 draw_set_alpha(1);
 draw_set_color(c_white);
 
+// Fix focus-loss error
+if (!surface_exists(surf))
+    {
+     surf = surface_create(view_wview, view_hview);
+    }
+
 
 if (alpha > 0)
 {

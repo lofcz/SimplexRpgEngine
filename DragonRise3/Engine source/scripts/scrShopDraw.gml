@@ -48,8 +48,11 @@ if (thumbnailPrice != -1)
     }
     
 for (i = 0; i < slots; i++)
-    {
-     color = c_black;       
+    {    
+     color = c_black;   
+     
+     if (item[i] != -1)
+     {   
      if ((item[i]).vlastnost[vlastnost_cena] < (item[i]).vlastnost[vlastnost_originalniCena]) {color = c_lime;}
      
      if (mouse_in(xx + tX, xx + tX + 24, yy + tY, yy + tY + 24))
@@ -57,6 +60,7 @@ for (i = 0; i < slots; i++)
          color = c_yellow;    
          hoverSlot = i;    
         }
+     }
         
      clr(color, 0.2);
      draw_roundrect(xx + tX, yy + tY, xx + tX + 23, yy + tY + 23, false);

@@ -7,3 +7,12 @@ c:\users\matěj\documents\visual studio 2015\Projects\SimplexDialog\SimplexDialo
 c:\users\matěj\documents\visual studio 2015\Projects\SimplexDialog\SimplexDialog\obj\Debug\SimplexDialog.csproj.GenerateResource.Cache
 c:\users\matěj\documents\visual studio 2015\Projects\SimplexDialog\SimplexDialog\obj\Debug\SimplexDialog.exe
 c:\users\matěj\documents\visual studio 2015\Projects\SimplexDialog\SimplexDialog\obj\Debug\SimplexDialog.pdb
+C:\Users\Matěj\Documents\SimplexRpgEngine\DragonRise3\IDE source\Dialogue editor\SimplexDialog\bin\Debug\SimplexDialog.exe.config
+C:\Users\Matěj\Documents\SimplexRpgEngine\DragonRise3\IDE source\Dialogue editor\SimplexDialog\obj\Debug\SimplexDialog.exe
+C:\Users\Matěj\Documents\SimplexRpgEngine\DragonRise3\IDE source\Dialogue editor\SimplexDialog\obj\Debug\SimplexDialog.pdb
+C:\Users\Matěj\Documents\SimplexRpgEngine\DragonRise3\IDE source\Dialogue editor\SimplexDialog\bin\Debug\SimplexDialog.exe
+C:\Users\Matěj\Documents\SimplexRpgEngine\DragonRise3\IDE source\Dialogue editor\SimplexDialog\bin\Debug\SimplexDialog.pdb
+C:\Users\Matěj\Documents\SimplexRpgEngine\DragonRise3\IDE source\Dialogue editor\SimplexDialog\obj\Debug\SimplexDialog.csprojResolveAssemblyReference.cache
+C:\Users\Matěj\Documents\SimplexRpgEngine\DragonRise3\IDE source\Dialogue editor\SimplexDialog\obj\Debug\SimplexDialog.Form1.resources
+C:\Users\Matěj\Documents\SimplexRpgEngine\DragonRise3\IDE source\Dialogue editor\SimplexDialog\obj\Debug\SimplexDialog.Properties.Resources.resources
+C:\Users\Matěj\Documents\SimplexRpgEngine\DragonRise3\IDE source\Dialogue editor\SimplexDialog\obj\Debug\SimplexDialog.csproj.GenerateResource.Cache

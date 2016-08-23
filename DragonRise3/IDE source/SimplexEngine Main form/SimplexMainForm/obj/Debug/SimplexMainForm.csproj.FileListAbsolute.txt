@@ -11,3 +11,16 @@ c:\users\matěj\documents\visual studio 2015\Projects\SimplexMainForm\SimplexMai
 c:\users\matěj\documents\visual studio 2015\Projects\SimplexMainForm\SimplexMainForm\bin\Debug\ScintillaNET.xml
 c:\users\matěj\documents\visual studio 2015\Projects\SimplexMainForm\SimplexMainForm\obj\Debug\SimplexMainForm.CodeEditor.resources
 c:\users\matěj\documents\visual studio 2015\Projects\SimplexMainForm\SimplexMainForm\obj\Debug\SimplexMainForm.Object.resources
+C:\Users\Matěj\Documents\SimplexRpgEngine\DragonRise3\IDE source\SimplexEngine Main form\SimplexMainForm\bin\Debug\SimplexMainForm.exe.config
+C:\Users\Matěj\Documents\SimplexRpgEngine\DragonRise3\IDE source\SimplexEngine Main form\SimplexMainForm\obj\Debug\SimplexMainForm.exe
+C:\Users\Matěj\Documents\SimplexRpgEngine\DragonRise3\IDE source\SimplexEngine Main form\SimplexMainForm\obj\Debug\SimplexMainForm.pdb
+C:\Users\Matěj\Documents\SimplexRpgEngine\DragonRise3\IDE source\SimplexEngine Main form\SimplexMainForm\bin\Debug\SimplexMainForm.exe
+C:\Users\Matěj\Documents\SimplexRpgEngine\DragonRise3\IDE source\SimplexEngine Main form\SimplexMainForm\bin\Debug\SimplexMainForm.pdb
+C:\Users\Matěj\Documents\SimplexRpgEngine\DragonRise3\IDE source\SimplexEngine Main form\SimplexMainForm\bin\Debug\ScintillaNET.xml
+C:\Users\Matěj\Documents\SimplexRpgEngine\DragonRise3\IDE source\SimplexEngine Main form\SimplexMainForm\obj\Debug\SimplexMainForm.csprojResolveAssemblyReference.cache
+C:\Users\Matěj\Documents\SimplexRpgEngine\DragonRise3\IDE source\SimplexEngine Main form\SimplexMainForm\obj\Debug\SimplexMainForm.CodeEditor.resources
+C:\Users\Matěj\Documents\SimplexRpgEngine\DragonRise3\IDE source\SimplexEngine Main form\SimplexMainForm\obj\Debug\SimplexMainForm.Form1.resources
+C:\Users\Matěj\Documents\SimplexRpgEngine\DragonRise3\IDE source\SimplexEngine Main form\SimplexMainForm\obj\Debug\SimplexMainForm.Object.resources
+C:\Users\Matěj\Documents\SimplexRpgEngine\DragonRise3\IDE source\SimplexEngine Main form\SimplexMainForm\obj\Debug\SimplexMainForm.Properties.Resources.resources
+C:\Users\Matěj\Documents\SimplexRpgEngine\DragonRise3\IDE source\SimplexEngine Main form\SimplexMainForm\obj\Debug\SimplexMainForm.csproj.GenerateResource.Cache
+C:\Users\Matěj\Documents\SimplexRpgEngine\DragonRise3\IDE source\SimplexEngine Main form\SimplexMainForm\obj\Debug\SimplexMainForm.Achievements.resources

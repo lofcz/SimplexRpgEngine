@@ -54,5 +54,10 @@ namespace SimplexMainForm
                 ce.Show();
             }
         }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

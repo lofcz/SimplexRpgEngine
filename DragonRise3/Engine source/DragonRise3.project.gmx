@@ -181,6 +181,7 @@
     <sound>sound\sndMenuClick1</sound>
   </sounds>
   <sprites name="sprites">
+    <sprite>sprites\sprite102</sprite>
     <sprites name="Actors">
       <sprites name="NPC">
         <sprite>sprites\sPlayerBasic</sprite>
@@ -308,6 +309,13 @@
         <sprite>sprites\sUnknownBestiary</sprite>
       </sprites>
       <sprite>sprites\sPlayer</sprite>
+      <sprite>sprites\sFence</sprite>
+      <sprite>sprites\sFenceDesigner</sprite>
+      <sprite>sprites\sConstructionSiteMask</sprite>
+      <sprite>sprites\sBrokenJug</sprite>
+      <sprite>sprites\sUpgradeIcons</sprite>
+      <sprite>sprites\sMedalsType</sprite>
+      <sprite>sprites\sAchievements</sprite>
     </sprites>
     <sprites name="Effects and items">
       <sprites name="Items">
@@ -360,16 +368,8 @@
       <sprite>sprites\sprite122_Items2</sprite>
       <sprite>sprites\sInventoryMapTEMP</sprite>
       <sprite>sprites\sprite123_tilee</sprite>
-      <sprite>sprites\sprite102</sprite>
+      <sprite>sprites\sprite130_achievements</sprite>
     </sprites>
-    <sprite>sprites\sFence</sprite>
-    <sprite>sprites\sFenceDesigner</sprite>
-    <sprite>sprites\sConstructionSiteMask</sprite>
-    <sprite>sprites\sBrokenJug</sprite>
-    <sprite>sprites\sUpgradeIcons</sprite>
-    <sprite>sprites\sprite130_achievements</sprite>
-    <sprite>sprites\sMedalsType</sprite>
-    <sprite>sprites\sAchievements</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>

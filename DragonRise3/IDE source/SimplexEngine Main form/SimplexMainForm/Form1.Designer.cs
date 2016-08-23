@@ -35,13 +35,18 @@
             this.loadProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gameSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageAchievementsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.gameSettingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1264, 24);
@@ -51,7 +56,9 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loadProjectToolStripMenuItem});
+            this.loadProjectToolStripMenuItem,
+            this.saveToolStripMenuItem,
+            this.loadToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -59,18 +66,19 @@
             // loadProjectToolStripMenuItem
             // 
             this.loadProjectToolStripMenuItem.Name = "loadProjectToolStripMenuItem";
-            this.loadProjectToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
-            this.loadProjectToolStripMenuItem.Text = "Load project";
+            this.loadProjectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loadProjectToolStripMenuItem.Text = "Import project";
             this.loadProjectToolStripMenuItem.Click += new System.EventHandler(this.loadProjectToolStripMenuItem_Click);
             // 
             // treeView1
             // 
             this.treeView1.ImageIndex = 0;
             this.treeView1.ImageList = this.imageList1;
+            this.treeView1.ItemHeight = 16;
             this.treeView1.Location = new System.Drawing.Point(0, 27);
             this.treeView1.Name = "treeView1";
             this.treeView1.SelectedImageIndex = 0;
-            this.treeView1.Size = new System.Drawing.Size(186, 654);
+            this.treeView1.Size = new System.Drawing.Size(218, 654);
             this.treeView1.TabIndex = 1;
             this.treeView1.DoubleClick += new System.EventHandler(this.treeView1_DoubleClick);
             // 
@@ -81,6 +89,33 @@
             this.imageList1.Images.SetKeyName(0, "asfalt-light.png");
             this.imageList1.Images.SetKeyName(1, "Folder.jpg");
             // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Text = "Save";
+            // 
+            // loadToolStripMenuItem
+            // 
+            this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loadToolStripMenuItem.Text = "Load";
+            // 
+            // gameSettingsToolStripMenuItem
+            // 
+            this.gameSettingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.manageAchievementsToolStripMenuItem});
+            this.gameSettingsToolStripMenuItem.Name = "gameSettingsToolStripMenuItem";
+            this.gameSettingsToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
+            this.gameSettingsToolStripMenuItem.Text = "Game settings";
+            // 
+            // manageAchievementsToolStripMenuItem
+            // 
+            this.manageAchievementsToolStripMenuItem.Name = "manageAchievementsToolStripMenuItem";
+            this.manageAchievementsToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.manageAchievementsToolStripMenuItem.Text = "Manage achievements";
+            this.manageAchievementsToolStripMenuItem.Click += new System.EventHandler(this.manageAchievementsToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -90,7 +125,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Simplex RPG Engine";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -105,6 +140,10 @@
         private System.Windows.Forms.ToolStripMenuItem loadProjectToolStripMenuItem;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gameSettingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageAchievementsToolStripMenuItem;
     }
 }
 
