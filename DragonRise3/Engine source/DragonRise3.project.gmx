@@ -413,6 +413,7 @@
         <script>scripts\drawAPI.gml</script>
         <script>scripts\enemyAPI.gml</script>
         <script>scripts\npcAPI.gml</script>
+        <script>scripts\hudAPI.gml</script>
         <script>scripts\roomCreationAPI.gml</script>
       </scripts>
       <scripts name="Common">
@@ -456,6 +457,7 @@
         <script>scripts\effectShardDrop.gml</script>
         <script>scripts\effectRealFire.gml</script>
         <script>scripts\effectGrass.gml</script>
+        <script>scripts\effectAchievement.gml</script>
         <script>scripts\effectFirefly.gml</script>
       </scripts>
     </scripts>
@@ -656,6 +658,14 @@
       <scripts name="Achievements">
         <script>scripts\scrAchievementRegister.gml</script>
         <script>scripts\scrAchievementUnlock.gml</script>
+      </scripts>
+      <scripts name="Timers">
+        <script>scripts\scrTimerIni.gml</script>
+        <script>scripts\scrTimerEnable.gml</script>
+        <script>scripts\scrTimerUpdate.gml</script>
+        <script>scripts\scrTimerTicked.gml</script>
+        <script>scripts\scrTimerEndStep.gml</script>
+        <script>scripts\scrTimerSet.gml</script>
       </scripts>
     </scripts>
   </scripts>

@@ -685,3 +685,12 @@ returnedArray[2] = ut;
 returnedArray[3] = hint;
 
 if (returnedArray[0] != "") {return true;} else {return false;}
+#define apiPlayerUpdateProperties
+/// apiPlayerUpdateProperties()
+
+oPlayer.vlastnost[vlastnost_zivot]   = clamp(oPlayer.vlastnost[vlastnost_zivot],   0, oPlayer.vlastnost[vlastnost_max_zivot]);
+oPlayer.vlastnost[vlastnost_mana]    = clamp(oPlayer.vlastnost[vlastnost_mana],    0, oPlayer.vlastnost[vlastnost_max_mana]);
+oPlayer.vlastnost[vlastnost_stamina] = clamp(oPlayer.vlastnost[vlastnost_stamina], 0, oPlayer.vlastnost[vlastnost_max_stamina]);
+oPlayer.vlastnost[vlastnost_stit]    = clamp(oPlayer.vlastnost[vlastnost_stit],    0, oPlayer.vlastnost[vlastnost_max_stit]);
+
+if (oPlayer.last_hp < 0) {oPlayer.last_hp = 0;}

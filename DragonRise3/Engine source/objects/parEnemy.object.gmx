@@ -55,6 +55,9 @@ colour_to_find                = shader_get_uniform(shdLerp, "f_Colour1");
 lerp_value                    = 0;
 force_aggresive               = 0;
 force_timer                   = 400;
+timeToPerform                 = 0;
+tempSpd                       = spd;
+safeDying                     = true;
 
 
 
@@ -137,6 +140,59 @@ scrEnemyGetDamage();
 
 scrEnemyCollision(self);
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Draw self
+
+// Cutscenes
+if (timeline_running &amp;&amp; (timeline_position &gt; (timeline_max_moment(timeline_index) + global.cutsceneTime)))
+    {
+     timeline_running = false
+     spd = tempSpd;
+     timeline_position = 0;
+    }
+if (timeline_running)
+    {
+     draw_text(x, y - 32, "Performing cutscene");
+    }
+
+if (mood == "cutscene" &amp;&amp; distance_to_point(cutsceneX, cutsceneY) &gt; 0)
+{
+if (dir = dir_right) {x += spd*(1-slowdown);}
+if (dir = dir_left) {x -= spd*(1-slowdown);}
+if (dir = dir_up) {y -= spd*(1-slowdown);}
+if (dir = dir_down) {y += spd*(1-slowdown);}
+
+}
+else if (mood == "cutscene" &amp;&amp; distance_to_point(cutsceneX, cutsceneY) == 0)
+    {
+     mood = "idle";
+    }    
+
+// Manage HP and status
+if (can_damage &gt; 0) {can_damage--;} else {can_damage = -1;}
+if (last_hp &gt; hp) {last_hp--;}
+if (last_hp &lt; hp) {last_hp++;}
 </string>
           </argument>
         </arguments>

@@ -26,13 +26,11 @@
           <argument>
             <kind>1</kind>
             <string>/// Initialise enemy
-event_inherited();
 
+event_inherited();
 scrEnemyIni(30,5,1,choose(1,1,2),"Slime",bestiaryEnemySlime,scrColorflag(c_blue) + "Slime" + scrEndColorflag());
 
-timeToPerform = 0;
-tempSpd = spd;
-safeDying = true;
+
 </string>
           </argument>
         </arguments>
@@ -203,93 +201,68 @@ scrEnemyDie(true);
             <kind>1</kind>
             <string>/// Draw self
 
-if (timeline_running &amp;&amp; (timeline_position &gt; (timeline_max_moment(timeline_index) + global.cutsceneTime)))
-    {
-     timeline_running = false
-     spd = tempSpd;
-     //show_message("" + string(id) + ": Ukončuji cutscene" + "#Pozice: " + string(timeline_position) + " / " + string(timeline_max_moment(timeline_index)));
-     //timeline_index = -1;
-     timeline_position = 0;
-    }
-if (timeline_running)
-    {
-     draw_text(x, y - 32, "Cutscene"); // Debug
-    }
+event_inherited();
 
-if (z_mood = 2) {
-zspeed = 0;
-z = 0;
-z_mood = 0;
+if (z_mood == 2) 
+{
+ zspeed       = 0;
+ z            = 0;
+ z_mood       = 0;
  bonus_damage = 0;
- }
+}
  
 
-if (can_damage &gt; 0) {can_damage--;} else {can_damage = -1;}
-if (last_hp &gt; hp) {last_hp--;}
-if (last_hp &lt; hp) {last_hp++;}
 
 if (last_hp &lt;= 0) {if (mood !="dying") {event_user(0);}}
 
-if (mood == "cutscene" &amp;&amp; distance_to_point(cutsceneX, cutsceneY) &gt; 0)
-{
-if (dir = dir_right) {x += spd*(1-slowdown);}
-if (dir = dir_left) {x -= spd*(1-slowdown);}
-if (dir = dir_up) {y -= spd*(1-slowdown);}
-if (dir = dir_down) {y += spd*(1-slowdown);}
-
-}
-else if (mood == "cutscene" &amp;&amp; distance_to_point(cutsceneX, cutsceneY) == 0)
-    {
-     mood = "idle";
-    }
     
 if (mood = "idle")
 {
 if (force_aggresive) {if (mood = "idle") {mood = "attack"; in_fight = 1;} if (force_timer &gt; 0) {force_timer--;} else {force_aggresive = 0; force_timer = 400;}}
 
-if (dir = dir_right) {x += spd*(1-slowdown); count += spd*(1-slowdown); if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPosition();}}
-if (dir = dir_left) {x -= spd*(1-slowdown); count += spd*(1-slowdown); if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPosition();}}
-if (dir = dir_up) {y -= spd*(1-slowdown); count += spd*(1-slowdown); if (count &gt; 32) {count = 0; event_user(2); scrEnemyGetPosition();}}
-if (dir = dir_down) {y += spd*(1-slowdown); count += spd*(1-slowdown); if (count &gt; 32) {count = 0; event_user(2); scrEnemyGetPosition();}}
+if (dir == dir_right) {x += spd*(1-slowdown); count += spd*(1-slowdown); if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPosition();}}
+if (dir == dir_left) {x -= spd*(1-slowdown); count += spd*(1-slowdown); if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPosition();}}
+if (dir == dir_up) {y -= spd*(1-slowdown); count += spd*(1-slowdown); if (count &gt; 32) {count = 0; event_user(2); scrEnemyGetPosition();}}
+if (dir == dir_down) {y += spd*(1-slowdown); count += spd*(1-slowdown); if (count &gt; 32) {count = 0; event_user(2); scrEnemyGetPosition();}}
 
 }
-if (mood = "attack")
+if (mood == "attack")
 {
 in_fight = 1;
 px = oPlayer.x;
 py = oPlayer.y;
 
 
-if (dir = dir_right) {if (can_damage = -1) {x += spd*(1-slowdown); count += spd*(1-slowdown)+0.2;} if (count &gt; 32) {count = 0; event_user(2); scrEnemyGetPositionAttack();}}
-if (dir = dir_left) {if (can_damage = -1) {x -= spd*(1-slowdown); count += spd*(1-slowdown)+0.2;} if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPositionAttack();}}
-if (dir = dir_up) {if (can_damage = -1) {y -= spd*(1-slowdown); count += spd*(1-slowdown)+0.2;} if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPositionAttack();}}
-if (dir = dir_down) {if (can_damage = -1) {y += spd*(1-slowdown); count += spd*(1-slowdown)+0.2;} if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPositionAttack();}}
+if (dir == dir_right) {if (can_damage = -1) {x += spd*(1-slowdown); count += spd*(1-slowdown)+0.2;} if (count &gt; 32) {count = 0; event_user(2); scrEnemyGetPositionAttack();}}
+if (dir == dir_left) {if (can_damage = -1) {x -= spd*(1-slowdown); count += spd*(1-slowdown)+0.2;} if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPositionAttack();}}
+if (dir == dir_up) {if (can_damage = -1) {y -= spd*(1-slowdown); count += spd*(1-slowdown)+0.2;} if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPositionAttack();}}
+if (dir == dir_down) {if (can_damage = -1) {y += spd*(1-slowdown); count += spd*(1-slowdown)+0.2;} if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPositionAttack();}}
 
 }
 
-if (mood = "dying")
+if (mood == "dying")
 {
 if (safeDying) {safeDying = false; scrGoreExplodeDropShards(32, 8, spr[0]);}
 draw_sprite_ext(spr[0],spr[1],x,y,1,1,0,c_white,image_alpha);
 if (image_alpha &gt; 0) {image_alpha -= 0.02;} else {instance_destroy();}   
 }
 
-if (mood = "jump")
+if (mood == "jump")
    {
    
-   if (dir = dir_up)
+   if (dir == dir_up)
    {
-    if (z_mood = 0) {y -= z; z += 0.1; image_alpha -= 0.01 if (z &gt; 3) {z_mood = 1;}}
-    if (z_mood = 1) {y -= z; z -= 0.1; image_alpha += 0.01 if (z &lt;= 0) {randomize(); z_mood = 2; repeat(5) {instance_create(x-random(10)+random(10),y+random(10)-random(10),oBlob);} mood = "idle";}}
+    if (z_mood == 0) {y -= z; z += 0.1; image_alpha -= 0.01 if (z &gt; 3) {z_mood = 1;}}
+    if (z_mood == 1) {y -= z; z -= 0.1; image_alpha += 0.01 if (z &lt;= 0) {randomize(); z_mood = 2; repeat(5) {instance_create(x-random(10)+random(10),y+random(10)-random(10),oBlob);} mood = "idle";}}
    
    
-    if (z_mood = 0 &amp;&amp; z &gt; 0)
+    if (z_mood == 0 &amp;&amp; z &gt; 0)
      {
     draw_set_alpha(z/3);
     draw_sprite(sJump,0,x,y+z*4);
     draw_set_alpha(1);
     }
-    if (z_mood = 1)
+    if (z_mood == 1)
      {
     draw_set_alpha(abs(3-z)-0.2);
     draw_sprite(sJump,0,x,y+z*8);
@@ -298,19 +271,19 @@ if (mood = "jump")
 
    
    }
-  else if (dir = dir_down)
+  else if (dir == dir_down)
    {
     if (z_mood = 0) {y += z; z += 0.1; image_alpha -= 0.01 if (z &gt; 3) {z_mood = 1;}}
     if (z_mood = 1) {y += z; z -= 0.1; image_alpha += 0.01 if (z &lt;= 0) {randomize(); z_mood = 2; repeat(5) {instance_create(x-random(10)+random(10),y+random(10)-random(10),oBlob);} mood = "idle";}}
    
    
-    if (z_mood = 0)
+    if (z_mood == 0)
      {
     draw_set_alpha(z/3);
     draw_sprite(sJump,0,x,y+z*8);
     draw_set_alpha(1);
     }
-    if (z_mood = 1)
+    if (z_mood == 1)
      {
     draw_set_alpha(z-2);
     draw_sprite(sJump,0,x,y+z*8);
@@ -318,19 +291,19 @@ if (mood = "jump")
     }
 
    }
-else if (dir = dir_right)
+else if (dir == dir_right)
    {
     if (z_mood = 0) {x += z; z += 0.1; image_alpha -= 0.01 if (z &gt; 3) {z_mood = 1;}}
     if (z_mood = 1) {x += z; z -= 0.1; image_alpha += 0.01 if (z &lt;= 0) {randomize(); z_mood = 2; repeat(5) {instance_create(x-random(10)+random(10),y+random(10)-random(10),oBlob);} mood = "idle";}}
    
    
-    if (z_mood = 0)
+    if (z_mood == 0)
      {
     draw_set_alpha(z/3);
     draw_sprite(sJump,0,x,y+z*(8-z));
     draw_set_alpha(1);
     }
-    if (z_mood = 1)
+    if (z_mood == 1)
      {
     draw_set_alpha(z-2);
     draw_sprite(sJump,0,x,y+z*(8-z));
@@ -338,19 +311,19 @@ else if (dir = dir_right)
     }
 
    }
-  else if (dir = dir_left)
+  else if (dir == dir_left)
    {
     if (z_mood = 0) {x -= z; z += 0.1; image_alpha -= 0.01 if (z &gt; 3) {z_mood = 1;}}
     if (z_mood = 1) {x -= z; z -= 0.1; image_alpha += 0.01 if (z &lt;= 0) {randomize(); z_mood = 2; repeat(5) {instance_create(x-random(10)+random(10),y+random(10)-random(10),oBlob);} mood = "idle";}}
    
    
-    if (z_mood = 0)
+    if (z_mood == 0)
      {
     draw_set_alpha(z/3);
     draw_sprite(sJump,0,x,y+z*8);
     draw_set_alpha(1);
     }
-    if (z_mood = 1)
+    if (z_mood == 1)
      {
     draw_set_alpha(z-2);
     draw_sprite(sJump,0,x,y+z*8);

@@ -70,6 +70,7 @@ instance_activate_object(oScreenShader);
 instance_activate_object(oQuest);
 instance_activate_object(oTalentMenu);
 instance_activate_object(oStatusMenu);
+instance_activate_object(oAchievement);
 </string>
           </argument>
         </arguments>

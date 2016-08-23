@@ -212,135 +212,25 @@ x = view_xview;
 y = view_yview;
 
 if (instance_number(oPlayer) &gt; 0 &amp;&amp; draw)
-{
-  
+{ 
+// Call update scripts
 scrAffectsUpdate();      
-clr(c_black, 0.3);
-//draw_rectangle(x, y + 552, x + 700, y + 600, false);
-clr();   
-   
-oPlayer.vlastnost[vlastnost_zivot] = min(max(0,oPlayer.vlastnost[vlastnost_zivot]),oPlayer.vlastnost[vlastnost_max_zivot]);
-oPlayer.vlastnost[vlastnost_mana] = min(max(0,oPlayer.vlastnost[vlastnost_mana]),oPlayer.vlastnost[vlastnost_max_mana]);
-oPlayer.vlastnost[vlastnost_stamina] = min(max(0,oPlayer.vlastnost[vlastnost_stamina]),oPlayer.vlastnost[vlastnost_max_stamina]);
-oPlayer.vlastnost[vlastnost_stit] = min(max(0,oPlayer.vlastnost[vlastnost_stit]),oPlayer.vlastnost[vlastnost_max_stit]);
+apiPlayerUpdateProperties();
 
-   
-     scrCenterText();
-     draw_set_colour(c_black);
-     draw_set_font(fntPixelSmall);
-     
-     // Zivot
-     draw_sprite(sHUDBars,10,x+600+normalxoffset,y);
-     if (oPlayer.vlastnost[vlastnost_max_zivot] &gt; 0)
-     {
-     if (oPlayer.last_hp &lt; 0) {oPlayer.last_hp = 0;}
-     draw_sprite_part(sHudBarsSubs,1,0,0,oPlayer.last_hp / oPlayer.vlastnost[vlastnost_max_zivot] * sprite_get_width(sHudBarsSubs),sprite_get_height(sHudBarsSubs),x+628+normalxoffset,y+4);
-     }
-     draw_sprite(sHUDBars,2,x+600+normalxoffset,y);
-     draw_text(x+710+normalxoffset,y+12,round(oPlayer.last_hp));
-     
-     draw_set_font(fntPixelTiny);
-     draw_set_alpha(alpha[0]);
-     draw_rectangle_colour(x+600+normalxoffset,y,x+627+normalxoffset,y+23,c_white,c_white,c_white,c_white,0);
-     draw_set_alpha(alpha[0] * 2);
-     draw_text(x+615+normalxoffset,y+12,round(oPlayer.vlastnost[vlastnost_max_zivot]));
-     draw_set_alpha(1);
-     draw_set_font(fntPixelSmall);
-     if (mouse_in(x+600+normalxoffset,x+627+normalxoffset,y,y+23)) {if (alpha[0] &lt; 0.7) {alpha[0] += 0.05;}} else {if (alpha[0] &gt; 0) {alpha[0] -= 0.05;}}
-     
-     
-     // Stit
-     draw_sprite(sHUDBars,4,x+600+normalxoffset,y+30);
-     draw_sprite(sHUDBars,11,x+600+normalxoffset,y+30);
-     if (oPlayer.vlastnost[vlastnost_max_stit] &gt; 0)
-     {
-     draw_sprite_part(sHudBarsSubs,2,0,0,oPlayer.last_stit / oPlayer.vlastnost[vlastnost_max_stit] * sprite_get_width(sHudBarsSubs),sprite_get_height(sHudBarsSubs),x+628+normalxoffset,y+34);
-     }
-     draw_text(x+710+normalxoffset,y+42,round(oPlayer.last_stit));
-     
-     draw_set_font(fntPixelTiny);
-     draw_set_alpha(alpha[1]);
-     draw_rectangle_colour(x+600+normalxoffset,y+30,x+627+normalxoffset,y+53,c_white,c_white,c_white,c_white,0);
-     draw_set_alpha(alpha[1] * 2);
-     draw_text(x+615+normalxoffset,y+42,round(oPlayer.vlastnost[vlastnost_max_stit]));
-     draw_set_alpha(1);
-     draw_set_font(fntPixelSmall);
-     if (mouse_in(x+600+normalxoffset,x+627+normalxoffset,y+30,y+53)) {if (alpha[1] &lt; 0.7) {alpha[1] += 0.05;}} else {if (alpha[1] &gt; 0) {alpha[1] -= 0.05;}}
+// Reset draw mode + set text align to center
+clr();
+alg("center", fntPixelSmall);    
 
+// Draw HUD bars (hp, shield, mana, stamina) + experience bar
+scrHudDrawBar(600, 0, 2, 10, 1, oPlayer.last_hp, oPlayer.vlastnost[vlastnost_max_zivot], 0);
+scrHudDrawBar(600, 30, 4, 11, 2, oPlayer.last_stit, oPlayer.vlastnost[vlastnost_max_stit], 1);
+scrHudDrawBar(600, 60, 0, 9, 0, oPlayer.last_mana, oPlayer.vlastnost[vlastnost_max_mana], 2);
+scrHudDrawBar(600, 90, 6, 12, 3, oPlayer.last_stamina, oPlayer.vlastnost[vlastnost_max_stamina], 3);
+scrHudDrawXpBar(275, 571);
 
-     // Mana
-     draw_sprite(sHUDBars,0,x+600+normalxoffset,y+60);
-     draw_sprite(sHUDBars,9,x+600+normalxoffset,y+60);
-     if (oPlayer.vlastnost[vlastnost_max_mana] &gt; 0)
-     {
-     draw_sprite_part(sHudBarsSubs,0,0,0,oPlayer.last_mana / oPlayer.vlastnost[vlastnost_max_mana] * sprite_get_width(sHudBarsSubs),sprite_get_height(sHudBarsSubs),x+628+normalxoffset,y+64);
-     }
-     draw_text(x+710+normalxoffset,y+72,round(oPlayer.last_mana));
-     
-     draw_set_font(fntPixelTiny);
-     draw_set_alpha(alpha[2]);
-     draw_rectangle_colour(x+600+normalxoffset,y+60,x+627+normalxoffset,y+83,c_white,c_white,c_white,c_white,0);
-     draw_set_alpha(alpha[2] * 2);
-     draw_text(x+615+normalxoffset,y+72,round(oPlayer.vlastnost[vlastnost_max_mana]));
-     draw_set_alpha(1);
-     draw_set_font(fntPixelSmall);
-     if (mouse_in(x+600+normalxoffset,x+627+normalxoffset,y+60,y+83)) {if (alpha[2] &lt; 0.7) {alpha[2] += 0.05;}} else {if (alpha[2] &gt; 0) {alpha[2] -= 0.05;}}
+// Draw binded spells
+alg("default", fntPixelHuge);
 
-
-     // Stamina
-     draw_sprite(sHUDBars,6,x+600+normalxoffset,y+90);
-     draw_sprite(sHUDBars,12,x+600+normalxoffset,y+90);
-     if (oPlayer.vlastnost[vlastnost_max_stamina] &gt; 0)
-     {
-     draw_sprite_part(sHudBarsSubs,3,0,0,oPlayer.last_stamina / oPlayer.vlastnost[vlastnost_max_stamina] * sprite_get_width(sHudBarsSubs),sprite_get_height(sHudBarsSubs),x+628+normalxoffset,y+94);
-     }
-     draw_text(x+710+normalxoffset,y+102,round(oPlayer.last_stamina));
-
-     draw_set_font(fntPixelTiny);
-     draw_set_alpha(alpha[3]);
-     draw_rectangle_colour(x+600+normalxoffset,y+90,x+627+normalxoffset,y+113,c_white,c_white,c_white,c_white,0);
-     draw_set_alpha(alpha[3] * 2);
-     draw_text(x+615+normalxoffset,y+102,round(oPlayer.vlastnost[vlastnost_max_stamina]));
-     draw_set_alpha(1);
-     draw_set_font(fntPixelSmall);
-     if (mouse_in(x+600+normalxoffset,x+627+normalxoffset,y+90,y+113)) {if (alpha[3] &lt; 0.7) {alpha[3] += 0.05;}} else {if (alpha[3] &gt; 0) {alpha[3] -= 0.05;}}
- 
-        
-     draw_sprite(sExperienceBarSubs,0,x+275+spellsxPlus,y+571+yoffset);
-     draw_sprite_part(sExperienceBarSubs,1,0,0,oPlayer.last_xp / oPlayer.vlastnost[vlastnost_max_zkusenosti] * sprite_get_width(sExperienceBarSubs),sprite_get_height(sExperienceBarSubs),x+275+spellsxPlus,y+571+yoffset);
-     draw_sprite(sExperienceBar,0,x+244+spellsxPlus,y+560+yoffset);
-     
-     clr();
-     alg("center", fntPixelSmall);
-     draw_text(x+394+spellsxPlus,y+560+yoffset,string(oPlayer.last_xp)+" / "+string(oPlayer.vlastnost[vlastnost_max_zkusenosti]));
-     alg("center", fntPixel);
-     if (oPlayer.talentPoints == 0) {draw_text(x+260+spellsxPlus,y+574+yoffset,string(oPlayer.vlastnost[vlastnost_level]));}
-     else {draw_text(x+260+spellsxPlus,y+574+yoffset,"+" + string(oPlayer.talentPoints))}
-     alg();
-     
-     if (oPlayer.talentPoints &gt; 0)
-        {
-         if (skillPointsM = 0)
-            {
-             if (skillPointsA &lt; 1)  {skillPointsA += 0.02;} else {skillPointsM = 1;}
-            }
-         if (skillPointsM = 1)
-            {
-             if (skillPointsA &gt; 0.5)  {skillPointsA -= 0.02;} else {skillPointsM = 0;}
-            }
-          
-           draw_sprite_ext(sExperienceBar, 1, x+244+spellsxPlus, y+560+yoffset, 1, 1 , 0, c_white, skillPointsA);                 
-        }
-     if (mouse_check_button_pressed(mb_left) &amp;&amp; point_in_circle(x+260+spellsxPlus, y+576+yoffset, mouse_x, mouse_y, 16))
-        {
-         if (oTalentMenu.mode = "") {oTalentMenu.mode = "in"; oTalentMenu.draw = true;}
-        }
-
-     
-     scrCenterText(0);
-
-       
-       draw_set_font(fntPixelHuge);
        draw_sprite(sSpellsUI,0,x+540+spellsxPlus,y+560+yoffset);
        if (oPlayer.spell[0] = "")
        {

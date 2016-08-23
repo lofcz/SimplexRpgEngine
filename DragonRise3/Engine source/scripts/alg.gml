@@ -15,7 +15,13 @@ if (is_string(h))
         {
          h = fa_center;
          v = fa_middle;
-        }     
+        }  
+          
+     if (h == "default")
+        {
+         h = fa_left;
+         v = fa_top;
+        }  
     }
     
 draw_set_halign(h);

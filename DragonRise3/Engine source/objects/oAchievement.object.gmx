@@ -30,8 +30,38 @@
 alarm[0] = 1;
 canDraw  = false;
 xx       = 0;
-yy       = 0;
+yy       = 500;
 alpha    = 0;
+mode     = 0;
+scale    = 1;
+Sname    = part_system_create();
+
+scrTimerIni(1);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Free memory
+
+part_system_destroy(Sname);
 </string>
           </argument>
         </arguments>
@@ -62,6 +92,10 @@ maxWidth = string_width(header);
 fnt(fntPixel);
 if (string_width(text) &gt; maxWidth) {maxWidth = string_width(text);}
 canDraw = true;
+
+xx    -= (maxWidth + 64);
+startX = xx;
+
 </string>
           </argument>
         </arguments>
@@ -90,13 +124,61 @@ if (canDraw)
 {
 x = view_xview + xx;
 y = view_yview + yy;
+
+if (mode &lt; 4)
+{
+xx = lerp(xx, 1, 0.1);
+}
+
+// Ease-in animation effect
+if (xx &gt;= 0 || mode &gt;= 4) 
+    {
+     if (mode == 0) 
+        {
+         if (scale &gt; 0.9) {scale = lerp(scale, 0.89, 0.1);} else {mode = 1;}
+        }
+     if (mode == 1) 
+        {
+         if (scale &lt; 1.1) {scale = lerp(scale, 1.11, 0.1);} else {mode = 2;}
+        }  
+     if (mode == 2)
+        {
+         for (i = 0; i &lt; 5; i++)
+            {
+             effectAchievement(x + (i * 50), y - 6, 5);
+            }
+         mode = 3;
+         scrTimerSet(0, 120);
+        } 
+     if (mode == 3)
+        {       
+         scrTimerUpdate();
+         
+         if (scrTimerTicked(0))
+            {
+             mode = 4;
+            }
+            
+         scrTimerEndStep();
+        }
+     if (mode == 4)
+        {
+         xx = lerp(xx, (startX - 1), 0.05);
+         if (xx &lt;= startX) {mode = 5;}
+        }             
+     if (mode == 5)
+        {
+         instance_destroy();
+        }
+    }
+
 if (alpha &lt; 1) {alpha = lerp(alpha, 1, 0.1);}
 
 clr(c_black, alpha / 2);
 draw_roundrect_ext(x + 32, y + 4, x + maxWidth + 48, y + 42, 16, 16, false);
 clr(c_black, alpha);
 draw_roundrect_ext(x + 32, y + 4, x + maxWidth + 48, y + 42, 16, 16, true);
-draw_sprite(sMedalsType, index, x + 24, y + 24);
+draw_sprite_ext(sMedalsType, index, x + 24, y + 24, scale, scale, 0, c_white, draw_get_alpha());
 clr(c_white, alpha);
 alg("center", fntPixel);
 draw_text(x + (maxWidth / 2) + 40, y + 12, header);
