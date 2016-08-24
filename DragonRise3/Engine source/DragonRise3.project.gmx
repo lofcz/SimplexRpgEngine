@@ -195,6 +195,28 @@
         <sprite>sprites\sEnemySlime</sprite>
         <sprite>sprites\sJump</sprite>
       </sprites>
+      <sprites name="Body Canvas ">
+        <sprites name="Walk">
+          <sprite>sprites\sBodyCanvasHumanWalk1</sprite>
+          <sprite>sprites\sBodyCanvasHood1</sprite>
+          <sprite>sprites\sBodyCanvasBelt1</sprite>
+          <sprite>sprites\sBodyCanvasLegs1</sprite>
+          <sprite>sprites\sBodyCanvasShoes1</sprite>
+          <sprite>sprites\sBodyCanvasHands1</sprite>
+          <sprite>sprites\sBodyCanvasWeapon1</sprite>
+          <sprite>sprites\sBodyCanvasArmor1</sprite>
+        </sprites>
+        <sprites name="Attack">
+          <sprite>sprites\sBodyCanvasAttackArmor1</sprite>
+          <sprite>sprites\sBodyCanvasAttack1</sprite>
+          <sprite>sprites\sBodyCanvasAttackHead1</sprite>
+          <sprite>sprites\sBodyCanvasAttackShoes1</sprite>
+          <sprite>sprites\sBodyCanvasAttackHands1</sprite>
+          <sprite>sprites\sBodyCanvasAttackWeapon1</sprite>
+          <sprite>sprites\sBodyCanvasAttackBelt1</sprite>
+          <sprite>sprites\sBodyCanvasAttackLegs1</sprite>
+        </sprites>
+      </sprites>
     </sprites>
     <sprites name="Environment">
       <sprites name="Trees">
@@ -314,6 +336,7 @@
       <sprite>sprites\sConstructionSiteMask</sprite>
       <sprite>sprites\sBrokenJug</sprite>
       <sprite>sprites\sUpgradeIcons</sprite>
+      <sprite>sprites\tempspr</sprite>
       <sprite>sprites\sMedalsType</sprite>
       <sprite>sprites\sAchievements</sprite>
     </sprites>
@@ -667,6 +690,10 @@
         <script>scripts\scrTimerEndStep.gml</script>
         <script>scripts\scrTimerSet.gml</script>
       </scripts>
+      <scripts name="Body Canvas">
+        <script>scripts\scrBodyCanvasIni.gml</script>
+        <script>scripts\scrBodyCanvasDB.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -879,7 +906,9 @@
       <room>rooms\mapHouse1</room>
     </rooms>
   </rooms>
-  <constants number="197">
+  <constants number="199">
+    <constant name="baArmor">1</constant>
+    <constant name="baBase">0</constant>
     <constant name="cStaticInstance">"staticInstance"</constant>
     <constant name="lightmap_y">1</constant>
     <constant name="lightmap_x">0</constant>

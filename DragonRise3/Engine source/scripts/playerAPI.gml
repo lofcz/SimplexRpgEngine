@@ -17,7 +17,9 @@ math_set_epsilon(0.0000001);
 apiPlayerRegenerate()
 
 if (can_move && can_move2 && can_move3 && can_move4 && can_move5) 
-    {   
+    {  
+     if (currentAnimation == animationEnum.walk)
+     { 
     if (keyboard_check(ord("W"))) 
         {
         a1 = 0
@@ -138,72 +140,78 @@ if (can_move && can_move2 && can_move3 && can_move4 && can_move5)
         dir = "";
         image_speed = 0;
         speed = 0;
-       
+        image_index = 12;
         }
-    }  
-if (can_move = 0)
+    } 
+    
+    
+if (!can_move && currentAnimation = animationEnum.walk)
     {
     dir = "s" 
     image_index = 12;
     }    
 if (dir = "w")
     {
-     if (image_index < 12 || image_index > 15.9)
+     if (image_index < 0 || image_index > 5.9)
             {
-            image_index = 12;
+            image_index = 0;
             } 
     }
 if (dir = "s")
     {
-     if (image_index < 0 || image_index > 3.9)
+     if (image_index < 12 || image_index > 17.9)
             {
-            image_index = 0;
+            image_index = 12;
             } 
     }    
 if (dir = "a")
     {
-     if (image_index < 4 || image_index > 7.9)
+     if (image_index < 6 || image_index > 11.9)
             {
-            image_index = 4;
+            image_index = 6;
             } 
     }    
 if (dir = "d")
     {
-     if (image_index < 8 || image_index > 11.9)
+     if (image_index < 18 || image_index > 23.9)
             {
-            image_index = 8;
+            image_index = 18;
             } 
     }            
-    
+}    
 
 
 #define apiPlayerMoveStand
 /// apiPlayerMoveStand()
 
-math_set_epsilon(0.0000001);
+math_set_epsilon(0.0001);
 
-     if (image_index > 12 && image_index < 15.99)
+if (currentAnimation == animationEnum.walk)
+{
+     if (image_index > 12 && image_index < 17.99)
             {
             image_index = 12;
             } 
 
 
-     if (image_index > 0 && image_index < 3.99)
+     if (image_index > 0 && image_index < 5.99)
             {
             image_index = 0;
             } 
    
 
-     if (image_index > 4 && image_index < 7.99)
+     if (image_index > 6 && image_index < 11.99)
             {
-            image_index = 4;
+            image_index = 6;
             } 
     
 
-     if (image_index > 8 && image_index < 11.99)
+     if (image_index > 18 && image_index < 23.99)
             {
-            image_index = 8;
+            image_index = 18;
             } 
+}
+
 #define apiPlayerSprint
 /// apiPlayerSprint()
   if (keyboard_check(vk_shift))       
@@ -229,8 +237,44 @@ if (stamina_tick > 0 && !sprinting) {stamina_tick --;}
 #define apiPlayerDraw
 /// apiPlayerDraw()
 
-draw_self();
+// Draw body canvas
+for (i = 0; i < 15; i++)
+    {
+     if (bci[i] != 0) {draw_sprite(bci[currentAnimation, i], image_index, x, y);}     
+    }
 
+if (currentAnimation != animationEnum.walk)
+{
+ image_speed = 0.4;
+ 
+ if (currentAnimation == animationEnum.slash)
+    {
+     draw_sprite(sBodyCanvasAttackWeapon1, image_index, x, y);
+    }
+ 
+ 
+ if (last_dir == "s" || last_dir == "")
+    {
+     if (image_index > 17) {sprite_index = bci[0, 0]; currentAnimation = animationEnum.walk; image_index = 12; image_speed = 0;}
+    }
+ if (last_dir == "d")
+    {
+     if (image_index >= 23) {sprite_index = bci[0, 0]; currentAnimation = animationEnum.walk; image_index = 18; image_speed = 0;}
+    }
+ if (last_dir == "a")
+    {
+     if (image_index >= 11) {sprite_index = bci[0, 0]; currentAnimation = animationEnum.walk; image_index = 6; image_speed = 0;}
+    }
+ if (last_dir == "w")
+    {
+     if (image_index >= 5) {sprite_index = bci[0, 0]; currentAnimation = animationEnum.walk; image_index = 0; image_speed = 0;}
+    }
+}
+
+
+
+
+// Update vars
 stamina_dif = abs(last_stamina - vlastnost[vlastnost_stamina]);
 health_dif  = abs(last_hp - vlastnost[vlastnost_zivot]);
 
@@ -239,8 +283,8 @@ if (health_dif <= 5)  {health_bar = 0.1;}
 else {health_bar = 1;} 
 
       
-if (last_hp < vlastnost[vlastnost_zivot]) {last_hp += health_bar;}
-if (last_hp > vlastnost[vlastnost_zivot]) {last_hp -= health_bar;}
+if (last_hp < vlastnost[vlastnost_zivot]) {last_hp = lerp(last_hp, vlastnost[vlastnost_zivot], 0.1);}
+if (last_hp > vlastnost[vlastnost_zivot]) {last_hp = lerp(last_hp, vlastnost[vlastnost_zivot], 0.1);}
 
 if (last_stit < vlastnost[vlastnost_stit]) {last_stit++;}
 if (last_stit > vlastnost[vlastnost_stit]) {last_stit--;}
@@ -255,6 +299,7 @@ if (last_xp < vlastnost[vlastnost_zkusenosti]) {last_xp++;}
 if (last_xp > vlastnost[vlastnost_zkusenosti]) {last_xp--;}
 
 if (last_hp <= 0 && last_hp != 0) {last_hp = 0; scrGoreExplode(10,10);}
+
 #define apiPlayerUnstuck
 /// apiPlayerUnstuck()
 

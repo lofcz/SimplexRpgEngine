@@ -34,7 +34,28 @@ if (keyboard_check_pressed(vk_space))
         ss = instance_create(x, y, oSwordSwing);
         ss.dir = oPlayer.last_dir;
         attackMode = "attack";
+        oPlayer.currentAnimation = animationEnum.slash;
+        oPlayer.sprite_index = oPlayer.bci[1, 0];
+        
+         if (oPlayer.last_dir == "s" || oPlayer.last_dir == "")
+            {
+             oPlayer.image_index = 12;
+            }
+         if (oPlayer.last_dir == "d")
+            {
+             oPlayer.image_index = 18;
+            } 
+         if (oPlayer.last_dir == "w")
+            {
+             oPlayer.image_index = 0;
+            }   
+         if (oPlayer.last_dir == "a")
+            {
+             oPlayer.image_index = 18;
+            }                         
          }
+        oPlayer.speed = 0;
+        oPlayer.image_speed = 0;
    }
 
 if (tick > 0)
@@ -43,64 +64,10 @@ if (tick > 0)
    }   
    else {if (untick = 1) {attack = 0; untick = 0;}}
 
-if (attack = 1)
-   {
-   k ++;
-   
-   if (oPlayer.last_dir = "d")
-   {
-    if (mode = 1)
-       {
-        if (temp_rot < 75) {temp_rot += 100;} else {mode = 0;}
-       }
-    if (mode = 0)
-       {
-        if (temp_rot > -100) {temp_rot -= 50+k;} else {mode = -1; temp_rot = -100;}
-       }
-    if (mode = -1)
-       {
-        if (temp_rot < 0) {temp_rot += 75+k;} else {mode = -2; temp_rot = 0;can_damage = -2;}
-       }
-    }
-    
- if (oPlayer.last_dir = "a")
-   {
-    if (mode = 1)
-       {
-        if (temp_rot >-75 ) {temp_rot -= 100;} else {mode = 0; }
-       }
-    if (mode = 0)
-       {
-        if (temp_rot < 0) {temp_rot += 75+k;} else {mode = -1; temp_rot = +40; }
-       }
-    if (mode = -1)
-       {
-        if (temp_rot > 0) {temp_rot -= 75+k;} else {mode = -2; temp_rot = 0;can_damage = -2;}
-       }
-   }
-   
-
-   }   
-
-if (oPlayer.last_dir = "d") 
-   {
-   rot = 0;   depth = -11; xx += 6; yy += 8;
-   }
    
 if (oPlayer.last_dir = "w") {rot = 90;  depth = -9;  yy -= 6; xx += 8;}
 if (oPlayer.last_dir = "s") {rot = -90; depth = -11; yy+= 12; xx += 10;}
 if (oPlayer.last_dir = "a") {rot = 180; depth = -11; xx -= 5; yy += 16}
-
-
-if (attackMode == "attack") {draw_sprite_ext(sprite,image,xx+xxx,yy+yyy,scale,scale,rot+temp_rot+move_rot+dir_rot,color,alpha);}
-if (attackMode == "parry") 
-    {
-    parryAngle += 5;
-    if (parryTimer < (parryTimerMax/2)) {parryAngle += 5;} else {parryAngle -= 5;}
-    draw_sprite_ext(sprite,image,xx+xxx,yy+yyy,scale,scale,parryAngle,color,alpha)
-    }
-x = xx;
-y = yy;
 
 
 }
@@ -113,26 +80,26 @@ y = oPlayer.y;
 
 if (oPlayer.last_dir = "d")
    {
-    x-= 5;
+    x+= 15;
     y-=12;
     image_index = 0;
    }
 if (oPlayer.last_dir = "a")
    {
-    x-= 30;
+    x-=60;
     y-=15;
     image_index = 2;
    }
 if (oPlayer.last_dir = "w")
    {
-    x-= 15;
-    y-=32;
+    x-=20;
+    y-=60;
     image_index = 3;
    }
 if (oPlayer.last_dir = "s")
    {
-    x-= 32;
-    y+=8;
+    x-= 25;
+    y+=30;
     image_index = 1;
    }
 
