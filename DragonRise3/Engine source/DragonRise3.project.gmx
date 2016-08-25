@@ -196,25 +196,30 @@
         <sprite>sprites\sJump</sprite>
       </sprites>
       <sprites name="Body Canvas ">
-        <sprites name="Walk">
-          <sprite>sprites\sBodyCanvasHumanWalk1</sprite>
-          <sprite>sprites\sBodyCanvasHood1</sprite>
-          <sprite>sprites\sBodyCanvasBelt1</sprite>
-          <sprite>sprites\sBodyCanvasLegs1</sprite>
-          <sprite>sprites\sBodyCanvasShoes1</sprite>
-          <sprite>sprites\sBodyCanvasHands1</sprite>
-          <sprite>sprites\sBodyCanvasWeapon1</sprite>
-          <sprite>sprites\sBodyCanvasArmor1</sprite>
+        <sprites name="Human">
+          <sprites name="Attack">
+            <sprite>sprites\sBodyCanvasAttackArmor1</sprite>
+            <sprite>sprites\sBodyCanvasAttack1</sprite>
+            <sprite>sprites\sBodyCanvasAttackHead1</sprite>
+            <sprite>sprites\sBodyCanvasAttackShoes1</sprite>
+            <sprite>sprites\sBodyCanvasAttackHands1</sprite>
+            <sprite>sprites\sBodyCanvasAttackWeapon1</sprite>
+            <sprite>sprites\sBodyCanvasAttackBelt1</sprite>
+            <sprite>sprites\sBodyCanvasAttackLegs1</sprite>
+          </sprites>
+          <sprites name="Walk">
+            <sprite>sprites\sBodyCanvasHumanWalk1</sprite>
+            <sprite>sprites\sBodyCanvasHood1</sprite>
+            <sprite>sprites\sBodyCanvasBelt1</sprite>
+            <sprite>sprites\sBodyCanvasLegs1</sprite>
+            <sprite>sprites\sBodyCanvasShoes1</sprite>
+            <sprite>sprites\sBodyCanvasHands1</sprite>
+            <sprite>sprites\sBodyCanvasWeapon1</sprite>
+            <sprite>sprites\sBodyCanvasArmor1</sprite>
+          </sprites>
         </sprites>
-        <sprites name="Attack">
-          <sprite>sprites\sBodyCanvasAttackArmor1</sprite>
-          <sprite>sprites\sBodyCanvasAttack1</sprite>
-          <sprite>sprites\sBodyCanvasAttackHead1</sprite>
-          <sprite>sprites\sBodyCanvasAttackShoes1</sprite>
-          <sprite>sprites\sBodyCanvasAttackHands1</sprite>
-          <sprite>sprites\sBodyCanvasAttackWeapon1</sprite>
-          <sprite>sprites\sBodyCanvasAttackBelt1</sprite>
-          <sprite>sprites\sBodyCanvasAttackLegs1</sprite>
+        <sprites name="Goblin">
+          <sprite>sprites\sGoblinBodyCanvasBase</sprite>
         </sprites>
       </sprites>
     </sprites>
@@ -320,6 +325,9 @@
         <sprite>sprites\sShortHandles</sprite>
         <sprite>sprites\sWeaponCollision</sprite>
         <sprite>sprites\sSwordSwing</sprite>
+        <sprite>sprites\sSwordSwingDown</sprite>
+        <sprite>sprites\sSwordSwingReversed</sprite>
+        <sprite>sprites\sSwordSwingUp</sprite>
       </sprites>
       <sprites name="Masks">
         <sprite>sprites\sMask26x26</sprite>
@@ -447,6 +455,7 @@
         <script>scripts\scl.gml</script>
         <script>scripts\draw_text_colored.gml</script>
         <script>scripts\scrCenterText.gml</script>
+        <script>scripts\scrChooseFromArray.gml</script>
         <script>scripts\mouse_in.gml</script>
         <script>scripts\instance_nnearest.gml</script>
         <script>scripts\scrColorflag.gml</script>
@@ -694,6 +703,17 @@
         <script>scripts\scrBodyCanvasIni.gml</script>
         <script>scripts\scrBodyCanvasDB.gml</script>
       </scripts>
+      <scripts name="AI">
+        <scripts name="Foes">
+          <scripts name="Actions">
+            <script>scripts\scrEnemyAiActionMoveRight.gml</script>
+            <script>scripts\scrEnemyAiActionMoveFreely.gml</script>
+          </scripts>
+          <script>scripts\scrEnemyAiSetup.gml</script>
+          <script>scripts\scrEnemyAiFlow.gml</script>
+          <script>scripts\scrEnemyAiAddAction.gml</script>
+        </scripts>
+      </scripts>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -747,11 +767,14 @@
     <objects name="Actors">
       <object>objects\oPlayer</object>
       <objects name="Enemies">
-        <object>objects\oEnemySlime</object>
-        <object>objects\oSlimePart</object>
-        <objects name="Parents">
-          <object>objects\parEnemy</object>
+        <objects name="Slime">
+          <object>objects\oEnemySlime</object>
+          <object>objects\oSlimePart</object>
         </objects>
+        <objects name="Goblin">
+          <object>objects\oGoblin</object>
+        </objects>
+        <object>objects\parEnemy</object>
       </objects>
       <objects name="NPCs">
         <object>objects\oTestNPC</object>

@@ -229,6 +229,7 @@ global.shaders_enabled = 1;</code>
     <instance objName="oTree3" x="1952" y="640" name="inst_0D6CA5F4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTransitionCollision" x="1712" y="912" name="inst_03FF91B3" locked="0" code="level = mapHouse1;&#xA;text = &quot;Vstoupit do &quot; + scrColorflag(c_yellow) + &quot;Krysího sklípku&quot; + scrEndColorflag() + &quot;.&quot;;&#xA;xx = x;&#xA;yy = y-64;&#xA;text_lenght = 0;&#xA;player_pos = 0;" scaleX="0.5" scaleY="0.53125" colour="4294967295" rotation="0"/>
     <instance objName="oJug" x="1624" y="832" name="inst_1F5E4902" locked="0" code="scrBCAddLoot(oGold, 2, 6, 10);&#xA;set_sprite(sBrokenJug, 0);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oGoblin" x="448" y="344" name="inst_367F9C79" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="background14" x="1600" y="1712" w="32" h="32" xo="32" yo="0" id="10006696" name="inst_AC26E277" depth="1000001" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
