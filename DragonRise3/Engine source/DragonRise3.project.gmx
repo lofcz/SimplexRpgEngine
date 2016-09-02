@@ -181,7 +181,7 @@
     <sound>sound\sndMenuClick1</sound>
   </sounds>
   <sprites name="sprites">
-    <sprite>sprites\sprite102</sprite>
+    <sprite>sprites\sNormalMask</sprite>
     <sprites name="Actors">
       <sprites name="NPC">
         <sprite>sprites\sPlayerBasic</sprite>
@@ -209,6 +209,7 @@
           </sprites>
           <sprites name="Walk">
             <sprite>sprites\sBodyCanvasHumanWalk1</sprite>
+            <sprite>sprites\sBodyCanvasWeapon2</sprite>
             <sprite>sprites\sBodyCanvasHood1</sprite>
             <sprite>sprites\sBodyCanvasBelt1</sprite>
             <sprite>sprites\sBodyCanvasLegs1</sprite>
@@ -401,6 +402,7 @@
       <sprite>sprites\sprite123_tilee</sprite>
       <sprite>sprites\sprite130_achievements</sprite>
     </sprites>
+    <sprite>sprites\sprite155</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -713,8 +715,32 @@
           <script>scripts\scrEnemyAiFlow.gml</script>
           <script>scripts\scrEnemyAiAddAction.gml</script>
         </scripts>
+        <script>scripts\scrTest1.gml</script>
       </scripts>
     </scripts>
+    <script>scripts\position_create.gml</script>
+    <script>scripts\position_get_x.gml</script>
+    <script>scripts\position_get_y.gml</script>
+    <script>scripts\aStar_get_blocked.gml</script>
+    <script>scripts\aStar_get_cell_size.gml</script>
+    <script>scripts\aStar_get_diagonal_movement.gml</script>
+    <script>scripts\aStar_get_cutting_blocked_corners.gml</script>
+    <script>scripts\aStar_get_width.gml</script>
+    <script>scripts\aStar_get_height.gml</script>
+    <script>scripts\aStar_set_blocked.gml</script>
+    <script>scripts\aStar_set_cell_size.gml</script>
+    <script>scripts\aStar_set_diagonal_movement.gml</script>
+    <script>scripts\aStar_set_cutting_blocked_corners.gml</script>
+    <script>scripts\aStar_set_width.gml</script>
+    <script>scripts\aStar_set_height.gml</script>
+    <script>scripts\aStar_set_size.gml</script>
+    <script>scripts\aStar_init.gml</script>
+    <script>scripts\aStar_close.gml</script>
+    <script>scripts\aStar_find_path.gml</script>
+    <script>scripts\aStar_heuristic_cost.gml</script>
+    <script>scripts\aStar_get_neighbor_position.gml</script>
+    <script>scripts\aStar_get_node_with_lowest_cost.gml</script>
+    <script>scripts\aStar_get_cell_coordinate.gml</script>
   </scripts>
   <shaders name="shaders">
     <shaders name="ScreenFX">
@@ -906,6 +932,8 @@
       <object>objects\oMainMenu</object>
       <object>objects\oMainMenuPar</object>
     </objects>
+    <object>objects\obj_pathfinder</object>
+    <object>objects\obj_controller</object>
   </objects>
   <timelines name="timelines">
     <timelines name="Cutscenes">

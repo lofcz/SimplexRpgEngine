@@ -27,6 +27,9 @@
             <kind>1</kind>
             <string>/// Initialise
 
+
+
+
 sprLight = sBasicLight;
 sprLightIndex = 0;
 scale = 2;
@@ -198,8 +201,8 @@ currentAnimation = animationEnum.walk;
 bci[5, 16] = 0;
 
 scrBodyCanvasDB();
-scrBodyCanvasIni(animationEnum.walk, sBodyCanvasHumanWalk1, sBodyCanvasArmor1, sBodyCanvasHood1, sBodyCanvasBelt1, sBodyCanvasLegs1, sBodyCanvasShoes1, sBodyCanvasHands1);
-scrBodyCanvasIni(animationEnum.slash, sBodyCanvasAttack1, sBodyCanvasAttackArmor1, sBodyCanvasAttackHead1, sBodyCanvasAttackBelt1, sBodyCanvasAttackLegs1, sBodyCanvasAttackShoes1, sBodyCanvasAttackHands1);
+scrBodyCanvasIni(animationEnum.walk, sBodyCanvasHumanWalk1, sBodyCanvasArmor1, sBodyCanvasHood1, sBodyCanvasBelt1, sBodyCanvasLegs1, sBodyCanvasShoes1, sBodyCanvasHands1, 0);
+scrBodyCanvasIni(animationEnum.slash, sBodyCanvasAttack1, sBodyCanvasAttackArmor1, sBodyCanvasAttackHead1, sBodyCanvasAttackBelt1, sBodyCanvasAttackLegs1, sBodyCanvasAttackShoes1, sBodyCanvasAttackHands1, 0);
 </string>
           </argument>
         </arguments>
@@ -313,6 +316,8 @@ if (load &gt; 0) {load -- } else {load = -1; event_user(0);}
 apiPlayerMove();
 temp_rychlost = ((rychlost / 100) * parrySlowdown) * (1 - slowdown);    
 time+=0.02;;
+
+     with(oGoblin) {event_user(15);}
     
 cyber_r ++;
 //surface_set_target(surface);
@@ -581,6 +586,21 @@ draw_ring_part(x, y, 64, 1, 128, 128, 90, 360 * (last_hp / vlastnost[vlastnost_m
 draw_ring_part(x, y, 64+6, 1, 128, 128, 90, 360 * (last_hp / vlastnost[vlastnost_max_zivot]), true, c_black, false);
 */
 draw_text(x, y + 50, currentAnimation);
+
+/*
+queue = ds_queue_create(); 
+list  = ds_list_create(); // Visited places + number [(1,1),5] --&gt; [(x,y)n]
+relativeX = x - 16;
+relativeY = y - 16;
+gridSize  = 32;
+i= 0;
+listI = 1;
+scrTest1();
+
+ds_queue_destroy(queue);
+ds_list_destroy(list);
+*/
+
 </string>
           </argument>
         </arguments>

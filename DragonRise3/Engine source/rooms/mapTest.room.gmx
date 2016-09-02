@@ -13,7 +13,12 @@
   <code>roomCreation();
 //scrMapIntro("Poutníkova pěšina",0,0,0);
 
-global.shaders_enabled = 1;</code>
+global.shaders_enabled = 1;
+
+cellSize = 32;
+aStar_init(room_width / cellSize, room_height / cellSize, cellSize, true, false);
+randomize();
+instance_create(0, 0, obj_controller);</code>
   <enableViews>-1</enableViews>
   <clearViewBackground>-1</clearViewBackground>
   <clearDisplayBuffer>-1</clearDisplayBuffer>

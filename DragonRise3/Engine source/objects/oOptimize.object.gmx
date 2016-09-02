@@ -71,6 +71,9 @@ instance_activate_object(oQuest);
 instance_activate_object(oTalentMenu);
 instance_activate_object(oStatusMenu);
 instance_activate_object(oAchievement);
+instance_activate_object(obj_pathfinder);
+instance_activate_object(obj_controller);
+
 </string>
           </argument>
         </arguments>

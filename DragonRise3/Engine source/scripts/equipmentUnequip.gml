@@ -25,7 +25,7 @@ e_slot = argument0;
                              oPlayer.draw_equ[id_Mec,0] = 0;
                              oPlayer.draw_equ[id_Mec,1] =  0;
                              oPlayerCombat.draw = 0;
-
+                             oPlayer.bci[0, 7] = 0;
                              
                              }
                              // /NEW

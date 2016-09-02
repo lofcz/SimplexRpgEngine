@@ -1,10 +1,10 @@
 // test dialog
 if (status == 0)
    {
-    dialogueMessage("Postava 1", "Text", 0)
+    dialogueMessage("yxcyxc", "cxycxy", 0)
     dialogueMessage("Test DIALOG 2", "", 0)
 
-if (oPlayer.level > 5)
+if (Test DIALOG 3)
    {
    }
     dialogueMessage("Test DIALOG 5", "", 0)

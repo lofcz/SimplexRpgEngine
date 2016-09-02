@@ -45,7 +45,8 @@ pages          = ((array_length_1d(hover_slot_alpha) div slotsPerPage) + 1);
          if (currentPage < (pages - 1)) {currentPage++;}
         }
     }
- 
+    
+clr();
 for (a = (currentPage*slotsPerPage); a < min(array_height_2d(slot), ((currentPage*slotsPerPage) + slotsPerPage)); a++)
 {
 /* 
@@ -130,6 +131,12 @@ if(combine)
 
 }
 used_y = yy;
+
+// Draw footer
+draw_sprite(sInventoryTitle, 3, x, used_y);
+draw_sprite(sStackableItem1, 7, x, used_y);
+fnt(fntPixel);
+draw_text(x + 30, used_y, oPlayer.gold);
 
 /*
 clr(c_white)

@@ -47,7 +47,66 @@ grid = -1;
 
 // We will use this internal timer to watch action time
 scrTimerIni(1, 100, false);
+alarm[1] = 1;
+canAI = false;
 
+spd = 4;
+dir = 0;
+dis = 0;
+tarX = x + 300;
+tarY = y + 200;
+
+path = undefined;
+endPosition = position_create(-100, -100);
+pathSpeed = 1;
+canRunPath = true;
+finalPath = undefined;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>canAI = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>event_user(15);
 </string>
           </argument>
         </arguments>
@@ -118,6 +177,28 @@ if (mood = "jump")
     mood = "jump";
    }
 </string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="25">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string></string>
           </argument>
         </arguments>
       </action>
@@ -199,6 +280,30 @@ scrEnemyDie(true);
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="8">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>canRunPath = true;
+show_message("");
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
@@ -242,7 +347,114 @@ scrEnemyDie(true);
 
 event_inherited();
 
-scrEnemyAiFlow();
+if (canAI)
+    {
+if(path != undefined)
+{
+    if(point_distance(x, y, position_get_x(endPosition), position_get_y(endPosition)) &lt;= pathSpeed)
+    {
+        x = position_get_x(endPosition);
+        y = position_get_y(endPosition);
+        path_end();
+        path = undefined;
+    }
+}
+    }
+
+//scrEnemyAiFlow();
+
+//mp_
+
+repeat(min(spd, dis))
+{
+ if (place_meeting(x + lengthdir_x(1, dir), y + lengthdir_y(1, dir), oBasicCollision))
+    {
+     x = x + lengthdir_x(1, dir);
+     y = y + lengthdir_y(1, dir);
+     dis = -1;
+    }
+}
+ 
+ if (!(tarX == x &amp;&amp; tarY == y))
+    {
+     if (dis &lt; 0)
+     {
+      deltaX = (tarX - x);
+      deltaY = (tarY - y);
+      
+      signX  = sign(deltaX);
+      signY  = sign(deltaY);
+      
+      if (!(deltaX == 0 &amp;&amp; deltaY == 0))
+        {
+          dir = -1;
+          
+          if (abs(deltaX) &gt; abs(deltaY))
+            {
+             if (!place_meeting(x + signX * 32, y, oBasicCollision))
+                {
+                 if (signX &gt; 0)
+                    {
+                     dir = 0;
+                    }
+                 else if (signX &lt; 0)
+                    {
+                     dir = 180;
+                    }
+                }
+             else
+                {
+                 if (!place_meeting(x, y + signY * 32, oBasicCollision))
+                    {
+                      if (signY &gt; 0)
+                        {
+                         dir = 270;                      
+                        }   
+                       else
+                        {
+                         dir = 90;
+                        }                   
+                    }
+                }             
+            }
+          else
+            {
+             if (!place_meeting(x, y + signY * 32, oBasicCollision))
+                {
+                 if (signY &gt; 0)
+                    {
+                     dir = 270;
+                    }
+                 else
+                    {
+                     dir = 90;
+                    }
+                } 
+              else
+                 {
+                  if (!place_meeting(x + signX * 32, y + signY * 32, oBasicCollision))
+                    {
+                     if (signX &gt; 0) 
+                        {
+                         dir = 0;
+                        }
+                     else
+                        {
+                         dir = 180;
+                        }
+                    }
+                 }
+            
+            }
+        }
+     }
+    }
+if (dir != -1)
+    {
+     dis = 32;
+    }
+
+
 draw_self();
 /*
 if (z_mood == 2) 
