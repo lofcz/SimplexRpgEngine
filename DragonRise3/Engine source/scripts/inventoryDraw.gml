@@ -195,7 +195,7 @@ else
      if (detailsHeight < detailsMaxHeight) {detailsHeight = lerp(detailsHeight, detailsMaxHeight + 1, 0.1);}
     }
     
-if (mouse_in(x + 260, x + 288, used_y + 10, used_y + 34))
+if (mouse_in(x + 260, x + 288, used_y + 10, used_y + 44))
     {
      if (mouse_check_button_pressed(mb_left)) 
         {

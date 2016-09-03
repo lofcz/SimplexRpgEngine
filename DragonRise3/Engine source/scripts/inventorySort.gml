@@ -11,7 +11,6 @@ for (i = startSlot; i < array_height_2d(slot); i++)
 
 if (lastFreeSlot != -1) 
     {
-     q = 0;
      for (i = startSlot; i < array_height_2d(slot); i++)
      {
       if (slot[i,inv_id] != 0 && i > lastFreeSlot) 
@@ -27,8 +26,21 @@ if (lastFreeSlot != -1)
                    }
                    else {slot[i,a] = "";}      
             }
-            break;
+            
+        for (b = 0; b<10; b++)
+            {
+            slot_option[lastFreeSlot, b] =  slot_option[i, b];
+            slot_option[i,b] = "";
+            }
+            
+        for(d=0; d<celkem_vlastnosti; d++)
+           {
+            slot_vlastnosti[lastFreeSlot, d] = slot_vlastnosti[i, d];
+            slot_vlastnosti[i, d] = 0;
+           }
+            
+        
+        break;
         }    
-        q = i+1;
      }    
    }
