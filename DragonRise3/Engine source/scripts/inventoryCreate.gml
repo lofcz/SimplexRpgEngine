@@ -24,6 +24,13 @@ effect_scale         = 1;
 inventory_title      = "Inventář";
 currentPage          = 0;
 slotsPerPage         = 40;
+inventoryDetails     = false;
+detailsHeight        = 0;
+detailsMaxHeight     = 128;
+detailsAlpha         = 0;
+
+details[0] = "Seřadit";
+details[1] = "Vyhodit odpad";
 
 if (argument_count > 0) {slots = argument[0]}
 

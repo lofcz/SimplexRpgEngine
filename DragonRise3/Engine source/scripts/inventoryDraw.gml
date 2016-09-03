@@ -133,10 +133,79 @@ if(combine)
 used_y = yy;
 
 // Draw footer
+if (detailsHeight < 32)
+{
 draw_sprite(sInventoryTitle, 3, x, used_y);
+detailsAlpha = 0;
+}
+else
+{
+draw_sprite_part(sInventoryDetails, 0, 0, 0, 288, clamp(detailsHeight, 32, 128), x, used_y);
+
+if (detailsHeight >= 127)
+    {
+     detailsAlpha = lerp(detailsAlpha, 1, 0.1);
+    }
+else
+    {
+     detailsAlpha = lerp(detailsAlpha, 0, 0.1);
+    }    
+    
+fnt(fntPixelSmall);
+for (i = 0; i < array_length_1d(details); i++)
+    {
+     color = c_black;
+     
+     if (mouse_in(x, x + string_width(details[i]) + 3, used_y + (i * 24) + 32, used_y + (i * 24) + 55))
+        {
+         color = c_white;
+        }
+     
+     clr(color, detailsAlpha);
+     draw_text(x + 3, used_y + (i * 24) + 32, details[i]);
+     
+     if (mouse_check_button_pressed(mb_left) && color == c_white)
+        {
+         audio_play_sound(sndMenuClick1, 0, false);
+             
+         if (i == 0)
+            {
+             for (j = 0; j < slots; j++)
+             {
+              inventorySort(j);
+             }
+            }
+        }
+    }
+clr();
+}
 draw_sprite(sStackableItem1, 7, x, used_y);
-fnt(fntPixel);
+fnt();
 draw_text(x + 30, used_y, oPlayer.gold);
+
+fnt(fntPixelBig);
+if (!inventoryDetails)
+    {
+     draw_text_transformed(x + 270, used_y + 24, "^", 1, 1, 180);     
+     if (detailsHeight > 0) {detailsHeight = lerp(detailsHeight, -0.1, 0.1);}
+    }
+else
+    {
+     draw_text(x + 264, used_y, "^");    
+     if (detailsHeight < detailsMaxHeight) {detailsHeight = lerp(detailsHeight, detailsMaxHeight + 1, 0.1);}
+    }
+    
+if (mouse_in(x + 260, x + 288, used_y + 10, used_y + 34))
+    {
+     if (mouse_check_button_pressed(mb_left)) 
+        {
+         inventoryDetails = !inventoryDetails;
+        }
+    }
+    
+fnt();
+
+
 
 /*
 clr(c_white)
@@ -309,6 +378,7 @@ clr();
                  
                  }
           }
+          // 
        }
        else
            {

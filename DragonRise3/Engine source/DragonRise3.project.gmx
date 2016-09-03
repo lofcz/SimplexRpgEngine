@@ -272,6 +272,7 @@
         <sprite>sprites\sSlotOutlineHD</sprite>
         <sprite>sprites\sQuickslot</sprite>
         <sprite>sprites\sInventoryTitle</sprite>
+        <sprite>sprites\sInventoryDetails</sprite>
         <sprite>sprites\sRarityEffect</sprite>
         <sprite>sprites\sFreeSlot</sprite>
       </sprites>
@@ -509,6 +510,7 @@
         <script>scripts\inventorySwitchPre.gml</script>
         <script>scripts\inventoryNumber.gml</script>
         <script>scripts\inventoryOptionsSetUp.gml</script>
+        <script>scripts\inventorySort.gml</script>
         <script>scripts\inventoryDelete.gml</script>
       </scripts>
       <scripts name="Chest">

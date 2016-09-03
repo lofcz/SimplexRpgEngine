@@ -1,5 +1,3 @@
 /// inventorySwitchPre()
 
-if (pre_switch = 1) {return 1;}
-
-return 0;
+return pre_switch;
