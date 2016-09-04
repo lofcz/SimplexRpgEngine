@@ -46,9 +46,7 @@ for(a=0 a<optionnumber a++)
          if (slot_option[hover_idd,a] != star_text) {draw_text(hover_xx+4+16,hover_yy+(a*16)+16,slot_option[hover_idd,a]);}
          else 
               {
-               if (slot[hover_idd,inv_item_star]) {draw_text(hover_xx+4+16,hover_yy+(a*16)+16,star_text2);}
-               else {draw_text(hover_xx+4+16,hover_yy+(a*16)+16,star_text);}
-
+             draw_text(hover_xx+4+16,hover_yy+(a*16)+16,star_text);
               }
 
 mY = hover_yy+(a*16)+28+1;              
@@ -100,7 +98,7 @@ if (slot_option[hover_idd,a] == star_text)
              if (!tempYes) {mYes = false;}
             }
 
-         if (mouse_x > hover_xx-3 && mouse_x < hover_xx+20+width && mouse_y > hover_yy+(a*16)+16 && mouse_y < hover_yy+(a*16)+28+1)
+         if (mouse_x > hover_xx-3 && mouse_x < hover_xx+20+width && mouse_y > hover_yy+(a*16)+16 && mouse_y < hover_yy+(a*16)+28+2)
             {
             clr(c_yellow,0.4);
             draw_rectangle(hover_xx+20,hover_yy+(a*16)+16,hover_xx+20+width,hover_yy+(a*16)+32,0);
@@ -120,8 +118,7 @@ if (slot_option[hover_idd,a] == star_text)
                     }
                   else if (slot_option[hover_idd,a] = star_text)
                     {     
-                    proceed  = 0;        
-                    slot[hover_idd,inv_item_star] = !slot[hover_idd,inv_item_star];
+   
                     }
 
                 else 

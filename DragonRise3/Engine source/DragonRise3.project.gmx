@@ -718,6 +718,11 @@
           <script>scripts\scrEnemyAiAddAction.gml</script>
         </scripts>
         <script>scripts\scrTest1.gml</script>
+        <scripts name="Pathfinding">
+          <script>scripts\scrPathfindingInit.gml</script>
+          <script>scripts\scrPathfindingFindPath.gml</script>
+          <script>scripts\scrPathfindingAddObstacle.gml</script>
+        </scripts>
       </scripts>
     </scripts>
     <script>scripts\position_create.gml</script>
