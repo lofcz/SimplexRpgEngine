@@ -67,7 +67,7 @@ else                  {itm_info_color = rarity_rare; vlastnost[vlastnost_max_man
 //itm_info_text += "#Poškození: "+string(vlastnost[vlastnost_poskozeni]);
 */
 
-for (i = 10; i &lt; 51; i++)
+for (i = 10; i &lt; 22; i++)
     {
      vlastnost[i] = irandom_range(3,8);
     }

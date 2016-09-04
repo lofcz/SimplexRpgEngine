@@ -111,7 +111,7 @@ if (mouse_in(xx+equ_axis_right_hand_x,xx+equ_axis_right_hand_x+32,yy+equ_axis_ri
    
    if (mouse_check_button_pressed(mb_left))
       {
-       if (oInventory.equiped[0] = 1) {equipmentUnequip(0);}
+       if (oInventory.equiped[0]) {equipmentUnequip(0);}
       }
       
     if (mouse_check_button_pressed(mb_right) && oInventory.equiped[0] = 1)

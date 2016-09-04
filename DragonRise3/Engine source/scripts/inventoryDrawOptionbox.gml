@@ -13,8 +13,10 @@ max_y = y;
 hover_xx = hover_xx + (view_xview-h_dec_x)                   //(hover_x / 32) + x;
 hover_yy = hover_yy + (view_yview-h_dec_y)                       //(hover_y / 32) + y;                                                                                         
 
-  h_dec_x = view_xview;
-        h_dec_y = view_yview;                                                                                                                                                                                                                                                                                    
+h_dec_x = view_xview;
+h_dec_y = view_yview;   
+
+mouseInStarRectangle = false;                                                                                                                                                                                                                                                                           
 
 draw_set_font(fntPixelSmall);
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     //draw_text(hover_xx,hover_yy,hover_iddd);
@@ -48,11 +50,62 @@ for(a=0 a<optionnumber a++)
                else {draw_text(hover_xx+4+16,hover_yy+(a*16)+16,star_text);}
 
               }
-         if (mouse_x > hover_xx-20 && mouse_x < hover_xx+20+width && mouse_y > hover_yy+(a*16)+16 && mouse_y < hover_yy+(a*16)+28)
+
+mY = hover_yy+(a*16)+28+1;              
+if (mouse_x > hover_xx+20+width-1 && mYes) {mY += 16*3;}
+
+if (mouse_x > hover_xx-3 && mouse_x < hover_xx+20+width + 150 && mouse_y > hover_yy+(a*16)+16 && mouse_y < mY)    
+{  
+if (slot_option[hover_idd,a] == star_text)
+            {         
+             maxStarTextWidth = 20 + max(string_width(starText[0]), string_width(starText[1]), string_width(starText[2]));
+             
+             draw_sprite_stretched(sSlotTexture,4,hover_xx+20+width,hover_yy+(a*16)+16,maxStarTextWidth,16*3);
+             draw_rectangle(hover_xx+20+width, hover_yy+(a*16)+16, hover_xx+20+width+maxStarTextWidth,hover_yy+((a+3)*16)+16, true);           
+            
+             tempYes = false;
+             for (j = 0; j < 3; j++)
+                {
+                 draw_text(hover_xx+20+width+3, hover_yy+(a*16)+(16+j*16), starText[j]);
+                
+                 if (mouse_in(hover_xx+20+width-1, hover_xx+20+width+maxStarTextWidth, hover_yy+(a*16)+16+(j*16), hover_yy+(a*16)+16+(j*16)+16+1))
+                    {
+                     mouseInStarRectangle = true;
+                     clr(c_yellow,0.4);
+                     draw_rectangle(hover_xx+20+width,hover_yy+(a*16)+16+(j*16),hover_xx+20+width+maxStarTextWidth,hover_yy+(a*16)+16+(j*16)+16,false);
+                     draw_rectangle(hover_xx+20,hover_yy+(a*16)+16,hover_xx+20+width,hover_yy+(a*16)+32,0);
+                     clr();
+                     mYes = true;
+                     tempYes = true;
+                     
+                     if (mouse_check_button_pressed(mb_left))
+                        {
+                         if (j == 0)
+                            {
+                             slot[hover_idd,inv_item_star] = 1;
+                            }
+                         if (j == 1)
+                            {
+                             slot[hover_idd,inv_item_star] = 2;
+                            }
+                         if (j == 2)
+                            {
+                             slot[hover_idd,inv_item_star] = 0;
+                            }
+                         proceed = 0;
+                        }
+                    }
+                }
+                
+             if (!tempYes) {mYes = false;}
+            }
+
+         if (mouse_x > hover_xx-3 && mouse_x < hover_xx+20+width && mouse_y > hover_yy+(a*16)+16 && mouse_y < hover_yy+(a*16)+28+1)
             {
             clr(c_yellow,0.4);
             draw_rectangle(hover_xx+20,hover_yy+(a*16)+16,hover_xx+20+width,hover_yy+(a*16)+32,0);
-            clr(c_black,1);
+            clr();
+         
 
             if (mouse_check_button_pressed(mb_left))
                {
@@ -78,13 +131,17 @@ for(a=0 a<optionnumber a++)
                }
             
             }
-        }
+   }
+}
             min_x = hover_xx;
             min_y = hover_yy;
             max_x = hover_xx+20+width;
+            if (mouseInStarRectangle) {max_x += 150;}
             max_y = hover_yy+(optionnumber*16)+16;                                                     
             
            // clr(c_red,0.2);
            // draw_rectangle(min_x,min_y,max_x,max_y,0);   
            // clr(); 
 }
+
+return mouseInStarRectangle;

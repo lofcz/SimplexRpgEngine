@@ -28,6 +28,11 @@ inventoryDetails     = false;
 detailsHeight        = 0;
 detailsMaxHeight     = 128;
 detailsAlpha         = 0;
+mouseInStarRectangle = false;
+mYes                 = false;
+starText[0]          = "Oblíbené";
+starText[1]          = "Odpad";
+starText[2]          = "Odznačit"; 
 
 details[0] = "Seřadit";
 details[1] = "Vyhodit odpad";

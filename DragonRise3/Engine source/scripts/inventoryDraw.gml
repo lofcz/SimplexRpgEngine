@@ -124,8 +124,9 @@ if(combine)
  }    
 
  draw_sprite(sSlotOutline,0,xx,yy);
- if (slot[a,inv_item_star] = 1) {draw_sprite(sRarityEffect,5,xx,yy);}
- 
+ if (slot[a,inv_item_star] == 1) {draw_sprite(sRarityEffect,5,xx,yy);}
+ if (slot[a,inv_item_star] == 2) {draw_sprite(sRarityEffect,6,xx,yy);}
+
  xx+=36;//32
  if (xx > x+256) {yy+=36; xx=x;} //32
 
@@ -156,13 +157,13 @@ for (i = 0; i < array_length_1d(details); i++)
     {
      color = c_black;
      
-     if (mouse_in(x, x + string_width(details[i]) + 3, used_y + (i * 24) + 32, used_y + (i * 24) + 55))
+     if (mouse_in(x, x + string_width(details[i]) + 6, used_y + (i * 24) + 32, used_y + (i * 24) + 55))
         {
          color = c_white;
         }
      
      clr(color, detailsAlpha);
-     draw_text(x + 3, used_y + (i * 24) + 32, details[i]);
+     draw_text(x + 6, used_y + (i * 24) + 32, details[i]);
      
      if (mouse_check_button_pressed(mb_left) && color == c_white)
         {
@@ -215,21 +216,33 @@ draw_rectangle(x,used_y+128,x+256+32,used_y+256,1);
 */
 draw_set_font(fntPixel);
 
-  if (proceed) {hover_alpha = 1;}
+  if (proceed) {hover_alpha = 1; hover = true; hover_id = hover_idd;}
   clr(c_black,hover_alpha);
 
-draw_sprite(sInfoboxTexture,0,x,used_y+32);
 
 clr(c_black,hover_alpha/2);
 //  draw_roundrect_ext(x,used_y+128,x+287,used_y+128+28,16,16,0);
 clr(c_black,hover_alpha);  
 //  draw_roundrect_ext(x,used_y+128,x+287,used_y+128+28,16,16,1);
   
-if (hover = 1)
+if (hover || hover_alpha > 0)
   {
-  if (slot[hover_id,inv_item_info_head] != "") { if (hover_alpha < 1) {hover_alpha += 0.1;} } else {if (hover_alpha > 0 && !proceed) {hover_alpha -= 0.1;} }
-
+  tText = inventoryDrawStats();
+ 
+  if (string_height(tText) + string_height(slot[hover_id,inv_item_info_head]) + string_height(slot[hover_id,inv_item_info_text]) < 196)
+  {
+  draw_sprite(sInfoboxTexture,0,x,used_y+32);
+  }
+  else
+  {
+  draw_sprite_stretched(sInfoboxTexture, 0, x, used_y + 32, 288, string_height(tText) + string_height(slot[hover_id,inv_item_info_head]) + string_height(slot[hover_id,inv_item_info_text]));
+  }
   
+  
+  if (slot[hover_id,inv_item_info_head] != "" && hover) { if (hover_alpha < 1) {hover_alpha += 0.1;} } else {if (hover_alpha > 0 && !proceed) {hover_alpha -= 0.1;} }
+
+  if (hover)
+  {
   scrCenterText();
 
    if (!proceed) {f = hover_id;}
@@ -239,6 +252,8 @@ if (hover = 1)
    scrCenterText();
    alg("center", fntPixel);
    draw_text(x+128,used_y+32+12,slot[f,inv_item_info_head]);
+   
+   
    clr(c_black,hover_alpha);
       
 draw_set_font(fntPixelSmall);
@@ -252,10 +267,11 @@ draw_set_font(fntPixelSmall);
    
   
    draw_text_colored(x+4,used_y+32+24,slot[f,inv_item_info_text]);
-   inventoryDrawStats(string_height(slot[f,inv_item_info_text]));
-   clr();                                                                      //  for(a=0 a<10 a++) { draw_text(x+4,used_y+196+a*16,slot_option[hover_id,a]); }
+   draw_text_colored(x+4,used_y+32+24+string_height(slot[f,inv_item_info_text]),inventoryDrawStats());
+   clr(); 
+   }                                                                     //  for(a=0 a<10 a++) { draw_text(x+4,used_y+196+a*16,slot_option[hover_id,a]); }
   }
-  else {if (hover_alpha > 0) {hover_alpha -= 0.1;}}
+  if (!hover) {if (hover_alpha > 0) {hover_alpha -= 0.1;}}
 clr();   
   
        if (mouse_x > hover_x && mouse_x < hover_x+32 && mouse_y > hover_y && mouse_y < hover_y+32)
@@ -272,7 +288,7 @@ clr();
         h_dec_x = view_xview;
         h_dec_y = view_yview;        
         }
-        if (mouse_check_button_pressed(mb_left) && drag = 0 && proceed = 0 && slot[hover_id,inv_id] != 0 && !slot[hover_id, inv_item_beingUsed])
+        if (mouse_check_button_pressed(mb_left) && drag = 0 && !proceed && slot[hover_id,inv_id] != 0 && !slot[hover_id, inv_item_beingUsed])
            {
             h_c = hover_id;
             drag = 1;
@@ -325,7 +341,7 @@ clr();
            
            
            }
-       if (mouse_check_button_released(mb_left) && drag = 1 && proceed = 0)
+       if (mouse_check_button_released(mb_left) && drag = 1 && !proceed)
           {
           
           if (!inventorySwitchPre())
@@ -421,12 +437,12 @@ if (draw_item_mouse)
        }         
    }  
        
-            
-       if (proceed = 1)
-          {
-           inventoryDrawOptionbox()
            
-           if (mouse_x > min_x && mouse_x < max_x && mouse_y > min_y && mouse_y < max_y)
+       if (proceed)
+          {
+           mouseInStarRectangle = inventoryDrawOptionbox();
+           
+           if (mouse_x > min_x && mouse_x < max_x && mouse_y > min_y && mouse_y < max_y || (mouseInStarRectangle))
               {
                
               }
@@ -443,13 +459,19 @@ if (draw_item_mouse)
 #define inventoryDrawStats
 /// inventoryDrawStats(string_height_item_text)
 
-height = argument0;
-t_text = "";
-
-
+t_text   = "";
+tempBool = false;
 
 if (!proceed) {f = hover_id;}
 else {f = hover_idd;}
+
+   if (slot[f, inv_item_equip_slot] != "")
+    {
+     if (slot[f, inv_item_equip_slot] == "zbraň" && equiped[0])
+        {
+         tempBool = true;
+        }
+    }
 
 for(a = 0; a < celkem_vlastnosti; a++)
       {
@@ -471,22 +493,26 @@ for(a = 0; a < celkem_vlastnosti; a++)
                          }
                      case(vlastnost_poskozeni):
                          {
-                           t_text += "#Poškození: "+string(slot_vlastnosti[f,a]);
+                           t_text += "#Poškození: " +string(slot_vlastnosti[f,a]);
+                           inventoryDrawStatsCompare(vlastnost_poskozeni);
                            break;                                                                   
                          }
                      case(vlastnost_max_zivot):
                          {
                            t_text += "#Život: "+string(slot_vlastnosti[f,a]);
+                           inventoryDrawStatsCompare(vlastnost_max_zivot);
                            break;                                                                   
                          }
                      case(vlastnost_stamina_cost):
                          {
-                           t_text += "#Stamina za úder: -"+string(slot_vlastnosti[f,a]);
+                           t_text += "#Stamina za úder: "+string(slot_vlastnosti[f,a]);
+                           inventoryDrawStatsCompare(vlastnost_stamina_cost, 1);
                            break;                                                                   
                          }
                     case(vlastnost_max_mana):
                          {
                            t_text += "#Mana: "+string(slot_vlastnosti[f,a]);
+                           inventoryDrawStatsCompare(vlastnost_max_mana);
                            break;                                                                   
                          }
                     case(vlastnost_sila):
@@ -744,8 +770,8 @@ for(a = 0; a < celkem_vlastnosti; a++)
           }      
       }
 
-
-draw_text(x+4,used_y+32+24+height,t_text);
+return t_text;
+//draw_text_colored(x+4,used_y+32+24+height,t_text);
 
 #define inventoryDrawWrapper
 /// inventoryDrawWrapper(x,y)
@@ -826,3 +852,37 @@ if (draw = 1)
      }
      if (effect_scale > 1 && !draw_inventory) {effect_scale -= 0.02;}
  
+#define inventoryDrawStatsCompare
+/// inventoryDrawStatsCompare(property, mode)
+
+var p, b, deltaB, m;
+p      = vlastnost_poskozeni;
+b      = 0;
+deltaB = 0;
+m      = 0;
+
+if (argument_count > 0) {p  = argument[0];}
+if (argument_count > 1) {m  = argument[1];}
+
+if (tempBool) 
+{
+b = equiped_vlastnost[0,p];
+deltaB = (slot_vlastnosti[f,a] - b);
+
+if (m == 0)
+{                              
+if (deltaB > 0) {t_text += " " + scrColorflag(c_lime) + " (+" + string(deltaB) + ")"  + scrEndColorflag() + " ";}
+else if (deltaB < 0) {t_text += " " + scrColorflag(c_red) + " (" + string(deltaB) + ")" + scrEndColorflag() + " ";}
+else {t_text += " " + scrColorflag(c_yellow) + " (" + string(deltaB) + ")" + scrEndColorflag() + " ";}                                                          
+}
+
+if (m == 1)
+{
+if (deltaB > 0) {t_text += " " + scrColorflag(c_red) + " (+" + string(deltaB) + ")"  + scrEndColorflag() + " ";}
+else if (deltaB < 0) {t_text += " " + scrColorflag(c_lime) + " (" + string(deltaB) + ")" + scrEndColorflag() + " ";}
+else {t_text += " " + scrColorflag(c_yellow) + " (" + string(deltaB) + ")" + scrEndColorflag() + " ";}                                                          
+
+}
+}
+
+return t_text;
