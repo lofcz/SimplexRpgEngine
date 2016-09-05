@@ -111,7 +111,11 @@ s_a = image_alpha;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>move_bounce_all(1);
+            <string>
+if (isSolid)
+{
+move_bounce_all(1);
+}
 </string>
           </argument>
         </arguments>

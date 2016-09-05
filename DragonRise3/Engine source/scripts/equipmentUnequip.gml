@@ -1,13 +1,20 @@
-/// equipmentUnequip(slot)
+/// equipmentUnequip(slot, forceSlot)
 
 e_slot = argument0;
+fSlot  = argument1;
 
+
+tul = true;
  for(a=0; a<oInventory.slots; a++)
          {                                                                                        
           if (oInventory.slot[a,inv_id] = 0)
              {
-              free_slot = a;                                                            
-              break;
+              if (tul && fSlot) {tul = false;}
+              else
+              {
+              free_slot = a;  
+              break;  
+              }                                                        
              }                
          } 
       if (free_slot = -1)

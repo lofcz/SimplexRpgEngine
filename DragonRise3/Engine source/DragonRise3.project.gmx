@@ -404,6 +404,8 @@
       <sprite>sprites\sprite130_achievements</sprite>
     </sprites>
     <sprite>sprites\sprite155</sprite>
+    <sprite>sprites\sCoin2</sprite>
+    <sprite>sprites\sShadowBounce</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -863,6 +865,7 @@
       </objects>
       <objects name="Items">
         <object>objects\oGold</object>
+        <object>objects\oGold2</object>
         <object>objects\oTestItem2</object>
         <object>objects\oRedPearlLvl2</object>
         <object>objects\oWoodLvl1</object>

@@ -105,6 +105,53 @@ if (mood = "jump")
         </arguments>
       </action>
     </event>
+    <event eventtype="6" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>followMouse = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>can_move = !can_move
+followMouse = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="12">
       <action>
         <libid>1</libid>
@@ -203,6 +250,12 @@ scrEnemyDie(true);
 
 event_inherited();
 
+if (followMouse)
+    {
+     x = mouse_x;
+     y = mouse_y;
+    }
+
 if (z_mood == 2) 
 {
  zspeed       = 0;
@@ -215,7 +268,23 @@ if (z_mood == 2)
 
 if (last_hp &lt;= 0) {if (mood !="dying") {event_user(0);}}
 
-    
+if (mood == "dying")
+{
+if (safeDying) {safeDying = false; scrGoreExplodeDropShards(32, 8, spr[0]);}
+draw_sprite_ext(spr[0],spr[1],x,y,1,1,0,c_white,image_alpha);
+if (image_alpha &gt; 0) {image_alpha -= 0.02;} else {instance_destroy();}   
+}
+
+
+if (forcedX &lt; 1 &amp;&amp; forcedY &lt; 1)
+{    
+forcedX = 0;
+forcedY = 0;
+forcedHelper = 0;
+
+
+if (can_move)
+{
 if (mood = "idle")
 {
 if (force_aggresive) {if (mood = "idle") {mood = "attack"; in_fight = 1;} if (force_timer &gt; 0) {force_timer--;} else {force_aggresive = 0; force_timer = 400;}}
@@ -238,13 +307,6 @@ if (dir == dir_left) {if (can_damage = -1) {x -= spd*(1-slowdown); count += spd*
 if (dir == dir_up) {if (can_damage = -1) {y -= spd*(1-slowdown); count += spd*(1-slowdown)+0.2;} if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPositionAttack();}}
 if (dir == dir_down) {if (can_damage = -1) {y += spd*(1-slowdown); count += spd*(1-slowdown)+0.2;} if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPositionAttack();}}
 
-}
-
-if (mood == "dying")
-{
-if (safeDying) {safeDying = false; scrGoreExplodeDropShards(32, 8, spr[0]);}
-draw_sprite_ext(spr[0],spr[1],x,y,1,1,0,c_white,image_alpha);
-if (image_alpha &gt; 0) {image_alpha -= 0.02;} else {instance_destroy();}   
 }
 
 if (mood == "jump")
@@ -384,7 +446,6 @@ if (mood != "dying" &amp;&amp; mood != "slime")
   
    draw_self();   
    draw_sprite_ext(sXpPoint,p,x,y,1,1,0,c_aqua,0.6);
-
    }
 
 if (mood = "slime")
@@ -441,7 +502,22 @@ if (mood = "heal")
  
       
    }   
-
+ }
+ else
+ {
+  sprite_index = sEnemySlime;
+  if (hp &lt;= 0) {image_alpha = 0;}
+  draw_self();
+ }
+}
+else
+{
+sprite_index = sEnemySlime;
+if (hp &lt;= 0) {image_alpha = 0;}
+draw_self();
+if (forcedX &gt; 0) {forcedHelp = lerp(forcedHelp, forcedBaseX, 0.01); x += forcedHelp; forcedX -= forcedHelp; }
+motion_blur(max(forcedBaseX - forcedX, 50), 180);
+}
 </string>
           </argument>
         </arguments>

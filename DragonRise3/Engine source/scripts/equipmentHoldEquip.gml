@@ -9,8 +9,8 @@ equip_slot = argument0;
 
 
 if (mouse_x > x_x1 && mouse_x < x_x2 && mouse_y > y_y1 && mouse_y < y_y2)
-                    {                  
-                       if (oInventory.drag && mouse_check_button_released(mb_left) && equiped[equip_slot] = 0)
+                    {     
+                       if (oInventory.drag && mouse_check_button_released(mb_left) && !equiped[equip_slot])
                         {
                         //if(equip_slot = 0) {oPlayerCombat.draw = 1; oPlayerCombat.sprite = oInventory.slot_vlastnosti[h_c,vlastnost_vykresli_sprit]; oPlayerCombat.image = oInventory.slot_vlastnosti[h_c,vlastnost_vykresli_index];}
                         
@@ -70,6 +70,9 @@ if (mouse_x > x_x1 && mouse_x < x_x2 && mouse_y > y_y1 && mouse_y < y_y2)
                                       switch_option[h_c,b] = "";                
                                       }            
                          
+                        }
+                        else
+                        {
                         }
 
                     }

@@ -85,8 +85,18 @@ safeDying                     = true;
             <kind>1</kind>
             <string>/// Basic collision
 
+if (forcedX &gt; 1 || forcedY &gt; 1)
+    {    
+     forcedX = 0;
+     forcedY = 0;
+     
+     hp -= 100;
+     scrGoreMed(x - 10, y - 10, 25, false);
+    }
+
 scrEnemyCollision(self);
 scrEnemyGetPosition();
+
 
 </string>
           </argument>
@@ -191,8 +201,7 @@ else if (mood == "cutscene" &amp;&amp; distance_to_point(cutsceneX, cutsceneY) =
 
 // Manage HP and status
 if (can_damage &gt; 0) {can_damage--;} else {can_damage = -1;}
-if (last_hp &gt; hp) {last_hp--;}
-if (last_hp &lt; hp) {last_hp++;}
+last_hp = lerp(last_hp, hp, 0.1);
 </string>
           </argument>
         </arguments>

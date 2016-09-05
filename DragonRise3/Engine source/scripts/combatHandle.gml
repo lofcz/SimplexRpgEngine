@@ -37,6 +37,7 @@ if (keyboard_check_pressed(vk_space))
         oPlayer.currentAnimation = animationEnum.slash;
         oPlayer.sprite_index = oPlayer.bci[1, 0];
         
+        
          if (oPlayer.last_dir == "s" || oPlayer.last_dir == "")
             {
              oPlayer.image_index = 12;

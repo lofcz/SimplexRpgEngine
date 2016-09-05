@@ -64,15 +64,22 @@ if (argument_count > 4) {t_name     = argument[4];}
 if (argument_count > 5) {t_bestiary = argument[5];}
 if (argument_count > 6) {t_cName    = argument[6];}
 
-hp          = t_hp;
-damage      = t_damage;
-defense     = t_defense;
-level       = t_level;
-max_hp      = t_hp;
-name        = t_name + string(" ("+string(level)+")");
-bestiary    = t_bestiary;
-coloredName = t_cName
-dmg         = 0;
+hp           = t_hp;
+damage       = t_damage;
+defense      = t_defense;
+level        = t_level;
+max_hp       = t_hp;
+name         = t_name + string(" ("+string(level)+")");
+bestiary     = t_bestiary;
+coloredName  = t_cName
+dmg          = 0;
+forcedX      = 0;
+forcedY      = 0;
+forcedBaseX  = 0;
+forcedBaseY  = 0;
+forcedHelp   = 0;
+can_move     = true;
+followMouse  = false;
 
 #define scrEnemyGetPosition
 /// scrEnemyGetPosition()
@@ -218,6 +225,9 @@ return false;
 
 if (other.attack && other.can_damage = -1) 
 {
+forcedBaseX = 50;
+forcedX = 50;
+
 dmg = 0;
 if (scrAffectsGetStacks("flash") != -1) {dmg += (scrAffectsGetStacks("flash") * scrAffectsGetStacks("flash")); scrAffectsRemove("flash", -1);}
 

@@ -37,7 +37,7 @@ draw_sprite_stretched(sUnknownBestiary, 0, xx, yy, 256, 256);
 if (oPlayer.equ_draw_head)
 {
 draw_sprite(sSlotTexture,1,xx+equ_axis_head_x,yy+equ_axis_head_y);
-if (oInventory.equiped[1] = 1) { draw_sprite(sRarityEffect,itemRarityEffect(equiped_image[1,2]),xx+equ_axis_head_x,yy+equ_axis_head_y); }
+if (oInventory.equiped[1]) { draw_sprite(sRarityEffect,itemRarityEffect(equiped_image[1,2]),xx+equ_axis_head_x,yy+equ_axis_head_y); }
 else {draw_sprite(sEquipmentIcons,1,xx+equ_axis_head_x,yy+equ_axis_head_y);}
 draw_sprite(equiped_image[1,0],equiped_image[1,1],xx+equ_axis_head_x,yy+equ_axis_head_y)
 
@@ -48,10 +48,10 @@ if (mouse_in(xx+equ_axis_head_x,xx+equ_axis_head_x+32,yy+equ_axis_head_y,yy+equ_
 
       if (mouse_check_button_pressed(mb_left))
       {
-       if (oInventory.equiped[1] = 1) {equipmentUnequip(1);}
+       if (oInventory.equiped[1]) {equipmentUnequip(1, false);}
       }
       
-    if (mouse_check_button_pressed(mb_right) && oInventory.equiped[1] = 1)
+    if (mouse_check_button_pressed(mb_right) && oInventory.equiped[1])
       {
        draw_equ_infobox = !draw_equ_infobox;
        if (draw_equ_infobox) {draw_equ_infobox_xx = xx+equ_axis_head_x; draw_equ_infobox_yy = yy+equ_axis_head_y; draw_equ_infobox_id = 1;}
@@ -111,7 +111,7 @@ if (mouse_in(xx+equ_axis_right_hand_x,xx+equ_axis_right_hand_x+32,yy+equ_axis_ri
    
    if (mouse_check_button_pressed(mb_left))
       {
-       if (oInventory.equiped[0]) {equipmentUnequip(0);}
+       if (oInventory.equiped[0]) {equipmentUnequip(0, false);}
       }
       
     if (mouse_check_button_pressed(mb_right) && oInventory.equiped[0] = 1)
@@ -290,15 +290,15 @@ xoffset = 16;
 
 height += string_height(oInventory.equiped_stats[idd,inv_item_info_head]) + string_height(oInventory.equiped_stats[idd,inv_item_info_text]);
 
- for (a = 0; a < celkem_vlastnosti; a++)
+ for (i = 0; i < celkem_vlastnosti; i++)
                              {
-                            if (oInventory.equiped_vlastnost[idd,a] != 0) {height += 8}    // 12
+                            if (oInventory.equiped_vlastnost[idd,i] != 0) {height += 8}    // 12
                              }
  
 
-draw_sprite_stretched(sInfoboxTexture,0,xx-width+xoffset,yy+yoffset,width,height);
-clr(c_black);
-draw_rectangle(xx-width+xoffset,yy+yoffset,xx+xoffset,yy+height+yoffset,1);
+//draw_sprite_stretched(sInfoboxTexture,0,xx-width+xoffset,yy+yoffset,width,height);
+draw_sprite(sInfoboxTexture,0,view_xview,view_yview);
+clr();
 
 draw_set_font(fntText);
 scrCenterText();

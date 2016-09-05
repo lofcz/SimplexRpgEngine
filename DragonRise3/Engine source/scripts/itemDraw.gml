@@ -1,9 +1,16 @@
 #define itemDraw
-/// itemDraw()
+/// itemDraw(externalDrawHandle)
 
-draw_set_color(c_black);
+var edh;
+edh = false;
+
+if (argument_count > 0) {edh = argument[0];}
+
+clr();
 draw_set_font(fntText);
 
+if (!edh)
+{
 if (speed > 0)
    {
     speed -= spd_down;  
@@ -123,6 +130,7 @@ if (animateDrop)
      animateDropForce = lerp(animateDropForce, 0, 0.02);
      if (animateDropForce <= 0) {animateDrop = false;}
     }
+}
 
 #define scrItemImageIndex
 /// scrItemImageIndex(itemID)

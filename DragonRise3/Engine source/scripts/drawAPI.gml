@@ -59,6 +59,8 @@ clr();
 #define motion_blur
 /// motion_blur(length,direction)
  
+var length, step, dir, px, py, a;
+
    length = argument0;
 
     if (length > 0) {
@@ -83,6 +85,7 @@ clr();
             image_yscale,image_angle,image_blend,image_alpha);
     }
     return 0;
+
 #define draw_rectangle_cd
 /// draw_rectangle_cd(x1, y1, x2, y2, value)
 
@@ -270,3 +273,15 @@ draw_sprite_ext(s, max(i - 1, 0), xx, yy, xs, ys, 0, c_white, a);
 clr(c);
 draw_text(xx + ss + 8, yy, t);
 fnt();
+#define draw_shadow
+/// draw_shadow(x, y, r, alpha)
+
+var _x = argument0;
+var _y = argument1;
+var rx = argument2;
+var a  = argument3;
+var ry = rx / 2;
+
+clr(c_black, a);
+draw_ellipse(_x - rx, _y - ry, _x + rx, _y + ry, false);
+clr();
