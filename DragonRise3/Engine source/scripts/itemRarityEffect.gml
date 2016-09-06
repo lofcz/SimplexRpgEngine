@@ -1,20 +1,41 @@
-/// itemRarityEffect(rarity)
+/// itemRarityEffect(rarity, isSmall)
+
+var color, is;
 index = 0;
+is    = false;
 
 if (argument_count > 0) {color = argument[0];}
+if (argument_count > 1) {is    = argument[1];}
 
-if (color = rarity_normal)
+if (!is)
+{
+if (color == rarity_normal)
    {
     index = 1;
    } 
-if (color = rarity_fine)
+if (color == rarity_fine)
    {
     index = 2;
    } 
-if (color = rarity_rare)
+if (color == rarity_rare)
    {
     index = 3;
    } 
-
+}
+else
+{
+if (color == rarity_normal)
+   {
+    index = 1;
+   } 
+if (color == rarity_fine)
+   {
+    index = 7;
+   } 
+if (color == rarity_rare)
+   {
+    index = 8;
+   }
+}
 
 return (index);

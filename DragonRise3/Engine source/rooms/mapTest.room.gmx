@@ -77,15 +77,7 @@ instance_create(0, 0, obj_controller);</code>
     <instance objName="oTestItem2" x="224" y="384" name="inst_BD901B1B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTestItem2" x="224" y="288" name="inst_E64F8C63" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTestItem2" x="256" y="288" name="inst_44C16844" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTestItem3" x="576" y="288" name="inst_F4711C8F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTestItem3" x="608" y="320" name="inst_19F43967" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTestItem3" x="640" y="352" name="inst_2AB25CA2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTestItem3" x="640" y="288" name="inst_42245EF5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTestItem3" x="640" y="320" name="inst_DF110473" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTestItem3" x="608" y="288" name="inst_F12980FA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTestItem3" x="576" y="320" name="inst_84268CA9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTestItem3" x="576" y="352" name="inst_E285500C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTestItem3" x="608" y="352" name="inst_E7016BCD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oTestItem3" x="488" y="744" name="inst_E285500C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oChest" x="448" y="224" name="inst_A62783A0" locked="0" code="scrChestSetLocked();&#xA;&#xA;scrChestAddLoot(5,oGold,25);&#xA;scrChestAddLoot(1,oGold,2);&#xA;scrChestAddLoot(7,oGold,4);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oChest" x="1024" y="336" name="inst_FF577CA1" locked="0" code="scrChestAddLootFromTo(0,9,oGold,10,20);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTestNPC" x="608" y="408" name="inst_C6F3E4DE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -161,9 +153,7 @@ instance_create(0, 0, obj_controller);</code>
     <instance objName="oNonsolidCollision" x="1200" y="528" name="inst_E9D71FA5" locked="0" code="scrNonsolidCollisionIni(x,y-32,&quot;mapTest_kytka1&quot;,1);&#xA;&#xA;text[0] = &quot;Obyčejná, &quot;+scrColorflag(c_lime)+&quot;zelená&quot;+scrEndColorflag()+&quot; kytka.&quot;&#xA;text[1] = &quot;Některé listy by se možná daly využít.&quot;&#xA;text[2] = &quot;Použitelné jsem už otrhal.&quot;;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="oManaPool" x="928" y="640" name="inst_B6F5656E" locked="0" code="pass = &quot;nbusr123&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="1616" y="304" name="inst_FE2EE307" locked="0" code="scrNonsolidCollisionIni(x,y-32,&quot;mapTest_kytka1&quot;,1);&#xA;&#xA;text[0] = &quot;Obyčejná, &quot;+scrColorflag(c_lime)+&quot;zelená&quot;+scrEndColorflag()+&quot; kytka.&quot;&#xA;text[1] = &quot;Mladší lístky otrhám&quot;&#xA;text[2] = &quot;Použitelné jsem už otrhal.&quot;;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
-    <instance objName="oKozenaHelma" x="376" y="704" name="inst_36100E2E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oKozenaHelma" x="416" y="704" name="inst_A1CFDC5D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oKozenaHelma" x="456" y="704" name="inst_A2C3E797" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oKozenaHelma" x="376" y="712" name="inst_36100E2E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTEST" x="1312" y="1568" name="inst_9CEB1C98" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oRoomTransition" x="1008" y="2008" name="inst_9D9DEF3A" locked="0" code="level = mapHolohlavy;&#xA;" scaleX="62.0645179748535" scaleY="0.8125" colour="4294967295" rotation="0"/>
     <instance objName="oTestNpc2" x="720" y="456" name="inst_3E1BD585" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -234,6 +224,23 @@ instance_create(0, 0, obj_controller);</code>
     <instance objName="oTree3" x="1952" y="640" name="inst_0D6CA5F4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTransitionCollision" x="1712" y="912" name="inst_03FF91B3" locked="0" code="level = mapHouse1;&#xA;text = &quot;Vstoupit do &quot; + scrColorflag(c_yellow) + &quot;Krysího sklípku&quot; + scrEndColorflag() + &quot;.&quot;;&#xA;xx = x;&#xA;yy = y-64;&#xA;text_lenght = 0;&#xA;player_pos = 0;" scaleX="0.5" scaleY="0.53125" colour="4294967295" rotation="0"/>
     <instance objName="oJug" x="1624" y="832" name="inst_1F5E4902" locked="0" code="scrBCAddLoot(oGold, 2, 6, 10);&#xA;set_sprite(sBrokenJug, 0);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oArmorLeather" x="376" y="744" name="inst_21A22A1B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oShoulderRightLeather" x="416" y="744" name="inst_4D7F0722" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oShoulderLeftLeather" x="456" y="744" name="inst_3AC4B236" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oShieldWooden" x="376" y="776" name="inst_2200C3DC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oRingGolden" x="416" y="776" name="inst_74694EC3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oRingGolden" x="456" y="776" name="inst_DCF63D36" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oRingGolden" x="376" y="808" name="inst_94AEE7C2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oRingGolden" x="416" y="808" name="inst_6E8C0F2E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oNecklaceNormal" x="456" y="808" name="inst_B27D5459" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oCardVoid" x="416" y="712" name="inst_BDFD5FDF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oMedalBasic" x="456" y="712" name="inst_428A17DA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oTrophySlime" x="488" y="712" name="inst_F2F2583A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oCrystallisatorFire" x="488" y="776" name="inst_C62192FA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oBoosterXP" x="488" y="808" name="inst_4E471EFF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oBeltLeather" x="376" y="840" name="inst_1B4372D1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oBootLeftIron" x="416" y="840" name="inst_0698BA81" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oBootRightIron" x="456" y="840" name="inst_AADAE359" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="background14" x="1600" y="1712" w="32" h="32" xo="32" yo="0" id="10006696" name="inst_AC26E277" depth="1000001" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

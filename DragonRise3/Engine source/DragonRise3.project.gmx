@@ -181,7 +181,6 @@
     <sound>sound\sndMenuClick1</sound>
   </sounds>
   <sprites name="sprites">
-    <sprite>sprites\sNormalMask</sprite>
     <sprites name="Actors">
       <sprites name="NPC">
         <sprite>sprites\sPlayerBasic</sprite>
@@ -357,6 +356,7 @@
       </sprites>
       <sprites name="Effects">
         <sprite>sprites\sCoin</sprite>
+        <sprite>sprites\sCoin2</sprite>
         <sprite>sprites\sHeart</sprite>
         <sprite>sprites\sBlood1</sprite>
         <sprite>sprites\sBlood2</sprite>
@@ -382,6 +382,7 @@
         <sprite>sprites\sQuest</sprite>
         <sprite>sprites\sCodeShard</sprite>
         <sprite>sprites\sFadedLine</sprite>
+        <sprite>sprites\sNormalMask</sprite>
       </sprites>
       <sprites name="Particles">
         <sprite>sprites\sParticleGrass</sprite>
@@ -400,11 +401,11 @@
       <sprite>sprites\sprite60</sprite>
       <sprite>sprites\sprite122_Items2</sprite>
       <sprite>sprites\sInventoryMapTEMP</sprite>
+      <sprite>sprites\sprite161_shoulder-part_318-38908</sprite>
       <sprite>sprites\sprite123_tilee</sprite>
       <sprite>sprites\sprite130_achievements</sprite>
     </sprites>
     <sprite>sprites\sprite155</sprite>
-    <sprite>sprites\sCoin2</sprite>
     <sprite>sprites\sShadowBounce</sprite>
   </sprites>
   <backgrounds name="background">
@@ -527,6 +528,7 @@
         <script>scripts\scrChestUnload.gml</script>
       </scripts>
       <scripts name="Items">
+        <script>scripts\itemDbEnum.gml</script>
         <script>scripts\scrItemSetUp.gml</script>
         <script>scripts\scrItemSetProperties.gml</script>
         <script>scripts\scrItemSetOptions.gml</script>
@@ -539,7 +541,6 @@
         <script>scripts\itemAddSlotDescription.gml</script>
         <script>scripts\scrCreateItem.gml</script>
         <script>scripts\scrItemInstantiate.gml</script>
-        <script>scripts\itemDbEnum.gml</script>
         <script>scripts\scrValueIndex.gml</script>
       </scripts>
       <scripts name="Equipment">
@@ -775,6 +776,8 @@
     <shaders name="Lightmap">
       <shader type="GLSLES">shaders\shdLightmap.shader</shader>
     </shaders>
+    <shader type="GLSLES">shaders\shdFrost.shader</shader>
+    <shader type="GLSLES">shaders\shdSandstorm.shader</shader>
   </shaders>
   <fonts name="fonts">
     <fonts name="Standard game fonts">
@@ -874,6 +877,20 @@
         <object>objects\oBasicItem</object>
         <object>objects\oTestItem3</object>
         <object>objects\oKozenaHelma</object>
+        <object>objects\oArmorLeather</object>
+        <object>objects\oShoulderRightLeather</object>
+        <object>objects\oShoulderLeftLeather</object>
+        <object>objects\oShieldWooden</object>
+        <object>objects\oRingGolden</object>
+        <object>objects\oNecklaceNormal</object>
+        <object>objects\oCardVoid</object>
+        <object>objects\oMedalBasic</object>
+        <object>objects\oTrophySlime</object>
+        <object>objects\oCrystallisatorFire</object>
+        <object>objects\oBoosterXP</object>
+        <object>objects\oBeltLeather</object>
+        <object>objects\oBootLeftIron</object>
+        <object>objects\oBootRightIron</object>
         <object>objects\parItem</object>
       </objects>
     </objects>
@@ -1108,7 +1125,7 @@
     <constant name="equ_axis_crown_y">0</constant>
     <constant name="equ_axis_crown_x">224</constant>
     <constant name="equ_axis_right_ring2_y">144</constant>
-    <constant name="equ_axis_right_ring2_x">176</constant>
+    <constant name="equ_axis_right_ring2_x">184</constant>
     <constant name="equ_axis_right_ring1_y">144</constant>
     <constant name="equ_axis_right_ring1_x">160</constant>
     <constant name="equ_axis_right_boot_y">192</constant>
@@ -1118,7 +1135,7 @@
     <constant name="equ_axis_belt_y">128</constant>
     <constant name="equ_axis_belt_x">96</constant>
     <constant name="equ_axis_left_ring2_y">144</constant>
-    <constant name="equ_axis_left_ring2_x">48</constant>
+    <constant name="equ_axis_left_ring2_x">56</constant>
     <constant name="equ_axis_left_ring1_y">144</constant>
     <constant name="equ_axis_left_ring1_x">32</constant>
     <constant name="equ_axis_left_hand_y">96</constant>

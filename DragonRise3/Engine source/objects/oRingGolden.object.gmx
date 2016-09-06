@@ -26,29 +26,34 @@
           <argument>
             <kind>1</kind>
             <string>/// Initialize item
-scrItemSetUp(0,0)
-scrItemBasic(itemEnum.itemPearlGreen);
 
-//****** Object settings **********
-image_index = 2;
+scrItemSetUp(0,0);
+scrItemBasic(itemEnum.itemRingGolden);
 
-
-
-//*********************************
+//*********** Prefix **************
+image_index = 12;
+randomize();
 
 //****** Item settings ************
-itm_stackable           = 1;
-itm_info_head           = "Nice, shit item";
-itm_options[0]          = "Super option1";
-itm_options[1]          = "Shit option1";
-itm_sprite_number       = 2;
-itm_materialType        = materialEnum.materialWood;
+
+itm_stackable           = 0;
+itm_sprite_number       = image_index;
+itm_info_head           = "Zlatý prsten";
+itm_info_text           = "Testing equipment";
+itm_options[0]          = "Nabídka 2";
+itm_sprite              = sprite_index;
+itm_equip_slot          = "ring";
 
 
-//*********************************
+vlastnost[vlastnost_max_mana] = irandom_range(8, 15);
+scr = vlastnost[vlastnost_max_mana];
 
-scrItemSetUpFinalize()
+if (scr &lt; 12) {itm_info_color = rarity_normal;}
+else {itm_info_color = rarity_rare;}
 
+//*********** Suffix *****************
+scrItemSetUpFinalize(true);
+//************************************
 </string>
           </argument>
         </arguments>
@@ -73,11 +78,11 @@ scrItemSetUpFinalize()
             <kind>1</kind>
             <string>/// Loot
 
-if (loot == 0)
+if (loot = 0)
 {
 inventoryPickUp(); 
-audio_play_sound(sndRindPickup,0,0);
-scrLog("+ Zelená perla",c_lime,sRingEffect,0,0.5);
+scrLog("+ Zlatý prsten",c_white,sRingEffect,1,0.5);
+audio_play_sound(sndWeaponPickup,0,0);
 }
 </string>
           </argument>
@@ -127,9 +132,10 @@ instance_destroy();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Draw item
+            <string>/// Draw self
 
 itemDraw()
+
 </string>
           </argument>
         </arguments>

@@ -27,5 +27,8 @@
     <frame index="4">images\sRarityEffect_4.png</frame>
     <frame index="5">images\sRarityEffect_5.png</frame>
     <frame index="6">images\sRarityEffect_6.png</frame>
+    <frame index="7">images\sRarityEffect_7.png</frame>
+    <frame index="8">images\sRarityEffect_8.png</frame>
+    <frame index="9">images\sRarityEffect_9.png</frame>
   </frames>
 </sprite>

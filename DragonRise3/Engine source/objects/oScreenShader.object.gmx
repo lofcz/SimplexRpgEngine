@@ -69,6 +69,13 @@ vignetteSettingsM = shader_get_uniform(shdVignette, "u_vignette_m");
 vignetteSettingsP = shader_get_uniform(shdVignette, "u_vignette_p");
 vignetteSettingsColor = shader_get_uniform(shdVignette, "u_vignette_colour");
 
+//
+
+// Sandstorm
+sandtormTime = shader_get_uniform(shdSandstorm, "iGlobalTime");
+sandstormSampler = shader_get_uniform(shdSandstorm, "noiseTex");
+sandtormTimeVal = 0;
+
 
 </string>
           </argument>
@@ -202,6 +209,24 @@ if (shader_active = shaderVignette)
       draw_surface(application_surface,0,0);   
       shader_reset();
    }
+   
+if (shader_active == shaderVignette + 1)
+    {
+     shader_set(shdFrost);
+     draw_surface(application_surface,0,0);   
+     shader_reset();
+    }
+    
+if (shader_active == shaderVignette + 2)
+    {
+     shader_set(shdSandstorm);
+     shader_set_uniform_f(sandtormTime, sandtormTimeVal);
+     shader_set_uniform_f(sandstormSampler, sNoise);
+     sandtormTimeVal += 0.05;
+     draw_surface(application_surface,0,0);   
+     shader_reset();
+    }
+else {sandtormTimeVal = 0;}
    
 draw_text(600,400,"Shader active: " + string(shader_active));
 

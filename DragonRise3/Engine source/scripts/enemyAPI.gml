@@ -225,8 +225,8 @@ return false;
 
 if (other.attack && other.can_damage = -1) 
 {
-forcedBaseX = 50;
-forcedX = 50;
+//forcedBaseX = 50;
+//forcedX = 50;
 
 dmg = 0;
 if (scrAffectsGetStacks("flash") != -1) {dmg += (scrAffectsGetStacks("flash") * scrAffectsGetStacks("flash")); scrAffectsRemove("flash", -1);}
