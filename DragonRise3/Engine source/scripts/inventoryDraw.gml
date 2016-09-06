@@ -251,6 +251,11 @@ if (hover || hover_alpha > 0)
    clr(slot[f,inv_item_info_color],hover_alpha);
    scrCenterText();
    alg("center", fntPixel);
+   if (string_width(slot[f,inv_item_info_head]) >= 250)
+   {
+   fnt(fntPixelSmall);
+   }
+      
    draw_text(x+128,used_y+32+12,slot[f,inv_item_info_head]);
    
    

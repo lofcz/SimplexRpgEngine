@@ -709,23 +709,23 @@ idd     = argument2;
 yoffset = 16;
 xoffset = 16;
 
-
+fnt(fntPixel);
 height += string_height(oInventory.equiped_stats[idd,inv_item_info_head]) + string_height(oInventory.equiped_stats[idd,inv_item_info_text]);
+width = 288;
 
  for (i = 0; i < celkem_vlastnosti; i++)
                              {
-                            if (oInventory.equiped_vlastnost[idd,i] != 0) {height += 8}    // 12
+                            if (oInventory.equiped_vlastnost[idd,i] != 0 && i != vlastnost_cena && i != vlastnost_originalniCena) {height += 22;}    // 12
                              }
  
-
-//draw_sprite_stretched(sInfoboxTexture,0,xx-width+xoffset,yy+yoffset,width,height);
-draw_sprite(sInfoboxTexture,0,view_xview,view_yview);
 clr();
-
-draw_set_font(fntText);
+draw_sprite_stretched(sInfoboxTexture,0,xx-width+xoffset,yy+yoffset,288,height);
+draw_set_font(fntPixel);
 scrCenterText();
-draw_text_colour(xx - (width / 2),yy + yoffset+12,oInventory.equiped_stats[idd,inv_item_info_head],oInventory.equiped_stats[idd,inv_item_info_color],oInventory.equiped_stats[idd,inv_item_info_color],oInventory.equiped_stats[idd,inv_item_info_color],oInventory.equiped_stats[idd,inv_item_info_color],1);
+if (string_width(oInventory.equiped_stats[idd,inv_item_info_head]) > 260) {fnt(fntPixelSmall);}
+draw_text_colour(xx - (width / 2) + 20,yy + yoffset+12,oInventory.equiped_stats[idd,inv_item_info_head],oInventory.equiped_stats[idd,inv_item_info_color],oInventory.equiped_stats[idd,inv_item_info_color],oInventory.equiped_stats[idd,inv_item_info_color],oInventory.equiped_stats[idd,inv_item_info_color],1);
 scrCenterText(0);
+draw_set_font(fntPixelSmall);
 equipmentDrawAbilities(idd,width,yoffset,xx,yy,xoffset);
 
 #define equipmentDrawAbilities
@@ -745,11 +745,7 @@ xoffset  = argument5;
 t_text += oInventory.equiped_stats[idd,inv_item_info_text];
 
 for(a = 0; a < celkem_vlastnosti; a++)
-      {
-      //if (equiped_vlastnost[idd,inv_id] = 0) {break;}      
-
-      
-      
+      {  
        if (oInventory.equiped_vlastnost[idd,a] > 0)
           {
             switch(a)

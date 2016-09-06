@@ -35,6 +35,7 @@ a      = 0;
 p      = 0;
 mode   = 0;
 scale  = 1;
+yy     = 0;
 </string>
           </argument>
         </arguments>
@@ -122,17 +123,18 @@ if (scale &lt; 1.3) {scale += 0.02;}
 draw_set_font(font);
 draw_set_color(color);
 draw_set_alpha(image_alpha);
-if (mode = "normal") {draw_text_colored(x,y,text);}
+if (mode = "normal") {draw_text_colored(x-(string_width(text) / 2),y -yy,text);}
 if (mode = "combat") {scrCenterText(); draw_text_transformed(x-(string_width(text)/2),y-(string_height(text)/2),text,scale,scale,0); scrCenterText(0);}
 
 if (sprite != -1) 
    {
    if (a &lt; sprite_get_number(sprite)) {a += ani;} else {a = 0;}
-   draw_sprite(sprite,a,x+string_width(text),y);
+   draw_sprite(sprite,a,x+(string_width(text)/2),y);
    
    }
 draw_set_color(c_black);
 draw_set_alpha(1);
+scrCenterText(false);
 </string>
           </argument>
         </arguments>
