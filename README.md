@@ -14,7 +14,7 @@ Top-on-GMS engine, umožňující rapidní vývoj moderních RPG her. Vhodný pr
 * Libovolné rozlišení hry, responsivní UI layout.
 * Poráží RPG Maker a YOYO RPG v každém směru.
 
-![](https://s32.postimg.org/tqhdacod1/Bezejmenn.png)
+![](https://s12.postimg.org/gxb0zual9/Noname.png)
 
 **Budoucnost máš na dosah, začni [zde](https://github.com/lofcz/SimplexRpgEngine/wiki).**
 
