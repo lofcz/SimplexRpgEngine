@@ -108,3 +108,33 @@ if (mouse_check_button_pressed(mb_left) && point_in_circle((x + (xx - 15) + spel
          oTalentMenu.draw = true;
         }
     }
+
+normalxoffset = (view_wview - view_wview); 
+halfxoffset   = (oHUD.normalxoffset / 2)
+yoffset       = (view_hview - view_hview);
+baseFormulaX = (oHUD.x + 540 + oHUD.spellsxPlus);
+spellMinY    = (oHUD.y + 560 + oHUD.yoffset - 10);
+spellMaxY    = (oHUD.y + 560 + oHUD.yoffset + 30);
+
+for (i = 0; i < 3; i++)
+    {
+     spellMinX[i] = (baseFormulaX + (44 * i) - 8);
+     spellMaxX[i] = (baseFormulaX + (44 * i) + 30);     
+    }
+
+// Pick up spell
+for (i = 0; i < 3; i++)
+    {
+     if (mouse_check_button_pressed(mb_right))
+        {
+         if (mouse_in(spellMinX[i], spellMaxX[i], spellMinY, spellMaxY))
+            {
+             if (oSpellMenu.mode == "") 
+                {
+                 oSpellMenu.mode      = "in"; 
+                 oSpellMenu.draw      = true;
+                 oSpellMenu.fromSpell = i;
+                }
+            }
+        }
+    }

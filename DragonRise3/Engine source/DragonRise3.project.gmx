@@ -256,6 +256,7 @@
         <sprite>sprites\sSpellFireBeam</sprite>
         <sprite>sprites\sSpellFrozenBolts</sprite>
         <sprite>sprites\sSpellFlash</sprite>
+        <sprite>sprites\sSpells</sprite>
       </sprites>
       <sprites name="Fonts">
         <sprite>sprites\sFntDamage</sprite>
@@ -639,6 +640,11 @@
         <script>scripts\scrTalentUpgradeDB.gml</script>
         <script>scripts\scrTalentDraw.gml</script>
       </scripts>
+      <scripts name="Spells menu">
+        <script>scripts\scrSpellIni.gml</script>
+        <script>scripts\scrSpellCreate.gml</script>
+        <script>scripts\scrSpellDraw.gml</script>
+      </scripts>
       <scripts name="Affects">
         <script>scripts\scrAffecstAdd.gml</script>
         <script>scripts\scrAffectsGetStacks.gml</script>
@@ -851,6 +857,7 @@
       <object>objects\oScreenShader</object>
       <object>objects\oPause</object>
       <object>objects\oTalentMenu</object>
+      <object>objects\oSpellMenu</object>
       <object>objects\oStatusMenu</object>
       <object>objects\oLockpickingScreen</object>
       <object>objects\oDebugCamera</object>

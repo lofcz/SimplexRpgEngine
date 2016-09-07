@@ -45,4 +45,7 @@ enum medalEnum
 bronze, silver, gold, platinum, diamond
 };
 
-
+enum SpellEnum
+{
+spellFlash, spellFireball, spellFrozenBolts, spellSpell4, spellSpell5
+};

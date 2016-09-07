@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-999</depth>
   <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,15 +25,20 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Call alarm with delay
+            <string>/// Initialise
 
-alarm[0] = 2;
+scrSpellIni();
+
+scrSpellCreate(SpellEnum.spellFlash , 0, "Flash", 50, 150);
+    scrSpellCreateDetails("txt1",0,"txt2",0,"txt3",0,"txt4",0,"txt5",0,SpellEnum.spellFlash);
+    scrSpellCreateUpgradeDetails1(SpellEnum.spellFlash);
+    scrSpellCreateUpgradeDetails2(SpellEnum.spellFlash);   
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="0">
+    <event eventtype="1" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -50,31 +55,9 @@ alarm[0] = 2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Optimize FOV
+            <string>/// Free memory
 
-alarm[0] = 5;
-
-instance_activate_all();
-instance_deactivate_region(view_xview-200,view_yview-200,1200 + (view_wview - 800),1000 + (view_hview + 600),0,1);
-
-instance_activate_object(oController);
-instance_activate_object(oInventory);
-instance_activate_object(oInventoryDepthHelper);
-instance_activate_object(oPlayer);
-instance_activate_object(oPlayerCombat);
-instance_activate_object(oMinimap);
-instance_activate_object(oHUD);
-instance_activate_object(oDayNight);
-instance_activate_object(oBestiar);
-instance_activate_object(oScreenShader);
-instance_activate_object(oQuest);
-instance_activate_object(oTalentMenu);
-instance_activate_object(oSpellMenu);
-instance_activate_object(oStatusMenu);
-instance_activate_object(oAchievement);
-instance_activate_object(obj_pathfinder);
-instance_activate_object(obj_controller);
-
+part_system_destroy(Sname);
 </string>
           </argument>
         </arguments>
@@ -97,13 +80,94 @@ instance_activate_object(obj_controller);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Jump to player position
+            <string>if (draw)
+{
+x = view_xview;
+y = view_yview;
 
-if (instance_number(oPlayer) &gt; 0)
-   {
-    x = oPlayer.x;
-    y = oPlayer.y;
-   }
+// Kouzla
+if (drawType = "spells")
+{
+hover = false;
+
+if (mode == "in")
+    {
+     if (bacAlpha &lt; 1) {bacAlpha += 0.1;  oHUD.draw = false;}
+    }
+if (mode == "out")
+    {
+     if (bacAlpha &gt; 0) {bacAlpha -= 0.1;} else {draw = false; mode = ""; oHUD.draw = true;}
+    }
+    
+clr(c_black, bacAlpha / 2);
+draw_rectangle(x, y, x + 800, y + 600, false);
+clr(c_black, bacAlpha);
+
+
+if (point_in_rectangle(mouse_x, mouse_y, x + 768, y, x + 800, y + 32))
+    {
+     if (mouse_check_button_pressed(mb_left))
+        {
+         if (mode == "in") {mode = "out";}
+        }
+    }   
+   
+// Hlavička
+clr(c_white, bacAlpha);
+alg("center", fntPixelHuge);
+draw_text(x + 400, y + 16, "Som čarovný");
+alg("center", fntPixel);
+
+bs = "Nemáš žádné body talentů";
+if (oPlayer.talentPoints &gt; 0) {bs = "Máš " + string(oPlayer.talentPoints) + " " + scrInflect("bod", oPlayer.talentPoints) + " talentů";}
+draw_text(x + 400, y + 36, bs);
+alg();
+  
+// Vykreslování kouzel
+var xx, yy;
+xx = 50;
+yy = 150;
+
+for (i = 0; i &lt; 1; i++)
+    {
+     scrSpellDraw(i, xx, yy);
+     yy += 48;
+    }
+
+clr();
+
+// Patička
+if (hover) {extAlpha = lerp(extAlpha, 1, 0.1);} else {if (extAlpha &gt; 0) {extAlpha -= 0.1;}}
+
+clr(c_black, extAlpha); 
+draw_roundrect(x + 544, y + 48, x + 795, y + 590, true);
+clr(c_black, extAlpha / 3); 
+draw_roundrect(x + 544, y + 48, x + 795, y + 590, false);
+
+clr(c_white, extAlpha); 
+alg("center", fntPixel);
+draw_text(x + 672, y + 60, drawTextTitle);
+alg();
+draw_set_font(fntPixelSmall);
+draw_text_colored(x + 546, y + 100, drawText);
+ 
+clr();
+}
+
+}
+
+
+
+
+
+
+
+ 
+     
+
+
+
+
 </string>
           </argument>
         </arguments>
