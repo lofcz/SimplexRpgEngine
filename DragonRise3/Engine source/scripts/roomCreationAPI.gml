@@ -52,6 +52,10 @@ if (instance_number(oTalentMenu) = 0)
    {
      instance_create(0,0,oTalentMenu);
    }
+if (instance_number(oSpellMenu) = 0)
+   {
+     instance_create(0,0,oSpellMenu);
+   }
 if (instance_number(oStatusMenu) = 0)
    {
      instance_create(0,0,oStatusMenu);
