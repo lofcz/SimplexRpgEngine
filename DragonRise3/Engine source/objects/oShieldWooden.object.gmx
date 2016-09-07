@@ -81,7 +81,7 @@ scrItemSetUpFinalize(true);
 if (loot = 0)
 {
 inventoryPickUp(); 
-scrLog("+ Dřevěný štít",c_white,sHelmetEffect,1,0.5);
+scrLog("+ Dřevěný štít",c_white,sShieldEffect,1,0.5);
 audio_play_sound(sndWeaponPickup,0,0);
 }
 </string>

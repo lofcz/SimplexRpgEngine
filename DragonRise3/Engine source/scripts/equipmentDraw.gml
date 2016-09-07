@@ -715,7 +715,7 @@ width = 288;
 
  for (i = 0; i < celkem_vlastnosti; i++)
                              {
-                            if (oInventory.equiped_vlastnost[idd,i] != 0 && i != vlastnost_cena && i != vlastnost_originalniCena) {height += 22;}    // 12
+                            if (oInventory.equiped_vlastnost[idd,i] != 0 && i != vlastnost_cena && i != vlastnost_originalniCena && !(i >= 61 && i <= 78)) {height += 22;}    // 12
                              }
  
 clr();

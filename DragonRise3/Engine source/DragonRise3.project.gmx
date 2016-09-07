@@ -407,6 +407,8 @@
     </sprites>
     <sprite>sprites\sprite155</sprite>
     <sprite>sprites\sShadowBounce</sprite>
+    <sprite>sprites\sprite160</sprite>
+    <sprite>sprites\sShieldEffect</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -984,7 +986,7 @@
       <room>rooms\mapHouse1</room>
     </rooms>
   </rooms>
-  <constants number="199">
+  <constants number="200">
     <constant name="baArmor">1</constant>
     <constant name="baBase">0</constant>
     <constant name="cStaticInstance">"staticInstance"</constant>
@@ -1030,7 +1032,8 @@
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
     <constant name="upgradableProperties">58</constant>
-    <constant name="celkem_vlastnosti">80</constant>
+    <constant name="celkem_vlastnosti">81</constant>
+    <constant name="vlastnost_bonusoveZkusenosti">80</constant>
     <constant name="vlastnost_alchymie">79</constant>
     <constant name="vlastnost_originalniCena">78</constant>
     <constant name="vlastnost_cena">77</constant>
