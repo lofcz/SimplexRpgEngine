@@ -26,13 +26,14 @@ spellLevel[spell,0] = 0;    //level upgradu kouzla č.1/2 = 0
 spellLevel[spell,1] = 0;    //level upgradu kouzla č.2/2 = 0
 spellBranch[spell,0] = -1;  //žádný upgrade není vybrán
 spellBranch[spell,1] = -1;  // ...
-
+ds_list_add(spellList, name);
+ds_list_add(spellListAlpha, 0);
 
 
 #define scrSpellCreateDetails
-/// scrSpellCreateDetails(n1, s1, n2, s2, n3, s3, n4, s4, n5, s5, spell)
+/// scrSpellCreateDetails(n1, s1, n2, s2, n3, s3, n4, s4, n5, s5, spell, name1, name2, name3, name4, name5)
 
-var n1, s1, n2, s2, n3, s3, n4, s4, n5, s5, spell;
+var n1, s1, n2, s2, n3, s3, n4, s4, n5, s5, spell, na1, na2, na3, na4, na5;
 n1 = "";
 s1 = "";
 n2 = "";
@@ -43,6 +44,11 @@ n4 = "";
 s4 = "";
 n5 = "";
 s5 = "";
+na1 = "";
+na2 = "";
+na3 = "";
+na4 = "";
+na5 = "";
 spell = SpellEnum.spellFlash;
 
 if (argument_count > 0) {n1         = argument[0];} 
@@ -56,8 +62,13 @@ if (argument_count > 7) {s4         = argument[7];}
 if (argument_count > 8) {n5         = argument[8];}
 if (argument_count > 9) {s5         = argument[9];} 
 if (argument_count > 10){spell      = argument[10];}
+if (argument_count > 11){na1        = argument[11];}
+if (argument_count > 12){na2        = argument[12];}
+if (argument_count > 13){na3        = argument[13];}
+if (argument_count > 14){na4        = argument[14];}
+if (argument_count > 15){na5        = argument[15];}
 
-spellDetails[spell,0] = n1; //hlavní kouzlo
+spellDetails[spell,0] = n1; // Main spell; verticle pair format: (text, sprite)
 spellDetails[spell,1] = s1; 
 spellDetails[spell,2] = n2; //č.1/1
 spellDetails[spell,3] = s2;
@@ -67,6 +78,13 @@ spellDetails[spell,6] = n4; //č.1/2
 spellDetails[spell,7] = s4;
 spellDetails[spell,8] = n5; //č.2/2
 spellDetails[spell,9] = s5;
+
+spellDetails[spell,10] = na1;
+spellDetails[spell,11] = na2;
+spellDetails[spell,12] = na3;
+spellDetails[spell,13] = na4;
+spellDetails[spell,14] = na5;
+
 
 #define scrSpellCreateUpgradeDetails1
 ///scrSpellCreateUpgradeDetails1(spell, t1...t10)
@@ -96,4 +114,3 @@ for (i = 1; i < 11; i++)
          spellUpgradeDetails[spell,i+9] = argument[i];
         }
     }
-

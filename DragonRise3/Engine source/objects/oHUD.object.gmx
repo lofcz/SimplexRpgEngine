@@ -337,10 +337,6 @@ alg("default", fntPixelHuge);
      if (scale_equipment &gt; 1 &amp;&amp; !draw_equipment) {scale_equipment -= 0.02;}
      if (scale_status    &gt; 1 &amp;&amp; !draw_status)    {scale_status    -= 0.02;}
      if (effect_scale2   &gt; 1 &amp;&amp; !draw_quest)     {effect_scale2   -= 0.02;}
-
-     // [TODO] Temp - Player gold
-     draw_set_font(fntPixel);
-     draw_text(view_xview+200,y+570,string(oPlayer.gold));
      
      // Navigation
      //********************************************************************

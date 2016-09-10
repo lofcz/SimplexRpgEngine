@@ -28,8 +28,6 @@
             <string>/// Initialise
 
 
-
-
 sprLight = sBasicLight;
 sprLightIndex = 0;
 scale = 2;
@@ -183,7 +181,7 @@ magic[spell_flash_cooldown] = 60;
 skillPoints    = 10;
 propertyPoints = 5;
 talentPoints   = 10;
-spellPoints    = 0;
+spellPoints    = 20;
  
 statusList        = ds_list_create();
 statusTimeList    = ds_list_create();
@@ -408,7 +406,11 @@ ins2 = instance_create(x+100, y+100, oTestObject); ins2.name = "Druhý objekt";
 scrCutscenePlay(ins1, DemoCutscene, false, 1);
 */
 
-scrScreenShake(10, 0.2);
+scrHintShow("LoF", "Vítej v " +scrColorflag(c_aqua) + "Simplexu" + scrEndColorflag() + " ", "Ok");
+
+
+
+
 </string>
           </argument>
         </arguments>
@@ -585,7 +587,6 @@ draw_ring_part(x, y, 64, 6, 128, 128, 90, 360 * (last_hp / vlastnost[vlastnost_m
 draw_ring_part(x, y, 64, 1, 128, 128, 90, 360 * (last_hp / vlastnost[vlastnost_max_zivot]), true, c_black, false);
 draw_ring_part(x, y, 64+6, 1, 128, 128, 90, 360 * (last_hp / vlastnost[vlastnost_max_zivot]), true, c_black, false);
 */
-draw_text(x, y + 50, currentAnimation);
 
 /*
 queue = ds_queue_create(); 

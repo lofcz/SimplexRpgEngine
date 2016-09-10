@@ -34,6 +34,7 @@ pointListX     = ds_list_create();
 pointListY     = ds_list_create();
 pointListSymbol = ds_list_create();
 pointListColor = ds_list_create();
+pointListSprite = ds_list_create();
 hoverAlpha    = 0;
 lastI          = -1;
 

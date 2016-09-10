@@ -30,9 +30,16 @@
 scrSpellIni();
 
 scrSpellCreate(SpellEnum.spellFlash , 0, "Flash", 50, 150);
-    scrSpellCreateDetails("txt1",0,"txt2",0,"txt3",0,"txt4",0,"txt5",0,SpellEnum.spellFlash);
+    scrSpellCreateDetails("txt1",0,"txt2",1,"txt3",2,"txt4",0,"txt5",0,SpellEnum.spellFlash, "Záblesk", "Posílený záblesk");
     scrSpellCreateUpgradeDetails1(SpellEnum.spellFlash);
     scrSpellCreateUpgradeDetails2(SpellEnum.spellFlash);   
+    
+flip_angle=0; //Controls the rotation of the card.
+front_surface=noone; //We are going to create the card's texture from a surface.
+back_surface=noone;  //So we define these here.
+card_width=sprite_get_width(sSpells);
+card_height=sprite_get_height(sSpells);
+
 </string>
           </argument>
         </arguments>
@@ -58,6 +65,127 @@ scrSpellCreate(SpellEnum.spellFlash , 0, "Flash", 50, 150);
             <string>/// Free memory
 
 part_system_destroy(Sname);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (draw)
+{
+
+if(!surface_exists(front_surface))
+{
+front_surface=surface_create(card_width,card_height);
+}
+  front_surface=surface_create(card_width,card_height);
+  //Create the actual surface content.  Only happens once when the object is created to be more efficient, but if you wanted the card to animate, you could.
+  surface_set_target(front_surface)
+  {
+    if (choosenSpell != -1)
+    {
+    draw_clear_alpha(0,0);///Always clear a clear color to your new surface, as the memory that is being utilized will not have been initilized, and there could literally be anything in there.
+    draw_sprite_ext(sSpells,spellDetails[max(choosenSpell,0), 1],0,0, 1, 1, 0, c_white, 1);//draw the sprite in the top left corner of the surface.
+    }
+  }
+  surface_reset_target();
+  
+
+if(!surface_exists(back_surface))
+{
+  back_surface=surface_create(card_width,card_height);
+  surface_set_target(back_surface)
+  {
+    draw_clear_alpha(0,0);
+   draw_sprite_ext(sSpellsBackFrame,0,0,0, 1, 1, 0, c_white, 1)
+  }
+  surface_reset_target();
+}
+
+if (choosenSpell != -1)
+{
+flip_angle = lerp(flip_angle, 360, 0.05);
+}
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Bind spell
+var i;
+         // Spell binding
+         if (oPlayer.spell_cd[0] &lt;= 0 &amp;&amp; oPlayer.spell_cd[1] &lt;= 0 &amp;&amp; oPlayer.spell_cd[2] &lt;= 0)
+            {
+              // Protection against multiple binding of same spell
+              scrSpellConvertEnumToString(spell);
+              tempSpell  = oPlayer.spell[fromSpell];
+              tempSprite = oPlayer.spell_sprite[fromSpell];
+              tempI      = -1;
+              choosenSpell = -1;
+              
+              for (i = 0; i &lt; 3; i++)
+                  {
+                   if (oPlayer.spell[i] == returnArray[0])
+                       {
+                        tempI = i;
+                        break;
+                       }
+                  } 
+              
+             if (tempI != -1)
+                {
+                 oPlayer.spell[tempI]        = tempSpell;
+                 oPlayer.spell_sprite[tempI] = tempSprite;
+                }         
+                                                         
+              oPlayer.spell[fromSpell]        = returnArray[0];
+              oPlayer.spell_sprite[fromSpell] = returnArray[1];
+              mode = "out";
+              fromSpell     = -1;
+drawType      = "spells";
+setSpell      = 0;
+upgradeMode   = -1;
+upgradeSpell  = -1;
+upgradeAlpha  = 0;
+hoverAlpha    = 0;
+choosenSpell  = -1;
+choosenSpellScale = 1;
+flip_angle = 0;
+            } 
 </string>
           </argument>
         </arguments>
@@ -115,24 +243,25 @@ if (point_in_rectangle(mouse_x, mouse_y, x + 768, y, x + 800, y + 32))
 // Hlavička
 clr(c_white, bacAlpha);
 alg("center", fntPixelHuge);
-draw_text(x + 400, y + 16, "Som čarovný");
+draw_text(x + 496, y + 16, "Kouzla");
 alg("center", fntPixel);
 
-bs = "Nemáš žádné body talentů";
-if (oPlayer.talentPoints &gt; 0) {bs = "Máš " + string(oPlayer.talentPoints) + " " + scrInflect("bod", oPlayer.talentPoints) + " talentů";}
-draw_text(x + 400, y + 36, bs);
+bs = "Nemáš žádné body magie";
+if (oPlayer.spellPoints &gt; 0) {bs = "Máš " + string(oPlayer.spellPoints) + " " + scrInflect("bod", oPlayer.talentPoints) + " bodů magie";}
+draw_text(x + 496, y + 36, bs);
 alg();
   
 // Vykreslování kouzel
 var xx, yy;
-xx = 50;
+xx = 466;
 yy = 150;
 
-for (i = 0; i &lt; 1; i++)
-    {
-     scrSpellDraw(i, xx, yy);
-     yy += 48;
-    }
+scrSpellsDrawSidebar();
+
+if (choosenSpell != -1)
+{
+scrSpellDraw(choosenSpell, xx, yy);
+}
 
 clr();
 

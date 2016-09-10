@@ -244,7 +244,7 @@ if (idd = "pařez1")
    }
 if (idd = "skála1")
    {
-    if (status = 2) {scrEnemyLoot(oGold,1,5,1,100,6); scrMinimapRemoveWaypoint(id);}
+    if (status = 2) {scrEnemyLoot(oGold2,1,5,1,100,6); scrMinimapRemoveWaypoint(id);}
    
    }
 if (idd = "mapTest_sloup1")

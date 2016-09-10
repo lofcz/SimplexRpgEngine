@@ -151,7 +151,18 @@ l = random_range(chance,100);
 
 if (l >= 50)
    {
-   loot = instance_create(x-random(20)+random(20),y+random(20)-random(20),item);
+   var ix, iy, ip;
+   ip = 0;
+   do
+   {
+   ix = x + random(64) - random(64);
+   iy = y + random(64) - random(64);
+   ip++;
+   }
+   until(place_free(ix, iy) && ip < 40);
+   
+   
+   loot = instance_create(ix,iy,item);
    loot.itm_number = irandom_range(number_min,number_max);
    
    if (physics)
@@ -163,6 +174,7 @@ if (l >= 50)
       }
    }
 }
+
 #define scrEnemyCollision
 /// scrEnemyCollision(with)
 

@@ -121,7 +121,7 @@ draw_vertex(xm + vx * (x2 - x1) / 2, ym + vy * (y2 - y1) / 2)
 draw_primitive_end()
 draw_set_colour(c_black);
 #define draw_ring_part
-/// draw_ring_part(x, y, radius, thickness, maxsegments, segments, startangle, totalangle, direction, colour, outline)
+/// draw_ring_part(x, y, radius, thickness, maxsegments, segments, startangle, totalangle, direction, colour, outline, alpha)
 
 var anglechange, i, ax, ay, bx, by, l, cx, cy, dx, dy;
 anglechange = (argument7/argument4)*(pi/180)
@@ -135,7 +135,7 @@ by = argument1-(sin(i)*(argument2+argument3))
 
 l = argument10
   
-
+draw_set_alpha(argument11);
 repeat(argument5) 
 {
 i += argument8 * anglechange
@@ -155,7 +155,7 @@ ay = cy
 bx = dx
 by = dy
 }
-
+draw_set_alpha(1);
 
 #define draw_circle_part
 /// draw_circle_part(x, y, radius, maxsegments, segments, startangle, totalangle, direction, colour)
@@ -285,3 +285,45 @@ var ry = rx / 2;
 clr(c_black, a);
 draw_ellipse(_x - rx, _y - ry, _x + rx, _y + ry, false);
 clr();
+#define draw_lightning
+/// draw_lightning(x1, y1, x2, y2, xmin, xmax, ymin, ymax, alpha)
+
+clr();
+var i, r, c, l, dx, dy, sx, sy, px, py, cx, cy, alpha;
+if (max(argument0, argument2) < view_xview[view_current] - 10) return 0
+if (max(argument1, argument3) < view_yview[view_current] - 10) return 0
+if (min(argument0, argument2) > view_xview[view_current] + view_wview[view_current] + 10) return 0
+if (min(argument1, argument3) > view_yview[view_current] + view_hview[view_current] + 10) return 0
+
+l = point_distance(argument0, argument1, argument2, argument3)
+maxAlpha = argument8
+if (l == 0) return 0
+i = point_direction(argument0, argument1, argument2, argument3)
+dx = lengthdir_x(1, i); dy = lengthdir_y(1, i)
+i += 90
+sx = lengthdir_x(1, i); sy = lengthdir_y(1, i)
+px = argument0; py = argument1
+c = 0
+i = random_range(argument4, argument5)
+alpha = draw_get_alpha()
+repeat (5000) { 
+clr(c_white);
+    r = choose(-1, +1) * (argument6 + (argument7 - argument6)
+        * lengthdir_y(random(1), i / l * 180)) 
+
+    if (i < l) {
+        cx = argument0 + dx * i + sx * r
+        cy = argument1 + dy * i + sy * r
+    } else { cx = argument2; cy = argument3 } 
+
+    draw_set_alpha(min(alpha * 0.3, maxAlpha))
+    draw_line_width(px, py, cx, cy, 3.7)
+    draw_set_alpha(min(alpha * 0.7, maxAlpha))
+    draw_line_width(px, py, cx, cy, 1.3)
+    if (i >= l) break
+    px = cx; py = cy
+    c += 1
+    i += random_range(argument4, argument5)
+}
+draw_set_alpha(alpha)
+return c

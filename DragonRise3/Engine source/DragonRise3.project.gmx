@@ -179,8 +179,11 @@
     <sound>sound\sndBuyItem</sound>
     <sound>sound\sndSkillUp</sound>
     <sound>sound\sndMenuClick1</sound>
+    <sound>sound\sndSpellLevelUp</sound>
+    <sound>sound\sndSpellUpgrade</sound>
   </sounds>
   <sprites name="sprites">
+    <sprite>sprites\sCatchError</sprite>
     <sprites name="Actors">
       <sprites name="NPC">
         <sprite>sprites\sPlayerBasic</sprite>
@@ -257,6 +260,8 @@
         <sprite>sprites\sSpellFrozenBolts</sprite>
         <sprite>sprites\sSpellFlash</sprite>
         <sprite>sprites\sSpells</sprite>
+        <sprite>sprites\sSpellsBackFrame</sprite>
+        <sprite>sprites\sSpellsFrame</sprite>
       </sprites>
       <sprites name="Fonts">
         <sprite>sprites\sFntDamage</sprite>
@@ -410,6 +415,10 @@
     <sprite>sprites\sShadowBounce</sprite>
     <sprite>sprites\sprite160</sprite>
     <sprite>sprites\sShieldEffect</sprite>
+    <sprite>sprites\sSpellPoint</sprite>
+    <sprite>sprites\sHintButton</sprite>
+    <sprite>sprites\sHintForm</sprite>
+    <sprite>sprites\sMinimapIcons</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -455,6 +464,7 @@
         <script>scripts\npcAPI.gml</script>
         <script>scripts\hudAPI.gml</script>
         <script>scripts\roomCreationAPI.gml</script>
+        <script>scripts\mathAPI.gml</script>
       </scripts>
       <scripts name="Common">
         <script>scripts\scrInventoryParseString.gml</script>
@@ -499,6 +509,7 @@
         <script>scripts\effectRealFire.gml</script>
         <script>scripts\effectGrass.gml</script>
         <script>scripts\effectAchievement.gml</script>
+        <script>scripts\effectSpellLevelUp.gml</script>
         <script>scripts\effectFirefly.gml</script>
       </scripts>
     </scripts>
@@ -735,6 +746,9 @@
           <script>scripts\scrPathfindingAddObstacle.gml</script>
         </scripts>
       </scripts>
+      <scripts name="Hint">
+        <script>scripts\scrHintShow.gml</script>
+      </scripts>
     </scripts>
     <script>scripts\position_create.gml</script>
     <script>scripts\position_get_x.gml</script>
@@ -970,6 +984,8 @@
     </objects>
     <object>objects\obj_pathfinder</object>
     <object>objects\obj_controller</object>
+    <object>objects\oHintBox</object>
+    <object>objects\oHintBoxButton</object>
   </objects>
   <timelines name="timelines">
     <timelines name="Cutscenes">

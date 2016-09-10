@@ -10,13 +10,6 @@ m_alpha  = 1;
 x        = view_xview+(view_wview - width);
 y        = view_yview+(view_hview - height);
 
-if (instance_number(oPlayer) > 0)
-   { 
-   if (oPlayer.can_move2)
-      {
-      if (keyboard_check_pressed(ord(action_key))) {draw = !draw;}
-      }
-   }
    
 if (instance_number(oPlayer) > 0 && draw) 
 {
@@ -28,6 +21,9 @@ draw_roundrect(x,y,x+width-1,y+height-2,0)
 draw_set_color(c_black)
 draw_set_alpha(1)
 draw_roundrect(x,y,x+width-2,y+height-2,1)
+
+//draw_sprite_stretched(screenSave, 0, x, y, 128, 128);
+
 draw_set_color(c_aqua)
 
 with (oPlayer)
@@ -87,6 +83,7 @@ for (i = 0; i < ds_list_size(pointList); i++)
      alg("center", fntPixelSmall);
      clr(pointListColor[| i]);
      draw_text(oMinimap.x+(( pointListX[| i]-oMinimap.x1)*oMinimap.sizex), oMinimap.y+((pointListY[| i]-oMinimap.y1)*oMinimap.sizey), pointListSymbol[| i]);
+     if (pointListSprite[| i] != -1) {draw_sprite_ext(sMinimapIcons, pointListSprite[| i], oMinimap.x+(( pointListX[| i]-oMinimap.x1)*oMinimap.sizex), oMinimap.y+((pointListY[| i]-oMinimap.y1)*oMinimap.sizey), 0.5, 0.5, 0, c_white, 1); }
      alg();
      
      if (mouse_in(oMinimap.x+(( pointListX[| i]-oMinimap.x1)*oMinimap.sizex) - 8, oMinimap.x+(( pointListX[| i]-oMinimap.x1)*oMinimap.sizex) + 2, oMinimap.y+((pointListY[| i]-oMinimap.y1)*oMinimap.sizey) - 5, oMinimap.y+((pointListY[| i]-oMinimap.y1)*oMinimap.sizey) + 5))
@@ -122,6 +119,14 @@ if (lastI != -1)
     
     }
 }
+
+if (instance_number(oPlayer) > 0)
+   { 
+   if (oPlayer.can_move2)
+      {
+      if (keyboard_check_pressed(ord(action_key))) {draw = !draw;}
+      }
+   }
 /*
 //DEBUG
 

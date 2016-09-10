@@ -13,3 +13,4 @@ ds_list_delete(oMinimap.pointListX, pos);
 ds_list_delete(oMinimap.pointListY, pos);
 ds_list_delete(oMinimap.pointListSymbol, pos);
 ds_list_delete(oMinimap.pointListColor, pos);
+ds_list_delete(oMinimap.pointListSprite, pos);

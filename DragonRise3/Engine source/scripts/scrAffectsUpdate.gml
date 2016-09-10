@@ -68,7 +68,7 @@ for (i = 0; i < ds_list_size(oPlayer.statusList) i++)
       
       // back
       clr(c_black, al);
-      draw_ring_part(xxx, yyy, 16*scale, 4, 64, 64, 90, 360, true, c_black, false); 
+      draw_ring_part(xxx, yyy, 16*scale, 4, 64, 64, 90, 360, true, c_black, false, 1); 
 
       // bar
       clr(c_black, al * 3); 
@@ -82,11 +82,11 @@ for (i = 0; i < ds_list_size(oPlayer.statusList) i++)
       tl = oPlayer.statusTimeList[| i];
       
       if (time == 0) {time = 1;}
-      draw_ring_part(xxx, yyy, 16*scale, 4, 64, 64, 90, (tl / real(time)) * 360, true, oPlayer.statusColorList[| i], true); 
+      draw_ring_part(xxx, yyy, 16*scale, 4, 64, 64, 90, (tl / real(time)) * 360, true, oPlayer.statusColorList[| i], true, 1); 
 
       // outline
-      draw_ring_part(xxx, yyy, (16+4)*scale, 1, 64, 64, 90, (tl / time) * 360, true, c_black, true); 
-      draw_ring_part(xxx, yyy, (16)*scale, 1, 64, 64, 90, (tl / time) * 360, true, c_black, true); 
+      draw_ring_part(xxx, yyy, (16+4)*scale, 1, 64, 64, 90, (tl / time) * 360, true, c_black, true, 1); 
+      draw_ring_part(xxx, yyy, (16)*scale, 1, 64, 64, 90, (tl / time) * 360, true, c_black, true, 1); 
       
       if (scale > 1) {oPlayer.statusScaleList[| i] = lerp(oPlayer.statusScaleList[| i], 1, 0.1);}
       
