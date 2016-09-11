@@ -62,4 +62,3 @@ for (i = 0; i < 16; i++)
     {
     if (argument_count > i) {spellDetails[tempSpell, (9 + i)] = argument[i];} 
     }
-

@@ -29,6 +29,7 @@
 
 event_inherited();
 //scrBasicTransformScale(0.1, 2, 2, 0, 0);
+
 </string>
           </argument>
         </arguments>
