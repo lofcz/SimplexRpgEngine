@@ -29,16 +29,14 @@
 
 scrSpellIni();
 
-scrSpellCreate(SpellEnum.spellFlash , 0, "Flash", 50, 150);
-    scrSpellCreateDetails("txt1",0,"txt2",1,"txt3",2,"txt4",0,"txt5",0,SpellEnum.spellFlash, "Záblesk", "Posílený záblesk");
-    scrSpellCreateUpgradeDetails1(SpellEnum.spellFlash);
-    scrSpellCreateUpgradeDetails2(SpellEnum.spellFlash);   
+scrSpellCreate(SpellEnum.spellFlash, 0);
+    scrSpellCreateDetails("Záblesk", "Posílený záblesk", "Mocný záblesk", "text1", "text2", "text3", 0, 1, 2);
+    scrSpellCreatePointDetails("detail1", "detail2", "detail3", "detail4", "detail5", "detail6", "detail7", "detail8", "detail9", "detail10", "detail11");
+
+scrSpellCreate(SpellEnum.spellFireball, 0);
+    scrSpellCreateDetails("Ohnivá koule", "Ohnivá bouře", "Inferno", "text1", "text2", "text3", 3, 4, 5);
+    scrSpellCreatePointDetails("detail1", "detail2", "detail3", "detail4", "detail5", "detail6", "detail7", "detail8", "detail9", "detail10", "detail11");
     
-flip_angle=0; //Controls the rotation of the card.
-front_surface=noone; //We are going to create the card's texture from a surface.
-back_surface=noone;  //So we define these here.
-card_width=sprite_get_width(sSpells);
-card_height=sprite_get_height(sSpells);
 
 </string>
           </argument>
@@ -70,7 +68,7 @@ part_system_destroy(Sname);
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="7" enumb="12">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -87,42 +85,49 @@ part_system_destroy(Sname);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (draw)
-{
+            <string>/// Spells point add DB
 
-if(!surface_exists(front_surface))
-{
-front_surface=surface_create(card_width,card_height);
-}
-  front_surface=surface_create(card_width,card_height);
-  //Create the actual surface content.  Only happens once when the object is created to be more efficient, but if you wanted the card to animate, you could.
-  surface_set_target(front_surface)
-  {
-    if (choosenSpell != -1)
+if (levelUpSpell == SpellEnum.spellFlash)
     {
-    draw_clear_alpha(0,0);///Always clear a clear color to your new surface, as the memory that is being utilized will not have been initilized, and there could literally be anything in there.
-    draw_sprite_ext(sSpells,spellDetails[max(choosenSpell,0), 1],0,0, 1, 1, 0, c_white, 1);//draw the sprite in the top left corner of the surface.
+     if (level == 1)
+        {
+         if (points == 1)
+            {
+            
+            }         
+        }
     }
-  }
-  surface_reset_target();
-  
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Spells level up DB
 
-if(!surface_exists(back_surface))
-{
-  back_surface=surface_create(card_width,card_height);
-  surface_set_target(back_surface)
-  {
-    draw_clear_alpha(0,0);
-   draw_sprite_ext(sSpellsBackFrame,0,0,0, 1, 1, 0, c_white, 1)
-  }
-  surface_reset_target();
-}
-
-if (choosenSpell != -1)
-{
-flip_angle = lerp(flip_angle, 360, 0.05);
-}
-}
+if (levelUpSpell == SpellEnum.spellFlash)
+    {
+     if (level == 1)
+        {
+         
+        }
+    }
 </string>
           </argument>
         </arguments>
@@ -230,6 +235,7 @@ if (mode == "out")
 clr(c_black, bacAlpha / 2);
 draw_rectangle(x, y, x + 800, y + 600, false);
 clr(c_black, bacAlpha);
+draw_sprite_ext(sTalentMenuIcons, 0, x + 768 + 16, y + 16, 1, 1, 0, c_white, 1);
 
 
 if (point_in_rectangle(mouse_x, mouse_y, x + 768, y, x + 800, y + 32))
@@ -260,8 +266,10 @@ scrSpellsDrawSidebar();
 
 if (choosenSpell != -1)
 {
+choosenSpellAlpha = lerp(choosenSpellAlpha, 0.3, 0.1);
 scrSpellDraw(choosenSpell, xx, yy);
 }
+else {choosenSpellAlpha = lerp(choosenSpellAlpha, 0, 0.1);}
 
 clr();
 

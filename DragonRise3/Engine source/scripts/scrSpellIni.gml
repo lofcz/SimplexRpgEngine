@@ -19,4 +19,13 @@ spellList     = ds_list_create();
 spellListAlpha = ds_list_create();
 choosenSpell  = -1;
 choosenSpellScale = 1;
+choosenSpellAlpha = 0;
 realVerticles = 0;
+tempSpell = -1;
+
+flip_angle=0; 
+front_surface=noone; 
+back_surface=noone;  
+card_width=sprite_get_width(sSpells);
+card_height=sprite_get_height(sSpells);
+
