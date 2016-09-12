@@ -1000,7 +1000,7 @@ for(a = 0; a < celkem_vlastnosti; a++)
                          }
                     case(vlastnost_max_zkusenosti):
                          {
-                           t_text += "#Zvýší tkušenosti potřebné k dosažení další úravně: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += "#Zvýší zkušenosti potřebné k dosažení další úravně: "+string(oInventory.equiped_vlastnost[idd,a]);
                            break;                                                                   
                          }
                     case(vlastnost_level):
@@ -1015,10 +1015,14 @@ for(a = 0; a < celkem_vlastnosti; a++)
                          }
                     case(vlastnost_tick_stamina_add):
                          {
-                           t_text += "#Zváší množství obnovené výdrže: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += "#Zvýší množství obnovené výdrže: "+string(oInventory.equiped_vlastnost[idd,a]);
                            break;                                                                   
                          }
-
+                    case(vlastnost_bonusoveZkusenosti):
+                         {
+                           t_text += "#Bonusové zkušenosti: "+string(oInventory.equiped_vlastnost[idd,a]) + "%";
+                           break;                                                                   
+                         }
 
                     
                     }               

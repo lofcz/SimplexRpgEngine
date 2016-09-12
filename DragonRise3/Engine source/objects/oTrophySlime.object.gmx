@@ -46,6 +46,7 @@ itm_equip_slot          = "trophy";
 
 
 vlastnost[vlastnost_max_stit] = irandom_range(1, 6);
+vlastnost[vlastnost_bonusoveZkusenosti] = 3;
 scr = vlastnost[vlastnost_max_stit];
 
 if (scr &lt; 3) {itm_info_color = rarity_normal;}

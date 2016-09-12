@@ -768,7 +768,11 @@ for(a = 0; a < celkem_vlastnosti; a++)
                            t_text += "#Zvýší množství obnovené výdrže: "+string(slot_vlastnosti[f,a]);
                            break;                                                                   
                          }
-
+                    case(vlastnost_bonusoveZkusenosti):
+                         {
+                           t_text += "#Bonusové zkušenosti: "+string(slot_vlastnosti[f,a]) + "%";
+                           break;                                                                   
+                         }
 
                     
                     }                    

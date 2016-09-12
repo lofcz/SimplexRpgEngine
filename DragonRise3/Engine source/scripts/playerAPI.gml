@@ -1,5 +1,5 @@
 #define playerAPI
-/// playerAPI
+/// playerAPI()
 /*
 
 - apiPlayermove()
@@ -739,3 +739,17 @@ oPlayer.vlastnost[vlastnost_stamina] = clamp(oPlayer.vlastnost[vlastnost_stamina
 oPlayer.vlastnost[vlastnost_stit]    = clamp(oPlayer.vlastnost[vlastnost_stit],    0, oPlayer.vlastnost[vlastnost_max_stit]);
 
 if (oPlayer.last_hp < 0) {oPlayer.last_hp = 0;}
+#define apiPlayerGetXP
+/// apiPlayerGetXP(value, allowBonusXP)
+
+var value, abxp;
+value = 0;
+abxp  = true;
+
+if (argument_count > 0) {value = argument[0];}
+if (argument_count > 1) {abxp  = argument[1];}
+
+if (abxp) {value = value + (value * (oPlayer.vlastnost[vlastnost_bonusoveZkusenosti] / 100));}
+oPlayer.vlastnost[vlastnost_zkusenosti] += value;
+
+return(round(value));

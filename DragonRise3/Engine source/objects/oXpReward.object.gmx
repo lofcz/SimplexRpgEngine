@@ -89,10 +89,10 @@ part_system_destroy(Sname);
 
 if (stav = "idle" &amp;&amp; secure_pickup &lt;= 0)
 {
-oPlayer.vlastnost[vlastnost_zkusenosti] += itm_number;
-stav                                     = "delete";
+r = apiPlayerGetXP(itm_number);
+stav = "delete";
 
-scrLog("+ "+string(itm_number),c_lime,sXP,0,0.5);
+scrLog("+ "+string(r),c_lime,sXP,0,0.5);
 audio_play_sound(sndExp,0,0);
 effectExperience();
 }
