@@ -1,12 +1,14 @@
-/// scrItemInstantiate(item, numberMin, numberMax, animateDrop, dropTimes, dropForce)
+/// scrItemInstantiate(item, numberMin, numberMax, animateDrop, dropTimes, dropForce, xx, yy)
 
-var item, numberMin, numberMax, aD, dT, numberActual, dF;
+var item, numberMin, numberMax, aD, dT, numberActual, dF, xx, yy;
 item      = oGold;
 numberMin = 1;
 numberMax = 1;
 aD        = true;
 dT        = 1;
 dF        = 1;
+xx        = 0;
+yy        = 0;
 
 if (argument_count > 0) {item      = argument[0];}
 if (argument_count > 1) {numberMin = argument[1];}
@@ -14,12 +16,14 @@ if (argument_count > 2) {numberMax = argument[2];}
 if (argument_count > 3) {aD        = argument[3];}
 if (argument_count > 4) {dT        = argument[4];}
 if (argument_count > 5) {dF        = argument[5];}
+if (argument_count > 6) {xx        = argument[6];}
+if (argument_count > 7) {yy        = argument[7];}
 
 repeat(dT)
 {
 numberActual = irandom_range(numberMin, numberMax);
 
-      b                  = instance_create(x, y, item)
+      b                  = instance_create(choose(x+xx,x-xx), choose(y+yy,y-yy), item)
       b.itm_number       = numberActual;
       b.on_click         = 0;
       b.hover_info       = 0;

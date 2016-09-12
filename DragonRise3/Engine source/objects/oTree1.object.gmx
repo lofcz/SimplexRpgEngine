@@ -29,6 +29,9 @@
 
 event_inherited();
 //scrBasicTransformScale(0.1, 2, 2, 0, 0);
+
+//Number of logs = 2-12
+hp = irandom(10) + 2;
 </string>
           </argument>
         </arguments>

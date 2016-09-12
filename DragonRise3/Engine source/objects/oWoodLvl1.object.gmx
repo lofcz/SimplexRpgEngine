@@ -32,7 +32,6 @@ scrItemSetProperties(true, "Wood lvl 1", "Content", materialEnum.materialWood, "
 scrItemSetOptions("Option n1", "Option n2", "Option n3");
 scrItemSetUpFinalize();
 
-
 </string>
           </argument>
         </arguments>
@@ -61,7 +60,7 @@ if (loot = 0)
 {
 inventoryPickUp(); 
 audio_play_sound(sndRindPickup,0,0);
-scrLog("+ Červená perla",c_orange,sRingEffect,0,0.5);
+scrLog("+ Dřevěné prkno",c_orange,sWoodEffect,0,0.5);
 }
 </string>
           </argument>

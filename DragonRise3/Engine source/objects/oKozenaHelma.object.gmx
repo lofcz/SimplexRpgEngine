@@ -29,11 +29,9 @@
 
 scrItemSetUp(0,0);
 scrItemBasic(itemEnum.itemHelmetLeather);
-
 //*********** Prefix **************
 image_index = 5;
 randomize();
-
 //****** Item settings ************
 
 itm_stackable           = 0;
@@ -158,7 +156,6 @@ instance_destroy();
             <string>/// Draw self
 
 itemDraw()
-
 </string>
           </argument>
         </arguments>
