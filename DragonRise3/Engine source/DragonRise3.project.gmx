@@ -380,6 +380,8 @@
         <sprite>sprites\sStaminaEffect</sprite>
         <sprite>sprites\sHelmetEffect</sprite>
         <sprite>sprites\sRingEffect</sprite>
+        <sprite>sprites\sWoodEffect</sprite>
+        <sprite>sprites\sStoneEffect</sprite>
         <sprite>sprites\sSwordEffect</sprite>
         <sprite>sprites\sXpRewardPoint</sprite>
         <sprite>sprites\sCoinAnimated</sprite>
@@ -895,6 +897,7 @@
         <object>objects\oTestItem2</object>
         <object>objects\oRedPearlLvl2</object>
         <object>objects\oWoodLvl1</object>
+        <object>objects\oStoneLvl1</object>
         <object>objects\oMaterialGreenGem</object>
         <object>objects\oKalokvet</object>
         <object>objects\oBasicItem</object>

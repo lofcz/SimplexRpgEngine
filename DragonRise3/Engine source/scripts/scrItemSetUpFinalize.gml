@@ -24,3 +24,5 @@ vlastnost[vlastnost_maxUpgrade] = vlastnost[vlastnost_upgradeSloty];
 vlastnost[vlastnost_originalniCena] = vlastnost[vlastnost_cena];
 
 if (artn) {scrItemRarity();}
+
+

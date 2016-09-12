@@ -40,6 +40,31 @@ event_inherited();
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Destroy
+
+instance_destroy();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -68,6 +93,7 @@ if (instance_number(oPlayer) &gt; 0)
        }
    }
 
+//Destroy
 </string>
           </argument>
         </arguments>
@@ -98,7 +124,8 @@ audio_play_sound(choose(sndWoodHit1,sndWoodHit2),0,0);
 other.can_damage = -2;
 scrGoreExplodeDropShards(irandom_range(3,7), 8, sprite_index, 0);
 
-if (scrDice(80, 2, 20)) {scrItemInstantiate(oWoodLvl1, 1, 1, true, 1, 1);}
+if (scrDice(80, 2, 20)) {scrItemInstantiate(oWoodLvl1, 1, 1, true, 1, 1); hp--;}
+if (hp &lt;= 0) {scrBasicTransformScale(0.1,0.0,0.0,1.00,1.00); alarm[0] = 40;}
 }
 
 </string>
@@ -128,6 +155,7 @@ if (mode = 1) {if (value &gt; -45) {value--;} else {mode = 0;}}
 
 draw_sprite_ext(sprite_index,0,x,y,image_xscale,image_yscale,image_angle+2*sin(degtorad(value)),c_white,image_alpha);
 draw_sprite_ext(sprite_index,1,x,y, image_xscale, image_yscale, image_angle, c_white, image_alpha);
+draw_text(x+64,y+64,string(hp));
 
 </string>
           </argument>

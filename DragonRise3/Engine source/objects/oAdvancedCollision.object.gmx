@@ -134,6 +134,11 @@ if (mode == 1)
      }     
 
     }
+
+if (tA == 1 &amp;&amp; hp != -1)
+    {
+    if (affect == "burning") {effectRealFire(x, y, 3);}
+    }
 </string>
           </argument>
         </arguments>
@@ -179,6 +184,18 @@ if (hp &lt;= 0) {mode = 1;}
 }
 
 
+if (hitType == "stone")
+{
+if (other.attack &amp;&amp; other.can_damage = -1) 
+{
+audio_play_sound(choose(sndWoodHit1,sndWoodHit2),0,0);
+other.can_damage = -2;
+scrGoreExplodeDropShards(irandom_range(3,7), 8, draw_sprite(sTestItem,22,x,y), 0);
+
+if (scrDice(50, 2, 50)) {scrItemInstantiate(oStoneLvl1, 1, 1, true, 1, 1, 16, 16);hp--;}
+if (hp &lt;= 0) {mode = 1;}
+}
+}
 </string>
           </argument>
         </arguments>
@@ -286,6 +303,7 @@ if (idd = "mapTest_kmen1")
             <kind>1</kind>
             <string>/// Draw nothing
 
+draw_text(x+32,y+32,hp);
 //draw_text(xx,yy,text[status])
 
 if (mode == 0)

@@ -8,7 +8,7 @@
   <parentName>parTree</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="6" enumb="0">
+    <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,7 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scrBasicTransformScale(0.1,0.0,0.0,1.00,1.00);
+            <string>/// Basic transformation
+
+event_inherited();
+//scrBasicTransformScale(0.1, 2, 2, 0, 0);
+
+//Number of logs = 5-12
+hp = irandom(7) + 5;
 </string>
           </argument>
         </arguments>

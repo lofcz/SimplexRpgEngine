@@ -24,5 +24,6 @@ itemCrystallisatorFire,
 itemBoosterXP,
 itemBeltLeather,
 itemBootLeftIron,
-itemBootRightIron
+itemBootRightIron,
+itemStone
 }
