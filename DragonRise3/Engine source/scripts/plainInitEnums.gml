@@ -32,7 +32,7 @@ craftCraft, craftInfo
 
 enum materialEnum
 {
-materialNone, materialMetal, materialWood, materialHerb, materialStone
+materialNone, materialMetal, materialWood, materialHerb, materialStone, materialGolde
 };
 
 enum neighbourEnum

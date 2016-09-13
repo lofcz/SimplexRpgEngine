@@ -383,6 +383,7 @@
         <sprite>sprites\sRingEffect</sprite>
         <sprite>sprites\sWoodEffect</sprite>
         <sprite>sprites\sStoneEffect</sprite>
+        <sprite>sprites\sGoldEffect</sprite>
         <sprite>sprites\sSwordEffect</sprite>
         <sprite>sprites\sXpRewardPoint</sprite>
         <sprite>sprites\sCoinAnimated</sprite>
@@ -454,6 +455,7 @@
     <background>background\A4_Server_Tiles_zps6mjyu46o</background>
     <background>background\TileE__1_</background>
     <background>background\background29</background>
+    <background>background\background30</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\pthCutsceneObet1</path>
@@ -901,6 +903,7 @@
         <object>objects\oRedPearlLvl2</object>
         <object>objects\oWoodLvl1</object>
         <object>objects\oStoneLvl1</object>
+        <object>objects\oGoldLvl1</object>
         <object>objects\oMaterialGreenGem</object>
         <object>objects\oKalokvet</object>
         <object>objects\oBasicItem</object>
@@ -1003,6 +1006,7 @@
     </timelines>
   </timelines>
   <rooms name="rooms">
+    <room>rooms\mapSklep</room>
     <room>rooms\mapTest</room>
     <room>rooms\cutscenePoustevnikovaPesina</room>
     <room>rooms\mapMainMenu</room>
@@ -1010,6 +1014,7 @@
     <room>rooms\cutsceneVavrincuvKostel</room>
     <room>rooms\mapMyFirstGame</room>
     <room>rooms\mapDefault</room>
+    <room>rooms\mapLedovaJeskyne</room>
     <room>rooms\mapCopyright</room>
     <rooms name="Game world">
       <room>rooms\mapHouse1</room>
