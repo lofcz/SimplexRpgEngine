@@ -186,7 +186,16 @@ if (type = "fireball")
     
     audio_play_sound(sndFireball1,0,0);
    }
-
+// Vines
+if (type = "vines")
+   {
+    dmg       = oPlayer.magic[spell_vines_damage];
+    speed     = 9;
+    spd_boost = 0.03;
+    spd_max   = 20; 
+    
+   // audio_play_sound(sndFireball1,0,0);
+   }
 // Frozen bolt   
 if (type = "frozen_bolt")
    {    
@@ -228,8 +237,11 @@ if (type = "frozen_bolt")
 
 if (logic)
 {
+dis = distance_to_point(xstart, ystart);
+
 if (type = "fireball" &amp;&amp; mode = 0)    {effectFireball(x,y,2);}
 if (type = "frozen_bolt" &amp;&amp; mode = 0) {effectFrozenTrail(x,y,1);}
+if (type = "vines" &amp;&amp; mode = 0)    {effectVines(x, y + (10 * sin(dis)) - 5); effectVines(x, y - (10 * sin(dis)) + 5);}
 
 if (speed &lt; spd_max) {speed += spd_boost;}
 
@@ -310,7 +322,18 @@ if (type = "fireball")
     audio_play_sound(sndFireball1Explosion,0,0);
     scrGoreMed(other.x,other.y,4);
    }
-
+// Vines
+if (type = "vines")
+   {
+    mode                  = 1;
+    alarm[2]              = 60;
+    other.hp             -= dmg;
+    other.force_aggresive = 1;
+    
+    scrLog(dmg,c_black,-1,0,0.2,x,y-32,fntPixelHuge); 
+    scrGoreMed(other.x,other.y,4);
+   }
+   
 // Frozen bolt   
 if (type = "frozen_bolt")
    {

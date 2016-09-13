@@ -262,6 +262,7 @@
         <sprite>sprites\sSpells</sprite>
         <sprite>sprites\sSpellsBackFrame</sprite>
         <sprite>sprites\sSpellsFrame</sprite>
+        <sprite>sprites\sSpellVines</sprite>
       </sprites>
       <sprites name="Fonts">
         <sprite>sprites\sFntDamage</sprite>
@@ -394,6 +395,7 @@
       </sprites>
       <sprites name="Particles">
         <sprite>sprites\sParticleGrass</sprite>
+        <sprite>sprites\sVineParticle</sprite>
         <sprite>sprites\sAffects</sprite>
         <sprite>sprites\sRainSplash</sprite>
       </sprites>
@@ -512,6 +514,7 @@
         <script>scripts\effectGrass.gml</script>
         <script>scripts\effectAchievement.gml</script>
         <script>scripts\effectSpellLevelUp.gml</script>
+        <script>scripts\effectVines.gml</script>
         <script>scripts\effectFirefly.gml</script>
       </scripts>
     </scripts>
@@ -1012,7 +1015,7 @@
       <room>rooms\mapHouse1</room>
     </rooms>
   </rooms>
-  <constants number="200">
+  <constants number="203">
     <constant name="baArmor">1</constant>
     <constant name="baBase">0</constant>
     <constant name="cStaticInstance">"staticInstance"</constant>
@@ -1041,7 +1044,10 @@
     <constant name="bestiary_monster_title">0</constant>
     <constant name="id_Helma">1</constant>
     <constant name="id_Mec">0</constant>
-    <constant name="spell_total">11</constant>
+    <constant name="spell_total">14</constant>
+    <constant name="spell_vines_damage">13</constant>
+    <constant name="spell_vines_cooldown">12</constant>
+    <constant name="spell_vines_cost">11</constant>
     <constant name="spell_flash_cooldown">10</constant>
     <constant name="spell_flash_cost">9</constant>
     <constant name="spell_fire_trail_damage">8</constant>

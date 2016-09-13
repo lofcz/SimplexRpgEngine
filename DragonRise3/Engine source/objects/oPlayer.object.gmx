@@ -177,6 +177,10 @@ magic[spell_fire_trail_cost] = 4;
 magic[spell_flash_cost] = 8;
 magic[spell_flash_cooldown] = 60;
 
+magic[spell_vines_cost] = 15;
+magic[spell_vines_cooldown] = 240;
+magic[spell_vines_damage] = 5;
+
 
 skillPoints    = 10;
 propertyPoints = 5;
@@ -450,6 +454,10 @@ if (spell[spell_index] == "fire_trail")
 if (spell[spell_index] == "flash")
    {
     if (vlastnost[vlastnost_mana] &gt;= magic[spell_flash_cost] &amp;&amp; spell_cd[spell_index] = 0) {spell_cd[spell_index] = magic[spell_flash_cooldown]; temp_cd[spell_index] = spell_cd[spell_index]; vlastnost[vlastnost_mana] -= magic[spell_flash_cost]; tempI = 0; if (last_dir = "d") {repeat(96/8) {effectShodowPort(x + tempI, y, 1); tempI += 8;} x += 96;} if (last_dir = "a") {repeat(96/8) {effectShodowPort(x - tempI, y, 1); tempI += 8;} x -= 96;} if (last_dir = "w") {repeat(96/8) {effectShodowPort(x, y - tempI, 1); tempI += 8;} y -= 96;} if (last_dir = "s") {repeat(96/8) {effectShodowPort(x, y + tempI, 1); tempI += 8;} y += 96;} scrEnemyApplyAffect("flash", 120, 1, c_lime, 1, 100, true, false, false);  }
+   }
+if (spell[spell_index] == "vines")
+   {
+    if (vlastnost[vlastnost_mana] &gt;= magic[spell_vines_cost] &amp;&amp; spell_cd[spell_index] = 0) {spell_cd[spell_index] = magic[spell_vines_cooldown]; temp_cd[spell_index] = spell_cd[spell_index]; vlastnost[vlastnost_mana] -= magic[spell_vines_cost]; tempI = 0; i = instance_create(x,y,oBasicSpell); i.type = "vines";}
    }
 </string>
           </argument>

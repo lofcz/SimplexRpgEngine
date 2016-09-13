@@ -37,6 +37,9 @@ scrSpellCreate(SpellEnum.spellFireball, 0);
     scrSpellCreateDetails("Ohnivá koule", "Ohnivá bouře", "Inferno", "text1", "text2", "text3", 3, 4, 5);
     scrSpellCreatePointDetails("detail1", "detail2", "detail3", "detail4", "detail5", "detail6", "detail7", "detail8", "detail9", "detail10", "detail11");
     
+scrSpellCreate(SpellEnum.spellVines, 0);
+    scrSpellCreateDetails("Zákeřné ostny", "Smrtící spoutání", "Divoká pomsta", "text1", "text2", "text3", 6, 7, 8);
+    scrSpellCreatePointDetails("detail1", "detail2", "detail3", "detail4", "detail5", "detail6", "detail7", "detail8", "detail9", "detail10", "detail11");
 
 </string>
           </argument>

@@ -141,6 +141,11 @@ if (spell == SpellEnum.spellFireball)
      returnArray[0] = "fireball";
      returnArray[1] = sSpellFireball;
     }
+if (spell == SpellEnum.spellVines) 
+    {
+     returnArray[0] = "vines";
+     returnArray[1] = sSpellVines;
+    }
 
 #define scrSpellsDrawSidebar
 /// scrSpellsDrawSidebar()
