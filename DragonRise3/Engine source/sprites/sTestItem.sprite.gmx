@@ -43,5 +43,6 @@
     <frame index="20">images\sTestItem_20.png</frame>
     <frame index="21">images\sTestItem_21.png</frame>
     <frame index="22">images\sTestItem_22.png</frame>
+    <frame index="23">images\sTestItem_23.png</frame>
   </frames>
 </sprite>

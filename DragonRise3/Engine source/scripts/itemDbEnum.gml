@@ -25,5 +25,6 @@ itemBoosterXP,
 itemBeltLeather,
 itemBootLeftIron,
 itemBootRightIron,
-itemStone
+itemStone,
+itemGolde
 }
