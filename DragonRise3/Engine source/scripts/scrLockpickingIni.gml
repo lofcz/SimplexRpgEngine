@@ -6,6 +6,7 @@ global.temp = (id);
 
 with(instance)
 {
+close                = false;
 actualCombination    = "";
 itemNumber           = 4;
 currentItem          = 0;
@@ -26,6 +27,7 @@ if (argument_count > 3) {itemMoveAnimationSpd = argument[3];}
 
 
 drawX = ((800 - (itemNumber * 64)) / 2);
+actualLockpickHp = round(max((max(itemNumber-oPlayer.vlastnost[vlastnost_paceni_zanmku], 0) + oPlayer.vlastnost[vlastnost_paceni_zanmku]), 2));
 
 for (i = 0; i < itemNumber; i++)
     {

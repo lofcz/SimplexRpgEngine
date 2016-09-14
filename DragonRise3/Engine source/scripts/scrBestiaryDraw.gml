@@ -1,181 +1,206 @@
 /// scrBestiaryDraw()
 
-clicked = 0;
+x = (view_xview + view_wview);
+y = (view_yview + 150);
 
-if (activated)  {if (activated_x > -256) {activated_x -= activated_speed;  if (activated_speed < 7) {activated_speed += 0.2;}}}
-if (!activated) {if (activated_x < 0) {activated_x += activated_speed} else {activated_speed = 2;}}
+// Computations
+nX    = (x - drawX);
+nY    = y;
+pages = array_length_1d(pageName);
 
-if (activated_x < -256 && activated) {activated_x = -256;}
+// Temp vars
+hover = false;
 
+// Horizontal movement
+if (activated) {if (drawX < xOffset) {drawX = lerp(drawX, xOffset + 8, 0.05);}}
+else {if (drawX > 0) {drawX = lerp(drawX, -8, 0.05);}}
 
-v_x  = (view_xview + view_wview[0] + activated_x);
-v_y  = (view_yview + 155);  
-pass = 0;
+// Draw header 
+clr();
+draw_sprite(sBestiar, 0, nX, y);
+draw_sprite(sBestiar, 2, nX, y);
 
-draw_sprite(sBestiar,0,v_x,v_y);
+alg("center", fntPixelHuge);
+clr(c_white);
+draw_text(nX + 128, y + 16, pageName[currentPage]);
+alg("center", fntPixelSmall);
+draw_text(nX + 128, y + 36, "strana " +string(currentPage + 1) + " / " + string(pages));
 
-draw_set_alpha(1);   
-draw_sprite_ext(sBestiar,2,v_x,v_y,1,1,0,c_white,1);
-draw_set_colour(c_white);
-draw_set_font(fntPixelHuge);
-scrCenterText();
-draw_text_colour(v_x+128,v_y+20,title[page],c_white,c_white,c_white,c_white,1);
-scrCenterText(0);
+// paginace [TODO]
 
-for (a = 0; a < 4; a++)
-{
-f = page*4+a;
-
-if (item_selected = -1) {yy[a] = v_y + 48+a*68;}
-else 
-     {
-     if (mode = 0)
-     {
-     yy[a] = v_y + 48+a*68;
-     
-     if (a = item_selected) {yy[a] =  v_y + 48+a*68 - real_spd;}
-
-     if (spd < spd_max) {spd += 0.01;} 
-     if(!pass) {real_spd += spd;}
-     if (yy[a] < v_y+48) {yy[a] = v_y+48; pass = 1;} else {pass = 0;}
-     
-     
-     if (a != item_selected && mode = 0) {if (i_alpha[a] > 0) {i_alpha[a] -= 0.05;}}
-     
-     tempYY = view_yview;
-     }     
-     }
-
-  
-draw_set_font(fntPixel);
-
-draw_set_alpha(i_alpha[a]);
-
-
-
-if (unlocked[f])
-{
-if (item_selected != a) {draw_sprite_ext(sBestiar,1,v_x,yy[a],1,1,0,c_white,i_alpha[a]);}
-else if (mode = 1) {draw_sprite_ext(sBestiar,2,v_x,yy[a] - tempYY + view_yview,1,1,0,c_white,i_alpha[a]);} else {draw_sprite_ext(sBestiar,1,v_x,yy[a],1,1,0,c_white,i_alpha[a]);}
-draw_sprite_ext(monster[a,bestiary_monster_sprite],0,v_x+32,yy[a]+32,1,1,0,c_white,i_alpha[a]);
-draw_text(v_x+70,yy[a]+5,monster[a,bestiary_monster_title]);
-draw_text_colour(v_x+70,yy[a]+20,monster[a,bestiary_monster_race],c_ltgray,c_ltgray,c_ltgray,c_ltgray,i_alpha[a]);
-
-draw_set_font(fntPixelTiny);
-draw_text_colour(v_x+70,yy[a]+42,"Poraženo: " + string(monster[a,bestiary_monster_killed]),c_black,c_black,c_black,c_black,i_alpha[a]);
-draw_set_font(fntPixel);
-
-draw_set_alpha(1);
-
-if (mouse_in(v_x,v_x+256,yy[a],yy[a]+68) && item_selected = -1 && mode = 0)
-   {
-   draw_sprite_ext(sBestiar,1,v_x,yy[a],1,1,0,c_red,alpha[page,a]);
-     
-     if (mouse_check_button_pressed(mb_left))
+// Draw monsters
+tempI = 0;
+for (i = (currentPage * entriesPerPage); i < (((currentPage * entriesPerPage)) + entriesPerPage); i++)
+    {
+     // Compute [x,y] of drawn entries
+     if (entryActive != i)
         {
-         item_selected = a;
-         clicked = 1;
-         detail_alpha = 0;
+        entryX[i] = nX;
+        entryY[i] = ((y + 4) + (48 + (tempI * (66))));
+        tempEntryY[i] = entryY[i];
         }
-   }
-}   
-else
-    {
-    draw_sprite_ext(sBestiar,1,v_x,yy[a],1,1,0,c_white,i_alpha[a]);
-    draw_text(v_x+70,yy[a]+5,"?????");
-    draw_text_colour(v_x+70,yy[a]+20,"?????",c_ltgray,c_ltgray,c_ltgray,c_ltgray,i_alpha[a]);
-   
-    
-    if (mouse_in(v_x,v_x+256,yy[a],yy[a]+68) && item_selected = -1 && mode = 0)
-   {
-   draw_sprite_ext(sBestiar,1,v_x,yy[a],1,1,0,c_red,alpha[page,a]);
-   }
-   
-    }
-  
-}
+     else
+        {
+        // Animation UP
+        if (mode == 0)
+        {
+        entryX[i] = nX;
+        entryY[i] = ((y + 4) + (48 + (tempI * (66))) - shiftY);
+        
+        for (j = 0; j < (((currentPage * entriesPerPage)) + entriesPerPage); j++)
+        {
+        if (j == entryActive) {continue;}
+        entryAlpha[j] = lerp(entryAlpha[j], 0, 0.1);
+        if (entryActive == 0) {entryAlpha[j] = 0;}
+        }
+        
 
-q = 0;
-if (item_selected != -1)
-{
-if (yy[item_selected] <= v_y+48)
-   {
-    q = 1;
-   }
-}
-   
- if (pass || q) 
-    {
-    draw_set_alpha(1);
-    pass2 = 0;
-    
-     if (rec_height < 315-48-64 && mode = 0) {if (spd2 < spd_max2) {spd2 += 0.2;} rec_height += spd2;} 
-     else {pass2 = 1;}    
-     if (mode = 0) {rec_height = min(rec_height,315-48-64);}
-     
-     draw_set_color(c_white);
-     draw_sprite_part(sBestiar,5,0,100,256,rec_height,v_x,v_y+48+64);
-    
- yy[0] =  v_y + 48;  
-      
-   if (mouse_in(v_x,v_x+256,yy[0],yy[0]+68) && item_selected != -1)
-   {
-   draw_sprite_ext(sBestiar,1,v_x,yy[0],1,1,0,c_red,1);
-   
-   if (mouse_check_button_pressed(mb_left) && clicked = 0)
-      {
-      if (mode = 0) {mode = 1;}
-      }
-   }
-    }
-
-if (pass2 && mode != 1)
-   {    
-    if (detail_alpha < 1 && mode = 0 && item_selected != -1) {detail_alpha += 0.05;}
-    
-    draw_set_font(fntPixelSmall);    
-    draw_set_alpha(detail_alpha);
-    n = monster[active,bestiary_monster_text];
-    nH = string_height(n);
-    draw_text_colored(v_x+13,v_y+70+48,n); 
-    draw_set_font(fntPixelTiny);   
-    draw_text_colored(v_x+13,v_y+70+48+nH+8,monster[active,bestiary_monster_details]);
-    draw_set_alpha(1);
-   }
-
-if (mode = 1)
-{
-   if (rec_height > 0) {rec_height -= spd2;}
-   if (detail_alpha > 0) {detail_alpha -= 0.05;}
-
-   if (rec_height <= 0)
-{   
-
-for (a = 0; a < 4; a++)
-{
-     if (yy[a] < v_y + 48+a*68 && a = item_selected) {yy[a] += spd; pass3 = 1;} else {pass3 = 0;}          
-     if (a != item_selected) {if (i_alpha[a] < 1) {i_alpha[a] += 0.05;} else {pass = 1;}}
-     
-      if (item_selected = 0) {if (i_alpha[1] >= 1) {pass3 = 0;} else {pass3 = 1;}}
-      
-     if (pass3 = 0 && a = item_selected)
-        {        
-        item_selected = -1; 
-        mode = 0; 
-        real_spd = 0; 
-        spd2 = 0; 
-        spd = 0;
-        details_alpha = 0;
-        detail_alpha = 0;
-        pass2 = 0;
+        
+        if (shiftY < (66*entryActive) - 2) {shiftY = lerp(shiftY, (66*entryActive), 0.1);}
+        else
+            {
+             mode            = 1;
+             shiftY          = (66*entryActive);             
+             rectangleHeight = 0;
+            }
+        }
+        // Animation DETAILS DOWN
+        if (mode == 1)
+        {
+        entryX[i] = nX;
+        entryY[i] = ((y + 4) + (48 + (tempI * (66))) - shiftY);
+        
+        if (rectangleHeight < (256 - 50)) {rectangleHeight = lerp(rectangleHeight, 256 - 48, 0.1);}
+        else {mode = 2;}
+        }
+        
+        // Animation TEXT UP
+        if (mode == 2)
+        {
+        entryX[i] = nX;
+        entryY[i] = ((y + 4) + (48 + (tempI * (66))) - shiftY);
+ 
+        if (textAlpha < 1) {textAlpha = lerp(textAlpha, 1.1, 0.1);}
+        else {mode = 3;}
+       
+        }
+        
+        // Animation WAIT FOR CLOSE
+        if (mode == 3)
+        {
+        entryX[i] = nX;
+        entryY[i] = ((y + 4) + (48 + (tempI * (66))) - shiftY);
+        
         
         }
+        
+        // Animation TEXT DISSAPEAR
+        if (mode == 4)
+        {
+        entryX[i] = nX;
+        entryY[i] = ((y + 4) + (48 + (tempI * (66))) - shiftY);
+        
+        if (textAlpha > 0) {textAlpha = lerp(textAlpha, -0.1, 0.1);}
+        else {mode = 5;}
+        
+        textAlpha = max(textAlpha, 0);
+        } 
 
-}
+        // Animation DETAILS OFF
+        if (mode == 5)
+        {
+        entryX[i] = nX;
+        entryY[i] = ((y + 4) + (48 + (tempI * (66))) - shiftY);
+        
+        if (rectangleHeight > 0) {rectangleHeight = lerp(rectangleHeight, -4, 0.1);}
+        else {mode = 6;}
+        
+        rectngleHeight = max(rectangleHeight, 0);
+        
+        } 
+        
+        // Animation END
+        if (mode == 6)
+        {
+        entryX[i] = nX;
+        entryY[i] = ((y + 4) + (48 + (tempI * (66))) - shiftY);
+        
+        for (j = 0; j < (((currentPage * entriesPerPage)) + entriesPerPage); j++)
+        {
+        if (j == entryActive) {continue;}
+        entryAlpha[j] = lerp(entryAlpha[j], 1, 0.1);
+        if (entryActive == 0) {entryAlpha[j] = 1;}
+        }
+              
+        if (shiftY > 0) {shiftY = lerp(shiftY, 0, 0.1);}
+        else
+            {
+             mode            = 0;
+             entryActive     = -2;
+            }
+        }             
+        }
+     // tempVars
+     drawName = "??????";
+     drawRace = "??????";
+     drawN    = "";
+     
+        
+     // Draw frame
+     clr(c_black, entryAlpha[i]);
+     draw_sprite(sBestiar, 1, entryX[i], entryY[i]);
+     
+     if (unlocked[i]) 
+        {
+        draw_sprite(monster[i, bestiary_monster_sprite], 0, entryX[i] + 32, entryY[i] + 32); 
+        drawName = monster[i, bestiary_monster_title];
+        drawRace = monster[i, bestiary_monster_race];
+        drawN    = "Poraženo: " + string(monster[i, bestiary_monster_killed]);
+        
+        if (rectangleHeight != -1 && i == entryActive)
+            {
+             draw_sprite_part(sBestiar, 5, 0, 0, 256, rectangleHeight, entryX[i], entryY[i] + 64);
+            
+             alg();
+             clr(c_white, textAlpha);
+             draw_set_font(fntPixelSmall);
+             draw_text_colored(entryX[i] + 16, entryY[i] + 70, monster[i, bestiary_monster_text]);
+             q = string_height(monster[i, bestiary_monster_text]);
+             draw_set_font(fntPixelTiny);
+             draw_text_colored(entryX[i] + 16, entryY[i] + 78 + q, monster[i, bestiary_monster_details]);
+             
+             }
+        }
+     alg();
+     draw_set_font(fntPixel);
+     clr(c_white, entryAlpha[i]);
+     draw_text(entryX[i] + 72, entryY[i] + 4, drawName);
+     clr(c_ltgray, entryAlpha[i]);
+     draw_text(entryX[i] + 72, entryY[i] + 20, drawRace);
+     draw_set_font(fntPixelSmall);
+     clr(c_black, entryAlpha[i]);
+     draw_text(entryX[i] + 72, entryY[i] + 40, drawN);
+     
+     if (mouse_in(entryX[i], entryX[i] + 256, entryY[i], entryY[i] + 64) && entryAlpha[i] >= 1)
+        {
+         hover = true;
+         draw_sprite_ext(sBestiar, 7, entryX[i], entryY[i], 1, 1, 0, c_red, hoverA);
+       
+         if (mouse_check_button_pressed(mb_left) && entryActive == -2)
+            {
+             entryActive = i;
+             shiftY = 0;
+             shiftMaxY = 0;
+             mode = 0;
+            }
+         if (mouse_check_button_pressed(mb_left) && mode == 3)
+            {
+             mode = 4;
+            }
+        } 
 
-}
+     tempI++;
+    }
 
-}
-
-clr();
-
+if (hover) {if (hoverA < 0.5) {hoverA = lerp(hoverA, 0.5, 0.1);}}
+else {if (hoverA > 0) {hoverA = 0;}}

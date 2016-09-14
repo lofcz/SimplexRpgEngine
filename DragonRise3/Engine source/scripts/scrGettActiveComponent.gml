@@ -1,0 +1,3 @@
+/// scrGettActiveComponent()
+
+return(oHUD.activeComponent);

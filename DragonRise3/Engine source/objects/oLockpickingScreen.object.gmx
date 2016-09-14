@@ -28,6 +28,7 @@
             <string>/// Initialise
 
 oPlayer.can_move5 = false;
+scrSetActiveComponent(true);
 </string>
           </argument>
         </arguments>
@@ -54,6 +55,7 @@ oPlayer.can_move5 = false;
 
 oPlayer.can_move5 = true;
 with(parEnemy) {slowdown = 0;}
+scrSetActiveComponent(false);
 </string>
           </argument>
         </arguments>

@@ -484,6 +484,8 @@
         <script>scripts\mouse_in.gml</script>
         <script>scripts\instance_nnearest.gml</script>
         <script>scripts\scrColorflag.gml</script>
+        <script>scripts\scrSetActiveComponent.gml</script>
+        <script>scripts\scrGettActiveComponent.gml</script>
         <script>scripts\scrEndColorflag.gml</script>
         <script>scripts\scrBasicEffect.gml</script>
         <script>scripts\plainInitEnums.gml</script>
@@ -675,7 +677,9 @@
         <script>scripts\scrBCAddLoot.gml</script>
       </scripts>
       <scripts name="Lockpicking">
+        <script>scripts\scrLockpickingPrepare.gml</script>
         <script>scripts\scrLockpickingAddTumblerCombination.gml</script>
+        <script>scripts\scrLockpickingPrepareTumblerCombination.gml</script>
         <script>scripts\scrLockpickingDraw.gml</script>
         <script>scripts\scrLockpickingIni.gml</script>
       </scripts>
@@ -904,6 +908,7 @@
         <object>objects\oWoodLvl1</object>
         <object>objects\oStoneLvl1</object>
         <object>objects\oGoldLvl1</object>
+        <object>objects\oLockpick</object>
         <object>objects\oMaterialGreenGem</object>
         <object>objects\oKalokvet</object>
         <object>objects\oBasicItem</object>
@@ -1006,8 +1011,8 @@
     </timelines>
   </timelines>
   <rooms name="rooms">
-    <room>rooms\mapSklep</room>
     <room>rooms\mapTest</room>
+    <room>rooms\mapSklep</room>
     <room>rooms\cutscenePoustevnikovaPesina</room>
     <room>rooms\mapMainMenu</room>
     <room>rooms\mapHolohlavy</room>

@@ -26,5 +26,6 @@ itemBeltLeather,
 itemBootLeftIron,
 itemBootRightIron,
 itemStone,
-itemGolde
+itemGolde,
+itemLockpick
 }

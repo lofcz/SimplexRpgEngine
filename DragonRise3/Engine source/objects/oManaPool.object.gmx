@@ -122,7 +122,7 @@ if (alpha &gt;= 0.4 &amp;&amp; mode = 0) {mode = 1;}
 if (mode = 1) 
 {
 
-if (keyboard_check_pressed(ord("E"))) {mode = 2; str = "Rituální kombinace?"; keyboard_string = "Rituální kombinace?"; oPlayer.can_move2 = 0;} 
+if (keyboard_check_pressed(ord("E")) &amp;&amp; !scrGettActiveComponent()) {mode = 2; str = "Rituální kombinace?"; keyboard_string = "Rituální kombinace?"; oPlayer.can_move2 = 0; scrSetActiveComponent(true);} 
 
 }
 
@@ -167,7 +167,7 @@ draw_text(x+string_width(str)/2+60,y-16,"ENTER");
 draw_set_alpha(1);
 scrCenterText(0);
 
-if (keyboard_check_pressed(vk_enter)) {if (str = pass) {activated = 1;} mode = 0; oPlayer.can_move2 = 1;}
+if (keyboard_check_pressed(vk_enter)) {if (str = pass) {activated = 1;} mode = 0; oPlayer.can_move2 = 1; scrSetActiveComponent(false);}
 
    }
 }

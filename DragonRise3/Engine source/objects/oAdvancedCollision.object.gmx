@@ -326,9 +326,6 @@ if (idd = "kamen")
             <kind>1</kind>
             <string>/// Draw nothing
 
-draw_text(x+32,y+32,hp);
-//draw_text(xx,yy,text[status])
-
 if (mode == 0)
 {
 if (draw &amp;&amp; text[0] != "")

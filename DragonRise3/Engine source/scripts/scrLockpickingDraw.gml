@@ -3,7 +3,6 @@
 xx = x + drawX;
 yy = y + 200;
 canPick = true;
-
 //if (argument_count > 0) {xx = argument[0];}
 //if (argument_count > 1) {yy = argument[1];}
 
@@ -15,6 +14,7 @@ clr();
 // Navigation
 if (keyboard_check_pressed(ord("D"))) {if (currentItem < (array_length_1d(itemUp) - 1)) {currentItem++;}}
 if (keyboard_check_pressed(ord("A"))) {if (currentItem > 0) {currentItem--;}}
+if (keyboard_check_pressed(ord("E"))) {if (!opened) {close = true;}}
 
 //draw_rectangle_dashed(view_xview + 100, view_yview + 100, view_xview + 201, view_yview + 100);
 //draw_line_dashed(x + 100, yy - itemMoveAnimation, x + 700, yy - itemMoveAnimation);
@@ -80,7 +80,8 @@ for (i = 0; i < itemNumber; i++)
              else 
                 {
                  actualCombination = "";
-                 
+                 actualLockpickHp--;
+                 if (actualLockpickHp <= 0) {inventoryDelete(itemEnum.itemLockpick, 1); if (inventoryNumber(itemEnum.itemLockpick) == 0) {close = true;}}
                  multiplicator = 1;
                  for (k = 0; k < itemNumber; k++)
                     {
@@ -106,7 +107,8 @@ for (i = 0; i < itemNumber; i++)
      draw_set_alpha(alpha);
      draw_rectangle(xx + itemXPos[i], yy - itemUpY[i], xx + itemXPos[i] + itemWidth, yy + itemHeight[i] - itemUpY[i], true);
     }
-    
+fnt(fntPixelBig);    
+draw_text(xx - 220, yy - 180,"Paklíče: " + string(inventoryNumber(itemEnum.itemLockpick)) + "#Pokusů do rozbití paklíče: " + string(actualLockpickHp));    
 opened = true;
 for (i = 0; i < itemNumber; i++)
     { 
@@ -118,7 +120,11 @@ if (opened)
     alpha = lerp(alpha, -0.1, 0.1);
     if (alpha <= 0) {parent.unlocked = true; instance_destroy(); return true;}
     }    
-
+if (close)
+    {
+    alpha = lerp(alpha, -0.1, 0.1);
+    if (alpha <= 0) {instance_destroy(); return false;}
+    }  
 //draw_set_colour(c_black);
 //draw_text(xx, yy + 300, "Combination DEBUG: " + actualCombination);
 

@@ -129,7 +129,7 @@ draw_set_color(c_white);
 draw_text(x,y-32,"Zamčeno");
 draw_set_alpha(1);
 scrCenterText(0);
-                        if (keyboard_check_pressed(ord("E")) && distance_to_object(oPlayer) < open_dis && text = 1) {if (instance_number(oLockpickingScreen) == 0) {scrLockpickingIni(3); scrLockpickingAddTumblerCombination(0, 0, "1"); scrLockpickingAddTumblerCombination(2, 0, "1,0")}}
+                        if (keyboard_check_pressed(ord("E")) && distance_to_object(oPlayer) < open_dis && text = 1) {if (instance_number(oLockpickingScreen) == 0 && inventoryNumber(itemEnum.itemLockpick) > 0) {scrLockpickingIni(tumblers); for(j = 0; j < combinations; j++) { scrLockpickingAddTumblerCombination(c[j, 0], c[j, 1], c[j, 2]);}}}
 
                          }
                      

@@ -62,6 +62,7 @@ craftingMenuIndex[0] = "Vytvořit předmět";
 craftingMenuIndex[1] = "Vylepšit předmět";
 craftingMenuIndex[2] = "Zušlechtit materiál";
 craftingTitleHelper = "";
+activeComponent = false;
 
 drawCraftingMenu = 1;
 craftingSelectedIndex = -1;
@@ -342,7 +343,7 @@ alg("default", fntPixelHuge);
      //********************************************************************
      
      // Quest
-        if (keyboard_check_pressed(ord("Q")) &amp;&amp; iconActive[hudIcons.quest])
+        if (keyboard_check_pressed(ord("Q")) &amp;&amp; iconActive[hudIcons.quest] &amp;&amp; !scrGettActiveComponent())
         {
         draw_quest = ! draw_quest;
         if (instance_number(oQuest) &gt; 0) {oQuest.active = !oQuest.active;}
@@ -351,7 +352,7 @@ alg("default", fntPixelHuge);
         else {iconActive[hudIcons.status] = true; iconActive[hudIcons.inventory] = true;}
         }
      // Crafting
-        if (keyboard_check_pressed(ord("R")) &amp;&amp; iconActive[hudIcons.crafting])
+        if (keyboard_check_pressed(ord("R")) &amp;&amp; iconActive[hudIcons.crafting] &amp;&amp; !scrGettActiveComponent())
         {
         draw_crafting = !draw_crafting;
         
@@ -359,7 +360,7 @@ alg("default", fntPixelHuge);
         else {iconActive[hudIcons.equipment] = true;}
         }        
      // Equipment
-        if (keyboard_check_pressed(ord("E")) &amp;&amp; iconActive[hudIcons.equipment])
+        if (keyboard_check_pressed(ord("E")) &amp;&amp; iconActive[hudIcons.equipment] &amp;&amp; !scrGettActiveComponent())
         {
         draw_equipment = !draw_equipment;
         
@@ -369,13 +370,13 @@ alg("default", fntPixelHuge);
         oInventory.draw_equipment = draw_equipment;
         }  
      // Status
-        if (keyboard_check_pressed(ord("T")) &amp;&amp; iconActive[hudIcons.status])
+        if (keyboard_check_pressed(ord("T")) &amp;&amp; iconActive[hudIcons.status] &amp;&amp; !scrGettActiveComponent())
         {
         draw_status = !draw_status;
         if (instance_number(oStatusMenu) &gt; 0) {oStatusMenu.activated = !oStatusMenu.activated;}
         }  
     // Bestiář   
-     if (keyboard_check_pressed(ord("B")) &amp;&amp; iconActive[hudIcons.bestiary])
+     if (keyboard_check_pressed(ord("B")) &amp;&amp; iconActive[hudIcons.bestiary] &amp;&amp; !scrGettActiveComponent())
         {
         draw_bestiary = ! draw_bestiary;
         if (instance_number(oBestiar) &gt; 0) {oBestiar.activated = !oBestiar.activated;}
