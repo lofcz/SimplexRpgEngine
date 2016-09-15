@@ -802,7 +802,7 @@ if (instance_number(oPlayer) > 0)
 { 
 if (oPlayer.can_move2)
 {
-if (keyboard_check_pressed(ord("I")) && oHUD.iconActive[hudIcons.inventory])
+if (keyboard_check_pressed(ord("I")) && oHUD.iconActive[hudIcons.inventory] && !scrGettActiveComponent())
 {
 draw_inventory = !draw_inventory;
 hover_alpha = 0;
@@ -822,34 +822,29 @@ oHUD.iconActive[hudIcons.equipment] = false;
 oHUD.iconActive[hudIcons.quest]     = true;
 oHUD.iconActive[hudIcons.status]    = true;
 draw_equipment = false;
-//oHUD.iconActive[hudIcons.equipment] = false;
-//oHUD.scale_equipment = 1;
 }
 
 } 
-if (keyboard_check_pressed(ord("O")))
-{
-//draw_equipment = !draw_equipment;
-} 
-if (keyboard_check_pressed(ord("Q")))
+
+if (keyboard_check_pressed(ord("Q"))  && !scrGettActiveComponent())
 {
 draw_quest = !draw_quest;
 } 
 }
 }
 
-if (draw_equipment = 1)
+if (draw_equipment)
 {
 equipmentDraw();
 }
 
-if (draw_inventory = 1)
+if (draw_inventory)
 {
 inventoryDraw();
 }
 
 
-if (draw = 1)
+if (draw)
      {
      if (effect_scale < 1.2 && draw_inventory) {effect_scale += 0.02;}
      
@@ -861,6 +856,7 @@ if (draw = 1)
      }
      if (effect_scale > 1 && !draw_inventory) {effect_scale -= 0.02;}
  
+
 #define inventoryDrawStatsCompare
 /// inventoryDrawStatsCompare(property, mode)
 

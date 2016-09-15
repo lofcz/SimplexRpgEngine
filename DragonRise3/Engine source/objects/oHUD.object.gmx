@@ -60,7 +60,8 @@ craftingTitle   = "Výroba";
 craftingMenuAlpha = 1;
 craftingMenuIndex[0] = "Vytvořit předmět";
 craftingMenuIndex[1] = "Vylepšit předmět";
-craftingMenuIndex[2] = "Zušlechtit materiál";
+craftingMenuIndex[2] = "Vytvořit materiál";
+craftingMenuIndex[3] = "Zušlechtit materiál";
 craftingTitleHelper = "";
 activeComponent = false;
 
@@ -69,17 +70,22 @@ craftingSelectedIndex = -1;
 selectedIndexY = -1;
 craftingPageSelected = 0;
 craftingKnownItems = ds_list_create();
+craftingKnownMaterials = ds_list_create();
 craftingItemsNewFlag[0, 48] = false;
+craftingMaterialsNewFlag[0, 48] = false;
 craftingEntriesPerPage = 48;
 craftingEntriesPerRow  = 8;
 craftingItemsSprite[0, 48] = 0;
+craftingMaterialsSprite[0, 48] = 0;
 craftingItemsName[0, 48] = "";
+craftingMaterialsName[0, 48] = "";
 craftingSelectedItem = -1;
 craftingDetails = false;
 craftingDetailsHeight = 0;
 craftingDetailsAlpha = 0;
 craftingSlot[10, 5] = 0;
 craftingDetailsText[0, 48] = "";
+craftingmaterialsDetailsText[0, 48] = "";
 craftingTitleHelper2 = "";
 
 craftingSlotFree[10] = true;
@@ -87,6 +93,7 @@ craftingSlotSprite[10] = -1;
 craftingSlotID[10] = 0;
 craftingSlotItemID[10] = -1;
 craftingSlotNumber[10] = -1;
+craftingSlotOptional[10] = false;
 
 upgradingItemID = -1;
 upgradingItemSprite = 0;
@@ -100,9 +107,16 @@ enrichtItemID = -1;
 enrichtItemSprite = 0;
 enrichtItemSlotID = -1;
 enrichtingOutputSprite = 0;
-// TEST
+
+// TEST - CRAFTING
+// *****************************************
+
+// Crafting Item
 craftingItemsSprite[0, 3] = 3; // Wooden sword
 scrCraftingSetItemKnown(3, "Dřevěný meč", "Poškození: " + scrColorflag(c_lime) + "5" + scrEndColorflag() + " - " + scrColorflag(c_lime) + "8#" + scrEndColorflag() + "Stamina na úder: " + scrColorflag(c_red) + "4 " + scrEndColorflag() + "- " + scrColorflag(c_red) + "5#");
+// Crafting Material
+craftingMaterialsSprite[0, 3] = 25; // Steel
+scrCraftingSetMaterialKnown(3, "Ocel", "Základní materiál.");
 
 
 iconActive[hudIcons.bestiary]  = true;

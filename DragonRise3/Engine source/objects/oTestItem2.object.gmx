@@ -42,7 +42,7 @@ itm_info_head           = "Nice, shit item";
 itm_options[0]          = "Super option1";
 itm_options[1]          = "Shit option1";
 itm_sprite_number       = 1;
-itm_materialType        = materialEnum.materialWood;
+itm_materialType        = materialEnum.materialPearl;
 
 
 //*********************************

@@ -7,10 +7,10 @@
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
-  <bbox_left>6</bbox_left>
-  <bbox_right>24</bbox_right>
-  <bbox_top>7</bbox_top>
-  <bbox_bottom>25</bbox_bottom>
+  <bbox_left>5</bbox_left>
+  <bbox_right>25</bbox_right>
+  <bbox_top>6</bbox_top>
+  <bbox_bottom>26</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
@@ -23,5 +23,6 @@
     <frame index="0">images\sCraftingIcons_0.png</frame>
     <frame index="1">images\sCraftingIcons_1.png</frame>
     <frame index="2">images\sCraftingIcons_2.png</frame>
+    <frame index="3">images\sCraftingIcons_3.png</frame>
   </frames>
 </sprite>

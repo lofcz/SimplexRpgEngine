@@ -39,7 +39,7 @@ while (string_length(str) > 0)
              str = string_delete(str, 1, string_length(nextWord));
             }
     }
-fnt();
+fnt(f);
 // Add rest of last line to output.   
 out += outLine;
 return out;

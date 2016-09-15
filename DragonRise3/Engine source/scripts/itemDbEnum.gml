@@ -1,5 +1,10 @@
 /// itemDbEnum()
 
+enum materialEnum
+{
+materialNone, materialMetal, materialWood, materialHerb, materialStone, materialGolde, materialPearl, materialMetal
+};
+
 enum itemEnum
 {
 itemBasicItem, 
@@ -27,5 +32,6 @@ itemBootLeftIron,
 itemBootRightIron,
 itemStone,
 itemGolde,
-itemLockpick
+itemLockpick,
+itemSteel
 }

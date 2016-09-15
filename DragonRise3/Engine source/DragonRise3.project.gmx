@@ -382,6 +382,7 @@
         <sprite>sprites\sHelmetEffect</sprite>
         <sprite>sprites\sRingEffect</sprite>
         <sprite>sprites\sWoodEffect</sprite>
+        <sprite>sprites\sMetalEffect</sprite>
         <sprite>sprites\sStoneEffect</sprite>
         <sprite>sprites\sGoldEffect</sprite>
         <sprite>sprites\sSwordEffect</sprite>
@@ -695,6 +696,7 @@
       </scripts>
       <scripts name="Crafting">
         <script>scripts\scrCraftingSetItemKnown.gml</script>
+        <script>scripts\scrCraftingSetMaterialKnown.gml</script>
         <script>scripts\scrCraftingDB.gml</script>
         <script>scripts\scrCraftingDraw.gml</script>
       </scripts>
@@ -906,6 +908,7 @@
         <object>objects\oTestItem2</object>
         <object>objects\oRedPearlLvl2</object>
         <object>objects\oWoodLvl1</object>
+        <object>objects\oMetalSteel</object>
         <object>objects\oStoneLvl1</object>
         <object>objects\oGoldLvl1</object>
         <object>objects\oLockpick</object>
