@@ -75,9 +75,11 @@ scrItemSetUpFinalize()
 
 if (loot == 0)
 {
-inventoryPickUp(); 
+if (inventoryPickUp())
+{
 audio_play_sound(sndRindPickup,0,0);
 scrLog("+ Zelená perla",c_lime,sRingEffect,0,0.5);
+}
 }
 </string>
           </argument>

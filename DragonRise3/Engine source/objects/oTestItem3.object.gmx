@@ -99,9 +99,11 @@ scrItemSetUpFinalize(true);
 
 if (loot = 0)
 {
-inventoryPickUp(); 
+if (inventoryPickUp())
+{
 scrLog("+ Dřevěný meč",c_white,sSwordEffect,1);
 audio_play_sound(sndWeaponPickup,0,0);
+}
 }
 </string>
           </argument>

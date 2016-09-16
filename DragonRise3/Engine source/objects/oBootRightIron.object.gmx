@@ -80,9 +80,11 @@ scrItemSetUpFinalize(true);
 
 if (loot = 0)
 {
-inventoryPickUp(); 
+if (inventoryPickUp())
+{
 scrLog("+ Pravá zpevněná bota",c_white,sRingEffect,1,0.5);
 audio_play_sound(sndWeaponPickup,0,0);
+}
 }
 </string>
           </argument>

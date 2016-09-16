@@ -16,7 +16,7 @@
 math_set_epsilon(0.0000001);
 apiPlayerRegenerate()
 
-if (can_move && can_move2 && can_move3 && can_move4 && can_move5) 
+if (can_move && can_move2 && can_move3 && can_move4 && can_move5 && !oPlayerCombat.charging) 
     {  
      if (currentAnimation == animationEnum.walk)
      { 

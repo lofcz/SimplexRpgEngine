@@ -38,6 +38,10 @@ attackMode = "attack";
 parryTimer = 0;
 parryTimerMax = 10;
 parryTimerSlowdown = 40;
+chargeTimer = 0;
+charging = false;
+maxCharge = 100;
+chargeMode = 0;
 
 
 sprite_index = sprite;

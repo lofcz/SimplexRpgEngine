@@ -1,6 +1,5 @@
 /// combatHandle()
 
-
 x           = oPlayer.x;
 y           = oPlayer.y;
 image_speed = 0;
@@ -17,9 +16,18 @@ if (sprite != 0)
 xx = oPlayer.x;
 yy = oPlayer.y;
 
+if (charging && chargeTimer < maxCharge) {chargeTimer++;}
 
 if (keyboard_check_pressed(vk_space))
-   {
+    {
+     charging      = true;
+     oPlayer.speed = 0;
+     oPlayer.image_speed = 0;
+     with(oPlayer) {apiPlayerMoveStand();}
+    }
+
+if ((keyboard_check_released(vk_space) && chargeMode) || (keyboard_check_pressed(vk_space) && !chargeMode))
+   {   
     if (!attack && oPlayer.vlastnost[vlastnost_stamina] >= oPlayer.vlastnost[vlastnost_stamina_cost] && attackMode == "attack")
        {
         audio_play_sound(sndSword2,0,0);
@@ -36,6 +44,7 @@ if (keyboard_check_pressed(vk_space))
         attackMode = "attack";
         oPlayer.currentAnimation = animationEnum.slash;
         oPlayer.sprite_index = oPlayer.bci[1, 0];
+      //  show_message(chargeTimer);
         
         
          if (oPlayer.last_dir == "s" || oPlayer.last_dir == "")
@@ -57,6 +66,8 @@ if (keyboard_check_pressed(vk_space))
          }
         oPlayer.speed = 0;
         oPlayer.image_speed = 0;
+        charging    = false;
+        chargeTimer = 0;
    }
 
 if (tick > 0)

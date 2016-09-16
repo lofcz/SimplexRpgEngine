@@ -81,7 +81,7 @@ instance_deactivate_object(oAdvancedCollision);
 instance_deactivate_object(oBasicCollision);
 instance_deactivate_object(oTransitionCollision);
 instance_deactivate_object(oRoomTransition);
-instance_activate_region(oPlayer.x - 64, oPlayer.y - 64, 128, 128, true);
+instance_activate_region(oPlayer.x - 96, oPlayer.y - 96, 160, 160, true);
 
 // Reactivate needed coll points for enemy collisions
 with(parEnemy)

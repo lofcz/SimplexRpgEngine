@@ -387,6 +387,7 @@
         <sprite>sprites\sGoldEffect</sprite>
         <sprite>sprites\sSwordEffect</sprite>
         <sprite>sprites\sXpRewardPoint</sprite>
+        <sprite>sprites\sLockpickEffect</sprite>
         <sprite>sprites\sCoinAnimated</sprite>
         <sprite>sprites\sCoinSingle</sprite>
         <sprite>sprites\sSlimePart</sprite>
@@ -454,9 +455,11 @@
     <background>background\background21</background>
     <background>background\background22</background>
     <background>background\A4_Server_Tiles_zps6mjyu46o</background>
+    <background>background\celianna_farmnature_farmtiles</background>
     <background>background\TileE__1_</background>
     <background>background\background29</background>
     <background>background\background30</background>
+    <background>background\celianna_TileB1_zpsyp2xxayw</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\pthCutsceneObet1</path>

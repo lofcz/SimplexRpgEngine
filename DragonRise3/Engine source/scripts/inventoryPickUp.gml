@@ -8,93 +8,68 @@ n         = -1;
 
 if (argument_count > 0) {n = argument[0];}
 
-if (itm_stackable = 1)
+if (itm_stackable)
 {
- for(a=0 a<oInventory.slots a++)
+ for(a = 0; a < oInventory.slots; a++)
          {
-          if (oInventory.slot[a,inv_id] = itm_id)
+          if (oInventory.slot[a,inv_id] == itm_id)
              {
               in_inv  = 1;
-              in_slot = a;
-                                                                                          //show_message("Already in inv");
+              in_slot = a;                                                                                          //show_message("Already in inv");
               break;
              }         
          } 
- if (in_inv = 1)
+ if (in_inv)
     {                                                                                 //show_message("Sound: "+string(itm_sound));
-      //if (itm_sound != 0) {audio_play_sound(itm_sound,0,0);}              
-     if (loot != 2) {oInventory.slot[in_slot,inv_number] += itm_number; event_user(event_user_destroy);}
-     else if (n != -1) {itm_number -= n; oInventory.slot[in_slot,inv_number] += n; if (itm_number <= 0) {event_user(event_user_destroy);}}
-     
+     if (loot != 2) {oInventory.slot[in_slot,inv_number] += itm_number; event_user(event_user_destroy); return true;}
+     else if (n != -1) {itm_number -= n; oInventory.slot[in_slot,inv_number] += n; if (itm_number <= 0) {event_user(event_user_destroy); return true;}}
     }
  else
      {
-      for(a=0; a<oInventory.slots; a++)
+      for(a = 0; a < oInventory.slots; a++)
          {
-                                                                                          //show_message("Slot id: "+string(oInventory.slot[a]));
-
-          if (oInventory.slot[a,inv_id] = 0)
+          if (oInventory.slot[a,inv_id] == 0)
              {
               free_slot = a;                                                              //show_message("Slot: "+string(free_slot));
               break;
              }                
          } 
-      if (free_slot = -1)
+      if (free_slot != -1)
          {
-                                                                                          //show_message("Inventory is full! (imho)");
-         }
-      else 
-           {                                                                              //show_message("First free slot: "+string(free_slot))
-                                                                                          //show_message("Item added");
-                                                                                          
-                                                                                          // show_message("Sound: "+string(itm_sound));
-            //if (itm_sound != 0) {audio_play_sound(itm_sound,0,0);}                                                                              
-            if (n == -1)
+          if (n == -1)
             {
             inventoryPickUpParam(1);                                                                              
             event_user(event_user_destroy);
+            return true;
             }
             else if (loot == 2)
                     {
                      inventoryPickUpParam(1, n);
                      itm_number -= n;
-                     if (itm_number <= 0) {event_user(event_user_destroy);}
-                    }
-           }
-     
-     
-     
+                     if (itm_number <= 0) {event_user(event_user_destroy); return true;}
+                    }                                                                               
+         }     
      }
 }
 else
+{
+ for(a = 0; a < oInventory.slots; a++)
     {
-    for(a=0; a<oInventory.slots; a++)
+      if (oInventory.slot[a,inv_id] == 0)
          {
-                                                                                          //show_message("Slot id: "+string(oInventory.slot[a]));
-
-          if (oInventory.slot[a,inv_id] = 0)
-             {
-              free_slot = a;                                                              //show_message("Slot: "+string(free_slot));
-              break;
-             }                
-         } 
-      if (free_slot = -1)
+         free_slot = a;                                                            
+         break;
+         }                
+    } 
+      if (free_slot != -1)
          {
-                                                                                          //show_message("Inventory is full! (imho)");
-         }
-      else 
-           {                                                                              //show_message("First free slot: "+string(free_slot))
-                                                                                          //show_message("Item added");
-                                                                                          // show_message("Sound: "+string(itm_sound));                                                                              
-            //if (itm_sound != 0) {audio_play_sound(itm_sound,0,0);}                                                                                   
             inventoryPickUpParam(0);                        
-            event_user(event_user_destroy);
-           }
-     
-     
+            event_user(event_user_destroy); 
+            return true;                                                                                         //show_message("Inventory is full! (imho)");
+         }
+}
 
-    
-    }
+return false;
 
 #define inventoryPickUpParam
 ///inventoryPickUpParam(stackable, count)

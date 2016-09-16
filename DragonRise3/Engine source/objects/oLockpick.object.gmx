@@ -58,9 +58,11 @@ scrItemSetUpFinalize();
 
 if (loot = 0)
 {
-inventoryPickUp(); 
+if (inventoryPickUp())
+{
 audio_play_sound(sndRindPickup,0,0);
-scrLog("+ Zlato",c_yellow,sGoldEffect,0,0.5);
+scrLog("+ Paklíč",c_white,sLockpickEffect,0,0.5);
+}
 }
 </string>
           </argument>
