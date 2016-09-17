@@ -26,6 +26,8 @@ if (keyboard_check_pressed(vk_space))
      with(oPlayer) {apiPlayerMoveStand();}
     }
 
+if (keyboard_check_pressed(vk_alt)) {chargeMode = !chargeMode;}
+
 if ((keyboard_check_released(vk_space) && chargeMode) || (keyboard_check_pressed(vk_space) && !chargeMode))
    {   
     if (!attack && oPlayer.vlastnost[vlastnost_stamina] >= oPlayer.vlastnost[vlastnost_stamina_cost] && attackMode == "attack")

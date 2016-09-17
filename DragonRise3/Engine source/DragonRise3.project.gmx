@@ -426,6 +426,7 @@
     <sprite>sprites\sHintButton</sprite>
     <sprite>sprites\sHintForm</sprite>
     <sprite>sprites\sMinimapIcons</sprite>
+    <sprite>sprites\sOverlayLight</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -460,6 +461,7 @@
     <background>background\background29</background>
     <background>background\background30</background>
     <background>background\celianna_TileB1_zpsyp2xxayw</background>
+    <background>background\celianna_farmnature_tileset</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\pthCutsceneObet1</path>
@@ -816,6 +818,7 @@
     </shaders>
     <shader type="GLSLES">shaders\shdFrost.shader</shader>
     <shader type="GLSLES">shaders\shdSandstorm.shader</shader>
+    <shader type="GLSLES">shaders\shdLightRays.shader</shader>
   </shaders>
   <fonts name="fonts">
     <fonts name="Standard game fonts">

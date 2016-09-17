@@ -3,8 +3,8 @@
   <caption></caption>
   <width>2016</width>
   <height>2016</height>
-  <vsnap>8</vsnap>
-  <hsnap>8</hsnap>
+  <vsnap>4</vsnap>
+  <hsnap>4</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>0</persistent>
@@ -78,7 +78,6 @@
     <instance objName="oBasicCollision" x="1728" y="128" name="inst_2D1C1484" locked="0" code="" scaleX="2.25" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1792" y="192" name="inst_E4C37DAA" locked="0" code="" scaleX="2" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1856" y="256" name="inst_B361B3CF" locked="0" code="" scaleX="5" scaleY="2" colour="4294967295" rotation="0"/>
-    <instance objName="oTree1" x="128" y="72" name="inst_EF175985" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTree1" x="480" y="40" name="inst_4E49B1A6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTree2" x="144" y="504" name="inst_671DA307" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTree2" x="672" y="672" name="inst_5BFE1CBB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -124,7 +123,6 @@
     <instance objName="oXpReward" x="1184" y="224" name="inst_5C7D4062" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="912" y="256" name="inst_33026146" locked="0" code="scrNonsolidCollisionIni(x,y-32,&quot;mapTest_kytka1&quot;,1,&quot;breakableGrass&quot;,3,layerEnum.layer4,false);&#xA;&#xA;text[0] = &quot;Nějaká &quot;+scrColorflag(c_white)+&quot;bílá&quot;+scrEndColorflag()+&quot; kytka.&quot;&#xA;text[1] = &quot;Některé listy se dají využít.&quot;&#xA;text[2] = &quot;Použitelné jsem už otrhal.&quot;;" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="656" y="144" name="inst_EE55A616" locked="0" code="scrNonsolidCollisionIni(x,y-32,&quot;mapTest_kytka1&quot;,1,&quot;breakableGrass&quot;,3,layerEnum.layer4,false);&#xA;&#xA;text[0] = &quot;Nějaká &quot;+scrColorflag(c_white)+&quot;bílá&quot;+scrEndColorflag()+&quot; kytka.&quot;&#xA;text[1] = &quot;Některé listy se dají využít.&quot;&#xA;text[2] = &quot;Použitelné jsem už otrhal.&quot;;" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
-    <instance objName="oNonsolidCollision" x="209" y="209" name="inst_29F07929" locked="0" code="scrNonsolidCollisionIni(x,y-32,&quot;mapTest_kytka1&quot;,1,&quot;breakableGrass&quot;,3,layerEnum.layer3,false);&#xA;&#xA;text[0] = &quot;To vypadá na Kalokvět.&quot;&#xA;text[1] = &quot;Některé listy se dají využít.&quot;&#xA;text[2] = &quot;Použitelné jsem už otrhal.&quot;;" scaleX="0.53125" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="1201" y="529" name="inst_E9D71FA5" locked="0" code="scrNonsolidCollisionIni(x,y-32,&quot;mapTest_kytka1&quot;,1,&quot;breakableGrass&quot;,3,layerEnum.layer2,false);&#xA;&#xA;text[0] = &quot;Obyčejná, &quot;+scrColorflag(c_lime)+&quot;zelená&quot;+scrEndColorflag()+&quot; kytka.&quot;&#xA;text[1] = &quot;Některé listy by se možná daly využít.&quot;&#xA;text[2] = &quot;Použitelné jsem už otrhal.&quot;;" scaleX="0.625" scaleY="0.469999998807907" colour="4294967295" rotation="0"/>
     <instance objName="oManaPool" x="704" y="832" name="inst_B6F5656E" locked="0" code="pass = &quot;nbusr123&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="1616" y="306" name="inst_FE2EE307" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer2, true);" scaleX="0.5625" scaleY="0.5" colour="4294967295" rotation="0"/>
@@ -197,7 +195,7 @@
     <instance objName="oFence" x="288" y="704" name="inst_3B83B8F2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="270"/>
     <instance objName="oTree1" x="1568" y="712" name="inst_B1FD5D59" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTree3" x="1952" y="656" name="inst_0D6CA5F4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTransitionCollision" x="1712" y="912" name="inst_03FF91B3" locked="0" code="level = mapHouse1;&#xA;text = &quot;Vstoupit do &quot; + scrColorflag(c_yellow) + &quot;Krysího sklípku&quot; + scrEndColorflag() + &quot;.&quot;;&#xA;xx = x;&#xA;yy = y-64;&#xA;text_lenght = 0;&#xA;player_pos = 0;" scaleX="0.5" scaleY="0.53125" colour="4294967295" rotation="0"/>
+    <instance objName="oTransitionCollision" x="196" y="144" name="inst_03FF91B3" locked="0" code="level = mapHouse1;&#xA;text = &quot;Vstoupit do &quot; + scrColorflag(c_yellow) + &quot;Tajemné jeskyně&quot; + scrEndColorflag() + &quot;.&quot;;&#xA;xx = x;&#xA;yy = y-64;&#xA;text_lenght = 0;&#xA;player_pos = 0;&#xA;" scaleX="1" scaleY="1.90625" colour="4294967295" rotation="0"/>
     <instance objName="oJug" x="1624" y="832" name="inst_1F5E4902" locked="0" code="scrBCAddLoot(oGold, 2, 6, 10);&#xA;set_sprite(sBrokenJug, 0);" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oArmorLeather" x="376" y="744" name="inst_21A22A1B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oShoulderRightLeather" x="416" y="744" name="inst_4D7F0722" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -218,10 +216,7 @@
     <instance objName="oBootRightIron" x="456" y="840" name="inst_AADAE359" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="688" y="208" name="inst_A6283249" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3, true);" scaleX="0.375" scaleY="0.375" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="1120" y="52" name="inst_2D3C1245" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3);" scaleX="0.5625" scaleY="0.4375" colour="4294967295" rotation="0"/>
-    <instance objName="oNonsolidCollision" x="273" y="211" name="inst_FD8BE08B" locked="0" code="scrNonsolidCollisionIni(x,y-32,&quot;mapTest_kytka1&quot;,1,&quot;breakableGrass&quot;,3,layerEnum.layer3,false);&#xA;&#xA;text[0] = &quot;To vypadá na kytku, která &quot;+scrColorflag(c_maroon)+&quot;prdí&quot;+scrEndColorflag()+&quot; srdíčka&quot;&#xA;text[1] = &quot;Některé listy se dají využít.&quot;&#xA;text[2] = &quot;Použitelné jsem už otrhal.&quot;;" scaleX="0.65625" scaleY="0.5" colour="4294967295" rotation="0"/>
-    <instance objName="oNonsolidCollision" x="209" y="144" name="inst_F0377E48" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer4, true);" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="336" y="144" name="inst_DC4BF107" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3, true);" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
-    <instance objName="oNonsolidCollision" x="216" y="72" name="inst_001CFA81" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3);" scaleX="0.84375" scaleY="0.84375" colour="4294967295" rotation="0"/>
     <instance objName="oEnemySlime" x="504" y="1040" name="inst_D6B94AE4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oEnemySlime" x="336" y="992" name="inst_020FB680" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oEnemySlime" x="912" y="840" name="inst_3912C2FF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -234,7 +229,6 @@
     <instance objName="oNonsolidCollision" x="976" y="148" name="inst_EC14D115" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3, true);&#xA;" scaleX="0.709677398204803" scaleY="0.580645143985748" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="943" y="178" name="inst_2CE5BEB8" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3, true);" scaleX="0.333333343267441" scaleY="0.393939405679703" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="1103" y="146" name="inst_B99B328A" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3, true);" scaleX="0.333333343267441" scaleY="0.393939405679703" colour="4294967295" rotation="0"/>
-    <instance objName="oNonsolidCollision" x="33" y="51" name="inst_DB89AB22" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3, true);" scaleX="0.65625" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="1296" y="112" name="inst_4F4FCA85" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer2, true);" scaleX="0.75" scaleY="0.75" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="1520" y="48" name="inst_99829217" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer2, true);&#xA;" scaleX="0.75" scaleY="0.75" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="1520" y="208" name="inst_A94988C6" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer2, true);&#xA;" scaleX="1" scaleY="0.96875" colour="4294967295" rotation="0"/>
@@ -252,7 +246,6 @@
     <instance objName="oNonsolidCollision" x="527" y="368" name="inst_6BF89071" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3);" scaleX="1" scaleY="0.96875" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="448" y="352" name="inst_A8C906CB" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3);" scaleX="0.90625" scaleY="0.875" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="112" y="336" name="inst_8912489B" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer2, true);" scaleX="0.875" scaleY="0.75" colour="4294967295" rotation="0"/>
-    <instance objName="oNonsolidCollision" x="273" y="178" name="inst_B07D090B" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3);" scaleX="0.65625" scaleY="0.625" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="560" y="452" name="inst_22771223" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3, true);" scaleX="0.709677398204803" scaleY="0.580645143985748" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="128" y="417" name="inst_D33E522F" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3);" scaleX="0.9375" scaleY="0.9375" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="16" y="528" name="inst_60FD89A2" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3, true);" scaleX="0.709677398204803" scaleY="0.580645143985748" colour="4294967295" rotation="0"/>
@@ -285,7 +278,6 @@
     <instance objName="oNonsolidCollision" x="209" y="595" name="inst_18BFB19C" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3, true);" scaleX="0.709677398204803" scaleY="0.580645143985748" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="256" y="674" name="inst_D4D9B972" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3, true);&#xA;" scaleX="0.333333343267441" scaleY="0.393939405679703" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="143" y="658" name="inst_DC56044E" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3, true);&#xA;" scaleX="0.333333343267441" scaleY="0.393939405679703" colour="4294967295" rotation="0"/>
-    <instance objName="oNonsolidCollision" x="81" y="18" name="inst_614D1232" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3);" scaleX="0.6875" scaleY="0.65625" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="1873" y="587" name="inst_75976565" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3, true);" scaleX="0.709677398204803" scaleY="0.580645143985748" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="1936" y="592" name="inst_EE68BCAB" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3, true);" scaleX="0.46875" scaleY="0.3125" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="1744" y="624" name="inst_210A12D5" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3, true);" scaleX="0.709677398204803" scaleY="0.580645143985748" colour="4294967295" rotation="0"/>
@@ -412,6 +404,17 @@
     <instance objName="oWoodLvl1" x="416" y="680" name="inst_081FFC2E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWoodLvl1" x="456" y="680" name="inst_CB09AFCC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWoodLvl1" x="488" y="680" name="inst_BA86F436" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="68" y="192" name="inst_B93FA56C" locked="0" code="" scaleX="1.75" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="376" y="64" name="inst_B567E055" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="56" y="0" name="inst_3AB474E8" locked="0" code="" scaleX="3" scaleY="4.5" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="240" y="0" name="inst_1CA0F86D" locked="0" code="" scaleX="3.25" scaleY="3.375" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="280" y="108" name="inst_6280D476" locked="0" code="" scaleX="1.29032254219055" scaleY="0.25" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="152" y="0" name="inst_F0302652" locked="0" code="" scaleX="2.75" scaleY="3.5" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="152" y="112" name="inst_04CD13A8" locked="0" code="" scaleX="0.875" scaleY="1.875" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="212" y="112" name="inst_B6CC62B2" locked="0" code="" scaleX="1.125" scaleY="1.625" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="212" y="164" name="inst_5784553F" locked="0" code="" scaleX="0.75" scaleY="0.375" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="88" y="144" name="inst_F8325E65" locked="0" code="" scaleX="1.5" scaleY="0.125" colour="4294967295" rotation="0"/>
+    <instance objName="oTransitionCollision" x="1712" y="912" name="inst_EFEED0CF" locked="0" code="level = mapHouse1;&#xA;text = &quot;Vstoupit do &quot; + scrColorflag(c_yellow) + &quot;Krysího sklípku&quot; + scrEndColorflag() + &quot;.&quot;;&#xA;xx = x;&#xA;yy = y-64;&#xA;text_lenght = 0;&#xA;player_pos = 0;" scaleX="0.5" scaleY="0.53125" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="background14" x="1600" y="1712" w="32" h="32" xo="32" yo="0" id="10006696" name="inst_AC26E277" depth="1000001" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -1336,7 +1339,6 @@
     <tile bgName="background3" x="576" y="96" w="32" h="32" xo="192" yo="128" id="10005229" name="inst_3C853AE4" depth="100002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background3" x="512" y="96" w="32" h="32" xo="192" yo="128" id="10005233" name="inst_118C058B" depth="100002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background3" x="512" y="64" w="32" h="32" xo="192" yo="128" id="10005240" name="inst_B3912C2C" depth="100002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="background3" x="480" y="128" w="32" h="32" xo="128" yo="160" id="10005245" name="inst_57048CE0" depth="100002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background3" x="480" y="64" w="32" h="32" xo="224" yo="160" id="10005247" name="inst_F61654E7" depth="100002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background3" x="480" y="96" w="32" h="32" xo="224" yo="160" id="10005248" name="inst_59B6AF11" depth="100002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background3" x="480" y="32" w="32" h="32" xo="128" yo="128" id="10005254" name="inst_227438ED" depth="100002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -2283,6 +2285,7 @@
     <tile bgName="background7" x="1024" y="824" w="32" h="32" xo="288" yo="0" id="10019544" name="inst_42DD3A3C" depth="100002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background7" x="992" y="856" w="32" h="32" xo="288" yo="96" id="10019545" name="inst_D9453188" depth="100002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background7" x="992" y="840" w="32" h="32" xo="288" yo="96" id="10019547" name="inst_444CF7B3" depth="100002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="background3" x="484" y="128" w="32" h="32" xo="128" yo="160" id="10019691" name="inst_6592A4B5" depth="100002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background4" x="1760" y="32" w="32" h="32" xo="96" yo="0" id="10003844" name="inst_25120811" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background4" x="1760" y="0" w="32" h="32" xo="96" yo="0" id="10003845" name="inst_9D114ACC" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background4" x="1760" y="64" w="32" h="32" xo="96" yo="0" id="10003846" name="inst_86537C23" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -2341,8 +2344,6 @@
     <tile bgName="background4" x="1728" y="32" w="32" h="32" xo="32" yo="160" id="10003924" name="inst_E4BF1123" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background4" x="1728" y="0" w="32" h="32" xo="32" yo="160" id="10003927" name="inst_F36B8F5F" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background1" x="512" y="64" w="32" h="32" xo="96" yo="96" id="10004074" name="inst_38B7A466" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="background1" x="256" y="192" w="32" h="32" xo="96" yo="96" id="10004075" name="inst_F528DAC5" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="background1" x="16" y="32" w="32" h="32" xo="96" yo="96" id="10004076" name="inst_E82BEF72" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background1" x="64" y="256" w="32" h="32" xo="96" yo="96" id="10004077" name="inst_D1DAF51F" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background1" x="0" y="512" w="32" h="32" xo="96" yo="96" id="10004078" name="inst_F14C76D7" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background1" x="192" y="576" w="32" h="32" xo="96" yo="96" id="10004079" name="inst_A706DECB" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -2436,7 +2437,6 @@
     <tile bgName="background1" x="624" y="1136" w="32" h="32" xo="192" yo="32" id="10006092" name="inst_58259B46" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background1" x="464" y="896" w="32" h="32" xo="192" yo="32" id="10006093" name="inst_67C4C537" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background1" x="336" y="560" w="32" h="32" xo="64" yo="32" id="10006094" name="inst_9F036D4B" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="background1" x="192" y="192" w="32" h="32" xo="64" yo="32" id="10006095" name="inst_8C831C19" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background1" x="896" y="240" w="32" h="32" xo="64" yo="32" id="10006096" name="inst_0F984632" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background1" x="640" y="128" w="32" h="32" xo="64" yo="32" id="10006097" name="inst_3E37887C" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background5" x="80" y="1584" w="8" h="8" xo="40" yo="0" id="10006098" name="inst_17ADF025" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -2530,8 +2530,6 @@
     <tile bgName="background11" x="1472" y="1688" w="32" h="32" xo="288" yo="320" id="10006712" name="inst_22D6A983" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background11" x="1568" y="1688" w="32" h="32" xo="288" yo="320" id="10006713" name="inst_FAC4B22C" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background1" x="928" y="160" w="32" h="32" xo="64" yo="64" id="10007111" name="inst_1A94B44D" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="background1" x="256" y="160" w="32" h="32" xo="192" yo="32" id="10007113" name="inst_C91A04BB" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="background1" x="64" y="0" w="32" h="32" xo="192" yo="32" id="10007114" name="inst_A717930A" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background1" x="248" y="456" w="32" h="32" xo="160" yo="128" id="10007116" name="inst_C177116B" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background1" x="1024" y="672" w="32" h="32" xo="96" yo="96" id="10007117" name="inst_D7FEEB45" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background1" x="1152" y="736" w="32" h="32" xo="160" yo="64" id="10007118" name="inst_A18D628F" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -2630,6 +2628,8 @@
     <tile bgName="background7" x="992" y="824" w="32" h="32" xo="256" yo="32" id="10019552" name="inst_B88BEC5C" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="celianna_farmnature_farmtiles" x="672" y="472" w="72" h="56" xo="72" yo="384" id="10019554" name="inst_283F49A9" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="celianna_farmnature_farmtiles" x="1096" y="768" w="40" h="32" xo="32" yo="736" id="10019555" name="inst_F0B9129C" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="152" y="16" w="96" h="128" xo="0" yo="0" id="10019594" name="inst_B6F9AAF0" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="152" y="144" w="96" h="32" xo="96" yo="128" id="10019595" name="inst_2BBE86B0" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="celianna_farmnature_farmtiles" x="800" y="568" w="8" h="64" xo="216" yo="424" id="10019443" name="inst_0295E061" depth="10002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="celianna_farmnature_farmtiles" x="952" y="568" w="8" h="64" xo="216" yo="424" id="10019444" name="inst_D54196FA" depth="10002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="celianna_farmnature_farmtiles" x="864" y="580" w="32" h="56" xo="360" yo="160" id="10019449" name="inst_59DBC1DB" depth="10002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -2639,6 +2639,10 @@
     <tile bgName="celianna_farmnature_farmtiles" x="696" y="556" w="72" h="72" xo="64" yo="504" id="10019461" name="inst_1A08B82F" depth="10002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="celianna_farmnature_farmtiles" x="936" y="600" w="40" h="48" xo="320" yo="632" id="10019462" name="inst_2F84A4A0" depth="10002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="celianna_farmnature_farmtiles" x="724" y="700" w="40" h="48" xo="200" yo="584" id="10019463" name="inst_1AD9A859" depth="10002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="184" y="112" w="32" h="64" xo="64" yo="256" id="10019596" name="inst_A3ED2F39" depth="10002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="56" y="24" w="96" h="128" xo="96" yo="0" id="10019614" name="inst_EB92644B" depth="10002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="248" y="-8" w="96" h="128" xo="96" yo="0" id="10019615" name="inst_DB5BEE41" depth="10002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="152" y="16" w="96" h="96" xo="96" yo="0" id="10019616" name="inst_D72107D5" depth="10002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background4" x="1856" y="0" w="32" h="128" xo="0" yo="32" id="10003928" name="inst_A2BFF58C" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background4" x="1888" y="96" w="32" h="64" xo="0" yo="96" id="10003929" name="inst_4F122BE5" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background4" x="1920" y="128" w="32" h="64" xo="0" yo="96" id="10003930" name="inst_D916E202" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -2686,6 +2690,41 @@
     <tile bgName="TileE__1_" x="1568" y="920" w="32" h="32" xo="64" yo="448" id="10017633" name="inst_3541C054" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="celianna_farmnature_farmtiles" x="788" y="544" w="176" h="48" xo="0" yo="224" id="10019425" name="inst_8B851E47" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="celianna_farmnature_farmtiles" x="912" y="456" w="32" h="48" xo="80" yo="96" id="10019426" name="inst_B14BB031" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="136" y="48" w="32" h="32" xo="208" yo="80" id="10019619" name="inst_973988EF" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="136" y="16" w="32" h="32" xo="208" yo="80" id="10019620" name="inst_E7C575E6" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="144" y="0" w="32" h="32" xo="208" yo="80" id="10019625" name="inst_A6CA672D" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="168" y="8" w="32" h="32" xo="208" yo="80" id="10019626" name="inst_A3AD58F0" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="176" y="0" w="32" h="32" xo="208" yo="80" id="10019627" name="inst_74322F88" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="224" y="24" w="32" h="32" xo="208" yo="80" id="10019628" name="inst_C94483CB" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="208" y="0" w="32" h="32" xo="208" yo="80" id="10019629" name="inst_E400EE61" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="240" y="0" w="32" h="32" xo="208" yo="80" id="10019630" name="inst_4B5DAC4E" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="256" y="24" w="32" h="32" xo="208" yo="80" id="10019632" name="inst_5377D0BB" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="240" y="80" w="32" h="32" xo="192" yo="160" id="10019633" name="inst_CD9F6AF3" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="240" y="48" w="32" h="32" xo="208" yo="80" id="10019634" name="inst_160EC2BE" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="264" y="64" w="16" h="16" xo="160" yo="64" id="10019635" name="inst_3FF6E9D2" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="264" y="80" w="16" h="16" xo="160" yo="80" id="10019636" name="inst_DA6E9F43" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="64" y="192" w="64" h="32" xo="96" yo="288" id="10019638" name="inst_3522F22D" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="376" y="64" w="32" h="32" xo="160" yo="224" id="10019639" name="inst_C26C0418" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="80" y="-8" w="64" h="48" xo="96" yo="0" id="10019641" name="inst_DD21AD22" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="72" y="24" w="16" h="16" xo="96" yo="16" id="10019643" name="inst_01532044" depth="1004" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="200" y="0" w="16" h="16" xo="96" yo="16" id="10019674" name="inst_3D9E7845" depth="1003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="112" y="-48" w="96" h="128" xo="96" yo="0" id="10019649" name="inst_BDDC8EE9" depth="104" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="144" y="80" w="16" h="16" xo="128" yo="80" id="10019651" name="inst_0DB7C12F" depth="104" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="136" y="88" w="16" h="16" xo="160" yo="80" id="10019653" name="inst_E035B548" depth="104" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="152" y="88" w="16" h="16" xo="112" yo="80" id="10019654" name="inst_9406C5A9" depth="104" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="156" y="76" w="16" h="16" xo="160" yo="32" id="10019659" name="inst_67212930" depth="104" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="148" y="64" w="32" h="16" xo="128" yo="112" id="10019660" name="inst_D8C07931" depth="104" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="200" y="-12" w="96" h="16" xo="96" yo="0" id="10019666" name="inst_5AD33915" depth="104" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="264" y="4" w="16" h="16" xo="144" yo="16" id="10019667" name="inst_C01DC7F6" depth="104" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="280" y="0" w="16" h="16" xo="144" yo="16" id="10019668" name="inst_50FA9C1F" depth="104" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="272" y="-8" w="32" h="32" xo="160" yo="192" id="10019677" name="inst_0AA4ED45" depth="104" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="248" y="108" w="32" h="32" xo="224" yo="288" id="10019678" name="inst_0845043E" depth="104" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="80" y="80" w="32" h="32" xo="224" yo="224" id="10019679" name="inst_9CE24C8F" depth="104" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="72" y="40" w="32" h="32" xo="32" yo="320" id="10019680" name="inst_AF078E61" depth="104" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="144" y="-16" w="32" h="32" xo="224" yo="320" id="10019682" name="inst_47730B6B" depth="104" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="220" y="8" w="32" h="32" xo="192" yo="192" id="10019683" name="inst_9D03840C" depth="104" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="256" y="40" w="64" h="32" xo="64" yo="448" id="10019687" name="inst_00603FFB" depth="104" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_tileset" x="4" y="0" w="64" h="64" xo="0" yo="448" id="10019688" name="inst_08EBEB7A" depth="104" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>

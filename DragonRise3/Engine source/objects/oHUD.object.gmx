@@ -486,6 +486,12 @@ if (can_draw)
      draw_sprite(oPlayer.spell_sprite[spell_transformed_index], 0, (mouse_x - 16), (mouse_y - 16));
     }
    
+/// Draw overlay
+/*
+draw_set_blend_mode(bm_add);
+draw_sprite(sOverlayLight, 0, view_xview, view_yview);
+draw_set_blend_mode(bm_normal);
+*/
 </string>
           </argument>
         </arguments>

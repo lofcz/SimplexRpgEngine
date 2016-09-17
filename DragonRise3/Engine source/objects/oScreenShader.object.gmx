@@ -76,6 +76,10 @@ sandtormTime = shader_get_uniform(shdSandstorm, "iGlobalTime");
 sandstormSampler = shader_get_uniform(shdSandstorm, "noiseTex");
 sandtormTimeVal = 0;
 
+// Light rays
+raysTime = shader_get_uniform(shdLightRays, "iGlobalTime");
+raysTimeVal = 0;
+
 
 </string>
           </argument>
@@ -221,12 +225,21 @@ if (shader_active == shaderVignette + 2)
     {
      shader_set(shdSandstorm);
      shader_set_uniform_f(sandtormTime, sandtormTimeVal);
-     shader_set_uniform_f(sandstormSampler, sNoise);
      sandtormTimeVal += 0.05;
      draw_surface(application_surface,0,0);   
      shader_reset();
     }
 else {sandtormTimeVal = 0;}
+
+if (shader_active == shaderVignette + 3)
+    {
+     shader_set(shdLightRays);
+     shader_set_uniform_f(raysTime, raysTimeVal);
+     raysTimeVal += 0.05;
+     draw_surface(application_surface,0,0);   
+     shader_reset();
+    }
+else {raysTimeVal = 0;}
    
 draw_text(600,400,"Shader active: " + string(shader_active));
 
