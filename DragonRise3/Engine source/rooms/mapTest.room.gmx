@@ -415,6 +415,7 @@
     <instance objName="oBasicCollision" x="212" y="164" name="inst_5784553F" locked="0" code="" scaleX="0.75" scaleY="0.375" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="88" y="144" name="inst_F8325E65" locked="0" code="" scaleX="1.5" scaleY="0.125" colour="4294967295" rotation="0"/>
     <instance objName="oTransitionCollision" x="1712" y="912" name="inst_EFEED0CF" locked="0" code="level = mapHouse1;&#xA;text = &quot;Vstoupit do &quot; + scrColorflag(c_yellow) + &quot;Krysího sklípku&quot; + scrEndColorflag() + &quot;.&quot;;&#xA;xx = x;&#xA;yy = y-64;&#xA;text_lenght = 0;&#xA;player_pos = 0;" scaleX="0.5" scaleY="0.53125" colour="4294967295" rotation="0"/>
+    <instance objName="oAdvancedCollision" x="744" y="744" name="inst_C5032CD5" locked="0" code="/// Initialise&#xA;&#xA;scrAdvancedCollisionIni(x, y-32, &quot;pařezSeSekyrou&quot;, 1, &quot;breakableWood&quot;, 10, layerEnum.layer3);&#xA;    scrAdvancedCollisionSetText(&quot;Obyčejný pařez, nic zajímavého.&quot;);&#xA;    scrAdvancedCollisionSetText(&quot;Vida, [c=&quot;+string(c_yellow)+&quot;]něco[/c] tam přece bylo.&quot;);&#xA;    scrAdvancedCollisionSetText(&quot;Vážně tam už nic není.&quot;);&#xA;    scrAdvancedCollisionSetText(&quot;Znova tam ruku strkat nebudu, ještě mě něco kousne.&quot;);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="background14" x="1600" y="1712" w="32" h="32" xo="32" yo="0" id="10006696" name="inst_AC26E277" depth="1000001" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -2630,6 +2631,7 @@
     <tile bgName="celianna_farmnature_farmtiles" x="1096" y="768" w="40" h="32" xo="32" yo="736" id="10019555" name="inst_F0B9129C" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="celianna_farmnature_tileset" x="152" y="16" w="96" h="128" xo="0" yo="0" id="10019594" name="inst_B6F9AAF0" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="celianna_farmnature_tileset" x="152" y="144" w="96" h="32" xo="96" yo="128" id="10019595" name="inst_2BBE86B0" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="celianna_farmnature_farmtiles" x="732" y="728" w="32" h="32" xo="208" yo="592" id="10019693" name="inst_B50CE901" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="celianna_farmnature_farmtiles" x="800" y="568" w="8" h="64" xo="216" yo="424" id="10019443" name="inst_0295E061" depth="10002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="celianna_farmnature_farmtiles" x="952" y="568" w="8" h="64" xo="216" yo="424" id="10019444" name="inst_D54196FA" depth="10002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="celianna_farmnature_farmtiles" x="864" y="580" w="32" h="56" xo="360" yo="160" id="10019449" name="inst_59DBC1DB" depth="10002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -2638,7 +2640,6 @@
     <tile bgName="celianna_farmnature_farmtiles" x="1076" y="604" w="48" h="72" xo="160" yo="368" id="10019459" name="inst_8AC54387" depth="10002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="celianna_farmnature_farmtiles" x="696" y="556" w="72" h="72" xo="64" yo="504" id="10019461" name="inst_1A08B82F" depth="10002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="celianna_farmnature_farmtiles" x="936" y="600" w="40" h="48" xo="320" yo="632" id="10019462" name="inst_2F84A4A0" depth="10002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="celianna_farmnature_farmtiles" x="724" y="700" w="40" h="48" xo="200" yo="584" id="10019463" name="inst_1AD9A859" depth="10002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="celianna_farmnature_tileset" x="184" y="112" w="32" h="64" xo="64" yo="256" id="10019596" name="inst_A3ED2F39" depth="10002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="celianna_farmnature_tileset" x="56" y="24" w="96" h="128" xo="96" yo="0" id="10019614" name="inst_EB92644B" depth="10002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="celianna_farmnature_tileset" x="248" y="-8" w="96" h="128" xo="96" yo="0" id="10019615" name="inst_DB5BEE41" depth="10002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

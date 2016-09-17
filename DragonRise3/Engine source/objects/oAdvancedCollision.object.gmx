@@ -276,11 +276,16 @@ if (level == mapTest)
             <string>/// Interaction DB
 
 // Holohlavy - venkov
-if ((level == mapTest)||(1==1))
+if ((level == mapTest))
 {
 if (idd = "pařez1")
    {
     if (status = 1) {scrEnemyLoot(oGold,1,5,1,100,4);}
+   
+   }
+if (idd = "pařezSeSekyrou")
+   {
+    if (status = 1) {tile_set_region(tile, 449, 812, 27, 37); inventoryAdd(oQuestItemAxe1); scrLog("+ Roztínač",c_white,sQuestEffect,0,0.5);}
    
    }
 if (idd = "skála1")

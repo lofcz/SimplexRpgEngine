@@ -33,5 +33,6 @@ itemBootRightIron,
 itemStone,
 itemGolde,
 itemLockpick,
-itemSteel
+itemSteel,
+itemQuestAxe1
 }

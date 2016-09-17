@@ -245,6 +245,12 @@ if (instance_number(oPlayer) &gt; 0)
      if (keyboard_check_pressed(ord("E")) &amp;&amp; act_alpha &gt;= 1 &amp;&amp; !talking)
         {
            event_user(15);
+           
+           // Make player face the NPC
+           if (dir == "a") {oPlayer.image_index = 18;}
+           if (dir == "d") {oPlayer.image_index = 6;}
+           if (dir == "w") {oPlayer.image_index = 12;}
+           if (dir == "s") {oPlayer.image_index = 0;}           
         }
    }
  }

@@ -386,6 +386,7 @@
         <sprite>sprites\sStoneEffect</sprite>
         <sprite>sprites\sGoldEffect</sprite>
         <sprite>sprites\sSwordEffect</sprite>
+        <sprite>sprites\sQuestEffect</sprite>
         <sprite>sprites\sXpRewardPoint</sprite>
         <sprite>sprites\sLockpickEffect</sprite>
         <sprite>sprites\sCoinAnimated</sprite>
@@ -531,6 +532,7 @@
     <scripts name="Components">
       <scripts name="Inventory">
         <script>scripts\inventoryDraw.gml</script>
+        <script>scripts\inventoryAdd.gml</script>
         <script>scripts\inventoryCreate.gml</script>
         <script>scripts\inventoryExtend.gml</script>
         <script>scripts\inventoryPickUp.gml</script>
@@ -923,6 +925,7 @@
         <object>objects\oBasicItem</object>
         <object>objects\oTestItem3</object>
         <object>objects\oKozenaHelma</object>
+        <object>objects\oQuestItemAxe1</object>
         <object>objects\oArmorLeather</object>
         <object>objects\oShoulderRightLeather</object>
         <object>objects\oShoulderLeftLeather</object>
