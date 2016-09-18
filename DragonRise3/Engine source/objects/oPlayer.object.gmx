@@ -328,11 +328,6 @@ cyber_r ++;
 //surface_reset_target();
 if (can_move2)
 {
-if (keyboard_check_pressed(ord("P")))
-   {
-   //show_message(inventoryNumber(1))
-   instance_create(x,y,oAchievment);
-   }
    
 if (keyboard_check(ord("J")))
    {
