@@ -152,16 +152,23 @@ event_user(12);
 
 if (status == 0)
    {
-   dialogueMessage("Bylinkářka", "Co tě sem přivádí, drahoušku?", 0);
-   dialogueMessage("Petr", "Jsem zástupce královského písaře Dobromila, Petr. Vyšetřuji vraždu dívky před Vavřincovou farou. Nevíte o tom něco?", 0);
+   dialogueMessage("Alice", "Co tě sem přivádí, drahoušku?", 0);
+   dialogueMessage("Petr", "Jsem zástupce královského písaře Dobromila, Petr. Vyšetřuji vraždu dívky před Vavřincovou farou.", 0);
+   dialogueMessage("Alice", "Ano, ano. Je to hrůza, docela si to pamatuji...", 0);
+   dialogueMessage("Alice", "Bylo to někdy... někdy před... hm. Ale já si to tak jasně pamatuji..", 0);
+
    dialogueOptions(0);
    if (status &lt; 1) {status = 1;}
    }
    
 if (status == 1)
    {
-   dialogueMessage("Bylinkářka", "Opravdu potřebuji ty perly.");
-   dialogueOptions(0);
+   dialogueMessage("Alice", "No ano, ano, už si to vybavuji. Byla jsem večer sbírat Kalokvět... na bolesti hlavy.");
+   dialogueMessage("Alice", "Bože, jen kdyby mě tak nebolela ta hlava, nedokážu se soustředit.");
+   dialogueMessage("Alice", "Petře, byl bys tak dobrý a donesl mi trochu kalokvětu? Čaj z něj mi vždycky pomůže.");   
+   action_id = 0;
+   dialogueOptions(1);
+   status = 2;
    }
 </string>
           </argument>
@@ -189,16 +196,25 @@ if (status == 1)
 
 switch(action_id)
                  {
-                 case (0):
-                      {
-                        
-                        oAnswer.polozka[0] = "Donesu ti to rostlinstvo."; 
+                 case (0): 
+                      {                        
+                        oAnswer.polozka[0] = "Před čtyřmi dny, v pondělí."; 
                         oAnswer.polozka_activated[0] = 1;
                         
-                        oAnswer.polozka[4] = "Nemám zájem.";                        
+                        oAnswer.polozka[4] = "Zkusíme to později.";                        
                         oAnswer.polozka_activated[4] = 1;                               
                       }
-                 
+                 case (1):
+                      {                        
+                        oAnswer.polozka[0] = "Dobře, jdětě si sednout dovnitř, za chvilku jsem zpět."; 
+                        oAnswer.polozka_activated[0] = 1;
+                        
+                        oAnswer.polozka[1] = "Čaj z kalokvětu je jedovatý! Nemůžete ho pít."; 
+                        oAnswer.polozka_activated[1] = 1;
+                                                
+                        oAnswer.polozka[4] = "Zkusíme to později.";                        
+                        oAnswer.polozka_activated[4] = 1;                               
+                      }                 
                  
                  }
 </string>
@@ -224,17 +240,15 @@ switch(action_id)
           <argument>
             <kind>1</kind>
             <string>/// Actions
-oMessagebox.option[oMessagebox.message_current] = -1
+oMessagebox.option[oMessagebox.message_current] = -1;
 
-
-if (action_id = 0) 
+if (action_id == 0) 
    {
    if (index = 0)
       {
-        with(oMessagebox) {instance_destroy();}
-        dialogueMessage("Možnost 0","TEST?",1);
-        action_id = 1;
-      
+        dialogueEnd();
+        scrCutscenePlay(self, cutsceneAlice1, false, 1); 
+             
       }
      if (index = 1)
       {

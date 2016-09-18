@@ -100,7 +100,6 @@
     <instance objName="oEnemySlime" x="528" y="452" name="inst_A90E428E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1456" y="1520" name="inst_7FF85EF2" locked="0" code="" scaleX="5" scaleY="5.5" colour="4294967295" rotation="0"/>
     <instance objName="oEnemySlime" x="320" y="480" name="inst_0BE9798E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oEnemySlime" x="592" y="784" name="inst_02F4013C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oEnemySlime" x="880" y="128" name="inst_A4A58754" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1520" y="1392" name="inst_D8D56555" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1504" y="1424" name="inst_CD2B9F65" locked="0" code="" scaleX="2" scaleY="3" colour="4294967295" rotation="0"/>
@@ -129,7 +128,7 @@
     <instance objName="oKozenaHelma" x="376" y="712" name="inst_36100E2E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTEST" x="1312" y="1568" name="inst_9CEB1C98" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oRoomTransition" x="1008" y="2008" name="inst_9D9DEF3A" locked="0" code="level = mapHolohlavy;&#xA;" scaleX="62.0645179748535" scaleY="0.8125" colour="4294967295" rotation="0"/>
-    <instance objName="oTestNpc2" x="788" y="644" name="inst_3E1BD585" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oTestNpc2" x="804" y="664" name="inst_3E1BD585" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oJug" x="1304" y="344" name="inst_180A67FE" locked="0" code="scrBCAddLoot(oGold2, 2, 6, 10);" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="624" y="81" name="inst_E4638E1E" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3);" scaleX="0.90625" scaleY="0.875" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="704" y="64" name="inst_BC8AD219" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3, true);" scaleX="0.75" scaleY="0.75" colour="4294967295" rotation="0"/>
@@ -217,10 +216,7 @@
     <instance objName="oNonsolidCollision" x="688" y="208" name="inst_A6283249" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3, true);" scaleX="0.375" scaleY="0.375" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="1120" y="52" name="inst_2D3C1245" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3);" scaleX="0.5625" scaleY="0.4375" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="336" y="144" name="inst_DC4BF107" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3, true);" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
-    <instance objName="oEnemySlime" x="504" y="1040" name="inst_D6B94AE4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oEnemySlime" x="336" y="992" name="inst_020FB680" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oEnemySlime" x="912" y="840" name="inst_3912C2FF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oEnemySlime" x="1168" y="832" name="inst_C08F66B8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oXpDrop" x="336" y="376" name="inst_772B8078" locked="0" code="itm_number = 30;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oXpDrop" x="352" y="376" name="inst_667B0486" locked="0" code="itm_number = 30;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oXpDrop" x="352" y="392" name="inst_C6241D1B" locked="0" code="itm_number = 30;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -428,7 +424,7 @@
     <instance objName="oAdvancedCollision" x="708" y="496" name="inst_27A6E5C6" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;" scaleX="2" scaleY="1.5" colour="4294967295" rotation="0"/>
     <instance objName="oAdvancedCollision" x="728" y="592" name="inst_CCAE796F" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;" scaleX="1.75" scaleY="1.5" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="764" y="488" name="inst_88B400AF" locked="0" code="" scaleX="1" scaleY="1.75" colour="4294967295" rotation="0"/>
-    <instance objName="oTransitionCollision" x="880" y="608" name="inst_010B346B" locked="0" code="level = mapHouse1;&#xA;text = &quot;Vstoupit do &quot; + scrColorflag(c_yellow) + &quot;Tajemné jeskyně&quot; + scrEndColorflag() + &quot;.&quot;;&#xA;xx = x;&#xA;yy = y-64;&#xA;text_lenght = 0;&#xA;player_pos = 0;&#xA;" scaleX="1" scaleY="1.48387098312378" colour="4294967295" rotation="0"/>
+    <instance objName="oTransitionCollision" x="880" y="608" name="inst_010B346B" locked="0" code="level = mapHouse1;&#xA;text = &quot;Vstoupit do &quot; + scrColorflag(c_yellow) + &quot;Domku bylinkářky Alice&quot; + scrEndColorflag() + &quot;.&quot;;&#xA;xx = x;&#xA;yy = y-64;&#xA;text_lenght = 0;&#xA;player_pos = 0;" scaleX="1" scaleY="1.48387098312378" colour="4294967295" rotation="0"/>
     <instance objName="oAdvancedCollision" x="952" y="636" name="inst_C0E640BB" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;" scaleX="1.125" scaleY="0.4375" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>

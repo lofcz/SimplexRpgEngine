@@ -1024,6 +1024,7 @@
   </objects>
   <timelines name="timelines">
     <timelines name="Cutscenes">
+      <timeline>timelines\cutsceneAlice1</timeline>
       <timeline>timelines\cutsceneTest</timeline>
       <timeline>timelines\ctsTestNPC1</timeline>
       <timeline>timelines\DemoCutscene</timeline>

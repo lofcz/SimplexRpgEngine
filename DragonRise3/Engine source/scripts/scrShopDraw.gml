@@ -3,28 +3,28 @@
 isBusy = true;
 
 var xx, yy;
-xx = x + 32; //view_xview + 288;
-yy = y - 80;//view_yview + 36;
+xx = x + 32-16; //view_xview + 288;
+yy = y - 80-24;//view_yview + 36;
 tX = 0;
 tY = 0;
 
 if (playerDir != oPlayer.dir) {shopActive = false; open = false;}
 
 clr(c_black, 0.4);
-draw_roundrect(x - 96, y - 80, x + 30, y - 8, false);
+draw_roundrect(x - 96 -16, y - 80 - 24, x + 30 - 16, y - 8 - 24, false);
 clr();
-draw_roundrect(x - 96, y - 80, x + 30, y - 8, true);
+draw_roundrect(x - 96 - 16, y - 80 - 24, x + 30 - 16, y - 8 - 24, true);
 
 if (thumbnailImage != -1)
     {
-     draw_sprite(sTestItem, thumbnailImage, x - (64 - 16), y - 80);
+     draw_sprite(sTestItem, thumbnailImage, x - (64 - 16) - 16, y - 80 - 24);
     }
 else
     {
      // Draw shop info
      fnt(fntPixelTiny);
      clr(c_white);
-     draw_text_colored(x - 92, y - 80, shopText);
+     draw_text_colored(x - 92 - 16, y - 80 - 24, shopText);
      clr();
     }
 
@@ -37,13 +37,13 @@ if (thumbnailPrice != -1)
 
      if (discount > 0) {priceText = " (" + scrColorflag(c_yellow) + "-" + string(discount) + "%" + scrEndColorflag() + ")";}
 
-     draw_text_colored(x - 90, y - 48, "Cena: " + string(thumbnailPrice) + priceText);
+     draw_text_colored(x - 90 - 16, y - 48 - 24, "Cena: " + string(thumbnailPrice) + priceText);
      
      if (thumbnailCount != -1)
      {
-     if (slotFlag[hoverSlot] == "") {draw_text( x - 90, y - 32, "Skladem: " + string(thumbnailCount));}
-     else if (slotFlag[hoverSlot] == "+") {draw_text_colored(x - 90, y - 32, "Skladem: " + scrColorflag(c_lime) + string(thumbnailCount) + scrEndColorflag() + " ");}
-     else if (slotFlag[hoverSlot] == "-") {draw_text_colored(x - 90, y - 32, "Skladem: " + scrColorflag(c_red) + string(thumbnailCount) + scrEndColorflag() + " ");}
+     if (slotFlag[hoverSlot] == "") {draw_text( x - 90 - 16, y - 32 - 24, "Skladem: " + string(thumbnailCount));}
+     else if (slotFlag[hoverSlot] == "+") {draw_text_colored(x - 90-16, y - 32-24, "Skladem: " + scrColorflag(c_lime) + string(thumbnailCount) + scrEndColorflag() + " ");}
+     else if (slotFlag[hoverSlot] == "-") {draw_text_colored(x - 90-16, y - 32-24, "Skladem: " + scrColorflag(c_red) + string(thumbnailCount) + scrEndColorflag() + " ");}
      }
     }
     

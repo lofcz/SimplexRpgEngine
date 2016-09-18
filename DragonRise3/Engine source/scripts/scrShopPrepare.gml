@@ -1,8 +1,8 @@
 /// scrShopPrepare(slot)
 
 var xx, yy, tar_x, tar_y, slot;
-xx    = x + 32;
-yy    = y - 80;
+xx    = x + 32-16;
+yy    = y - 80-24;
 tar_x = xx + 16;
 tar_y = yy + 16;
 tX    = 0;

@@ -58,6 +58,7 @@ isBusy         = false;
 isShop         = false;
 shopActive     = false;
 open           = false;
+action_id      = -1;
 
 splashMessage           = false;
 splashMessageTime       = -1;    
@@ -158,27 +159,27 @@ if (instance_number(oPlayer) &gt; 0)
        if (turn_to_player)
           {
           
-              if (oPlayer.x &gt; x &amp;&amp; oPlayer.x &lt; x+sprite_get_width(sprite_index) &amp;&amp; oPlayer.y &gt; y-sprite_get_height(sprite_index) &amp;&amp; oPlayer.y &lt; y)
+              if (oPlayer.x &gt; x - 16 &amp;&amp; oPlayer.x &lt; x+sprite_get_width(sprite_index)-16 &amp;&amp; oPlayer.y &gt; y-sprite_get_height(sprite_index)-24 &amp;&amp; oPlayer.y &lt; y-24)
                {
                //if (turn_timer = -1 &amp;&amp; dir != "w") {last_dir = dir; turn_timer = irandom_range(15,30); }
                     dir = "w";
                image_index = 12;
 
                }
-              else  if (oPlayer.x &gt; x &amp;&amp; oPlayer.x &lt; x+sprite_get_width(sprite_index) &amp;&amp; oPlayer.y &gt; y+sprite_get_height(sprite_index) &amp;&amp; oPlayer.y &lt; y+sprite_get_height(sprite_index)+48)
+              else  if (oPlayer.x &gt; x-16 &amp;&amp; oPlayer.x &lt; x+sprite_get_width(sprite_index)-16 &amp;&amp; oPlayer.y &gt; y+sprite_get_height(sprite_index)-24 &amp;&amp; oPlayer.y &lt; y+sprite_get_height(sprite_index)+48-24)
                {
                //if (turn_timer = -1 &amp;&amp; dir != "s") {last_dir = dir; turn_timer = irandom_range(15,30); }
                 dir = "s";
                image_index = 0;
 
                }
-                else  if (oPlayer.x &gt; x-32 &amp;&amp; oPlayer.x &lt; x &amp;&amp; oPlayer.y &gt;= y &amp;&amp; oPlayer.y &lt;= y+48)
+                else  if (oPlayer.x &gt; x-32-16 &amp;&amp; oPlayer.x &lt; x-16 &amp;&amp; oPlayer.y &gt;= y-24 &amp;&amp; oPlayer.y &lt;= y+48-24)
                {
                //if (turn_timer = -1 &amp;&amp; dir != "a") {last_dir = dir; turn_timer = irandom_range(15,30); }
                dir = "a";
                image_index = 4;
                }
-              else  if (oPlayer.x &gt; x+32 &amp;&amp; oPlayer.x &lt; x+64 &amp;&amp; oPlayer.y &gt;= y &amp;&amp; oPlayer.y &lt;= y+48)
+              else  if (oPlayer.x &gt; x+32-16 &amp;&amp; oPlayer.x &lt; x+64-16 &amp;&amp; oPlayer.y &gt;= y-24 &amp;&amp; oPlayer.y &lt;= y+48-24)
                {
                //if (turn_timer = -1 &amp;&amp; dir != "d") {last_dir = dir; turn_timer = irandom_range(15,30); }
                  dir = "d";
@@ -203,7 +204,7 @@ if (instance_number(oPlayer) &gt; 0)
        
         if (dir = "s")
            {
-            if (oPlayer.x &gt; x &amp;&amp; oPlayer.x &lt; x+sprite_get_width(sprite_index) &amp;&amp; oPlayer.y &gt; y+sprite_get_height(sprite_index) &amp;&amp; oPlayer.y &lt; y+sprite_get_height(sprite_index)+48 &amp;&amp; oPlayer.last_dir = "w")
+            if (oPlayer.x &gt; x - 16&amp;&amp; oPlayer.x &lt; x+sprite_get_width(sprite_index)-16 &amp;&amp; oPlayer.y &gt; y+sprite_get_height(sprite_index)-24 &amp;&amp; oPlayer.y &lt; y+sprite_get_height(sprite_index)+48-24 &amp;&amp; oPlayer.last_dir = "w")
                {
                 if (act_alpha &lt; 1) {act_alpha += 0.1;}                
                } 
@@ -211,7 +212,7 @@ if (instance_number(oPlayer) &gt; 0)
            }
         else if (dir = "w")
            {
-            if (oPlayer.x &gt; x &amp;&amp; oPlayer.x &lt; x+sprite_get_width(sprite_index) &amp;&amp; oPlayer.y &gt; y-sprite_get_height(sprite_index) &amp;&amp; oPlayer.y &lt; y &amp;&amp; oPlayer.last_dir = "s")
+            if (oPlayer.x &gt; x-16 &amp;&amp; oPlayer.x &lt; x+sprite_get_width(sprite_index)-16 &amp;&amp; oPlayer.y &gt; y-sprite_get_height(sprite_index)-24 &amp;&amp; oPlayer.y &lt; y-24 &amp;&amp; oPlayer.last_dir = "s")
                {
                 if (act_alpha &lt; 1) {act_alpha += 0.1;}
                 
@@ -220,7 +221,7 @@ if (instance_number(oPlayer) &gt; 0)
            }
           else if (dir = "a")
            {
-            if (oPlayer.x &gt; x-32 &amp;&amp; oPlayer.x &lt; x &amp;&amp; oPlayer.y &gt;= y &amp;&amp; oPlayer.y &lt;= y+48 &amp;&amp; oPlayer.last_dir = "d")
+            if (oPlayer.x &gt; x-32-16 &amp;&amp; oPlayer.x &lt; x-16 &amp;&amp; oPlayer.y &gt;= y-24 &amp;&amp; oPlayer.y &lt;= y+48-24 &amp;&amp; oPlayer.last_dir = "d")
                {
                 if (act_alpha &lt; 1) {act_alpha += 0.1;}
                 
@@ -229,7 +230,7 @@ if (instance_number(oPlayer) &gt; 0)
            }
         else if (dir = "d")
            {
-            if (oPlayer.x &gt; x+32 &amp;&amp; oPlayer.x &lt; x+64 &amp;&amp; oPlayer.y &gt;= y &amp;&amp; oPlayer.y &lt;= y+48 &amp;&amp; oPlayer.last_dir = "a")
+            if (oPlayer.x &gt; x+32-16 &amp;&amp; oPlayer.x &lt; x+64-16 &amp;&amp; oPlayer.y &gt;= y-24 &amp;&amp; oPlayer.y &lt;= y+48-24 &amp;&amp; oPlayer.last_dir = "a")
                {
                 if (act_alpha &lt; 1) {act_alpha += 0.1;}
                 
@@ -238,7 +239,7 @@ if (instance_number(oPlayer) &gt; 0)
            }
 
        
-         if (quest_state != quest_noone) { draw_sprite_ext(sQuest,quest_state+1,x+16,y-12-act_alpha*5,1,1,0,c_white,act_alpha);}
+         if (quest_state != quest_noone) { draw_sprite_ext(sQuest,quest_state+1,x+16-16,y-12-act_alpha*5-24,1,1,0,c_white,act_alpha);}
         
        }
    
