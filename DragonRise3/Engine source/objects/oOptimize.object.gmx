@@ -28,6 +28,7 @@
             <string>/// Call alarm with delay
 
 alarm[0] = 2;
+colID = 0;
 </string>
           </argument>
         </arguments>
@@ -86,6 +87,21 @@ with(parEnemy)
     {
      instance_activate_region(x - 32, y - 32, 64, 64, true); 
     }
+    
+collisionNearest[0] = instance_nearest(oPlayer.x, oPlayer.y, oNonsolidCollision);
+collisionNearest[1] = instance_nearest(oPlayer.x, oPlayer.y, oAdvancedCollision);
+
+with(oPlayer)
+    {
+     if (distance_to_object(oOptimize.collisionNearest[0]) &lt; distance_to_object(oOptimize.collisionNearest[1]))
+        {
+         oOptimize.nearestCol = 0;
+        }
+     else {oOptimize.nearestCol = 1;}
+    }
+    
+if (nearestCol == 0){colID = collisionNearest[0];}
+else {colID = collisionNearest[1];}
 </string>
           </argument>
         </arguments>

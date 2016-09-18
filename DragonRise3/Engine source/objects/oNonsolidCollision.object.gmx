@@ -120,7 +120,7 @@ tile     = tile_layer_find(tL, x, y);
 
 if (instance_number(oPlayer) &gt; 0)
 {
-if (distance_to_object(oPlayer) &lt; 16)
+if (distance_to_object(oPlayer) &lt; 16 &amp;&amp; (id == oOptimize.colID))
    {
     if (alpha &lt; 1) {alpha += 0.05;}
    }
@@ -135,11 +135,13 @@ if (keyboard_check_pressed(ord("E")) &amp;&amp; alpha &gt; 0.8 &amp;&amp; draw)
          event_user(0);
          alpha = 0;
         }
+     apiPlayerReverseState();
    }
 if (keyboard_check_pressed(ord("E")) &amp;&amp; alpha &gt; 0.8 &amp;&amp; !draw)
    {
     draw = 1;
     alpha = 0;
+    apiPlayerReverseState();
    }
    
 if (mode == 1)

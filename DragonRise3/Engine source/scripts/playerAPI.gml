@@ -753,3 +753,10 @@ if (abxp) {value = value + (value * (oPlayer.vlastnost[vlastnost_bonusoveZkuseno
 oPlayer.vlastnost[vlastnost_zkusenosti] += value;
 
 return(round(value));
+#define apiPlayerReverseState
+/// apiPlayerReverseState()
+
+if (oPlayer.last_dir == "a") {oPlayer.image_index = 6;}
+if (oPlayer.last_dir == "d") {oPlayer.image_index = 18;}
+if (oPlayer.last_dir == "w") {oPlayer.image_index = 0;}
+if (oPlayer.last_dir == "s") {oPlayer.image_index = 12;}
