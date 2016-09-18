@@ -72,8 +72,6 @@ instance_activate_object(oTalentMenu);
 instance_activate_object(oSpellMenu);
 instance_activate_object(oStatusMenu);
 instance_activate_object(oAchievement);
-instance_activate_object(obj_pathfinder);
-instance_activate_object(obj_controller);
 
 // Further optimization of collision system
 instance_deactivate_object(oNonsolidCollision);

@@ -481,12 +481,12 @@
         <script>scripts\mathAPI.gml</script>
       </scripts>
       <scripts name="Common">
+        <script>scripts\plainInitEnums.gml</script>
         <script>scripts\scrInventoryParseString.gml</script>
         <script>scripts\clr.gml</script>
         <script>scripts\alg.gml</script>
         <script>scripts\fnt.gml</script>
         <script>scripts\scl.gml</script>
-        <script>scripts\draw_text_colored.gml</script>
         <script>scripts\scrCenterText.gml</script>
         <script>scripts\scrChooseFromArray.gml</script>
         <script>scripts\mouse_in.gml</script>
@@ -496,7 +496,6 @@
         <script>scripts\scrGettActiveComponent.gml</script>
         <script>scripts\scrEndColorflag.gml</script>
         <script>scripts\scrBasicEffect.gml</script>
-        <script>scripts\plainInitEnums.gml</script>
         <script>scripts\position_free.gml</script>
         <script>scripts\scrInflect.gml</script>
         <script>scripts\secToSteps.gml</script>
@@ -771,29 +770,6 @@
         <script>scripts\scrHintShow.gml</script>
       </scripts>
     </scripts>
-    <script>scripts\position_create.gml</script>
-    <script>scripts\position_get_x.gml</script>
-    <script>scripts\position_get_y.gml</script>
-    <script>scripts\aStar_get_blocked.gml</script>
-    <script>scripts\aStar_get_cell_size.gml</script>
-    <script>scripts\aStar_get_diagonal_movement.gml</script>
-    <script>scripts\aStar_get_cutting_blocked_corners.gml</script>
-    <script>scripts\aStar_get_width.gml</script>
-    <script>scripts\aStar_get_height.gml</script>
-    <script>scripts\aStar_set_blocked.gml</script>
-    <script>scripts\aStar_set_cell_size.gml</script>
-    <script>scripts\aStar_set_diagonal_movement.gml</script>
-    <script>scripts\aStar_set_cutting_blocked_corners.gml</script>
-    <script>scripts\aStar_set_width.gml</script>
-    <script>scripts\aStar_set_height.gml</script>
-    <script>scripts\aStar_set_size.gml</script>
-    <script>scripts\aStar_init.gml</script>
-    <script>scripts\aStar_close.gml</script>
-    <script>scripts\aStar_find_path.gml</script>
-    <script>scripts\aStar_heuristic_cost.gml</script>
-    <script>scripts\aStar_get_neighbor_position.gml</script>
-    <script>scripts\aStar_get_node_with_lowest_cost.gml</script>
-    <script>scripts\aStar_get_cell_coordinate.gml</script>
   </scripts>
   <shaders name="shaders">
     <shaders name="ScreenFX">
@@ -912,36 +888,70 @@
         <object>objects\oHealthDrop</object>
       </objects>
       <objects name="Items">
-        <object>objects\oGold</object>
-        <object>objects\oGold2</object>
-        <object>objects\oTestItem2</object>
-        <object>objects\oRedPearlLvl2</object>
-        <object>objects\oWoodLvl1</object>
-        <object>objects\oMetalSteel</object>
-        <object>objects\oStoneLvl1</object>
-        <object>objects\oGoldLvl1</object>
-        <object>objects\oLockpick</object>
-        <object>objects\oMaterialGreenGem</object>
-        <object>objects\oKalokvet</object>
-        <object>objects\oBasicItem</object>
-        <object>objects\oTestItem3</object>
-        <object>objects\oKozenaHelma</object>
-        <object>objects\oQuestItemAxe1</object>
-        <object>objects\oArmorLeather</object>
-        <object>objects\oShoulderRightLeather</object>
-        <object>objects\oShoulderLeftLeather</object>
-        <object>objects\oShieldWooden</object>
-        <object>objects\oRingGolden</object>
-        <object>objects\oNecklaceNormal</object>
-        <object>objects\oCardVoid</object>
-        <object>objects\oMedalBasic</object>
-        <object>objects\oTrophySlime</object>
-        <object>objects\oCrystallisatorFire</object>
-        <object>objects\oBoosterXP</object>
-        <object>objects\oBeltLeather</object>
-        <object>objects\oBootLeftIron</object>
-        <object>objects\oBootRightIron</object>
-        <object>objects\parItem</object>
+        <objects name="Gold">
+          <object>objects\oGold</object>
+          <object>objects\oGold2</object>
+        </objects>
+        <objects name="Materials">
+          <object>objects\oTestItem2</object>
+          <object>objects\oRedPearlLvl2</object>
+          <object>objects\oWoodLvl1</object>
+          <object>objects\oMetalSteel</object>
+          <object>objects\oStoneLvl1</object>
+          <object>objects\oGoldLvl1</object>
+          <object>objects\oKalokvet</object>
+          <object>objects\oMaterialGreenGem</object>
+        </objects>
+        <objects name="Weapons">
+          <object>objects\oTestItem3</object>
+        </objects>
+        <objects name="Helmets">
+          <object>objects\oKozenaHelma</object>
+        </objects>
+        <objects name="Quest items">
+          <object>objects\oQuestItemAxe1</object>
+        </objects>
+        <objects name="Armors">
+          <object>objects\oArmorLeather</object>
+        </objects>
+        <objects name="Shoulders">
+          <object>objects\oShoulderRightLeather</object>
+          <object>objects\oShoulderLeftLeather</object>
+        </objects>
+        <objects name="Shields">
+          <object>objects\oShieldWooden</object>
+        </objects>
+        <objects name="Rings, necklaces">
+          <object>objects\oRingGolden</object>
+          <object>objects\oNecklaceNormal</object>
+        </objects>
+        <objects name="Medals">
+          <object>objects\oMedalBasic</object>
+        </objects>
+        <objects name="Cards">
+          <object>objects\oCardVoid</object>
+        </objects>
+        <objects name="Trophies">
+          <object>objects\oTrophySlime</object>
+        </objects>
+        <objects name="Crystalisators">
+          <object>objects\oCrystallisatorFire</object>
+        </objects>
+        <objects name="Boosters">
+          <object>objects\oBoosterXP</object>
+        </objects>
+        <objects name="Belts">
+          <object>objects\oBeltLeather</object>
+        </objects>
+        <objects name="Boots">
+          <object>objects\oBootLeftIron</object>
+          <object>objects\oBootRightIron</object>
+        </objects>
+        <objects name="Misc">
+          <object>objects\oLockpick</object>
+          <object>objects\oBasicItem</object>
+          <object>objects\parItem</object>
+        </objects>
       </objects>
     </objects>
     <objects name="Collisions">
@@ -1009,8 +1019,6 @@
       <object>objects\oMainMenu</object>
       <object>objects\oMainMenuPar</object>
     </objects>
-    <object>objects\obj_pathfinder</object>
-    <object>objects\obj_controller</object>
     <object>objects\oHintBox</object>
     <object>objects\oHintBoxButton</object>
   </objects>

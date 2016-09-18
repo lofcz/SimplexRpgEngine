@@ -71,8 +71,6 @@ parsed_text[i] = dialogueParse(text[i]);
 
 tile     = tile_layer_find(tL, x, y);
 
-aStar_set_blocked(x / 32, y / 32, true);
-
 </string>
           </argument>
         </arguments>

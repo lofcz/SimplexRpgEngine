@@ -57,7 +57,6 @@ tarX = x + 300;
 tarY = y + 200;
 
 path = undefined;
-endPosition = position_create(-100, -100);
 pathSpeed = 1;
 canRunPath = true;
 finalPath = undefined;
@@ -304,28 +303,6 @@ show_message("");
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="64">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string></string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -349,16 +326,7 @@ event_inherited();
 
 if (canAI)
     {
-if(path != undefined)
-{
-    if(point_distance(x, y, position_get_x(endPosition), position_get_y(endPosition)) &lt;= pathSpeed)
-    {
-        x = position_get_x(endPosition);
-        y = position_get_y(endPosition);
-        path_end();
-        path = undefined;
-    }
-}
+
     }
 
 //scrEnemyAiFlow();
