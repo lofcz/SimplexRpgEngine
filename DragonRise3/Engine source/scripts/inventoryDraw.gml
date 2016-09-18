@@ -813,7 +813,6 @@ oHUD.iconActive[hudIcons.crafting]  = true;
 oHUD.iconActive[hudIcons.equipment] = true;
 oHUD.iconActive[hudIcons.quest]     = false;
 oHUD.iconActive[hudIcons.status]    = false;
-if (oHUD.draw_equipment) {draw_equipment = true; oHUD.scale_equipment = 1}
 }
 else
 {
@@ -822,6 +821,7 @@ oHUD.iconActive[hudIcons.equipment] = false;
 oHUD.iconActive[hudIcons.quest]     = true;
 oHUD.iconActive[hudIcons.status]    = true;
 draw_equipment = false;
+oHUD.draw_crafting = false;
 }
 
 } 
