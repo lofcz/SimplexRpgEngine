@@ -178,6 +178,50 @@ part_system_destroy(Sname);
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Nearest collision instance
+
+//Set id of nearest instances
+IDN = instance_nearest(oPlayer.x,oPlayer.y,oNonsolidCollision);
+IDA = instance_nearest(oPlayer.x,oPlayer.y,oAdvancedCollision);
+IDT = instance_nearest(oPlayer.x,oPlayer.y,oTransitionCollision);
+
+//Distances of nearest instances
+DN = distance_to_object(IDN);
+DA = distance_to_object(IDA);
+DT = distance_to_object(IDT);
+
+//Set minimal of distances of nearest instances 
+m = min(DN,DA,DT);
+
+//ID = id of minimal of distances of nearest instances 
+if (DN = m) {ID = IDN;}
+if (DA = m) {ID = IDA;}
+if (DT = m) {ID = IDT;}
+
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="4">
       <action>
         <libid>1</libid>
