@@ -34,7 +34,7 @@ if (mouse_x > x_x1 && mouse_x < x_x2 && mouse_y > y_y1 && mouse_y < y_y2)
                               {
                               oPlayer.vlastnost[a] += slot_vlastnosti[h_c,a];
                               }
-                              else
+                              else if (slot_vlastnosti[h_c,vlastnost_bodyCanvasIndex] != 0)
                                 {
                                  if (a == vlastnost_bodyCanvasSprite) {oPlayer.bci[0, slot_vlastnosti[h_c,vlastnost_bodyCanvasIndex]] = slot_vlastnosti[h_c,a];}
                                  if (a == vlastnost_bodyCanvasSprite) {oPlayer.bci[1, slot_vlastnosti[h_c,vlastnost_bodyCanvasIndex]] = slot_vlastnosti[h_c,a];}                                

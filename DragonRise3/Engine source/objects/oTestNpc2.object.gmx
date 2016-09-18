@@ -150,15 +150,15 @@ event_user(12);
             <kind>1</kind>
             <string>/// Dialogues
 
-if (status = 0 )
+if (status == 0)
    {
-   dialogueMessage("Bylinkářka", "Vítej poutníče!");
-   dialogueMessage("Bylinkářka", "Mám pro tebe úkol. Potřebuji tři červené perly.");
+   dialogueMessage("Bylinkářka", "Co tě sem přivádí, drahoušku?", 0);
+   dialogueMessage("Petr", "Jsem zástupce královského písaře Dobromila, Petr. Vyšetřuji vraždu dívky před Vavřincovou farou. Nevíte o tom něco?", 0);
    dialogueOptions(0);
    if (status &lt; 1) {status = 1;}
    }
    
-if (status = 1 )
+if (status == 1)
    {
    dialogueMessage("Bylinkářka", "Opravdu potřebuji ty perly.");
    dialogueOptions(0);
