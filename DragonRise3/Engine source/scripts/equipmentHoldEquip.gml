@@ -29,8 +29,16 @@ if (mouse_x > x_x1 && mouse_x < x_x2 && mouse_y > y_y1 && mouse_y < y_y2)
                          for (a = 0; a < celkem_vlastnosti; a++)
                              {
                               equiped_vlastnost[equip_slot,a] = slot_vlastnosti[h_c,a];
+                              
+                              if (a != vlastnost_bodyCanvasIndex && a != vlastnost_bodyCanvasSprite && a!= vlastnost_bodyCanvasSlashSprite)
+                              {
                               oPlayer.vlastnost[a] += slot_vlastnosti[h_c,a];
-                                                                                           //if (a = vlastnost_max_mana) {show_message(oPlayer.vlastnost[a]);}
+                              }
+                              else
+                                {
+                                 if (a == vlastnost_bodyCanvasSprite) {oPlayer.bci[0, slot_vlastnosti[h_c,vlastnost_bodyCanvasIndex]] = slot_vlastnosti[h_c,a];}
+                                 if (a == vlastnost_bodyCanvasSprite) {oPlayer.bci[1, slot_vlastnosti[h_c,vlastnost_bodyCanvasIndex]] = slot_vlastnosti[h_c,a];}                                
+                                }                                                          
                              }
                              
                           
@@ -55,7 +63,7 @@ if (mouse_x > x_x1 && mouse_x < x_x2 && mouse_y > y_y1 && mouse_y < y_y2)
                              {
                              oPlayer.draw_equ[id_Mec,0] =  equiped_vlastnost[equip_slot,vlastnost_vykresli_sprit];
                              oPlayer.draw_equ[id_Mec,1] =  equiped_vlastnost[equip_slot,vlastnost_vykresli_index];
-                             oPlayer.bci[0, 7] = sBodyCanvasWeapon2;
+                            // oPlayer.bci[0, 7] = sBodyCanvasWeapon2;
                              }
                              // /NEW
 

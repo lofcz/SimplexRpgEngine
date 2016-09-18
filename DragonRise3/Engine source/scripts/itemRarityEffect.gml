@@ -20,7 +20,11 @@ if (color == rarity_fine)
 if (color == rarity_rare)
    {
     index = 3;
-   } 
+   }
+if (color == rarity_quest)
+   {
+    index = 10;
+   }  
 }
 else
 {

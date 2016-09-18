@@ -249,7 +249,7 @@ if (currentAnimation != animationEnum.walk)
  
  if (currentAnimation == animationEnum.slash)
     {
-     draw_sprite(sBodyCanvasAttackWeapon1, image_index, x, y);
+     draw_sprite(sBodyCanvasAttackWeapon2, image_index, x, y);
     }
  
  

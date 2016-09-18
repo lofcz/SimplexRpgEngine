@@ -206,18 +206,19 @@
             <sprite>sprites\sBodyCanvasAttackShoes1</sprite>
             <sprite>sprites\sBodyCanvasAttackHands1</sprite>
             <sprite>sprites\sBodyCanvasAttackWeapon1</sprite>
+            <sprite>sprites\sBodyCanvasAttackWeapon2</sprite>
             <sprite>sprites\sBodyCanvasAttackBelt1</sprite>
             <sprite>sprites\sBodyCanvasAttackLegs1</sprite>
           </sprites>
           <sprites name="Walk">
             <sprite>sprites\sBodyCanvasHumanWalk1</sprite>
             <sprite>sprites\sBodyCanvasWeapon2</sprite>
+            <sprite>sprites\sBodyCanvasWeapon1</sprite>
             <sprite>sprites\sBodyCanvasHood1</sprite>
             <sprite>sprites\sBodyCanvasBelt1</sprite>
             <sprite>sprites\sBodyCanvasLegs1</sprite>
             <sprite>sprites\sBodyCanvasShoes1</sprite>
             <sprite>sprites\sBodyCanvasHands1</sprite>
-            <sprite>sprites\sBodyCanvasWeapon1</sprite>
             <sprite>sprites\sBodyCanvasArmor1</sprite>
           </sprites>
         </sprites>
@@ -1037,7 +1038,7 @@
       <room>rooms\mapHouse1</room>
     </rooms>
   </rooms>
-  <constants number="203">
+  <constants number="207">
     <constant name="baArmor">1</constant>
     <constant name="baBase">0</constant>
     <constant name="cStaticInstance">"staticInstance"</constant>
@@ -1086,7 +1087,10 @@
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
     <constant name="upgradableProperties">58</constant>
-    <constant name="celkem_vlastnosti">81</constant>
+    <constant name="celkem_vlastnosti">84</constant>
+    <constant name="vlastnost_bodyCanvasSlashSprite">83</constant>
+    <constant name="vlastnost_bodyCanvasSprite">82</constant>
+    <constant name="vlastnost_bodyCanvasIndex">81</constant>
     <constant name="vlastnost_bonusoveZkusenosti">80</constant>
     <constant name="vlastnost_alchymie">79</constant>
     <constant name="vlastnost_originalniCena">78</constant>
@@ -1213,6 +1217,7 @@
     <constant name="dir_down">3</constant>
     <constant name="ext_number">1</constant>
     <constant name="ext_name">0</constant>
+    <constant name="rarity_quest">make_colour_rgb(100,0, 0)</constant>
     <constant name="rarity_legendary">c_yellow</constant>
     <constant name="rarity_token">c_orange</constant>
     <constant name="rarity_artifact">c_aqua</constant>
