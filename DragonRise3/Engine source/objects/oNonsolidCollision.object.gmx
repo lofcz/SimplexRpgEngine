@@ -119,10 +119,12 @@ tile     = tile_layer_find(tL, x, y);
             <string>/// Handle interaction
 
 if (instance_number(oPlayer) &gt; 0)
-{                
-
-if ((oHUD.ID = id) &amp;&amp; (alpha &lt; 1)) {alpha += 0.05;}
-if (alpha &gt; 0)&amp;&amp; (id != oHUD.ID){alpha -= 0.05;} if (draw &amp;&amp; alpha &lt;= 0) {draw = 0;}
+{
+if (distance_to_object(oPlayer) &lt; 16)
+   {
+    if (alpha &lt; 1) {alpha += 0.05;}
+   }
+   else {if (alpha &gt; 0) {alpha -= 0.05;} if (draw &amp;&amp; alpha &lt;= 0) {draw = 0;}}
    
    
 if (keyboard_check_pressed(ord("E")) &amp;&amp; alpha &gt; 0.8 &amp;&amp; draw)

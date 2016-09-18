@@ -84,7 +84,7 @@ if (instance_number(oPlayer) &gt; 0)
    {
     if (distance_to_object(oPlayer) &lt; 32)
        {
-        if ((oHUD.ID = id) &amp;&amp; (alpha &lt; 1))
+        if (alpha &lt; 1)
            {
             alpha += 0.05;
            }
