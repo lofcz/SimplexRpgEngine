@@ -209,6 +209,7 @@ switch(action_id)
                           
                         oAnswer.polozka[1] = "What do you sell?"; 
                         oAnswer.polozka_activated[1] = 1;
+                        break;
 
                         
                       

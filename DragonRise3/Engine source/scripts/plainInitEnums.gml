@@ -2,7 +2,7 @@
 
 enum enumQuests
 {
-questVitejVSimplexu
+questVitejVSimplexu, questKalokvetProAlici
 };
 
 enum cutsceneState

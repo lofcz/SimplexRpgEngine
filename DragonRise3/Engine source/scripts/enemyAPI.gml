@@ -240,6 +240,12 @@ if (other.attack && other.can_damage = -1)
 //forcedBaseX = 50;
 //forcedX = 50;
 
+
+text = choose("Ve jménu Demacie!", "Odporná zhoubo!", "Prolomím jejich řady!", "Nemějte slitování!", "Přímo do černého!", "Překvapení, jsem zpátky!", "Za krále a Demacii!", "Valore, na ně!");
+apiPlayerSay(text);
+apiPlayerSayNext();
+
+
 dmg = 0;
 if (scrAffectsGetStacks("flash") != -1) {dmg += (scrAffectsGetStacks("flash") * scrAffectsGetStacks("flash")); scrAffectsRemove("flash", -1);}
 

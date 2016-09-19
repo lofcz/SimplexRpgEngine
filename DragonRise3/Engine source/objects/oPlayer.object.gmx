@@ -205,6 +205,13 @@ bci[5, 16] = 0;
 scrBodyCanvasDB();
 scrBodyCanvasIni(animationEnum.walk, sBodyCanvasHumanWalk1, sBodyCanvasArmor1, sBodyCanvasHood1, sBodyCanvasBelt1, sBodyCanvasLegs1, sBodyCanvasShoes1, sBodyCanvasHands1, 0);
 scrBodyCanvasIni(animationEnum.slash, sBodyCanvasAttack1, sBodyCanvasAttackArmor1, sBodyCanvasAttackHead1, sBodyCanvasAttackBelt1, sBodyCanvasAttackLegs1, sBodyCanvasAttackShoes1, sBodyCanvasAttackHands1, 0);
+
+speechQueue = ds_queue_create();
+speechAlpha = 0;
+speechIn    = false;
+speechCurrentText = "";
+speechMode  = 0;
+speechSkip = false;
 </string>
           </argument>
         </arguments>
@@ -314,6 +321,7 @@ apiPlayerMoveStand();
 
 //scrWeatherRainSpawn();
 
+
 if (load &gt; 0) {load -- } else {load = -1; event_user(0);}
 apiPlayerMove();
 temp_rychlost = ((rychlost / 100) * parrySlowdown) * (1 - slowdown);    
@@ -405,9 +413,10 @@ ins2 = instance_create(x+100, y+100, oTestObject); ins2.name = "Druhý objekt";
 scrCutscenePlay(ins1, DemoCutscene, false, 1);
 */
 
-scrHintShow("LoF", "Vítej v " +scrColorflag(c_aqua) + "Simplexu" + scrEndColorflag() + " ", "Ok");
+//scrHintShow("LoF", "Vítej v " +scrColorflag(c_aqua) + "Simplexu" + scrEndColorflag() + " ", "Ok");
 
-
+apiPlayerSay("Ahoj. :-)");
+apiPlayerSay("Bavíš se?");
 
 
 </string>
@@ -580,7 +589,8 @@ if (instance_number(oFence) &gt; 0)
             <string>/// Draw player
 
 apiPlayerDraw();
-/*
+
+/* 
 draw_text(x, y - 32, text);
 
 clr(c_black, 0.5);

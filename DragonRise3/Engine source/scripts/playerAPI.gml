@@ -286,19 +286,49 @@ else {health_bar = 1;}
 if (last_hp < vlastnost[vlastnost_zivot]) {last_hp = lerp(last_hp, vlastnost[vlastnost_zivot], 0.1);}
 if (last_hp > vlastnost[vlastnost_zivot]) {last_hp = lerp(last_hp, vlastnost[vlastnost_zivot], 0.1);}
 
-if (last_stit < vlastnost[vlastnost_stit]) {last_stit++;}
-if (last_stit > vlastnost[vlastnost_stit]) {last_stit--;}
+if (last_stit < vlastnost[vlastnost_stit]) {last_stit = lerp(last_stit, vlastnost[vlastnost_stit], 0.1);}
+if (last_stit > vlastnost[vlastnost_stit]) {last_stit = lerp(last_stit, vlastnost[vlastnost_stit], 0.1);}
 
-if (last_mana < vlastnost[vlastnost_mana]) {last_mana++;}
-if (last_mana > vlastnost[vlastnost_mana]) {last_mana--;}
+if (last_mana < vlastnost[vlastnost_mana]) {last_mana = lerp(last_mana, vlastnost[vlastnost_mana], 0.1);}
+if (last_mana > vlastnost[vlastnost_mana]) {last_mana = lerp(last_mana, vlastnost[vlastnost_mana], 0.1);}
 
-if (last_stamina < vlastnost[vlastnost_stamina]) {last_stamina += stamina_bar;}
-if (last_stamina > vlastnost[vlastnost_stamina]) {last_stamina -= stamina_bar;}
+if (last_stamina < vlastnost[vlastnost_stamina]) {last_stamina = lerp(last_stamina, vlastnost[vlastnost_stamina], 0.1);}
+if (last_stamina > vlastnost[vlastnost_stamina]) {last_stamina = lerp(last_stamina, vlastnost[vlastnost_stamina], 0.1);}
 
-if (last_xp < vlastnost[vlastnost_zkusenosti]) {last_xp++;}
-if (last_xp > vlastnost[vlastnost_zkusenosti]) {last_xp--;}
+if (last_xp < vlastnost[vlastnost_zkusenosti]) {last_xp = lerp(last_xp, vlastnost[vlastnost_zkusenosti], 0.1);}
+if (last_xp > vlastnost[vlastnost_zkusenosti]) {last_xp = lerp(last_xp, vlastnost[vlastnost_zkusenosti], 0.1);}
 
 if (last_hp <= 0 && last_hp != 0) {last_hp = 0; scrGoreExplode(10,10);}
+
+
+if (ds_queue_size(speechQueue) > 0)
+    {
+     if (!speechIn)
+        {
+         speechCurrentText = ds_queue_dequeue(speechQueue);
+         speechIn = true;         
+        }
+    }
+    
+if (speechIn)
+    {
+     if (speechMode == 0) {speechAlpha = lerp(speechAlpha, 1.1, 0.1); if (speechAlpha >= 1) {speechMode = 1; speechTimer = 100;}}
+     if (speechMode == 1) {speechTimer--; if (speechTimer <= 0) {speechMode = 2;}}
+     if (speechMode == 2) {speechAlpha = lerp(speechAlpha, -0.1, 0.1); if (speechAlpha <= 0) {speechMode = 0; speechIn = false; speechTimer = 100;}}
+     
+     fnt();
+     clr (c_black, speechAlpha / 2);
+     draw_roundrect_colour_ext(x - string_width(speechCurrentText) / 2 - 10,y - 48,x + string_width(speechCurrentText) / 2+10,y+string_height(speechCurrentText)+2-48,20,20,c_black,c_black,0);
+     clr(c_white, speechAlpha);
+     draw_text(x - string_width(speechCurrentText) / 2, y - 48, speechCurrentText);
+     clr();
+     
+     if (speechSkip)
+        {
+         if (ds_queue_size(speechQueue) > 0) {speechSkip = false; speechIn = false;}
+        }
+     }
+
 
 #define apiPlayerUnstuck
 /// apiPlayerUnstuck()
@@ -760,3 +790,20 @@ if (oPlayer.last_dir == "a") {oPlayer.image_index = 6;}
 if (oPlayer.last_dir == "d") {oPlayer.image_index = 18;}
 if (oPlayer.last_dir == "w") {oPlayer.image_index = 0;}
 if (oPlayer.last_dir == "s") {oPlayer.image_index = 12;}
+#define apiPlayerSay
+/// apiPlayerSay(text)
+
+var t;
+t = "Sample text";
+
+if (argument_count > 0) {t = argument[0];}
+
+ds_queue_enqueue(oPlayer.speechQueue, t);
+
+#define apiPlayerSayNext
+/// apiPlayerSayNext()
+
+if (ds_queue_size(oPlayer.speechQueue) > 0)
+    {
+     oPlayer.speechSkip = true;
+    }
