@@ -295,8 +295,8 @@ if (last_mana > vlastnost[vlastnost_mana]) {last_mana = lerp(last_mana, vlastnos
 if (last_stamina < vlastnost[vlastnost_stamina]) {last_stamina = lerp(last_stamina, vlastnost[vlastnost_stamina], 0.1);}
 if (last_stamina > vlastnost[vlastnost_stamina]) {last_stamina = lerp(last_stamina, vlastnost[vlastnost_stamina], 0.1);}
 
-if (last_xp < vlastnost[vlastnost_zkusenosti]) {last_xp = lerp(last_xp, vlastnost[vlastnost_zkusenosti], 0.1);}
-if (last_xp > vlastnost[vlastnost_zkusenosti]) {last_xp = lerp(last_xp, vlastnost[vlastnost_zkusenosti], 0.1);}
+if (last_xp < vlastnost[vlastnost_zkusenosti]) {last_xp = round(lerp(last_xp, vlastnost[vlastnost_zkusenosti], 0.1));}
+if (last_xp > vlastnost[vlastnost_zkusenosti]) {last_xp = round(lerp(last_xp, vlastnost[vlastnost_zkusenosti], 0.1));}
 
 if (last_hp <= 0 && last_hp != 0) {last_hp = 0; scrGoreExplode(10,10);}
 

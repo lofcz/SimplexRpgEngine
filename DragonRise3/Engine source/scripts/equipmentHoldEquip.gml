@@ -1,16 +1,23 @@
-/// equipmentHoldEquip(equip_slot,x1,x2,y1,y2)
+/// equipmentHoldEquip(equip_slot, x1, x2, y1, y2, forceEquip)
 
-x_x1  = argument1;
-x_x2  = argument2;
-y_y1  = argument3;
-y_y2  = argument4;
+var equip_slot, x_x1, x_x1, y_y1, y_y1, f;
+equip_slot = 0;
+x_x1       = 0;
+x_x2       = 0;
+y_y1       = 0;
+y_y2       = 0;
+f          = false;
 
-equip_slot = argument0;
+if (argument_count > 0) {equip_slot = argument[0];}
+if (argument_count > 1) {x_x1       = argument[1];}
+if (argument_count > 2) {x_x2       = argument[2];}
+if (argument_count > 3) {y_y1       = argument[3];}
+if (argument_count > 4) {y_y2       = argument[4];}
+if (argument_count > 5) {f          = argument[5];}
 
-
-if (mouse_x > x_x1 && mouse_x < x_x2 && mouse_y > y_y1 && mouse_y < y_y2)
+if (mouse_in(x_x1, x_x2, y_y1, y_y2) || f)
                     {     
-                       if (oInventory.drag && mouse_check_button_released(mb_left) && !equiped[equip_slot])
+                       if (oInventory.drag && mouse_check_button_released(mb_left) && !equiped[equip_slot] || f)
                         {
                         //if(equip_slot = 0) {oPlayerCombat.draw = 1; oPlayerCombat.sprite = oInventory.slot_vlastnosti[h_c,vlastnost_vykresli_sprit]; oPlayerCombat.image = oInventory.slot_vlastnosti[h_c,vlastnost_vykresli_index];}
                         

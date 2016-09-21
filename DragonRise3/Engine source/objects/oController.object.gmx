@@ -74,9 +74,13 @@ fontDamage = font_add_sprite(sFntDamage,ord("0"),1,2);
             <kind>1</kind>
             <string>/// Move player to startpoints
 
-if (room = mapTest)
+if (room == mapTest)
 {
- if (player_pos = 1) {oPlayer.x = 1536 oPlayer.y = 1792;}
+ if (player_pos == 1) {oPlayer.x = 1536; oPlayer.y = 1792;}
+}
+if (room == mapHouseAlice)
+{
+ if (player_pos == 1) {oPlayer.x = 352; oPlayer.y = 240;}
 }
 </string>
           </argument>

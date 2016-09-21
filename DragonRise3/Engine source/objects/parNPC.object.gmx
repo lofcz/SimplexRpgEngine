@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>parSolid</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>

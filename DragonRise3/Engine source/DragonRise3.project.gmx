@@ -464,6 +464,7 @@
     <background>background\background30</background>
     <background>background\celianna_TileB1_zpsyp2xxayw</background>
     <background>background\celianna_farmnature_tileset</background>
+    <background>background\ForestTown02</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\pthCutsceneObet1</path>
@@ -1045,6 +1046,7 @@
     <room>rooms\mapCopyright</room>
     <rooms name="Game world">
       <room>rooms\mapHouse1</room>
+      <room>rooms\mapHouseAlice</room>
     </rooms>
   </rooms>
   <constants number="207">

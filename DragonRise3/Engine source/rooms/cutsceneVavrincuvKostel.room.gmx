@@ -59,7 +59,7 @@
     <instance objName="oBasicCollision" x="96" y="224" name="inst_3C51EC05" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="128" y="232" name="inst_690E3E00" locked="0" code="" scaleX="1" scaleY="0.75" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="64" y="232" name="inst_704A6BA6" locked="0" code="" scaleX="1" scaleY="0.75" colour="4294967295" rotation="0"/>
-    <instance objName="oTransitionCollision" x="544" y="752" name="inst_7259882D" locked="0" code="level = mapTest;&#xA;text = &quot;Vstoupit do &quot;+&quot;[c=&quot;+string(c_yellow)+&quot;]&quot;+&quot;vavřincova kostela[/c].&quot;;&#xA;xx = x;&#xA;yy = y-64;&#xA;text_lenght = 0;&#xA;player_pos = 1;&#xA;" scaleX="4" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oTransitionCollision" x="544" y="752" name="inst_7259882D" locked="0" code="level = mapTest;&#xA;text = &quot;Vstoupit do &quot;+&quot;[c=&quot;+string(c_yellow)+&quot;]&quot;+&quot;vavřincova kostela[/c].&quot;;&#xA;xx = x;&#xA;yy = y-64;&#xA;text_lenght = 0;&#xA;player_pos = 1;" scaleX="4" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="0" y="384" name="inst_0454DAE5" locked="0" code="" scaleX="1" scaleY="12" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="32" y="512" name="inst_12696F63" locked="0" code="" scaleX="4" scaleY="3" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="32" y="736" name="inst_5F2810D4" locked="0" code="" scaleX="14" scaleY="1" colour="4294967295" rotation="0"/>

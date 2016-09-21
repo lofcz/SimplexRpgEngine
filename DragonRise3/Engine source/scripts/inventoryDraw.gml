@@ -344,7 +344,11 @@ clr();
           }
 
            
-           
+           // Fast equip
+           if (keyboard_check(vk_shift))
+                {
+                 inventoryFastEquip();
+                }
            }
        if (mouse_check_button_released(mb_left) && drag = 1 && !proceed)
           {
@@ -891,3 +895,82 @@ else {t_text += " " + scrColorflag(c_yellow) + " (" + string(deltaB) + ")" + scr
 }
 
 return t_text;
+#define inventoryFastEquip
+/// inventoryFastEquip()
+
+if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "helma" && !oInventory.equiped[1])
+    {
+     equipmentHoldEquip(1, 0, 0, 0, 0, true);     
+    }
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "leftPlate" && !oInventory.equiped[4])
+    {
+     equipmentHoldEquip(4, 0, 0, 0, 0, true);    
+    }
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "rightPlate" && !oInventory.equiped[3])
+    {
+     equipmentHoldEquip(3, 0, 0, 0, 0, true);    
+    }
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "armor" && !oInventory.equiped[2])
+    {
+     equipmentHoldEquip(2, 0, 0, 0, 0, true);    
+    }
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "zbraň" && !oInventory.equiped[0])
+    {
+     equipmentHoldEquip(0, 0, 0, 0, 0, true);    
+    }
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "shield" && !oInventory.equiped[5])
+    {
+     equipmentHoldEquip(5, 0, 0, 0, 0, true);    
+    }
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "ring" && !oInventory.equiped[6])
+    {
+     equipmentHoldEquip(6, 0, 0, 0, 0, true);    
+    }
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "ring" && !oInventory.equiped[7])
+    {
+     equipmentHoldEquip(7, 0, 0, 0, 0, true);    
+    }
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "ring" && !oInventory.equiped[8])
+    {
+     equipmentHoldEquip(8, 0, 0, 0, 0, true);    
+    }
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "ring" && !oInventory.equiped[9])
+    {
+     equipmentHoldEquip(9, 0, 0, 0, 0, true);    
+    }
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "necklace" && !oInventory.equiped[10])
+    {
+     equipmentHoldEquip(10, 0, 0, 0, 0, true);    
+    }
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "card" && !oInventory.equiped[11])
+    {
+     equipmentHoldEquip(11, 0, 0, 0, 0, true);    
+    }
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "medal" && !oInventory.equiped[12])
+    {
+     equipmentHoldEquip(12, 0, 0, 0, 0, true);    
+    }
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "trophy" && !oInventory.equiped[13])
+    {
+     equipmentHoldEquip(13, 0, 0, 0, 0, true);    
+    }
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "crystallisator" && !oInventory.equiped[14])
+    {
+     equipmentHoldEquip(14, 0, 0, 0, 0, true);    
+    }
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "booster" && !oInventory.equiped[15])
+    {
+     equipmentHoldEquip(15, 0, 0, 0, 0, true);    
+    }
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "belt" && !oInventory.equiped[16])
+    {
+     equipmentHoldEquip(16, 0, 0, 0, 0, true);    
+    }
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "leftBoot" && !oInventory.equiped[17])
+    {
+     equipmentHoldEquip(17, 0, 0, 0, 0, true);    
+    }
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "rightBoot" && !oInventory.equiped[18])
+    {
+     equipmentHoldEquip(18, 0, 0, 0, 0, true);    
+    }
