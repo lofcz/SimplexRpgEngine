@@ -3,7 +3,7 @@
 <img align="middle" src="https://s31.postimg.org/4be7ykezv/Logo_Makr_1.png">
 <br>
 
-Top-on-GMS engine, umožňující rapidní vývoj moderních RPG her. Vhodný pro jednotlivce i velké skupiny. 
+#### Top-on-GMS engine, umožňující rapidní vývoj moderních RPG her. Vhodný pro jednotlivce i velké skupiny. 
 * Systém komponent, řešící základní i pokročilé RPG problémy (inventář, výstroj, bestiář, talenty...)
 * Externí C# nástroje pro zvýšení efektivity práce v enginu.
 * Unikátní systém in-game vývoje, který umožňuje hru tvořit přímo za běhu. 
@@ -13,6 +13,15 @@ Top-on-GMS engine, umožňující rapidní vývoj moderních RPG her. Vhodný pr
 * Možnost integrace do stávajících GMS projektů.
 * Libovolné rozlišení hry, responsivní UI layout.
 * Poráží RPG Maker a YOYO RPG v každém směru.
+
+#### Úspěšné hry, poháněné Simplexem:
+
+**Fate of Hero**  
+*Úspěšná kampaň na startovac.cz, vybraná částka: 10 000 czk*   
+<a href="https://www.startovac.cz/projekty/fate-of-hero/">![](http://s13.postimg.org/u6dvlctif/5303_aaaa_png_200x113.png)</a>
+
+
+
 
 ![](https://s14.postimg.org/viefrkkz5/qwe.png)
 
