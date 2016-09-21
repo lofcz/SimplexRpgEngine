@@ -13,7 +13,7 @@
     <TextureGroup0>0</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
-  <width>64</width>
-  <height>64</height>
-  <data>images\background14.png</data>
+  <width>768</width>
+  <height>768</height>
+  <data>images\celianna_MV_interior_house.png</data>
 </background>

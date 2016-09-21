@@ -198,7 +198,7 @@ part_system_destroy(Sname);
             <string>/// Jump to player position
 
 if (instance_number(oPlayer) &gt; 0) {x = oPlayer.x; y = oPlayer.y;}
-
+draw = true;
 </string>
           </argument>
         </arguments>
@@ -225,6 +225,8 @@ if (instance_number(oPlayer) &gt; 0) {x = oPlayer.x; y = oPlayer.y;}
 
 x = view_xview;
 y = view_yview;
+
+if (room == mapHouseAlice) {draw = false;}
 
 if (instance_number(oPlayer) &gt; 0 &amp;&amp; draw)
 { 
@@ -487,11 +489,13 @@ if (can_draw)
     }
    
 /// Draw overlay
-/*
+if (room == mapHouseAlice)
+{
 draw_set_blend_mode(bm_add);
-draw_sprite(sOverlayLight, 0, view_xview, view_yview);
+draw_sprite(sRoomMask0, 0, 144, 16);
 draw_set_blend_mode(bm_normal);
-*/
+}
+
 </string>
           </argument>
         </arguments>

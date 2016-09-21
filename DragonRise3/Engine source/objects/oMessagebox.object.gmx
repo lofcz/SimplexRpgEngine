@@ -227,8 +227,10 @@ scrCenterText(0);
 clr(c_black, ta);
 draw_text_colored(x+150,y+40,str);
 
+q = false;
+if (instance_number(oAnswer) &gt; 0) {if (!oAnswer.cd) {q = true;}}
 
-if (mouse_check_button_pressed(mb_left) &amp;&amp; draw &amp;&amp; instance_number(oAnswer) = 0) 
+if (mouse_check_button_pressed(mb_left) &amp;&amp; draw &amp;&amp; instance_number(oAnswer) == 0 || q) 
    {
    if (option[message_current] = -1)
    {
@@ -239,7 +241,11 @@ if (mouse_check_button_pressed(mb_left) &amp;&amp; draw &amp;&amp; instance_numb
           { 
           if (effect == "false") {effect = "fadeOut";}
      
-         }       
+         } 
+         else
+         {
+          pos = string_length(message_text[message_current]);
+         }      
         }
      }
      else 
@@ -247,7 +253,7 @@ if (mouse_check_button_pressed(mb_left) &amp;&amp; draw &amp;&amp; instance_numb
            // show_message(message_current+string(" ")+string(oMessagebox.option[oMessagebox.message_current]));
           }
    }
-if (draw &amp;&amp; instance_number(oAnswer) = 0)
+if (draw &amp;&amp; instance_number(oAnswer) == 0)
    {
     if (option[message_current] != -1)
      {

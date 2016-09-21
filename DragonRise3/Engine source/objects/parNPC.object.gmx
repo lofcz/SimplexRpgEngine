@@ -59,6 +59,7 @@ isShop         = false;
 shopActive     = false;
 open           = false;
 action_id      = -1;
+substatus      = 0;
 
 splashMessage           = false;
 splashMessageTime       = -1;    

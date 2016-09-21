@@ -169,6 +169,15 @@ else if (status == 1)
    dialogueOptions(1);
    status = 2;
    }
+else if (status == 2)
+   {
+   if (substatus == 1)
+   {
+   dialogueMessage("Alice", "Ah, jsi zpět. Neseš mi ty listy kalokvětu?");
+   action_id = 2;
+   dialogueOptions(2);
+   }
+   }
 </string>
           </argument>
         </arguments>
@@ -193,19 +202,18 @@ else if (status == 1)
             <kind>1</kind>
             <string>/// Dialogue options
 
-switch(status)
+switch(action_id)
                  {
-                 case (1): 
+                 case (0): 
                       {                        
                         oAnswer.polozka[0] = "Před čtyřmi dny, v pondělí."; 
                         oAnswer.polozka_activated[0] = 1;
                         
                         oAnswer.polozka[4] = "Zkusíme to později.";                        
                         oAnswer.polozka_activated[4] = 1;     
-                         break;
-                        //show_message("1");                         
+                         break;                       
                       }
-                 case (2):
+                 case (1):
                       {                        
                         oAnswer.polozka[0] = "Dobře, jdětě si sednout dovnitř, za chvilku jsem zpět."; 
                         oAnswer.polozka_activated[0] = 1;
@@ -215,10 +223,17 @@ switch(status)
                                                 
                         oAnswer.polozka[4] = "Zkusíme to později.";                        
                         oAnswer.polozka_activated[4] = 1; 
-                         break;
-                       // show_message("2");                              
+                         break;                           
                       }                 
-                 
+                 case (2):
+                      {                        
+                        oAnswer.polozka[0] = "Tady to je."; 
+                        oAnswer.polozka_activated[0] = 1;
+                                 
+                        oAnswer.polozka[4] = "Ještě ne.";                        
+                        oAnswer.polozka_activated[4] = 1; 
+                         break;                           
+                      }                   
                  }
 </string>
           </argument>
@@ -262,6 +277,7 @@ else if (status == 2)
       {
         scrCutscenePlay(self, cutsceneAlice1, false, 1);
         scrQuestEntryAdd(enumQuests.questKalokvetProAlici, "Opojné listy kalokvětu", "Bylinkářka Alice trpí bolestmi hlavy, požádala mě o nějaké listy kalokvětu. Na čaj by měly stačit tři lístky, víc jí toho nosit nebudu.", "??????", "[Hlavní úkol]"); 
+        substatus = 1;
       }
   if (index == 1)
       {

@@ -429,6 +429,7 @@
     <sprite>sprites\sHintForm</sprite>
     <sprite>sprites\sMinimapIcons</sprite>
     <sprite>sprites\sOverlayLight</sprite>
+    <sprite>sprites\sRoomMask0</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -455,6 +456,7 @@
     <background>background\background19</background>
     <background>background\background20</background>
     <background>background\ruins</background>
+    <background>background\celianna_MV_interior_house2</background>
     <background>background\background21</background>
     <background>background\background22</background>
     <background>background\A4_Server_Tiles_zps6mjyu46o</background>
@@ -465,6 +467,7 @@
     <background>background\celianna_TileB1_zpsyp2xxayw</background>
     <background>background\celianna_farmnature_tileset</background>
     <background>background\ForestTown02</background>
+    <background>background\celianna_MV_interior_house</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\pthCutsceneObet1</path>
@@ -478,7 +481,7 @@
         <script>scripts\enemyAPI.gml</script>
         <script>scripts\npcAPI.gml</script>
         <script>scripts\hudAPI.gml</script>
-        <script>scripts\roomCreationAPI.gml</script>
+        <script>scripts\roomAPI.gml</script>
         <script>scripts\mathAPI.gml</script>
       </scripts>
       <scripts name="Common">
@@ -493,6 +496,7 @@
         <script>scripts\mouse_in.gml</script>
         <script>scripts\instance_nnearest.gml</script>
         <script>scripts\scrColorflag.gml</script>
+        <script>scripts\instance_set_position.gml</script>
         <script>scripts\scrSetActiveComponent.gml</script>
         <script>scripts\scrGettActiveComponent.gml</script>
         <script>scripts\scrEndColorflag.gml</script>

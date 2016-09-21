@@ -32,24 +32,48 @@ key_up    = ini_read_string("KeyBinding","move_up","W");
 key_down  = ini_read_string("KeyBinding","move_down","S");
 key_left  = ini_read_string("KeyBinding","move_left","A");
 key_right = ini_read_string("KeyBinding","move_right","D");
-
 ini_close();
 
-
-
 player_pos = 0;
-
-// Global grid
-grid = mp_grid_create(0,0,room_width div 16, room_height div 16,16,16);
-mp_grid_add_instances(grid,parTree,0);
-
-
-
 
 // Convert sprites to fonts
 fontDamage = font_add_sprite(sFntDamage,ord("0"),1,2);
 
+persistenceQueue = ds_queue_create();
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Unload logic
+
+// handle queue
+instance_activate_all();
+
+while(ds_queue_size(persistenceQueue) &gt; 0)
+    {
+     I           = ds_queue_dequeue(persistenceQueue);
+     I.status    = ds_queue_dequeue(persistenceQueue);
+     I.substatus = ds_queue_dequeue(persistenceQueue);
+    }
 </string>
           </argument>
         </arguments>
@@ -77,11 +101,14 @@ fontDamage = font_add_sprite(sFntDamage,ord("0"),1,2);
 if (room == mapTest)
 {
  if (player_pos == 1) {oPlayer.x = 1536; oPlayer.y = 1792;}
+ else if (player_pos == 2) {instance_set_position(884, 700, oPlayer);}
 }
 if (room == mapHouseAlice)
 {
  if (player_pos == 1) {oPlayer.x = 352; oPlayer.y = 240;}
 }
+
+alarm[0] = 1;
 </string>
           </argument>
         </arguments>
@@ -104,8 +131,7 @@ if (room == mapHouseAlice)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//mp_grid_draw(grid);
-
+            <string>/// Draw nothing
 </string>
           </argument>
         </arguments>

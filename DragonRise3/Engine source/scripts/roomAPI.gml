@@ -1,5 +1,5 @@
-#define roomCreationAPI
-/// apiRoomCreation()
+#define roomAPI
+/// roomAPI()
 /*
 
 - roomCreation(camera,controller)
@@ -61,3 +61,23 @@ if (instance_number(oStatusMenu) = 0)
      instance_create(0,0,oStatusMenu);
    }
 global.shaders_enabled = true;
+#define roomNpcAdd
+/// roomNpcAdd(room, x, y, instance)
+
+var xx, yy, i, r, I;
+xx = 0;
+yy = 0;
+i  = -1;
+r  = -1;
+
+if (argument_count > 0) {r  = argument[0];}
+if (argument_count > 1) {xx = argument[1];}
+if (argument_count > 2) {yy = argument[2];}
+if (argument_count > 3) {i  = argument[3];}
+
+I = room_instance_add(r, xx, yy, i);
+ds_queue_enqueue(oController.persistenceQueue, I);
+ds_queue_enqueue(oController.persistenceQueue, i.status);
+ds_queue_enqueue(oController.persistenceQueue, i.substatus);
+
+
