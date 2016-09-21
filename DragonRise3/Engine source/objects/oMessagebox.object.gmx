@@ -212,8 +212,8 @@ draw_rectangle_colour(view_xview,view_yview,view_xview+1024,view_yview+768,c_bla
 clr();
 
 draw_self();
-if (message_image[message_current] != -1) {draw_sprite_ext(sPortraits,message_image[message_current],x,y+32,1,1,0,c_white,image_alpha); }
 draw_sprite_ext(sprite_index,1,x,y,1,1,0,c_white,image_alpha);
+if (message_image[message_current] != -1) {draw_sprite_ext(sPortraits,message_image[message_current],x,y+32,1,1,0,c_white,image_alpha); }
 
 
 dialogueTypewriter();                                     
@@ -222,15 +222,13 @@ if (!draw) {if (image_alpha &gt; 0) {image_alpha -= 0.05;} else {instance_destro
 
 draw_set_font(fntPixel);
 scrCenterText();
+clr(c_white, min(ta * 2, 1));
 draw_text(x+230,y+25,message_head[message_current]);
 scrCenterText(0);
-clr(c_black, ta);
+clr(c_white, ta);
 draw_text_colored(x+150,y+40,str);
 
-q = false;
-if (instance_number(oAnswer) &gt; 0) {if (!oAnswer.cd) {q = true;}}
-
-if (mouse_check_button_pressed(mb_left) &amp;&amp; draw &amp;&amp; instance_number(oAnswer) == 0 || q) 
+if (mouse_check_button_pressed(mb_left) &amp;&amp; draw &amp;&amp; instance_number(oAnswer) == 0) 
    {
    if (option[message_current] = -1)
    {
@@ -244,7 +242,7 @@ if (mouse_check_button_pressed(mb_left) &amp;&amp; draw &amp;&amp; instance_numb
          } 
          else
          {
-          pos = string_length(message_text[message_current]);
+
          }      
         }
      }
@@ -253,6 +251,11 @@ if (mouse_check_button_pressed(mb_left) &amp;&amp; draw &amp;&amp; instance_numb
            // show_message(message_current+string(" ")+string(oMessagebox.option[oMessagebox.message_current]));
           }
    }
+if (mouse_check_button_pressed(mb_left) &amp;&amp; draw)
+    {
+     pos = string_length(message_text[message_current]);
+    }
+    
 if (draw &amp;&amp; instance_number(oAnswer) == 0)
    {
     if (option[message_current] != -1)

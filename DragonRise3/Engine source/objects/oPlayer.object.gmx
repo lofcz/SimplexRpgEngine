@@ -212,6 +212,18 @@ speechIn    = false;
 speechCurrentText = "";
 speechMode  = 0;
 speechSkip = false;
+
+rankName[1] = "cizinec";
+rankName[2] = "návštěvník";
+rankName[3] = "neznámý cestovatel";
+rankName[4] = "bezejmenný kupec";
+rankName[5] = "stálý návštěvník";
+rankName[6] = "povědomá tvář";
+rankName[7] = "známý poutník";
+rankName[8] = "vzácný host";
+rankName[9] = "přítel města";
+rankName[10] = "zmocněnec královského písaře";
+
 </string>
           </argument>
         </arguments>
@@ -493,6 +505,12 @@ last_xp = 0;
 vlastnost[vlastnost_level]++; 
 skillPoints++;
 talentPoints++;
+
+inst = instance_create(view_xview, view_yview, oAchievement);
+inst.header = "Úroveň " + string(vlastnost[vlastnost_level]) + " dosažena!";
+inst.text = "Nyní jsi znám jako " + scrColorflag(c_yellow) + apiPlayerGetRankName() + scrEndColorflag()+ ".";
+inst.index = 0;
+inst.medalType = 2;
 </string>
           </argument>
         </arguments>

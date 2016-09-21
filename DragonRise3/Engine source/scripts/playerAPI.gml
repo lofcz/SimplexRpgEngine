@@ -807,3 +807,8 @@ if (ds_queue_size(oPlayer.speechQueue) > 0)
     {
      oPlayer.speechSkip = true;
     }
+#define apiPlayerGetRankName
+/// apiPlayerGetRankName()
+
+return oPlayer.rankName[oPlayer.vlastnost[vlastnost_level]];
+

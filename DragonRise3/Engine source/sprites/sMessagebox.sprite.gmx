@@ -31,5 +31,7 @@
     <frame index="8">images\sMessagebox_8.png</frame>
     <frame index="9">images\sMessagebox_9.png</frame>
     <frame index="10">images\sMessagebox_10.png</frame>
+    <frame index="11">images\sMessagebox_11.png</frame>
+    <frame index="12">images\sMessagebox_12.png</frame>
   </frames>
 </sprite>

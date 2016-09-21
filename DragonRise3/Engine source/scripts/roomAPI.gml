@@ -80,4 +80,3 @@ ds_queue_enqueue(oController.persistenceQueue, I);
 ds_queue_enqueue(oController.persistenceQueue, i.status);
 ds_queue_enqueue(oController.persistenceQueue, i.substatus);
 
-

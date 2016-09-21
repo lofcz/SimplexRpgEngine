@@ -52,7 +52,7 @@
   </views>
   <instances>
     <instance objName="oTransitionCollision" x="528" y="464" name="inst_B50E507B" locked="0" code="level = mapTest;&#xA;text = &quot;Vstoupit do &quot;+&quot;[c=&quot;+string(c_yellow)+&quot;]&quot;+&quot;vavřincova kostela[/c].&quot;;&#xA;xx = x;&#xA;yy = y;&#xA;text_lenght = 0;&#xA;player_pos = 2;&#xA;" scaleX="2.06451606750488" scaleY="0.625" colour="4294967295" rotation="0"/>
-    <instance objName="oPlayer" x="528" y="400" name="inst_1FD3561F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oPlayer" x="528" y="416" name="inst_1FD3561F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="celianna_MV_interior_house2" x="160" y="128" w="96" h="48" xo="192" yo="144" id="10020145" name="inst_00DC043E" depth="100000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

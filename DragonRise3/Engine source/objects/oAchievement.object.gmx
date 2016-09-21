@@ -90,7 +90,7 @@ part_system_destroy(Sname);
 fnt(fntPixelBig);
 maxWidth = string_width(header);
 fnt(fntPixel);
-if (string_width(text) &gt; maxWidth) {maxWidth = string_width(text);}
+if (string_width(dialogueParse(text)) &gt; maxWidth) {maxWidth = string_width(dialogueParse(text));}
 canDraw = true;
 
 xx    -= (maxWidth + 64);
@@ -184,7 +184,7 @@ alg("center", fntPixel);
 draw_text(x + (maxWidth / 2) + 40, y + 12, header);
 alg();
 fnt(fntPixelSmall);
-draw_text(x + 48, y + 24, text);
+draw_text_colored(x + 48, y + 24, text);
 clr();
 }
 </string>
