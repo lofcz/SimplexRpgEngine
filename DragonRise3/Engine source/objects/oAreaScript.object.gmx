@@ -32,6 +32,19 @@ tempTimer = -1;
 textX = 0;
 textMode = 0;
 textSpd = 0;
+
+instance_activate_all();
+
+     counter = 0;
+
+     with (oEnemySlime)
+         {
+          if (distance_to_object(other) == 0)
+              {
+              other.idArray[other.counter] = id;
+              other.counter += 1;
+              }
+         }
 </string>
           </argument>
         </arguments>
@@ -54,7 +67,9 @@ textSpd = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (!triggered &amp;&amp; canBeTriggered)
+            <string>
+/*
+if (!triggered &amp;&amp; canBeTriggered)
     {
      triggered = true;
      
@@ -67,7 +82,7 @@ textSpd = 0;
             }
          if (slowmo) {mode = 1;}
         }
-    }
+    }*/
 </string>
           </argument>
         </arguments>
@@ -92,6 +107,7 @@ textSpd = 0;
             <kind>1</kind>
             <string>/// Draw nothing
 
+/*
 if (mode == 1)
     {
      for (i = 0; i &lt; array_length_1d(instance); i++)
@@ -129,6 +145,18 @@ if (mode == 1)
          textX += textSpd;
          draw_text(view_xview + textX, view_yview + (view_hview / 2), slowmoText);
         }
+    }
+*/
+if (myID == 2)
+    {
+     draw_circle(x, y, (image_xscale * 32) / 2, true); 
+     
+     for (i = 0; i &lt; array_length_1d(idArray); i++)
+        {
+         with(idArray[i]) {if (distance_to_object(other) == 0) {draw_text(other.x, other.y + (other.i * 32), "YES");}}
+        }
+
+     draw_text(x, y, "COUNTER: " + string(counter));
     }
 </string>
           </argument>

@@ -28,7 +28,7 @@
             <string>/// Set up
 
 daynightInitialise(12);
-
+spd = 15;
 </string>
           </argument>
         </arguments>
@@ -53,7 +53,7 @@ daynightInitialise(12);
             <kind>1</kind>
             <string>/// Handle time flow
 
-daynightFlow(15);
+daynightFlow(spd);
 </string>
           </argument>
         </arguments>

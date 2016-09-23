@@ -427,9 +427,9 @@ scrCutscenePlay(ins1, DemoCutscene, false, 1);
 
 //scrHintShow("LoF", "Vítej v " +scrColorflag(c_aqua) + "Simplexu" + scrEndColorflag() + " ", "Ok");
 
-apiPlayerSay("Ahoj. :-)");
-apiPlayerSay("Bavíš se?");
-
+//apiPlayerSay("Ahoj. :-)");
+//apiPlayerSay("Bavíš se?");
+oDayNight.spd = 100;
 
 </string>
           </argument>

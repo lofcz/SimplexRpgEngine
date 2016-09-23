@@ -774,6 +774,9 @@
       <scripts name="Hint">
         <script>scripts\scrHintShow.gml</script>
       </scripts>
+      <scripts name="Area scripts">
+        <script>scripts\scrAreaScriptIni.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <shaders name="shaders">

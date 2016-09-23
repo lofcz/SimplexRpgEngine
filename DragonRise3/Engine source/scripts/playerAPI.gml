@@ -811,4 +811,3 @@ if (ds_queue_size(oPlayer.speechQueue) > 0)
 /// apiPlayerGetRankName()
 
 return oPlayer.rankName[oPlayer.vlastnost[vlastnost_level]];
-
