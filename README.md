@@ -28,7 +28,11 @@
 
 ![](https://s14.postimg.org/viefrkkz5/qwe.png)
 
-**Budoucnost máš na dosah, začni [zde](https://github.com/lofcz/SimplexRpgEngine/wiki).**
+**Budoucnost máš na dosah, začni [zde](https://github.com/lofcz/SimplexRpgEngine/wiki).**  
+
+Máš otázky, nebo jsi vytvořil na Simplexu hru a chceš nám dát vědět? Napiš nám!
+- <a href="https://www.facebook.com/simplexengine/?pnref=lhc">Facebook</a>
+- <a href="https://www.youtube.com/channel/UCCDT5l4gglPpFB_tEZd5c7Q">Youtube</a>
 
 <sub><sup>Copyright © 2016 Matěj Štágl.</sup></sub>  
 <sub><sup>[Čtěte licenci, pod kterou je projekt dostupný.](https://github.com/lofcz/SimplexRpgEngine/blob/master/license.md)</sup></sub>
