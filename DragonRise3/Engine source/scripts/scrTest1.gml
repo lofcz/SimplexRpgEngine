@@ -4,6 +4,7 @@
 // P1:(x,y)
 //ds_queue_enqueue(queue, "0,0");
 
+/*
 
 ds_queue_enqueue(queue, "0, 1");
 ds_list_add(list, "0,1,0");
@@ -38,7 +39,7 @@ while(!ds_queue_empty(queue) && i < 60)
  
 
  //show_message("X: " + string(posX) + "#Y: " + string(posY)); WORKING
- 
+/* 
  i++;
  listI++; 
 }
@@ -54,7 +55,7 @@ for (i = 0; i < ds_list_size(list); i++)
 
 #define scrAddToQueue
 /// scrAddToQueue(x, y)
-
+/*
 var xx, yy;
 xx = argument[0];
 yy = argument[1];

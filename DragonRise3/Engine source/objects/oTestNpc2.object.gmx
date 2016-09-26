@@ -166,8 +166,8 @@ else if (status == 1)
    dialogueMessage("Alice", "Bože, jen kdyby mě tak nebolela ta hlava, nedokážu se soustředit.");
    dialogueMessage("Alice", "Petře, byl bys tak dobrý a donesl mi trochu kalokvětu? Čaj z něj mi vždycky pomůže.");   
    action_id = 1;
-   dialogueOptions(1);
    status = 2;
+   dialogueOptions(1);
    }
 else if (status == 2)
    {
@@ -259,7 +259,7 @@ switch(action_id)
             <kind>1</kind>
             <string>/// Actions
 oMessagebox.option[oMessagebox.message_current] = -1;
-show_message("13");
+
 if (status == 1) 
    {
    if (index == 0)
@@ -277,7 +277,13 @@ else if (status == 2)
       {
         scrCutscenePlay(self, cutsceneAlice1, false, 1);
         scrQuestEntryAdd(enumQuests.questKalokvetProAlici, "Opojné listy kalokvětu", "Bylinkářka Alice trpí bolestmi hlavy, požádala mě o nějaké listy kalokvětu. Na čaj by měly stačit tři lístky, víc jí toho nosit nebudu.", "??????", "[Hlavní úkol]"); 
-        substatus = 1;
+        substatus = 1;     
+        
+                        inst = instance_create(view_xview, view_yview, oAchievement);
+inst.header = "Nový úkol!";
+inst.text = "Kalokvět pro Alici";
+inst.index = medalEnum.quest;
+inst.medalType = 0;  
       }
   if (index == 1)
       {

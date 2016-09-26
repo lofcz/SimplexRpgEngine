@@ -96,7 +96,8 @@ v = (argument4 / 360);
 if (v <= 0) return 0 
 x1 = argument0; y1 = argument1; 
 x2 = argument2; y2 = argument3; 
-if (v >= 1) return draw_rectangle(x1, y1, x2, y2, false) 
+if (v >= 1) return 0;
+draw_rectangle(x1, y1, x2, y2, false) 
 xm = (x1 + x2) / 2; ym = (y1 + y2) / 2;
 draw_primitive_begin(pr_trianglefan)
 draw_vertex(xm, ym); draw_vertex(xm, y1)
@@ -120,6 +121,7 @@ if (vl < 1) {
 draw_vertex(xm + vx * (x2 - x1) / 2, ym + vy * (y2 - y1) / 2)
 draw_primitive_end()
 draw_set_colour(c_black);
+
 #define draw_ring_part
 /// draw_ring_part(x, y, radius, thickness, maxsegments, segments, startangle, totalangle, direction, colour, outline, alpha)
 

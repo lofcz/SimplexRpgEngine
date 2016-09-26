@@ -425,9 +425,9 @@
             this.checkBox5.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.checkBox5.Location = new System.Drawing.Point(12, 569);
             this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(82, 16);
+            this.checkBox5.Size = new System.Drawing.Size(87, 16);
             this.checkBox5.TabIndex = 14;
-            this.checkBox5.Text = "Layer changer";
+            this.checkBox5.Text = "Event switcher";
             this.checkBox5.UseVisualStyleBackColor = false;
             // 
             // checkBox6

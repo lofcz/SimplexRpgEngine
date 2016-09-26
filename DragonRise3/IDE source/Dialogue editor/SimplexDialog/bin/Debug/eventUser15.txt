@@ -1,12 +1,11 @@
 // test dialog
 if (status == 0)
    {
-    dialogueMessage("yxcyxc", "cxycxy", 0)
+    dialogueMessage("Test DIALOG 1", "", 0)
     dialogueMessage("Test DIALOG 2", "", 0)
 
 if (Test DIALOG 3)
    {
    }
     dialogueMessage("Test DIALOG 5", "", 0)
-   }
    }

@@ -430,6 +430,7 @@
     <sprite>sprites\sMinimapIcons</sprite>
     <sprite>sprites\sOverlayLight</sprite>
     <sprite>sprites\sRoomMask0</sprite>
+    <sprite>sprites\sQuestNotification</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -1042,9 +1043,9 @@
   </timelines>
   <rooms name="rooms">
     <room>rooms\mapTest</room>
+    <room>rooms\mapMainMenu</room>
     <room>rooms\mapSklep</room>
     <room>rooms\cutscenePoustevnikovaPesina</room>
-    <room>rooms\mapMainMenu</room>
     <room>rooms\mapHolohlavy</room>
     <room>rooms\cutsceneVavrincuvKostel</room>
     <room>rooms\mapMyFirstGame</room>

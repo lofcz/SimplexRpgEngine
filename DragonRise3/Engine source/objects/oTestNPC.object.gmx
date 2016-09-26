@@ -164,12 +164,11 @@ a++;
             <kind>1</kind>
             <string>/// Dialogues
 
-if (status = 0 )
+if (status == 0)
    {
    dialogueMessage("LoF","I greet you, mighty developer! With " + scrColorflag(c_blue) + "Simplex" + scrEndColorflag() + ", making games is fun. Tutorials, documentation and more can be found in project repository.", 0);
    dialogueMessage("LoF","I almost forgot, thanks for using Simplex!", 0);
-   dialogueOptions(0);
-   
+   dialogueOptions(0);  
    }
 </string>
           </argument>
@@ -243,21 +242,21 @@ switch(action_id)
 oMessagebox.option[oMessagebox.message_current] = -1
 
 
-if (action_id = 0) 
+if (action_id == 0) 
    {
-   if (index = 0)
+   if (index == 0)
       {
         with(oMessagebox) {instance_destroy();}
         dialogueMessage("Možnost 0","TEST?",1);
         action_id = 1;
       
       }
-     if (index = 1)
+   if (index == 1)
       {
        scrShopActivate();
        open = true;
       }
-  if (index = 2)
+  if (index == 2)
       {
       show_message("Return z ANSWERsystemu#INDEX: 2");
       }

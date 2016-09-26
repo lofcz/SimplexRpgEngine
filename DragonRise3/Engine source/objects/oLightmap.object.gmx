@@ -115,7 +115,7 @@ draw_set_blend_mode(bm_add);
 //draw_sprite_ext(spr_lightcookie_purple, 0, obj_player.x, obj_player.y, 1, 1, point_direction(obj_player.x, obj_player.y, mouse_x, mouse_y), c_white, 1);
 for (a = 0; a &lt; lightmap_real_size; a++)
     { 
-     draw_sprite(sLightmapCircle,0,lightmap[# lightmap_x,a],lightmap[# lightmap_y,a]);   
+     draw_sprite(sSpellPoint,0,lightmap[# lightmap_x,a],lightmap[# lightmap_y,a]);   
     
     }
 

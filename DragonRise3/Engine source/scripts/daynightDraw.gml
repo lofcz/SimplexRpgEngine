@@ -1,5 +1,7 @@
 /// daynightDraw()
 
+if (global.mapType != mapEnum.mapInterier)
+{
 image_alpha = fase-0.1;
 
 if (to = 1)
@@ -53,4 +55,5 @@ draw_set_blend_mode(bm_normal);
 surface_reset_target();
 
 draw_surface_ext(surf, view_xview, view_yview, 1, 1, 0, c_white, alpha);
+}
 }
