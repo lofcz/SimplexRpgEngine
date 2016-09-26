@@ -16,11 +16,11 @@
 
 #### Úspěšné hry, poháněné Simplexem:
 
-**Fate of Hero**  
+**Fate of Hero** (Kedarsoft)  
 *Úspěšná kampaň na startovac.cz, vybraná částka: 10 000 czk*   
 <a href="https://www.startovac.cz/projekty/fate-of-hero/">![](http://s13.postimg.org/u6dvlctif/5303_aaaa_png_200x113.png)</a>
 
-**Shuups**  
+**Shuups** (K&P Games)  
 *Zveřejněno na Google Play*   
 <a href="https://play.google.com/store/apps/details?id=sk.KandPGames.Shuups">![](http://s21.postimg.org/wpxsja7o7/Noname.png)</a>
 
