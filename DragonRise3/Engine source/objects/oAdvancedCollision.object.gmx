@@ -341,6 +341,7 @@ if (idd = "kamen")
           <argument>
             <kind>1</kind>
             <string>/// Draw nothing
+draw_self();
 
 if (mode == 0)
 {

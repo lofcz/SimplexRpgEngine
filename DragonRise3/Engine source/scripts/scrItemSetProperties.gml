@@ -14,3 +14,4 @@ if (argument_count > 2) {itm_info_text           = argument[2];}
 if (argument_count > 3) {itm_materialType        = argument[3];}
 if (argument_count > 4) {itm_equip_slot          = argument[4];}
 
+itm_info_text = scrWordwrap(itm_info_text, 196, fntPixelSmall);

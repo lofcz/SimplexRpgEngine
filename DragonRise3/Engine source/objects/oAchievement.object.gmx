@@ -96,6 +96,7 @@ canDraw = true;
 xx    -= (maxWidth + 64);
 startX = xx;
 
+depth -= (instance_number(oAchievement) - 1);
 </string>
           </argument>
         </arguments>

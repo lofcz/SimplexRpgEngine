@@ -180,6 +180,10 @@
     <sound>sound\sndSkillUp</sound>
     <sound>sound\sndMenuClick1</sound>
     <sound>sound\sndSpellLevelUp</sound>
+    <sound>sound\sndArmor2</sound>
+    <sound>sound\sndArmor4</sound>
+    <sound>sound\sndArmor3</sound>
+    <sound>sound\sndArmor1</sound>
     <sound>sound\sndSpellUpgrade</sound>
   </sounds>
   <sprites name="sprites">
@@ -192,6 +196,7 @@
         <sprite>sprites\sObet</sprite>
         <sprite>sprites\sBylinkarka</sprite>
         <sprite>sprites\sTestNPC</sprite>
+        <sprite>sprites\sBunny</sprite>
       </sprites>
       <sprites name="Foes">
         <sprite>sprites\sEnemySlime</sprite>
@@ -377,8 +382,15 @@
         <sprite>sprites\sHealthEffect2</sprite>
         <sprite>sprites\sManaEffect2</sprite>
         <sprite>sprites\sManaEffect</sprite>
+        <sprite>sprites\sManaEffect3</sprite>
         <sprite>sprites\sXpPoint</sprite>
+        <sprite>sprites\sShieldEffect3</sprite>
+        <sprite>sprites\sManaPoint</sprite>
+        <sprite>sprites\sElixirEffect2</sprite>
+        <sprite>sprites\sElixirEffect</sprite>
+        <sprite>sprites\sShieldEffect2</sprite>
         <sprite>sprites\sXP</sprite>
+        <sprite>sprites\sGiftEffect</sprite>
         <sprite>sprites\sStaminaEffect</sprite>
         <sprite>sprites\sHelmetEffect</sprite>
         <sprite>sprites\sRingEffect</sprite>
@@ -416,11 +428,9 @@
       <sprite>sprites\sprite60</sprite>
       <sprite>sprites\sprite122_Items2</sprite>
       <sprite>sprites\sInventoryMapTEMP</sprite>
-      <sprite>sprites\sprite161_shoulder_part</sprite>
       <sprite>sprites\sprite123_tilee</sprite>
       <sprite>sprites\sprite130_achievements</sprite>
     </sprites>
-    <sprite>sprites\sprite155</sprite>
     <sprite>sprites\sShadowBounce</sprite>
     <sprite>sprites\sprite160</sprite>
     <sprite>sprites\sShieldEffect</sprite>
@@ -532,6 +542,7 @@
         <script>scripts\effectAchievement.gml</script>
         <script>scripts\effectSpellLevelUp.gml</script>
         <script>scripts\effectVines.gml</script>
+        <script>scripts\effectLegendaryItem.gml</script>
         <script>scripts\effectFirefly.gml</script>
       </scripts>
     </scripts>
@@ -848,6 +859,9 @@
         <object>objects\oTestNpc2</object>
         <object>objects\parNPC</object>
       </objects>
+      <objects name="Animals">
+        <object>objects\oBunny</object>
+      </objects>
     </objects>
     <objects name="Controllers">
       <object>objects\oInventory</object>
@@ -893,6 +907,8 @@
     <objects name="Dropable and items">
       <objects name="Dropable">
         <object>objects\oXpDrop</object>
+        <object>objects\oManaDrop</object>
+        <object>objects\oArmorDrop</object>
         <object>objects\oXpReward</object>
         <object>objects\oHealthDrop</object>
       </objects>
@@ -901,15 +917,27 @@
           <object>objects\oGold</object>
           <object>objects\oGold2</object>
         </objects>
-        <objects name="Materials">
-          <object>objects\oTestItem2</object>
-          <object>objects\oRedPearlLvl2</object>
-          <object>objects\oWoodLvl1</object>
-          <object>objects\oMetalSteel</object>
-          <object>objects\oStoneLvl1</object>
-          <object>objects\oGoldLvl1</object>
-          <object>objects\oKalokvet</object>
-          <object>objects\oMaterialGreenGem</object>
+        <objects name="Materials and herbs">
+          <objects name="Herbs">
+            <object>objects\oHerbCtyrlistek</object>
+            <object>objects\oHerbSlidivec</object>
+            <object>objects\oHerbPraznik</object>
+            <object>objects\oHerbSkucivka</object>
+            <object>objects\oHerbBazinatka</object>
+            <object>objects\oHerbSuzenka</object>
+            <object>objects\oHerbBzuklar</object>
+            <object>objects\oHerbKorinky</object>
+            <object>objects\oKalokvet</object>
+          </objects>
+          <objects name="Materials">
+            <object>objects\oMaterialGreenGem</object>
+            <object>objects\oGoldLvl1</object>
+            <object>objects\oStoneLvl1</object>
+            <object>objects\oWoodLvl1</object>
+            <object>objects\oMetalSteel</object>
+            <object>objects\oTestItem2</object>
+            <object>objects\oRedPearlLvl2</object>
+          </objects>
         </objects>
         <objects name="Weapons">
           <object>objects\oTestItem3</object>
@@ -958,6 +986,9 @@
         </objects>
         <objects name="Misc">
           <object>objects\oLockpick</object>
+          <object>objects\oElixirHP</object>
+          <object>objects\oElixirMP</object>
+          <object>objects\oLofsGift</object>
           <object>objects\oBasicItem</object>
           <object>objects\parItem</object>
         </objects>

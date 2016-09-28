@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_xscale = random_range(0.8,1.2);
+            <string>/// Initialise
+
+image_xscale = random_range(0.8,1.2);
 image_yscale = image_xscale;
 speed = random_range(4,6);
 secure = 6;
@@ -51,7 +53,9 @@ secure = 6;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_alpha -= 0.02;
+            <string>/// Lerp
+
+image_alpha -= 0.02;
 image_angle += 1+(speed/10);
 speed += 0.02;
 
@@ -79,7 +83,9 @@ secure--;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (secure &lt;= 0)
+            <string>/// Bounce
+
+if (secure &lt;= 0)
 {
 move_bounce_all(1);
 }
@@ -105,17 +111,12 @@ move_bounce_all(1);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>/// Handle collision
+
 if (!combatGetParry())
 {
 dmg = 3 + choose(-1,0,1);
-
-other.vlastnost[vlastnost_zivot] -= dmg;
-scrGoreMed(oPlayer.x,oPlayer.y,2);
-instance_destroy();
-scrLog(string(dmg),c_black,-1,0,0,oPlayer.x,oPlayer.y-48,fntPixelHuge);
-stateAddEntry("Zásah kusem slizu ti způsobil " + scrColorflag(c_red) + string(dmg) + scrEndColorflag() + " " + scrInflect("bod", dmg) + " poškození.");
-audio_play_sound(sndPoo,0,0);
+apiPlayerGetDamage(dmg, damageEnum.damagePhysical, 0, sndPoo, true, true, "Zásah kusem slizu ti způsobil " + scrColorflag(c_red) + string(dmg) + scrEndColorflag() + " " + scrInflect("bod", dmg) + " poškození.");
 }
 else
 {

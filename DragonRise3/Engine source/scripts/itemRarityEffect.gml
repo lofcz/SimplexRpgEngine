@@ -25,6 +25,10 @@ if (color == rarity_quest)
    {
     index = 10;
    }  
+if (color == rarity_legendary)
+   {
+    index = 4;
+   } 
 }
 else
 {
@@ -39,6 +43,10 @@ if (color == rarity_fine)
 if (color == rarity_rare)
    {
     index = 8;
+   }
+if (color == rarity_legendary)
+   {
+    index = 9;
    }
 }
 

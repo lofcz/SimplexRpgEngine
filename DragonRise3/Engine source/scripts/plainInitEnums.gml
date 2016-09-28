@@ -2,7 +2,7 @@
 
 enum enumQuests
 {
-questVitejVSimplexu, questKalokvetProAlici
+questVitejVSimplexu, questSample, questKalokvetProAlici
 };
 
 enum cutsceneState
@@ -49,4 +49,14 @@ spellFlash, spellFireball, spellVines, spellFrozenBolts, spellSpell5
 enum mapEnum
 {
 mapExterier, mapInterier, mapCave
+};
+
+enum damageEnum
+{
+damagePhysical, damageNormal, damagePenetration, damageTrue
+};
+
+enum elementEnum
+{
+elementNone
 };

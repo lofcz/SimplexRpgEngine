@@ -298,7 +298,7 @@ if (last_stamina > vlastnost[vlastnost_stamina]) {last_stamina = lerp(last_stami
 if (last_xp < vlastnost[vlastnost_zkusenosti]) {last_xp = round(lerp(last_xp, vlastnost[vlastnost_zkusenosti], 0.1));}
 if (last_xp > vlastnost[vlastnost_zkusenosti]) {last_xp = round(lerp(last_xp, vlastnost[vlastnost_zkusenosti], 0.1));}
 
-if (last_hp <= 0 && last_hp != 0) {last_hp = 0; scrGoreExplode(10,10);}
+if (last_hp <= 0.4 && last_hp != 0) {last_hp = 0; scrGoreExplode(10,10);}
 
 
 if (ds_queue_size(speechQueue) > 0)
@@ -811,3 +811,112 @@ if (ds_queue_size(oPlayer.speechQueue) > 0)
 /// apiPlayerGetRankName()
 
 return oPlayer.rankName[oPlayer.vlastnost[vlastnost_level]];
+#define apiPlayerGetDamage
+/// apiPlayerGetDamage(damage, damageType, elementType, goreSound, destroySelf, logDmg, stateLog)
+
+var d, t, e, deltaD, q, modQ, minQ, g, s, l, z;
+d = 0;
+t = damageEnum.damageNormal;
+e = elementEnum.elementNone;
+g = sndPoo;
+s = false;
+l = true;
+z = "";
+
+if (argument_count > 0) {d = argument[0];}
+if (argument_count > 1) {t = argument[1];}
+if (argument_count > 2) {d = argument[2];}
+if (argument_count > 3) {g = argument[3];}
+if (argument_count > 4) {s = argument[4];}
+if (argument_count > 5) {l = argument[5];}
+if (argument_count > 6) {z = argument[6];}
+d = dmg;
+
+// Decrese dmg by def 
+/* To fully cover dmg we need (dmg * 3) armor
+   In that case, pass 1 + {0, r(dmg / 5)) dmg
+*/
+deltaD = (d - round(d - (oPlayer.vlastnost[vlastnost_odolnost] / 3)));
+if (deltaD >= d)
+    {
+   //  d = irandom_range(1, irandom(d / 5));
+    } 
+else
+    {
+   //  d -= deltaD;
+    }
+
+// Compute max shield absorbtion
+q    = oPlayer.vlastnost[vlastnost_stit];
+maxQ = 0; // Max dmg amount to be absorbed
+modQ = 0; // Rest of dmg
+
+if (t == damageEnum.damagePhysical)         {maxQ = d;            modQ = 0;}
+else if (t == damageEnum.damageNormal)      {maxQ = round(d / 2); modQ = maxQ;}
+else if (t == damageEnum.damagePenetration) {maxQ = round(d / 4); modQ = (maxQ * 3);}
+else if (t == damageEnum.damageTrue)        {maxQ = 0;            modQ = d;}
+
+// If we don't have enough shield to fully absorb dmg
+if (q < maxQ)
+    {
+     if (q >= 1)
+     {
+     maxQ -= q;
+     modQ += q;
+     }
+     else 
+     {
+     maxQ = 0;
+     modQ = d;
+     }
+    }
+
+// Finally decrease stats
+oPlayer.vlastnost[vlastnost_zivot] -= modQ;
+oPlayer.vlastnost[vlastnost_stit]  -= maxQ;
+
+// Spawn blood
+//   - gore
+if (modQ > 0)
+{
+scrGoreMed(oPlayer.x, oPlayer.y, irandom_range(2, 3));
+audio_play_sound(g, 0, false);
+
+} 
+
+//   - armor shards
+if (maxQ > 0)
+{
+audio_play_sound(choose(sndArmor1, sndArmor2, sndArmor3, sndArmor4), 0, false);
+}
+
+// Log
+if (l) {scrLog(string(dmg),c_black,-1,0,0,oPlayer.x,oPlayer.y-48,fntPixelHuge);}
+if (z != "") {stateAddEntry(z);}
+
+// Destroy self
+if (s) {instance_destroy();}
+
+#define apiPlayerGetMana
+/// apiPlayerGetMana(value)
+
+var v;
+v = 0;
+
+if (argument_count > 0) {v = argument[0];}
+
+oPlayer.vlastnost[vlastnost_mana] +=  v;
+
+return(v);
+
+#define apiPlayerGetShield
+/// apiPlayerGetShield(value)
+
+var v;
+v = 0;
+
+if (argument_count > 0) {v = argument[0];}
+
+oPlayer.vlastnost[vlastnost_stit] +=  v;
+
+return(v);

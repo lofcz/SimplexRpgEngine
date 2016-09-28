@@ -28,7 +28,7 @@
             <string>/// Set up
 
 daynightInitialise(12);
-spd = 15;
+spd = 2;
 </string>
           </argument>
         </arguments>

@@ -103,6 +103,14 @@ with(oPlayer)
     
 if (nearestCol == 0){colID = collisionNearest[0];}
 else {colID = collisionNearest[1];}
+
+if (instance_number(oBunny &gt; 0))
+    {
+     with(oBunny)
+     {
+     instance_activate_region(other.x - 128, other.y - 128, 256, 256, true);
+     }
+    }
 </string>
           </argument>
         </arguments>

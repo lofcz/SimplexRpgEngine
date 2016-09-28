@@ -34,5 +34,16 @@ itemStone,
 itemGolde,
 itemLockpick,
 itemSteel,
-itemQuestAxe1
+itemQuestAxe1,
+itemGiftLof,
+itemElixirHP,
+itemElixirMP,
+itemHerbSuzenka,
+itemHerbBazinatka,
+itemHerbCtyrlistek,
+itemHerbSlidivec,
+itemHerbSkucivka,
+itemHerbPraznik,
+itemHerbBzuklar,
+itemHerbKorinky
 }

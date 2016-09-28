@@ -3,8 +3,8 @@
   <caption></caption>
   <width>2016</width>
   <height>2016</height>
-  <vsnap>4</vsnap>
-  <hsnap>4</hsnap>
+  <vsnap>32</vsnap>
+  <hsnap>32</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>-1</persistent>
@@ -171,7 +171,6 @@
     <instance objName="oLight" x="624" y="536" name="inst_89698E5E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oFirefly" x="544" y="408" name="inst_D195796B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oFirefly" x="368" y="408" name="inst_A74F03F7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oFirefly" x="376" y="272" name="inst_4086637E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oFirefly" x="456" y="544" name="inst_5F4EF061" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oFirefly" x="496" y="328" name="inst_F54D4BE0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oFence" x="128" y="608" name="inst_9FE1185A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
@@ -424,7 +423,7 @@
     <instance objName="oAdvancedCollision" x="708" y="496" name="inst_27A6E5C6" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;    scrAdvancedCollisionSetText(&quot;Pověšené oblečení.&quot;);&#xA;    scrAdvancedCollisionSetText(&quot;Nevypadá, že patří Alici.&quot;);&#xA;    scrAdvancedCollisionSetText(&quot;Zajímalo by mě, pro koho pere.&quot;);&#xA;    scrAdvancedCollisionSetText(&quot;Oblečení je bezcenné, nebudu ho krást.&quot;);&#xA;" scaleX="2" scaleY="1.5" colour="4294967295" rotation="0"/>
     <instance objName="oAdvancedCollision" x="728" y="592" name="inst_CCAE796F" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;    scrAdvancedCollisionSetText(&quot;Starý zápřežný vozík.&quot;);&#xA;    scrAdvancedCollisionSetText(&quot;Není ničím zajímavý.&quot;);&#xA;" scaleX="1.75" scaleY="1.5" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="764" y="488" name="inst_88B400AF" locked="0" code="" scaleX="1" scaleY="1.75" colour="4294967295" rotation="0"/>
-    <instance objName="oTransitionCollision" x="880" y="608" name="inst_010B346B" locked="0" code="level = mapHouseAlice;&#xA;text = &quot;Vstoupit do &quot; + scrColorflag(c_yellow) + &quot;Domku bylinkářky Alice&quot; + scrEndColorflag() + &quot;.&quot;;&#xA;xx = x;&#xA;yy = y-64;&#xA;text_lenght = 0;&#xA;player_pos = 1;&#xA;" scaleX="1" scaleY="1.48387098312378" colour="4294967295" rotation="0"/>
+    <instance objName="oTransitionCollision" x="880" y="608" name="inst_010B346B" locked="0" code="level = mapHouseAlice;&#xA;text = &quot;Vstoupit do &quot; + scrColorflag(c_yellow) + &quot;Domku bylinkářky Alice&quot; + scrEndColorflag() + &quot;.&quot;;&#xA;xx = x;&#xA;yy = y-64;&#xA;text_lenght = 0;&#xA;player_pos = 1;&#xA;" scaleX="0.75" scaleY="0.625" colour="4294967295" rotation="0"/>
     <instance objName="oAdvancedCollision" x="952" y="636" name="inst_C0E640BB" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;" scaleX="1.125" scaleY="0.4375" colour="4294967295" rotation="0"/>
     <instance objName="oEnemySlime" x="512" y="1460" name="inst_9D298E13" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oEnemySlime" x="592" y="1540" name="inst_973052E4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -432,6 +431,19 @@
     <instance objName="oEnemySlime" x="404" y="1588" name="inst_39D2152A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicVivid" x="404" y="516" name="inst_A3797875" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicVivid" x="556" y="176" name="inst_DD9DA905" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oLofsGift" x="456" y="524" name="inst_A290ECF1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oElixirHP" x="420" y="280" name="inst_D9AB41F7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oElixirHP" x="452" y="280" name="inst_42135183" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oElixirMP" x="420" y="252" name="inst_DF122B6F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oElixirMP" x="452" y="252" name="inst_206A988C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oHerbSuzenka" x="224" y="208" name="inst_70B0DC6B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oHerbBazinatka" x="252" y="208" name="inst_5DFB435D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oHerbCtyrlistek" x="280" y="208" name="inst_3B0A3E7E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oHerbSlidivec" x="224" y="236" name="inst_3F4BDA07" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oHerbSkucivka" x="252" y="236" name="inst_BABE2920" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oHerbPraznik" x="280" y="236" name="inst_20F01E27" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oHerbBzuklar" x="224" y="180" name="inst_6FC113DA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oHerbKorinky" x="252" y="180" name="inst_CE8A6D07" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="background14" x="1600" y="1712" w="32" h="32" xo="32" yo="0" id="10006696" name="inst_AC26E277" depth="1000001" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
