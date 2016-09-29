@@ -119,14 +119,6 @@ if (lastI != -1)
     
     }
 }
-
-if (instance_number(oPlayer) > 0)
-   { 
-   if (oPlayer.can_move2)
-      {
-      if (keyboard_check_pressed(ord(action_key))) {draw = !draw;}
-      }
-   }
 /*
 //DEBUG
 
@@ -145,3 +137,11 @@ show_message("Minimap zoom");
 }
 */
 }
+
+if (instance_number(oPlayer) > 0)
+   { 
+   if (oPlayer.can_move2)
+      {
+      if (keyboard_check_pressed(ord(action_key))) {draw = !draw;}
+      }
+   }

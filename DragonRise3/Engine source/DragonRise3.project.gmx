@@ -402,8 +402,6 @@
         <sprite>sprites\sQuestEffect</sprite>
         <sprite>sprites\sXpRewardPoint</sprite>
         <sprite>sprites\sLockpickEffect</sprite>
-        <sprite>sprites\sCoinAnimated</sprite>
-        <sprite>sprites\sCoinSingle</sprite>
         <sprite>sprites\sSlimePart</sprite>
         <sprite>sprites\sQuest</sprite>
         <sprite>sprites\sCodeShard</sprite>
@@ -902,6 +900,8 @@
       <object>objects\oLightCircle</object>
       <object>objects\oLight</object>
       <object>objects\oAchievement</object>
+      <object>objects\oHintBox</object>
+      <object>objects\oHintBoxButton</object>
       <object>objects\oAreaScript</object>
     </objects>
     <objects name="Dropable and items">
@@ -1059,8 +1059,6 @@
       <object>objects\oMainMenu</object>
       <object>objects\oMainMenuPar</object>
     </objects>
-    <object>objects\oHintBox</object>
-    <object>objects\oHintBoxButton</object>
   </objects>
   <timelines name="timelines">
     <timelines name="Cutscenes">

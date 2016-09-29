@@ -280,7 +280,7 @@ if ((level == mapTest))
 {
 if (idd = "pařez1")
    {
-    if (status = 1) {scrEnemyLoot(oGold,1,5,1,100,4);}
+    if (status = 1) {scrEnemyLoot(oGold2,1,5,1,100,4);}
    
    }
 if (idd = "pařezSeSekyrou")
@@ -300,17 +300,17 @@ if (idd = "mapTest_sloup1")
    }
 if (idd = "mapTest_kmen1")
    {
-    if (status = 2) {scrEnemyLoot(oGold,1,5,1,100,3);}
+    if (status = 2) {scrEnemyLoot(oGold2,1,5,1,100,3);}
    
    }
 if (idd = "zlato")
    {
-    if (status = 3) {scrEnemyLoot(oGold,30,50,1,100,5);}
+    if (status = 3) {scrEnemyLoot(oGold2,30,50,1,100,5);}
    
    }
 if (idd = "kamen")
    {
-    if (status = 3) {scrEnemyLoot(oGold,1,5,1,100,3);}
+    if (status = 3) {scrEnemyLoot(oGold2,1,5,1,100,3);}
    
    }
 }
@@ -341,7 +341,6 @@ if (idd = "kamen")
           <argument>
             <kind>1</kind>
             <string>/// Draw nothing
-draw_self();
 
 if (mode == 0)
 {
