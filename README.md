@@ -50,4 +50,5 @@ Máš otázky nebo jsi vytvořil na Simplexu hru a chceš nám dát vědět? Nap
 - <a href="https://www.youtube.com/channel/UCCDT5l4gglPpFB_tEZd5c7Q">Youtube</a>
 
 <sub><sup>Copyright © 2016 Matěj Štágl.</sup></sub>  
+<sub><sup><a href="https://github.com/lofcz/SimplexRpgEngine/wiki/Auto%C5%99i">Vývojový tým</a></sup></sub>  
 <sub><sup>[Čtěte licenci, pod kterou je projekt dostupný.](https://github.com/lofcz/SimplexRpgEngine/blob/master/license.md)</sup></sub>
