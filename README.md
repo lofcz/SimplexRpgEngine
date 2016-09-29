@@ -3,30 +3,30 @@
 <img align="middle" src="https://s17.postimg.org/hxjpe7lsv/Logomakr_6_U3cls.png">
 <br>
 
-## Moderní RPG Engine, redefinující JRPG žánr.
-* Vhodný pro jednotlivce i studia.
-* Systém komponent, řešící základní i pokročilé RPG problémy (50+ komponent).
-* Externí C# nástroje pro zvýšení efektivity práce v enginu.
-* Unikátní systém in-game vývoje, který umožňuje hru tvořit přímo za běhu. 
-* Extrémní výkon, vysoká optimalizace.
-* GLSL / HLSL shadery, 2D fyzika, částice a další za běhu počítané efekty.
-* Možnost integrace do stávajících GMS projektů.
-* Libovolné rozlišení hry, responsivní UI layout.
-* Poráží RPG Maker a YOYO RPG v každém směru.
-* Zcela zdarma, otevřený zrojový kód, LGPL2.1 licence.
+## The Modern RPG Engine that redifines the JRPG genre.
+* Suitable for anyone from individuals to large game studios. 
+* A system of components, solving both basic and advanced RPG problems (50+ components). 
+* An external C# toolkit for maximizing work efficiency. 
+* A Unique in-game development system allows for seamless development while the game is running. 
+* Extreme performance, high optimization and maximum efficiency. 
+* GLSL / HLSL shaders, 2D physics, particles and other effects calculated in real time. 
+* Can be integrated into already created GMS projects. 
+* Responsive UI layot allows for any resolution of the game window.
+* Defeats RPG Maker and YOYO RPG in every way.
+* Completely free, opensource, LGPL2.1 license.
 
-## Podporované vývojové prostředí:
+## Supported IDEs:
 <img align="middle" width="128" height="128" src="https://s21.postimg.org/vghqza03r/rounded_corners.png">
 <img align="middle" src="https://s10.postimg.org/tvc4uhp3t/Lateralgmlogo.png">
 <img align="middle" width="128" height="128" src="https://s15.postimg.org/jrlizdqor/rounded_corners.jpg">
 
-## Výběr z úspěšných projektů, poháněných Simplex RPG Enginem:
+## A handful of commercially successful projects powered by the Simplex RPG Engine: 
 **Fate of Hero** (Kedarsoft)  
-*Úspěšná kampaň na startovac.cz, vybraná částka: 10 000 czk*   
+*A successful crowdfunding campaign on Startovac.cz, 10 000 CZK raised.    
 <a href="https://www.startovac.cz/projekty/fate-of-hero/">![](http://s13.postimg.org/u6dvlctif/5303_aaaa_png_200x113.png)</a>
 
 **Shuups** (K&P Games)  
-*Zveřejněno na Google Play*   
+*Published on Google Play*   
 <a href="https://play.google.com/store/apps/details?id=sk.KandPGames.Shuups">![](http://s21.postimg.org/wpxsja7o7/Noname.png)</a>
 
 ## Engine preview 
@@ -43,11 +43,11 @@
 
 
 
-## Budoucnost máš na dosah, začni [zde](https://github.com/lofcz/SimplexRpgEngine/wiki).
+## The future is within your grasp. Start [here](https://github.com/lofcz/SimplexRpgEngine/wiki).
 
-Máš otázky nebo jsi vytvořil na Simplexu hru a chceš nám dát vědět? Napiš nám!
+Do you have any questions, or have you created a game using Simplex and you want to let us know? Contact us!
 - <a href="https://www.facebook.com/simplexengine/?pnref=lhc">Facebook</a>
 - <a href="https://www.youtube.com/channel/UCCDT5l4gglPpFB_tEZd5c7Q">Youtube</a>
 
 <sub><sup>Copyright © 2016 Matěj Štágl.</sup></sub>  
-<sub><sup>[Čtěte licenci, pod kterou je projekt dostupný.](https://github.com/lofcz/SimplexRpgEngine/blob/master/license.md)</sup></sub>
+<sub><sup>[Read the license, under which the project is available.](https://github.com/lofcz/SimplexRpgEngine/blob/master/license.md)</sup></sub>
