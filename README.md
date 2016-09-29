@@ -16,15 +16,23 @@
 
 #### Úspěšné hry, poháněné Simplexem:
 
-**Fate of Hero**  
+**Fate of Hero** (Kedarsoft)  
 *Úspěšná kampaň na startovac.cz, vybraná částka: 10 000 czk*   
 <a href="https://www.startovac.cz/projekty/fate-of-hero/">![](http://s13.postimg.org/u6dvlctif/5303_aaaa_png_200x113.png)</a>
+
+**Shuups** (K&P Games)  
+*Zveřejněno na Google Play*   
+<a href="https://play.google.com/store/apps/details?id=sk.KandPGames.Shuups">![](http://s21.postimg.org/wpxsja7o7/Noname.png)</a>
 
 #### Engine preview 
 
 ![](https://s14.postimg.org/viefrkkz5/qwe.png)
 
-**Budoucnost máš na dosah, začni [zde](https://github.com/lofcz/SimplexRpgEngine/wiki).**
+**Budoucnost máš na dosah, začni [zde](https://github.com/lofcz/SimplexRpgEngine/wiki).**  
+
+Máš otázky, nebo jsi vytvořil na Simplexu hru a chceš nám dát vědět? Napiš nám!
+- <a href="https://www.facebook.com/simplexengine/?pnref=lhc">Facebook</a>
+- <a href="https://www.youtube.com/channel/UCCDT5l4gglPpFB_tEZd5c7Q">Youtube</a>
 
 <sub><sup>Copyright © 2016 Matěj Štágl.</sup></sub>  
 <sub><sup>[Čtěte licenci, pod kterou je projekt dostupný.](https://github.com/lofcz/SimplexRpgEngine/blob/master/license.md)</sup></sub>
