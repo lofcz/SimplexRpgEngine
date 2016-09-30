@@ -44,59 +44,44 @@ pages          = ((array_length_1d(hover_slot_alpha) div slotsPerPage) + 1);
         {
          if (currentPage < (pages - 1)) {currentPage++;}
         }
-    }
-    
+    }    
 clr();
+
+// Draw all slots on current page
 for (a = (currentPage*slotsPerPage); a < min(array_height_2d(slot), ((currentPage*slotsPerPage) + slotsPerPage)); a++)
 {
-/* 
- clr(c_white);
- draw_rectangle(xx,yy,xx+32,yy+32,0);
-*/
- draw_sprite(sSlotTexture,0,xx,yy);
- clr();
- draw_rectangle(xx,yy,xx+32,yy+32,1);
+draw_sprite(sSlotTexture,0,xx,yy);
 
-
-
-                                                                                          //draw_text(xx,yy,slot[0,inv_slot_stackable]);
- draw_sprite(sRarityEffect,itemRarityEffect(slot[a,inv_item_effect]),xx,yy); 
- draw_sprite(slot[a,inv_sprite],slot[a,inv_sprite_number],xx,yy);
- //draw_text(xx,yy,slot[a,inv_id]);                                                                //  draw_text(xx,yy,slot[a,inv_item_equip_slot]);
-                                                                                   
+clr();
+draw_rectangle(xx,yy,xx+32,yy+32,1);                                                                                  
+draw_sprite(sRarityEffect,itemRarityEffect(slot[a,inv_item_effect]),xx,yy); 
+draw_sprite(slot[a,inv_sprite],slot[a,inv_sprite_number],xx,yy);
  
- if (slot[a,inv_slot_stackable] = 1)
+if (slot[a,inv_slot_stackable])
     {
      scrValueIndex(slot[a,inv_number],a);
-    }
-    
-   if (slot[a,inv_item_beingUsed]) {clr(c_black, 0.5); draw_rectangle(xx, yy, xx + 32, yy + 32, false); clr();}     
+    }    
+if (slot[a,inv_item_beingUsed]) {clr(c_black, 0.5); draw_rectangle(xx, yy, xx + 32, yy + 32, false); clr();}     
 
-   if (!proceed)
+if (!proceed)
   { 
    clr(c_yellow,hover_slot_alpha[a]);
    draw_rectangle(xx,yy,xx+32,yy+32,0);  
   }
   
- if (mouse_x > xx && mouse_x < xx+32 && mouse_y > yy && mouse_y < yy+32)
+if (mouse_x > xx && mouse_x < xx+32 && mouse_y > yy && mouse_y < yy+32)
  {  
-
   if (hover_slot_alpha[a] < 0.5) {hover_slot_alpha[a] += 0.03;}
   hover    = 1;
- hover_id = a;
- hover_x  = xx;
- hover_y  = yy;
- 
- hover_x_stand = hover_x;
- hover_y_stand = hover_y;
-
- 
-
-
+  hover_id = a;
+  hover_x  = xx;
+  hover_y  = yy; 
+  hover_x_stand = hover_x;
+  hover_y_stand = hover_y;
  } 
- else {if (hover_slot_alpha[a] > 0) {hover_slot_alpha[a] -= 0.03}}
+ else if (hover_slot_alpha[a] > 0) {hover_slot_alpha[a] -= 0.03;}
  
- clr();
+clr();
  
 if(combine)
  { 
@@ -106,29 +91,23 @@ if(combine)
   
   if (mouse_check_button_pressed(mb_left)) 
      {
-      if (mouse_x > xx && mouse_x < xx+32 && mouse_y > yy && mouse_y < yy+32)
- {  
-
- if (hover_id != combine_default_slot)
- {
-     id1 = slot[combine_default_slot,inv_id];
-     id2 = slot[hover_id,inv_id];   
-                                                                                           //show_message("Id1: "+string(id1)+string("#Id2: ")+string(id2)+string("##Slot1: ")+string(combine_default_slot)+string("#Slot2: ")+string(hover_id
-     
-      inventoryCombine(id1,id2,combine_default_slot,hover_id);
-     combine = 0;
- }
- }     
-     
+      if (mouse_x > xx && mouse_x < xx+32 && mouse_y > yy && mouse_y < yy+32)  
+      if (hover_id != combine_default_slot)
+        {
+         id1 = slot[combine_default_slot,inv_id];
+         id2 = slot[hover_id,inv_id];   
+         inventoryCombine(id1,id2,combine_default_slot,hover_id);
+         combine = 0;
+        }
      } 
  }    
 
- draw_sprite(sSlotOutline,0,xx,yy);
- if (slot[a,inv_item_star] == 1) {draw_sprite(sRarityEffect,5,xx,yy);}
- if (slot[a,inv_item_star] == 2) {draw_sprite(sRarityEffect,6,xx,yy);}
+draw_sprite(sSlotOutline,0,xx,yy);
+if (slot[a,inv_item_star] == 1) {draw_sprite(sRarityEffect,5,xx,yy);}
+if (slot[a,inv_item_star] == 2) {draw_sprite(sRarityEffect,6,xx,yy);}
 
- xx+=36;//32
- if (xx > x+256) {yy+=36; xx=x;} //32
+xx+=36
+if (xx > x+256) {yy+=36; xx=x;}
 
 }
 used_y = yy;
@@ -204,27 +183,11 @@ if (mouse_in(x + 260, x + 288, used_y + 10, used_y + 44))
         }
     }
     
-fnt();
+fnt(fntPixel);
+if (proceed) {hover_alpha = 1; hover = true; hover_id = hover_idd;}
+clr(c_black, hover_alpha);
 
-
-
-/*
-clr(c_white)
-draw_rectangle(x,used_y+128dr,x+256+32,used_y+256,0);
-clr();
-draw_rectangle(x,used_y+128,x+256+32,used_y+256,1);
-*/
-draw_set_font(fntPixel);
-
-  if (proceed) {hover_alpha = 1; hover = true; hover_id = hover_idd;}
-  clr(c_black,hover_alpha);
-
-
-clr(c_black,hover_alpha/2);
-//  draw_roundrect_ext(x,used_y+128,x+287,used_y+128+28,16,16,0);
-clr(c_black,hover_alpha);  
-//  draw_roundrect_ext(x,used_y+128,x+287,used_y+128+28,16,16,1);
-  
+clr(c_black,hover_alpha);    
 if (hover || hover_alpha > 0)
   {
   tText = inventoryDrawStats();
@@ -238,7 +201,6 @@ if (hover || hover_alpha > 0)
   draw_sprite_stretched(sInfoboxTexture, 0, x, used_y + 32, 288, string_height(tText) + string_height(slot[hover_id,inv_item_info_head]) + string_height(slot[hover_id,inv_item_info_text]));
   }
   
-  
   if (slot[hover_id,inv_item_info_head] != "" && hover) { if (hover_alpha < 1) {hover_alpha += 0.1;} } else {if (hover_alpha > 0 && !proceed) {hover_alpha -= 0.1;} }
 
   if (hover)
@@ -247,17 +209,18 @@ if (hover || hover_alpha > 0)
 
    if (!proceed) {f = hover_id;}
    else {f = hover_idd;}
-  if (proceed) {hover_alpha = 1;}  
+   if (proceed) {hover_alpha = 1;}  
    clr(slot[f,inv_item_info_color],hover_alpha);
-   scrCenterText();
    alg("center", fntPixel);
    if (string_width(slot[f,inv_item_info_head]) >= 250)
    {
    fnt(fntPixelSmall);
    }
       
-   draw_text(x+128,used_y+32+12,slot[f,inv_item_info_head]);
+   draw_text(x+128,used_y+44,slot[f,inv_item_info_head]);
    
+   // Draw attached pearls
+   if (slot_vlastnosti[f, vlastnost_upgradeSloty] > 0) {inventoryDrawPearls(f);}
    
    clr(c_black,hover_alpha);
       
@@ -335,12 +298,11 @@ clr();
             for (b = 0; b<10; b++)
                 {
                  switch_option[0,b] = slot_option[hover_id,b];
-                   temp_option[a]   = slot_option[hover_id,b]
-
+                 temp_option[a]   = slot_option[hover_id,b]
                 }
-         for(d=0; d<celkem_vlastnosti; d++)
+         for(var d=0; d<celkem_vlastnosti; d++)
           {
-           temp_vlastnosti[0,d] = slot_vlastnosti[hover_id,d];
+           temp_vlastnosti[d] = slot_vlastnosti[h_c,d];
           }
 
            
@@ -350,9 +312,9 @@ clr();
                  inventoryFastEquip();
                 }
            }
+           
        if (mouse_check_button_released(mb_left) && drag = 1 && !proceed)
-          {
-          
+          {          
           if (!inventorySwitchPre())
           {
             drag          = 0;
@@ -387,11 +349,10 @@ clr();
 
                   }
                   
-          for(d=0; d<celkem_vlastnosti; d++)
+          for(var d=0; d<celkem_vlastnosti; d++)
           {
-           slot_vlastnosti[hover_id,d] = slot_vlastnosti[switch_slot,d];
-           slot_vlastnosti[switch_slot,d] =  temp_vlastnosti[0,d]; 
-          
+           slot_vlastnosti[switch_slot,d] = slot_vlastnosti[hover_id,d];   
+           slot_vlastnosti[hover_id,d]    = temp_vlastnosti[d];      
           }
 
              draw_item_mouse = 0;
@@ -973,4 +934,28 @@ else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "leftBoot" && !o
 else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "rightBoot" && !oInventory.equiped[18])
     {
      equipmentHoldEquip(18, 0, 0, 0, 0, true);    
+    }
+#define inventoryDrawPearls
+/// inventoryDrawPearls(slot)
+
+var s, i, ox, j;
+s = 0;
+
+if (argument_count > 0) {s = argument[0];}
+
+i  = slot_vlastnosti[s, vlastnost_upgradeSloty];
+ox = (x + 288 - (i * 24));
+
+
+for (j = 0; j < i; j++)
+    {
+     clr(c_black, 0.3);
+     draw_circle(ox + (j * 24), used_y + 44, 8, false);
+     clr();
+     draw_circle(ox + (j * 24), used_y + 44, 8, true);
+     
+     if (slot_vlastnosti[s, vlastnost_upgradeSprite1 + j] != 0)
+        {
+         draw_sprite_stretched(sTestItem, slot_vlastnosti[s, vlastnost_upgradeSprite1 + j], ox + (j * 24), used_y + 44, 16, 16);
+        }     
     }

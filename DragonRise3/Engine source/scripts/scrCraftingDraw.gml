@@ -236,6 +236,7 @@ else
           }
           
        // Crafting details form - Upgrade item
+       // ****************************************************************************
          if (craftingSelectedIndex == 1)
             {
              tempX = xpos;
@@ -362,8 +363,6 @@ else
                     }
                 else
                     {
-
-
                     if (enchantItemSprite[i] > 0) 
                     {
                     draw_sprite(sTestItem, enchantItemSprite[i], tempX, tempY + 32 + (48 * i));
@@ -406,7 +405,7 @@ else
                      bcgColor = c_yellow;
                      
                      // Confirm crafting
-                     if (mouse_check_button_pressed(mb_left))
+                     if (mouse_check_button_pressed(mb_left) && textColor == c_lime)
                         {
                         for (i = 0; i < 3; i++)
                             {
@@ -438,7 +437,7 @@ else
                         // Remove upgraded item 
                         upgradingItemSprite = -1;  
                         upgradingItemID     = -1;      
-                        if (upgradingItemSlotID > 0) {oInventory.slot[upgradingItemSlotID, inv_item_beingUsed] = false;}   
+                        oInventory.slot[abs(upgradingItemSlotID), inv_item_beingUsed] = false;   
                         upgradingItemSlotID = -1;                                                    
                         }
                     }
@@ -479,7 +478,7 @@ else
                         // Remove upgraded item 
                         upgradingItemSprite = -1;  
                         upgradingItemID     = -1;      
-                        if (upgradingItemSlotID > 0) {oInventory.slot[upgradingItemSlotID, inv_item_beingUsed] = false;}   
+                        oInventory.slot[abs(upgradingItemSlotID), inv_item_beingUsed] = false;     
                         upgradingItemSlotID = -1;  
                         
                         // Return to main menu

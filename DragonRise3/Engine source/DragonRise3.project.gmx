@@ -812,13 +812,13 @@
       <shader type="GLSLES">shaders\shdVignette.shader</shader>
       <shader type="GLSLES">shaders\shdTest.shader</shader>
       <shader type="GLSLES">shaders\shdSeaWater.shader</shader>
+      <shader type="GLSLES">shaders\shdSandstorm.shader</shader>
+      <shader type="GLSLES">shaders\shdLightRays.shader</shader>
+      <shader type="GLSLES">shaders\shdFrost.shader</shader>
     </shaders>
     <shaders name="Lightmap">
       <shader type="GLSLES">shaders\shdLightmap.shader</shader>
     </shaders>
-    <shader type="GLSLES">shaders\shdFrost.shader</shader>
-    <shader type="GLSLES">shaders\shdSandstorm.shader</shader>
-    <shader type="GLSLES">shaders\shdLightRays.shader</shader>
   </shaders>
   <fonts name="fonts">
     <fonts name="Standard game fonts">

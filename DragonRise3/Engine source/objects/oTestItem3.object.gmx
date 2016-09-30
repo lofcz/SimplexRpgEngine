@@ -70,12 +70,7 @@ vlastnost[vlastnost_bodyCanvasIndex] = 7;
 vlastnost[vlastnost_bodyCanvasSprite] = sBodyCanvasWeapon1;
 vlastnost[vlastnost_bodyCanvasSlashSprite] = sBodyCanvasAttackWeapon1;
 
-//itm_info_text += "#Poškození: "+string(vlastnost[vlastnost_poskozeni]);
-//*********** Suffix *****************
-
-scrItemSetUpFinalize(true);
-
-//************************************
+scrItemSetUpFinalize();
 </string>
           </argument>
         </arguments>
