@@ -184,6 +184,7 @@
     <sound>sound\sndArmor4</sound>
     <sound>sound\sndArmor3</sound>
     <sound>sound\sndArmor1</sound>
+    <sound>sound\sndItemCrafted</sound>
     <sound>sound\sndSpellUpgrade</sound>
   </sounds>
   <sprites name="sprites">
@@ -719,6 +720,7 @@
       <scripts name="Crafting">
         <script>scripts\scrCraftingSetItemKnown.gml</script>
         <script>scripts\scrCraftingSetMaterialKnown.gml</script>
+        <script>scripts\scrCraftingSetAlchemyKnown.gml</script>
         <script>scripts\scrCraftingDB.gml</script>
         <script>scripts\scrCraftingDraw.gml</script>
       </scripts>
@@ -796,6 +798,7 @@
       <shader type="GLSLES">shaders\shdGaussHor.shader</shader>
       <shader type="GLSLES">shaders\shdGaussVer.shader</shader>
       <shader type="GLSLES">shaders\shdSepia.shader</shader>
+      <shader type="GLSLES">shaders\shdBlackWhite.shader</shader>
       <shader type="GLSLES">shaders\shdJrpg.shader</shader>
       <shader type="GLSLES">shaders\shdInvert.shader</shader>
       <shader type="GLSLES">shaders\shdThermal.shader</shader>

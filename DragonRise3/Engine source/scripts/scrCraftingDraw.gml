@@ -501,6 +501,7 @@ else
             }  
             
       // Crafting material form
+      // *****************************************************************************
       if (craftingSelectedIndex == 2 && craftingHelper == -1 && !craftingDetails)
             {    
             j = 0;        
@@ -556,7 +557,7 @@ else
                     if (craftingMaterialsNewFlag[craftingPageSelected, ds_list_find_value(craftingKnownMaterials, i)]) {craftingMaterialsNewFlag[craftingPageSelected, ds_list_find_value(craftingKnownMaterials, i)] = 0;}                         
                     craftingSelectedItem = ds_list_find_value(craftingKnownMaterials, i);
                     craftingTitleHelper = craftingMaterialsName[craftingPageSelected, ds_list_find_value(craftingKnownMaterials, i)];
-                    craftingTitleHelper2 = craftingDetailsText[craftingPageSelected, ds_list_find_value(craftingKnownMaterials, i)];
+                    craftingTitleHelper2 = craftingMaterialsDetailsText[craftingPageSelected, ds_list_find_value(craftingKnownMaterials, i)];
                    
                      } 
                  }
@@ -577,9 +578,91 @@ else
             
             scrCraftingMaterialDB(craftingEnum.craftCraft, craftingSelectedItem);            
           }
+          
+      // Alchemy form
+      // *****************************************************************************
+      if (craftingSelectedIndex == 4 && craftingHelper == -1 && !craftingDetails)
+            {    
+            j = 0;        
+            
+            // Draw frames
+            for (i = 0; i < craftingEntriesPerPage; i++)
+                {
+                 clr(c_black, 1);
+                 draw_rectangle(tempX, tempY, tempX + 32, tempY + 32, true);
+                 clr(c_white, 0.1);
+                 draw_rectangle(tempX, tempY, tempX + 32, tempY + 32, false);
+                 
+                 if (mouse_in(tempX, tempX + 32, tempY, tempY + 32))
+                    {
+                     clr(c_yellow, 0.3);
+                     draw_rectangle(tempX, tempY, tempX + 32, tempY + 32, false);                     
+                    }
+
+                 tempX += 32;
+                 j++;
+                 if (j == craftingEntriesPerRow) {j = 0; tempX = xpos; tempY += 32;}
+                 clr();
+                }
+                
+            // Draw known items
+            tempX = xpos;
+            tempY = ypos + 96;   
+            j = 0;
+            fnt(fntPixel);
+            
+            for (i = 0; i < ds_list_size(craftingKnownAlchemy); i++)
+                {
+                 tempIndex = ds_list_find_value(craftingKnownAlchemy, i);
+                 
+                 draw_sprite(sTestItem, craftingAlchemySprite[craftingPageSelected, tempIndex], tempX, tempY);
+                 if (craftingAlchemyNewFlag[craftingPageSelected, tempIndex]) {draw_text_colour(tempX + 25, tempY, "!", c_yellow, c_yellow, c_yellow, c_yellow, 1);}
+             
+                 // On-Hover
+                 if (mouse_in(tempX, tempX + 32, tempY, tempY + 32))
+                 {
+                 
+                 fnt();
+                 text = craftingAlchemyName[craftingPageSelected, tempIndex];
+                 clr(c_black, 0.4);
+                 draw_roundrect(tempX + 16, tempY + 16, tempX + 32 + string_width(text), tempY + 42, false);
+                 clr(c_black, 1);
+                 draw_roundrect(tempX + 16, tempY + 16, tempX + 32 + string_width(text), tempY + 42, true);
+                 clr(c_white, 1);
+                 draw_text(tempX + 24, tempY + 16, text);
+                 clr();
+                 
+                 if (mouse_check_button_pressed(mb_left) && ds_list_find_index(craftingKnownAlchemy, tempIndex) != -1)
+                    {
+                    craftingHelper = 0;
+                    if (craftingAlchemyNewFlag[craftingPageSelected, tempIndex]) {craftingAlchemyNewFlag[craftingPageSelected, tempIndex] = false;}                         
+                    craftingSelectedItem = tempIndex;
+                    craftingTitleHelper = craftingAlchemyName[craftingPageSelected, tempIndex];
+                    craftingTitleHelper2 = craftingAlchemyDetailsText[craftingPageSelected, tempIndex];
+                   
+                     } 
+                 }
+                 
+                 tempX += 32;
+                 j++;
+                 if (j == craftingEntriesPerRow) {j = 0; tempX = xpos; tempY += 32;}
+                 clr();                
+                }
+
+            }   
+         
+       // Crafting details form (item to creaft is selected)
+       if (craftingSelectedIndex == 4 && craftingHelper == 0 && !craftingDetails)
+          {
+            tempX = xpos;
+            tempY = ypos + 96;   
+            
+            scrCraftingAlchemyDB(craftingEnum.craftCraft, craftingSelectedItem);            
+          }
       
             
       // Crafting details form - material enrichtment
+      // *********************************************************************************************
       if (craftingSelectedIndex == 3) 
         {
          tempX = xpos;
