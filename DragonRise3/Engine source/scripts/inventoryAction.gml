@@ -6,15 +6,17 @@ number = 0;
 if (argument_count > 0) {idd    = argument[0];}
 if (argument_count > 0) {number = argument[1];}
 
+// DB Entries come here
+// ********************************************************************
 switch(idd)
 {
 case(1):
      {
-      if (number = 0)
+      if (number == 0)
       {
       show_message("optionbox is working!");
       }
-       if (number = 1)
+       if (number == 1)
       {
       show_message("fucking option 1!");
       }
@@ -23,18 +25,34 @@ case(1):
      }
 case(3):
      {
-      if (number = 0)
+      if (number == 0)
          {
           combine              = 1;
           combine_id           = 3;
           combine_default_slot = hover_idd;                  
-         }
-     
-     
+         }     
       break;
-     }   
-     
-     
+     }
+case(itemEnum.itemElixirHP):
+    {
+     scrAffecstAdd("regenerationHP", secToSteps(10), 3, c_lime, 1); 
+     inventoryDelete(itemEnum.itemElixirHP, 1);
+     break;
+    }   
+case(itemEnum.itemElixirMP):
+    {
+     scrAffecstAdd("regenerationMP", secToSteps(10), 4, c_lime, 1); 
+     inventoryDelete(itemEnum.itemElixirMP, 1);
+     break;
+    }       
+case(itemEnum.itemGiftLof):
+    {
+     scrHintShow("Lof", "Obsah dárku pro vývojáře:##- 10x " + scrColorflag(c_red) + "Lektvar zdraví" + scrEndColorflag() + "#- 10x " + scrColorflag(c_aqua) + "Lektvar many" + scrEndColorflag() + " ");
+     inventoryDelete(itemEnum.itemGiftLof, 1);
+     inventoryAdd(oElixirHP, 10);
+     inventoryAdd(oElixirMP, 10);
+     break;
+    }     
 default:
  {
  show_message("Something in scrAction, switch statement went wrong :/#(probably unassigned action, check inventoryActions)");

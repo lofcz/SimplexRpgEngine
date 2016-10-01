@@ -58,10 +58,10 @@ expxPlus        = 8;
 craftingHelper  = -1;
 craftingTitle   = "Výroba";
 craftingMenuAlpha = 1;
-craftingMenuIndex[0] = "Vytvořit předmět";
-craftingMenuIndex[1] = "Vylepšit předmět";
-craftingMenuIndex[2] = "Vytvořit materiál";
-craftingMenuIndex[3] = "Zušlechtit materiál";
+craftingMenuIndex[0] = "Předměty";
+craftingMenuIndex[1] = "Zdokonalení";
+craftingMenuIndex[2] = "Materiály";
+craftingMenuIndex[3] = "Zušlechtění";
 craftingMenuIndex[4] = "Alchymie";
 craftingTitleHelper = "";
 activeComponent = false;
@@ -128,7 +128,7 @@ scrCraftingSetMaterialKnown(3, "Ocel", "Základní materiál.");
 
 // Crafting alchemy
 craftingAlchemySprite[0, 3] = 28; // HP Pot
-scrCraftingSetAlchemyKnown(3, "Lektvar zdraví", "Jednoduchý driák s léčivými účinky.");
+scrCraftingSetAlchemyKnown(3, "Lektvar zdraví", "Jednoduchý dryák s léčivými účinky.");
 
 
 iconActive[hudIcons.bestiary]  = true;

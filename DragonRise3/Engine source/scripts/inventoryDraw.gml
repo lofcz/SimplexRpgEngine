@@ -245,7 +245,7 @@ clr();
        if (mouse_x > hover_x && mouse_x < hover_x+32 && mouse_y > hover_y && mouse_y < hover_y+32)
        {
   
-        if(mouse_check_button_pressed(mb_right))
+        if(mouse_check_button_pressed(mb_right) && !slot[hover_id, inv_item_beingUsed])
         {
         proceed = !proceed;
         
@@ -357,7 +357,7 @@ clr();
 
              draw_item_mouse = 0;
              drag_alpha      = 1;
-             h_c = hover_id; // !!!!!!!!!!!!!     (ok)
+             h_c = hover_id; 
              }
              else
                  {

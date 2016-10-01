@@ -533,7 +533,7 @@ if (index == 3) // HP Pot
     {
      if (callMode == craftingEnum.craftCraft)
         {
-         scrCraftingDbDrawAlchemySlot(tx, ty, itemEnum.itemWood, 0, 1, 0);
+         scrCraftingDbDrawAlchemySlot(tx, ty, itemEnum.itemHerbSuzenka, 0, 1, itemEnum.itemHerbSuzenka-1);
        //  scrCraftingDbDrawAlchemySlot(tx, ty + 40, itemEnum.itemStone, 1, 2, 3);
         }
     
@@ -613,6 +613,9 @@ color = c_black;
 craftingSlotNumber[in] = nr;
 craftingSlotOptional[in] = o;
 
+fnt(fntPixelTiny);
+draw_text_colored(xx + 64, yy - 6, scrCraftingGetAlchemyText(mr, nr));
+
 if (oInventory.drag = 1 && oInventory.equip_sprite_s[6] = mr && oInventory.equip_sprite_s[5] >= nr)
         { 
          color = c_lime;
@@ -653,9 +656,7 @@ if (mouse_in(xx, xx + 32, yy, yy + 32))
     }
     
 
-clr(color, 0.2);
-draw_rectangle(xx, yy, xx + 32, yy + 32, false);
-clr(c_black, 1);
+clr();
 draw_rectangle(xx, yy, xx + 32, yy + 32, true);
 clr(c_white, 1);
 fnt();
@@ -663,10 +664,7 @@ draw_text(xx + 40, yy, "x" + string(nr));
 
 if (craftingSlotSprite[in] != 0)
     {
-     draw_sprite(sTestItem, craftingSlotSprite[in], xx, yy);
-     
-     fnt(fntPixelTiny);
-     draw_text_colored(xx + 64, yy - 6, scrCraftingGetAlchemyText(craftingSlotItemID[in], nr));
+     draw_sprite(sTestItem, craftingSlotSprite[in], xx, yy);     
     }
 else
     {
@@ -676,6 +674,10 @@ else
      draw_sprite(sTestItem, ei, xx, yy);  
      shader_reset();   
     }
+    
+clr(color, 0.2);
+draw_rectangle(xx, yy, xx + 32, yy + 32, false);
+clr();
 
 #define scrCraftingGetAlchemyText
 /// scrCraftingGetAlchemyText(material, count)
@@ -693,9 +695,9 @@ if (m == itemEnum.itemWood)
     {
      str = scrWordwrap("Základní materiál, slouží zejména jako palivo.", 128, fntPixelTiny);
     }
-if (m == itemEnum.itemStone)
+if (m == itemEnum.itemHerbSuzenka)
     {
-     str = scrWordwrap("Kámen s lehkou přísměsí kovové rudy.", 128, fntPixelTiny);
+     str = "Suženka."
     }
 return str;
 

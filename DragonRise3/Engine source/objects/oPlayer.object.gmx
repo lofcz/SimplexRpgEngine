@@ -511,6 +511,8 @@ inst.header = "Úroveň " + string(vlastnost[vlastnost_level]) + " dosažena!";
 inst.text = "Nyní jsi znám jako " + scrColorflag(c_yellow) + apiPlayerGetRankName() + scrEndColorflag()+ ".";
 inst.index = 0;
 inst.medalType = 2;
+
+audio_play_sound(sndSoundLevelUp, 1, false);
 </string>
           </argument>
         </arguments>

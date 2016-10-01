@@ -15,6 +15,8 @@ for (i = 0; i < ds_list_size(oPlayer.statusList) i++)
      bC = oPlayer.statusList[| i];
      
      // Spawn tick
+     // DB Entries come here
+     // *****************************************************************
      if (doTick)
      {
         // Poison
@@ -24,6 +26,18 @@ for (i = 0; i < ds_list_size(oPlayer.statusList) i++)
             effectPoison(oPlayer.x, oPlayer.y, 2 * (round(oPlayer.statusNList[| i] / 2) + 1) + irandom(3));     
             format = string_format((0.1 * (oPlayer.statusNList[| i] * oPlayer.statusNList[| i])), round((0.1 * (oPlayer.statusNList[| i] * oPlayer.statusNList[| i]))), 1);
             scrLog(format,c_red,-1,0,0,oPlayer.x - (string_width(format) / 2),oPlayer.y-48,fntPixel);
+            }
+        // Regeneration HP
+        if (bC == "regenerationHP")
+            {
+            oPlayer.vlastnost[vlastnost_zivot] += (1 * oPlayer.statusNList[| i]);  
+            scrBasicEffect(1, sHealthEffect3, oPlayer.x, oPlayer.y - 32);            
+            }
+        // Regeneration MP
+        if (bC == "regenerationMP")
+            {
+            oPlayer.vlastnost[vlastnost_mana] += (1 * oPlayer.statusNList[| i]);  
+            scrBasicEffect(1, sManaEffect, oPlayer.x, oPlayer.y - 32);            
             }
      }
                       

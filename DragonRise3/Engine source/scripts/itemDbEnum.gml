@@ -2,7 +2,7 @@
 
 enum materialEnum
 {
-materialNone, materialMetal, materialWood, materialHerb, materialStone, materialGolde, materialPearl, materialMetal
+materialNone, materialMetal, materialWood, materialHerb, materialStone, materialGolde, materialPearl
 };
 
 enum itemEnum
@@ -46,4 +46,4 @@ itemHerbSkucivka,
 itemHerbPraznik,
 itemHerbBzuklar,
 itemHerbKorinky
-}
+};

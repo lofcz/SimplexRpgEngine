@@ -180,6 +180,7 @@
     <sound>sound\sndSkillUp</sound>
     <sound>sound\sndMenuClick1</sound>
     <sound>sound\sndSpellLevelUp</sound>
+    <sound>sound\sndSoundLevelUp</sound>
     <sound>sound\sndArmor2</sound>
     <sound>sound\sndArmor4</sound>
     <sound>sound\sndArmor3</sound>
@@ -383,6 +384,7 @@
         <sprite>sprites\sHealthEffect2</sprite>
         <sprite>sprites\sManaEffect2</sprite>
         <sprite>sprites\sManaEffect</sprite>
+        <sprite>sprites\sHealthEffect3</sprite>
         <sprite>sprites\sManaEffect3</sprite>
         <sprite>sprites\sXpPoint</sprite>
         <sprite>sprites\sShieldEffect3</sprite>
@@ -398,6 +400,7 @@
         <sprite>sprites\sWoodEffect</sprite>
         <sprite>sprites\sMetalEffect</sprite>
         <sprite>sprites\sStoneEffect</sprite>
+        <sprite>sprites\sPearlRedEffect</sprite>
         <sprite>sprites\sGoldEffect</sprite>
         <sprite>sprites\sSwordEffect</sprite>
         <sprite>sprites\sQuestEffect</sprite>
@@ -1089,7 +1092,7 @@
       <room>rooms\mapHouseAlice</room>
     </rooms>
   </rooms>
-  <constants number="207">
+  <constants number="208">
     <constant name="baArmor">1</constant>
     <constant name="baBase">0</constant>
     <constant name="cStaticInstance">"staticInstance"</constant>
@@ -1138,7 +1141,8 @@
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
     <constant name="upgradableProperties">58</constant>
-    <constant name="celkem_vlastnosti">84</constant>
+    <constant name="celkem_vlastnosti">85</constant>
+    <constant name="vlastnost_dataSocket1">84</constant>
     <constant name="vlastnost_bodyCanvasSlashSprite">83</constant>
     <constant name="vlastnost_bodyCanvasSprite">82</constant>
     <constant name="vlastnost_bodyCanvasIndex">81</constant>
