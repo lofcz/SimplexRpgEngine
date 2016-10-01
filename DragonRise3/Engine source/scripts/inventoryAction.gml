@@ -35,24 +35,41 @@ case(3):
      }
 case(itemEnum.itemElixirHP):
     {
+     if (number == 0)
+     {
      scrAffecstAdd("regenerationHP", secToSteps(10), 3, c_lime, 1); 
      inventoryDelete(itemEnum.itemElixirHP, 1);
+     }
      break;
     }   
 case(itemEnum.itemElixirMP):
     {
+     if (number == 0)
+     {
      scrAffecstAdd("regenerationMP", secToSteps(10), 4, c_lime, 1); 
      inventoryDelete(itemEnum.itemElixirMP, 1);
+     }
      break;
     }       
 case(itemEnum.itemGiftLof):
     {
+     if (number == 0)
+     {
      scrHintShow("Lof", "Obsah dárku pro vývojáře:##- 10x " + scrColorflag(c_red) + "Lektvar zdraví" + scrEndColorflag() + "#- 10x " + scrColorflag(c_aqua) + "Lektvar many" + scrEndColorflag() + " ");
      inventoryDelete(itemEnum.itemGiftLof, 1);
      inventoryAdd(oElixirHP, 10);
      inventoryAdd(oElixirMP, 10);
+     }
      break;
-    }     
+    } 
+case(itemEnum.itemLetter):
+    {
+     if (number == 0)
+     {
+     scrHintShow(slot_vlastnosti[hover_idd, vlastnost_dataSocket1], slot_vlastnosti[hover_idd, vlastnost_dataSocket2]);
+     }
+     break;
+    }    
 default:
  {
  show_message("Something in scrAction, switch statement went wrong :/#(probably unassigned action, check inventoryActions)");

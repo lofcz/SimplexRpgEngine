@@ -33,9 +33,8 @@ mYes                 = false;
 starText[0]          = "Oblíbené";
 starText[1]          = "Odpad";
 starText[2]          = "Odznačit"; 
-
-details[0] = "Seřadit";
-details[1] = "Vyhodit odpad";
+details[0]           = "Seřadit";
+details[1]           = "Vyhodit odpad";
 
 if (argument_count > 0) {slots = argument[0]}
 

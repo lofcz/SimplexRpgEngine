@@ -368,7 +368,7 @@ else
                     draw_sprite(sTestItem, enchantItemSprite[i], tempX, tempY + 32 + (48 * i));
                     clr(c_white, 1);
                     fnt(fntPixelTiny);
-                    draw_text_colored(tempX + 40, tempY + 32 + (48 * i), scrCraftingGetMaterialText(enchantItemID[i], 1));
+                    draw_text_colored(tempX + 40, tempY + 32 + (48 * i), scrCraftingGetUpgradeText(enchantItemID[i], 1));
                     
                     // Draw lock icon for baked slots
                     if (oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeBaked1 + i])
@@ -412,6 +412,7 @@ else
                             if (enchantItemSprite[i] > 0 && !oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeBaked1 + i])
                                 {
                                 inventoryDelete(enchantItemID[i], 1);
+                                scrCraftingUpgradeStats();
                                 oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeBaked1 + i] = true;
                                 oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeSprite1 + i] = enchantItemSprite[i];  
                                 oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeID1 + i] = enchantItemID[i];                                  

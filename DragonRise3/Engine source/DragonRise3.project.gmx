@@ -424,6 +424,7 @@
       <sprite>sprites\sprite10</sprite>
       <sprite>sprites\sprite40</sprite>
       <sprite>sprites\sButterfly</sprite>
+      <sprite>sprites\sprite189_bigset</sprite>
       <sprite>sprites\sprite115</sprite>
       <sprite>sprites\sprite38</sprite>
       <sprite>sprites\sprite116_Recon1_zps6e9a49c7</sprite>
@@ -583,6 +584,7 @@
         <script>scripts\scrItemSetProperties.gml</script>
         <script>scripts\scrItemSetOptions.gml</script>
         <script>scripts\scrItemSetUpFinalize.gml</script>
+        <script>scripts\scrItemSetDataSockets.gml</script>
         <script>scripts\scrItemBasic.gml</script>
         <script>scripts\itemDraw.gml</script>
         <script>scripts\itemDrawStats.gml</script>
@@ -995,6 +997,7 @@
           <object>objects\oElixirHP</object>
           <object>objects\oElixirMP</object>
           <object>objects\oLofsGift</object>
+          <object>objects\oBasicLetter</object>
           <object>objects\oBasicItem</object>
           <object>objects\parItem</object>
         </objects>
@@ -1092,7 +1095,7 @@
       <room>rooms\mapHouseAlice</room>
     </rooms>
   </rooms>
-  <constants number="208">
+  <constants number="209">
     <constant name="baArmor">1</constant>
     <constant name="baBase">0</constant>
     <constant name="cStaticInstance">"staticInstance"</constant>
@@ -1141,7 +1144,8 @@
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
     <constant name="upgradableProperties">58</constant>
-    <constant name="celkem_vlastnosti">85</constant>
+    <constant name="celkem_vlastnosti">86</constant>
+    <constant name="vlastnost_dataSocket2">85</constant>
     <constant name="vlastnost_dataSocket1">84</constant>
     <constant name="vlastnost_bodyCanvasSlashSprite">83</constant>
     <constant name="vlastnost_bodyCanvasSprite">82</constant>

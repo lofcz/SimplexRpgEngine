@@ -45,5 +45,6 @@ itemHerbSlidivec,
 itemHerbSkucivka,
 itemHerbPraznik,
 itemHerbBzuklar,
-itemHerbKorinky
+itemHerbKorinky,
+itemLetter
 };

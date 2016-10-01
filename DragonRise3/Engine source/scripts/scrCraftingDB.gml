@@ -747,3 +747,32 @@ for (q = 0; q < 10; q++)
       craftingSlotItemID[q] = -1;
     }
     }
+
+#define scrCraftingGetUpgradeText
+/// scrCraftingGetUpgradeText(item, count)
+
+var str, m, c;
+str = "";
+m   = 0;
+c   = 1;
+
+if (argument_count > 0) {m = argument[0];}
+if (argument_count > 1) {c = argument[1];}
+
+
+if (m == itemEnum.itemPearlRed)
+    {
+     str = scrWordwrap("Červená perla.", 128, fntPixelTiny);
+    }
+if (m == itemEnum.itemPearlGreen)
+    {
+     str = scrWordwrap("Zelená perla.", 128, fntPixelTiny);
+    }
+return str;
+
+#define scrCraftingUpgradeStats
+/// scrCraftingUpgradeStats()
+
+if (enchantItemID[i] == itemEnum.itemPearlRed) {oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_stackSezehnuti] += 0.5;}
+if (enchantItemID[i] == itemEnum.itemPearlGreen) {oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_bonusove_poskozeni_vuci_zviratum] += 2;}
+

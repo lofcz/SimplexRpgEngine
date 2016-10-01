@@ -1,5 +1,5 @@
-///inventoryDrop(id,x,y,force_pickup)
-//show_message("");
+///inventoryDrop(id, x, y, force_pickup)
+
 var xx,yy,force_pickup;
 ar_slot      = 0;
 xx           = oPlayer.x;
@@ -35,10 +35,10 @@ for (b = 0; b < 10; b++)
 
 if (xx != -1 && yy != -1)
 {
-if (place_empty(xx+32,yy)) {xx = xx+32;}
-else if (place_empty(xx-32,yy)) {xx = xx+16;}
-else if (place_empty(xx,yy+32)) {yy = yy+32;}
-else if (place_empty(xx,yy-32)) {yy = yy-32;}
+if (place_free(xx+32,yy)) {xx = xx+32;}
+else if (place_free(xx-32,yy)) {xx = xx+16;}
+else if (place_free(xx,yy+32)) {yy = yy+32;}
+else if (place_free(xx,yy-32)) {yy = yy-32;}
  
 instance = instance_create(xx,yy,oBasicItem);
 
