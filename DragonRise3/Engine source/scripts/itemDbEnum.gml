@@ -2,7 +2,7 @@
 
 enum materialEnum
 {
-materialNone, materialMetal, materialWood, materialHerb, materialStone, materialGolde, materialPearl
+materialNone, materialPearl, materialMetal, materialWood, materialHerb, materialStone, materialGolde
 };
 
 enum itemEnum

@@ -944,18 +944,20 @@ s = 0;
 if (argument_count > 0) {s = argument[0];}
 
 i  = slot_vlastnosti[s, vlastnost_upgradeSloty];
-ox = (x + 288 - (i * 24));
+ox = (x + 288 - (i * 14));
 
 
 for (j = 0; j < i; j++)
-    {
-     clr(c_black, 0.3);
-     draw_circle(ox + (j * 24), used_y + 44, 8, false);
-     clr();
-     draw_circle(ox + (j * 24), used_y + 44, 8, true);
-     
+    {     
      if (slot_vlastnosti[s, vlastnost_upgradeSprite1 + j] != 0)
         {
-         draw_sprite_stretched(sTestItem, slot_vlastnosti[s, vlastnost_upgradeSprite1 + j], ox + (j * 24), used_y + 44, 16, 16);
-        }     
+         draw_sprite_stretched(sTestItem, slot_vlastnosti[s, vlastnost_upgradeSprite1 + j], ox + (j * 14) - 8, used_y + 44 - 9, 20, 20);
+        } 
+     else
+        {
+         clr(c_black, 0.3);
+         draw_circle(ox + (j * 14), used_y + 44, 6, false);
+         clr();
+         draw_circle(ox + (j * 14), used_y + 44, 6, true);
+        }    
     }

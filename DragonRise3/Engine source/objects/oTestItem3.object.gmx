@@ -48,8 +48,8 @@ itm_equip_slot          = "zbraň";
 vlastnost[vlastnost_vykresli_sprit] = sShortWeapons;
 vlastnost[vlastnost_vykresli_index] = 0;
 vlastnost[vlastnost_upgradeSloty] = 3;
-vlastnost[vlastnost_upgradeMaterial1] = materialEnum.materialWood;
-vlastnost[vlastnost_upgradeMaterial2] = materialEnum.materialWood;
+vlastnost[vlastnost_upgradeMaterial1] = materialEnum.materialPearl;
+vlastnost[vlastnost_upgradeMaterial2] = materialEnum.materialPearl;
 
 pre = irandom_range(0,100);
 
@@ -59,10 +59,10 @@ else if (pre &gt; 40 &amp;&amp; pre &lt; 70)   {vlastnost[vlastnost_poskozeni] =
 else if (pre &gt; 70 &amp;&amp; pre &lt; 90)   {vlastnost[vlastnost_poskozeni] = 7; points += 4;}
 else                             {vlastnost[vlastnost_poskozeni] = 8; points += 5;}
 
-if      (points &lt; 2)  {itm_info_color = rarity_junk;}
-else if (points &lt; 4)  {itm_info_color = rarity_normal;}
-else if (points &lt; 6)  {itm_info_color = rarity_fine;}
-else                  {itm_info_color = rarity_rare; vlastnost[vlastnost_max_mana] = irandom_range(5,10);}
+if      (points &lt; 2)  {itm_info_color = rarity_junk; itm_effect = rarity_junk;}
+else if (points &lt; 4)  {itm_info_color = rarity_normal; itm_effect = rarity_normal;}
+else if (points &lt; 6)  {itm_info_color = rarity_fine; itm_effect = rarity_fine;}
+else                  {itm_info_color = rarity_rare; vlastnost[vlastnost_max_mana] = irandom_range(5,10); itm_effect = rarity_rare;}
 
 vlastnost[vlastnost_stamina_cost] = choose(4,5);
 vlastnost[vlastnost_parry_cost] = choose(2,3);
