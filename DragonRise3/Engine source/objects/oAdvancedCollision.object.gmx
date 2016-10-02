@@ -97,7 +97,7 @@ tile     = tile_layer_find(tL, x, y);
 
 if (instance_number(oPlayer) &gt; 0)
 {
-if (distance_to_object(oPlayer) &lt; 6 &amp;&amp; (id == oOptimize.colID))
+if (distance_to_object(oPlayer) &lt; 16 &amp;&amp; (id == oOptimize.colID))
    {
     if (alpha &lt; 1) {alpha += 0.05;}
    }

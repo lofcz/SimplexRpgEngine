@@ -61,7 +61,7 @@ if (loot = 0)
 if (inventoryPickUp())
 {
 audio_play_sound(sndRindPickup,0,0);
-scrLog("+ Pergamen",c_white,sGiftEffect,0,0.5);
+scrLog("+ Pergamen",c_white,sLetterEffect,0,0.5);
 }
 }
 </string>

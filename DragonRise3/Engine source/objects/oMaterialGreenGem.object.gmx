@@ -78,7 +78,7 @@ if (loot == 0)
 if (inventoryPickUp())
 {
 audio_play_sound(sndRindPickup,0,0);
-scrLog("+ Zelená perla",c_lime,sRingEffect,0,0.5);
+scrLog("+ Zelená perla",c_lime,sPearlGreenEffect,0,0.5);
 }
 }
 </string>

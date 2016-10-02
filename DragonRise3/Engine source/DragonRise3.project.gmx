@@ -186,7 +186,12 @@
     <sound>sound\sndArmor3</sound>
     <sound>sound\sndArmor1</sound>
     <sound>sound\sndItemCrafted</sound>
+    <sound>sound\sndTumblerYes</sound>
+    <sound>sound\sndTumblerNo</sound>
     <sound>sound\sndSpellUpgrade</sound>
+    <sound>sound\sndItemUpgrade1</sound>
+    <sound>sound\sndMaterialUpgrade1</sound>
+    <sound>sound\sndCheckUnlocked</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\sCatchError</sprite>
@@ -394,12 +399,14 @@
         <sprite>sprites\sShieldEffect2</sprite>
         <sprite>sprites\sXP</sprite>
         <sprite>sprites\sGiftEffect</sprite>
+        <sprite>sprites\sLetterEffect</sprite>
         <sprite>sprites\sStaminaEffect</sprite>
         <sprite>sprites\sHelmetEffect</sprite>
         <sprite>sprites\sRingEffect</sprite>
         <sprite>sprites\sWoodEffect</sprite>
         <sprite>sprites\sMetalEffect</sprite>
         <sprite>sprites\sStoneEffect</sprite>
+        <sprite>sprites\sPearlGreenEffect</sprite>
         <sprite>sprites\sPearlRedEffect</sprite>
         <sprite>sprites\sGoldEffect</sprite>
         <sprite>sprites\sSwordEffect</sprite>

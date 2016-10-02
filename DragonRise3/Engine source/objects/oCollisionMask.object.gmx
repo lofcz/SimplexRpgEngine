@@ -52,18 +52,18 @@ animate = 0;
             <kind>1</kind>
             <string>/// HandleCollision - Chest
 
-if (animate = 1) {(idd).image_speed = 0.3;}
+if (animate == 1) {(idd).image_speed = 0.3;}
 
-if (type = "chest")
+if (type == "chest")
    {
     if (instance_number(oPlayer) &gt; 0)
        {
         if (instance_number(idd) &gt; 0)
            {
         
-            if (distance_to_object(oPlayer) = 0 )
+            if (distance_to_object(oPlayer) == 0)
                { 
-                if (oPlayer.last_dir = dir)
+                if (oPlayer.last_dir == dir)
                    {
                    (idd).text = 1;
                               
@@ -76,58 +76,36 @@ if (type = "chest")
                      open = !open;
                      text_alpha = 0;
                      audio_play_sound(sndChest,0,0);
-                     
-                     if (open) { animate = 1; }
-                     else { animate = 2;}
-                     
-                   
-                     
-                     }
-                     }
-                     else {}
+                     apiPlayerReverseState(); 
 
-                   }
-               
+                     if (open) {animate = 1;}
+                     else {animate = 2;}                    
+                     }
+                     }
+                   }               
                 }
                  else 
                      {
-                      if (idd).open {   audio_play_sound(sndChest,0,0);}
-
+                      if (idd).open {audio_play_sound(sndChest,0,0);}
                       (idd).text = 0;
                       (idd).open = 0;
                       (idd).animate = 2;
- 
-  
-
-
-
                      }
                }
-              else 
+               else 
                    {
                    if (distance_to_object(oPlayer) &gt; 0)
-                   {
-                
-                   (idd).open = 0;
-                 
-
-                   
-                   if ((idd).animate = 1)
+                   {               
+                   (idd).open = 0;                  
+                   if ((idd).animate == 1)
                    {
                    (idd).animate = 2;
-                  
-                  
-
-                    }
-                    
+                   }                
+                   }                   
                    }
-                   
-                   }
-           }
-       
-       }
-   
-   }
+     }       
+  }   
+}
    
 
 

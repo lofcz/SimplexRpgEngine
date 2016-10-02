@@ -251,6 +251,7 @@ if (in == itemEnum.itemPearlRed)
      tr  = itemEnum.itemPearlRedLvl2;
     }
     
+if (ai) {audio_play_sound(sndMaterialUpgrade1, 0, false);}   
 return (tr - 1);
 
 #define scrCraftingDbMaterialEnrichtText
@@ -775,4 +776,3 @@ return str;
 
 if (enchantItemID[i] == itemEnum.itemPearlRed) {oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_stackSezehnuti] += 0.5;}
 if (enchantItemID[i] == itemEnum.itemPearlGreen) {oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_bonusove_poskozeni_vuci_zviratum] += 2;}
-

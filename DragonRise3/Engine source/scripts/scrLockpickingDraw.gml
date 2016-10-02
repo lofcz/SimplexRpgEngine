@@ -76,11 +76,13 @@ for (i = 0; i < itemNumber; i++)
                 {
                  actualCombination += "," + string(i);
                  itemUp[i] = true;
+                 audio_play_sound(sndTumblerYes, 0, false);
                 }
              else 
                 {
                  actualCombination = "";
                  actualLockpickHp--;
+                 audio_play_sound(sndTumblerNo, 0, false);
                  if (actualLockpickHp <= 0) {inventoryDelete(itemEnum.itemLockpick, 1); if (inventoryNumber(itemEnum.itemLockpick) == 0) {close = true;}}
                  multiplicator = 1;
                  for (k = 0; k < itemNumber; k++)
@@ -118,7 +120,7 @@ for (i = 0; i < itemNumber; i++)
 if (opened)
     {
     alpha = lerp(alpha, -0.1, 0.1);
-    if (alpha <= 0) {parent.unlocked = true; instance_destroy(); return true;}
+    if (alpha <= 0) {audio_play_sound(sndCheckUnlocked, 0, false); parent.unlocked = true; instance_destroy(); return true;}
     }    
 if (close)
     {
