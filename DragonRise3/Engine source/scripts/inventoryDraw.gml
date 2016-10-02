@@ -190,15 +190,16 @@ clr(c_black, hover_alpha);
 clr(c_black,hover_alpha);    
 if (hover || hover_alpha > 0)
   {
-  tText = inventoryDrawStats();
- 
-  if (string_height(tText) + string_height(slot[hover_id,inv_item_info_head]) + string_height(slot[hover_id,inv_item_info_text]) < 196)
+  tText         = inventoryDrawStats();
+  currentHeight = string_height(tText) + string_height(slot[hover_id,inv_item_info_head]) + string_height(slot[hover_id,inv_item_info_text]);
+  
+  if (currentHeight < 196)
   {
   draw_sprite(sInfoboxTexture,0,x,used_y+32);
   }
   else
   {
-  draw_sprite_stretched(sInfoboxTexture, 0, x, used_y + 32, 288, string_height(tText) + string_height(slot[hover_id,inv_item_info_head]) + string_height(slot[hover_id,inv_item_info_text]));
+  draw_sprite_stretched(sInfoboxTexture, 0, x, used_y + 32, 288, currentHeight);
   }
   
   if (slot[hover_id,inv_item_info_head] != "" && hover) { if (hover_alpha < 1) {hover_alpha += 0.1;} } else {if (hover_alpha > 0 && !proceed) {hover_alpha -= 0.1;} }
@@ -222,18 +223,25 @@ if (hover || hover_alpha > 0)
    // Draw attached pearls
    if (slot_vlastnosti[f, vlastnost_upgradeSloty] > 0) {inventoryDrawPearls(f);}
    
+   // Draw price info
    clr(c_black,hover_alpha);
-      
-draw_set_font(fntPixelSmall);
-  
-      if (slot[f,inv_slot_stackable] = 1)
+   
+   if (slot_vlastnosti[f,vlastnost_cena] > 0)
+   {
+   fnt(fntPixelTiny);
+   alg();
+   priceStr = (string(slot_vlastnosti[f,vlastnost_cena]) + "G");
+   draw_text(x + (283 - string_width(priceStr)), used_y + (max(196, currentHeight) + 5), priceStr);      
+   }
+   
+   alg("center");
+   fnt(fntPixelSmall);  
+   if (slot[f,inv_slot_stackable])
       {
-      draw_text_colour(x+256+8,used_y+(32+17),"x"+string(slot[f,inv_number]),c_black,c_black,c_black,c_black,1);
+       draw_text_colour(x+256+8,used_y+(32+17),"x"+string(slot[f,inv_number]),c_black,c_black,c_black,c_black,1);
       }
  
- scrCenterText(0);
-   
-  
+   alg();  
    draw_text_colored(x+4,used_y+32+24,slot[f,inv_item_info_text]);
    draw_text_colored(x+4,used_y+32+24+string_height(slot[f,inv_item_info_text]),inventoryDrawStats());
    clr(); 

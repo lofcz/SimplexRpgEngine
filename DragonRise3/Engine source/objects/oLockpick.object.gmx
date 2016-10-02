@@ -28,7 +28,7 @@
             <string>/// Initialize item
 
 scrItemSetUp(0, 0, itemEnum.itemLockpick);
-scrItemSetProperties(true, "Paklíč", "Content", -1, "");
+scrItemSetProperties(true, "Paklíč", "Content", -1, "", 50);
 scrItemSetOptions("Option n1");
 scrItemSetUpFinalize();
 

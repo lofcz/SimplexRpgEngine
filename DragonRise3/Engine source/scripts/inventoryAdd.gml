@@ -11,7 +11,7 @@ if (argument_count > 1) {nu = argument[1];}
 repeat(nu)
     {
      var i = instance_create(x, y, it);
-     with (i) { event_user(0); inventoryPickUp();}
+     with (i) {if (inventoryPickUp()) {event_user(0); global.temp = true;} else {global.temp = false;}}
     }
 
-
+return (global.temp);
