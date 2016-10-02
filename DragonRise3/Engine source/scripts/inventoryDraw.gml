@@ -191,9 +191,9 @@ clr(c_black,hover_alpha);
 if (hover || hover_alpha > 0)
   {
   tText         = inventoryDrawStats();
-  currentHeight = string_height(tText) + string_height(slot[hover_id,inv_item_info_head]) + string_height(slot[hover_id,inv_item_info_text]);
+  currentHeight = max(196, string_height(tText) + string_height(slot[hover_id,inv_item_info_head]) + string_height(slot[hover_id,inv_item_info_text]));
   
-  if (currentHeight < 196)
+  if (currentHeight <= 196)
   {
   draw_sprite(sInfoboxTexture,0,x,used_y+32);
   }

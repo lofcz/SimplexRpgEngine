@@ -192,6 +192,8 @@
     <sound>sound\sndItemUpgrade1</sound>
     <sound>sound\sndMaterialUpgrade1</sound>
     <sound>sound\sndCheckUnlocked</sound>
+    <sound>sound\sndTeleport</sound>
+    <sound>sound\sndAchievement</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\sCatchError</sprite>
@@ -405,6 +407,11 @@
         <sprite>sprites\sRingEffect</sprite>
         <sprite>sprites\sWoodEffect</sprite>
         <sprite>sprites\sMetalEffect</sprite>
+        <sprite>sprites\sGemEffect5</sprite>
+        <sprite>sprites\sGemEffect4</sprite>
+        <sprite>sprites\sGemEffect3</sprite>
+        <sprite>sprites\sGemEffect2</sprite>
+        <sprite>sprites\sGemEffect1</sprite>
         <sprite>sprites\sStoneEffect</sprite>
         <sprite>sprites\sPearlGreenEffect</sprite>
         <sprite>sprites\sPearlRedEffect</sprite>
@@ -932,7 +939,7 @@
           <object>objects\oGold</object>
           <object>objects\oGold2</object>
         </objects>
-        <objects name="Materials and herbs">
+        <objects name="Materials, herbs, gems">
           <objects name="Herbs">
             <object>objects\oHerbCtyrlistek</object>
             <object>objects\oHerbSlidivec</object>
@@ -952,6 +959,13 @@
             <object>objects\oMetalSteel</object>
             <object>objects\oTestItem2</object>
             <object>objects\oRedPearlLvl2</object>
+          </objects>
+          <objects name="Gems">
+            <object>objects\oGem1</object>
+            <object>objects\oGem2</object>
+            <object>objects\oGem3</object>
+            <object>objects\oGem4</object>
+            <object>objects\oGem5</object>
           </objects>
         </objects>
         <objects name="Weapons">
@@ -999,10 +1013,12 @@
           <object>objects\oBootLeftIron</object>
           <object>objects\oBootRightIron</object>
         </objects>
-        <objects name="Misc">
-          <object>objects\oLockpick</object>
+        <objects name="Elixirs">
           <object>objects\oElixirHP</object>
           <object>objects\oElixirMP</object>
+        </objects>
+        <objects name="Misc">
+          <object>objects\oLockpick</object>
           <object>objects\oLofsGift</object>
           <object>objects\oBasicLetter</object>
           <object>objects\oBasicItem</object>

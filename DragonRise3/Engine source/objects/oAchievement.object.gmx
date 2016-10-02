@@ -37,6 +37,7 @@ scale    = 1;
 Sname    = part_system_create();
 
 scrTimerIni(1);
+
 </string>
           </argument>
         </arguments>
@@ -97,6 +98,8 @@ xx    -= (maxWidth + 64);
 startX = xx;
 
 depth -= (instance_number(oAchievement) - 1);
+
+if (index == 5) {audio_play_sound(sndAchievement, 0, false);}
 </string>
           </argument>
         </arguments>

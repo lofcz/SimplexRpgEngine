@@ -218,11 +218,16 @@ else if (random(100) &gt; 90 &amp;&amp; hp &lt; max_hp)
 
 if (drop)
 {
-scrEnemyLoot(oHealthDrop,1,5,1,40,5);
-scrEnemyLoot(oXpDrop,10,12,1,70,5);
-scrEnemyLoot(oManaDrop,5,15,1,50,5);
-scrEnemyLoot(oArmorDrop,2,4,1,50,4);
-scrEnemyLoot(oGold2,1,4,1,30,4);
+scrEnemyLoot(oHealthDrop, 1,  5,  true, 40, 2);
+scrEnemyLoot(oXpDrop,     10, 12, true, 70, 2);
+scrEnemyLoot(oManaDrop,   5,  15, true, 50, 1);
+scrEnemyLoot(oArmorDrop,  2,  4,  true, 50, 1);
+scrEnemyLoot(oGold2,      1,  4,  true, 30, 4);
+scrEnemyLoot(oGem1,       1,  1,  true, 10, 2);
+scrEnemyLoot(oGem2,       1,  1,  true, 10, 2);
+scrEnemyLoot(oGem3,       1,  1,  true, 10, 2);
+scrEnemyLoot(oGem4,       1,  1,  true, 10, 2);
+scrEnemyLoot(oGem5,       1,  1,  true, 10, 2);
 
 scrEnemyDie(true);
 }

@@ -64,6 +64,7 @@ if (distance_to_object(oPlayer) &lt; 1)
         {
          oPlayer.x = xx;
          oPlayer.y = yy;
+         audio_play_sound(sndTeleport, 0, false);
         }
     }
 else

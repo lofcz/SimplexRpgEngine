@@ -30,10 +30,10 @@ f = (drop_id).open
 
 
 
-if (p = 1)
+if (p == 1)
 {
 if (loot) {draw_sprite(sRarityEffect,itemRarityEffect(itm_info_color),x,y);}
-if (loot != 2) {draw_self();}
+if (loot != 2) {if (!drawDrop) {draw_self();} else {draw_item_loot();}}
 else {sprite_index = sMask26x26; draw_sprite_ext(sTestItem, realIndex, x, y, 0.75, 0.75, 0, c_white, 0.8);}
 
 if (show_number && loot != 2)
@@ -45,29 +45,24 @@ scrCenterText(0);                                                               
 }
 }
 
-
 if (loot)   
-   {
-   
+   {   
     if (instance_number((drop_id)) > 0)
       {
       if (f == 1)
-       {
-                                                                                                                        //effect_create_above(ef_ring,x,y-80,1,c_green);
-       p = 1;
+       {                                                                                                                        //effect_create_above(ef_ring,x,y-80,1,c_green);
+        p = 1;
        }
       if (f == 0)
-           {
-                                                                                                                       //effect_create_above(ef_ring,x,y+80,1,c_red);
+           {                                                                                                                       //effect_create_above(ef_ring,x,y+80,1,c_red);
             p = 0;
            }
       }
       else {p = 1;}
    }
 
-if (hover_info && p = 1 )
-   {   
-     
+if (hover_info && p == 1)
+   {        
      if (distance_to_point(mouse_x,mouse_y) = 0)
         {
          depth = -2;
@@ -80,9 +75,7 @@ if (hover_info && p = 1 )
             (drop_id).thumbnailOriginalPrice = vlastnost[vlastnost_originalniCena];
             }
          
-         if (instance_number(oItemText) = 0) {i = instance_create(x,y,oItemText); i.parent = (id);}
-                                                                                                                        //itemDrawStats()
-        
+         if (instance_number(oItemText) == 0) {i = instance_create(x,y,oItemText); i.parent = (id);}      
          if (mouse_check_button_pressed(mb_left))
             {
             if (on_click)
@@ -131,6 +124,7 @@ if (animateDrop)
      if (animateDropForce <= 0) {animateDrop = false;}
     }
 }
+
 
 #define scrItemImageIndex
 /// scrItemImageIndex(itemID)

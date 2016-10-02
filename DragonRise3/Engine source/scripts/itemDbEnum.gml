@@ -46,5 +46,10 @@ itemHerbSkucivka,
 itemHerbPraznik,
 itemHerbBzuklar,
 itemHerbKorinky,
-itemLetter
+itemLetter,
+itemGem1,
+itemGem2,
+itemGem3,
+itemGem4,
+itemGem5
 };

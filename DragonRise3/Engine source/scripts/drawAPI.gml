@@ -375,3 +375,41 @@ return c
         }
     }
     draw_set_color(pc);
+#define draw_item_loot
+/// draw_item_loot()
+
+image_speed = 0;
+
+if (z > 0) 
+{
+    z += zspeed;
+    zspeed += zgravity;
+}
+if (z < 0) 
+{
+    z = -z;
+    zspeed = abs(zspeed) * 0.6 - 0.7;
+    if (zspeed < 1) 
+    {
+        z      = 0;
+        zspeed = 0;
+    }
+}
+
+if (z == 0)
+{
+if (shadowAlpha > 0) {shadowAlpha = lerp(shadowAlpha, -0.01, 0.1); if (mode && shadowAlpha > 0.1) {image_angle++;} else {image_angle--;}}
+}
+
+var vz = z + lengthdir_x(1, image_index / image_number * 360);
+draw_shadow(x + 16, y + 16, 6 / (1 + vz / 20), shadowAlpha);
+draw_sprite_ext(sprite_index, image_index, x, y - z, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
+
+if (speed > 0)
+   {
+    speed -= spd_down;  
+   }
+if (speed < 0) {speed = 0;}
+
+image_angle = direction;
+if (secure_pickup > 0) {secure_pickup--;}

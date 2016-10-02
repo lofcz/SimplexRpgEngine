@@ -167,10 +167,10 @@ if (l >= 50)
    
    if (physics)
       {
-//       loot.direction   = random(359);
-//       loot.image_angle = loot.direction;
-//       loot.speed       = random_range(1,2);
-//       loot.spd_down    = random_range(0.02,0.05);
+       loot.drawDrop  = true;
+       loot.direction = random(360);
+       loot.speed     = random_range(2, 4);
+       loot.friction  = 0.15;
       }
    }
 }

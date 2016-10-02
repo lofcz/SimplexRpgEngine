@@ -21,6 +21,18 @@ spd_down                  = 0;
 animateDrop               = 0;
 animateDropDir            = 0;
 animateDropForce          = 0;
+stav                      = "idle";
+mode                      = 0;
+m1                        = choose(0,1);
+secure_pickup             = 15;
+drawDrop                  = false;
+z                         = irandom_range(20, 40);
+zspeed                    = irandom_range(1, 2);
+zgravity                  = -random_range(0.3, 0.4);
+shadowAlpha               = 1;
+spd_down                  = 0;
+mode                      = choose(0,1);
+isDrop                    = false;
 
 
 
