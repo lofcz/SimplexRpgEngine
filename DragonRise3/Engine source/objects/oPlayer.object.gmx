@@ -387,7 +387,7 @@ if (vlastnost[vlastnost_zkusenosti] &gt; vlastnost[vlastnost_max_zkusenosti])
            
 if (keyboard_check_pressed(vk_escape))
    {
-    instance_create(x,y,oPause);
+    scrPauseGame();
    }
 </string>
           </argument>

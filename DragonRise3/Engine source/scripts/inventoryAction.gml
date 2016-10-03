@@ -69,6 +69,24 @@ case(itemEnum.itemLetter):
      scrHintShow(slot_vlastnosti[hover_idd, vlastnost_dataSocket1], slot_vlastnosti[hover_idd, vlastnost_dataSocket2]);
      }
      break;
+    } 
+case(itemEnum.itemGem1):
+    {
+     if (number == 0)
+     {
+     if (global.QuestionResult == -1)
+        {
+         global.arg[5] = idd;
+         global.arg[6] = number;
+         scrQuestionShow("Upozornění", "Opravdu chceš drahokam rozložit na 5 esencí?", "Ano", "Ne");
+        }
+     else if (global.QuestionResult == 1)
+        {
+         inventoryAdd(oAlchemyDust, 2);
+         inventoryDelete(itemEnum.itemGem1, 1);
+        }
+     }
+     break;
     }    
 default:
  {
@@ -86,4 +104,5 @@ default:
 
 
 }
- proceed = 0;
+proceed = 0;
+global.QuestionResult = -1;

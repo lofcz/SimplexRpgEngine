@@ -1,5 +1,7 @@
 /// scrPauseDraw()
 
+if (global.temp == -1)
+{
 if (mass < maxBlur) {mass += pauseSpeed;}  
 
       qX = 1;
@@ -14,5 +16,9 @@ if (mass < maxBlur) {mass += pauseSpeed;}
       shader_reset();
 
 draw_text(0, 0, "Hra je pozastavena");
-
 if (keyboard_check_pressed(vk_escape) && activated) {instance_destroy();}
+}
+else
+    {
+     draw_sprite(s, 0, 0, 0); 
+    }

@@ -29,7 +29,7 @@
 
 scrItemSetUp(0, 0, itemEnum.itemGem1);
 scrItemSetProperties(true, "Skřivec", "Těžký, lesklý kamínek, používá se k výrobě šperků. Tu a tam se malé kousky dají najít v žaludcích lesních příšer.", -1, "", 25);
-scrItemSetOptions("Option n1");
+scrItemSetOptions("Rozložit");
 scrItemSetUpFinalize();
 </string>
           </argument>

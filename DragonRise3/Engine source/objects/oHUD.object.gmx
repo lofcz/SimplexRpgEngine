@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>/// Set up
 
+global.temp     = -1;
 draw            = 1;
 alpha[0]        = 0;
 alpha[1]        = 0;

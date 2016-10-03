@@ -27,10 +27,11 @@
             <kind>1</kind>
             <string>/// Initialize item
 
-scrItemSetUp(0, 0, itemEnum.itemGem5);
-scrItemSetProperties(true, "Snivec", "Kámen té nejhlubší, červené barvy. Symbolizuje život, krev a energii. Gobliní šamani používají úlomky snivce při rituálu předků.", -1, "", 200);
-scrItemSetOptions("Rozložit");
+scrItemSetUp(0, 0, itemEnum.itemAlchemyDust);
+scrItemSetProperties(true, "Esence", "Univerzální prach z drahokamů, základní přísada do lektvarů.", -1, "", 2);
+scrItemSetOptions();
 scrItemSetUpFinalize();
+
 </string>
           </argument>
         </arguments>
@@ -60,7 +61,7 @@ if (loot = 0)
 if (inventoryPickUp())
 {
 audio_play_sound(sndRindPickup,0,0);
-scrLog("+ Snivec",c_white,sGemEffect5,0,0.5);
+scrLog("+ Esence",c_white,sDustEffect,0,0.5);
 }
 }
 </string>
@@ -113,7 +114,7 @@ instance_destroy();
             <kind>1</kind>
             <string>/// Draw item
 
-itemDraw();
+itemDraw()
 </string>
           </argument>
         </arguments>

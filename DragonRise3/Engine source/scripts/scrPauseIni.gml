@@ -2,6 +2,7 @@
 
 screen = screen_save("temp.dr3");
 instance_deactivate_all(1);
+if (global.temp != -1) {instance_activate_object(global.temp);}
 
 s                   = sprite_add("temp.dr3",0,0,0,0,0);
 activated           = 0;

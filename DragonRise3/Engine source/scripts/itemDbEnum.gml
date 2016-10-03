@@ -51,5 +51,6 @@ itemGem1,
 itemGem2,
 itemGem3,
 itemGem4,
-itemGem5
+itemGem5,
+itemAlchemyDust
 };

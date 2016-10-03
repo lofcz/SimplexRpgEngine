@@ -29,6 +29,8 @@
 
 alarm[0] = 2;
 colID = 0;
+
+activeList = ds_list_create();
 </string>
           </argument>
         </arguments>
