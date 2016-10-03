@@ -52,5 +52,6 @@ itemGem2,
 itemGem3,
 itemGem4,
 itemGem5,
-itemAlchemyDust
+itemAlchemyDust,
+itemLeaf
 };

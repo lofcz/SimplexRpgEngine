@@ -400,6 +400,7 @@
         <sprite>sprites\sElixirEffect</sprite>
         <sprite>sprites\sShieldEffect2</sprite>
         <sprite>sprites\sXP</sprite>
+        <sprite>sprites\sLeafEffect</sprite>
         <sprite>sprites\sGiftEffect</sprite>
         <sprite>sprites\sLetterEffect</sprite>
         <sprite>sprites\sStaminaEffect</sprite>
@@ -969,6 +970,7 @@
             <object>objects\oGem3</object>
             <object>objects\oGem4</object>
             <object>objects\oGem5</object>
+            <object>objects\oLeaf</object>
           </objects>
         </objects>
         <objects name="Weapons">

@@ -212,7 +212,8 @@ event_user(2);
 if (hitType == "breakableStone")
 {
 audio_play_sound(choose(sndWoodHit1,sndWoodHit2),0,0);
-scrItemInstantiate(oStoneLvl1, 1, 1, true, 1, 1, 16, 16);
+//scrItemInstantiate(oStoneLvl1, 1, 1, true, 1, 1, 32, 32, true);
+scrEnemyLoot(oStoneLvl1, 1, 1, true, 100, 1);
 }
 
 if (hitType == "golde")
@@ -310,7 +311,7 @@ if (idd = "zlato")
    }
 if (idd = "kamen")
    {
-    if (status = 3) {scrEnemyLoot(oGold2,1,5,1,100,3);}
+    if (status = 3) {scrEnemyLoot(oGem1,1,1,true,100,1);}
    
    }
 }

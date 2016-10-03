@@ -1,6 +1,6 @@
-/// scrItemInstantiate(item, numberMin, numberMax, animateDrop, dropTimes, dropForce, xx, yy)
+/// scrItemInstantiate(item, numberMin, numberMax, animateDrop, dropTimes, dropForce, xx, yy, physics)
 
-var item, numberMin, numberMax, aD, dT, numberActual, dF, xx, yy;
+var item, numberMin, numberMax, aD, dT, numberActual, dF, xx, yy, p;
 item      = oGold;
 numberMin = 1;
 numberMax = 1;
@@ -9,6 +9,7 @@ dT        = 1;
 dF        = 1;
 xx        = 0;
 yy        = 0;
+p         = true;
 
 if (argument_count > 0) {item      = argument[0];}
 if (argument_count > 1) {numberMin = argument[1];}
@@ -18,6 +19,7 @@ if (argument_count > 4) {dT        = argument[4];}
 if (argument_count > 5) {dF        = argument[5];}
 if (argument_count > 6) {xx        = argument[6];}
 if (argument_count > 7) {yy        = argument[7];}
+if (argument_count > 8) {p         = argument[8];}
 
 repeat(dT)
 {
@@ -47,4 +49,12 @@ else
       b.animateDropDir   = random(360);
       b.animateDropForce = random_range(0.5,1.5);
 }
+
+if (p)
+    {
+       p.drawDrop  = true;
+       p.direction = random(360);
+       p.speed     = random_range(2, 4);
+       p.friction  = 0.15;
+    }
 }

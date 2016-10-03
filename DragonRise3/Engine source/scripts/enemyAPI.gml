@@ -153,6 +153,7 @@ if (l >= 50)
    {
    var ix, iy, ip;
    ip = 0;
+   
    do
    {
    ix = x + random(64) - random(64);
