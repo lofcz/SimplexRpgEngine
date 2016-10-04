@@ -78,12 +78,12 @@ case(itemEnum.itemGem1):
         {
          global.arg[5] = idd;
          global.arg[6] = number;
-         scrQuestionShow("Upozornění", "Opravdu chceš drahokam rozložit na 5 esencí?", "Ano", "Ne");
+         scrQuestionShow("Upozornění", "Opravdu chceš drahokam rozložit na " + scrColorflag(c_yellow) + "2 esence" + scrEndColorflag() + "?", "Ano", "Ne");
         }
      else if (global.QuestionResult == 1)
         {
-         inventoryAdd(oAlchemyDust, 2);
          inventoryDelete(itemEnum.itemGem1, 1);
+         inventoryAdd(oAlchemyDust, 2);
         }
      }
      break;

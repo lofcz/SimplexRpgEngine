@@ -66,6 +66,8 @@ scrSpellCreate(SpellEnum.spellVines, 0);
             <string>/// Free memory
 
 part_system_destroy(Sname);
+ds_list_destroy(spellList);
+ds_list_destroy(spellListAlpha);
 </string>
           </argument>
         </arguments>
@@ -193,6 +195,7 @@ hoverAlpha    = 0;
 choosenSpell  = -1;
 choosenSpellScale = 1;
 flip_angle = 0;
+scrSetActiveComponent(false);
             } 
 </string>
           </argument>
@@ -222,17 +225,17 @@ x = view_xview;
 y = view_yview;
 
 // Kouzla
-if (drawType = "spells")
+if (drawType == "spells")
 {
 hover = false;
 
 if (mode == "in")
     {
-     if (bacAlpha &lt; 1) {bacAlpha += 0.1;  oHUD.draw = false;}
+     if (bacAlpha &lt; 1) {bacAlpha += 0.1;  oHUD.draw = false; scrSetActiveComponent(true);}
     }
 if (mode == "out")
     {
-     if (bacAlpha &gt; 0) {bacAlpha -= 0.1;} else {draw = false; mode = ""; oHUD.draw = true;}
+     if (bacAlpha &gt; 0) {bacAlpha -= 0.1;} else {draw = false; mode = ""; oHUD.draw = true; scrSetActiveComponent(false);}
     }
     
 clr(c_black, bacAlpha / 2);

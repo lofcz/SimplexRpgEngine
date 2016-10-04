@@ -58,7 +58,19 @@ if (oHintBox.mode != "question") {text = oHintBox.currentBt;}
             <kind>1</kind>
             <string>
 if(image_alpha &lt; 1) { image_alpha += 0.1; }
-if(over == 1) { if(ima &lt; 0.4) { ima += 0.05; } if (mouse_check_button_pressed(mb_left)) {with(oHintBox) {event_user(0);} if (oHintBox.mode == "question") {if (text == global.arg[1]) {global.QuestionResult = 1;} else {global.QuestionResult = 0;}} inventoryAction(global.arg[5], global.arg[6])}} else { if(ima &gt; 0) { ima -= 0.05; } }
+if(over == 1) 
+{ 
+if(ima &lt; 0.4) { ima += 0.05; } 
+if (mouse_check_button_pressed(mb_left)) 
+    {
+    with(oHintBox) {event_user(0);} 
+    if (oHintBox.mode == "question") {if (text == global.arg[1]) {global.QuestionResult = 1;} else {global.QuestionResult = 0;} inventoryAction(global.arg[5], global.arg[6]);} 
+    }
+} 
+else 
+{ 
+if(ima &gt; 0) { ima -= 0.05; } 
+}
 </string>
           </argument>
         </arguments>
