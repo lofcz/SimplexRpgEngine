@@ -66,6 +66,7 @@ craftingMenuIndex[3] = "Zušlechtění";
 craftingMenuIndex[4] = "Alchymie";
 craftingTitleHelper = "";
 activeComponent = false;
+tempComponent   = false;
 
 drawCraftingMenu = 1;
 craftingSelectedIndex = -1;
@@ -389,7 +390,7 @@ alg("default", fntPixelHuge);
         else {iconActive[hudIcons.equipment] = true;}
         }        
      // Equipment
-        if (keyboard_check_pressed(ord("E")) &amp;&amp; iconActive[hudIcons.equipment] &amp;&amp; !scrGettActiveComponent())
+        if (keyboard_check_pressed(ord("E")) &amp;&amp; iconActive[hudIcons.equipment] &amp;&amp; !scrGettActiveComponent() &amp;&amp; !scrGetTempComponent())
         {
         draw_equipment = !draw_equipment;
         
@@ -414,6 +415,8 @@ alg("default", fntPixelHuge);
 // Draw crafting
 if (draw_crafting) {scrCraftingDraw();}
 
+// Reset temp component
+tempComponent = false;
 }
    
 if (oPlayer.last_hp &lt;= 0) { die = 1; oPlayer.can_move2 = 0;}     

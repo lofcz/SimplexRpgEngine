@@ -147,9 +147,8 @@ if (argument_count > 5) {rep                              = argument[5];}
 repeat(rep)
 {
 randomize();
-l = random(100);
 
-if (l >= random(100 - chance))
+if (chance >= random(100 - chance))
    {
    var ix, iy, ip;
    ip = 0;

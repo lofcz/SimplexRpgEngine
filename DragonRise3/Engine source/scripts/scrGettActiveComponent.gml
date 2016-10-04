@@ -1,3 +1,11 @@
+#define scrGettActiveComponent
 /// scrGettActiveComponent()
 
-return(oHUD.activeComponent);
+return (oHUD.activeComponent);
+
+
+#define scrGetTempComponent
+/// scrGetTempComponent()
+
+return (oHUD.tempComponent);
+
