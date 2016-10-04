@@ -892,19 +892,11 @@ else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "shield")
     }
 else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "ring")
     {
-     equipmentHoldEquip(6, 0, 0, 0, 0, true);    
-    }
-else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "ring")
-    {
-     equipmentHoldEquip(7, 0, 0, 0, 0, true);    
-    }
-else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "ring")
-    {
-     equipmentHoldEquip(8, 0, 0, 0, 0, true);    
-    }
-else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "ring")
-    {
-     equipmentHoldEquip(9, 0, 0, 0, 0, true);    
+     if (!equiped[6]) {equipmentHoldEquip(6, 0, 0, 0, 0, true);}
+     else if (!equiped[7]) {equipmentHoldEquip(7, 0, 0, 0, 0, true);}  
+     else if (!equiped[8]) {equipmentHoldEquip(8, 0, 0, 0, 0, true);}  
+     else if (!equiped[9]) {equipmentHoldEquip(9, 0, 0, 0, 0, true);}  
+     else {{equipmentHoldEquip(6, 0, 0, 0, 0, true);}}
     }
 else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "necklace")
     {
