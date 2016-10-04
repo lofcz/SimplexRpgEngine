@@ -16,11 +16,13 @@ if (argument_count > 4) {y_y2       = argument[4];}
 if (argument_count > 5) {f          = argument[5];}
 
 if (mouse_in(x_x1, x_x2, y_y1, y_y2) || f)
-                    {     
-                       if (oInventory.drag && mouse_check_button_released(mb_left) && !equiped[equip_slot] || f)
-                        {
-                        //if(equip_slot = 0) {oPlayerCombat.draw = 1; oPlayerCombat.sprite = oInventory.slot_vlastnosti[h_c,vlastnost_vykresli_sprit]; oPlayerCombat.image = oInventory.slot_vlastnosti[h_c,vlastnost_vykresli_index];}
-                        
+{
+if ((oInventory.drag && mouse_check_button_released(mb_left) && equiped[equip_slot]) || (f && equiped[equip_slot]))
+                    {
+                     equipmentUnequip(equip_slot, true);
+                    }     
+                     else if ((oInventory.drag && mouse_check_button_released(mb_left) && !equiped[equip_slot]) || f)
+                        {                       
                          oInventory.pre_switch = 1;
                          equiped[equip_slot]   = 1;
                          
@@ -45,51 +47,41 @@ if (mouse_in(x_x1, x_x2, y_y1, y_y2) || f)
                                 {
                                  if (a == vlastnost_bodyCanvasSprite) {oPlayer.bci[0, slot_vlastnosti[h_c,vlastnost_bodyCanvasIndex]] = slot_vlastnosti[h_c,a];}
                                  if (a == vlastnost_bodyCanvasSlashSprite) {oPlayer.bci[1, slot_vlastnosti[h_c,vlastnost_bodyCanvasSlashSprite]] = slot_vlastnosti[h_c,a];}                                
-                                }
-                                
-                            //  slot_vlastnosti[h_c,a] = 0;                                                      
+                                }                                                    
                              }
-                             
-                          
                              
                          for (a = 0; a<inv_atributes_total; a++)
                          {
-                         equiped_stats[equip_slot,a] = temp_equip[a];
+                          equiped_stats[equip_slot,a] = temp_equip[a];
                          
-                         
-                         
-                         if(scrInventoryParseString())
+                          if(scrInventoryParseString())
                             {
                             slot[h_c,a] = 0;
                             }
                          else {slot[h_c,a] = "";}  
                    
-                         if (a = inv_sprite) {slot[h_c,a] = sFreeSlot;}    
-                          } 
+                         if (a == inv_sprite) {slot[h_c,a] = sFreeSlot;}    
+                         } 
                           
-                             // NEW
-                             if (equiped_stats[equip_slot,inv_item_equip_slot] == "zbraň")
-                             {
+                          // NEW
+                          if (equiped_stats[equip_slot,inv_item_equip_slot] == "zbraň")
+                            {
                              oPlayer.draw_equ[id_Mec,0] =  equiped_vlastnost[equip_slot,vlastnost_vykresli_sprit];
                              oPlayer.draw_equ[id_Mec,1] =  equiped_vlastnost[equip_slot,vlastnost_vykresli_index];
-                            // oPlayer.bci[0, 7] = sBodyCanvasWeapon2;
-                             }
-                             // /NEW
+                            }
 
-                          
-
-                      draw_item_mouse = 0;
+                          draw_item_mouse = 0;
            
-                                      for (b = 0; b<10; b++)
-                                      {
-                              
-                                      equiped_option[equip_slot,b] = switch_option[0,b];
-                                      switch_option[h_c,b] = "";                
-                                      }            
-                         
-                        }
+                        for (b = 0; b<10; b++)
+                            {                              
+                             equiped_option[equip_slot,b] = switch_option[0,b];
+                             switch_option[h_c,b] = "";                
+                            }                                       
+                                               
                         for (a = 0; a < celkem_vlastnosti; a++)
-                             {
-                              slot_vlastnosti[h_c,a] = 0;                                                      
-                             }
-                    }
+                            {
+                             slot_vlastnosti[h_c,a] = 0;                                                      
+                            }
+                        }
+                
+}

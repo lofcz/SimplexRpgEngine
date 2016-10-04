@@ -866,82 +866,83 @@ return t_text;
 #define inventoryFastEquip
 /// inventoryFastEquip()
 
-if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "helma" && !oInventory.equiped[1])
+if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "helma")
     {
      equipmentHoldEquip(1, 0, 0, 0, 0, true);     
     }
-else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "leftPlate" && !oInventory.equiped[4])
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "leftPlate")
     {
      equipmentHoldEquip(4, 0, 0, 0, 0, true);    
     }
-else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "rightPlate" && !oInventory.equiped[3])
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "rightPlate")
     {
      equipmentHoldEquip(3, 0, 0, 0, 0, true);    
     }
-else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "armor" && !oInventory.equiped[2])
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "armor")
     {
      equipmentHoldEquip(2, 0, 0, 0, 0, true);    
     }
-else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "zbraň" && !oInventory.equiped[0])
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "zbraň")
     {
      equipmentHoldEquip(0, 0, 0, 0, 0, true);    
     }
-else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "shield" && !oInventory.equiped[5])
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "shield")
     {
      equipmentHoldEquip(5, 0, 0, 0, 0, true);    
     }
-else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "ring" && !oInventory.equiped[6])
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "ring")
     {
      equipmentHoldEquip(6, 0, 0, 0, 0, true);    
     }
-else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "ring" && !oInventory.equiped[7])
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "ring")
     {
      equipmentHoldEquip(7, 0, 0, 0, 0, true);    
     }
-else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "ring" && !oInventory.equiped[8])
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "ring")
     {
      equipmentHoldEquip(8, 0, 0, 0, 0, true);    
     }
-else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "ring" && !oInventory.equiped[9])
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "ring")
     {
      equipmentHoldEquip(9, 0, 0, 0, 0, true);    
     }
-else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "necklace" && !oInventory.equiped[10])
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "necklace")
     {
      equipmentHoldEquip(10, 0, 0, 0, 0, true);    
     }
-else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "card" && !oInventory.equiped[11])
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "card")
     {
      equipmentHoldEquip(11, 0, 0, 0, 0, true);    
     }
-else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "medal" && !oInventory.equiped[12])
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "medal")
     {
      equipmentHoldEquip(12, 0, 0, 0, 0, true);    
     }
-else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "trophy" && !oInventory.equiped[13])
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "trophy")
     {
      equipmentHoldEquip(13, 0, 0, 0, 0, true);    
     }
-else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "crystallisator" && !oInventory.equiped[14])
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "crystallisator")
     {
      equipmentHoldEquip(14, 0, 0, 0, 0, true);    
     }
-else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "booster" && !oInventory.equiped[15])
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "booster")
     {
      equipmentHoldEquip(15, 0, 0, 0, 0, true);    
     }
-else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "belt" && !oInventory.equiped[16])
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "belt")
     {
      equipmentHoldEquip(16, 0, 0, 0, 0, true);    
     }
-else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "leftBoot" && !oInventory.equiped[17])
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "leftBoot")
     {
      equipmentHoldEquip(17, 0, 0, 0, 0, true);    
     }
-else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "rightBoot" && !oInventory.equiped[18])
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "rightBoot")
     {
      equipmentHoldEquip(18, 0, 0, 0, 0, true);    
     }
+
 #define inventoryDrawPearls
 /// inventoryDrawPearls(slot)
 

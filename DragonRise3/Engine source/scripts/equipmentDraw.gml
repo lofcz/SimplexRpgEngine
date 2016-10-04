@@ -191,7 +191,7 @@ if (mouse_in(xx+equ_axis_right_hand_x,xx+equ_axis_right_hand_x+32,yy+equ_axis_ri
     
    }
       
-if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] = "zbraň" )
+if (oInventory.drag && oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "zbraň")
    { 
    if (oInventory.equiped[0] = 0) {draw_hover_block(xx+equ_axis_right_hand_x,xx+equ_axis_right_hand_x+32,yy+equ_axis_right_hand_y,yy+equ_axis_right_hand_y+32,c_lime,0.5);}
    equipmentHoldEquip(0,xx+equ_axis_right_hand_x,xx+equ_axis_right_hand_x+32,yy+equ_axis_right_hand_y,yy+equ_axis_right_hand_y+32);

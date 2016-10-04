@@ -498,6 +498,7 @@
     <background>background\celianna_farmnature_tileset</background>
     <background>background\ForestTown02</background>
     <background>background\celianna_MV_interior_house</background>
+    <background>background\celian10</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\pthCutsceneObet1</path>
