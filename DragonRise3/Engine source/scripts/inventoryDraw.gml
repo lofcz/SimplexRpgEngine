@@ -68,7 +68,7 @@ if (!proceed)
    draw_rectangle(xx,yy,xx+32,yy+32,0);  
   }
   
-if (mouse_x > xx && mouse_x < xx+32 && mouse_y > yy && mouse_y < yy+32)
+if (mouse_x > xx && mouse_x < xx+32 && mouse_y > yy && mouse_y < yy+32 && !scrGettActiveComponent())
  {  
   if (hover_slot_alpha[a] < 0.5) {hover_slot_alpha[a] += 0.03;}
   hover    = 1;

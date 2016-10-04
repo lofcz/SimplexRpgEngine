@@ -106,6 +106,7 @@ if (mouse_check_button_pressed(mb_left) && point_in_circle((x + (xx - 15) + spel
         {
          oTalentMenu.mode = "in"; 
          oTalentMenu.draw = true;
+         scrSetActiveComponent(true);
         }
     }
 
