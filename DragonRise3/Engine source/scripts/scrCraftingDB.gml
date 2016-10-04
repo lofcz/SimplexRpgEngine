@@ -149,7 +149,7 @@ draw_text(xx + 40, yy, "x" + string(nr));
 
 if (craftingSlotSprite[in] != 0)
     {
-     draw_sprite(sTestItem, craftingSlotSprite[in], xx, yy);
+     draw_sprite(sTestItem, craftingSlotSprite[in], xx + 16, yy + 16);
      
      fnt(fntPixelTiny);
      draw_text_colored(xx + 64, yy - 6, scrCraftingGetMaterialText(craftingSlotItemID[in], nr));
@@ -458,7 +458,7 @@ draw_text(xx + 40, yy, "x" + string(nr));
 
 if (craftingSlotSprite[in] != 0)
     {
-     draw_sprite(sTestItem, craftingSlotSprite[in], xx, yy);
+     draw_sprite(sTestItem, craftingSlotSprite[in], xx + 16, yy + 16);
      
      fnt(fntPixelTiny);
      draw_text_colored(xx + 64, yy - 6, scrCraftingGetMaterialText(craftingSlotItemID[in], nr));
@@ -665,14 +665,14 @@ draw_text(xx + 40, yy, "x" + string(nr));
 
 if (craftingSlotSprite[in] != 0)
     {
-     draw_sprite(sTestItem, craftingSlotSprite[in], xx, yy);     
+     draw_sprite(sTestItem, craftingSlotSprite[in], xx + 16, yy + 16);     
     }
 else
     {
      if (!craftingSlotOptional[in]) {craftingCompleted = false;}
      
      shader_set(shdBlackWhite);
-     draw_sprite(sTestItem, ei, xx, yy);  
+     draw_sprite(sTestItem, ei, xx + 16, yy + 16);  
      shader_reset();   
     }
     

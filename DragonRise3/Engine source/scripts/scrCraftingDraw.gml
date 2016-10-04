@@ -142,6 +142,10 @@ else
                         if (mouse_check_button_pressed(mb_left))
                             {
                              craftingDetails = false;
+                             for (var i = 0; i < min(array_height_2d(oInventory.slot), ((oInventory.currentPage*oInventory.slotsPerPage) + oInventory.slotsPerPage)); i++)
+                                {
+                                 oInventory.slot[i, inv_item_beingUsed] = false;
+                                }
                             }
                         }
                         
@@ -190,7 +194,7 @@ else
             
             for (i = 0; i < ds_list_size(craftingKnownItems); i++)
                 {
-                 draw_sprite(sTestItem, craftingItemsSprite[craftingPageSelected, ds_list_find_value(craftingKnownItems, i)], tempX, tempY);
+                 draw_sprite(sTestItem, craftingItemsSprite[craftingPageSelected, ds_list_find_value(craftingKnownItems, i)], tempX+16, tempY+16);
                  if (craftingItemsNewFlag[craftingPageSelected, ds_list_find_value(craftingKnownItems, i)]) {draw_text_colour(tempX + 25, tempY, "!", c_yellow, c_yellow, c_yellow, c_yellow, 1);}
              
                  // On-Hover
@@ -243,7 +247,7 @@ else
              tempY = ypos + 96; 
              color = c_white;
                         
-             if (oInventory.drag = 1 && oInventory.equip_sprite_s[3] = materialEnum.materialNone)
+             if (oInventory.drag && oInventory.equip_sprite_s[3] == materialEnum.materialNone)
                 {
                  color = c_lime;
                 }
@@ -254,14 +258,14 @@ else
              clr();
              draw_roundrect(tempX + 96, tempY, tempX + 128, tempY + 32, true);
              
-             if (upgradingItemSprite > 0) {draw_sprite(sTestItem, upgradingItemSprite, tempX + 96, tempY);}
+             if (upgradingItemSprite > 0) {draw_sprite(sTestItem, upgradingItemSprite, tempX + 96 + 16, tempY + 16);}
 
              
              // Slot for input item
              if (mouse_in(tempX + 96, tempX + 128, tempY, tempY + 32) && (color == c_lime || upgradingItemID != -1))
                 {
                   // Put in
-                  if (mouse_check_button_released(mb_left) && upgradingItemID = -1)
+                  if (mouse_check_button_released(mb_left) && upgradingItemID == -1)
                      {
                       oInventory.pre_switch                               = true;
                       oInventory.draw_item_mouse                          = false;
@@ -352,12 +356,12 @@ else
                     {
                      if (oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeSprite1 + i] > 0)
                         {
-                         draw_sprite(sTestItem, oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeSprite1 + i], tempX, tempY + 32 + (48 * i));                        
+                         draw_sprite(sTestItem, oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeSprite1 + i], tempX + 16, tempY + 32 + (48 * i) + 16);                        
                          clr(c_white, 1);
                          fnt(fntPixelTiny);
                          draw_text_colored(tempX + 40, tempY + 32 + (48 * i), scrCraftingGetMaterialText(oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeID1 + i], 1));
                          draw_sprite(sLockIcon, 0, tempX + 16, tempY  + (48 * (i + 1))); 
-                         
+                         draw_text_colored(tempX + 40, tempY + 32 + (48 * i), scrCraftingGetUpgradeText(oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeID1 + i], 1));
                                              
                         }               
                     }
@@ -365,7 +369,7 @@ else
                     {
                     if (enchantItemSprite[i] > 0) 
                     {
-                    draw_sprite(sTestItem, enchantItemSprite[i], tempX, tempY + 32 + (48 * i));
+                    draw_sprite(sTestItem, enchantItemSprite[i], tempX + 16, tempY + 32 + (48 * i) + 16);
                     clr(c_white, 1);
                     fnt(fntPixelTiny);
                     draw_text_colored(tempX + 40, tempY + 32 + (48 * i), scrCraftingGetUpgradeText(enchantItemID[i], 1));
@@ -465,7 +469,7 @@ else
                          // Remove all unatached materials
                          for (i = 0; i < 3; i++)
                             {
-                             if (upgradingItemSlotID > 0)
+                             if (upgradingItemSlotID >= 0)
                                 {
                                 if (enchantItemSprite[i] > 0 )
                                     {
@@ -480,7 +484,7 @@ else
                         // Remove upgraded item 
                         upgradingItemSprite = -1;  
                         upgradingItemID     = -1;      
-                        oInventory.slot[abs(upgradingItemSlotID), inv_item_beingUsed] = false;     
+                        if (upgradingItemSlotID >= 0) {oInventory.slot[upgradingItemSlotID, inv_item_beingUsed] = false;}     
                         upgradingItemSlotID = -1;  
                         
                         // Return to main menu
@@ -535,7 +539,7 @@ else
             
             for (i = 0; i < ds_list_size(craftingKnownMaterials); i++)
                 {
-                 draw_sprite(sTestItem, craftingMaterialsSprite[craftingPageSelected, ds_list_find_value(craftingKnownMaterials, i)], tempX, tempY);
+                 draw_sprite(sTestItem, craftingMaterialsSprite[craftingPageSelected, ds_list_find_value(craftingKnownMaterials, i)], tempX + 16, tempY + 16);
                  if (craftingMaterialsNewFlag[craftingPageSelected, ds_list_find_value(craftingKnownMaterials, i)]) {draw_text_colour(tempX + 25, tempY, "!", c_yellow, c_yellow, c_yellow, c_yellow, 1);}
              
                  // On-Hover
@@ -616,7 +620,7 @@ else
                 {
                  tempIndex = ds_list_find_value(craftingKnownAlchemy, i);
                  
-                 draw_sprite(sTestItem, craftingAlchemySprite[craftingPageSelected, tempIndex], tempX, tempY);
+                 draw_sprite(sTestItem, craftingAlchemySprite[craftingPageSelected, tempIndex], tempX + 16, tempY + 16);
                  if (craftingAlchemyNewFlag[craftingPageSelected, tempIndex]) {draw_text_colour(tempX + 25, tempY, "!", c_yellow, c_yellow, c_yellow, c_yellow, 1);}
              
                  // On-Hover
@@ -692,10 +696,10 @@ else
          clr(c_white, 1);
          draw_text(tempX + 38, tempY + 4, "4x");
          draw_text(tempX + 106, tempY + 4, "-->");
-         if (enrichtItemSprite > 0) {draw_sprite(sTestItem, enrichtItemSprite, tempX + 64, tempY);}
+         if (enrichtItemSprite > 0) {draw_sprite(sTestItem, enrichtItemSprite, tempX + 64 + 16, tempY + 16);}
          if (enrichtingOutputSprite > 0) 
             {
-            draw_sprite(sTestItem, enrichtingOutputSprite, tempX + 144, tempY);
+            draw_sprite(sTestItem, enrichtingOutputSprite, tempX + 144 + 16, tempY + 16);
             fnt(fntPixelSmall);
             draw_text_colored(tempX, tempY + 48, scrCraftingDbMaterialEnrichtText(enrichtItemID));
             }

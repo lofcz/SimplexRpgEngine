@@ -44,8 +44,10 @@ if (mouse_in(x_x1, x_x2, y_y1, y_y2) || f)
                               else if (slot_vlastnosti[h_c,vlastnost_bodyCanvasIndex] != 0)
                                 {
                                  if (a == vlastnost_bodyCanvasSprite) {oPlayer.bci[0, slot_vlastnosti[h_c,vlastnost_bodyCanvasIndex]] = slot_vlastnosti[h_c,a];}
-                                 if (a == vlastnost_bodyCanvasSprite) {oPlayer.bci[1, slot_vlastnosti[h_c,vlastnost_bodyCanvasIndex]] = slot_vlastnosti[h_c,a];}                                
-                                }                                                          
+                                 if (a == vlastnost_bodyCanvasSlashSprite) {oPlayer.bci[1, slot_vlastnosti[h_c,vlastnost_bodyCanvasSlashSprite]] = slot_vlastnosti[h_c,a];}                                
+                                }
+                                
+                            //  slot_vlastnosti[h_c,a] = 0;                                                      
                              }
                              
                           
@@ -86,8 +88,8 @@ if (mouse_in(x_x1, x_x2, y_y1, y_y2) || f)
                                       }            
                          
                         }
-                        else
-                        {
-                        }
-
+                        for (a = 0; a < celkem_vlastnosti; a++)
+                             {
+                              slot_vlastnosti[h_c,a] = 0;                                                      
+                             }
                     }

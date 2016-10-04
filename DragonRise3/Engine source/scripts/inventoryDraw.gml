@@ -23,7 +23,6 @@ pages          = ((array_length_1d(hover_slot_alpha) div slotsPerPage) + 1);
  draw_text(x+144,y+14,inventory_title);
  draw_set_font(fntPixelSmall);
  draw_text(x + 144, y + 28, "Strana " + string(currentPage + 1) + " / " + string(pages));
-// draw_text(x+144,y+24,oPlayer.gold);
  scrCenterText(0);
  
  // Pagination
@@ -55,7 +54,7 @@ draw_sprite(sSlotTexture,0,xx,yy);
 clr();
 draw_rectangle(xx,yy,xx+32,yy+32,1);                                                                                  
 draw_sprite(sRarityEffect,itemRarityEffect(slot[a,inv_item_effect]),xx,yy); 
-draw_sprite(slot[a,inv_sprite],slot[a,inv_sprite_number],xx,yy);
+draw_sprite(slot[a,inv_sprite],slot[a,inv_sprite_number],xx+16,yy+16);
  
 if (slot[a,inv_slot_stackable])
     {
@@ -159,7 +158,7 @@ for (i = 0; i < array_length_1d(details); i++)
     }
 clr();
 }
-draw_sprite(sStackableItem1, 7, x, used_y);
+draw_sprite(sStackableItem1, 7, x + 16, used_y + 16);
 fnt();
 draw_text(x + 30, used_y, oPlayer.gold);
 
@@ -407,7 +406,7 @@ clr();
 if (draw_item_mouse)
    {
     if (drag_alpha > 0.5) {drag_alpha -= 0.05;}
-    draw_sprite_ext(switch_temp[0,inv_sprite],switch_temp[0,inv_sprite_number],mouse_x-16,mouse_y-16,1,1,0,c_white,drag_alpha);  
+    draw_sprite_ext(switch_temp[0,inv_sprite],switch_temp[0,inv_sprite_number],mouse_x,mouse_y,1,1,0,c_white,drag_alpha);  
     clr(c_black,1);
     if (switch_temp[0,inv_slot_stackable])
        {

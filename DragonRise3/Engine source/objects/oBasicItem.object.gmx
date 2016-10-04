@@ -43,7 +43,7 @@ itm_effect                = 0;
 o                         = 0;
 force_pickup              = 0;
 show_number               = 1;
-
+drawDrop                  = false;
 alarm[0] = 1;
 
 </string>

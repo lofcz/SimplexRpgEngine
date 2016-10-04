@@ -401,8 +401,8 @@ if (z == 0)
 if (shadowAlpha > 0) {shadowAlpha = lerp(shadowAlpha, -0.01, 0.1); if (mode && shadowAlpha > 0.1) {image_angle++;} else {image_angle--;}}
 }
 
-var vz = z + lengthdir_x(1, image_index / image_number * 360);
-draw_shadow(x + 16, y + 16, 6 / (1 + vz / 20), shadowAlpha);
+var vz = z + lengthdir_x(1, 360);
+draw_shadow(x ,y + 16, 6 / (1 + vz / 20), shadowAlpha);
 draw_sprite_ext(sprite_index, image_index, x, y - z, image_xscale, image_yscale, image_angle, image_blend, image_alpha);
 
 if (speed > 0)

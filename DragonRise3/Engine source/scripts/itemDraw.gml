@@ -7,7 +7,7 @@ edh = false;
 if (argument_count > 0) {edh = argument[0];}
 
 clr();
-draw_set_font(fntText);
+fnt(fntText);
 
 if (!edh)
 {
@@ -34,14 +34,13 @@ if (p == 1)
 {
 if (loot) {draw_sprite(sRarityEffect,itemRarityEffect(itm_info_color),x,y);}
 if (loot != 2) {if (!drawDrop) {draw_self();} else {draw_item_loot();}}
-else {sprite_index = sMask26x26; draw_sprite_ext(sTestItem, realIndex, x, y, 0.75, 0.75, 0, c_white, 0.8);}
+else {sprite_index = sMask26x26; draw_sprite_ext(sTestItem, realIndex, x + 12, y + 12, 0.75, 0.75, 0, c_white, 0.8);}
 
 if (show_number && loot != 2)
 {
-draw_set_font(fntTextSmall);
-scrCenterText();
-draw_text(x+23,y+25,itm_number);
-scrCenterText(0);                                                                                                                        //draw_text(x,y+16,itm_stackable);
+alg("center", fntPixelTiny);
+draw_text(x+23-16,y+25-16,itm_number);
+alg();                                                                                                                     //draw_text(x,y+16,itm_stackable);
 }
 }
 

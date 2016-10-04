@@ -17,7 +17,7 @@ draw_roundrect(x - 96 - 16, y - 80 - 24, x + 30 - 16, y - 8 - 24, true);
 
 if (thumbnailImage != -1)
     {
-     draw_sprite(sTestItem, thumbnailImage, x - (64 - 16) - 16, y - 80 - 24);
+     draw_sprite(sTestItem, thumbnailImage, x - (64 - 16), y - 80 - 8);
     }
 else
     {
