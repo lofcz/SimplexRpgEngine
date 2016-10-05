@@ -65,40 +65,6 @@ instance_destroy();
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Handle tree depth and alpha
-
-if (instance_number(oPlayer) &gt; 0)
-   {
-    if (distance_to_object(oPlayer) &lt; 32)
-       {
-        if (y+105 &lt; oPlayer.y) {depth = -9;}
-        else {depth = -11;}
-       }
-   }
-
-//Destroy
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="4" ename="oPlayerCombat">
       <action>
         <libid>1</libid>
@@ -155,8 +121,6 @@ if (hp &lt;= 0) {scrBasicTransformScale(0.1,0.0,0.0,1.00,1.00); alarm[0] = 40;}
 if (mode = 1) {if (value &gt; -45) {value--;} else {mode = 0;}}
 
 draw_sprite_ext(sprite_index,0,x,y,image_xscale,image_yscale,image_angle+2*sin(degtorad(value)),c_white,image_alpha);
-draw_sprite_ext(sprite_index,1,x,y, image_xscale, image_yscale, image_angle, c_white, image_alpha);
-
 </string>
           </argument>
         </arguments>

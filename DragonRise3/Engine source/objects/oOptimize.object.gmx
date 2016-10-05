@@ -76,6 +76,7 @@ instance_activate_object(oSpellMenu);
 instance_activate_object(oStatusMenu);
 instance_activate_object(oAchievement);
 instance_activate_object(oState);
+instance_activate_object(oDepthHelperAbovePlayer);
 
 // Further optimization of collision system
 instance_deactivate_object(oNonsolidCollision);

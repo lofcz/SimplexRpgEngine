@@ -57,7 +57,11 @@ if (instance_number(oStatusMenu) == 0)
    {
      instance_create(0,0,oStatusMenu);
    }
-   
+if (instance_number(oDepthHelperAbovePlayer) == 0)
+   {
+     instance_create(0,0,oDepthHelperAbovePlayer);
+   }
+      
 global.shaders_enabled = true;
 
 #define roomNpcAdd

@@ -538,6 +538,7 @@
         <script>scripts\scrDice.gml</script>
         <script>scripts\set_sprite.gml</script>
         <script>scripts\scrSpriteDissolve.gml</script>
+        <script>scripts\scrSetParamsArray.gml</script>
         <script>scripts\scrWordwrap.gml</script>
         <script>scripts\scrCheckForNeighbours.gml</script>
       </scripts>
@@ -906,6 +907,7 @@
       <object>objects\oHUD</object>
       <object>objects\oOptimize</object>
       <object>objects\oBestiar</object>
+      <object>objects\oDepthHelperAbovePlayer</object>
       <object>objects\oQuest</object>
       <object>objects\oMapIntro</object>
       <object>objects\oMinimap</object>
@@ -1111,6 +1113,7 @@
   </timelines>
   <rooms name="rooms">
     <room>rooms\mapTest</room>
+    <room>rooms\mapCopyright</room>
     <room>rooms\mapMainMenu</room>
     <room>rooms\mapSklep</room>
     <room>rooms\cutscenePoustevnikovaPesina</room>
@@ -1119,7 +1122,6 @@
     <room>rooms\mapMyFirstGame</room>
     <room>rooms\mapDefault</room>
     <room>rooms\mapLedovaJeskyne</room>
-    <room>rooms\mapCopyright</room>
     <rooms name="Game world">
       <room>rooms\mapHouse1</room>
       <room>rooms\mapHouseAlice</room>

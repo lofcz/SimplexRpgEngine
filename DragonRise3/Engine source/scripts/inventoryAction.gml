@@ -59,6 +59,7 @@ case(itemEnum.itemGiftLof):
      inventoryDelete(itemEnum.itemGiftLof, 1);
      inventoryAdd(oElixirHP, 10);
      inventoryAdd(oElixirMP, 10);
+     inventoryAdd(oGem1, 1);
      }
      break;
     } 

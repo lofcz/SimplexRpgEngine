@@ -315,13 +315,11 @@ alg("default", fntPixelHuge);
             if (oPlayer.spell_cd[2] &gt; 0) {draw_rectangle_cd(x+628+3+spellsxPlus,y+560+3+yoffset,x+660+spellsxPlus,y+592+yoffset,360-((oPlayer.spell_cd[2] / oPlayer.temp_cd[2])*360))}
             draw_set_alpha(1);     
             draw_sprite(sSpellsUI,1,x+628+spellsxPlus,y+560+yoffset);
-             draw_set_font(fntPixelSmall);  
+            draw_set_font(fntPixelSmall);  
             draw_text_colour(x+645+spellsxPlus,y+572+yoffset,"L",c_black,c_black,c_black,c_black,1); 
             draw_text_colour(x+646+spellsxPlus,y+572+yoffset,"L",c_white,c_white,c_white,c_white,1);  
             draw_set_font(fntPixelHuge);
-
             }
-
        
      // Black outline alpha UP
      if (effect_scale2   &lt; 1.2 &amp;&amp; draw_quest)     {effect_scale2   += 0.02;}          

@@ -270,11 +270,12 @@ draw_circle(xx + (ss / 2), yy + (ss / 2), ss * max(xs, ys) - 4, true);
 clr();
 
 
-draw_sprite_ext(s, max(i - 1, 0), xx, yy, xs, ys, 0, c_white, a);
+draw_sprite_ext(s, max(i - 1, 0), xx + 12, yy + 12, xs, ys, 0, c_white, a);
 
 clr(c);
 draw_text(xx + ss + 8, yy, t);
 fnt();
+
 #define draw_shadow
 /// draw_shadow(x, y, r, alpha)
 

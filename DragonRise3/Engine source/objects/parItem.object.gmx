@@ -60,9 +60,8 @@ isDrop = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Simple physics (bouncy castle)
+            <string>/// Collide
 
-//move_bounce_all(1);
 z = 0;
 speed = 0;
 x = xprevious;
@@ -91,9 +90,7 @@ y = yprevious;
             <kind>1</kind>
             <string>/// Simple physics (bouncy castle)
 
-x = xprevious;
-y = yprevious;
-z = 0;
+move_bounce_all(true);
 </string>
           </argument>
         </arguments>
