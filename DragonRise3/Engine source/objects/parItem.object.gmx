@@ -62,7 +62,11 @@ isDrop = false;
             <kind>1</kind>
             <string>/// Simple physics (bouncy castle)
 
-move_bounce_all(1);
+//move_bounce_all(1);
+z = 0;
+speed = 0;
+x = xprevious;
+y = yprevious;
 </string>
           </argument>
         </arguments>
@@ -87,7 +91,9 @@ move_bounce_all(1);
             <kind>1</kind>
             <string>/// Simple physics (bouncy castle)
 
-move_bounce_all(1);
+x = xprevious;
+y = yprevious;
+z = 0;
 </string>
           </argument>
         </arguments>

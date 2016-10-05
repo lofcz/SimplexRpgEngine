@@ -955,6 +955,7 @@
             <object>objects\oHerbBzuklar</object>
             <object>objects\oHerbKorinky</object>
             <object>objects\oKalokvet</object>
+            <object>objects\oLeaf</object>
           </objects>
           <objects name="Materials">
             <object>objects\oMaterialGreenGem</object>
@@ -971,7 +972,6 @@
             <object>objects\oGem3</object>
             <object>objects\oGem4</object>
             <object>objects\oGem5</object>
-            <object>objects\oLeaf</object>
           </objects>
         </objects>
         <objects name="Weapons">

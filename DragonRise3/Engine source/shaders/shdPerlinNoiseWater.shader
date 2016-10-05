@@ -18,10 +18,7 @@ void main()
     v_vTexcoord = in_TextureCoord;
 }
 
-//######################_==_YOYO_SHADER_MARKER_==_######################@~//
-// Simple passthrough fragment shader
-//
-varying vec2 v_vTexcoord;
+//######################_==_YOYO_SHADER_MARKER_==_######################@~varying vec2 v_vTexcoord;
 varying vec4 v_vColour;
 uniform float time; 
 uniform vec2 iResolution;
@@ -81,8 +78,7 @@ void main()
     vec2 uv = v_vTexcoord.xy;
     float n = nestedNoise(uv * strenght);
     
-    gl_FragColor = vec4(mix(vec3(.4, .6, 1.), vec3(.1, .2, 1.), n), 1.);// + texture2D( gm_BaseTexture, v_vTexcoord );
-   // gl_FragColor = v_vColour * texture2D( gm_BaseTexture, v_vTexcoord );
+    gl_FragColor = vec4(mix(vec3(.4, .6, 1.), vec3(.1, .2, 1.), n), 1.);
 }
 
 

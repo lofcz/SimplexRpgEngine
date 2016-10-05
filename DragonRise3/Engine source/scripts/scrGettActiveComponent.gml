@@ -8,4 +8,3 @@ return (oHUD.activeComponent);
 /// scrGetTempComponent()
 
 return (oHUD.tempComponent);
-
