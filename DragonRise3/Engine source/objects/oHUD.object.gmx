@@ -108,6 +108,9 @@ upgradingItemID = -1;
 upgradingItemSprite = 0;
 upgradingItemSlotID = -1;
 
+enchantItemID[0] = -1;
+enchantItemID[1] = -1;
+enchantItemID[2] = -1;
 enchantItemID[3] = -1;
 enchantItemSprite[3] = 0;
 enchantItemSlotID[3] = -1;
@@ -157,6 +160,15 @@ spellMinY    = (y + 560 + yoffset - 10);
 spellMaxY    = (y + 560 + yoffset + 30);
 
 can_draw = false;
+
+spellsPage = 0;
+drawItemsSlots  = false;
+
+itemSlot[0, 0] = 0;
+itemSlot[1, 0] = 0;
+itemSlot[2, 0] = 0;
+itemSlot[3, 0] = 0;
+itemSlotsAlpha = 0;
 
 scrAchievementRegister(0, "Objevil jsi Simplex!", "Vítej, vývojáři.", 0, medalEnum.diamond);
 
@@ -321,6 +333,91 @@ alg("default", fntPixelHuge);
             draw_set_font(fntPixelHuge);
             }
        
+     // Draw item slots
+     clr(c_black, 0.5);
+     draw_roundrect_ext(x+685, y+500, x+699, y+549, 2, 2, false);
+     draw_roundrect_ext(x+685, y+550, x+699, y+599, 2, 2, false);
+     clr();   
+     draw_roundrect_ext(x+685, y+500, x+699, y+549, 2, 2, true);
+     draw_roundrect_ext(x+685, y+550, x+699, y+599, 2, 2, true);   
+     
+     clr(c_white);
+     fnt();
+     if (!drawItemsSlots) {draw_text(x+690, y+513, "&lt;");} else {draw_text(x+690, y+513, "&gt;");}
+     draw_text(x+690, y+563, "&gt;");
+     clr();
+
+     // Handle on-click event
+     if (mouse_check_button_pressed(mb_left))
+        {
+         if (mouse_in(x + 685, x + 699, y + 500, y + 549))
+            {
+             drawItemsSlots = !drawItemsSlots;
+            }
+        }
+     // Adjust alpha
+     if (drawItemsSlots) {itemSlotsAlpha = lerp(itemSlotsAlpha, 1, 0.1);}
+     else {itemSlotsAlpha = lerp(itemSlotsAlpha, 0, 0.1);}   
+     
+     
+     // Draw item slots   
+     if (itemSlotsAlpha &gt; 0.05)
+        {
+         clr(c_black, itemSlotsAlpha);
+         for (var z = 0; z &lt; 3; z++)
+            {
+             number = 0;
+             if (itemSlot[z, 0] != 0) {number = inventoryNumber(itemSlot[z, 0]);}
+             if (number == 0) {itemSlot[z, 0] = 0;}
+             
+             draw_sprite(sSpellsUI, 2, x + 540 + spellsxPlus + (z * 44), y + 520 + yoffset);
+             if (number &gt; 0) {alg("center", fntPixelSmall); draw_text(x + 540 + spellsxPlus + (z * 44) + 28, y + 520 + yoffset + 6, string(number)); alg();}
+             fnt(fntPixelTiny);
+             draw_text(x + 540 + spellsxPlus + (z * 44) + 25, y + 520 + yoffset + 20, string(z + 1)); 
+             fnt();
+             
+              // Handle item drop - assign item
+              if (oInventory.slot_vlastnosti[oInventory.h_c, vlastnost_canBeFastEquiped] &amp;&amp; oInventory.drag)
+                    {
+                      draw_sprite(sSpellsUI, 3, x + 540 + spellsxPlus + (z * 44), y + 520 + yoffset);                    
+                    }
+                    
+              if (mouse_in(x + 540 + spellsxPlus + (z * 44), x + 540 + spellsxPlus + (z * 44) + 36, y + 520 + yoffset, y + 520 + yoffset + 36))
+                {                
+                 if (oInventory.drag &amp;&amp; mouse_check_button_released(mb_left) &amp;&amp; oInventory.slot_vlastnosti[oInventory.h_c, vlastnost_canBeFastEquiped])
+                    {
+                      itemSlot[z, 0] = oInventory.equip_sprite_s[6];
+                    }
+                 else if (mouse_check_button_pressed(mb_left))
+                    {
+                     itemSlot[z, 0] = 0;
+                    }
+                }
+                
+              // Draw details of assigned slots
+              if (itemSlot[z, 0] != 0)
+                 {
+                  draw_sprite(sTestItem, (itemSlot[z, 0] - 1), x + 540 + spellsxPlus + (z * 44) + 16, y + 520 + yoffset + 16);                  
+                 }
+            }
+        }
+
+     // Handle usage of quick items
+     if ((keyboard_check_pressed(vk_anykey) &amp;&amp; keyboard_lastchar == '+') || keyboard_check_pressed(vk_numpad1))
+        {
+         if (itemSlot[0, 0] != 0) {inventoryAction(itemSlot[0, 0], 0);}
+        }   
+
+     if ((keyboard_check_pressed(vk_anykey) &amp;&amp; keyboard_lastchar == 'ě') || keyboard_check_pressed(vk_numpad2))
+        {
+         if (itemSlot[1, 0] != 0) {inventoryAction(itemSlot[1, 0], 0);}
+        }
+        
+     if ((keyboard_check_pressed(vk_anykey) &amp;&amp; keyboard_lastchar == 'š') || keyboard_check_pressed(vk_numpad3))
+        {
+         if (itemSlot[2, 0] != 0) {inventoryAction(itemSlot[2, 0], 0);}
+        }
+                        
      // Black outline alpha UP
      if (effect_scale2   &lt; 1.2 &amp;&amp; draw_quest)     {effect_scale2   += 0.02;}          
      if (effect_scale    &lt; 1.2 &amp;&amp; draw_bestiary)  {effect_scale    += 0.02;}

@@ -31,13 +31,13 @@ for (i = 0; i < ds_list_size(oPlayer.statusList) i++)
         if (bC == "regenerationHP")
             {
             oPlayer.vlastnost[vlastnost_zivot] += (1 * oPlayer.statusNList[| i]);  
-            scrBasicEffect(1, sHealthEffect3, oPlayer.x, oPlayer.y - 32);            
+            scrBasicEffect(oPlayer.statusNList[| i], sHealthEffect3, oPlayer.x, oPlayer.y - 32 + random(16));            
             }
         // Regeneration MP
         if (bC == "regenerationMP")
             {
             oPlayer.vlastnost[vlastnost_mana] += (1 * oPlayer.statusNList[| i]);  
-            scrBasicEffect(1, sManaEffect, oPlayer.x, oPlayer.y - 32);            
+            scrBasicEffect(oPlayer.statusNList[| i], sManaEffect, oPlayer.x, oPlayer.y - 32 + random(16));            
             }
      }
                       

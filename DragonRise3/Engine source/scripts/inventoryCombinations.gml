@@ -7,14 +7,21 @@ s    = argument1;
 
 switch(idd)
            {
-            // Dřevěný meč
             case(3):
                     {
-                    // Dřevěný meč
-                     if (s == 3) {return true;} 
-                    
+                     if (s == 3) {return true;}    
+                     break;                 
                     }
-           
+            case(itemEnum.itemRelicLeftPart):
+                    {
+                     if (s == itemEnum.itemRelicRightPart) {return true;}    
+                     break;                 
+                    }    
+            case(itemEnum.itemRelicRightPart):
+                    {
+                     if (s == itemEnum.itemRelicLeftPart) {return true;}    
+                     break;                 
+                    }        
            }
            
 return false;
@@ -29,18 +36,33 @@ slot2 = argument3;
 
 switch(id1)
            {
-            // Dřevěný meč
             case(3):
                     {
-                     // Dřevěný meč
                      if (id2 = 3)
                         {                         
                          slot_vlastnosti[slot2,vlastnost_poskozeni] += slot_vlastnosti[slot1,vlastnost_poskozeni];
                          inventoryDrop(slot1,-1,-1);   
                         }
-                    
-                        
-                      break;
+                     break;
                     }
-           
+            case(itemEnum.itemRelicRightPart):
+                    {
+                     if (id2 = itemEnum.itemRelicLeftPart)
+                        {                         
+                         inventoryDelete(itemEnum.itemRelicLeftPart, 1);  
+                         inventoryDelete(itemEnum.itemRelicRightPart, 1); 
+                         inventoryAdd(oRelic, 1);
+                        }
+                     break;
+                    }      
+            case(itemEnum.itemRelicLeftPart):
+                    {
+                     if (id2 = itemEnum.itemRelicRightPart)
+                        {                         
+                         inventoryDelete(itemEnum.itemRelicLeftPart, 1);  
+                         inventoryDelete(itemEnum.itemRelicRightPart, 1); 
+                         inventoryAdd(oRelic, 1);
+                        }
+                     break;
+                    }      
            }

@@ -27,7 +27,6 @@
             <kind>1</kind>
             <string>/// Initialise
 
-
 sprLight = sBasicLight;
 sprLightIndex = 0;
 scale = 2;

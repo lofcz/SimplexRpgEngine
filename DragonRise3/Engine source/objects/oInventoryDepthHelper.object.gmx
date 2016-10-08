@@ -8,7 +8,7 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="3" enumb="0">
+    <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,11 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Set position 
-
-if (instance_number(oInventory) &gt; 0) {x = oInventory.x; y = oInventory.y;}
-
-
+            <string>alpha = 0;
 </string>
           </argument>
         </arguments>
@@ -56,9 +52,14 @@ if (instance_number(oInventory) &gt; 0) {x = oInventory.x; y = oInventory.y;}
 
 if (instance_number(oInventory) &gt; 0)
    {
-    if (oInventory.draw_equ_infobox)
+    set_position(oInventory.x, oInventory.y);
+    
+    if (oInventory.draw_equ_infobox_id != -1) {if (oInventory.equiped[oInventory.draw_equ_infobox_id]) { alpha = lerp(alpha, 1, 0.1);}}
+    if (oInventory.draw_equ_infobox_id == -1 || !oInventory.equiped[oInventory.draw_equ_infobox_id]) {alpha = lerp(alpha, 0, 0.1);}
+   
+    if (alpha &gt; 0.05)
        {
-       equipmentDrawInfobox(oInventory.draw_equ_infobox_xx,oInventory.draw_equ_infobox_yy,oInventory.draw_equ_infobox_id);  
+       equipmentDrawInfobox(0, 0, oInventory.draw_equ_infobox_id);  
        }
    }
 </string>

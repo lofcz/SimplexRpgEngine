@@ -273,7 +273,7 @@ if (z_mood == 2)
  
 
 
-if (last_hp &lt;= 0) {if (mood !="dying") {event_user(0);}}
+if (last_hp &lt;= 0.05) {if (mood !="dying") {event_user(0);}}
 
 if (mood == "dying")
 {

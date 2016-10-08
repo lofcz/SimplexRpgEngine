@@ -50,6 +50,9 @@ vlastnost[vlastnost_vykresli_index] = 0;
 vlastnost[vlastnost_upgradeSloty] = 3;
 vlastnost[vlastnost_upgradeMaterial1] = materialEnum.materialPearl;
 vlastnost[vlastnost_upgradeMaterial2] = materialEnum.materialPearl;
+vlastnost[vlastnost_cena] = 10;
+vlastnost[vlastnost_originalniCena] = vlastnost[vlastnost_cena];
+
 
 pre = irandom_range(0,100);
 

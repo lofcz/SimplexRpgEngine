@@ -3,10 +3,10 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="15" name="datafiles">
-    <datafiles number="15" name="Resources">
-      <datafiles number="15" name="Sprites">
-        <datafiles number="15" name="BodyCanvas">
+  <datafiles number="16" name="datafiles">
+    <datafiles number="16" name="Resources">
+      <datafiles number="16" name="Sprites">
+        <datafiles number="16" name="BodyCanvas">
           <datafile>
             <name>sBodyCanvas.png</name>
             <exists>-1</exists>
@@ -77,7 +77,7 @@
           </datafile>
         </datafiles>
       </datafiles>
-      <datafiles number="15" name="SFX">
+      <datafiles number="16" name="SFX">
         <datafile>
           <name>coins.wav</name>
           <exists>-1</exists>
@@ -147,6 +147,23 @@
         </Config>
       </ConfigOptions>
       <filename>myPrefab.simplexPrefab</filename>
+    </datafile>
+    <datafile>
+      <name>config.cfg</name>
+      <exists>-1</exists>
+      <size>0</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>config.cfg</filename>
     </datafile>
   </datafiles>
   <NewExtensions/>
@@ -402,6 +419,9 @@
         <sprite>sprites\sXP</sprite>
         <sprite>sprites\sLeafEffect</sprite>
         <sprite>sprites\sGiftEffect</sprite>
+        <sprite>sprites\sRelicLeftEffect</sprite>
+        <sprite>sprites\sRelicRightEffect</sprite>
+        <sprite>sprites\sRelicEffect</sprite>
         <sprite>sprites\sLetterEffect</sprite>
         <sprite>sprites\sStaminaEffect</sprite>
         <sprite>sprites\sHelmetEffect</sprite>
@@ -415,6 +435,7 @@
         <sprite>sprites\sGemEffect2</sprite>
         <sprite>sprites\sGemEffect1</sprite>
         <sprite>sprites\sStoneEffect</sprite>
+        <sprite>sprites\sShurikenEffect</sprite>
         <sprite>sprites\sPearlGreenEffect</sprite>
         <sprite>sprites\sPearlRedEffect</sprite>
         <sprite>sprites\sGoldEffect</sprite>
@@ -532,10 +553,10 @@
         <script>scripts\scrGettActiveComponent.gml</script>
         <script>scripts\scrEndColorflag.gml</script>
         <script>scripts\scrBasicEffect.gml</script>
-        <script>scripts\position_free.gml</script>
         <script>scripts\scrInflect.gml</script>
         <script>scripts\secToSteps.gml</script>
         <script>scripts\scrDice.gml</script>
+        <script>scripts\set_position.gml</script>
         <script>scripts\set_sprite.gml</script>
         <script>scripts\scrSpriteDissolve.gml</script>
         <script>scripts\scrSetParamsArray.gml</script>
@@ -814,6 +835,9 @@
       <scripts name="Area scripts">
         <script>scripts\scrAreaScriptIni.gml</script>
       </scripts>
+      <scripts name="Throwable">
+        <script>scripts\scrThrowItem.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -911,6 +935,7 @@
       <object>objects\oQuest</object>
       <object>objects\oMapIntro</object>
       <object>objects\oMinimap</object>
+      <object>objects\oThrowableItem</object>
       <object>objects\oBasicSpell</object>
       <object>objects\oLenghtdirSpellhelper</object>
       <object>objects\oLenghdirSpell</object>
@@ -1026,7 +1051,11 @@
           <object>objects\oElixirMP</object>
         </objects>
         <objects name="Misc">
+          <object>objects\oShuriken</object>
           <object>objects\oLockpick</object>
+          <object>objects\oRelicLeftPart</object>
+          <object>objects\oRelicRightPart</object>
+          <object>objects\oRelic</object>
           <object>objects\oAlchemyDust</object>
           <object>objects\oLofsGift</object>
           <object>objects\oBasicLetter</object>
@@ -1127,7 +1156,7 @@
       <room>rooms\mapHouseAlice</room>
     </rooms>
   </rooms>
-  <constants number="209">
+  <constants number="218">
     <constant name="baArmor">1</constant>
     <constant name="baBase">0</constant>
     <constant name="cStaticInstance">"staticInstance"</constant>
@@ -1176,7 +1205,16 @@
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
     <constant name="upgradableProperties">58</constant>
-    <constant name="celkem_vlastnosti">86</constant>
+    <constant name="celkem_vlastnosti">95</constant>
+    <constant name="vlastnost_canBeFastEquiped">94</constant>
+    <constant name="vlastnost_dataSocket10">93</constant>
+    <constant name="vlastnost_dataSocket9">92</constant>
+    <constant name="vlastnost_dataSocket8">91</constant>
+    <constant name="vlastnost_dataSocket7">90</constant>
+    <constant name="vlastnost_dataSocket6">89</constant>
+    <constant name="vlastnost_dataSocket5">88</constant>
+    <constant name="vlastnost_dataSocket4">87</constant>
+    <constant name="vlastnost_dataSocket3">86</constant>
     <constant name="vlastnost_dataSocket2">85</constant>
     <constant name="vlastnost_dataSocket1">84</constant>
     <constant name="vlastnost_bodyCanvasSlashSprite">83</constant>

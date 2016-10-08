@@ -37,7 +37,7 @@ case(itemEnum.itemElixirHP):
     {
      if (number == 0)
      {
-     scrAffecstAdd("regenerationHP", secToSteps(10), 3, c_lime, 1); 
+     scrAffecstAdd("regenerationHP", secToSteps(10), 3, c_lime, 1, false); 
      inventoryDelete(itemEnum.itemElixirHP, 1);
      }
      break;
@@ -46,7 +46,7 @@ case(itemEnum.itemElixirMP):
     {
      if (number == 0)
      {
-     scrAffecstAdd("regenerationMP", secToSteps(10), 4, c_lime, 1); 
+     scrAffecstAdd("regenerationMP", secToSteps(10), 4, c_lime, 1, false); 
      inventoryDelete(itemEnum.itemElixirMP, 1);
      }
      break;
@@ -55,11 +55,12 @@ case(itemEnum.itemGiftLof):
     {
      if (number == 0)
      {
-     scrHintShow("Lof", "Obsah dárku pro vývojáře:##- 10x " + scrColorflag(c_red) + "Lektvar zdraví" + scrEndColorflag() + "#- 10x " + scrColorflag(c_aqua) + "Lektvar many" + scrEndColorflag() + " ");
+     scrHintShow("Lof", "Obsah dárku pro vývojáře:##- 10x " + scrColorflag(c_red) + "Lektvar zdraví" + scrEndColorflag() + "#- 10x " + scrColorflag(c_aqua) + "Lektvar many" + scrEndColorflag() + "#- 10x " + scrColorflag(c_yellow) + "Esence" + scrEndColorflag() + "#- 80x " + scrColorflag(c_yellow) + "Zlatky" + scrEndColorflag() + " ");
      inventoryDelete(itemEnum.itemGiftLof, 1);
      inventoryAdd(oElixirHP, 10);
      inventoryAdd(oElixirMP, 10);
-     inventoryAdd(oGem1, 1);
+     inventoryAdd(oAlchemyDust, 10);
+     inventoryAdd(oGold, 150);
      }
      break;
     } 
@@ -88,7 +89,36 @@ case(itemEnum.itemGem1):
         }
      }
      break;
-    }    
+    } 
+case(itemEnum.itemShuriken):
+    {
+     if (number == 0)
+     {
+      scrThrowItem(itemEnum.itemShuriken - 1, 8, 20, 10);
+      inventoryDelete(itemEnum.itemShuriken, 1);
+     }
+     break;
+    } 
+case(itemEnum.itemRelicRightPart):
+     {
+      if (number == 0)
+         {
+          combine              = 1;
+          combine_id           = itemEnum.itemRelicLeftPart;
+          combine_default_slot = hover_idd;                  
+         }     
+      break;
+     }  
+case(itemEnum.itemRelicLeftPart):
+     {
+      if (number == 0)
+         {
+          combine              = 1;
+          combine_id           = itemEnum.itemRelicRightPart;
+          combine_default_slot = hover_idd;                  
+         }     
+      break;
+     }
 default:
  {
  show_message("Something in scrAction, switch statement went wrong :/#(probably unassigned action, check inventoryActions)");

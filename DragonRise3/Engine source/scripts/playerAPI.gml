@@ -1,5 +1,6 @@
 #define playerAPI
 /// playerAPI()
+
 /*
 
 - apiPlayermove()
@@ -13,115 +14,29 @@
 #define apiPlayerMove
 /// apiPlayerMove()
 
-math_set_epsilon(0.0000001);
 apiPlayerRegenerate()
 
+// If nothing blocks player movement ability
 if (can_move && can_move2 && can_move3 && can_move4 && can_move5 && !oPlayerCombat.charging) 
     {  
      if (currentAnimation == animationEnum.walk)
-     { 
-    if (keyboard_check(ord("W"))) 
-        {
-        a1 = 0
-        dir = "w";
-        last_dir = dir;
-        image_speed = (0.25+(temp_rychlost/100));
-        direction = 90;
-        speed = temp_rychlost;
-        apiPlayerSprint();
+        { 
+         // Handle IO input
+         if (keyboard_check(ord("W"))) {dir = "w"; direction = 90;}     
+         if (keyboard_check(ord("S"))) {dir = "s"; direction = 270;}         
+         if (keyboard_check(ord("A"))) {dir = "a"; direction = 180;}          
+         if (keyboard_check(ord("D"))) {dir = "d"; direction = 360;}  
         
-        } 
-    
-    if (keyboard_check(ord("S"))) 
-        {
-        a1 = 0
-        dir = "s";
-        last_dir = dir;
-        image_speed = (0.25+(temp_rychlost/100));
-        direction = 270;
-        speed = temp_rychlost;
-        apiPlayerSprint();
-
-        
-          oPlayerCombat.dir_rot = -20;
-        
-        if (m1 = 0)
-           {
-            if (oPlayerCombat.xxx > -1) { oPlayerCombat.xxx -= 0.5  oPlayerCombat.move_rot -= 10;} else {m1 = 1;}
-           }
-         if (m1 = 1)
-           {
-            if (oPlayerCombat.xxx < 1) { oPlayerCombat.xxx += 0.5 oPlayerCombat.move_rot += 20;} else {m1 = 0; oPlayerCombat.move_rot = 0;}
-           }
-
-        } 
-        
-    if (keyboard_check(ord("A"))) 
-        {
-        //if (dir != "a") {oPlayerCombat.xxx = 0; oPlayerCombat.yyy = 0; oPlayerCombat.move_rot = 0;} 
-        a1 = 0
-        dir = "a";        
-        last_dir = dir;
-        image_speed = (0.25+(temp_rychlost/100));
-        direction = 180;
-        speed = temp_rychlost;
-        apiPlayerSprint();
-
-       
-       oPlayerCombat.dir_rot = +25;
-        
-        if (m2 = 0)
-           {
-            if (oPlayerCombat.xxx < 1) { oPlayerCombat.xxx += 0.5  oPlayerCombat.move_rot -= 15;} else {m2 = 1;}
-           }
-      
-            if (m2 = 1)
-           {
-            if (oPlayerCombat.xxx > -1) { oPlayerCombat.xxx -= 0.5 oPlayerCombat.move_rot += 10;} else {m2 = 0; oPlayerCombat.move_rot = 0;}
-           }
-
-      
-        
-        }  
-        
-    if (keyboard_check(ord("D")))
-        {
-        a1 = 0
-        dir = "d";
-        last_dir = dir;
-        image_speed = (0.25+(temp_rychlost/100));
-        direction = 360;
-        speed = temp_rychlost;
-        apiPlayerSprint();
-        tempN += 15;
-        z = lerp(z, 30, 0.3);
-
-        
-       oPlayerCombat.dir_rot = -20;
-        
-        if (m1 = 0)
-           {
-            if (oPlayerCombat.xxx > -1) { oPlayerCombat.xxx -= 0.5  oPlayerCombat.move_rot -= 10;} else {m1 = 1;}
-           }
-         if (m1 = 1)
-           {
-            if (oPlayerCombat.xxx < 1) { oPlayerCombat.xxx += 0.5 oPlayerCombat.move_rot += 20;} else {m1 = 0; oPlayerCombat.move_rot = 0;}
-           }
-        text = string(sin(degtorad(tempN)));
-        if (image_index > 8 && image_index < 9) {oPlayerCombat.xxx = 1; oPlayerCombat.move_rot += z; }
-        else if (image_index > 10 && image_index < 11) {oPlayerCombat.xxx = -1; oPlayerCombat.move_rot -= 10;}
-        else {oPlayerCombat.xxx = 0; oPlayerCombat.move_rot = 0; tempN = 0; z = 0; }                
-        }  
-        
-        if (keyboard_check_pressed(ord("N")))
+         // Parry / block ability
+         if (keyboard_check_pressed(ord("N")))
             {
              if (oPlayerCombat.attack = 0 &&  oPlayerCombat.attackMode == "attack" && oPlayer.vlastnost[vlastnost_stamina] >= oPlayer.vlastnost[vlastnost_parry_cost])
                 {
-                 oPlayerCombat.attackMode = "parry";
-                 oPlayerCombat.parryTimer = oPlayerCombat.parryTimerMax;
+                 oPlayerCombat.attackMode              = "parry";
+                 oPlayerCombat.parryTimer              = oPlayerCombat.parryTimerMax;
                  oPlayer.vlastnost[vlastnost_stamina] -= oPlayer.vlastnost[vlastnost_parry_cost];
-                 oPlayer.parrySlowdown = oPlayerCombat.parryTimerSlowdown;
-                 oPlayerCombat.parryAngle = 0;
+                 oPlayer.parrySlowdown                 = oPlayerCombat.parryTimerSlowdown;
+                 oPlayerCombat.parryAngle              = 0;
                 }
             }
             
@@ -129,56 +44,43 @@ if (can_move && can_move2 && can_move3 && can_move4 && can_move5 && !oPlayerComb
             {
              oPlayerCombat.parryTimer--;
              if (oPlayerCombat.parryTimer <= 0) {oPlayerCombat.attackMode = "attack"; oPlayer.parrySlowdown = 100;}
+            }   
+         
+        // In case of movement do the common stuff   
+        if (keyboard_check(ord("W")) || keyboard_check(ord("S")) || keyboard_check(ord("A")) || keyboard_check(ord("D")))
+            {
+             a1          = 0
+             last_dir    = dir;
+             image_speed = (0.25 + (temp_rychlost / 100));
+             speed       = temp_rychlost;
+             apiPlayerSprint();            
+            }      
+        
+        // In the other case prepare for reseting the animation
+        if ((!keyboard_check(ord("W")) && !keyboard_check(ord("S"))  && !keyboard_check(ord("A"))  && !keyboard_check(ord("D"))) && a1 == 0)
+            {
+             a1           = 1;
+             alarm[0]     = 3;
+             dir          = "";
+             image_speed  = 0;
+             speed        = 0;
+             image_index  = 12;
             }
-        
-        
-        
-    if ((!keyboard_check(ord("W")) && !keyboard_check(ord("S"))  && !keyboard_check(ord("A"))  && !keyboard_check(ord("D"))) && a1 = 0)
-        {
-        a1 = 1;
-        alarm[0] = 3;
-        dir = "";
-        image_speed = 0;
-        speed = 0;
-        image_index = 12;
-        }
     } 
     
-    
-if (!can_move && currentAnimation = animationEnum.walk)
-    {
-    dir = "s" 
-    image_index = 12;
+    // Stop animation when cutscene starts
+    if (!can_move && currentAnimation == animationEnum.walk)
+        {
+         dir = "s" 
+         image_index = 12;
+        }
+     
+    // Adjust animation phase cycle       
+    if (dir == "w") {if (image_index < 0  || image_index > 5.9)  {image_index = 0;}}
+    if (dir == "s") {if (image_index < 12 || image_index > 17.9) {image_index = 12;}}    
+    if (dir == "a") {if (image_index < 6  || image_index > 11.9) {image_index = 6;}}    
+    if (dir == "d") {if (image_index < 18 || image_index > 23.9) {image_index = 18;}}            
     }    
-if (dir = "w")
-    {
-     if (image_index < 0 || image_index > 5.9)
-            {
-            image_index = 0;
-            } 
-    }
-if (dir = "s")
-    {
-     if (image_index < 12 || image_index > 17.9)
-            {
-            image_index = 12;
-            } 
-    }    
-if (dir = "a")
-    {
-     if (image_index < 6 || image_index > 11.9)
-            {
-            image_index = 6;
-            } 
-    }    
-if (dir = "d")
-    {
-     if (image_index < 18 || image_index > 23.9)
-            {
-            image_index = 18;
-            } 
-    }            
-}    
 
 
 #define apiPlayerMoveStand
@@ -186,54 +88,44 @@ if (dir = "d")
 
 math_set_epsilon(0.0001);
 
+// Choose idle frame from the animation based on direction
 if (currentAnimation == animationEnum.walk)
-{
-     if (image_index > 12 && image_index < 17.99)
-            {
-            image_index = 12;
-            } 
-
-
-     if (image_index > 0 && image_index < 5.99)
-            {
-            image_index = 0;
-            } 
-   
-
-     if (image_index > 6 && image_index < 11.99)
-            {
-            image_index = 6;
-            } 
-    
-
-     if (image_index > 18 && image_index < 23.99)
-            {
-            image_index = 18;
-            } 
-}
+    {
+     if (image_index > 12 && image_index < 17.99) {image_index = 12;} 
+     if (image_index > 0  && image_index < 5.99)  {image_index = 0;} 
+     if (image_index > 6  && image_index < 11.99) {image_index = 6;}     
+     if (image_index > 18 && image_index < 23.99) {image_index = 18;} 
+    }
 
 #define apiPlayerSprint
 /// apiPlayerSprint()
-  if (keyboard_check(vk_shift))       
-           {
-            if (vlastnost[vlastnost_stamina] > 0) {vlastnost[vlastnost_stamina] -= 0.1; speed += 1; sprinting = 1; effectSprint();}
-             else {sprinting = 0;} 
-           }
-           else {sprinting = 0;}
+
+// Drain stamina and spawn particles. Also stop sprinting in case of insufficient stamina.
+if (keyboard_check(vk_shift))       
+    {
+     if (vlastnost[vlastnost_stamina] > 0) {vlastnost[vlastnost_stamina] -= 0.1; speed += 1; sprinting = 1; effectSprint();}
+     else {sprinting = 0;} 
+    }
+else 
+    {
+     sprinting = 0;
+    }
 
 
 #define apiPlayerRegenerate
 /// apiPlayerRegenerate()
 
+// Handle timer and heal on tick
 if (stamina_tick > 0 && !sprinting) {stamina_tick --;}
-   else
-       {
-        if (!sprinting)
+else
+    {
+    if (!sprinting)
         {
-        stamina_tick = vlastnost[vlastnost_tick_stamina];
-        vlastnost[vlastnost_stamina] += vlastnost[vlastnost_tick_stamina_add];
+         stamina_tick                  = vlastnost[vlastnost_tick_stamina];
+         vlastnost[vlastnost_stamina] += vlastnost[vlastnost_tick_stamina_add];
         }
-       }
+    }
+
 #define apiPlayerDraw
 /// apiPlayerDraw()
 
@@ -243,64 +135,41 @@ for (i = 0; i < 15; i++)
      if (bci[i] != 0) {draw_sprite(bci[currentAnimation, i], image_index, x, y);}     
     }
 
+// In case of attack, spell cast or other special action flow the animation    
 if (currentAnimation != animationEnum.walk)
-{
- image_speed = 0.4;
+    {
+     image_speed = 0.4;
  
- if (currentAnimation == animationEnum.slash)
-    {
-     draw_sprite(sBodyCanvasAttackWeapon2, image_index, x, y);
+     if (currentAnimation == animationEnum.slash)
+        {
+         draw_sprite(sBodyCanvasAttackWeapon2, image_index, x, y);
+        }
+  
+     if (last_dir == "s" || last_dir == "") {if (image_index > 17) {sprite_index  = bci[0, 0]; currentAnimation = animationEnum.walk; image_index = 12; image_speed = 0;}}
+     if (last_dir == "d")                   {if (image_index >= 23) {sprite_index = bci[0, 0]; currentAnimation = animationEnum.walk; image_index = 18; image_speed = 0;}}
+     if (last_dir == "a")                   {if (image_index >= 11) {sprite_index = bci[0, 0]; currentAnimation = animationEnum.walk; image_index = 6;  image_speed = 0;}}
+     if (last_dir == "w")                   {if (image_index >= 5) {sprite_index  = bci[0, 0]; currentAnimation = animationEnum.walk; image_index = 0;  image_speed = 0;}}
     }
- 
- 
- if (last_dir == "s" || last_dir == "")
-    {
-     if (image_index > 17) {sprite_index = bci[0, 0]; currentAnimation = animationEnum.walk; image_index = 12; image_speed = 0;}
-    }
- if (last_dir == "d")
-    {
-     if (image_index >= 23) {sprite_index = bci[0, 0]; currentAnimation = animationEnum.walk; image_index = 18; image_speed = 0;}
-    }
- if (last_dir == "a")
-    {
-     if (image_index >= 11) {sprite_index = bci[0, 0]; currentAnimation = animationEnum.walk; image_index = 6; image_speed = 0;}
-    }
- if (last_dir == "w")
-    {
-     if (image_index >= 5) {sprite_index = bci[0, 0]; currentAnimation = animationEnum.walk; image_index = 0; image_speed = 0;}
-    }
-}
 
-
-
-
-// Update vars
+// Update vars - lineary interpolate to real values
 stamina_dif = abs(last_stamina - vlastnost[vlastnost_stamina]);
 health_dif  = abs(last_hp - vlastnost[vlastnost_zivot]);
 
 if (stamina_dif <= 5) {stamina_bar = 0.1;}
-if (health_dif <= 5)  {health_bar = 0.1;}
+if (health_dif  <= 5) {health_bar = 0.1;}
 else {health_bar = 1;} 
 
       
-if (last_hp < vlastnost[vlastnost_zivot]) {last_hp = lerp(last_hp, vlastnost[vlastnost_zivot], 0.1);}
-if (last_hp > vlastnost[vlastnost_zivot]) {last_hp = lerp(last_hp, vlastnost[vlastnost_zivot], 0.1);}
+last_hp      = lerp(last_hp,       vlastnost[vlastnost_zivot],      0.1);
+last_stit    = lerp(last_stit,     vlastnost[vlastnost_stit],       0.1);
+last_mana    = lerp(last_mana,     vlastnost[vlastnost_mana],       0.1);
+last_mana    = lerp(last_mana,     vlastnost[vlastnost_mana],       0.1);
+last_stamina = lerp(last_stamina,  vlastnost[vlastnost_stamina],    0.1);
+last_xp      = round(lerp(last_xp, vlastnost[vlastnost_zkusenosti], 0.1));
 
-if (last_stit < vlastnost[vlastnost_stit]) {last_stit = lerp(last_stit, vlastnost[vlastnost_stit], 0.1);}
-if (last_stit > vlastnost[vlastnost_stit]) {last_stit = lerp(last_stit, vlastnost[vlastnost_stit], 0.1);}
+if (last_hp <= 0.4) {last_hp = 0; scrGoreExplode(10,10);}
 
-if (last_mana < vlastnost[vlastnost_mana]) {last_mana = lerp(last_mana, vlastnost[vlastnost_mana], 0.1);}
-if (last_mana > vlastnost[vlastnost_mana]) {last_mana = lerp(last_mana, vlastnost[vlastnost_mana], 0.1);}
-
-if (last_stamina < vlastnost[vlastnost_stamina]) {last_stamina = lerp(last_stamina, vlastnost[vlastnost_stamina], 0.1);}
-if (last_stamina > vlastnost[vlastnost_stamina]) {last_stamina = lerp(last_stamina, vlastnost[vlastnost_stamina], 0.1);}
-
-if (last_xp < vlastnost[vlastnost_zkusenosti]) {last_xp = round(lerp(last_xp, vlastnost[vlastnost_zkusenosti], 0.1));}
-if (last_xp > vlastnost[vlastnost_zkusenosti]) {last_xp = round(lerp(last_xp, vlastnost[vlastnost_zkusenosti], 0.1));}
-
-if (last_hp <= 0.4 && last_hp != 0) {last_hp = 0; scrGoreExplode(10,10);}
-
-
+// Handle speech queue
 if (ds_queue_size(speechQueue) > 0)
     {
      if (!speechIn)

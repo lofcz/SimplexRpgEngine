@@ -28,7 +28,7 @@
             <string>/// Initialize item
 
 scrItemSetUp(0, 0, itemEnum.itemQuestAxe1);
-scrItemSetProperties(false, "Roztínač", scrWordwrap("Sekera, sebraná před domkem bylinkářky Alice.", 196, fntPixelSmall), materialEnum.materialNone, "zbraň");
+scrItemSetProperties(false, "Roztínač", "Sekera, sebraná před domkem bylinkářky Alice.", materialEnum.materialNone, "zbraň");
 scrItemSetOptions("Option n1");
 itm_info_color = rarity_quest;
 itm_effect = rarity_quest;

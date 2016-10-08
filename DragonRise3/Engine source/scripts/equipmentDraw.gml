@@ -33,6 +33,8 @@ clr();
 yy = yy + 36;
 
 draw_sprite_stretched(sUnknownBestiary, 0, xx, yy, 256, 256);
+draw_equ_infobox_id = -1;
+
 // Draw head slot --------------------------------------------------------------------------------------------------------------------------
 if (oPlayer.equ_draw_head)
 {
@@ -45,19 +47,12 @@ draw_sprite(equiped_image[1,0],equiped_image[1,1],xx+equ_axis_head_x+16,yy+equ_a
 if (mouse_in(xx+equ_axis_head_x,xx+equ_axis_head_x+32,yy+equ_axis_head_y,yy+equ_axis_head_y+32))
    {
    draw_hover_block(xx+equ_axis_head_x,xx+equ_axis_head_x+32,yy+equ_axis_head_y,yy+equ_axis_head_y+32);
+   draw_equ_infobox_id = 1;
 
       if (mouse_check_button_pressed(mb_left))
       {
        if (oInventory.equiped[1]) {equipmentUnequip(1, false);}
       }
-      
-    if (mouse_check_button_pressed(mb_right) && oInventory.equiped[1])
-      {
-       draw_equ_infobox = !draw_equ_infobox;
-       if (draw_equ_infobox) {draw_equ_infobox_xx = xx+equ_axis_head_x; draw_equ_infobox_yy = yy+equ_axis_head_y; draw_equ_infobox_id = 1;}
-      }
-    
-
    }
 draw_sprite(sSlotOutline,0,xx+equ_axis_head_x-2,yy+equ_axis_head_y-2);  
    
@@ -78,16 +73,11 @@ draw_sprite(equiped_image[4,0],equiped_image[4,1],xx+equ_axis_left_plate_x+16,yy
 if (mouse_in(xx+equ_axis_left_plate_x,xx+equ_axis_left_plate_x+32,yy+equ_axis_left_plate_y,yy+equ_axis_left_plate_y+32))
    {
    draw_hover_block(xx+equ_axis_left_plate_x,xx+equ_axis_left_plate_x+32,yy+equ_axis_left_plate_y,yy+equ_axis_left_plate_y+32);
+   draw_equ_infobox_id = 4;
    
       if (mouse_check_button_pressed(mb_left))
       {
        if (oInventory.equiped[4]) {equipmentUnequip(4, false);}
-      }
-      
-   if (mouse_check_button_pressed(mb_right) && oInventory.equiped[4])
-      {
-       draw_equ_infobox = !draw_equ_infobox;
-       if (draw_equ_infobox) {draw_equ_infobox_xx = xx+equ_axis_left_plate_x; draw_equ_infobox_yy = yy+equ_axis_left_plate_y; draw_equ_infobox_id = 4;}
       }
    }
    
@@ -111,16 +101,11 @@ draw_sprite(equiped_image[3,0],equiped_image[3,1],xx+equ_axis_right_plate_x+16,y
 if (mouse_in(xx+equ_axis_right_plate_x,xx+equ_axis_right_plate_x+32,yy+equ_axis_right_plate_y,yy+equ_axis_right_plate_y+32))
    {
    draw_hover_block(xx+equ_axis_right_plate_x,xx+equ_axis_right_plate_x+32,yy+equ_axis_right_plate_y,yy+equ_axis_right_plate_y+32);
+   draw_equ_infobox_id = 3;
    
    if (mouse_check_button_pressed(mb_left))
       {
        if (oInventory.equiped[3]) {equipmentUnequip(3, false);}
-      }
-      
-   if (mouse_check_button_pressed(mb_right) && oInventory.equiped[3])
-      {
-       draw_equ_infobox = !draw_equ_infobox;
-       if (draw_equ_infobox) {draw_equ_infobox_xx = xx+equ_axis_right_plate_x; draw_equ_infobox_yy = yy+equ_axis_right_plate_y; draw_equ_infobox_id = 3;}
       }
    }
 
@@ -144,16 +129,11 @@ draw_sprite(equiped_image[2,0],equiped_image[2,1],xx+equ_axis_body_x+16,yy+equ_a
 if (mouse_in(xx+equ_axis_body_x,xx+equ_axis_body_x+32,yy+equ_axis_body_y,yy+equ_axis_body_y+32))
    {
    draw_hover_block(xx+equ_axis_body_x,xx+equ_axis_body_x+32,yy+equ_axis_body_y,yy+equ_axis_body_y+32);
+   draw_equ_infobox_id = 2;
    
    if (mouse_check_button_pressed(mb_left))
       {
        if (oInventory.equiped[2]) {equipmentUnequip(2, false);}
-      }
-      
-   if (mouse_check_button_pressed(mb_right) && oInventory.equiped[2])
-      {
-       draw_equ_infobox = !draw_equ_infobox;
-       if (draw_equ_infobox) {draw_equ_infobox_xx = xx+equ_axis_body_x; draw_equ_infobox_yy = yy+equ_axis_body_y; draw_equ_infobox_id = 2;}
       }
    }
    
@@ -177,18 +157,12 @@ draw_sprite(equiped_image[0,0],equiped_image[0,1],xx+equ_axis_right_hand_x+16,yy
 if (mouse_in(xx+equ_axis_right_hand_x,xx+equ_axis_right_hand_x+32,yy+equ_axis_right_hand_y,yy+equ_axis_right_hand_y+32))
    {   
    draw_hover_block(xx+equ_axis_right_hand_x,xx+equ_axis_right_hand_x+32,yy+equ_axis_right_hand_y,yy+equ_axis_right_hand_y+32);
+   draw_equ_infobox_id = 0;
    
    if (mouse_check_button_pressed(mb_left))
       {
        if (oInventory.equiped[0]) {equipmentUnequip(0, false);}
-      }
-      
-    if (mouse_check_button_pressed(mb_right) && oInventory.equiped[0])
-      {
-       draw_equ_infobox = !draw_equ_infobox;
-       if (draw_equ_infobox) {draw_equ_infobox_xx = xx+equ_axis_right_hand_x; draw_equ_infobox_yy = yy+equ_axis_right_hand_y; draw_equ_infobox_id = 0;}
-      }
-    
+      } 
    }
       
 if (oInventory.drag && oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "zbraň")
@@ -210,18 +184,12 @@ draw_sprite(equiped_image[5,0],equiped_image[5,1],xx+equ_axis_left_hand_x+16,yy+
 if (mouse_in(xx+equ_axis_left_hand_x,xx+equ_axis_left_hand_x+32,yy+equ_axis_left_hand_y,yy+equ_axis_left_hand_y+32))
    {
    draw_hover_block(xx+equ_axis_left_hand_x,xx+equ_axis_left_hand_x+32,yy+equ_axis_left_hand_y,yy+equ_axis_left_hand_y+32);
+   draw_equ_infobox_id = 5;
    
      if (mouse_check_button_pressed(mb_left))
       {
        if (oInventory.equiped[5]) {equipmentUnequip(5, false);}
-      }
-      
-    if (mouse_check_button_pressed(mb_right) && oInventory.equiped[5])
-      {
-       draw_equ_infobox = !draw_equ_infobox;
-       if (draw_equ_infobox) {draw_equ_infobox_xx = xx+equ_axis_left_hand_x; draw_equ_infobox_yy = yy+equ_axis_left_hand_y; draw_equ_infobox_id = 5;}
-      }
-    
+      }  
    }
 
 if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] = "shield" )
@@ -231,8 +199,8 @@ if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] =
    }
    
 draw_sprite(sSlotOutline,0,xx+equ_axis_left_hand_x-2,yy+equ_axis_left_hand_y-2);  
-
 }
+
 // Draw left ring1 slot 
 if (oPlayer.equ_draw_left_ring1)
 {
@@ -245,18 +213,12 @@ draw_sprite(equiped_image[6,0],equiped_image[6,1],xx+equ_axis_left_ring1_x-8+16,
 if (mouse_in(xx+equ_axis_left_ring1_x,xx+equ_axis_left_ring1_x+16,yy+equ_axis_left_ring1_y,yy+equ_axis_left_ring1_y+16))
    {
    draw_hover_block(xx+equ_axis_left_ring1_x,xx+equ_axis_left_ring1_x+16,yy+equ_axis_left_ring1_y,yy+equ_axis_left_ring1_y+16);
+   draw_equ_infobox_id = 6;
        
      if (mouse_check_button_pressed(mb_left))
       {
        if (oInventory.equiped[6]) {equipmentUnequip(6, false);}
-      }
-      
-    if (mouse_check_button_pressed(mb_right) && oInventory.equiped[6])
-      {
-       draw_equ_infobox = !draw_equ_infobox;
-       if (draw_equ_infobox) {draw_equ_infobox_xx = xx+equ_axis_left_ring1_x; draw_equ_infobox_yy = yy+equ_axis_left_ring1_y; draw_equ_infobox_id = 6;}
-      }
-    
+      }    
    }
    
 if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] = "ring" )
@@ -265,8 +227,8 @@ if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] =
    equipmentHoldEquip(6,xx+equ_axis_left_ring1_x,xx+equ_axis_left_ring1_x+32,yy+equ_axis_left_ring1_y,yy+equ_axis_left_ring1_y+32);
    }
 draw_sprite(sSlotTexture,7,xx+equ_axis_left_ring1_x-2,yy+equ_axis_left_ring1_y-2);  
-
 }
+
 // Draw left ring2 slot 
 if (oPlayer.equ_draw_left_ring2)
 {
@@ -278,18 +240,12 @@ draw_sprite(equiped_image[7,0],equiped_image[7,1],xx+equ_axis_left_ring2_x-8+16,
 if (mouse_in(xx+equ_axis_left_ring2_x,xx+equ_axis_left_ring2_x+16,yy+equ_axis_left_ring2_y,yy+equ_axis_left_ring2_y+16))
    {
    draw_hover_block(xx+equ_axis_left_ring2_x,xx+equ_axis_left_ring2_x+16,yy+equ_axis_left_ring2_y,yy+equ_axis_left_ring2_y+16);
+   draw_equ_infobox_id = 7;
    
      if (mouse_check_button_pressed(mb_left))
       {
        if (oInventory.equiped[7]) {equipmentUnequip(7, false);}
-      }
-      
-    if (mouse_check_button_pressed(mb_right) && oInventory.equiped[7])
-      {
-       draw_equ_infobox = !draw_equ_infobox;
-       if (draw_equ_infobox) {draw_equ_infobox_xx = xx+equ_axis_left_ring2_x; draw_equ_infobox_yy = yy+equ_axis_left_ring2_y; draw_equ_infobox_id = 7;}
-      }
-    
+      }    
    }
    
 if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] = "ring" )
@@ -299,8 +255,8 @@ if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] =
    }
    
 draw_sprite(sSlotTexture,7,xx+equ_axis_left_ring2_x-2,yy+equ_axis_left_ring2_y-2);  
-
 }
+
 // Draw right ring1 slot 
 if (oPlayer.equ_draw_right_ring1)
 {
@@ -313,19 +269,13 @@ draw_sprite(equiped_image[8,0],equiped_image[8,1],xx+equ_axis_right_ring1_x-8+16
 if (mouse_in(xx+equ_axis_right_ring1_x,xx+equ_axis_right_ring1_x+16,yy+equ_axis_right_ring1_y,yy+equ_axis_right_ring1_y+16))
    {
    draw_hover_block(xx+equ_axis_right_ring1_x,xx+equ_axis_right_ring1_x+16,yy+equ_axis_right_ring1_y,yy+equ_axis_right_ring1_y+16);
+   draw_equ_infobox_id = 8;
    
    
      if (mouse_check_button_pressed(mb_left))
       {
        if (oInventory.equiped[8]) {equipmentUnequip(8, false);}
-      }
-      
-    if (mouse_check_button_pressed(mb_right) && oInventory.equiped[8])
-      {
-       draw_equ_infobox = !draw_equ_infobox;
-       if (draw_equ_infobox) {draw_equ_infobox_xx = xx+equ_axis_right_ring1_x; draw_equ_infobox_yy = yy+equ_axis_right_ring1_y; draw_equ_infobox_id = 8;}
-      }
-    
+      }    
    }
 if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] = "ring" )
    { 
@@ -333,8 +283,8 @@ if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] =
    equipmentHoldEquip(8,xx+equ_axis_right_ring1_x,xx+equ_axis_right_ring1_x+32,yy+equ_axis_right_ring1_y,yy+equ_axis_right_ring1_y+32);
    }
 draw_sprite(sSlotTexture,7,xx+equ_axis_right_ring1_x-2,yy+equ_axis_right_ring1_y-2);  
-
 }
+
 // Draw right ring2 slot 
 if (oPlayer.equ_draw_right_ring2)
 {
@@ -347,16 +297,11 @@ draw_sprite(equiped_image[9,0],equiped_image[9,1],xx+equ_axis_right_ring2_x-8+16
 if (mouse_in(xx+equ_axis_right_ring2_x,xx+equ_axis_right_ring2_x+16,yy+equ_axis_right_ring2_y,yy+equ_axis_right_ring2_y+16))
    {
    draw_hover_block(xx+equ_axis_right_ring2_x,xx+equ_axis_right_ring2_x+16,yy+equ_axis_right_ring2_y,yy+equ_axis_right_ring2_y+16);
+   draw_equ_infobox_id = 9;
    
      if (mouse_check_button_pressed(mb_left))
       {
        if (oInventory.equiped[9]) {equipmentUnequip(9, false);}
-      }
-      
-    if (mouse_check_button_pressed(mb_right) && oInventory.equiped[9])
-      {
-       draw_equ_infobox = !draw_equ_infobox;
-       if (draw_equ_infobox) {draw_equ_infobox_xx = xx+equ_axis_right_ring2_x; draw_equ_infobox_yy = yy+equ_axis_right_ring2_y; draw_equ_infobox_id = 9;}
       }
    }
    
@@ -366,8 +311,8 @@ if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] =
    equipmentHoldEquip(9,xx+equ_axis_right_ring2_x,xx+equ_axis_right_ring2_x+32,yy+equ_axis_right_ring2_y,yy+equ_axis_right_ring2_y+32);
    }
 draw_sprite(sSlotTexture,7,xx+equ_axis_right_ring2_x-2,yy+equ_axis_right_ring2_y-2);  
-
 }
+
 // Draw crown slot 
 if (oPlayer.equ_draw_crown)
 {
@@ -379,16 +324,11 @@ draw_sprite(equiped_image[10,0],equiped_image[10,1],xx+equ_axis_crown_x+16,yy+eq
 if (mouse_in(xx+equ_axis_crown_x,xx+equ_axis_crown_x+32,yy+equ_axis_crown_y,yy+equ_axis_crown_y+32))
    {
    draw_hover_block(xx+equ_axis_crown_x,xx+equ_axis_crown_x+32,yy+equ_axis_crown_y,yy+equ_axis_crown_y+32);
+   draw_equ_infobox_id = 10;
    
      if (mouse_check_button_pressed(mb_left))
       {
        if (oInventory.equiped[10]) {equipmentUnequip(10, false);}
-      }
-      
-    if (mouse_check_button_pressed(mb_right) && oInventory.equiped[10])
-      {
-       draw_equ_infobox = !draw_equ_infobox;
-       if (draw_equ_infobox) {draw_equ_infobox_xx = xx+equ_axis_crown_x; draw_equ_infobox_yy = yy+equ_axis_crown_y; draw_equ_infobox_id = 10;}
       }
    }
 
@@ -398,8 +338,8 @@ if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] =
    equipmentHoldEquip(10,xx+equ_axis_crown_x,xx+equ_axis_crown_x+32,yy+equ_axis_crown_y,yy+equ_axis_crown_y+32);
    }
 draw_sprite(sSlotOutline,0,xx+equ_axis_crown_x-2,yy+equ_axis_crown_y-2);  
-
 }
+
 // Draw trophy1 slot 
 if (oPlayer.equ_draw_trophy1)
 {
@@ -412,16 +352,11 @@ draw_sprite(equiped_image[11,0],equiped_image[11,1],xx+equ_axis_trophy1_x+16,yy+
 if (mouse_in(xx+equ_axis_trophy1_x,xx+equ_axis_trophy1_x+32,yy+equ_axis_trophy1_y,yy+equ_axis_trophy1_y+32))
    {
    draw_hover_block(xx+equ_axis_trophy1_x,xx+equ_axis_trophy1_x+32,yy+equ_axis_trophy1_y,yy+equ_axis_trophy1_y+32);
+   draw_equ_infobox_id = 11;
    
        if (mouse_check_button_pressed(mb_left))
       {
        if (oInventory.equiped[11]) {equipmentUnequip(11, false);}
-      }
-      
-    if (mouse_check_button_pressed(mb_right) && oInventory.equiped[11])
-      {
-       draw_equ_infobox = !draw_equ_infobox;
-       if (draw_equ_infobox) {draw_equ_infobox_xx = xx+equ_axis_trophy1_x; draw_equ_infobox_yy = yy+equ_axis_trophy1_y; draw_equ_infobox_id = 11;}
       }
    }
    
@@ -431,8 +366,8 @@ if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] =
    equipmentHoldEquip(11,xx+equ_axis_trophy1_x,xx+equ_axis_trophy1_x+32,yy+equ_axis_trophy1_y,yy+equ_axis_trophy1_y+32);
    }
 draw_sprite(sSlotOutline,0,xx+equ_axis_trophy1_x-2,yy+equ_axis_trophy1_y-2);  
-
 }
+
 // Draw trophy2 slot 
 if (oPlayer.equ_draw_trophy2)
 {
@@ -444,17 +379,11 @@ draw_sprite(equiped_image[12,0],equiped_image[12,1],xx+equ_axis_trophy2_x+16,yy+
 if (mouse_in(xx+equ_axis_trophy2_x,xx+equ_axis_trophy2_x+32,yy+equ_axis_trophy2_y,yy+equ_axis_trophy2_y+32))
    {
    draw_hover_block(xx+equ_axis_trophy2_x,xx+equ_axis_trophy2_x+32,yy+equ_axis_trophy2_y,yy+equ_axis_trophy2_y+32);
-   
-   
-       if (mouse_check_button_pressed(mb_left))
+   draw_equ_infobox_id = 12;
+      
+   if (mouse_check_button_pressed(mb_left))
       {
        if (oInventory.equiped[12]) {equipmentUnequip(12, false);}
-      }
-      
-    if (mouse_check_button_pressed(mb_right) && oInventory.equiped[12])
-      {
-       draw_equ_infobox = !draw_equ_infobox;
-       if (draw_equ_infobox) {draw_equ_infobox_xx = xx+equ_axis_trophy2_x; draw_equ_infobox_yy = yy+equ_axis_trophy2_y; draw_equ_infobox_id = 12;}
       }
    }
    
@@ -464,8 +393,8 @@ if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] =
    equipmentHoldEquip(12,xx+equ_axis_trophy2_x,xx+equ_axis_trophy2_x+32,yy+equ_axis_trophy2_y,yy+equ_axis_trophy2_y+32);
    }
 draw_sprite(sSlotOutline,0,xx+equ_axis_trophy2_x-2,yy+equ_axis_trophy2_y-2);  
-
 }
+
 // Draw trophy3 slot 
 if (oPlayer.equ_draw_trophy2)
 {
@@ -478,17 +407,11 @@ draw_sprite(equiped_image[13,0],equiped_image[13,1],xx+equ_axis_trophy3_x+16,yy+
 if (mouse_in(xx+equ_axis_trophy3_x,xx+equ_axis_trophy3_x+32,yy+equ_axis_trophy3_y,yy+equ_axis_trophy3_y+32))
    {
    draw_hover_block(xx+equ_axis_trophy3_x,xx+equ_axis_trophy3_x+32,yy+equ_axis_trophy3_y,yy+equ_axis_trophy3_y+32);
-   
+   draw_equ_infobox_id = 13;   
       
-       if (mouse_check_button_pressed(mb_left))
+   if (mouse_check_button_pressed(mb_left))
       {
        if (oInventory.equiped[13]) {equipmentUnequip(13, false);}
-      }
-      
-    if (mouse_check_button_pressed(mb_right) && oInventory.equiped[13])
-      {
-       draw_equ_infobox = !draw_equ_infobox;
-       if (draw_equ_infobox) {draw_equ_infobox_xx = xx+equ_axis_trophy3_x; draw_equ_infobox_yy = yy+equ_axis_trophy3_y; draw_equ_infobox_id = 13;}
       }
    }
 if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] = "trophy" )
@@ -497,8 +420,8 @@ if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] =
    equipmentHoldEquip(13,xx+equ_axis_trophy3_x,xx+equ_axis_trophy3_x+32,yy+equ_axis_trophy3_y,yy+equ_axis_trophy3_y+32);
    }
 draw_sprite(sSlotOutline,0,xx+equ_axis_trophy3_x-2,yy+equ_axis_trophy3_y-2);  
-
 }
+
 // Draw special1 slot 
 if (oPlayer.equ_draw_special1)
 {
@@ -511,17 +434,11 @@ draw_sprite(equiped_image[14,0],equiped_image[14,1],xx+equ_axis_special1_x+16,yy
 if (mouse_in(xx+equ_axis_special1_x,xx+equ_axis_special1_x+32,yy+equ_axis_special1_y,yy+equ_axis_special1_y+32))
    {
    draw_hover_block(xx+equ_axis_special1_x,xx+equ_axis_special1_x+32,yy+equ_axis_special1_y,yy+equ_axis_special1_y+32);
-   
+   draw_equ_infobox_id = 14;   
     
-       if (mouse_check_button_pressed(mb_left))
+    if (mouse_check_button_pressed(mb_left))
       {
        if (oInventory.equiped[14]) {equipmentUnequip(14, false);}
-      }
-      
-    if (mouse_check_button_pressed(mb_right) && oInventory.equiped[14])
-      {
-       draw_equ_infobox = !draw_equ_infobox;
-       if (draw_equ_infobox) {draw_equ_infobox_xx = xx+equ_axis_special1_x; draw_equ_infobox_yy = yy+equ_axis_special1_y; draw_equ_infobox_id = 14;}
       }
    }
 if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] = "crystallisator" )
@@ -530,8 +447,8 @@ if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] =
    equipmentHoldEquip(14,xx+equ_axis_special1_x,xx+equ_axis_special1_x+32,yy+equ_axis_special1_y,yy+equ_axis_special1_y+32);
    }
 draw_sprite(sSlotOutline,0,xx+equ_axis_special1_x-2,yy+equ_axis_special1_y-2);  
-
 }
+
 // Draw special2 slot 
 if (oPlayer.equ_draw_special2)
 {
@@ -544,16 +461,11 @@ draw_sprite(equiped_image[15,0],equiped_image[15,1],xx+equ_axis_special2_x+16,yy
 if (mouse_in(xx+equ_axis_special2_x,xx+equ_axis_special2_x+32,yy+equ_axis_special2_y,yy+equ_axis_special2_y+32))
    {
    draw_hover_block(xx+equ_axis_special2_x,xx+equ_axis_special2_x+32,yy+equ_axis_special2_y,yy+equ_axis_special2_y+32);
+   draw_equ_infobox_id = 15;
    
-       if (mouse_check_button_pressed(mb_left))
+   if (mouse_check_button_pressed(mb_left))
       {
        if (oInventory.equiped[15]) {equipmentUnequip(15, false);}
-      }
-      
-    if (mouse_check_button_pressed(mb_right) && oInventory.equiped[15])
-      {
-       draw_equ_infobox = !draw_equ_infobox;
-       if (draw_equ_infobox) {draw_equ_infobox_xx = xx+equ_axis_special2_x; draw_equ_infobox_yy = yy+equ_axis_special2_y; draw_equ_infobox_id = 15;}
       }
    }
    
@@ -563,8 +475,8 @@ if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] =
    equipmentHoldEquip(15,xx+equ_axis_special2_x,xx+equ_axis_special2_x+32,yy+equ_axis_special2_y,yy+equ_axis_special2_y+32);
    }
 draw_sprite(sSlotOutline,0,xx+equ_axis_special2_x-2,yy+equ_axis_special2_y-2);  
-
 }
+
 // Draw belt slot 
 if (oPlayer.equ_draw_belt)
 {
@@ -576,16 +488,11 @@ draw_sprite(equiped_image[16,0],equiped_image[16,1],xx+equ_axis_belt_x+16,yy+equ
 if (mouse_in(xx+equ_axis_belt_x,xx+equ_axis_belt_x+32,yy+equ_axis_belt_y,yy+equ_axis_belt_y+32))
    {
    draw_hover_block(xx+equ_axis_belt_x,xx+equ_axis_belt_x+32,yy+equ_axis_belt_y,yy+equ_axis_belt_y+32);
+   draw_equ_infobox_id = 16;
        
-       if (mouse_check_button_pressed(mb_left))
+   if (mouse_check_button_pressed(mb_left))
       {
        if (oInventory.equiped[16]) {equipmentUnequip(16, false);}
-      }
-      
-    if (mouse_check_button_pressed(mb_right) && oInventory.equiped[16])
-      {
-       draw_equ_infobox = !draw_equ_infobox;
-       if (draw_equ_infobox) {draw_equ_infobox_xx = xx+equ_axis_belt_x; draw_equ_infobox_yy = yy+equ_axis_belt_y; draw_equ_infobox_id = 16;}
       }
    }
    
@@ -595,8 +502,8 @@ if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] =
    equipmentHoldEquip(16,xx+equ_axis_belt_x,xx+equ_axis_belt_x+32,yy+equ_axis_belt_y,yy+equ_axis_belt_y+32);
    }
 draw_sprite(sSlotOutline,0,xx+equ_axis_belt_x-2,yy+equ_axis_belt_y-2);  
-
 }
+
 // Draw left boot slot 
 if (oPlayer.equ_draw_left_boot)
 {
@@ -609,17 +516,11 @@ draw_sprite(equiped_image[17,0],equiped_image[17,1],xx+equ_axis_left_boot_x+16,y
 if (mouse_in(xx+equ_axis_left_boot_x,xx+equ_axis_left_boot_x+32,yy+equ_axis_left_boot_y,yy+equ_axis_left_boot_y+32))
    {
    draw_hover_block(xx+equ_axis_left_boot_x,xx+equ_axis_left_boot_x+32,yy+equ_axis_left_boot_y,yy+equ_axis_left_boot_y+32);
-   
-         
-       if (mouse_check_button_pressed(mb_left))
+   draw_equ_infobox_id = 17;
+            
+   if (mouse_check_button_pressed(mb_left))
       {
        if (oInventory.equiped[17]) {equipmentUnequip(17, false);}
-      }
-      
-    if (mouse_check_button_pressed(mb_right) && oInventory.equiped[17])
-      {
-       draw_equ_infobox = !draw_equ_infobox;
-       if (draw_equ_infobox) {draw_equ_infobox_xx = xx+equ_axis_left_boot_x; draw_equ_infobox_yy = yy+equ_axis_left_boot_y; draw_equ_infobox_id = 17;}
       }
    }
    
@@ -629,8 +530,8 @@ if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] =
    equipmentHoldEquip(17,xx+equ_axis_left_boot_x,xx+equ_axis_left_boot_x+32,yy+equ_axis_left_boot_y,yy+equ_axis_left_boot_y+32);
    }
 draw_sprite(sSlotOutline,0,xx+equ_axis_left_boot_x-2,yy+equ_axis_left_boot_y-2);  
-
 }
+
 // Draw right boot slot 
 if (oPlayer.equ_draw_left_boot)
 {
@@ -643,16 +544,11 @@ draw_sprite(equiped_image[18,0],equiped_image[18,1],xx+equ_axis_right_boot_x+16,
 if (mouse_in(xx+equ_axis_right_boot_x,xx+equ_axis_right_boot_x+32,yy+equ_axis_right_boot_y,yy+equ_axis_right_boot_y+32))
    {
    draw_hover_block(xx+equ_axis_right_boot_x,xx+equ_axis_right_boot_x+32,yy+equ_axis_right_boot_y,yy+equ_axis_right_boot_y+32);
+   draw_equ_infobox_id = 18;
    
-       if (mouse_check_button_pressed(mb_left))
+   if (mouse_check_button_pressed(mb_left))
       {
        if (oInventory.equiped[18]) {equipmentUnequip(18, false);}
-      }
-      
-    if (mouse_check_button_pressed(mb_right) && oInventory.equiped[18])
-      {
-       draw_equ_infobox = !draw_equ_infobox;
-       if (draw_equ_infobox) {draw_equ_infobox_xx = xx+equ_axis_right_boot_x; draw_equ_infobox_yy = yy+equ_axis_right_boot_y; draw_equ_infobox_id = 18;}
       }
    }
    
@@ -662,7 +558,6 @@ if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] =
    equipmentHoldEquip(18,xx+equ_axis_right_boot_x,xx+equ_axis_right_boot_x+32,yy+equ_axis_right_boot_y,yy+equ_axis_right_boot_y+32);
    }
 draw_sprite(sSlotOutline,0,xx+equ_axis_right_boot_x-2,yy+equ_axis_right_boot_y-2);  
-
 }
 
 // Draw equipment infobox
@@ -709,24 +604,50 @@ idd     = argument2;
 yoffset = 16;
 xoffset = 16;
 
-fnt(fntPixel);
-height += string_height(oInventory.equiped_stats[idd,inv_item_info_head]) + string_height(oInventory.equiped_stats[idd,inv_item_info_text]);
-width = 288;
 
- for (i = 0; i < celkem_vlastnosti; i++)
-                             {
-                            if (oInventory.equiped_vlastnost[idd,i] != 0 && i != vlastnost_cena && i != vlastnost_originalniCena && !(i >= 61 && i <= 78)) {height += 22;}    // 12
-                             }
+fnt(fntPixel);
+width = 288;
+text = "";
+if (idd != -1) {if (oInventory.equiped[oInventory.draw_equ_infobox_id]) {text = equipmentDrawAbilities(idd,width,yoffset,xx,yy,xoffset);}}
+height += string_height(text);
+height = max(196, height);
  
-clr();
-draw_sprite_stretched(sInfoboxTexture,0,xx-width+xoffset,yy+yoffset,288,height);
+clr(c_black, alpha);
+if (height <= 196)
+{
+draw_sprite(sInfoboxTexture,0,x,oInventory.used_y+32);
+}
+else
+{
+draw_sprite_stretched(sInfoboxTexture,0,oInventory.x,oInventory.used_y+32,288,height);
+}
 draw_set_font(fntPixel);
-scrCenterText();
-if (string_width(oInventory.equiped_stats[idd,inv_item_info_head]) > 260) {fnt(fntPixelSmall);}
-draw_text_colour(xx - (width / 2) + 20,yy + yoffset+12,oInventory.equiped_stats[idd,inv_item_info_head],oInventory.equiped_stats[idd,inv_item_info_color],oInventory.equiped_stats[idd,inv_item_info_color],oInventory.equiped_stats[idd,inv_item_info_color],oInventory.equiped_stats[idd,inv_item_info_color],1);
-scrCenterText(0);
+if (idd != -1) 
+    {
+    if (oInventory.equiped[oInventory.draw_equ_infobox_id]) 
+        {
+         clr(oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_info_color], alpha);
+         alg("center");
+         draw_text(x+128,oInventory.used_y+44,oInventory.equiped_stats[oInventory.draw_equ_infobox_id,inv_item_info_head]);
+         alg();
+         
+         if (oInventory.equiped_vlastnost[oInventory.draw_equ_infobox_id, vlastnost_upgradeSloty] > 0) {equipmentDrawPearls(oInventory.draw_equ_infobox_id);}
+
+         if (oInventory.equiped_vlastnost[oInventory.draw_equ_infobox_id, vlastnost_cena] > 0)
+            {
+             fnt(fntPixelTiny);
+             alg();
+             priceStr = (string(oInventory.equiped_vlastnost[oInventory.draw_equ_infobox_id, vlastnost_cena]) + "G");
+             draw_text(x + (283 - string_width(priceStr)), oInventory.used_y + (max(196, height) + 5), priceStr);      
+            }
+        }
+    }
+
+clr(c_black, alpha);
 draw_set_font(fntPixelSmall);
-equipmentDrawAbilities(idd,width,yoffset,xx,yy,xoffset);
+
+draw_text(x + 4,oInventory.used_y+32,text);
+
 
 #define equipmentDrawAbilities
 /// equipmentDrawAbilities(id,width,yoffset,xx,yy,xoffset)
@@ -742,7 +663,7 @@ yy       = argument4;
 xoffset  = argument5;
 
 
-t_text += oInventory.equiped_stats[idd,inv_item_info_text];
+t_text += oInventory.equiped_stats[idd,inv_item_info_text] + "#";
 
 for(a = 0; a < celkem_vlastnosti; a++)
       {  
@@ -1029,4 +950,31 @@ for(a = 0; a < celkem_vlastnosti; a++)
           }      
       }
 
-draw_text(xx - (width) + 5 + xoffset,yy + yoffset+10,t_text);
+return t_text;
+
+#define equipmentDrawPearls
+/// equipmentDrawPearls(slot)
+
+var s, i, ox, j;
+s = 0;
+
+if (argument_count > 0) {s = argument[0];}
+
+i  = oInventory.equiped_vlastnost[s, vlastnost_upgradeSloty];
+ox = (x + 288 - (i * 14));
+
+
+for (j = 0; j < i; j++)
+    {     
+     if (oInventory.equiped_vlastnost[s, vlastnost_upgradeSprite1 + j] != 0)
+        {
+         draw_sprite_stretched(sTestItem, oInventory.equiped_vlastnost[s, vlastnost_upgradeSprite1 + j], ox + (j * 14) - 8, oInventory.used_y + 44 - 9, 20, 20);
+        } 
+     else
+        {
+         clr(c_black, 0.3);
+         draw_circle(ox + (j * 14), oInventory.used_y + 44, 6, false);
+         clr();
+         draw_circle(ox + (j * 14), oInventory.used_y + 44, 6, true);
+        }    
+    }
