@@ -28,7 +28,7 @@
             <string>/// Initialize item
 
 scrItemSetUp(0, 0, itemEnum.itemGem4);
-scrItemSetProperties(true, "Sparit", "Lehký, ale pevný kamínek, přitahující pozornost. Ve vyšších vrstvách nejpoužívanější kámen na náhrdelnících vážených dam.", -1, "", 150);
+scrItemSetProperties(true, "Sparit", "Lehký, ale pevný kamínek, přitahující pozornost. Ve vyšších vrstvách nejpoužívanější kámen na náhrdelnících vážených dam.", -1, "", 50);
 scrItemSetOptions("Rozložit");
 scrItemSetUpFinalize();
 </string>

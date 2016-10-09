@@ -66,6 +66,13 @@ splashMessageTime       = -1;
 splashMessageAlpha      = 0;
 splashMessageAlphaSpeed = 0.1;
 
+speechQueue = ds_queue_create();
+speechAlpha = 0;
+speechIn    = false;
+speechCurrentText = "";
+speechMode  = 0;
+speechSkip = false;
+
 akce = ds_priority_create();
 mp_potential_settings(30,30,10,0);
 //ds_priority_add(akce,"","stackoverflow");
@@ -303,6 +310,35 @@ else if (mood == "cutscene" &amp;&amp; distance_to_point(real(cutsceneX), real(c
    //  speed = 0;
     }
 }
+
+// Handle speech queue
+if (ds_queue_size(speechQueue) &gt; 0)
+    {
+     if (!speechIn)
+        {
+         speechCurrentText = ds_queue_dequeue(speechQueue);
+         speechIn = true;         
+        }
+    }
+    
+if (speechIn)
+    {
+     if (speechMode == 0) {speechAlpha = lerp(speechAlpha, 1.1, 0.1); if (speechAlpha &gt;= 1) {speechMode = 1; speechTimer = 40;}}
+     if (speechMode == 1) {speechTimer--; if (speechTimer &lt;= 0) {speechMode = 2;}}
+     if (speechMode == 2) {speechAlpha = lerp(speechAlpha, -0.1, 0.1); if (speechAlpha &lt;= 0) {speechMode = 0; speechIn = false; speechTimer = 100;}}
+     
+     fnt();
+     clr (c_black, speechAlpha / 2);
+     draw_roundrect_colour_ext(x - string_width(speechCurrentText) / 2 - 10,y - 48,x + string_width(speechCurrentText) / 2+10,y+string_height(speechCurrentText)+2-48,20,20,c_black,c_black,0);
+     clr(c_white, speechAlpha);
+     draw_text(x - string_width(speechCurrentText) / 2, y - 48, speechCurrentText);
+     clr();
+     
+     if (speechSkip)
+        {
+         if (ds_queue_size(speechQueue) &gt; 0) {speechSkip = false; speechIn = false;}
+        }
+     }
 
 </string>
           </argument>

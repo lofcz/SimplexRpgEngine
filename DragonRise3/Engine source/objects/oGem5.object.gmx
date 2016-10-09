@@ -28,7 +28,7 @@
             <string>/// Initialize item
 
 scrItemSetUp(0, 0, itemEnum.itemGem5);
-scrItemSetProperties(true, "Snivec", "Kámen té nejhlubší, červené barvy. Symbolizuje život, krev a energii. Gobliní šamani používají úlomky snivce při rituálu předků.", -1, "", 200);
+scrItemSetProperties(true, "Snivec", "Kámen té nejhlubší, červené barvy. Symbolizuje život, krev a energii. Gobliní šamani používají úlomky snivce při rituálu předků.", -1, "", 50);
 scrItemSetOptions("Rozložit");
 scrItemSetUpFinalize();
 </string>

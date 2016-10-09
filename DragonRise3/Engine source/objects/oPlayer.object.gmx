@@ -34,6 +34,10 @@ color = c_white;
 sprAlpha = 0.5;
 rot = 0;
 
+ini_open("config.cfg");
+testKey = ini_read_real("keybinding", "move_right", 68);
+ini_close();
+
 set_sprite(sprite_index,0);
 instance_create(x,y,oPlayerCombat);
 instance_create(x,y,oState);
@@ -428,7 +432,7 @@ scrCutscenePlay(ins1, DemoCutscene, false, 1);
 
 //apiPlayerSay("Ahoj. :-)");
 //apiPlayerSay("Bavíš se?");
-oDayNight.spd = 100;
+oHUD.draw = !oHUD.draw
 
 </string>
           </argument>

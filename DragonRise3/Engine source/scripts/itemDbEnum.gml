@@ -57,5 +57,11 @@ itemLeaf,
 itemShuriken,
 itemRelicRightPart,
 itemRelicLeftPart,
-itemRelic
+itemRelic,
+itemGem6,
+itemGem7,
+itemGem8,
+itemGem9,
+itemGem10,
+itemGem11
 };

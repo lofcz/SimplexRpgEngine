@@ -776,4 +776,3 @@ return str;
 
 if (enchantItemID[k] == itemEnum.itemPearlRed) {oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_stackSezehnuti] += 0.5;}
 if (enchantItemID[k] == itemEnum.itemPearlGreen) {oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_bonusove_poskozeni_vuci_zviratum] += 2;}
-

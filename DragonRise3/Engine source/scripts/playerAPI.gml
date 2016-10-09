@@ -25,7 +25,7 @@ if (can_move && can_move2 && can_move3 && can_move4 && can_move5 && !oPlayerComb
          if (keyboard_check(ord("W"))) {dir = "w"; direction = 90;}     
          if (keyboard_check(ord("S"))) {dir = "s"; direction = 270;}         
          if (keyboard_check(ord("A"))) {dir = "a"; direction = 180;}          
-         if (keyboard_check(ord("D"))) {dir = "d"; direction = 360;}  
+         if (keyboard_check(testKey))  {dir = "d"; direction = 360;}  
         
          // Parry / block ability
          if (keyboard_check_pressed(ord("N")))
@@ -789,3 +789,7 @@ if (argument_count > 0) {v = argument[0];}
 oPlayer.vlastnost[vlastnost_stit] +=  v;
 
 return(v);
+#define apiPlayerGetSpeechSize
+/// apiPlayerGetSpeechSize()
+
+return ds_queue_size(oPlayer.speechQueue);

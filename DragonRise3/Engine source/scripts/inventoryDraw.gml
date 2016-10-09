@@ -787,11 +787,11 @@ if (draw)
      {
      if (effect_scale < 1.2 && draw_inventory) {effect_scale += 0.02;}
      
-     tempAlpha = min(0.7, oHUD.iconAlpha[hudIcons.inventory]);
+     tempAlpha = min(0.7, oHUD.iconAlpha[hudIcons.inventory], oHUD.hudAlpha);
      if (oHUD.iconAlpha[hudIcons.inventory] < 1) {tempAlpha = 0;}    
      draw_sprite_ext(sprite_index,0,view_xview+48+16,view_yview+560+16 + oHUD.yoffset,effect_scale,effect_scale,0,c_black,tempAlpha);
     
-      draw_sprite_ext(sprite_index,-1,view_xview+48+16,view_yview+560+16+ oHUD.yoffset, oHUD.iconAlpha[hudIcons.inventory],  oHUD.iconAlpha[hudIcons.inventory],  0, c_white, oHUD.iconAlpha[hudIcons.inventory])
+      draw_sprite_ext(sprite_index,-1,view_xview+48+16,view_yview+560+16+ oHUD.yoffset, oHUD.iconAlpha[hudIcons.inventory],  oHUD.iconAlpha[hudIcons.inventory],  0, c_white, min(oHUD.iconAlpha[hudIcons.inventory], oHUD.hudAlpha))
      }
      if (effect_scale > 1 && !draw_inventory) {effect_scale -= 0.02;}
  

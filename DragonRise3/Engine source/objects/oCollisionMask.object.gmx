@@ -59,8 +59,7 @@ if (type == "chest")
     if (instance_number(oPlayer) &gt; 0)
        {
         if (instance_number(idd) &gt; 0)
-           {
-        
+           {        
             if (distance_to_object(oPlayer) == 0)
                { 
                 if (oPlayer.last_dir == dir)

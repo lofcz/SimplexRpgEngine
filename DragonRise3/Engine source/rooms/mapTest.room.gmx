@@ -390,7 +390,6 @@
     <instance objName="oWoodLvl1" x="488" y="840" name="inst_C7024C3D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oAdvancedCollision" x="976" y="272" name="inst_DE058746" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;&#xA;text[0] = &quot;Tenhle ještě stojí.&quot;&#xA;text[1] = &quot;Tady nic není.&quot;" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
     <instance objName="oAdvancedCollision" x="592" y="312" name="inst_4DCB2C0D" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1,&quot;golde&quot;,irandom(7)+5,layerEnum.layer3);&#xA;&#xA;text[0] = &quot;Pořádný kus pěkného zlata.&quot;&#xA;text[1] = &quot;Co s ním mám asi udělat?&quot;&#xA;text[2] = &quot;Domů si ho vzít nemůžu.&quot;&#xA;text[3] = &quot;Asi sníst se nedá.&quot;&#xA;text[4] = &quot;Baví tě to hodně?&quot;&#xA;text[5] = &quot;...&quot;&#xA;text[6] = &quot;Ahoj zlato...&quot;&#xA;text[7] = &quot; &quot;+scrColorflag(c_yellow)+&quot;Ahoj krasavče&quot;+scrEndColorflag()&#xA;text[8] = &quot;Jak se máš?&quot;&#xA;text[9] = &quot; &quot;+scrColorflag(c_yellow)+&quot;Dobře ♥. Mucinky &lt;3. měj se.&quot;+scrEndColorflag()&#xA;text[10] = &quot;Neodcházej lásko!&quot;&#xA;text[11] = &quot;Haló?&quot;&#xA;text[12] = &quot;Já tě miluju!&quot;&#xA;text[13] = &quot;Jsi tam miláčku?&quot;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oTestItem3" x="104" y="352" name="inst_C3E3637D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oLockpick" x="368" y="208" name="inst_506BBCC6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oLockpick" x="336" y="208" name="inst_102E8188" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oMetalSteel" x="376" y="680" name="inst_EA5C277D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -450,6 +449,12 @@
     <instance objName="oShuriken" x="736" y="288" name="inst_54F7A041" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oRelicLeftPart" x="352" y="432" name="inst_2DDD7B3B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oRelicRightPart" x="320" y="432" name="inst_7AD6ABFB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oGem6" x="16" y="352" name="inst_59ED72D8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oGem7" x="48" y="352" name="inst_E7F061A0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oGem8" x="16" y="384" name="inst_BFBC158A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oGem9" x="48" y="384" name="inst_2525A37E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oGem10" x="48" y="432" name="inst_7946DA3A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oGem11" x="48" y="480" name="inst_91152614" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="background14" x="1600" y="1712" w="32" h="32" xo="32" yo="0" id="10006696" name="inst_AC26E277" depth="1000001" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

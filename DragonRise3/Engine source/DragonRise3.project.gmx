@@ -429,6 +429,11 @@
         <sprite>sprites\sDustEffect</sprite>
         <sprite>sprites\sWoodEffect</sprite>
         <sprite>sprites\sMetalEffect</sprite>
+        <sprite>sprites\sGemEffect10</sprite>
+        <sprite>sprites\sGemEffect9</sprite>
+        <sprite>sprites\sGemEffect8</sprite>
+        <sprite>sprites\sGemEffect7</sprite>
+        <sprite>sprites\sGemEffect6</sprite>
         <sprite>sprites\sGemEffect5</sprite>
         <sprite>sprites\sGemEffect4</sprite>
         <sprite>sprites\sGemEffect3</sprite>
@@ -470,6 +475,9 @@
       <sprite>sprites\sInventoryMapTEMP</sprite>
       <sprite>sprites\sprite123_tilee</sprite>
       <sprite>sprites\sprite130_achievements</sprite>
+      <sprite>sprites\flowers2res</sprite>
+      <sprite>sprites\resource_plants</sprite>
+      <sprite>sprites\sprite203_doors</sprite>
     </sprites>
     <sprite>sprites\sShadowBounce</sprite>
     <sprite>sprites\sprite160</sprite>
@@ -519,6 +527,7 @@
     <background>background\celianna_farmnature_tileset</background>
     <background>background\ForestTown02</background>
     <background>background\celianna_MV_interior_house</background>
+    <background>background\background37</background>
     <background>background\celian10</background>
   </backgrounds>
   <paths name="paths">
@@ -973,32 +982,60 @@
         </objects>
         <objects name="Materials, herbs, gems">
           <objects name="Herbs">
-            <object>objects\oHerbCtyrlistek</object>
-            <object>objects\oHerbSlidivec</object>
-            <object>objects\oHerbPraznik</object>
-            <object>objects\oHerbSkucivka</object>
-            <object>objects\oHerbBazinatka</object>
-            <object>objects\oHerbSuzenka</object>
-            <object>objects\oHerbBzuklar</object>
-            <object>objects\oHerbKorinky</object>
-            <object>objects\oKalokvet</object>
-            <object>objects\oLeaf</object>
+            <objects name="Junk">
+              <object>objects\oLeaf</object>
+            </objects>
+            <objects name="Normal">
+              <object>objects\oHerbCtyrlistek</object>
+              <object>objects\oHerbSlidivec</object>
+              <object>objects\oHerbPraznik</object>
+              <object>objects\oHerbSkucivka</object>
+              <object>objects\oHerbSuzenka</object>
+              <object>objects\oHerbBazinatka</object>
+              <object>objects\oHerbBzuklar</object>
+              <object>objects\oHerbKorinky</object>
+              <object>objects\oKalokvet</object>
+            </objects>
           </objects>
           <objects name="Materials">
-            <object>objects\oMaterialGreenGem</object>
-            <object>objects\oGoldLvl1</object>
-            <object>objects\oStoneLvl1</object>
-            <object>objects\oWoodLvl1</object>
-            <object>objects\oMetalSteel</object>
-            <object>objects\oTestItem2</object>
-            <object>objects\oRedPearlLvl2</object>
+            <objects name="Pearls">
+              <object>objects\oMaterialGreenGem</object>
+              <object>objects\oTestItem2</object>
+              <object>objects\oRedPearlLvl2</object>
+            </objects>
+            <objects name="Ores">
+              <object>objects\oGoldLvl1</object>
+              <object>objects\oStoneLvl1</object>
+            </objects>
+            <objects name="Ingots">
+              <object>objects\oMetalSteel</object>
+            </objects>
+            <objects name="Wood">
+              <object>objects\oWoodLvl1</object>
+            </objects>
           </objects>
           <objects name="Gems">
-            <object>objects\oGem1</object>
-            <object>objects\oGem2</object>
-            <object>objects\oGem3</object>
-            <object>objects\oGem4</object>
-            <object>objects\oGem5</object>
+            <objects name="Junk">
+              <object>objects\oGem1</object>
+            </objects>
+            <objects name="Normal">
+              <object>objects\oGem2</object>
+              <object>objects\oGem3</object>
+              <object>objects\oGem4</object>
+              <object>objects\oGem5</object>
+            </objects>
+            <objects name="Rare">
+              <object>objects\oGem6</object>
+              <object>objects\oGem7</object>
+              <object>objects\oGem8</object>
+              <object>objects\oGem9</object>
+            </objects>
+            <objects name="Fine">
+              <object>objects\oGem10</object>
+            </objects>
+            <objects name="Legendary">
+              <object>objects\oGem11</object>
+            </objects>
           </objects>
         </objects>
         <objects name="Weapons">

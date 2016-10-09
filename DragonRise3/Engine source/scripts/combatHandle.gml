@@ -116,8 +116,3 @@ if (oPlayer.last_dir = "s")
     y+=30;
     image_index = 1;
    }
-
-
-
-
-//draw_self();

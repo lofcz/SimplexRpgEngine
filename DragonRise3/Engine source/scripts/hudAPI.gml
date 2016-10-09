@@ -38,18 +38,18 @@ draw_text((x + xx + 110 + normalxoffset), (y + yy + 12), round(av));
 
 // Draw icon overall
 fnt(fntPixelTiny);  
-clr(c_black, alpha[ai]);  
+clr(c_black, min(alpha[ai], hudAlpha));  
 draw_rectangle_colour((x + xx + normalxoffset), (y + yy), (x + xx + 27 + normalxoffset), (y + yy + 23), c_white, c_white, c_white, c_white, 0);
      
 // Draw icon text on-hover event
-clr(c_black, (alpha[ai] * 2));
+clr(c_black, min(alpha[ai] * 2, hudAlpha));
 draw_text((x + xx + 15 + normalxoffset), (y + yy + 12), round(mw));
 
 // Handle hover
 if (mouse_in((x + xx + normalxoffset), (x + xx + 27 + normalxoffset), (y + yy), (y + yy + 23))) {if (alpha[ai] < 0.7) {alpha[ai] = lerp(alpha[ai], 0.71, 0.1);}} else {if (alpha[ai] > 0.01) {alpha[ai] = lerp(alpha[ai], 0, 0.1);}}
 
 // Reset drawing mode
-clr();
+clr(c_black, hudAlpha);
 
 
 #define scrHudDrawXpBar
@@ -68,7 +68,7 @@ draw_sprite_part(sExperienceBarSubs, 1, 0, 0, (oPlayer.last_xp / oPlayer.vlastno
 draw_sprite(sExperienceBar, 0, (x + (xx - 31) + spellsxPlus), (y + (yy - 11) + yoffset));
   
 // Clear draw mode and draw exp text   
-clr();
+clr(c_black, hudAlpha);
 alg("center", fntPixelSmall);
 draw_text((x + xx + 119 + spellsxPlus), (y + (yy - 11) + yoffset), (string(oPlayer.last_xp)+ " / " + string(oPlayer.vlastnost[vlastnost_max_zkusenosti])));
 
@@ -96,7 +96,7 @@ if (oPlayer.talentPoints > 0)
          if (skillPointsA > 0.5)  {skillPointsA -= 0.02;} else {skillPointsM = false;}
         }
           
-     draw_sprite_ext(sExperienceBar, 1, (x + (xx - 31) + spellsxPlus), (y + (yy - 11) + yoffset), 1, 1 , 0, c_white, skillPointsA);                 
+     draw_sprite_ext(sExperienceBar, 1, (x + (xx - 31) + spellsxPlus), (y + (yy - 11) + yoffset), 1, 1 , 0, c_white, min(skillPointsA, hudAlpha));                 
      }
 
 // Check if mouse clicked in the notification area
@@ -113,9 +113,9 @@ if (mouse_check_button_pressed(mb_left) && point_in_circle((x + (xx - 15) + spel
 normalxoffset = (view_wview - view_wview); 
 halfxoffset   = (oHUD.normalxoffset / 2)
 yoffset       = (view_hview - view_hview);
-baseFormulaX = (oHUD.x + 540 + oHUD.spellsxPlus);
-spellMinY    = (oHUD.y + 560 + oHUD.yoffset - 10);
-spellMaxY    = (oHUD.y + 560 + oHUD.yoffset + 30);
+baseFormulaX  = (oHUD.x + 540 + oHUD.spellsxPlus);
+spellMinY     = (oHUD.y + 560 + oHUD.yoffset - 10);
+spellMaxY     = (oHUD.y + 560 + oHUD.yoffset + 30);
 
 for (i = 0; i < 3; i++)
     {
