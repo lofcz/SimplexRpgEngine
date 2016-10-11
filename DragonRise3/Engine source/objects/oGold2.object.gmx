@@ -54,6 +54,7 @@ image_index = random(image_number);
 image_speed = 1;
 shadowAlpha = 0.7;
 mode = choose(0,1);
+sprite_index = sCoin2
 </string>
           </argument>
         </arguments>

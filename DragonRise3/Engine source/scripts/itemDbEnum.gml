@@ -63,5 +63,8 @@ itemGem7,
 itemGem8,
 itemGem9,
 itemGem10,
-itemGem11
+itemGem11,
+itemGem12,
+itemGem13,
+itemGem14
 };

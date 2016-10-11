@@ -429,6 +429,9 @@
         <sprite>sprites\sDustEffect</sprite>
         <sprite>sprites\sWoodEffect</sprite>
         <sprite>sprites\sMetalEffect</sprite>
+        <sprite>sprites\sGemEffect13</sprite>
+        <sprite>sprites\sGemEffect12</sprite>
+        <sprite>sprites\sGemEffect11</sprite>
         <sprite>sprites\sGemEffect10</sprite>
         <sprite>sprites\sGemEffect9</sprite>
         <sprite>sprites\sGemEffect8</sprite>
@@ -1032,9 +1035,12 @@
             </objects>
             <objects name="Fine">
               <object>objects\oGem10</object>
+              <object>objects\oGem11</object>
+              <object>objects\oGem12</object>
+              <object>objects\oGem13</object>
             </objects>
             <objects name="Legendary">
-              <object>objects\oGem11</object>
+              <object>objects\oGem15</object>
             </objects>
           </objects>
         </objects>

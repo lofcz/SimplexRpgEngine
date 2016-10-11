@@ -13,6 +13,7 @@ if (argument_count > 2) {in               = argument[2];}
 if (argument_count > 3) {canBeQuickUsed   = argument[3];}
 
 image_speed                           = animate;
+sprite_index                          = sTestItem;
 scrItemBasic(in);
 vlastnost[vlastnost_canBeFastEquiped] = canBeQuickUsed;
 

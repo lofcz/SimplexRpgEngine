@@ -43,6 +43,7 @@ scrItemSetUpFinalize()
 
 
 secure_pickup = 20;
+sprite_index  = sStackableItem1;
 
 
 </string>
