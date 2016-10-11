@@ -72,7 +72,7 @@
     <instance objName="oTestItem2" x="256" y="288" name="inst_44C16844" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTestItem3" x="488" y="744" name="inst_E285500C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oChest" x="447" y="221" name="inst_A62783A0" locked="0" code="scrChestSetLocked();&#xA;scrLockpickingPrepare(5);&#xA;scrLockpickingPrepareTumblerCombination(0, 0, &quot;1&quot;); &#xA;scrLockpickingPrepareTumblerCombination(3, 0, &quot;1,0&quot;);&#xA;scrLockpickingPrepareTumblerCombination(4, 0, &quot;1,0,3&quot;);&#xA;scrLockpickingPrepareTumblerCombination(2, 0, &quot;1,0,3,4&quot;);&#xA;&#xA;scrChestAddLoot(5,oGold,25);&#xA;scrChestAddLoot(1,oGold,2);&#xA;scrChestAddLoot(7,oGold,4);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oChest" x="1024" y="336" name="inst_FF577CA1" locked="0" code="scrChestAddLootFromTo(0,9,oGold,10,20);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oChest" x="1024" y="336" name="inst_FF577CA1" locked="0" code="scrChestAddLootFromTo(0,9,oGold,10,20);" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTestNPC" x="608" y="408" name="inst_C6F3E4DE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1728" y="0" name="inst_5D396CDB" locked="0" code="" scaleX="0.25" scaleY="4" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1728" y="128" name="inst_2D1C1484" locked="0" code="" scaleX="2.25" scaleY="2" colour="4294967295" rotation="0"/>

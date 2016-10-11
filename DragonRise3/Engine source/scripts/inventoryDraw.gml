@@ -8,7 +8,7 @@ hover_id       = 0;
 hover_x        = 0;
 hover_y        = 0;
 pre_switch     = 0;
-pages          = ((array_length_1d(hover_slot_alpha) div slotsPerPage) + 1);
+pages          = (((array_length_1d(hover_slot_alpha) - 1) div slotsPerPage) + 1);
 
  if(combine)
  {
@@ -68,7 +68,7 @@ if (!proceed)
    draw_rectangle(xx,yy,xx+32,yy+32,0);  
   }
   
-if (mouse_x > xx && mouse_x < xx+32 && mouse_y > yy && mouse_y < yy+32 && !scrGettActiveComponent())
+if (mouse_in(xx, xx + 32, yy, yy + 32) && !scrGettActiveComponent())
  {  
   if (hover_slot_alpha[a] < 0.5) {hover_slot_alpha[a] += 0.03;}
   hover    = 1;

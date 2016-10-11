@@ -65,6 +65,9 @@ if (type == "chest")
                 if (oPlayer.last_dir == dir)
                    {
                    (idd).text = 1;
+                    scrSetActiveTempComponent(true);
+                    oInventory.draw_equipment = false;
+                    
                               
                 if (keyboard_check_pressed(ord(open_char)))
                     {                           

@@ -1,21 +1,18 @@
 /// scrChestDraw()
 
-
-if (animate = 1)
+if (animate == 1)
    {
     image_speed = animate_speed;
     if (s_b > 0) {s_b -= 0.05;}
    }
-if (animate = 2)
+if (animate == 2)
    {
     image_speed = -animate_speed;
    }
-if (animate = 0)
+if (animate == 0)
    {
     image_speed = 0;
    }
-
-
 
 if (open)
    {
@@ -92,7 +89,7 @@ if (open)
        {
             if (instance_number(oPlayer) > 0)
                {
-                if (distance_to_object(oPlayer) < open_dis && text = 1)
+                if (distance_to_object(oPlayer) < open_dis && text == 1)
                    {
                      if (text_alpha < 1) {text_alpha += 0.05;}
                    }
