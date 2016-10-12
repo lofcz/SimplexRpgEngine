@@ -463,6 +463,17 @@
               <sprite>sprites\sPearlGreenEffect</sprite>
               <sprite>sprites\sPearlRedEffect</sprite>
             </sprites>
+            <sprites name="Herbs">
+              <sprite>sprites\sEffectHerb1</sprite>
+              <sprite>sprites\sEffectHerb2</sprite>
+              <sprite>sprites\sEffectHerb3</sprite>
+              <sprite>sprites\sEffectHerb4</sprite>
+              <sprite>sprites\sEffectHerb5</sprite>
+              <sprite>sprites\sEffectHerb6</sprite>
+              <sprite>sprites\sEffectHerb7</sprite>
+              <sprite>sprites\sEffectHerb8</sprite>
+              <sprite>sprites\sEffectHerb9</sprite>
+            </sprites>
           </sprites>
           <sprites name="Items">
             <sprites name="Elixirs">
