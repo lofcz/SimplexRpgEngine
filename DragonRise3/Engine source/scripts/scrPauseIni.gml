@@ -19,6 +19,14 @@ uni_mass_v          = shader_get_uniform(shdGaussVer,"mass");
 pauseSpeed          = 0.04;
 maxBlur             = 1;
 bacAlpha            = 0;
+fadeMode            = "in";
+textAlpha           = 1;
+menuMode            = 0;
+xoffset             = 0;
+yoffset             = 0;
+settingsAlpha       = 0;
+xoffset2            = 0;
+yoffset2            = 0;
 
 vignetteSettings      = shader_get_uniform(shdVignette, "u_settings");
 vignetteSettingsM     = shader_get_uniform(shdVignette, "u_vignette_m");
@@ -34,4 +42,11 @@ pauseText[2] = "Uložit";
 pauseText[3] = "Načíst";
 pauseText[4] = "Konec";
 
-pauseItemSelected = 0;
+settingsText[0] = "Zobrazení";
+settingsText[1] = "Zvuk";
+settingsText[2] = "Ovládání";
+settingsText[3] = "Zpět";
+ 
+
+pauseItemSelected    = 0;
+settingsTextSelected = 0;
