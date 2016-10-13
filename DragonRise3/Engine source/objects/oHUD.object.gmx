@@ -28,6 +28,8 @@
             <string>/// Set up
 
 global.temp     = -1;
+global.volFX    = 100;
+global.volMX    = 100;
 draw            = 1;
 alpha[0]        = 0;
 alpha[1]        = 0;

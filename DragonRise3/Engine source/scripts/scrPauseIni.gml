@@ -27,6 +27,7 @@ yoffset             = 0;
 settingsAlpha       = 0;
 xoffset2            = 0;
 yoffset2            = 0;
+soundAlpha          = 0;
 
 vignetteSettings      = shader_get_uniform(shdVignette, "u_settings");
 vignetteSettingsM     = shader_get_uniform(shdVignette, "u_vignette_m");
@@ -46,7 +47,13 @@ settingsText[0] = "Zobrazení";
 settingsText[1] = "Zvuk";
 settingsText[2] = "Ovládání";
 settingsText[3] = "Zpět";
+
+soundText[0] = "Hlasitost efektů: ";
+soundText[1] = "Hlasitost hudby: ";
+soundText[2] = "Zpět";
+
  
 
 pauseItemSelected    = 0;
 settingsTextSelected = 0;
+soundTextSelected    = 0;
