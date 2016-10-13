@@ -452,7 +452,7 @@ if (mouse_check_button_pressed(mb_left))
    }
 */
 
-draw_text(x, y - 32, "Idle image: " + string(idleImage));
+//draw_text(x, y - 32, "Idle image: " + string(idleImage));
 </string>
           </argument>
         </arguments>

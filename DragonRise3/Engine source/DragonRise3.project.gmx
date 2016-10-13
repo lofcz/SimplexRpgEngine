@@ -650,10 +650,10 @@
         <script>scripts\scrGettActiveComponent.gml</script>
         <script>scripts\scrEndColorflag.gml</script>
         <script>scripts\scrBasicEffect.gml</script>
-        <script>scripts\scrInflect.gml</script>
         <script>scripts\secToSteps.gml</script>
         <script>scripts\scrDice.gml</script>
         <script>scripts\set_position.gml</script>
+        <script>scripts\scrInflect.gml</script>
         <script>scripts\set_sprite.gml</script>
         <script>scripts\scrSpriteDissolve.gml</script>
         <script>scripts\scrSetParamsArray.gml</script>
@@ -687,8 +687,8 @@
     </scripts>
     <scripts name="Components">
       <scripts name="Inventory">
-        <script>scripts\inventoryDraw.gml</script>
         <script>scripts\inventoryAdd.gml</script>
+        <script>scripts\inventoryDraw.gml</script>
         <script>scripts\inventoryCreate.gml</script>
         <script>scripts\inventoryExtend.gml</script>
         <script>scripts\inventoryPickUp.gml</script>
@@ -1060,8 +1060,8 @@
         <object>objects\oXpDrop</object>
         <object>objects\oManaDrop</object>
         <object>objects\oArmorDrop</object>
-        <object>objects\oXpReward</object>
         <object>objects\oHealthDrop</object>
+        <object>objects\oXpReward</object>
       </objects>
       <objects name="Items">
         <objects name="Gold">

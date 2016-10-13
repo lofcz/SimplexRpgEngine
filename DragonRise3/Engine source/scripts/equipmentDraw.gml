@@ -1,7 +1,7 @@
 #define equipmentDraw
 /// equipmentDraw()
 
-xx = x+288;
+xx = x+550;
 yy = y;
 
 if (instance_number(oPlayer) > 0)

@@ -107,8 +107,8 @@ raysTimeVal = 0;
 
 clr();
 
-if (mouse_wheel_up()) {shader_active++;}
-if (mouse_wheel_down()) {shader_active--;}
+//if (mouse_wheel_up()) {shader_active++;}
+//if (mouse_wheel_down()) {shader_active--;}
 
 // Grayscale
 if (shader_active = shaderGrayscale)
@@ -118,7 +118,7 @@ if (shader_active = shaderGrayscale)
    draw_surface(application_surface,0,0);
    shader_reset();
 
-   if (mouse_check_button(mb_left)) {amountGrayscaleVar = 1;}
+  // if (mouse_check_button(mb_left)) {amountGrayscaleVar = 1;}
    if (amountGrayscaleVar &gt; 0) {amountGrayscaleVar -= 0.005;}
    }
 
@@ -130,7 +130,7 @@ if (shader_active = shaderSepia)
    draw_surface(application_surface,0,0);
    shader_reset();
 
-   if (mouse_check_button(mb_left)) {amountSepiaVar = 1;}
+   //if (mouse_check_button(mb_left)) {amountSepiaVar = 1;}
    if (amountSepiaVar &gt; 0) {amountSepiaVar -= 0.005;}
    }
    

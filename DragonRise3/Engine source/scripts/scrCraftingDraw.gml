@@ -1,7 +1,7 @@
 /// scrCraftingDraw()
 
 var xpos, ypos;
-xpos = view_xview + 288;
+xpos = view_xview + 720;
 ypos = view_yview;
 
 // Test form resoluttion

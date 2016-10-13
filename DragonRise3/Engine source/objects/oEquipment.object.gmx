@@ -55,7 +55,7 @@ draw = 0;
 x = view_xview+32;
 y = view_yview;
 
-if (oInventory.draw_inventory) {x += 256;}
+if (oInventory.draw_inventory) {x += 550;}
 if (!draw) {draw_self();}
 
 

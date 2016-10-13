@@ -22,3 +22,10 @@ if (word == "bod")
      else if (n < 5) {return "body";}
      else {return "bodů";}
     }
+if (word == "život")
+    {
+     if (n <= 0) {return "životů";}
+     else if (n < 2) {return "život";}
+     else if (n < 5) {return "životy";}
+     else {return "životů";}
+    }

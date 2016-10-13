@@ -60,7 +60,7 @@ if (stav = "idle" &amp;&amp; secure_pickup &lt;= 0)
 oPlayer.vlastnost[vlastnost_zivot] += itm_number;
 stav                                = "delete";
 
-scrLog("+ "+string(itm_number),c_red,sHealthEffect,0,0.4);
+stateAddEntry(scrColorflag(c_red)+ "+ "+string(itm_number) + " " + scrInflect("život", itm_number));
 audio_play_sound(sndHealth,0,0);
 }
 
