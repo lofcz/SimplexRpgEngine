@@ -3,10 +3,10 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="15" name="datafiles">
-    <datafiles number="15" name="Resources">
-      <datafiles number="15" name="Sprites">
-        <datafiles number="15" name="BodyCanvas">
+  <datafiles number="16" name="datafiles">
+    <datafiles number="16" name="Resources">
+      <datafiles number="16" name="Sprites">
+        <datafiles number="16" name="BodyCanvas">
           <datafile>
             <name>sBodyCanvas.png</name>
             <exists>-1</exists>
@@ -77,7 +77,7 @@
           </datafile>
         </datafiles>
       </datafiles>
-      <datafiles number="15" name="SFX">
+      <datafiles number="16" name="SFX">
         <datafile>
           <name>coins.wav</name>
           <exists>-1</exists>
@@ -147,6 +147,23 @@
         </Config>
       </ConfigOptions>
       <filename>myPrefab.simplexPrefab</filename>
+    </datafile>
+    <datafile>
+      <name>config.cfg</name>
+      <exists>-1</exists>
+      <size>0</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>config.cfg</filename>
     </datafile>
   </datafiles>
   <NewExtensions/>
@@ -255,10 +272,13 @@
         <sprite>sprites\sManaPool</sprite>
         <sprite>sprites\sManaPoolCollision</sprite>
         <sprite>sprites\sTeleport</sprite>
+        <sprite>sprites\sFence</sprite>
+        <sprite>sprites\sFenceDesigner</sprite>
       </sprites>
       <sprites name="Containers">
         <sprite>sprites\sChest</sprite>
         <sprite>sprites\sJug</sprite>
+        <sprite>sprites\sBrokenJug</sprite>
       </sprites>
     </sprites>
     <sprites name="Collisions">
@@ -268,7 +288,7 @@
       <sprite>sprites\sGotoRoom</sprite>
       <sprite>sprites\sTransitionCollision</sprite>
     </sprites>
-    <sprites name="Controllers, HUD and GUI">
+    <sprites name="Controllers, HUD &amp; GUI">
       <sprites name="Spells">
         <sprite>sprites\sSpellFireball</sprite>
         <sprite>sprites\sSpellFireBeam</sprite>
@@ -307,6 +327,9 @@
         <sprite>sprites\sLockIcon</sprite>
         <sprite>sprites\sSpellsUI</sprite>
         <sprite>sprites\sTalentMenuIcons</sprite>
+        <sprite>sprites\sConstructionSiteMask</sprite>
+        <sprite>sprites\sUpgradeIcons</sprite>
+        <sprite>sprites\sMinimapIcons</sprite>
       </sprites>
       <sprites name="HUD Bars">
         <sprite>sprites\sHUDBars</sprite>
@@ -316,6 +339,7 @@
         <sprite>sprites\sExperienceBar</sprite>
       </sprites>
       <sprites name="Controllers icons">
+        <sprite>sprites\sPlayer</sprite>
         <sprite>sprites\sCamera</sprite>
         <sprite>sprites\sLoader</sprite>
         <sprite>sprites\sParticleMask</sprite>
@@ -361,72 +385,171 @@
         <sprite>sprites\sBestiar</sprite>
         <sprite>sprites\sUnknownBestiary</sprite>
       </sprites>
-      <sprite>sprites\sPlayer</sprite>
-      <sprite>sprites\sFence</sprite>
-      <sprite>sprites\sFenceDesigner</sprite>
-      <sprite>sprites\sConstructionSiteMask</sprite>
-      <sprite>sprites\sBrokenJug</sprite>
-      <sprite>sprites\sUpgradeIcons</sprite>
-      <sprite>sprites\tempspr</sprite>
-      <sprite>sprites\sMedalsType</sprite>
-      <sprite>sprites\sAchievements</sprite>
+      <sprites name="Achievements">
+        <sprite>sprites\sMedalsType</sprite>
+        <sprite>sprites\sAchievements</sprite>
+        <sprite>sprites\sQuestNotification</sprite>
+      </sprites>
+      <sprites name="Pop-up">
+        <sprite>sprites\sHintButton</sprite>
+        <sprite>sprites\sHintForm</sprite>
+      </sprites>
+      <sprites name="Overlays">
+        <sprite>sprites\sOverlayLight</sprite>
+        <sprite>sprites\sRoomMask0</sprite>
+      </sprites>
     </sprites>
-    <sprites name="Effects and items">
+    <sprites name="Effects, items &amp; particles">
       <sprites name="Items">
         <sprite>sprites\sTestItem</sprite>
         <sprite>sprites\sStackableItem1</sprite>
       </sprites>
       <sprites name="Effects">
-        <sprite>sprites\sCoin</sprite>
-        <sprite>sprites\sCoin2</sprite>
-        <sprite>sprites\sHeart</sprite>
-        <sprite>sprites\sBlood1</sprite>
-        <sprite>sprites\sBlood2</sprite>
-        <sprite>sprites\sBlood4</sprite>
-        <sprite>sprites\sBlood3</sprite>
-        <sprite>sprites\sBlood5</sprite>
-        <sprite>sprites\sHealthEffect</sprite>
-        <sprite>sprites\sEvent</sprite>
-        <sprite>sprites\sBlob</sprite>
-        <sprite>sprites\sHealthEffect2</sprite>
-        <sprite>sprites\sManaEffect2</sprite>
-        <sprite>sprites\sManaEffect</sprite>
-        <sprite>sprites\sHealthEffect3</sprite>
-        <sprite>sprites\sManaEffect3</sprite>
-        <sprite>sprites\sXpPoint</sprite>
-        <sprite>sprites\sShieldEffect3</sprite>
-        <sprite>sprites\sManaPoint</sprite>
-        <sprite>sprites\sElixirEffect2</sprite>
-        <sprite>sprites\sElixirEffect</sprite>
-        <sprite>sprites\sShieldEffect2</sprite>
-        <sprite>sprites\sXP</sprite>
-        <sprite>sprites\sLeafEffect</sprite>
-        <sprite>sprites\sGiftEffect</sprite>
-        <sprite>sprites\sLetterEffect</sprite>
-        <sprite>sprites\sStaminaEffect</sprite>
-        <sprite>sprites\sHelmetEffect</sprite>
-        <sprite>sprites\sRingEffect</sprite>
-        <sprite>sprites\sDustEffect</sprite>
-        <sprite>sprites\sWoodEffect</sprite>
-        <sprite>sprites\sMetalEffect</sprite>
-        <sprite>sprites\sGemEffect5</sprite>
-        <sprite>sprites\sGemEffect4</sprite>
-        <sprite>sprites\sGemEffect3</sprite>
-        <sprite>sprites\sGemEffect2</sprite>
-        <sprite>sprites\sGemEffect1</sprite>
-        <sprite>sprites\sStoneEffect</sprite>
-        <sprite>sprites\sPearlGreenEffect</sprite>
-        <sprite>sprites\sPearlRedEffect</sprite>
-        <sprite>sprites\sGoldEffect</sprite>
-        <sprite>sprites\sSwordEffect</sprite>
-        <sprite>sprites\sQuestEffect</sprite>
-        <sprite>sprites\sXpRewardPoint</sprite>
-        <sprite>sprites\sLockpickEffect</sprite>
-        <sprite>sprites\sSlimePart</sprite>
-        <sprite>sprites\sQuest</sprite>
-        <sprite>sprites\sCodeShard</sprite>
-        <sprite>sprites\sFadedLine</sprite>
-        <sprite>sprites\sNormalMask</sprite>
+        <sprites name="Gore">
+          <sprite>sprites\sBlood1</sprite>
+          <sprite>sprites\sBlood2</sprite>
+          <sprite>sprites\sBlood3</sprite>
+          <sprite>sprites\sBlood4</sprite>
+          <sprite>sprites\sBlood5</sprite>
+        </sprites>
+        <sprites name="Dropable">
+          <sprite>sprites\sHeart</sprite>
+          <sprite>sprites\sHealthEffect</sprite>
+          <sprite>sprites\sEvent</sprite>
+          <sprite>sprites\sBlob</sprite>
+          <sprite>sprites\sHealthEffect2</sprite>
+          <sprite>sprites\sManaEffect</sprite>
+          <sprite>sprites\sHealthEffect3</sprite>
+          <sprite>sprites\sManaEffect3</sprite>
+          <sprite>sprites\sXpPoint</sprite>
+          <sprite>sprites\sShieldEffect3</sprite>
+          <sprite>sprites\sManaPoint</sprite>
+          <sprite>sprites\sXpRewardPoint</sprite>
+          <sprite>sprites\sStaminaEffect</sprite>
+          <sprite>sprites\sXP</sprite>
+          <sprite>sprites\sShieldEffect2</sprite>
+          <sprite>sprites\sManaEffect2</sprite>
+        </sprites>
+        <sprites name="ItemAnimations3D">
+          <sprites name="Coins">
+            <sprite>sprites\sCoin</sprite>
+            <sprite>sprites\sCoin2</sprite>
+          </sprites>
+          <sprites name="Gems &amp; materials &amp; herbs &amp; pearls">
+            <sprites name="Gems">
+              <sprite>sprites\sGemEffect1</sprite>
+              <sprite>sprites\sGemEffect2</sprite>
+              <sprite>sprites\sGemEffect3</sprite>
+              <sprite>sprites\sGemEffect4</sprite>
+              <sprite>sprites\sGemEffect5</sprite>
+              <sprite>sprites\sGemEffect6</sprite>
+              <sprite>sprites\sGemEffect7</sprite>
+              <sprite>sprites\sGemEffect8</sprite>
+              <sprite>sprites\sGemEffect9</sprite>
+              <sprite>sprites\sGemEffect10</sprite>
+              <sprite>sprites\sGemEffect11</sprite>
+              <sprite>sprites\sGemEffect12</sprite>
+              <sprite>sprites\sGemEffect13</sprite>
+            </sprites>
+            <sprites name="Materials">
+              <sprite>sprites\sDustEffect</sprite>
+              <sprite>sprites\sWoodEffect</sprite>
+              <sprite>sprites\sMetalEffect</sprite>
+              <sprite>sprites\sStoneEffect</sprite>
+              <sprite>sprites\sLeafEffect</sprite>
+              <sprite>sprites\sGoldEffect</sprite>
+            </sprites>
+            <sprites name="Pearls">
+              <sprite>sprites\sPearlGreenEffect</sprite>
+              <sprite>sprites\sPearlRedEffect</sprite>
+            </sprites>
+            <sprites name="Herbs">
+              <sprite>sprites\sEffectHerb1</sprite>
+              <sprite>sprites\sEffectHerb2</sprite>
+              <sprite>sprites\sEffectHerb3</sprite>
+              <sprite>sprites\sEffectHerb4</sprite>
+              <sprite>sprites\sEffectHerb5</sprite>
+              <sprite>sprites\sEffectHerb6</sprite>
+              <sprite>sprites\sEffectHerb7</sprite>
+              <sprite>sprites\sEffectHerb8</sprite>
+              <sprite>sprites\sEffectHerb9</sprite>
+            </sprites>
+          </sprites>
+          <sprites name="Items">
+            <sprites name="Elixirs">
+              <sprite>sprites\sElixirEffect2</sprite>
+              <sprite>sprites\sElixirEffect</sprite>
+            </sprites>
+            <sprites name="Misc">
+              <sprite>sprites\sRelicLeftEffect</sprite>
+              <sprite>sprites\sRelicRightEffect</sprite>
+              <sprite>sprites\sRelicEffect</sprite>
+              <sprite>sprites\sGiftEffect</sprite>
+              <sprite>sprites\sLetterEffect</sprite>
+              <sprite>sprites\sQuestEffect</sprite>
+              <sprite>sprites\sLockpickEffect</sprite>
+            </sprites>
+            <sprites name="Weapons">
+              <sprite>sprites\sSwordEffect2</sprite>
+              <sprite>sprites\sSwordEffect</sprite>
+              <sprite>sprites\sShurikenEffect</sprite>
+              <sprite>sprites\sAxeEffect</sprite>
+            </sprites>
+            <sprites name="Helmets">
+              <sprite>sprites\sHelmetEffect</sprite>
+              <sprite>sprites\sHelmetEffect2</sprite>
+            </sprites>
+            <sprites name="Rings">
+              <sprite>sprites\sRingEffect</sprite>
+              <sprite>sprites\sRingEffect2</sprite>
+            </sprites>
+            <sprites name="Armors">
+              <sprite>sprites\sArmorEffect</sprite>
+            </sprites>
+            <sprites name="Shoulders">
+              <sprite>sprites\sShoulderEffect</sprite>
+              <sprite>sprites\sShoulderEffect2</sprite>
+            </sprites>
+            <sprites name="Shields">
+              <sprite>sprites\sShieldEffect4</sprite>
+            </sprites>
+            <sprites name="Necklaces">
+              <sprite>sprites\sNecklaceEffect</sprite>
+            </sprites>
+            <sprites name="Cards">
+              <sprite>sprites\sCardEffect</sprite>
+            </sprites>
+            <sprites name="Medals">
+              <sprite>sprites\sMedalEffect</sprite>
+            </sprites>
+            <sprites name="Trophies">
+              <sprite>sprites\sTrophyEffect</sprite>
+            </sprites>
+            <sprites name="Crystalisators">
+              <sprite>sprites\sCrystalisatorEffect</sprite>
+            </sprites>
+            <sprites name="Boosters">
+              <sprite>sprites\sBoosterEffect</sprite>
+            </sprites>
+            <sprites name="Boots">
+              <sprite>sprites\sBootEffect</sprite>
+              <sprite>sprites\sBootEffect2</sprite>
+            </sprites>
+            <sprites name="Belts">
+              <sprite>sprites\sBeltEffect</sprite>
+            </sprites>
+          </sprites>
+        </sprites>
+        <sprites name="Misc">
+          <sprite>sprites\sSlimePart</sprite>
+          <sprite>sprites\sQuest</sprite>
+          <sprite>sprites\sCodeShard</sprite>
+          <sprite>sprites\sFadedLine</sprite>
+          <sprite>sprites\sNormalMask</sprite>
+          <sprite>sprites\sShadowBounce</sprite>
+          <sprite>sprites\sprite160</sprite>
+          <sprite>sprites\sShieldEffect</sprite>
+        </sprites>
       </sprites>
       <sprites name="Particles">
         <sprite>sprites\sParticleGrass</sprite>
@@ -449,17 +572,10 @@
       <sprite>sprites\sInventoryMapTEMP</sprite>
       <sprite>sprites\sprite123_tilee</sprite>
       <sprite>sprites\sprite130_achievements</sprite>
+      <sprite>sprites\flowers2res</sprite>
+      <sprite>sprites\resource_plants</sprite>
+      <sprite>sprites\sprite203_doors</sprite>
     </sprites>
-    <sprite>sprites\sShadowBounce</sprite>
-    <sprite>sprites\sprite160</sprite>
-    <sprite>sprites\sShieldEffect</sprite>
-    <sprite>sprites\sSpellPoint</sprite>
-    <sprite>sprites\sHintButton</sprite>
-    <sprite>sprites\sHintForm</sprite>
-    <sprite>sprites\sMinimapIcons</sprite>
-    <sprite>sprites\sOverlayLight</sprite>
-    <sprite>sprites\sRoomMask0</sprite>
-    <sprite>sprites\sQuestNotification</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -472,6 +588,7 @@
     <background>background\background6</background>
     <background>background\background8</background>
     <background>background\background9</background>
+    <background>background\background9EditThis</background>
     <background>background\background10</background>
     <background>background\background23</background>
     <background>background\background24</background>
@@ -498,6 +615,7 @@
     <background>background\celianna_farmnature_tileset</background>
     <background>background\ForestTown02</background>
     <background>background\celianna_MV_interior_house</background>
+    <background>background\background37</background>
     <background>background\celian10</background>
   </backgrounds>
   <paths name="paths">
@@ -532,10 +650,10 @@
         <script>scripts\scrGettActiveComponent.gml</script>
         <script>scripts\scrEndColorflag.gml</script>
         <script>scripts\scrBasicEffect.gml</script>
-        <script>scripts\position_free.gml</script>
         <script>scripts\scrInflect.gml</script>
         <script>scripts\secToSteps.gml</script>
         <script>scripts\scrDice.gml</script>
+        <script>scripts\set_position.gml</script>
         <script>scripts\set_sprite.gml</script>
         <script>scripts\scrSpriteDissolve.gml</script>
         <script>scripts\scrSetParamsArray.gml</script>
@@ -814,6 +932,9 @@
       <scripts name="Area scripts">
         <script>scripts\scrAreaScriptIni.gml</script>
       </scripts>
+      <scripts name="Throwable">
+        <script>scripts\scrThrowItem.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -911,6 +1032,7 @@
       <object>objects\oQuest</object>
       <object>objects\oMapIntro</object>
       <object>objects\oMinimap</object>
+      <object>objects\oThrowableItem</object>
       <object>objects\oBasicSpell</object>
       <object>objects\oLenghtdirSpellhelper</object>
       <object>objects\oLenghdirSpell</object>
@@ -948,32 +1070,63 @@
         </objects>
         <objects name="Materials, herbs, gems">
           <objects name="Herbs">
-            <object>objects\oHerbCtyrlistek</object>
-            <object>objects\oHerbSlidivec</object>
-            <object>objects\oHerbPraznik</object>
-            <object>objects\oHerbSkucivka</object>
-            <object>objects\oHerbBazinatka</object>
-            <object>objects\oHerbSuzenka</object>
-            <object>objects\oHerbBzuklar</object>
-            <object>objects\oHerbKorinky</object>
-            <object>objects\oKalokvet</object>
-            <object>objects\oLeaf</object>
+            <objects name="Junk">
+              <object>objects\oLeaf</object>
+            </objects>
+            <objects name="Normal">
+              <object>objects\oHerbCtyrlistek</object>
+              <object>objects\oHerbSlidivec</object>
+              <object>objects\oHerbPraznik</object>
+              <object>objects\oHerbSkucivka</object>
+              <object>objects\oHerbSuzenka</object>
+              <object>objects\oHerbBazinatka</object>
+              <object>objects\oHerbBzuklar</object>
+              <object>objects\oHerbKorinky</object>
+              <object>objects\oKalokvet</object>
+            </objects>
           </objects>
           <objects name="Materials">
-            <object>objects\oMaterialGreenGem</object>
-            <object>objects\oGoldLvl1</object>
-            <object>objects\oStoneLvl1</object>
-            <object>objects\oWoodLvl1</object>
-            <object>objects\oMetalSteel</object>
-            <object>objects\oTestItem2</object>
-            <object>objects\oRedPearlLvl2</object>
+            <objects name="Pearls">
+              <object>objects\oMaterialGreenGem</object>
+              <object>objects\oTestItem2</object>
+              <object>objects\oRedPearlLvl2</object>
+            </objects>
+            <objects name="Ores">
+              <object>objects\oGoldLvl1</object>
+              <object>objects\oStoneLvl1</object>
+            </objects>
+            <objects name="Ingots">
+              <object>objects\oMetalSteel</object>
+            </objects>
+            <objects name="Wood">
+              <object>objects\oWoodLvl1</object>
+            </objects>
           </objects>
           <objects name="Gems">
-            <object>objects\oGem1</object>
-            <object>objects\oGem2</object>
-            <object>objects\oGem3</object>
-            <object>objects\oGem4</object>
-            <object>objects\oGem5</object>
+            <objects name="Junk">
+              <object>objects\oGem1</object>
+            </objects>
+            <objects name="Normal">
+              <object>objects\oGem2</object>
+              <object>objects\oGem3</object>
+              <object>objects\oGem4</object>
+              <object>objects\oGem5</object>
+            </objects>
+            <objects name="Rare">
+              <object>objects\oGem6</object>
+              <object>objects\oGem7</object>
+              <object>objects\oGem8</object>
+              <object>objects\oGem9</object>
+            </objects>
+            <objects name="Fine">
+              <object>objects\oGem10</object>
+              <object>objects\oGem11</object>
+              <object>objects\oGem12</object>
+              <object>objects\oGem13</object>
+            </objects>
+            <objects name="Legendary">
+              <object>objects\oGem15</object>
+            </objects>
           </objects>
         </objects>
         <objects name="Weapons">
@@ -1026,7 +1179,11 @@
           <object>objects\oElixirMP</object>
         </objects>
         <objects name="Misc">
+          <object>objects\oShuriken</object>
           <object>objects\oLockpick</object>
+          <object>objects\oRelicLeftPart</object>
+          <object>objects\oRelicRightPart</object>
+          <object>objects\oRelic</object>
           <object>objects\oAlchemyDust</object>
           <object>objects\oLofsGift</object>
           <object>objects\oBasicLetter</object>
@@ -1114,20 +1271,20 @@
   <rooms name="rooms">
     <room>rooms\mapTest</room>
     <room>rooms\mapCopyright</room>
-    <room>rooms\mapMainMenu</room>
-    <room>rooms\mapSklep</room>
     <room>rooms\cutscenePoustevnikovaPesina</room>
-    <room>rooms\mapHolohlavy</room>
+    <room>rooms\mapMainMenu</room>
     <room>rooms\cutsceneVavrincuvKostel</room>
     <room>rooms\mapMyFirstGame</room>
     <room>rooms\mapDefault</room>
-    <room>rooms\mapLedovaJeskyne</room>
     <rooms name="Game world">
       <room>rooms\mapHouse1</room>
       <room>rooms\mapHouseAlice</room>
+      <room>rooms\mapLedovaJeskyne</room>
+      <room>rooms\mapHolohlavy</room>
+      <room>rooms\mapSklep</room>
     </rooms>
   </rooms>
-  <constants number="209">
+  <constants number="218">
     <constant name="baArmor">1</constant>
     <constant name="baBase">0</constant>
     <constant name="cStaticInstance">"staticInstance"</constant>
@@ -1176,7 +1333,16 @@
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
     <constant name="upgradableProperties">58</constant>
-    <constant name="celkem_vlastnosti">86</constant>
+    <constant name="celkem_vlastnosti">95</constant>
+    <constant name="vlastnost_canBeFastEquiped">94</constant>
+    <constant name="vlastnost_dataSocket10">93</constant>
+    <constant name="vlastnost_dataSocket9">92</constant>
+    <constant name="vlastnost_dataSocket8">91</constant>
+    <constant name="vlastnost_dataSocket7">90</constant>
+    <constant name="vlastnost_dataSocket6">89</constant>
+    <constant name="vlastnost_dataSocket5">88</constant>
+    <constant name="vlastnost_dataSocket4">87</constant>
+    <constant name="vlastnost_dataSocket3">86</constant>
     <constant name="vlastnost_dataSocket2">85</constant>
     <constant name="vlastnost_dataSocket1">84</constant>
     <constant name="vlastnost_bodyCanvasSlashSprite">83</constant>

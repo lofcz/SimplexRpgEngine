@@ -42,3 +42,12 @@ if (dir == "w")
 
 idleImage = image_index div 3 * 3;    
 return image_index;        
+#define apiNpcSay
+/// apiNpcSay(text)
+
+var t;
+t = "Sample text";
+
+if (argument_count > 0) {t = argument[0];}
+
+ds_queue_enqueue(speechQueue, t);

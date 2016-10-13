@@ -108,6 +108,9 @@ upgradingItemID = -1;
 upgradingItemSprite = 0;
 upgradingItemSlotID = -1;
 
+enchantItemID[0] = -1;
+enchantItemID[1] = -1;
+enchantItemID[2] = -1;
 enchantItemID[3] = -1;
 enchantItemSprite[3] = 0;
 enchantItemSlotID[3] = -1;
@@ -157,6 +160,17 @@ spellMinY    = (y + 560 + yoffset - 10);
 spellMaxY    = (y + 560 + yoffset + 30);
 
 can_draw = false;
+
+spellsPage = 0;
+drawItemsSlots  = false;
+
+itemSlot[0, 0] = 0;
+itemSlot[1, 0] = 0;
+itemSlot[2, 0] = 0;
+itemSlot[3, 0] = 0;
+itemSlotsAlpha = 0;
+
+hudAlpha = 1;
 
 scrAchievementRegister(0, "Objevil jsi Simplex!", "Vítej, vývojáři.", 0, medalEnum.diamond);
 
@@ -242,14 +256,17 @@ y = view_yview;
 
 if (room == mapHouseAlice) {draw = false;}
 
-if (instance_number(oPlayer) &gt; 0 &amp;&amp; draw)
+if (!draw) {hudAlpha = lerp(hudAlpha, 0, 0.1);}
+else {hudAlpha = lerp(hudAlpha, 1, 0.1);}
+
+if (instance_number(oPlayer) &gt; 0 &amp;&amp; hudAlpha &gt; 0.02)
 { 
 // Call update scripts
 scrAffectsUpdate();      
 apiPlayerUpdateProperties();
 
 // Reset draw mode + set text align to center
-clr();
+clr(c_black, hudAlpha);
 alg("center", fntPixelSmall);    
 
 // Draw HUD bars (hp, shield, mana, stamina) + experience bar
@@ -265,62 +282,147 @@ alg("default", fntPixelHuge);
        draw_sprite(sSpellsUI,0,x+540+spellsxPlus,y+560+yoffset);
        if (oPlayer.spell[0] = "")
        {
-       draw_set_alpha(0.4);
+       draw_set_alpha(min(0.4, hudAlpha));
        draw_text(x+551+spellsxPlus,y+562+yoffset,"J");
-       draw_set_alpha(1);
+       draw_set_alpha(min(1, hudAlpha));
        }
        else 
             {
             draw_sprite(oPlayer.spell_sprite[0],0,x+540+spellsxPlus,y+560+yoffset);              
-            draw_set_alpha(0.4);
+            draw_set_alpha(min(0.4, hudAlpha));
             if (oPlayer.spell_cd[0] &gt; 0) {draw_rectangle_cd(x+540+3+spellsxPlus,y+560+3+yoffset,x+572+spellsxPlus,y+592+yoffset,360-((oPlayer.spell_cd[0] / oPlayer.temp_cd[0])*360))}
-            draw_set_alpha(1);           
+            draw_set_alpha(min(1, hudAlpha));           
             draw_sprite(sSpellsUI,1,x+540+spellsxPlus,y+560+yoffset); 
             draw_set_font(fntPixelSmall);  
-            draw_text_colour(x+559+spellsxPlus,y+572+yoffset,"J",c_black,c_black,c_black,c_black,1); 
-            draw_text_colour(x+560+spellsxPlus,y+572+yoffset,"J",c_white,c_white,c_white,c_white,1);  
+            draw_text_colour(x+559+spellsxPlus,y+572+yoffset,"J",c_black,c_black,c_black,c_black,min(1, hudAlpha)); 
+            draw_text_colour(x+560+spellsxPlus,y+572+yoffset,"J",c_white,c_white,c_white,c_white,min(1, hudAlpha));  
             draw_set_font(fntPixelHuge);
             }
        draw_sprite(sSpellsUI,0,x+584+spellsxPlus,y+560+yoffset);
        if (oPlayer.spell[1] = "")
        {
-        draw_set_alpha(0.4);
-       draw_text(x+595+spellsxPlus,y+562+yoffset,"K");
-       draw_set_alpha(1);
+        draw_set_alpha(min(0.4, hudAlpha));
+        draw_text(x+595+spellsxPlus,y+562+yoffset,"K");
+        draw_set_alpha(min(1, hudAlpha));
        }
        else 
             {
             draw_sprite(oPlayer.spell_sprite[1],0,x+584+spellsxPlus,y+560+yoffset); 
-            draw_set_alpha(0.4);
+            draw_set_alpha(min(0.4, hudAlpha));
             if (oPlayer.spell_cd[1] &gt; 0) {draw_rectangle_cd(x+584+3+spellsxPlus,y+560+3+yoffset,x+616+spellsxPlus,y+592+yoffset,360-((oPlayer.spell_cd[1] / oPlayer.temp_cd[1])*360))}
-            draw_set_alpha(1);           
+            draw_set_alpha(min(1, hudAlpha));           
             draw_sprite(sSpellsUI,1,x+584+spellsxPlus,y+560+yoffset);
             draw_set_font(fntPixelSmall);  
-            draw_text_colour(x+602+spellsxPlus,y+572+yoffset,"K",c_black,c_black,c_black,c_black,1); 
-            draw_text_colour(x+603+spellsxPlus,y+572+yoffset,"K",c_white,c_white,c_white,c_white,1);  
+            draw_text_colour(x+602+spellsxPlus,y+572+yoffset,"K",c_black,c_black,c_black,c_black,min(1, hudAlpha)); 
+            draw_text_colour(x+603+spellsxPlus,y+572+yoffset,"K",c_white,c_white,c_white,c_white,min(1, hudAlpha));  
             draw_set_font(fntPixelHuge);
 
             }
        draw_sprite(sSpellsUI,0,x+628+spellsxPlus,y+560+yoffset);
        if (oPlayer.spell[2] = "")
        {
-        draw_set_alpha(0.4);
-       draw_text(x+640+spellsxPlus,y+561+yoffset,"L");
-       draw_set_alpha(1);
+        draw_set_alpha(min(0.4, hudAlpha));
+        draw_text(x+640+spellsxPlus,y+561+yoffset,"L");
+        draw_set_alpha(min(1, hudAlpha));
        }
        else 
             {
             draw_sprite(oPlayer.spell_sprite[2],0,x+628+spellsxPlus,y+560+yoffset);  
-            draw_set_alpha(0.4);
+            draw_set_alpha(min(0.4, hudAlpha));
             if (oPlayer.spell_cd[2] &gt; 0) {draw_rectangle_cd(x+628+3+spellsxPlus,y+560+3+yoffset,x+660+spellsxPlus,y+592+yoffset,360-((oPlayer.spell_cd[2] / oPlayer.temp_cd[2])*360))}
-            draw_set_alpha(1);     
+            draw_set_alpha(min(1, hudAlpha));     
             draw_sprite(sSpellsUI,1,x+628+spellsxPlus,y+560+yoffset);
             draw_set_font(fntPixelSmall);  
-            draw_text_colour(x+645+spellsxPlus,y+572+yoffset,"L",c_black,c_black,c_black,c_black,1); 
-            draw_text_colour(x+646+spellsxPlus,y+572+yoffset,"L",c_white,c_white,c_white,c_white,1);  
+            draw_text_colour(x+645+spellsxPlus,y+572+yoffset,"L",c_black,c_black,c_black,c_black,min(1, hudAlpha)); 
+            draw_text_colour(x+646+spellsxPlus,y+572+yoffset,"L",c_white,c_white,c_white,c_white,min(1, hudAlpha));  
             draw_set_font(fntPixelHuge);
             }
        
+     // Draw item slots
+     clr(c_black, min(0.5, hudAlpha));
+     draw_roundrect_ext(x+685, y+500, x+699, y+549, 2, 2, false);
+     draw_roundrect_ext(x+685, y+550, x+699, y+599, 2, 2, false);
+     clr(c_black, hudAlpha);   
+     draw_roundrect_ext(x+685, y+500, x+699, y+549, 2, 2, true);
+     draw_roundrect_ext(x+685, y+550, x+699, y+599, 2, 2, true);   
+     
+     clr(c_white, hudAlpha);
+     fnt();
+     if (!drawItemsSlots) {draw_text(x+690, y+513, "&lt;");} else {draw_text(x+690, y+513, "&gt;");}
+     draw_text(x+690, y+563, "&gt;");
+     clr(c_black, hudAlpha);
+
+     // Handle on-click event
+     if (mouse_check_button_pressed(mb_left))
+        {
+         if (mouse_in(x + 685, x + 699, y + 500, y + 549))
+            {
+             drawItemsSlots = !drawItemsSlots;
+            }
+        }
+     // Adjust alpha
+     if (drawItemsSlots) {itemSlotsAlpha = lerp(itemSlotsAlpha, 1, 0.1);}
+     else {itemSlotsAlpha = lerp(itemSlotsAlpha, 0, 0.1);}   
+     
+     
+     // Draw item slots   
+     if (itemSlotsAlpha &gt; 0.05)
+        {
+         clr(c_black, min(itemSlotsAlpha, hudAlpha));
+         for (var z = 0; z &lt; 3; z++)
+            {
+             number = 0;
+             if (itemSlot[z, 0] != 0) {number = inventoryNumber(itemSlot[z, 0]);}
+             if (number == 0) {itemSlot[z, 0] = 0;}
+             
+             draw_sprite(sSpellsUI, 2, x + 540 + spellsxPlus + (z * 44), y + 520 + yoffset);
+             if (number &gt; 0) {alg("center", fntPixelSmall); draw_text(x + 540 + spellsxPlus + (z * 44) + 28, y + 520 + yoffset + 6, string(number)); alg();}
+             fnt(fntPixelTiny);
+             draw_text(x + 540 + spellsxPlus + (z * 44) + 25, y + 520 + yoffset + 20, string(z + 1)); 
+             fnt();
+             
+              // Handle item drop - assign item
+              if (oInventory.slot_vlastnosti[oInventory.h_c, vlastnost_canBeFastEquiped] &amp;&amp; oInventory.drag)
+                    {
+                      draw_sprite(sSpellsUI, 3, x + 540 + spellsxPlus + (z * 44), y + 520 + yoffset);                    
+                    }
+                    
+              if (mouse_in(x + 540 + spellsxPlus + (z * 44), x + 540 + spellsxPlus + (z * 44) + 36, y + 520 + yoffset, y + 520 + yoffset + 36))
+                {                
+                 if (oInventory.drag &amp;&amp; mouse_check_button_released(mb_left) &amp;&amp; oInventory.slot_vlastnosti[oInventory.h_c, vlastnost_canBeFastEquiped])
+                    {
+                      itemSlot[z, 0] = oInventory.equip_sprite_s[6];
+                    }
+                 else if (mouse_check_button_pressed(mb_left))
+                    {
+                     itemSlot[z, 0] = 0;
+                    }
+                }
+                
+              // Draw details of assigned slots
+              if (itemSlot[z, 0] != 0)
+                 {
+                  draw_sprite(sTestItem, (itemSlot[z, 0] - 1), x + 540 + spellsxPlus + (z * 44) + 16, y + 520 + yoffset + 16);                  
+                 }
+            }
+        }
+
+     // Handle usage of quick items
+     if ((keyboard_check_pressed(vk_anykey) &amp;&amp; keyboard_lastchar == '+') || keyboard_check_pressed(vk_numpad1))
+        {
+         if (itemSlot[0, 0] != 0) {inventoryAction(itemSlot[0, 0], 0);}
+        }   
+
+     if ((keyboard_check_pressed(vk_anykey) &amp;&amp; keyboard_lastchar == 'ě') || keyboard_check_pressed(vk_numpad2))
+        {
+         if (itemSlot[1, 0] != 0) {inventoryAction(itemSlot[1, 0], 0);}
+        }
+        
+     if ((keyboard_check_pressed(vk_anykey) &amp;&amp; keyboard_lastchar == 'š') || keyboard_check_pressed(vk_numpad3))
+        {
+         if (itemSlot[2, 0] != 0) {inventoryAction(itemSlot[2, 0], 0);}
+        }
+                        
      // Black outline alpha UP
      if (effect_scale2   &lt; 1.2 &amp;&amp; draw_quest)     {effect_scale2   += 0.02;}          
      if (effect_scale    &lt; 1.2 &amp;&amp; draw_bestiary)  {effect_scale    += 0.02;}
@@ -329,29 +431,29 @@ alg("default", fntPixelHuge);
      if (scale_status    &lt; 1.2 &amp;&amp; draw_status)    {scale_status    += 0.02;}
  
      // Draw outline
-     tempAlpha = min(0.7, iconAlpha[hudIcons.bestiary]);
+     tempAlpha = min(0.7, iconAlpha[hudIcons.bestiary], hudAlpha);
      if (iconAlpha[hudIcons.bestiary] &lt; 1) {tempAlpha = 0;}
      draw_sprite_ext(sBestiary,0,view_xview+8+16,view_yview+560+16+yoffset,effect_scale,effect_scale,0,c_black,tempAlpha);
-     tempAlpha = min(0.7, iconAlpha[hudIcons.crafting]);
+     tempAlpha = min(0.7, iconAlpha[hudIcons.crafting], hudAlpha);
      if (iconAlpha[hudIcons.crafting]  &lt; 1) {tempAlpha = 0;}
      draw_sprite_ext(sCrafting,0,view_xview+16+128,view_yview+560+16+yoffset,scale_crafting,scale_crafting,0,c_black,tempAlpha);
-     tempAlpha = min(0.7, iconAlpha[hudIcons.equipment]);
+     tempAlpha = min(0.7, iconAlpha[hudIcons.equipment], hudAlpha);
      if (iconAlpha[hudIcons.equipment]  &lt; 1) {tempAlpha = 0;}
      draw_sprite_ext(sEquipment,0,view_xview+24+128+32,view_yview+560+16+yoffset,scale_equipment,scale_equipment,0,c_black,tempAlpha);
-     tempAlpha = min(0.7, iconAlpha[hudIcons.status]);
+     tempAlpha = min(0.7, iconAlpha[hudIcons.status], hudAlpha);
      if (iconAlpha[hudIcons.status]  &lt; 1) {tempAlpha = 0;}
      draw_sprite_ext(sStatus,0,view_xview+32+128+64,view_yview+560+16+yoffset,scale_status,scale_status,0,c_black,tempAlpha);
-     tempAlpha = min(0.7, iconAlpha[hudIcons.quest]);
+     tempAlpha = min(0.7, iconAlpha[hudIcons.quest], hudAlpha);
      if (iconAlpha[hudIcons.quest]  &lt; 1) {tempAlpha = 0;}
      draw_sprite_ext(sQuestIcon,0,view_xview+96+8,view_yview+560+16+yoffset,effect_scale2,effect_scale2,0,c_black,tempAlpha);
 
      
      // Draw full icons
-     draw_sprite_ext(sBestiary,  0, (view_xview + 24 ), (view_yview + 576 + yoffset), iconAlpha[hudIcons.bestiary],  iconAlpha[hudIcons.bestiary],  0, c_white, iconAlpha[hudIcons.bestiary]);
-     draw_sprite_ext(sCrafting,  0, (view_xview + 144), (view_yview + 576 + yoffset), iconAlpha[hudIcons.crafting],  iconAlpha[hudIcons.crafting],  0, c_white, iconAlpha[hudIcons.crafting]);
-     draw_sprite_ext(sEquipment, 0, (view_xview + 184), (view_yview + 576 + yoffset), iconAlpha[hudIcons.equipment], iconAlpha[hudIcons.equipment], 0, c_white, iconAlpha[hudIcons.equipment]);
-     draw_sprite_ext(sStatus,    0, (view_xview + 224), (view_yview + 576 + yoffset), iconAlpha[hudIcons.status],    iconAlpha[hudIcons.status],    0, c_white, iconAlpha[hudIcons.status]);
-     draw_sprite_ext(sQuestIcon, 0, (view_xview + 104), (view_yview + 576 + yoffset), iconAlpha[hudIcons.quest],     iconAlpha[hudIcons.quest],     0, c_white, iconAlpha[hudIcons.quest]);
+     draw_sprite_ext(sBestiary,  0, (view_xview + 24 ), (view_yview + 576 + yoffset), iconAlpha[hudIcons.bestiary],  iconAlpha[hudIcons.bestiary],  0, c_white, min(iconAlpha[hudIcons.bestiary], hudAlpha));
+     draw_sprite_ext(sCrafting,  0, (view_xview + 144), (view_yview + 576 + yoffset), iconAlpha[hudIcons.crafting],  iconAlpha[hudIcons.crafting],  0, c_white, min(iconAlpha[hudIcons.crafting], hudAlpha));
+     draw_sprite_ext(sEquipment, 0, (view_xview + 184), (view_yview + 576 + yoffset), iconAlpha[hudIcons.equipment], iconAlpha[hudIcons.equipment], 0, c_white, min(iconAlpha[hudIcons.equipment], hudAlpha));
+     draw_sprite_ext(sStatus,    0, (view_xview + 224), (view_yview + 576 + yoffset), iconAlpha[hudIcons.status],    iconAlpha[hudIcons.status],    0, c_white, min(iconAlpha[hudIcons.status], hudAlpha));
+     draw_sprite_ext(sQuestIcon, 0, (view_xview + 104), (view_yview + 576 + yoffset), iconAlpha[hudIcons.quest],     iconAlpha[hudIcons.quest],     0, c_white, min(iconAlpha[hudIcons.quest], hudAlpha));
 
      // Adjust full icons alpha
      for (i = 0; i &lt; array_length_1d(iconAlpha); i++)
@@ -417,16 +519,16 @@ if (draw_crafting) {scrCraftingDraw();}
 tempComponent = false;
 }
    
-if (oPlayer.last_hp &lt;= 0) { die = 1; oPlayer.can_move2 = 0;}     
+if (oPlayer.last_hp &lt;= 0) {die = 1; oPlayer.can_move2 = 0;}  
+   
 if (die)
-{
-        die_alpha += 0.05;
-        draw_set_color(c_black);
-        draw_set_alpha(die_alpha);
-        draw_rectangle(view_xview,view_yview,view_xview+view_wview,view_yview+view_hview,0);
-        
-        if (die_alpha &gt;= 1) {game_restart();}
-}
+    {
+     die_alpha += 0.05;
+     draw_set_color(c_black);
+     draw_set_alpha(die_alpha);
+     draw_rectangle(view_xview,view_yview,view_xview+view_wview,view_yview+view_hview,0);        
+     if (die_alpha &gt;= 1) {game_restart();}
+    }
 
 // Spell switching
 /// Spell switching

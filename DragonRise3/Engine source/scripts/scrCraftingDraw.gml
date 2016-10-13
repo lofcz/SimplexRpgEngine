@@ -411,17 +411,17 @@ else
                      // Confirm crafting
                      if (mouse_check_button_pressed(mb_left) && textColor == c_lime)
                         {
-                        for (i = 0; i < 3; i++)
+                        for (k = 0; k < 3; k++)
                             {
-                            if (enchantItemSprite[i] > 0 && !oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeBaked1 + i])
+                            if (enchantItemSprite[k] > 0 && !oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeBaked1 + k])
                                 {
-                                inventoryDelete(enchantItemID[i], 1);
+                                inventoryDelete(enchantItemID[k], 1);
                                 scrCraftingUpgradeStats();
                                 audio_play_sound(sndItemUpgrade1, 0, false);
-                                oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeBaked1 + i] = true;
-                                oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeSprite1 + i] = enchantItemSprite[i];  
-                                oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeID1 + i] = enchantItemID[i];                                  
-                                oInventory.slot[enchantItemSlotID[i], inv_item_beingUsed] = false;                                                                                         
+                                oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeBaked1 + k] = true;
+                                oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeSprite1 + k] = enchantItemSprite[k];  
+                                oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_upgradeID1 + k] = enchantItemID[k];                                  
+                                oInventory.slot[enchantItemSlotID[k], inv_item_beingUsed] = false;                                                                                         
                                 }
                             }
                             

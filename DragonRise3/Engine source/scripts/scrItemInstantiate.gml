@@ -41,7 +41,6 @@ if (aD)
       b.animateDrop      = true;
       b.animateDropDir   = random(360);
       b.animateDropForce = random_range(dF - 0.5 , dF + 0.5);
-      with(b) {position_free();}
 }
 else
 {

@@ -27,13 +27,16 @@
             <kind>1</kind>
             <string>/// Initialise
 
-
 sprLight = sBasicLight;
 sprLightIndex = 0;
 scale = 2;
 color = c_white;
 sprAlpha = 0.5;
 rot = 0;
+
+ini_open("config.cfg");
+testKey = ini_read_real("keybinding", "move_right", 68);
+ini_close();
 
 set_sprite(sprite_index,0);
 instance_create(x,y,oPlayerCombat);
@@ -345,6 +348,31 @@ cyber_r ++;
 //surface_set_target(surface);
 //draw_circle(x,y,cyber_r,0);
 
+// test
+if (keyboard_check_pressed(vk_numpad7))
+    {
+     game_save("myFile.dat");
+     with(oHUD)
+        {
+         tempStr = ds_list_write(craftingKnownItems);
+         file = file_text_open_write("saveData.txt");
+         file_text_write_string(file, tempStr);
+         file_text_writeln(file);
+         file_text_close(file);
+        }
+     
+    }
+if (keyboard_check_pressed(vk_numpad8))
+    {
+     game_load("myFile.dat");
+     with(oHUD)
+        {
+         file = file_text_open_read("saveData.txt");
+         tempStr = file_text_readln(file);
+         ds_list_read(craftingKnownItems, tempStr);
+         file_text_close(file);
+        }
+    }
 //surface_reset_target();
 if (can_move2)
 {
@@ -429,7 +457,13 @@ scrCutscenePlay(ins1, DemoCutscene, false, 1);
 
 //apiPlayerSay("Ahoj. :-)");
 //apiPlayerSay("Bavíš se?");
-oDayNight.spd = 100;
+oHUD.draw = !oHUD.draw
+
+with(oHUD)
+    {
+     craftingItemsSprite[0, 4] = 7; 
+    scrCraftingSetItemKnown(4, "Dřevo", "Poškození: " + scrColorflag(c_lime) + "5" + scrEndColorflag() + " - " + scrColorflag(c_lime) + "8#" + scrEndColorflag() + "Stamina na úder: " + scrColorflag(c_red) + "4 " + scrEndColorflag() + "- " + scrColorflag(c_red) + "5#");
+    }
 
 </string>
           </argument>

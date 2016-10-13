@@ -77,6 +77,7 @@ instance_activate_object(oStatusMenu);
 instance_activate_object(oAchievement);
 instance_activate_object(oState);
 instance_activate_object(oDepthHelperAbovePlayer);
+instance_activate_object(oThrowableItem);
 
 // Further optimization of collision system
 instance_deactivate_object(oNonsolidCollision);
@@ -91,7 +92,18 @@ with(parEnemy)
     {
      instance_activate_region(x - 32, y - 32, 64, 64, true); 
     }
-    
+with(oThrowableItem)
+    {
+     instance_activate_region(x - 32, y - 32, 64, 64, true); 
+    } 
+with(oBasicSpell)
+    {
+     instance_activate_region(x - 32, y - 32, 64, 64, true); 
+    }  
+with(oLenghdirSpell)
+    {
+     instance_activate_region(x - 32, y - 32, 64, 64, true); 
+    }     
 collisionNearest[0] = instance_nearest(oPlayer.x, oPlayer.y, oNonsolidCollision);
 collisionNearest[1] = instance_nearest(oPlayer.x, oPlayer.y, oAdvancedCollision);
 

@@ -198,13 +198,14 @@ if (option[message_current] = -1)
 
 x = view_xview+5;
 y = view_yview-10;
+scrSetActiveTempComponent(true);
 
 if (effect == "fadeOut") {if (ta &gt; 0) {ta -= 0.05;} else {ta = 0; pos = 1; message_current++; effect = "fadeIn";}}
 if (effect == "fadeIn") {if (ta &lt; 1) {ta += 0.05;} else {ta = 1; effect = "false";}}
 if (effect == "fadeInOnly") {if (ta &gt; 0) {ta -= 0.05;} else {ta = 1; pos = 1; message_current++; effect = "false";}}
 if (effect == "fadeInOnlyNoNext") {if (ta &lt; 1) {ta += 0.05;} else {ta = 1; effect = "false";}}
 
-if (instance_number(oInventory) &gt; 0) {oInventory.draw_inventory = 0;}
+if (instance_number(oInventory) &gt; 0) {oInventory.draw_inventory = 0; oInventory.draw_equipment = false;}
 
 if (bac_alpha &lt; 0.3 &amp;&amp; draw) {bac_alpha += 0.01;}
 clr(c_black,bac_alpha);

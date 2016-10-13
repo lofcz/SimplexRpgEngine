@@ -129,7 +129,7 @@ if (mode = "combat") {scrCenterText(); draw_text_transformed(x-(string_width(tex
 if (sprite != -1) 
    {
    if (a &lt; sprite_get_number(sprite)) {a += ani;} else {a = 0;}
-   draw_sprite(sprite,a,x+(string_width(text)/2),y);
+   draw_sprite(sprite,a,x+(string_width(text)/2) + 16,y + 16);
    
    }
 draw_set_color(c_black);

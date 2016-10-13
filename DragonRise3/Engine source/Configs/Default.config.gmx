@@ -437,7 +437,7 @@
     <option_showprogress>1</option_showprogress>
     <option_sizeable>False</option_sizeable>
     <option_stayontop>false</option_stayontop>
-    <option_sync_vertex>0</option_sync_vertex>
+    <option_sync_vertex>2147483648</option_sync_vertex>
     <option_textureGroup0_border>2</option_textureGroup0_border>
     <option_textureGroup0_nocropping>0</option_textureGroup0_nocropping>
     <option_textureGroup0_parent>&lt;none&gt;</option_textureGroup0_parent>
@@ -488,12 +488,12 @@
     <option_variableerrors>False</option_variableerrors>
     <option_version>100</option_version>
     <option_version_build>1</option_version_build>
-    <option_version_company></option_version_company>
-    <option_version_copyright></option_version_copyright>
+    <option_version_company>SimplexTeam</option_version_company>
+    <option_version_copyright>2015 Matěj Štágl</option_version_copyright>
     <option_version_description></option_version_description>
     <option_version_major>1</option_version_major>
     <option_version_minor>0</option_version_minor>
-    <option_version_product></option_version_product>
+    <option_version_product>Simplex RPG Engine</option_version_product>
     <option_version_release>0</option_version_release>
     <option_win8_advertising_appid></option_win8_advertising_appid>
     <option_win8_advertising_enable>0</option_win8_advertising_enable>
@@ -564,8 +564,8 @@
     <option_windowcolor>clBlack</option_windowcolor>
     <option_windows_alternate_sync_method>False</option_windows_alternate_sync_method>
     <option_windows_build_version>1</option_windows_build_version>
-    <option_windows_company_info></option_windows_company_info>
-    <option_windows_copyright_info></option_windows_copyright_info>
+    <option_windows_company_info>SimplexTeam</option_windows_company_info>
+    <option_windows_copyright_info>2015 Matěj Štágl</option_windows_copyright_info>
     <option_windows_create_textures_on_demand>True</option_windows_create_textures_on_demand>
     <option_windows_description_info></option_windows_description_info>
     <option_windows_enable_steam>0</option_windows_enable_steam>
@@ -574,7 +574,7 @@
     <option_windows_mainor_version>0</option_windows_mainor_version>
     <option_windows_major_version>1</option_windows_major_version>
     <option_windows_nsis_file>Configs\Default\windows\RunnerInstaller.nsi</option_windows_nsis_file>
-    <option_windows_product_info></option_windows_product_info>
+    <option_windows_product_info>Simplex RPG Engine</option_windows_product_info>
     <option_windows_release_version>0</option_windows_release_version>
     <option_windows_runner_finished>Configs\Default\windows\Runner_finish.bmp</option_windows_runner_finished>
     <option_windows_runner_header>Configs\Default\windows\Runner_header.bmp</option_windows_runner_header>

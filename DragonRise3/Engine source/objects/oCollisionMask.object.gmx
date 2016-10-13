@@ -59,13 +59,15 @@ if (type == "chest")
     if (instance_number(oPlayer) &gt; 0)
        {
         if (instance_number(idd) &gt; 0)
-           {
-        
+           {        
             if (distance_to_object(oPlayer) == 0)
                { 
                 if (oPlayer.last_dir == dir)
                    {
                    (idd).text = 1;
+                    scrSetActiveTempComponent(true);
+                    oInventory.draw_equipment = false;
+                    
                               
                 if (keyboard_check_pressed(ord(open_char)))
                     {                           

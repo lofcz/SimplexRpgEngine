@@ -19,6 +19,32 @@
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>apiNpcSay("Počkám uvnitř");
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </entry>
+  <entry>
+    <step>40</step>
+    <event>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>scrCutsceneMoveTowardsPoint(self, 800, 672, 2);
 </string>
           </argument>
@@ -27,7 +53,7 @@
     </event>
   </entry>
   <entry>
-    <step>16</step>
+    <step>56</step>
     <event>
       <action>
         <libid>1</libid>
@@ -53,7 +79,7 @@
     </event>
   </entry>
   <entry>
-    <step>32</step>
+    <step>72</step>
     <event>
       <action>
         <libid>1</libid>
@@ -79,7 +105,7 @@
     </event>
   </entry>
   <entry>
-    <step>48</step>
+    <step>88</step>
     <event>
       <action>
         <libid>1</libid>
@@ -105,7 +131,7 @@
     </event>
   </entry>
   <entry>
-    <step>64</step>
+    <step>104</step>
     <event>
       <action>
         <libid>1</libid>
@@ -131,7 +157,7 @@
     </event>
   </entry>
   <entry>
-    <step>96</step>
+    <step>136</step>
     <event>
       <action>
         <libid>1</libid>
@@ -158,7 +184,7 @@
     </event>
   </entry>
   <entry>
-    <step>97</step>
+    <step>137</step>
     <event>
       <action>
         <libid>1</libid>
@@ -185,7 +211,7 @@ instance_destroy();
     </event>
   </entry>
   <entry>
-    <step>98</step>
+    <step>138</step>
     <event>
       <action>
         <libid>1</libid>
