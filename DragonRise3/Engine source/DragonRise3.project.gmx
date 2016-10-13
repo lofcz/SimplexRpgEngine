@@ -935,6 +935,10 @@
       <scripts name="Throwable">
         <script>scripts\scrThrowItem.gml</script>
       </scripts>
+      <scripts name="Save and load">
+        <script>scripts\scrGameSave.gml</script>
+        <script>scripts\scrGameLoad.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <shaders name="shaders">

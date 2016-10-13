@@ -351,27 +351,11 @@ cyber_r ++;
 // test
 if (keyboard_check_pressed(vk_numpad7))
     {
-     game_save("myFile.dat");
-     with(oHUD)
-        {
-         tempStr = ds_list_write(craftingKnownItems);
-         file = file_text_open_write("saveData.txt");
-         file_text_write_string(file, tempStr);
-         file_text_writeln(file);
-         file_text_close(file);
-        }
-     
+     scrGameSave();
     }
 if (keyboard_check_pressed(vk_numpad8))
     {
-     game_load("myFile.dat");
-     with(oHUD)
-        {
-         file = file_text_open_read("saveData.txt");
-         tempStr = file_text_readln(file);
-         ds_list_read(craftingKnownItems, tempStr);
-         file_text_close(file);
-        }
+     scrGameLoad();
     }
 //surface_reset_target();
 if (can_move2)
