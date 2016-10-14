@@ -265,6 +265,7 @@
         <sprite>sprites\sTree3</sprite>
       </sprites>
       <sprites name="Other obstacles">
+        <sprite>sprites\sAltar</sprite>
         <sprite>sprites\sSimpleWater</sprite>
         <sprite>sprites\sWaterMask</sprite>
         <sprite>sprites\sWater</sprite>
@@ -1220,6 +1221,7 @@
         <object>objects\oSimpleWater</object>
         <object>objects\oTeleport</object>
         <object>objects\oFence</object>
+        <object>objects\oAltar</object>
       </objects>
       <objects name="Containers">
         <object>objects\oChest</object>

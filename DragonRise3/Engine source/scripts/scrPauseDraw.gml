@@ -116,7 +116,9 @@ if (mass < maxBlur) {mass += pauseSpeed;}
              if (menuMode == 0)
                 {
                  if (pauseItemSelected == 0) {fadeMode = "out";}
-                 if (pauseItemSelected == 1) {menuMode = 1;}                
+                 if (pauseItemSelected == 1) {menuMode = 1;}
+                 if (pauseItemSelected == 2) {}                
+                 if (pauseItemSelected == 3) {}                
                 }
              else if (menuMode == 1)
                 {
@@ -125,8 +127,8 @@ if (mass < maxBlur) {mass += pauseSpeed;}
                 }
              else if (menuMode == 2)
                 {
-                 if (soundTextSelected == 0) {if (global.volFX < 100) {global.volFX += 5;} else {global.volFX = 0;}}
-                 if (soundTextSelected == 1) {if (global.volMX < 100) {global.volMX += 5;} else {global.volMX = 0;}}
+                 if (soundTextSelected == 0) {if (global.volFX < 100) {global.volFX += 5;} else {global.volFX = 0;} audio_master_gain(global.volFX / 100);}
+                 if (soundTextSelected == 1) {if (global.volMX < 100) {global.volMX += 5;} else {global.volMX = 0;} audio_master_gain(global.volFX / 100);}
                  if (soundTextSelected == 2) {menuMode = 1;}
                 }
             }              

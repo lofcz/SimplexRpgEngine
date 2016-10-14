@@ -33,7 +33,7 @@ animate = 0;
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -66,8 +66,6 @@ if (type == "chest")
                    {
                    (idd).text = 1;
                     scrSetActiveTempComponent(true);
-                    oInventory.draw_equipment = false;
-                    
                               
                 if (keyboard_check_pressed(ord(open_char)))
                     {                           
@@ -108,33 +106,66 @@ if (type == "chest")
      }       
   }   
 }
+
+if (type == "altar")
+   {
+    if (instance_number(oPlayer) &gt; 0)
+       {
+        if (instance_number(idd) &gt; 0)
+           {        
+            if (distance_to_object(oPlayer) == 0)
+               { 
+                if (oPlayer.last_dir == dir)
+                   {
+                    (idd).text = true;
+                    scrSetActiveTempComponent(true);
+                              
+                if (keyboard_check_pressed(ord(open_char)))
+                    { 
+                     if (!(idd).interacting) 
+                        {
+                         (idd).interacting = true;
+                         (idd).textAlpha   = 0;
+                        }                          
+                     else if ((idd).unlocked)
+                     {
+                     with((idd))
+                     {
+                     open = !open;
+                     text_alpha = 0;
+                     audio_play_sound(sndChest,0,0);
+                     apiPlayerReverseState(); 
+
+                     if (open) {animate = 1;}
+                     else {animate = 2;}                    
+                     }
+                     }
+                   }               
+                }
+                 else 
+                     {
+                      if (idd).open {audio_play_sound(sndChest,0,0);}
+                      (idd).text = 0;
+                      (idd).open = 0;
+                      (idd).animate = 2;
+                     }
+               }
+               else 
+                   {              
+                   (idd).open = 0;  
+                   if ((idd).textAlpha &lt;= 0) {(idd).interacting = false;}                
+                   if ((idd).animate == 1)
+                   {
+                   (idd).animate = 2;                                   
+                   }                   
+                   }
+     }       
+  }   
+}
    
 
 
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Don't draw anything
 </string>
           </argument>
         </arguments>
