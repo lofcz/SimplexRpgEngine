@@ -646,6 +646,7 @@
         <script>scripts\mouse_in.gml</script>
         <script>scripts\instance_nnearest.gml</script>
         <script>scripts\scrColorflag.gml</script>
+        <script>scripts\scrColorText.gml</script>
         <script>scripts\instance_set_position.gml</script>
         <script>scripts\scrSetActiveComponent.gml</script>
         <script>scripts\scrGettActiveComponent.gml</script>

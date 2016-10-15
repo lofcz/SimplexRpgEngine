@@ -47,6 +47,7 @@ textAlpha = 0;
 text = false;
 activateText = "Oltář vypadá sešle. V prohlubni chybí nějaký disk";
 interactionText = "E";
+canBeActivatedText = "Mám chybějící disk" + scrColorText("(E - aktivovat)", c_yellow);
 
 </string>
           </argument>
@@ -88,14 +89,20 @@ if (!unlocked)
      if (textAlpha &gt; 0.02)
         {
          if (!interacting) {tempText = interactionText;}
-         else {tempText = activateText;}
-         
-         alg("center", fntPixel);
+         else 
+            {
+             if (inventoryNumber(itemEnum.itemRelic) &gt; 0) {tempText = canBeActivatedText;}
+             else {tempText = activateText;}
+            }
+            
+                 
+       //  alg("center", fntPixel);
+         fnt(fntPixel);
+         v = string_width(dialogueParse(tempText));  
          clr(c_black, (textAlpha / 2));
-         draw_roundrect_colour_ext(x - (string_width(tempText) / 2) - 10, y - string_height(tempText) / 2 - 32,x + string_width(tempText)/2+10,y+string_height(tempText)/2+4-32,20,20,c_black,c_black,false);
+         draw_roundrect_colour_ext(x - (v / 2) - 10, y - string_height(tempText) / 2 - 32, (x + (v / 2) + 10), (y + (string_height(tempText) / 2) + 4 - 32), 20, 20, c_black, c_black, false);
          clr(c_white, textAlpha);
-         draw_text(x, (y - 32), tempText);
-         alg();
+         draw_text_colored(x - (v / 2), (y - 32), tempText);
          clr();
         }
     }
