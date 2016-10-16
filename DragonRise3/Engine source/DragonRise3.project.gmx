@@ -168,49 +168,51 @@
   </datafiles>
   <NewExtensions/>
   <sounds name="sound">
-    <sound>sound\sound0</sound>
-    <sound>sound\sndCoin</sound>
-    <sound>sound\sndCoinPile</sound>
-    <sound>sound\sndWeaponPickup</sound>
-    <sound>sound\sndRindPickup</sound>
-    <sound>sound\sndChest</sound>
-    <sound>sound\sndSlime1</sound>
-    <sound>sound\sndSword1</sound>
-    <sound>sound\sndSword2</sound>
-    <sound>sound\sndHealth</sound>
-    <sound>sound\sndExp</sound>
-    <sound>sound\sndSlime2</sound>
-    <sound>sound\sndWoodHit1</sound>
-    <sound>sound\sndWoodHit2</sound>
-    <sound>sound\sndSwordHitCrate2</sound>
-    <sound>sound\sndSwordCutBush</sound>
-    <sound>sound\sndSwordHitCrate1</sound>
-    <sound>sound\sndKnock</sound>
-    <sound>sound\sndFireball1</sound>
-    <sound>sound\sndFireball1Explosion</sound>
-    <sound>sound\sndIcicle1</sound>
-    <sound>sound\sndIcicle1Impact</sound>
-    <sound>sound\sndError</sound>
-    <sound>sound\sndPoo</sound>
-    <sound>sound\sndInventoryExtend</sound>
-    <sound>sound\sndBuyItem</sound>
-    <sound>sound\sndSkillUp</sound>
-    <sound>sound\sndMenuClick1</sound>
-    <sound>sound\sndSpellLevelUp</sound>
-    <sound>sound\sndSoundLevelUp</sound>
-    <sound>sound\sndArmor2</sound>
-    <sound>sound\sndArmor4</sound>
-    <sound>sound\sndArmor3</sound>
-    <sound>sound\sndArmor1</sound>
-    <sound>sound\sndItemCrafted</sound>
-    <sound>sound\sndTumblerYes</sound>
-    <sound>sound\sndTumblerNo</sound>
-    <sound>sound\sndSpellUpgrade</sound>
-    <sound>sound\sndItemUpgrade1</sound>
-    <sound>sound\sndMaterialUpgrade1</sound>
-    <sound>sound\sndCheckUnlocked</sound>
-    <sound>sound\sndTeleport</sound>
-    <sound>sound\sndAchievement</sound>
+    <sounds name="Sounds">
+      <sound>sound\sound0</sound>
+      <sound>sound\sndCoin</sound>
+      <sound>sound\sndCoinPile</sound>
+      <sound>sound\sndWeaponPickup</sound>
+      <sound>sound\sndRindPickup</sound>
+      <sound>sound\sndSlime1</sound>
+      <sound>sound\sndChest</sound>
+      <sound>sound\sndSword1</sound>
+      <sound>sound\sndSword2</sound>
+      <sound>sound\sndHealth</sound>
+      <sound>sound\sndExp</sound>
+      <sound>sound\sndSlime2</sound>
+      <sound>sound\sndWoodHit1</sound>
+      <sound>sound\sndWoodHit2</sound>
+      <sound>sound\sndSwordHitCrate2</sound>
+      <sound>sound\sndSwordCutBush</sound>
+      <sound>sound\sndSwordHitCrate1</sound>
+      <sound>sound\sndKnock</sound>
+      <sound>sound\sndFireball1</sound>
+      <sound>sound\sndIcicle1</sound>
+      <sound>sound\sndIcicle1Impact</sound>
+      <sound>sound\sndFireball1Explosion</sound>
+      <sound>sound\sndPoo</sound>
+      <sound>sound\sndInventoryExtend</sound>
+      <sound>sound\sndSkillUp</sound>
+      <sound>sound\sndMenuClick1</sound>
+      <sound>sound\sndError</sound>
+      <sound>sound\sndSpellLevelUp</sound>
+      <sound>sound\sndSoundLevelUp</sound>
+      <sound>sound\sndArmor2</sound>
+      <sound>sound\sndArmor4</sound>
+      <sound>sound\sndArmor3</sound>
+      <sound>sound\sndArmor1</sound>
+      <sound>sound\sndItemCrafted</sound>
+      <sound>sound\sndTumblerYes</sound>
+      <sound>sound\sndTumblerNo</sound>
+      <sound>sound\sndSpellUpgrade</sound>
+      <sound>sound\sndBuyItem</sound>
+      <sound>sound\sndMaterialUpgrade1</sound>
+      <sound>sound\sndTeleport</sound>
+      <sound>sound\sndCheckUnlocked</sound>
+      <sound>sound\sndAchievement</sound>
+      <sound>sound\sndItemUpgrade1</sound>
+    </sounds>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\sCatchError</sprite>
@@ -256,6 +258,9 @@
         <sprites name="Goblin">
           <sprite>sprites\sGoblinBodyCanvasBase</sprite>
         </sprites>
+      </sprites>
+      <sprites name="Nature">
+        <sprite>sprites\sButterfly</sprite>
       </sprites>
     </sprites>
     <sprites name="Environment">
@@ -561,64 +566,74 @@
       </sprites>
     </sprites>
     <sprites name="TEMP - RESOURCES">
-      <sprite>sprites\sprite107</sprite>
-      <sprite>sprites\sprite10</sprite>
-      <sprite>sprites\sprite40</sprite>
-      <sprite>sprites\sButterfly</sprite>
-      <sprite>sprites\sprite189_bigset</sprite>
-      <sprite>sprites\sprite115</sprite>
-      <sprite>sprites\sprite38</sprite>
-      <sprite>sprites\sprite116_Recon1_zps6e9a49c7</sprite>
-      <sprite>sprites\sprite60</sprite>
-      <sprite>sprites\sprite122_Items2</sprite>
-      <sprite>sprites\sInventoryMapTEMP</sprite>
-      <sprite>sprites\sprite123_tilee</sprite>
-      <sprite>sprites\sprite130_achievements</sprite>
-      <sprite>sprites\flowers2res</sprite>
-      <sprite>sprites\resource_plants</sprite>
-      <sprite>sprites\sprite203_doors</sprite>
+      <sprite>sprites\sTemp1</sprite>
+      <sprite>sprites\sTemp2</sprite>
+      <sprite>sprites\sTemp3</sprite>
+      <sprite>sprites\sTemp4</sprite>
+      <sprite>sprites\sTemp5</sprite>
+      <sprite>sprites\sTemp6</sprite>
+      <sprite>sprites\sTemp7</sprite>
+      <sprite>sprites\sTemp8</sprite>
+      <sprite>sprites\sTemp9</sprite>
+      <sprite>sprites\sTemp10</sprite>
+      <sprite>sprites\sTemp11</sprite>
+      <sprite>sprites\sTemp12</sprite>
+      <sprite>sprites\sTemp14</sprite>
+      <sprite>sprites\sTemp15</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
-    <background>background\background0</background>
-    <background>background\background1</background>
-    <background>background\background2</background>
-    <background>background\background3</background>
-    <background>background\background7</background>
-    <background>background\background4</background>
-    <background>background\background5</background>
-    <background>background\background6</background>
-    <background>background\background8</background>
-    <background>background\background9</background>
-    <background>background\background9EditThis</background>
-    <background>background\background10</background>
-    <background>background\background23</background>
-    <background>background\background24</background>
-    <background>background\background11</background>
-    <background>background\background12</background>
-    <background>background\background13</background>
-    <background>background\background14</background>
-    <background>background\background15</background>
-    <background>background\background16</background>
-    <background>background\background17</background>
-    <background>background\background18</background>
-    <background>background\background19</background>
-    <background>background\background20</background>
-    <background>background\ruins</background>
-    <background>background\celianna_MV_interior_house2</background>
-    <background>background\background21</background>
-    <background>background\background22</background>
-    <background>background\A4_Server_Tiles_zps6mjyu46o</background>
-    <background>background\celianna_farmnature_farmtiles</background>
-    <background>background\TileE__1_</background>
-    <background>background\background29</background>
-    <background>background\background30</background>
-    <background>background\celianna_TileB1_zpsyp2xxayw</background>
-    <background>background\celianna_farmnature_tileset</background>
-    <background>background\ForestTown02</background>
-    <background>background\celianna_MV_interior_house</background>
-    <background>background\background37</background>
-    <background>background\celian10</background>
+    <backgrounds name=" Single tile backgrounds">
+      <background>background\bcgStb1</background>
+      <background>background\bcgStb2</background>
+    </backgrounds>
+    <backgrounds name=" Exterier">
+      <background>background\bcgEx1</background>
+      <background>background\bcgEx2</background>
+      <background>background\bcgEx3</background>
+      <background>background\bcgEx4</background>
+    </backgrounds>
+    <backgrounds name=" Exterier objects">
+      <background>background\bcgExObj1</background>
+      <background>background\bcgExObj2</background>
+      <background>background\bcgExObj3</background>
+      <background>background\bcgExObj4</background>
+      <background>background\bcgExObj5</background>
+      <background>background\bcgExObj6</background>
+      <background>background\bcgExObj7</background>
+      <background>background\bcgExObj8</background>
+      <background>background\bcgExObj9</background>
+      <background>background\bcgExObj10</background>
+      <background>background\bcgExObj11</background>
+      <background>background\bcgExObj12</background>
+      <background>background\bcgExObj13</background>
+      <background>background\bcgExObj14</background>
+      <background>background\bcgExObj15</background>
+    </backgrounds>
+    <backgrounds name=" Exterier buildings">
+      <background>background\bcgExBui1</background>
+      <background>background\bcgExBui2</background>
+      <background>background\bcgExBui3</background>
+      <background>background\bcgExBui4</background>
+      <background>background\bcgExBui5</background>
+      <background>background\bcgExBui6</background>
+      <background>background\bcgExBui7</background>
+      <background>background\bcgExBui8</background>
+    </backgrounds>
+    <backgrounds name=" Interier">
+      <background>background\bcgIn1</background>
+      <background>background\bcgIn2</background>
+      <background>background\bcgIn3</background>
+      <background>background\bcgIn4</background>
+      <background>background\bcgIn5</background>
+      <background>background\bcgIn6</background>
+    </backgrounds>
+    <backgrounds name=" Shadows">
+      <background>background\bcgShd1</background>
+    </backgrounds>
+    <backgrounds name="TEMP - RESOURCES">
+      <background>background\bcgTemp1</background>
+    </backgrounds>
   </backgrounds>
   <paths name="paths">
     <path>paths\pthCutsceneObet1</path>
@@ -997,8 +1012,10 @@
         <font>fonts\fntPixelTiny</font>
         <font>fonts\fntPixelSmall</font>
       </fonts>
-      <font>fonts\fntRingbearer</font>
-      <font>fonts\fntUnicode</font>
+      <fonts name="Misc">
+        <font>fonts\fntUnicode</font>
+        <font>fonts\fntRingbearer</font>
+      </fonts>
     </fonts>
   </fonts>
   <objects name="objects">
@@ -1024,51 +1041,91 @@
       </objects>
     </objects>
     <objects name="Controllers">
-      <object>objects\oInventory</object>
-      <object>objects\oInventoryDepthHelper</object>
-      <object>objects\oEquipment</object>
-      <object>objects\oController</object>
-      <object>objects\oLog</object>
-      <object>objects\oCamera</object>
-      <object>objects\oCopyright</object>
-      <object>objects\oPlayerCombat</object>
-      <object>objects\oPlayerCombatHelp</object>
-      <object>objects\oMessagebox</object>
-      <object>objects\oCollisionMask</object>
-      <object>objects\oItemText</object>
-      <object>objects\oState</object>
-      <object>objects\oHUD</object>
-      <object>objects\oOptimize</object>
-      <object>objects\oBestiar</object>
-      <object>objects\oDepthHelperAbovePlayer</object>
-      <object>objects\oQuest</object>
-      <object>objects\oMapIntro</object>
-      <object>objects\oMinimap</object>
-      <object>objects\oThrowableItem</object>
-      <object>objects\oBasicSpell</object>
-      <object>objects\oLenghtdirSpellhelper</object>
-      <object>objects\oLenghdirSpell</object>
-      <object>objects\oDayNight</object>
-      <object>objects\oAnswer</object>
-      <object>objects\oScreenShader</object>
-      <object>objects\oPause</object>
-      <object>objects\oTalentMenu</object>
-      <object>objects\oSpellMenu</object>
-      <object>objects\oStatusMenu</object>
-      <object>objects\oLockpickingScreen</object>
-      <object>objects\oDebugCamera</object>
-      <object>objects\oTEST</object>
-      <object>objects\oLightmap</object>
-      <object>objects\oTestObject</object>
-      <object>objects\oLightCircle</object>
-      <object>objects\oLight</object>
-      <object>objects\oAchievement</object>
-      <object>objects\oHintBox</object>
-      <object>objects\oHintBoxButton</object>
-      <object>objects\oScreenFlash</object>
-      <object>objects\oAreaScript</object>
+      <objects name="Camera">
+        <object>objects\oCamera</object>
+        <object>objects\oDebugCamera</object>
+      </objects>
+      <objects name="HUD">
+        <object>objects\oHUD</object>
+        <objects name="Forms">
+          <object>objects\oInventory</object>
+          <object>objects\oEquipment</object>
+          <object>objects\oInventoryDepthHelper</object>
+          <object>objects\oPause</object>
+          <object>objects\oTalentMenu</object>
+          <object>objects\oSpellMenu</object>
+          <object>objects\oStatusMenu</object>
+          <object>objects\oMinimap</object>
+          <object>objects\oState</object>
+          <object>objects\oBestiar</object>
+          <object>objects\oQuest</object>
+          <object>objects\oLockpickingScreen</object>
+          <object>objects\oScreenFlash</object>
+          <object>objects\oDayNight</object>
+          <object>objects\oMapIntro</object>
+          <object>objects\oAchievement</object>
+        </objects>
+        <objects name="Overall">
+          <object>objects\oScreenShader</object>
+        </objects>
+        <objects name="Pop-up">
+          <object>objects\oMessagebox</object>
+          <object>objects\oAnswer</object>
+          <object>objects\oHintBox</object>
+          <object>objects\oHintBoxButton</object>
+        </objects>
+      </objects>
+      <objects name="Prefabs">
+        <object>objects\oBasicSpell</object>
+        <object>objects\oLenghtdirSpellhelper</object>
+        <object>objects\oLenghdirSpell</object>
+        <object>objects\oThrowableItem</object>
+        <object>objects\oCollisionMask</object>
+        <object>objects\oItemText</object>
+      </objects>
+      <objects name="Optimization">
+        <object>objects\oOptimize</object>
+      </objects>
+      <objects name="Combat">
+        <object>objects\oPlayerCombat</object>
+        <object>objects\oPlayerCombatHelp</object>
+        <object>objects\oDepthHelperAbovePlayer</object>
+      </objects>
+      <objects name="Light">
+        <object>objects\oLightmap</object>
+        <object>objects\oLightCircle</object>
+        <object>objects\oLight</object>
+      </objects>
+      <objects name="Misc">
+        <object>objects\oController</object>
+        <object>objects\oLog</object>
+        <object>objects\oAreaScript</object>
+        <object>objects\oCopyright</object>
+        <object>objects\oRoomConroller</object>
+      </objects>
+      <objects name="Effects">
+        <objects name="Gore">
+          <object>objects\oGore1</object>
+          <object>objects\oGore2</object>
+          <object>objects\oGore3</object>
+          <object>objects\oGore4</object>
+          <object>objects\oShard</object>
+        </objects>
+        <objects name="NonParticle">
+          <object>objects\oBasicEffect</object>
+          <object>objects\oBlob</object>
+          <object>objects\oAchievmentOld</object>
+          <object>objects\oRain</object>
+          <object>objects\oRainSplash</object>
+          <object>objects\oSwordSwing</object>
+          <object>objects\oDissolveParticle</object>
+        </objects>
+        <objects name="Particles">
+          <object>objects\oSmokeEmmitor</object>
+        </objects>
+      </objects>
     </objects>
-    <objects name="Dropable and items">
+    <objects name="Items">
       <objects name="Dropable">
         <object>objects\oXpDrop</object>
         <object>objects\oManaDrop</object>
@@ -1213,7 +1270,6 @@
       <object>objects\oTransitionCollision</object>
       <object>objects\oRoomTransition</object>
       <object>objects\parSolid</object>
-      <object>objects\oRoomConroller</object>
     </objects>
     <objects name="Environment">
       <objects name="Trees">
@@ -1240,33 +1296,6 @@
         <object>objects\oFirefly</object>
         <object>objects\oBasicVivid</object>
       </objects>
-    </objects>
-    <objects name="Effects">
-      <objects name="Gore">
-        <object>objects\oGore1</object>
-        <object>objects\oGore2</object>
-        <object>objects\oGore3</object>
-        <object>objects\oGore4</object>
-        <object>objects\oShard</object>
-      </objects>
-      <objects name="NonParticle">
-        <object>objects\oBasicEffect</object>
-        <object>objects\oBlob</object>
-        <object>objects\oAchievmentOld</object>
-        <object>objects\oRain</object>
-        <object>objects\oRainSplash</object>
-        <object>objects\oSwordSwing</object>
-        <object>objects\oDissolveParticle</object>
-      </objects>
-      <objects name="Particles">
-        <object>objects\oSmokeEmmitor</object>
-      </objects>
-    </objects>
-    <objects name="Cutscenes">
-      <object>objects\oCutsceneDayNight</object>
-      <object>objects\oVavrinecCutscene</object>
-      <object>objects\oObet</object>
-      <object>objects\oCutscene</object>
     </objects>
   </objects>
   <timelines name="timelines">
