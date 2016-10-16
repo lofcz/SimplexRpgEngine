@@ -66,5 +66,6 @@ itemGem10,
 itemGem11,
 itemGem12,
 itemGem13,
-itemGem14
+itemGem14,
+itemGemQuest1
 };

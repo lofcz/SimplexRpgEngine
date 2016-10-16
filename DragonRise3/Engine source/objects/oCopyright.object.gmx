@@ -104,6 +104,8 @@ drawSelf = true;
 disFlag = false;
 
 q = -1;
+
+room_speed = 5;
 </string>
           </argument>
         </arguments>

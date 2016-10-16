@@ -55,7 +55,7 @@ inventoryOptionsSetUp("Zavřít","Zahodit","Označit","Odznačit");
             <kind>1</kind>
             <string>/// Draw inventory
 
-inventoryDrawWrapper(view_xview,view_yview);
+inventoryDrawWrapper(view_xview, view_yview);
 </string>
           </argument>
         </arguments>

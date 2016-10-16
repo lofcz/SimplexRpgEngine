@@ -124,7 +124,7 @@ if (active)
      clr(c_black, 0.7);
      draw_roundrect(xx, view_yview, xx + 512, view_yview + 28, false);
      clr(c_white, 1);
-     draw_text(xx + 256 - (string_width("Quesst")  / 2), view_yview, "Quests ");
+     draw_text(xx + 256 - (string_width("Deník ")  / 2), view_yview, "Deník ");
      
      draw_set_font(fntPixel);
      
@@ -224,7 +224,7 @@ if (active)
              draw_set_font(fntPixelSmall);    
              draw_text_colored(xx + 16, yy, string(questListText[| questActiveID]));   
              yy += string_height(string(questListText[| questActiveID])) + 16;
-             draw_text_colored(xx + 16, yy, "Reward: " + string(questListReward[| questActiveID]));
+             draw_text_colored(xx + 16, yy, "Odměna: " + string(questListReward[| questActiveID]));
              yy += string_height(string(questListReward[| questActiveID]));
              draw_set_font(fntPixel);
              clr();
@@ -241,8 +241,8 @@ if (active)
              draw_roundrect_ext(xx, yy, xx + 512, real(yy) + 25, 4, 4,  true); 
              
              clr(c_white);
-             text = "You have no active quests.";
-             if (entries &gt; 0) {text =  "Page " + string(page+1) + " / " + string(floor(entries/entriesPerPage)+1) + ", " + string(entries) + " " + scrInflect("úkol", entries) + " " + scrInflect("aktivní", entries) + "."}
+             text = "Nemáš žádné aktivní úkoly.";
+             if (entries &gt; 0) {text =  "Strana " + string(page+1) + " / " + string(floor(entries/entriesPerPage)+1) + ", " + string(entries) + " " + scrInflect("úkol", entries) + " " + scrInflect("aktivní", entries) + "."}
              draw_text(xx + 256 - (string_width(text) / 2), yy, text);
              
              if (floor(entries/entriesPerPage) &gt; 0)

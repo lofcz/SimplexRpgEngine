@@ -64,6 +64,7 @@ can_move2 = 1;
 can_move3 = 1;
 can_move4 = 1;
 can_move5 = 1;
+can_move6 = 1;
 a1 = 0;
 last_dir = "s";
 cyber_r = 0;
@@ -226,7 +227,6 @@ rankName[7] = "známý poutník";
 rankName[8] = "vzácný host";
 rankName[9] = "přítel města";
 rankName[10] = "zmocněnec královského písaře";
-
 </string>
           </argument>
         </arguments>
@@ -441,14 +441,15 @@ scrCutscenePlay(ins1, DemoCutscene, false, 1);
 
 //apiPlayerSay("Ahoj. :-)");
 //apiPlayerSay("Bavíš se?");
-oHUD.draw = !oHUD.draw
+//oHUD.draw = !oHUD.draw
 
-with(oHUD)
-    {
-     craftingItemsSprite[0, 4] = 7; 
-    scrCraftingSetItemKnown(4, "Dřevo", "Poškození: " + scrColorflag(c_lime) + "5" + scrEndColorflag() + " - " + scrColorflag(c_lime) + "8#" + scrEndColorflag() + "Stamina na úder: " + scrColorflag(c_red) + "4 " + scrEndColorflag() + "- " + scrColorflag(c_red) + "5#");
-    }
+//with(oHUD)
+//    {
+//     craftingItemsSprite[0, 4] = 7; 
+//    scrCraftingSetItemKnown(4, "Dřevo", "Poškození: " + scrColorflag(c_lime) + "5" + scrEndColorflag() + " - " + scrColorflag(c_lime) + "8#" + scrEndColorflag() + "Stamina na úder: " + scrColorflag(c_red) + "4 " + scrEndColorflag() + "- " + scrColorflag(c_red) + "5#");
+//    }
 
+scrQuestEntryAdd(0, "Oltář předků", "Alice mi řekla o prastarém oltáři, který už je dlouho zanedbán. Bude mi vděčná, když se postarám o tuto památku z druhého věku. Oltář najdu kousek severně od jejího domku.", "120G, 5x Lektvar života", scrColorText("[Hlavní úkol]", c_yellow));
 </string>
           </argument>
         </arguments>

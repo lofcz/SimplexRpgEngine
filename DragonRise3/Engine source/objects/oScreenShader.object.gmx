@@ -241,7 +241,7 @@ if (shader_active == shaderVignette + 3)
     }
 else {raysTimeVal = 0;}
    
-draw_text(600,400,"Shader active: " + string(shader_active));
+//draw_text(600,400,"Shader active: " + string(shader_active));
 
 
 </string>

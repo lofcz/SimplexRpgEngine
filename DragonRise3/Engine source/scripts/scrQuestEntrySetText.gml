@@ -1,6 +1,6 @@
 /// scrQuestEntrySetText(id, text, addAsNote)
 
-var completed, ID;
+var completed, ID, text, add;
 ID        = 0;
 add       = true;
 text      = oQuest.questListText[| ID];
@@ -18,14 +18,15 @@ if (argument_count > 2) {add       = argument[2];}
 
 if (add) {text = "#" + scrColorflag(c_silver) + "(" +  date + ") " + scrEndColorflag() + text;}
 
-
+if (ds_list_find_index(oQuest.questListText, ID) != -1)
+{
 if (add)
 {              
-oQuest.questListText[| ID] = oQuest.questListText[| ID] + text;
+oQuest.questListText[| ID] = oQuest.questListText[| ID] + string(text);
 }
 else
 {
 oQuest.questListText[| ID] = text;
 }
-
+}
 

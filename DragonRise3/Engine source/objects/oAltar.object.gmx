@@ -38,17 +38,101 @@ collMask.image_xscale = 2;
 collMask.dir          = "w";
 collMask.open_char    = "E";
 
+
 unlocked    = false;
 interacting = false;
 animate     = 0;
 open        = false;
+isColliding = false;
+shineAlpha  = 0;
+finished    = false;
+anim        = false;
 
 textAlpha = 0;
 text = false;
-activateText = "Oltář vypadá sešle. V prohlubni chybí nějaký disk";
+activateText = "Oltář vypadá sešle. V prohlubni chybí nějaký disk.";
 interactionText = "E";
-canBeActivatedText = "Mám chybějící disk" + scrColorText("(E - aktivovat)", c_yellow);
+canBeActivatedText = "Mám chybějící disk. " + scrColorText("(Aktivovat)", c_yellow);
+finishText = "Zářný drahokam patří sem. " + scrColorText("(Aktivovat)", c_yellow);
+missingFinishText = " Oltář vypadá o dost lépe. K jeho aktivaci potřebuji nějaký drahokam.";
+completedText = "Oltář opět září k nebesům."; 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Animate
 
+anim = true;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Change image
+
+if (unlocked) {image_index = 1;}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Reward for completing the quest
+
+scrNotificationSplash("Úkol dokončen!", "Oltář předků", medalEnum.quest);
+inventoryAdd(oElixirHP, 5);
+oPlayer.gold += 100;
 </string>
           </argument>
         </arguments>
@@ -74,9 +158,12 @@ canBeActivatedText = "Mám chybějící disk" + scrColorText("(E - aktivovat)", 
             <string>/// Handle logic
 
 draw_self();
+if (anim) {shineAlpha = lerp(shineAlpha, 1, 0.1); if (shineAlpha &gt;= 0.95) {shineAlpha = 1; anim = false; event_user(0);}}
 
-if (!unlocked)
-    {
+clr(c_black, shineAlpha); 
+draw_sprite(sprite_index, 2, x, y); 
+clr();
+
      if (text)
         {
          textAlpha = lin(textAlpha, 1, 0.05);
@@ -87,25 +174,40 @@ if (!unlocked)
         }
      
      if (textAlpha &gt; 0.02)
-        {
-         if (!interacting) {tempText = interactionText;}
-         else 
+        {        
+         if (!unlocked)
             {
-             if (inventoryNumber(itemEnum.itemRelic) &gt; 0) {tempText = canBeActivatedText;}
-             else {tempText = activateText;}
+             if (!interacting) {tempText = interactionText;}
+             else 
+                {
+                 if (inventoryNumber(itemEnum.itemRelic) &gt; 0) {tempText = canBeActivatedText;}
+                 else {tempText = activateText;}
+                }            
+            }
+          else if (!finished)
+            {
+             if (!interacting) {tempText = interactionText;}
+             else
+                {
+                 if (inventoryNumber(itemEnum.itemGemQuest1) &gt; 0) {tempText = finishText;}
+                 else {tempText = missingFinishText;}                 
+                }
+            }
+          else
+            {
+             if (!interacting) {tempText = interactionText;}
+             else {tempText = completedText;}
             }
             
-                 
-       //  alg("center", fntPixel);
          fnt(fntPixel);
          v = string_width(dialogueParse(tempText));  
          clr(c_black, (textAlpha / 2));
          draw_roundrect_colour_ext(x - (v / 2) - 10, y - string_height(tempText) / 2 - 32, (x + (v / 2) + 10), (y + (string_height(tempText) / 2) + 4 - 32), 20, 20, c_black, c_black, false);
          clr(c_white, textAlpha);
-         draw_text_colored(x - (v / 2), (y - 32), tempText);
+         draw_text_colored(x - (v / 2), (y - 32) - string_height(tempText) / 2, tempText);
          clr();
         }
-    }
+
 </string>
           </argument>
         </arguments>

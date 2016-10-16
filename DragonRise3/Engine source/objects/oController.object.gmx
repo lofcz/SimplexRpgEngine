@@ -105,7 +105,7 @@ if (room == mapTest)
 }
 if (room == mapHouseAlice)
 {
- if (player_pos == 1) {oPlayer.x = 352; oPlayer.y = 240;}
+ if (player_pos == 1) {oPlayer.x = 504; oPlayer.y = 408;}
 }
 
 alarm[0] = 1;

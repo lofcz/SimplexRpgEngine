@@ -17,7 +17,7 @@
 apiPlayerRegenerate()
 
 // If nothing blocks player movement ability
-if (can_move && can_move2 && can_move3 && can_move4 && can_move5 && !oPlayerCombat.charging) 
+if (can_move && can_move2 && can_move3 && can_move4 && can_move5 && can_move6 && !oPlayerCombat.charging) 
     {  
      if (currentAnimation == animationEnum.walk)
         { 
@@ -659,6 +659,7 @@ if (oPlayer.last_dir == "a") {oPlayer.image_index = 6;}
 if (oPlayer.last_dir == "d") {oPlayer.image_index = 18;}
 if (oPlayer.last_dir == "w") {oPlayer.image_index = 0;}
 if (oPlayer.last_dir == "s") {oPlayer.image_index = 12;}
+
 #define apiPlayerSay
 /// apiPlayerSay(text)
 

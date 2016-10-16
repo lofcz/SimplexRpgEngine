@@ -86,12 +86,7 @@ Do záznamu přidám "jen tak se poflakovat (eng2)" a budu se flákat.
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scrQuestEntryAdd(enumQuests.questVitejVSimplexu, "Welcome to Simplex Engine!", "Take a tour and explore power of the Simplex!", "Your own RPG game", "" + scrColorflag(c_yellow) + "[Dev quest]" + scrEndColorflag());
-scrQuestEntryAdd(1, "Star project repository", "Enjoying? Take a second and rate us with star. #Thanks!", "Gold: 100", "");
-
-scrQuestEntrySetCompleted(1);
-scrQuestEntrySetText(0, "You are doing good.");
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>

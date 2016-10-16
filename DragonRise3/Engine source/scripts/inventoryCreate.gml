@@ -35,62 +35,55 @@ starText[1]          = "Odpad";
 starText[2]          = "Odznačit"; 
 details[0]           = "Seřadit";
 details[1]           = "Vyhodit odpad";
+
 global.QuestionResult = -1;
 
 if (argument_count > 0) {slots = argument[0]}
 
-for (a=0; a < slots; a++)
-{
- slot[a]                 = 0;
- hover_slot_alpha[a]     = 0;
+for (a = 0; a < slots; a++)
+    {
+     slot[a]                 = 0;
+     hover_slot_alpha[a]     = 0;
  
- for(b=0;b<inv_atributes_total;b++)
-                  {
+     for (b = 0; b< inv_atributes_total; b++)
+         {                  
+          if (b != inv_item_info_head && b != inv_item_info_text && b != inv_options && b !=inv_item_equip_slot)
+             {
+              slot[a, b] = 0;
+             }
+          else {slot[a, b] = "";}                             
+         }
+                          
+    for (c = 0; c < 10; c++)
+        {
+         slot_option[a,c]    = "";
+         equiped_option[a,c] = "";
+        }
                   
-                   if(b!= inv_item_info_head && b!= inv_item_info_text && b!= inv_options && b!=inv_item_equip_slot)
-                   {
-                   slot[a,b] = 0;
-                   }
-                   else {slot[a,b] = "";}      
-                   
-                   
-                       
-                  }
-                  
- for(c=0 c<10 c++)
- {
-  slot_option[a,c]    = "";
-  equiped_option[a,c] = "";
- }
-                  
- slot[a,inv_sprite] = sFreeSlot;
+    slot[a, inv_sprite] = sFreeSlot;
  
- for(d=0; d<celkem_vlastnosti; d++)
-          {
-           slot_vlastnosti[a,d]   = 0;
-           equiped_vlastnost[a,d] = 0;
+    for (d = 0; d < celkem_vlastnosti; d++)
+        {
+         slot_vlastnosti[a,d]   = 0;
+         equiped_vlastnost[a,d] = 0;
+        }
+    }
 
-          }
-}
+for (a = 0; a < 100; a++)
+     {
+      equiped[a]          = 0;
+      equiped_image[a, 0] = sFreeSlot; 
+      equiped_image[a, 1] = 0;        
+      equiped_image[a, 2] = 0;      
+     }
 
-for(a=0; a<100; a++)
-{
-equiped[a] = 0;
-
-equiped_image[a,0] = sFreeSlot; // sprite
-equiped_image[a,1] = 0;         // index 
-equiped_image[a,2] = 0;         // rarity
-}
-
-
-
-slot[0,inv_sprite]              = sFreeSlot;
-slot[0,inv_id]                  = 0;
-slot[0,inv_number]              = 0;
-slot[0,inv_item_effect]         = 0;
-slot[0,inv_options]             = 0;
-slot[0,inv_item_info_head]      = "";
-slot[0,inv_item_info_text]      = "";
-slot[0,inv_item_equip_slot]     = "";
+slot[0, inv_sprite]              = sFreeSlot;
+slot[0, inv_id]                  = 0;
+slot[0, inv_number]              = 0;
+slot[0, inv_item_effect]         = 0;
+slot[0, inv_options]             = 0;
+slot[0, inv_item_info_head]      = "";
+slot[0, inv_item_info_text]      = "";
+slot[0, inv_item_equip_slot]     = "";
 
 instance_create(x,y,oInventoryDepthHelper);

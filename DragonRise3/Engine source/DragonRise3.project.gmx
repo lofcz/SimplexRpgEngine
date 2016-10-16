@@ -438,6 +438,7 @@
           </sprites>
           <sprites name="Gems &amp; materials &amp; herbs &amp; pearls">
             <sprites name="Gems">
+              <sprite>sprites\sGemQuestEffect</sprite>
               <sprite>sprites\sGemEffect1</sprite>
               <sprite>sprites\sGemEffect2</sprite>
               <sprite>sprites\sGemEffect3</sprite>
@@ -941,6 +942,12 @@
         <script>scripts\scrGameSave.gml</script>
         <script>scripts\scrGameLoad.gml</script>
       </scripts>
+      <scripts name="Screen flash">
+        <script>scripts\scrScreenFlash.gml</script>
+      </scripts>
+      <scripts name="Notifications">
+        <script>scripts\scrNotificationSplash.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -1021,7 +1028,6 @@
       <object>objects\oInventoryDepthHelper</object>
       <object>objects\oEquipment</object>
       <object>objects\oController</object>
-      <object>objects\oLoader</object>
       <object>objects\oLog</object>
       <object>objects\oCamera</object>
       <object>objects\oCopyright</object>
@@ -1059,6 +1065,7 @@
       <object>objects\oAchievement</object>
       <object>objects\oHintBox</object>
       <object>objects\oHintBoxButton</object>
+      <object>objects\oScreenFlash</object>
       <object>objects\oAreaScript</object>
     </objects>
     <objects name="Dropable and items">
@@ -1143,6 +1150,7 @@
         </objects>
         <objects name="Quest items">
           <object>objects\oQuestItemAxe1</object>
+          <object>objects\oQuestIemGem1</object>
         </objects>
         <objects name="Armors">
           <object>objects\oArmorLeather</object>
@@ -1260,10 +1268,6 @@
       <object>objects\oObet</object>
       <object>objects\oCutscene</object>
     </objects>
-    <objects name="GUI">
-      <object>objects\oMainMenu</object>
-      <object>objects\oMainMenuPar</object>
-    </objects>
   </objects>
   <timelines name="timelines">
     <timelines name="Cutscenes">
@@ -1278,10 +1282,6 @@
   <rooms name="rooms">
     <room>rooms\mapTest</room>
     <room>rooms\mapCopyright</room>
-    <room>rooms\cutscenePoustevnikovaPesina</room>
-    <room>rooms\mapMainMenu</room>
-    <room>rooms\cutsceneVavrincuvKostel</room>
-    <room>rooms\mapMyFirstGame</room>
     <room>rooms\mapDefault</room>
     <rooms name="Game world">
       <room>rooms\mapHouse1</room>

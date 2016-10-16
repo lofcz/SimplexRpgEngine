@@ -421,13 +421,12 @@
     <instance objName="oAdvancedCollision" x="708" y="496" name="inst_27A6E5C6" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;    scrAdvancedCollisionSetText(&quot;Pověšené oblečení.&quot;);&#xA;    scrAdvancedCollisionSetText(&quot;Nevypadá, že patří Alici.&quot;);&#xA;    scrAdvancedCollisionSetText(&quot;Zajímalo by mě, pro koho pere.&quot;);&#xA;    scrAdvancedCollisionSetText(&quot;Oblečení je bezcenné, nebudu ho krást.&quot;);&#xA;" scaleX="2" scaleY="1.5" colour="4294967295" rotation="0"/>
     <instance objName="oAdvancedCollision" x="728" y="592" name="inst_CCAE796F" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;    scrAdvancedCollisionSetText(&quot;Starý zápřežný vozík.&quot;);&#xA;    scrAdvancedCollisionSetText(&quot;Není ničím zajímavý.&quot;);&#xA;" scaleX="1.75" scaleY="1.5" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="764" y="488" name="inst_88B400AF" locked="0" code="" scaleX="1" scaleY="1.75" colour="4294967295" rotation="0"/>
-    <instance objName="oTransitionCollision" x="880" y="608" name="inst_010B346B" locked="0" code="level = mapHouseAlice;&#xA;text = &quot;Vstoupit do &quot; + scrColorflag(c_yellow) + &quot;Domku bylinkářky Alice&quot; + scrEndColorflag() + &quot;.&quot;;&#xA;xx = x;&#xA;yy = y-64;&#xA;text_lenght = 0;&#xA;player_pos = 1;&#xA;" scaleX="0.75" scaleY="0.625" colour="4294967295" rotation="0"/>
+    <instance objName="oTransitionCollision" x="880" y="608" name="inst_010B346B" locked="0" code="level = mapHouseAlice;&#xA;text = &quot;Vstoupit do &quot; + scrColorflag(c_yellow) + &quot;Domku bylinkářky Alice&quot; + scrEndColorflag() + &quot;.&quot;;&#xA;xx = x;&#xA;yy = y-64;&#xA;text_lenght = 0;&#xA;player_pos = 1;" scaleX="0.75" scaleY="0.625" colour="4294967295" rotation="0"/>
     <instance objName="oAdvancedCollision" x="952" y="636" name="inst_C0E640BB" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;" scaleX="1.125" scaleY="0.4375" colour="4294967295" rotation="0"/>
     <instance objName="oEnemySlime" x="512" y="1460" name="inst_9D298E13" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oEnemySlime" x="592" y="1540" name="inst_973052E4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oEnemySlime" x="584" y="1660" name="inst_A9D84AF3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oEnemySlime" x="404" y="1588" name="inst_39D2152A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oBasicVivid" x="404" y="516" name="inst_A3797875" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicVivid" x="556" y="176" name="inst_DD9DA905" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oLofsGift" x="456" y="524" name="inst_A290ECF1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oElixirHP" x="420" y="280" name="inst_D9AB41F7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -447,8 +446,8 @@
     <instance objName="oShuriken" x="704" y="288" name="inst_05F05C6A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oShuriken" x="736" y="256" name="inst_8929D504" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oShuriken" x="736" y="288" name="inst_54F7A041" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oRelicLeftPart" x="352" y="432" name="inst_2DDD7B3B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oRelicRightPart" x="320" y="432" name="inst_7AD6ABFB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oRelicLeftPart" x="672" y="288" name="inst_2DDD7B3B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oRelicRightPart" x="640" y="288" name="inst_7AD6ABFB" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oGem6" x="48" y="352" name="inst_59ED72D8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oGem7" x="80" y="352" name="inst_E7F061A0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oGem8" x="48" y="384" name="inst_BFBC158A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -458,7 +457,8 @@
     <instance objName="oGem11" x="80" y="432" name="inst_C6943AA8" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oGem12" x="48" y="464" name="inst_B17229A5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oGem13" x="80" y="464" name="inst_AEB933C4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oAltar" x="800" y="208" name="inst_32BBC27D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oAltar" x="752" y="208" name="inst_32BBC27D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oQuestIemGem1" x="832" y="224" name="inst_64FABD14" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="background14" x="1600" y="1712" w="32" h="32" xo="32" yo="0" id="10006696" name="inst_AC26E277" depth="1000001" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
