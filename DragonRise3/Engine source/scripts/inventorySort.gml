@@ -2,7 +2,9 @@
 
 var lastFreeSlot, startSlot;
 lastFreeSlot = -1;
-startSlot    = argument[0];
+startSlot    = 0;
+
+if (argument_count > 0) {startSlot = argument[0];}
 
 for (i = startSlot; i < array_height_2d(slot); i++)
     {
@@ -15,32 +17,29 @@ if (lastFreeSlot != -1)
      {
       if (slot[i,inv_id] != 0 && i > lastFreeSlot) 
         {
-        // switch
-        for (a = 0; a<inv_atributes_total; a++)
+         for (a = 0; a<inv_atributes_total; a++)
             {           
              slot[lastFreeSlot, a] = slot[i, a];  
              
-             if(a!= inv_item_info_head && a!= inv_item_info_text && a!= inv_options && a!= inv_item_equip_slot)
+             if (a!= inv_item_info_head && a!= inv_item_info_text && a!= inv_options && a!= inv_item_equip_slot)
                    {
                    slot[i,a] = 0; 
                    }
-                   else {slot[i,a] = "";}      
+             else {slot[i,a] = "";}      
             }
             
         for (b = 0; b<10; b++)
             {
-            slot_option[lastFreeSlot, b] =  slot_option[i, b];
-            slot_option[i,b] = "";
+             slot_option[lastFreeSlot, b] =  slot_option[i, b];
+             slot_option[i,b] = "";
             }
             
         for(d=0; d<celkem_vlastnosti; d++)
            {
             slot_vlastnosti[lastFreeSlot, d] = slot_vlastnosti[i, d];
             slot_vlastnosti[i, d] = 0;
-           }
-            
-        
-        break;
+           }        
+         break;
         }    
      }    
    }

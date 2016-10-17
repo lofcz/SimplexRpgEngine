@@ -5,30 +5,23 @@ xx = x+288;
 yy = y;
 
 if (instance_number(oPlayer) > 0)
-{
-equipmentDrawSlots();
-}
+   {
+    equipmentDrawSlots();
+   }
 
 
 #define equipmentDrawSlots
 /// equipmentDrawSlots()
 
-// Draw background
 
-/*
-clr(c_black,0.7);
-draw_rectangle(xx+32,yy,xx+256,yy+256,0);
 clr();
-*/
-clr();
- draw_set_font(fntPixelHuge);
- draw_sprite(sInventoryTitle,2,xx,yy);
- scrCenterText();
- draw_text(xx+124,yy+16,"Výstroj");
- draw_set_font(fntPixel);
-// draw_text(x+144,y+24,oPlayer.gold);
- scrCenterText(0);
- draw_set_font(fntText);
+fnt(fntPixelHuge);
+draw_sprite(sInventoryTitle,2,xx,yy);
+scrCenterText();
+draw_text(xx+124,yy+16,"Výstroj");
+fnt(fntPixel);
+alg();
+fnt(fntText);
  
 yy = yy + 36;
 
@@ -591,11 +584,9 @@ if (draw_equ_infobox)
 yy = yy - 36;
 
 #define equipmentDrawInfobox
-/// equipmentDrawInfobox(x,y,id,yoffset,xoffset)
-
+/// equipmentDrawInfobox(x, y, id, yoffset, xoffset)
 
 var width,height,idd,xx,yy;
-
 width   = 256;
 height  = 16;
 xx      = argument0;
@@ -603,7 +594,6 @@ yy      = argument1;
 idd     = argument2;
 yoffset = 16;
 xoffset = 16;
-
 
 fnt(fntPixel);
 width = 288;
@@ -650,10 +640,9 @@ draw_text(x + 4,oInventory.used_y+32,text);
 
 
 #define equipmentDrawAbilities
-/// equipmentDrawAbilities(id,width,yoffset,xx,yy,xoffset)
+/// equipmentDrawAbilities(id, width, yoffset, xx, yy, xoffset)
 
 var t_text,idd,width,yoffset,xx,yy;
-
 t_text   = "#";
 idd      = argument0;
 width    = argument1;

@@ -1,7 +1,6 @@
 /// scrMapIntro(text, r, g, b)
 
 var text,i,r,g,b;
-
 text = "Sample text";
 r    = 0;
 g    = 0;

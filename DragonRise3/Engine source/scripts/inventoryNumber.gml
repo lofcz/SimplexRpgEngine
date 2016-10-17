@@ -12,6 +12,6 @@ for (a = 0; a < oInventory.slots; a++)
         {
          ret += oInventory.slot[a, inv_number];
         }    
-    }
+    }    
     
 return (ret);

@@ -17,9 +17,8 @@ if (argument_count > 4) {count_max = argument[4];}
 if (to > slots) {return 0;}
 
 
-for(a = from; a < to; a++)
-      {
-      count = irandom_range(count_min,count_max);
-      
-      scrChestAddLoot(a,item,count);
-      }
+for (a = from; a < to; a++)
+    {
+     count = irandom_range(count_min,count_max);      
+     scrChestAddLoot(a,item,count);
+    }

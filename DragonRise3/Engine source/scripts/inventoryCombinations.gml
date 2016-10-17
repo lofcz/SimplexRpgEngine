@@ -1,11 +1,14 @@
 #define inventoryCombinations
-/// inventoryCombinations(id,slot.id)
+/// inventoryCombinations(id, slot.id)
 
-idd  = argument0;
-s    = argument1;
+var idd, s;
+idd = 0;
+s   = 0;
 
+if (argument_count > 0) {idd = argument[0];}
+if (argument_count > 0) {s   = argument[1];}
 
-switch(idd)
+switch (idd)
            {
             case(3):
                     {
@@ -22,32 +25,37 @@ switch(idd)
                      if (s == itemEnum.itemRelicLeftPart) {return true;}    
                      break;                 
                     }        
-           }
-           
+           }           
 return false;
 
 #define inventoryCombine
-/// inventoryCombine(id1,id2,slot1,slot2)
+/// inventoryCombine(id1, id2, slot1, slot2)
 
-id1 = argument0;
-id2 = argument1;
-slot1 = argument2;
-slot2 = argument3;
+var id1, id2, slot1, slot2;
+id1   = 0;
+id2   = 0;
+slot1 = 0;
+slot2 = 1;
+
+if (argument_count > 0) {id1   = argument[0];}
+if (argument_count > 1) {id2   = argument[1];}
+if (argument_count > 2) {slot1 = argument[2];}
+if (argument_count > 3) {slot2 = argument[3];}
 
 switch(id1)
            {
             case(3):
                     {
-                     if (id2 = 3)
+                     if (id2 == 3)
                         {                         
                          slot_vlastnosti[slot2,vlastnost_poskozeni] += slot_vlastnosti[slot1,vlastnost_poskozeni];
-                         inventoryDrop(slot1,-1,-1);   
+                         inventoryDrop(slot1, -1, -1);   
                         }
                      break;
                     }
             case(itemEnum.itemRelicRightPart):
                     {
-                     if (id2 = itemEnum.itemRelicLeftPart)
+                     if (id2 == itemEnum.itemRelicLeftPart)
                         {                         
                          inventoryDelete(itemEnum.itemRelicLeftPart, 1);  
                          inventoryDelete(itemEnum.itemRelicRightPart, 1); 
@@ -57,7 +65,7 @@ switch(id1)
                     }      
             case(itemEnum.itemRelicLeftPart):
                     {
-                     if (id2 = itemEnum.itemRelicRightPart)
+                     if (id2 == itemEnum.itemRelicRightPart)
                         {                         
                          inventoryDelete(itemEnum.itemRelicLeftPart, 1);  
                          inventoryDelete(itemEnum.itemRelicRightPart, 1); 

@@ -1,16 +1,16 @@
 /// scrNonsolidCollisionIni(x, y, id, unlocked, hitType, hp, tileLayer, allowOnHitDrops)
 
-xx       = x;
-yy       = y-32;
-idd      = "sampleID";
-unlocked = 1;
-hitType  = "";
-hp       = -1;
-tL       = 1000000;
-indexer  = 0;
-level    = -1;
-level    = room;
-text[0]  = "";
+xx              = x;
+yy              = y-32;
+idd             = "sampleID";
+unlocked        = 1;
+hitType         = "";
+hp              = -1;
+tL              = 1000000;
+indexer         = 0;
+level           = -1;
+level           = room;
+text[0]         = "";
 allowRandomDrop = false;
 
 if (argument_count > 0) {xx       = argument[0];}

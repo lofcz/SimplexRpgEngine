@@ -1,5 +1,4 @@
-/// scrChestState(active_dis,open_dis,open_char)
-//   show_message(image_speed);
+/// scrChestState(activeDis, openDis, openChar)
 
 active_dis = 64;
 open_dis   = 32;
@@ -12,22 +11,17 @@ if (argument_count > 2) {open_char  = argument[2];}
 if (instance_number(oPlayer) > 0)
    {
     if (distance_to_object(oPlayer) < active_dis)
-    {
-   
-    if (distance_to_object(oPlayer) < open_dis && keyboard_check_pressed(ord(open_char)))
-       {
-        if (unlocked)
-        {
-        open = !open;
-        if (open) {image_speed = 0.3;}
-        else {image_speed = -0.3;}
-        
-        show_message(image_speed);
-
-        text_alpha = 0;
-        }
-        else {}
-       }
-       else if (distance_to_object(oPlayer) > open_dis){open = 0;}
-    }
+       {   
+        if (distance_to_object(oPlayer) < open_dis && keyboard_check_pressed(ord(open_char)))
+           {
+            if (unlocked)
+               {
+                open = !open;
+                if (open) {image_speed = 0.3;}
+                else {image_speed = -0.3;}
+                text_alpha = 0;
+               }
+           }
+       else if (distance_to_object(oPlayer) > open_dis) {open = 0;}
+      }
    }

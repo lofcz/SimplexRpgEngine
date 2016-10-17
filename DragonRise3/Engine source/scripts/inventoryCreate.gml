@@ -86,4 +86,4 @@ slot[0, inv_item_info_head]      = "";
 slot[0, inv_item_info_text]      = "";
 slot[0, inv_item_equip_slot]     = "";
 
-instance_create(x,y,oInventoryDepthHelper);
+instance_create(x, y, oInventoryDepthHelper);

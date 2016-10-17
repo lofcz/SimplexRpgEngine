@@ -9,8 +9,9 @@ y  = (view_yview + 500 + oHUD.yoffset);
 if (argument_count > 0) {x = argument[0];}
 if (argument_count > 1) {y = argument[1];}
 if (argument_count > 2) {e = argument[2];}
-xx = x;
-yy = y;
+
+xx       = x;
+yy       = y;
 tempDraw = false;
 
 draw_set_font(fntPixelTiny);

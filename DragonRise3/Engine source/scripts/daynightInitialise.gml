@@ -19,5 +19,4 @@ week  = 0;
 month = 0;
 year  = 0;
 alpha = 0.8;
-
-surf = surface_create(view_wview, view_hview);
+surf  = surface_create(view_wview, view_hview);

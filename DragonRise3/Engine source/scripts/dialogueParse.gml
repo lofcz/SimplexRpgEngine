@@ -1,6 +1,6 @@
 /// dialogueParse(string)
 
-var a, f;
+var a, f, input;
 input = "";
 ret   = string_length(input)
 f     = 0;

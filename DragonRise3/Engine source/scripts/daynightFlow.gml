@@ -1,7 +1,6 @@
 /// daynightFlow(secPerStep)
 
 var secPerStep;
-
 secPerStep = 10;
 
 if (argument_count > 0) {secPerStep = argument[0];}

@@ -1,4 +1,4 @@
-/// equipmentHoldEquip(equip_slot, x1, x2, y1, y2, forceEquip)
+/// equipmentHoldEquip(equipSlot, x1, x2, y1, y2, forceEquip)
 
 var equip_slot, x_x1, x_x1, y_y1, y_y1, f;
 equip_slot = 0;

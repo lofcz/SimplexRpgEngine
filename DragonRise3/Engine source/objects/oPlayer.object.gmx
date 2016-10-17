@@ -27,12 +27,12 @@
             <kind>1</kind>
             <string>/// Initialise
 
-sprLight = sBasicLight;
+sprLight      = sBasicLight;
 sprLightIndex = 0;
-scale = 2;
-color = c_white;
-sprAlpha = 0.5;
-rot = 0;
+scale         = 2;
+color         = c_white;
+sprAlpha      = 0.5;
+rot            = 0;
 
 ini_open("config.cfg");
 testKey = ini_read_real("keybinding", "move_right", 68);
@@ -46,38 +46,31 @@ instance_create(x,y,oOptimize);
 instance_create(x,y,oMinimap);
 instance_create(x,y,oDayNight);
 
-Sname = part_system_create();
-
-//surface = surface_create(room_width,room_height);
-//surface_set_target(surface);
-//draw_clear_alpha(c_white,0);
-//surface_reset_target();
-
-z = 0;
-blur = 0;
-load = 1;
-dir = ""; 
-h1 = 0;
-rychlost = 3.5; 
-can_move = 1;
-can_move2 = 1;
-can_move3 = 1;
-can_move4 = 1;
-can_move5 = 1;
-can_move6 = 1;
-a1 = 0;
-last_dir = "s";
-cyber_r = 0;
-attack_interval = 40;
-m1 = 0;
-m2 = 0;
-can_damage = -1;
-tempN = 0;
-text = "";
-parrySlowdown = 100;
-temp_rychlost = rychlost;
-slowdown = 0;
-
+Sname                 = part_system_create();
+z                     = 0;
+blur                  = 0;
+load                  = 1;
+dir                   = ""; 
+h1                    = 0;
+rychlost              = 3.5; 
+can_move              = 1;
+can_move2             = 1;
+can_move3             = 1;
+can_move4             = 1;
+can_move5             = 1;
+can_move6             = 1;
+a1                    = 0;
+last_dir              = "s";
+cyber_r               = 0;
+attack_interval       = 40;
+m1                    = 0;
+m2                    = 0;
+can_damage            = -1;
+tempN                 = 0;
+text                  = "";
+parrySlowdown         = 100;
+temp_rychlost         = rychlost;
+slowdown              = 0;
 equ_draw_head         = 1;
 equ_draw_left_plate   = 1;
 egu_draw_right_plate  = 1;
@@ -97,93 +90,90 @@ equ_draw_special2     = 1;
 equ_draw_belt         = 1;
 equ_draw_left_boot    = 1;
 equ_draw_right_boot   = 1;
-
-gold                  = 0;                                  // I am really not sure, but gold shouldn´t be item, right? 
+gold                  = 0;
 
 for(a = 0; a &lt; celkem_vlastnosti; a++)
 {
- vlastnost[a] = 0;
- draw_equ[a,0] = 0;
-  draw_equ[a,1] = 0;
-
+ vlastnost[a]   = 0;
+ draw_equ[a, 0] = 0;
+ draw_equ[a, 1] = 0;
 }
 
 for(a = 0; a &lt; spell_total; a++)
 {
  magic[spell_total] = 0;
 }
-vlastnost[vlastnost_max_zivot] = 40;
-vlastnost[vlastnost_zivot] = 40;
-vlastnost[vlastnost_max_stit] = 10;
-vlastnost[vlastnost_stit] = 10;
-vlastnost[vlastnost_max_stamina] = 15;
-vlastnost[vlastnost_stamina] = 15;
-vlastnost[vlastnost_max_mana] = 50;
-vlastnost[vlastnost_mana] = 50;
+
+vlastnost[vlastnost_max_zivot]      = 40;
+vlastnost[vlastnost_zivot]          = 40;
+vlastnost[vlastnost_max_stit]       = 10;
+vlastnost[vlastnost_stit]           = 10;
+vlastnost[vlastnost_max_stamina]    = 15;
+vlastnost[vlastnost_stamina]        = 15;
+vlastnost[vlastnost_max_mana]       = 50;
+vlastnost[vlastnost_mana]           = 50;
 vlastnost[vlastnost_max_zkusenosti] = 100;
-vlastnost[vlastnost_level] = 1;
+vlastnost[vlastnost_level]          = 1;
 
-
-last_hp = vlastnost[vlastnost_zivot];
-last_stit = vlastnost[vlastnost_stit];
+last_hp      = vlastnost[vlastnost_zivot];
+last_stit    = vlastnost[vlastnost_stit];
 last_stamina = vlastnost[vlastnost_stamina];
-last_mana = vlastnost[vlastnost_mana];
-last_xp = 0;
+last_mana    = vlastnost[vlastnost_mana];
+last_xp      = 0;
 
-vlastnost[vlastnost_kriticka_sance] = 50;
+vlastnost[vlastnost_kriticka_sance]   = 50;
 vlastnost[vlastnost_kriticka_nasobic] = 2;
 
-vlastnost[vlastnost_tick_stamina] = 50;
+vlastnost[vlastnost_tick_stamina]     = 50;
 vlastnost[vlastnost_tick_stamina_add] = 1;
 
 stamina_tick = vlastnost[vlastnost_tick_stamina]; 
 
-sprinting = 0;
+sprinting    = 0;
 magic_repeat = 0;
-magic_timer = 1;
-magic_id = "";
+magic_timer  = 1;
+magic_id     = "";
 
-spell[0] = "";
-spell[1] = "";
-spell[2] = "";
-spell_cd[0] = 0;
-spell_cd[1] = 0;
-spell_cd[2] = 0;
-temp_cd[0] = 1;
-temp_cd[1] = 1;
-temp_cd[2] = 1;
+spell[0]        = "";
+spell[1]        = "";
+spell[2]        = "";
+spell_cd[0]     = 0;
+spell_cd[1]     = 0;
+spell_cd[2]     = 0;
+temp_cd[0]      = 1;
+temp_cd[1]      = 1;
+temp_cd[2]      = 1;
 spell_sprite[0] = sFreeSlot;
 spell_sprite[1] = sFreeSlot;
 spell_sprite[2] = sFreeSlot;
 
-spell[0] = "flash";
+spell[0]        = "flash";
 spell_sprite[0] = sSpellFlash;
-spell[1] = "frozen_bolts";
+spell[1]        = "frozen_bolts";
 spell_sprite[1] = sSpellFrozenBolts;
-spell[2] = "fire_trail";
+spell[2]        = "fire_trail";
 spell_sprite[2] = sSpellFireBeam;
+spell_index     = -1;
 
-spell_index = -1;
 
-
-magic[spell_fireball_cost] = 20;
-magic[spell_fireball_damage] = 15;
+magic[spell_fireball_cost]     = 20;
+magic[spell_fireball_damage]   = 15;
 magic[spell_fireball_cooldown] = 80;
 
-magic[spell_frozen_bolts_cost] = 25;
-magic[spell_frozen_bolts_damage] = 8;
+magic[spell_frozen_bolts_cost]     = 25;
+magic[spell_frozen_bolts_damage]   = 8;
 magic[spell_frozen_bolts_cooldown] = 220;   
-magic[spell_frozen_bolts_number] = 5;
+magic[spell_frozen_bolts_number]   = 5;
 
 magic[spell_fire_trail_damage] = 0.8;
-magic[spell_fire_trail_cost] = 4;
+magic[spell_fire_trail_cost]   = 4;
 
-magic[spell_flash_cost] = 8;
+magic[spell_flash_cost]     = 8;
 magic[spell_flash_cooldown] = 60;
 
-magic[spell_vines_cost] = 15;
+magic[spell_vines_cost]     = 15;
 magic[spell_vines_cooldown] = 240;
-magic[spell_vines_damage] = 5;
+magic[spell_vines_damage]   = 5;
 
 
 skillPoints    = 10;
@@ -200,22 +190,21 @@ statusMTimeList   = ds_list_create();
 statusColorList   = ds_list_create();
 statusNList       = ds_list_create();
 
-testStatus = 0;
-
-time = 0;
+testStatus       = 0;
+time             = 0;
 currentAnimation = animationEnum.walk;
-bci[5, 16] = 0;
+bci[5, 16]       = 0;
 
 scrBodyCanvasDB();
 scrBodyCanvasIni(animationEnum.walk, sBodyCanvasHumanWalk1, sBodyCanvasArmor1, sBodyCanvasHood1, sBodyCanvasBelt1, sBodyCanvasLegs1, sBodyCanvasShoes1, sBodyCanvasHands1, 0);
 scrBodyCanvasIni(animationEnum.slash, sBodyCanvasAttack1, sBodyCanvasAttackArmor1, sBodyCanvasAttackHead1, sBodyCanvasAttackBelt1, sBodyCanvasAttackLegs1, sBodyCanvasAttackShoes1, sBodyCanvasAttackHands1, 0);
 
-speechQueue = ds_queue_create();
-speechAlpha = 0;
-speechIn    = false;
+speechQueue       = ds_queue_create();
+speechAlpha       = 0;
+speechIn          = false;
 speechCurrentText = "";
-speechMode  = 0;
-speechSkip = false;
+speechMode        = 0;
+speechSkip        = false;
 
 rankName[1] = "cizinec";
 rankName[2] = "návštěvník";
@@ -282,8 +271,8 @@ if (magic_repeat &gt; 0) {magic_repeat--; alarm[1] = magic_timer + random(3);} e
 
 if (magic_id = "frozen_bolt")
    {
-      i = instance_create(x,y,oBasicSpell); 
-      i.type = "frozen_bolt";
+    i = instance_create(x,y,oBasicSpell); 
+    i.type = "frozen_bolt";
    }
 </string>
           </argument>
@@ -334,19 +323,11 @@ apiPlayerMoveStand();
             <kind>1</kind>
             <string>/// Handle movement
 
-//scrWeatherRainSpawn();
-
-
 if (load &gt; 0) {load -- } else {load = -1; event_user(0);}
 apiPlayerMove();
 temp_rychlost = ((rychlost / 100) * parrySlowdown) * (1 - slowdown);    
-time+=0.02;;
-
-     with(oGoblin) {event_user(15);}
-    
-cyber_r ++;
-//surface_set_target(surface);
-//draw_circle(x,y,cyber_r,0);
+time += 0.02;;    
+cyber_r++;
 
 // test
 if (keyboard_check_pressed(vk_numpad7))
@@ -357,32 +338,28 @@ if (keyboard_check_pressed(vk_numpad8))
     {
      scrGameLoad();
     }
-//surface_reset_target();
+
 if (can_move2)
 {
    
 if (keyboard_check(ord("J")))
    {
-    if (spell[0] != "") {spell_index = 0; event_user(2);}
-    
+    if (spell[0] != "") {spell_index = 0; event_user(2);}    
    }
 if (keyboard_check(ord("K")))
    {
-    if (spell[1] != "") {spell_index = 1; event_user(2);}
-    
+    if (spell[1] != "") {spell_index = 1; event_user(2);}    
    }
 if (keyboard_check(ord("L")))
    {
-    if (spell[2] != "") {spell_index = 2; event_user(2);}
-    
+    if (spell[2] != "") {spell_index = 2; event_user(2);}    
    }
 
 }
 
 if (vlastnost[vlastnost_zkusenosti] &gt; vlastnost[vlastnost_max_zkusenosti]) 
    {
-   event_user(1);
-   
+    event_user(1);   
    }
 
    
@@ -519,42 +496,20 @@ if (spell[spell_index] == "vines")
             <string>/// Level up
 
 vlastnost[vlastnost_max_zkusenosti] = round(vlastnost[vlastnost_zkusenosti]+log2(vlastnost[vlastnost_zkusenosti])+vlastnost[vlastnost_zkusenosti]/3);
-vlastnost[vlastnost_zkusenosti] = 0;
-last_xp = 0;
+vlastnost[vlastnost_zkusenosti]     = 0;
+last_xp                             = 0;
 vlastnost[vlastnost_level]++; 
 skillPoints++;
 talentPoints++;
 
-inst = instance_create(view_xview, view_yview, oAchievement);
-inst.header = "Úroveň " + string(vlastnost[vlastnost_level]) + " dosažena!";
-inst.text = "Nyní jsi znám jako " + scrColorflag(c_yellow) + apiPlayerGetRankName() + scrEndColorflag()+ ".";
-inst.index = 0;
-inst.medalType = 2;
+inst            = instance_create(view_xview, view_yview, oAchievement);
+inst.header     = "Úroveň " + string(vlastnost[vlastnost_level]) + " dosažena!";
+inst.text       = "Nyní jsi znám jako " + scrColorflag(c_yellow) + apiPlayerGetRankName() + scrEndColorflag()+ ".";
+inst.index      = 0;
+inst.medalType  = 2;
 
 audio_play_sound(sndSoundLevelUp, 1, false);
 </string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="10">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string></string>
           </argument>
         </arguments>
       </action>
@@ -628,32 +583,6 @@ if (instance_number(oFence) &gt; 0)
             <string>/// Draw player
 
 apiPlayerDraw();
-
-/* 
-draw_text(x, y - 32, text);
-
-clr(c_black, 0.5);
-draw_ring_part(x, y, 64, 6, 128, 128, 0, 360, true, c_black, false);
-clr()
-draw_ring_part(x, y, 64, 6, 128, 128, 90, 360 * (last_hp / vlastnost[vlastnost_max_zivot]), true, c_red, true);
-draw_ring_part(x, y, 64, 1, 128, 128, 90, 360 * (last_hp / vlastnost[vlastnost_max_zivot]), true, c_black, false);
-draw_ring_part(x, y, 64+6, 1, 128, 128, 90, 360 * (last_hp / vlastnost[vlastnost_max_zivot]), true, c_black, false);
-*/
-
-/*
-queue = ds_queue_create(); 
-list  = ds_list_create(); // Visited places + number [(1,1),5] --&gt; [(x,y)n]
-relativeX = x - 16;
-relativeY = y - 16;
-gridSize  = 32;
-i= 0;
-listI = 1;
-scrTest1();
-
-ds_queue_destroy(queue);
-ds_list_destroy(list);
-*/
-
 </string>
           </argument>
         </arguments>

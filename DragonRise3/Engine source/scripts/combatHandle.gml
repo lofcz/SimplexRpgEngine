@@ -38,7 +38,7 @@ if ((keyboard_check_released(vk_space) && chargeMode) || (keyboard_check_pressed
         mode   = 1;
         sharp  = 1;
         untick = 1;
-        k = 0;                                 //show_message("grrr!");
+        k = 0;  
         can_damage = -1;
         oPlayer.vlastnost[vlastnost_stamina] -= oPlayer.vlastnost[vlastnost_stamina_cost];
         ss = instance_create(x, y, oSwordSwing);
@@ -46,8 +46,6 @@ if ((keyboard_check_released(vk_space) && chargeMode) || (keyboard_check_pressed
         attackMode = "attack";
         oPlayer.currentAnimation = animationEnum.slash;
         oPlayer.sprite_index = oPlayer.bci[1, 0];
-      //  show_message(chargeTimer);
-        
         
          if (oPlayer.last_dir == "s" || oPlayer.last_dir == "")
             {
@@ -92,25 +90,25 @@ if (can_damage > 0) {can_damage--;} else {if (attack && can_damage > -2) {can_da
 x = oPlayer.x;
 y = oPlayer.y;
 
-if (oPlayer.last_dir = "d")
+if (oPlayer.last_dir == "d")
    {
     x+= 15;
     y-=12;
     image_index = 0;
    }
-if (oPlayer.last_dir = "a")
+if (oPlayer.last_dir == "a")
    {
     x-=60;
     y-=15;
     image_index = 2;
    }
-if (oPlayer.last_dir = "w")
+if (oPlayer.last_dir == "w")
    {
     x-=20;
     y-=60;
     image_index = 3;
    }
-if (oPlayer.last_dir = "s")
+if (oPlayer.last_dir == "s")
    {
     x-= 25;
     y+=30;

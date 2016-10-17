@@ -1,9 +1,8 @@
 /// itemDrawStats()
 
-draw_set_font(fntPixelSmall);
+fnt(fntPixelSmall);
 offset = 24;
-
- t_text = "";
+t_text = "";
 
 for(a = 0; a < celkem_vlastnosti; a++)
       {

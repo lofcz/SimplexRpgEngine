@@ -6,7 +6,5 @@ switch(itm_equip_slot)
             {
              itm_info_text += "##Zbraň";
              break;
-            }
-      
-      
+            }      
       }

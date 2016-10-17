@@ -1,4 +1,4 @@
-///scrLog(text,color,sprite,override_rarity,animation_speed,x,y,font,mode)
+///scrLog(text, color, sprite, overrideRarity, animationSpeed, x, y, font, mode)
 
 var text,color,sprite,override,ani,xx,yy,mode;
 text     = "Nedefinovaný log"
@@ -45,12 +45,10 @@ if (override)
                                 color = c_lime;
                                 break;
                                }
-
                          }
    }
 
 log = instance_create(xx,yy,oLog);
-
 log.sprite = sprite;
 log.text   = text;
 log.color  = color;

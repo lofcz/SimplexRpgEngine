@@ -1,7 +1,6 @@
-/// scrBestiaryInit(x,y,menuFallSpeedStart,menuFallSpeedMax)
+/// scrBestiaryInit(x, y, menuFallSpeedStart, menuFallSpeedMax)
 
 var tX,tY,tMenuFallSpeedStart,tMenuFallSpeedMax;
-
 tX                        = view_xview+800-256;
 tY                        = view_yview+155;
 tMenuFallSpeedStart       = 4;
@@ -11,7 +10,6 @@ if (argument_count > 0) {tX                    = argument[0];}
 if (argument_count > 0) {tY                    = argument[1];}
 if (argument_count > 0) {tMenuFallSpeedStart   = argument[2];}
 if (argument_count > 0) {tMenuFallSpeedMax     = argument[3];}
-
 
 mode                 = 0;
 page                 = 0;

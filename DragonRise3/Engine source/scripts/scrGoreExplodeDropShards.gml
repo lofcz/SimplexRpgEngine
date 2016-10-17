@@ -14,8 +14,7 @@ if (argument_count > 3) {in   = argument[3];}
 for (i = 0; i < sN; i++) 
 {
  xx = abs(random(sprite_get_width(spr) - sprite_get_xoffset(spr)) - random(sprite_get_width(spr) - sprite_get_xoffset(spr)));
- yy = abs(random(sprite_get_height(spr) - sprite_get_yoffset(spr)) - random(sprite_get_height(spr) - sprite_get_yoffset(spr)));
- 
+ yy = abs(random(sprite_get_height(spr) - sprite_get_yoffset(spr)) - random(sprite_get_height(spr) - sprite_get_yoffset(spr))); 
  shard = instance_create(x + xx , y + yy, oShard); 
  shard._x = xx;
  shard._y = xx;

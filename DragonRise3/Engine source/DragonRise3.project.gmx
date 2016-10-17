@@ -677,6 +677,7 @@
         <script>scripts\scrSetParamsArray.gml</script>
         <script>scripts\scrWordwrap.gml</script>
         <script>scripts\scrCheckForNeighbours.gml</script>
+        <script>scripts\string_linebreak.gml</script>
       </scripts>
       <scripts name="Shaders">
         <script>scripts\scrShaderPrepareColor.gml</script>
@@ -761,7 +762,6 @@
         <script>scripts\dialogueOptions.gml</script>
         <script>scripts\dialogueEnd.gml</script>
         <script>scripts\dialogueNext.gml</script>
-        <script>scripts\string_linebreak.gml</script>
       </scripts>
       <scripts name="Log">
         <script>scripts\scrLog.gml</script>

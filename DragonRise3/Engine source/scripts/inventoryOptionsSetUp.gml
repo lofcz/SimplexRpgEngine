@@ -1,4 +1,4 @@
-/// inventoryOptionsSetUp(close_text,drop_text,star_text_mark,start_text_unmark)
+/// inventoryOptionsSetUp(closeText, dropText, starTextMark, starTextUnmark)
 
 var cT,dT,sTM,sTU;
 

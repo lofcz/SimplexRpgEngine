@@ -1,7 +1,6 @@
 /// stateIni(debugKey)
 
 var VK;
-
 VK = "L";
 
 if (argument_count > 0) {VK = argument[0];}

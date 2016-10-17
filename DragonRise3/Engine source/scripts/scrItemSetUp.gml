@@ -1,4 +1,4 @@
-/// scrItemSetUp(animationSpeed, show_number, id, canBeQuickUsed)
+/// scrItemSetUp(animationSpeed, showNumber, id, canBeQuickUsed)
 
 var in, canBeQuickUsed;
 animate        = 0;
