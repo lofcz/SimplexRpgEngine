@@ -1,4 +1,4 @@
-<img src="https://img.shields.io/badge/Verze-PRE--RC1-yellowgreen.svg"> <img src="https://img.shields.io/badge/Status-V%20po%C5%99%C3%A1dku-green.svg"> <img src="https://img.shields.io/badge/License-LGPL2.1-blue.svg">
+<img src="https://img.shields.io/badge/Verze-1.0%20RC1-brightgreen.svg"> <img src="https://img.shields.io/badge/Status-V%20po%C5%99%C3%A1dku-green.svg"> <img src="https://img.shields.io/badge/License-LGPL2.1-blue.svg">
 <br><br>
 <img align="middle" src="https://s17.postimg.org/hxjpe7lsv/Logomakr_6_U3cls.png">
 <br>
