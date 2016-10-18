@@ -81,6 +81,11 @@ if (can_move && can_move2 && can_move3 && can_move4 && can_move5 && can_move6 &&
     if (dir == "a") {if (image_index < 6  || image_index > 11.9) {image_index = 6;}}    
     if (dir == "d") {if (image_index < 18 || image_index > 23.9) {image_index = 18;}}            
     }    
+    
+// Compute temp speed
+temp_rychlost = ((rychlost / 100) * parrySlowdown) * (1 - slowdown);    
+time         += 0.02;;    
+cyber_r++;
 
 
 #define apiPlayerMoveStand

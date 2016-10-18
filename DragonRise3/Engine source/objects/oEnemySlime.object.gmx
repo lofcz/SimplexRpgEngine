@@ -56,7 +56,7 @@ scrEnemyIni(30,5,1,choose(1,1,2),"Slime",bestiaryEnemySlime,scrColorflag(c_blue)
             <string>/// Collide
 event_inherited();
 
-if (mood = "jump") {randomize(); bonus_damage = 10; repeat(5) {instance_create(x-random(10)+random(10),y+random(10)-random(10),oBlob);}}
+if (mood == "jump") {randomize(); bonus_damage = 10; repeat(5) {instance_create(x-random(10)+random(10),y+random(10)-random(10),oBlob);}}
 
 </string>
           </argument>
@@ -92,7 +92,7 @@ scrEnemyDamage(oPlayer,15, coloredName + " ti způsobil [flagDamage] [flagPoints
 
 
 
-if (mood = "jump")
+if (mood == "jump")
    { 
     if (dir = dir_up) {dir = dir_down; y-= 4;}
     else if (dir = dir_down) {dir = dir_up; y += 4;}
@@ -100,53 +100,6 @@ if (mood = "jump")
     else if (dir = dir_left) {dir = dir_right; x += 4;}
     mood = "jump";
    }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="6" enumb="7">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>followMouse = false;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="6" enumb="4">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>can_move = !can_move
-followMouse = true;
 </string>
           </argument>
         </arguments>
@@ -180,7 +133,7 @@ if (random(100) &gt; 80)
    {
      mood = "jump";
    }
-else if (random(100) &gt; 80 &amp;&amp; mood = "attack")
+else if (random(100) &gt; 80 &amp;&amp; mood == "attack")
    {
      mood = "slime";
    }
@@ -228,7 +181,6 @@ scrEnemyLoot(oGem2,       1,  1,  true, 10, 2);
 scrEnemyLoot(oGem3,       1,  1,  true, 10, 2);
 scrEnemyLoot(oGem4,       1,  1,  true, 10, 2);
 scrEnemyLoot(oGem5,       1,  1,  true, 10, 2);
-
 scrEnemyDie(true);
 }
 </string>

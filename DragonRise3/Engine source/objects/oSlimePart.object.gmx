@@ -29,8 +29,8 @@
 
 image_xscale = random_range(0.8,1.2);
 image_yscale = image_xscale;
-speed = random_range(4,6);
-secure = 6;
+speed        = random_range(4,6);
+secure       = 6;
 </string>
           </argument>
         </arguments>
@@ -56,8 +56,8 @@ secure = 6;
             <string>/// Lerp
 
 image_alpha -= 0.02;
-image_angle += 1+(speed/10);
-speed += 0.02;
+image_angle += 1 + (speed / 10);
+speed       += 0.02;
 
 if (image_alpha &lt;= 0) {instance_destroy();}
 secure--;
@@ -86,9 +86,9 @@ secure--;
             <string>/// Bounce
 
 if (secure &lt;= 0)
-{
-move_bounce_all(1);
-}
+   {
+    move_bounce_all(1);
+   }
 </string>
           </argument>
         </arguments>

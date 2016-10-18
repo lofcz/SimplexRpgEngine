@@ -116,10 +116,10 @@ ds_list_destroy(listSpeed);
             <string>/// Jump to player position
 
 if (instance_number(oPlayer) &gt; 0)
-{
-x = oPlayer.x;
-y = oPlayer.y;
-}
+   {
+    x = oPlayer.x;
+    y = oPlayer.y;
+   }
 </string>
           </argument>
         </arguments>
@@ -220,7 +220,7 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Don't draw anything
+            <string>/// Draw in-game editor
 
 if (keyboard_check_pressed(ord("H")))
     {
