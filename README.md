@@ -1,11 +1,11 @@
-<img src="https://img.shields.io/badge/Verze-1.0%20RC1-brightgreen.svg"> <img src="https://img.shields.io/badge/Status-V%20po%C5%99%C3%A1dku-green.svg"> <img src="https://img.shields.io/badge/License-LGPL2.1-blue.svg">
+<img src="https://img.shields.io/badge/Verze-1.0%20RC1-brightgreen.svg"> <img src="https://img.shields.io/badge/Status-V%20po%C5%99%C3%A1dku-green.svg"> <img src="https://img.shields.io/badge/License-GPL3-blue.svg">
 <br><br>
-<img align="middle" src="https://s17.postimg.org/hxjpe7lsv/Logomakr_6_U3cls.png">
+<img align="middle" src="https://s22.postimg.org/xwq6o7t9t/Noname.png">
 <br>
 
 ## Moderní RPG Engine, redefinující JRPG žánr.
 * Vhodný pro jednotlivce i studia.
-* Systém komponent, řešící základní i pokročilé RPG problémy (50+ komponent).
+* Systém komponent, řešící základní i pokročilé RPG problémy (80+ komponent).
 * Externí C# nástroje pro zvýšení efektivity práce v enginu.
 * Unikátní systém in-game vývoje, který umožňuje hru tvořit přímo za běhu. 
 * Extrémní výkon, vysoká optimalizace.
@@ -40,14 +40,17 @@
 <img align="middle" width="256" height="196" src="https://s18.postimg.org/em61b12d5/Noname8.png">
 <img align="middle" width="256" height="196" src="https://s15.postimg.org/up5oq2nsr/Noname9.png">
 
-
-
-
 ## Budoucnost máš na dosah, začni [zde](https://github.com/lofcz/SimplexRpgEngine/wiki).
 
 Máš otázky nebo jsi vytvořil na Simplexu hru a chceš nám dát vědět? Napiš nám!
 - <a href="https://www.facebook.com/simplexengine/?pnref=lhc">Facebook</a>
 - <a href="https://www.youtube.com/channel/UCCDT5l4gglPpFB_tEZd5c7Q">Youtube</a>
+
+## Změny oproti základní verzi
+* Nové komponenty (30+).
+* Rozšířené API.
+* Vylepšené externí nástroje.
+* Databáze výchozích assetů pro snadný začátek vývoje projektu.
 
 <sub><sup>Copyright © 2016 Matěj Štágl.</sup></sub>  
 <sub><sup><a href="https://github.com/lofcz/SimplexRpgEngine/wiki/Auto%C5%99i">Vývojový tým</a></sup></sub>  
