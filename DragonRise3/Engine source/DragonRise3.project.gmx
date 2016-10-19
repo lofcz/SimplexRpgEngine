@@ -576,6 +576,7 @@
       <sprite>sprites\resource_plants</sprite>
       <sprite>sprites\sprite203_doors</sprite>
     </sprites>
+    <sprite>sprites\sBook</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background0</background>
@@ -1257,6 +1258,7 @@
       <object>objects\oMainMenu</object>
       <object>objects\oMainMenuPar</object>
     </objects>
+    <object>objects\oBook</object>
   </objects>
   <timelines name="timelines">
     <timelines name="Cutscenes">

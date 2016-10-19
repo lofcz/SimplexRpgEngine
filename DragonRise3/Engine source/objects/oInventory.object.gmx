@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>/// Initialise
 
-inventoryCreate(24);
+inventoryCreate(100);
 inventoryOptionsSetUp("Zavřít","Zahodit","Označit","Odznačit");
 
 //gml_release_mode(true);
@@ -55,7 +55,8 @@ inventoryOptionsSetUp("Zavřít","Zahodit","Označit","Odznačit");
             <kind>1</kind>
             <string>/// Draw inventory
 
-inventoryDrawWrapper(view_xview,view_yview);
+inventoryDrawWrapper(view_xview+400,view_yview+50);
+
 </string>
           </argument>
         </arguments>

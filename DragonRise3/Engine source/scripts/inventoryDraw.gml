@@ -10,6 +10,8 @@ hover_y        = 0;
 pre_switch     = 0;
 pages          = ((array_length_1d(hover_slot_alpha) div slotsPerPage) + 1);
 
+//draw_sprite(sBook,0,view_xview[0] + 960,view_xview[0] + 540);
+
  if(combine)
  {
  if (c_a < 0.1) {c_a += 0.01;}
@@ -47,6 +49,7 @@ pages          = ((array_length_1d(hover_slot_alpha) div slotsPerPage) + 1);
 clr();
 
 // Draw all slots on current page
+
 for (a = (currentPage*slotsPerPage); a < min(array_height_2d(slot), ((currentPage*slotsPerPage) + slotsPerPage)); a++)
 {
 draw_sprite(sSlotTexture,0,xx,yy);
@@ -778,6 +781,7 @@ x = tX;
 y = tY;
 draw_set_font(fntText);
 
+
 if (instance_number(oPlayer) > 0)
 { 
 if (oPlayer.can_move2)
@@ -785,12 +789,15 @@ if (oPlayer.can_move2)
 if (keyboard_check_pressed(ord("I")) && oHUD.iconActive[hudIcons.inventory] && !scrGettActiveComponent())
 {
 
+       
         draw_equipment = !draw_equipment;
+        oInventory.draw_equipment = draw_equipment;
+        
         
         if (draw_equipment) {iconActive[hudIcons.crafting] = false;}
         else {iconActive[hudIcons.crafting] = true;}
-
-        oInventory.draw_equipment = draw_equipment;
+       
+        
           
 draw_inventory = !draw_inventory;
 hover_alpha = 0;

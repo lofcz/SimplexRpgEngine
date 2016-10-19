@@ -490,7 +490,7 @@ alg("default", fntPixelHuge);
         else {iconActive[hudIcons.equipment] = true;}
         }        
      // Equipment
-        if (keyboard_check_pressed(ord("E")) &amp;&amp; iconActive[hudIcons.equipment] &amp;&amp; !scrGettActiveComponent() &amp;&amp; !scrGetTempComponent())
+        /*if (keyboard_check_pressed(ord("I")) &amp;&amp; iconActive[hudIcons.equipment] &amp;&amp; !scrGettActiveComponent() &amp;&amp; !scrGetTempComponent())
         {
         draw_equipment = !draw_equipment;
         
@@ -498,7 +498,7 @@ alg("default", fntPixelHuge);
         else {iconActive[hudIcons.crafting] = true;}
 
         oInventory.draw_equipment = draw_equipment;
-        }  
+        }  */
      // Status
         if (keyboard_check_pressed(ord("T")) &amp;&amp; iconActive[hudIcons.status] &amp;&amp; !scrGettActiveComponent())
         {

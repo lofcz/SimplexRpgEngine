@@ -14,6 +14,7 @@ draw_equ_infobox_xx  = 0;
 draw_equ_infobox_yy  = 0;
 draw_equ_infobox_id  = -1;
 hover_alpha          = 0;
+draw_book            = 0;
 draw_inventory       = 0;
 draw_equipment       = 0;
 draw_quest           = 0;
@@ -23,7 +24,7 @@ drag_controll        = 0;
 effect_scale         = 1;
 inventory_title      = "Inventář";
 currentPage          = 0;
-slotsPerPage         = 24;
+slotsPerPage         = 101;
 inventoryDetails     = false;
 detailsHeight        = 0;
 detailsMaxHeight     = 128;
@@ -36,6 +37,7 @@ starText[2]          = "Odznačit";
 details[0]           = "Seřadit";
 details[1]           = "Vyhodit odpad";
 global.QuestionResult = -1;
+
 
 if (argument_count > 0) {slots = argument[0]}
 
