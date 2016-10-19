@@ -28,9 +28,7 @@
             <string>/// Initialise
 
 inventoryCreate(24);
-inventoryOptionsSetUp("Zavřít","Zahodit","Označit","Odznačit");
-
-//gml_release_mode(true);
+inventoryOptionsSetUp("Zavřít", "Zahodit", "Označit", "Odznačit");
 </string>
           </argument>
         </arguments>

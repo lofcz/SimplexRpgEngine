@@ -204,6 +204,13 @@ if (speechIn)
      }
 
 
+// Decrease spell colldowns      
+for (a = 0; a < 3; a++)
+    {
+     if (spell_cd[a] > 0) {spell_cd[a]--;}
+    }       
+       
+
 #define apiPlayerUnstuck
 /// apiPlayerUnstuck()
 
@@ -643,6 +650,9 @@ oPlayer.vlastnost[vlastnost_stamina] = clamp(oPlayer.vlastnost[vlastnost_stamina
 oPlayer.vlastnost[vlastnost_stit]    = clamp(oPlayer.vlastnost[vlastnost_stit],    0, oPlayer.vlastnost[vlastnost_max_stit]);
 
 if (oPlayer.last_hp < 0) {oPlayer.last_hp = 0;}
+if (oPlayer.vlastnost[vlastnost_zkusenosti] >= oPlayer.vlastnost[vlastnost_max_zkusenosti]) {apiPlayerLevelUp();}
+
+
 #define apiPlayerGetXP
 /// apiPlayerGetXP(value, allowBonusXP)
 
@@ -799,3 +809,94 @@ return(v);
 /// apiPlayerGetSpeechSize()
 
 return ds_queue_size(oPlayer.speechQueue);
+#define apiPlayerIni
+/// apiPlayerIni(health, mana, stamina, shield, level)
+
+vlastnost[vlastnost_max_zivot]      = 40;
+vlastnost[vlastnost_max_stit]       = 10;
+vlastnost[vlastnost_max_stamina]    = 15;
+vlastnost[vlastnost_max_mana]       = 50;
+vlastnost[vlastnost_level]          = 1;
+
+if (argument_count > 0) {vlastnost[vlastnost_max_zivot]   = argument[0];}
+if (argument_count > 1) {vlastnost[vlastnost_max_mana]    = argument[1];}
+if (argument_count > 2) {vlastnost[vlastnost_max_stamina] = argument[2];}
+if (argument_count > 3) {vlastnost[vlastnost_max_stit]    = argument[3];}
+if (argument_count > 3) {vlastnost[vlastnost_level]       = argument[4];}
+
+vlastnost[vlastnost_zivot]   = vlastnost[vlastnost_max_zivot];
+vlastnost[vlastnost_stit]    = vlastnost[vlastnost_max_stit];
+vlastnost[vlastnost_stamina] = vlastnost[vlastnost_max_stamina];
+vlastnost[vlastnost_stit]    = vlastnost[vlastnost_max_stit];
+
+apiPlayerSetMaxExp();
+
+
+#define apiPlayerSetMaxExp
+/// apiPlayerSetMaxExp()
+
+oPlayer.vlastnost[vlastnost_max_zkusenosti] = round(oPlayer.vlastnost[vlastnost_zkusenosti] + log2(oPlayer.vlastnost[vlastnost_zkusenosti]) + oPlayer.vlastnost[vlastnost_zkusenosti] / 3);
+
+
+#define apiPlayerLevelUp
+/// apiPlayerLevelUp()
+
+var inst;
+
+apiPlayerSetMaxExp();
+oPlayer.vlastnost[vlastnost_zkusenosti]     = 0;
+oPlayer.last_xp                             = 0;
+oPlayer.vlastnost[vlastnost_level]++; 
+oPlayer.skillPoints++;
+oPlayer.talentPoints++;
+
+inst            = instance_create(view_xview, view_yview, oAchievement);
+inst.header     = "Úroveň " + string(oPlayer.vlastnost[vlastnost_level]) + " dosažena!";
+inst.text       = "Nyní jsi znám jako " + scrColorflag(c_yellow) + apiPlayerGetRankName() + scrEndColorflag()+ ".";
+inst.index      = 0;
+inst.medalType  = 2;
+
+audio_play_sound(sndSoundLevelUp, 1, false);
+
+#define apiPlayerOtherActions
+/// apiPlayerOtherActions()
+
+// Game save & load
+if (keyboard_check_pressed(vk_numpad7)) {scrGameSave();}
+if (keyboard_check_pressed(vk_numpad8)) {scrGameLoad();}
+
+// Spell casting
+if (can_move2) 
+    {   
+     if (keyboard_check(ord("J"))) {if (spell[0] != "") {spell_index = 0; apiPlayerSpellCast();}}
+     if (keyboard_check(ord("K"))) {if (spell[1] != "") {spell_index = 1; apiPlayerSpellCast();}}
+     if (keyboard_check(ord("L"))) {if (spell[2] != "") {spell_index = 2; apiPlayerSpellCast();}}
+    }
+
+// Pause game    
+if (keyboard_check_pressed(vk_escape)) {scrPauseGame();}
+
+
+#define apiPlayerSpellCast
+/// apiPlayerSpellCast()
+
+if (spell[spell_index] == "fireball")
+   {
+    if (vlastnost[vlastnost_mana] >= magic[spell_fireball_cost] && spell_cd[spell_index] = 0) {spell_cd[spell_index] = magic[spell_fireball_cooldown]; temp_cd[spell_index] = spell_cd[spell_index]; vlastnost[vlastnost_mana] -= magic[spell_fireball_cost]; i = instance_create(x,y,oBasicSpell); i.type = "fireball";}
+   }
+if (spell[spell_index] == "frozen_bolts")
+   {
+    if (vlastnost[vlastnost_mana] >= magic[spell_frozen_bolts_cost] && spell_cd[spell_index] = 0) {spell_cd[spell_index] = magic[spell_frozen_bolts_cooldown]; temp_cd[spell_index] = spell_cd[spell_index]; vlastnost[vlastnost_mana] -= magic[spell_frozen_bolts_cost]; magic_repeat = magic[spell_frozen_bolts_number]; i = instance_create(x,y,oBasicSpell); i.type = "frozen_bolt"; alarm[1] = random_range(5,8); magic_timer = random_range(2,4); magic_id = "frozen_bolt"; can_move3 = 0; speed = 0; image_speed = 0;}
+   }
+if (spell[spell_index] == "fire_trail")
+   {
+    if (vlastnost[vlastnost_mana] >= magic[spell_fire_trail_cost] && spell_cd[spell_index] = 0) {if (instance_number(oLenghdirSpell) = 0 && (dir != "" || last_dir != "")) {i = instance_create(x,y,oLenghdirSpell); i.dir = last_dir; i.type = "fire_trail"; i.index = spell_index; can_move3 = 0; speed = 0; image_speed = 0; vlastnost[vlastnost_mana] -= magic[spell_fire_trail_cost];} else {if (oLenghdirSpell.alarm[1] < 2) {vlastnost[vlastnost_mana] -= magic[spell_fire_trail_cost]; oLenghdirSpell.alarm[1] = 20;} }   }
+   }
+if (spell[spell_index] == "flash")
+   {
+    if (vlastnost[vlastnost_mana] >= magic[spell_flash_cost] && spell_cd[spell_index] = 0) {spell_cd[spell_index] = magic[spell_flash_cooldown]; temp_cd[spell_index] = spell_cd[spell_index]; vlastnost[vlastnost_mana] -= magic[spell_flash_cost]; tempI = 0; if (last_dir = "d") {repeat(96/8) {effectShodowPort(x + tempI, y, 1); tempI += 8;} x += 96;} if (last_dir = "a") {repeat(96/8) {effectShodowPort(x - tempI, y, 1); tempI += 8;} x -= 96;} if (last_dir = "w") {repeat(96/8) {effectShodowPort(x, y - tempI, 1); tempI += 8;} y -= 96;} if (last_dir = "s") {repeat(96/8) {effectShodowPort(x, y + tempI, 1); tempI += 8;} y += 96;} scrEnemyApplyAffect("flash", 120, 1, c_lime, 1, 100, true, false, false);  }
+   }
+if (spell[spell_index] == "vines")
+   {
+    if (vlastnost[vlastnost_mana] >= magic[spell_vines_cost] && spell_cd[spell_index] = 0) {spell_cd[spell_index] = magic[spell_vines_cooldown]; temp_cd[spell_index] = spell_cd[spell_index]; vlastnost[vlastnost_mana] -= magic[spell_vines_cost]; tempI = 0; i = instance_create(x,y,oBasicSpell); i.type = "vines";}
+   }
