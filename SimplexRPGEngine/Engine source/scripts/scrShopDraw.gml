@@ -68,6 +68,22 @@ for (i = 0; i < slots; i++)
      draw_roundrect(xx + tX, yy + tY, xx + tX + 23, yy + tY + 23, false);
      clr();
      draw_roundrect(xx + tX, yy + tY, xx + tX + 23, yy + tY + 23, true);
+     
+     // Sell the item         
+     if (oInventory.drag && mouse_check_button_released(mb_left) && mouse_in(xx + tX, xx + tX + 24, yy + tY, yy + tY + 24))
+        {
+         // Cannot sell quest items
+         if (oInventory.equip_sprite_s[2] != rarity_quest)
+            {
+             apiPlayerSetGold(oInventory.temp_vlastnosti[vlastnost_cena]);
+             oInventory.switch_temp[inv_number]--;
+             
+             if (oInventory.switch_temp[inv_number] <= 0)
+                {
+                 inventoryDeleteTempSlot();
+                }
+            }
+        }
     
      tX += 24;
      if (tX >= 120) {tX = 0; tY += 24;}

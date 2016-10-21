@@ -1,8 +1,8 @@
-///scrBasicEffect(number,sprite,x,y)
+///scrBasicEffect(number, sprite, x, y)
 
 randomize();
 
-var sprite,number,ef,xx,yy;
+var sprite, number, ef, xx, yy;
 sprite = sHealthEffect2;
 number = irandom_range(3,4);
 xx     = x;
@@ -12,7 +12,6 @@ if (argument_count > 0) {number = argument[0];}
 if (argument_count > 1) {sprite = argument[1];}
 if (argument_count > 2) {xx     = argument[2];}
 if (argument_count > 3) {yy     = argument[3];}
-
 
 repeat(number)
               {

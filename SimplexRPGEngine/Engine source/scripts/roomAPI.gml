@@ -13,54 +13,21 @@ randomize();
 var mt;
 mt = mapEnum.mapExterier;
 
-if (argument_count > 0) {mt= argument[0];}
+if (argument_count > 0) {mt = argument[0];}
 
 global.mapType = mt;
 
-if (instance_number(oCamera) == 0)
-   {
-     instance_create(0,0,oCamera);
-   }
-if (instance_number(oController) == 0)
-   {
-     instance_create(0,0,oController);
-   }
-if (instance_number(oBestiar) == 0)
-   {
-     instance_create(0,0,oBestiar);
-   }
-if (instance_number(oScreenShader) == 0)
-   {
-     instance_create(0,0,oScreenShader);
-   }
-if (instance_number(oState) == 0)
-   {
-     instance_create(0,0,oState);
-   }
-if (instance_number(oInventory) == 0)
-   {
-     instance_create(0,0,oInventory);
-   }
-if (instance_number(oQuest) == 0)
-   {
-     instance_create(0,0,oQuest);
-   }
-if (instance_number(oTalentMenu) == 0)
-   {
-     instance_create(0,0,oTalentMenu);
-   }
-if (instance_number(oSpellMenu) == 0)
-   {
-     instance_create(0,0,oSpellMenu);
-   }
-if (instance_number(oStatusMenu) == 0)
-   {
-     instance_create(0,0,oStatusMenu);
-   }
-if (instance_number(oDepthHelperAbovePlayer) == 0)
-   {
-     instance_create(0,0,oDepthHelperAbovePlayer);
-   }
+if (instance_number(oCamera)                 == 0) {instance_create(0, 0, oCamera);}
+if (instance_number(oController)             == 0) {instance_create(0, 0, oController);}
+if (instance_number(oBestiar)                == 0) {instance_create(0, 0, oBestiar);}
+if (instance_number(oScreenShader)           == 0) {instance_create(0, 0, oScreenShader);}
+if (instance_number(oState)                  == 0) {instance_create(0, 0, oState);}
+if (instance_number(oInventory)              == 0) {instance_create(0, 0, oInventory);}
+if (instance_number(oQuest)                  == 0) {instance_create(0, 0, oQuest);}
+if (instance_number(oTalentMenu)             == 0) {instance_create(0, 0, oTalentMenu);}
+if (instance_number(oSpellMenu)              == 0) {instance_create(0, 0, oSpellMenu);}
+if (instance_number(oStatusMenu)             == 0) {instance_create(0, 0, oStatusMenu);}
+if (instance_number(oDepthHelperAbovePlayer) == 0) {instance_create(0, 0, oDepthHelperAbovePlayer);}
       
 global.shaders_enabled = true;
 

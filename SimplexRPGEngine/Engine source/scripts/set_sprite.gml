@@ -1,5 +1,6 @@
-/// set_sprite(sprite, image_speed, target)
+/// set_sprite(sprite, imageSpeed, target)
 
+var sprote, spd, target;
 sprite = noone;
 spd    = 0;
 target = self;

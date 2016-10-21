@@ -1,7 +1,7 @@
 #define inventoryDelete
-///inventoryDelete(id,count)
+/// inventoryDelete(id, count)
 
-var ar_id, count;
+var ar_id, ar_count;
 ar_id    = 0;
 ar_count = 1;
 
@@ -27,7 +27,7 @@ if (oInventory.slot[a,inv_id] == ar_id)
        else
            {                                                                                                       //show_message(ar_count);           ar_count -= slot_count;                                                                                                       //show_message("reset clot: slot_count< ar_count"); 
            inventoryResetSlot(a);  
-           inventoryDelete(ar_id,ar_count);
+           inventoryDelete(ar_id, ar_count);
            }
     break;
   }                 
@@ -58,3 +58,25 @@ for (c = 0; c < 10; c++)
                   
 oInventory.slot[sslot, inv_sprite] = sFreeSlot;
 return true;
+#define inventoryDeleteTempSlot
+/// inventoryDeleteTempSlot()
+
+with (oInventory)
+     {
+      drag            = false;
+      drag_controll   = 0;
+      draw_item_mouse = false;
+
+      for (a = 0; a < inv_atributes_total; a++)
+          {
+           if (scrInventoryParseString()) {slot[h_c, a] = 0;}
+           else {slot[h_c, a] = "";}  
+                   
+           if (a == inv_sprite) {slot[h_c, a] = sFreeSlot;}    
+          }     
+                 
+      for (b = 0; b < 10; b++)
+          {
+           switch_option[0, b] = "";             
+          }                       
+     }

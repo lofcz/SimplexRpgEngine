@@ -242,7 +242,7 @@ clr();
 
 if (mouse_in(hover_x, hover_x + 32, hover_y, hover_y + 32))
    {  
-    if (mouse_check_button_pressed(mb_right) && !slot[hover_id, inv_item_beingUsed])
+    if (mouse_check_button_pressed(mb_right) && !slot[hover_id, inv_item_beingUsed] && slot[hover_id, inv_item_info_head] != "")
        {
         proceed = !proceed;
         

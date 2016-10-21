@@ -650,7 +650,7 @@ oPlayer.vlastnost[vlastnost_stamina] = clamp(oPlayer.vlastnost[vlastnost_stamina
 oPlayer.vlastnost[vlastnost_stit]    = clamp(oPlayer.vlastnost[vlastnost_stit],    0, oPlayer.vlastnost[vlastnost_max_stit]);
 
 if (oPlayer.last_hp < 0) {oPlayer.last_hp = 0;}
-if (oPlayer.vlastnost[vlastnost_zkusenosti] >= oPlayer.vlastnost[vlastnost_max_zkusenosti]) {apiPlayerLevelUp();}
+if (oPlayer.last_xp >= oPlayer.vlastnost[vlastnost_max_zkusenosti]) {apiPlayerLevelUp();}
 
 
 #define apiPlayerGetXP
@@ -696,6 +696,7 @@ if (ds_queue_size(oPlayer.speechQueue) > 0)
 /// apiPlayerGetRankName()
 
 return oPlayer.rankName[oPlayer.vlastnost[vlastnost_level]];
+
 #define apiPlayerGetDamage
 /// apiPlayerGetDamage(damage, damageType, elementType, goreSound, destroySelf, logDmg, stateLog)
 
@@ -828,9 +829,16 @@ vlastnost[vlastnost_zivot]   = vlastnost[vlastnost_max_zivot];
 vlastnost[vlastnost_stit]    = vlastnost[vlastnost_max_stit];
 vlastnost[vlastnost_stamina] = vlastnost[vlastnost_max_stamina];
 vlastnost[vlastnost_stit]    = vlastnost[vlastnost_max_stit];
+vlastnost[vlastnost_mana]    = vlastnost[vlastnost_max_mana];
 
-apiPlayerSetMaxExp();
+last_hp      = vlastnost[vlastnost_zivot];
+last_stit    = vlastnost[vlastnost_stit];
+last_stamina = vlastnost[vlastnost_stamina];
+last_mana    = vlastnost[vlastnost_mana];
+last_xp      = 0;
 
+vlastnost[vlastnost_zkusenosti]     = 0;
+vlastnost[vlastnost_max_zkusenosti] = 100;
 
 #define apiPlayerSetMaxExp
 /// apiPlayerSetMaxExp()
@@ -900,3 +908,179 @@ if (spell[spell_index] == "vines")
    {
     if (vlastnost[vlastnost_mana] >= magic[spell_vines_cost] && spell_cd[spell_index] = 0) {spell_cd[spell_index] = magic[spell_vines_cooldown]; temp_cd[spell_index] = spell_cd[spell_index]; vlastnost[vlastnost_mana] -= magic[spell_vines_cost]; tempI = 0; i = instance_create(x,y,oBasicSpell); i.type = "vines";}
    }
+#define apiPlayerSetMagic
+/// apiPlayerSetMagic(index, value)
+
+var i, v;
+i = 0;
+v = 0;
+
+if (argument_count > 0) {i = argument[0];}
+if (argument_count > 1) {v = argument[1];}
+
+magic[i] = v;
+
+#define apiPlayerCreate
+/// apiPlayerCreate()
+
+
+// Set base vars
+Sname                 = part_system_create();
+z                     = 0;
+blur                  = 0;
+load                  = 1;
+dir                   = ""; 
+h1                    = 0;
+rychlost              = 3.5; 
+can_move              = 1;
+can_move2             = 1;
+can_move3             = 1;
+can_move4             = 1;
+can_move5             = 1;
+can_move6             = 1;
+a1                    = 0;
+last_dir              = "s";
+cyber_r               = 0;
+attack_interval       = 40;
+m1                    = 0;
+m2                    = 0;
+can_damage            = -1;
+tempN                 = 0;
+text                  = "";
+parrySlowdown         = 100;
+temp_rychlost         = rychlost;
+slowdown              = 0;
+equ_draw_head         = 1;
+equ_draw_left_plate   = 1;
+egu_draw_right_plate  = 1;
+equ_draw_body         = 1;
+equ_draw_right_hand   = 1;
+equ_draw_left_hand    = 1;
+equ_draw_left_ring1   = 1;
+equ_draw_left_ring2   = 1;
+equ_draw_right_ring1  = 1;
+equ_draw_right_ring2  = 1;
+equ_draw_crown        = 1;
+equ_draw_trophy1      = 1;
+equ_draw_trophy2      = 1;
+equ_draw_trophy3      = 1;
+equ_draw_special1     = 1;
+equ_draw_special2     = 1;
+equ_draw_belt         = 1;
+equ_draw_left_boot    = 1;
+equ_draw_right_boot   = 1;
+gold                  = 0;
+sprinting             = false;
+magic_repeat          = 0;
+magic_timer           = 1;
+magic_id              = "";
+spell[0]              = "";
+spell[1]              = "";
+spell[2]              = "";
+spell_cd[0]           = 0;
+spell_cd[1]           = 0;
+spell_cd[2]           = 0;
+temp_cd[0]            = 1;
+temp_cd[1]            = 1;
+temp_cd[2]            = 1;
+spell_sprite[0]       = sFreeSlot;
+spell_sprite[1]       = sFreeSlot;
+spell_sprite[2]       = sFreeSlot;
+spell_index           = -1; 
+speechQueue           = ds_queue_create();
+speechAlpha           = 0;
+speechIn              = false;
+speechCurrentText     = "";
+speechMode            = 0;
+speechSkip            = false;
+set_sprite(sprite_index, 0);
+
+for(a = 0; a < celkem_vlastnosti; a++)
+{
+ vlastnost[a]   = 0;
+ draw_equ[a, 0] = 0;
+ draw_equ[a, 1] = 0;
+}
+
+for(a = 0; a < spell_total; a++)
+{
+ magic[spell_total] = 0;
+}
+
+// Create needed objects
+instance_create(x, y, oPlayerCombat);
+instance_create(x, y, oState);
+instance_create(x, y, oHUD);
+instance_create(x, y, oOptimize);
+instance_create(x, y, oMinimap);
+instance_create(x, y, oDayNight);
+
+scrAffectsIni();
+apiPlayerUpdateKeysFromConfig();
+
+// Rank names
+rankName[1]  = "cizinec";
+rankName[2]  = "návštěvník";
+rankName[3]  = "neznámý cestovatel";
+rankName[4]  = "bezejmenný kupec";
+rankName[5]  = "stálý návštěvník";
+rankName[6]  = "povědomá tvář";
+rankName[7]  = "známý poutník";
+rankName[8]  = "vzácný host";
+rankName[9]  = "přítel města";
+rankName[10] = "zmocněnec královského písaře";
+
+
+#define apiPlayerUpdateKeysFromConfig
+/// apiPlayerUpdateKeysFromConfig()
+
+ini_open("config.cfg");
+testKey = ini_read_real("keybinding", "move_right", 68);
+ini_close();
+
+#define apiPlayerSetProperty
+/// apiPlayerSetProperty(index, value)
+
+var i, v;
+i = 0;
+v = 0;
+
+if (argument_count > 0) {i = argument[0];}
+if (argument_count > 1) {v = argument[1];}
+
+vlastnost[i] = v;
+
+#define apiPlayerAssignSpell
+/// apiPlayerAssignSpell(index, name, sprite)
+
+var i, n, s;
+i = 0;
+n = "";
+s = sFreeSlot;
+
+if (argument_count > 0) {i = argument[0];}
+if (argument_count > 1) {n = argument[1];}
+if (argument_count > 2) {s = argument[2];}
+
+spell[i]        = n;
+spell_sprite[i] = s;
+#define apiPlayerSetGold
+/// apiPlayerSetGold(amount, applyBonusGold, relative)
+
+var a, abg, r;
+a   = 1;
+abg = false;
+r   = true;
+
+if (argument_count > 0) {a   = argument[0];}
+if (argument_count > 1) {abg = argument[1];}
+if (argument_count > 2) {r   = argument[2];}
+
+if (!abg)
+    {
+     if (r) {oPlayer.gold += a;} else {oPlayer.gold = r;}
+    }
+else
+    {
+     if (r) {oPlayer.gold += (a + (a * oPlayer.vlastnost[vlastnost_bonusGold]));} else {oPlayer.gold = (a + (a * oPlayer.vlastnost[vlastnost_bonusGold]));}
+    }

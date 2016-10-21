@@ -47,18 +47,18 @@ if (open)
                          {
                           if (scrInventoryParseString())
                              {
-                              slot[h_c,a] = 0;
+                              slot[h_c, a] = 0;
                              }
-                          else {slot[h_c,a] = "";}  
+                          else {slot[h_c, a] = "";}  
                    
-                           if (a = inv_sprite) {slot[h_c,a] = sFreeSlot;}    
+                           if (a = inv_sprite) {slot[h_c, a] = sFreeSlot;}    
                           } 
 
                       draw_item_mouse = 0;
            
                       for (b = 0; b < 10; b++)
                         {
-                        switch_option[0, b] = "";                
+                         switch_option[0, b] = "";                
                         }
                       }                                      
                  }

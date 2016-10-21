@@ -27,99 +27,18 @@
             <kind>1</kind>
             <string>/// Initialise
 
+apiPlayerCreate();
+
+// scrSimpleLightIni() // &lt;-- TODO
 sprLight      = sBasicLight;
 sprLightIndex = 0;
 scale         = 2;
 color         = c_white;
 sprAlpha      = 0.5;
-rot            = 0;
+rot           = 0;
 
-ini_open("config.cfg");
-testKey = ini_read_real("keybinding", "move_right", 68);
-ini_close();
+apiPlayerIni();
 
-set_sprite(sprite_index,0);
-instance_create(x,y,oPlayerCombat);
-instance_create(x,y,oState);
-instance_create(x,y,oHUD);
-instance_create(x,y,oOptimize);
-instance_create(x,y,oMinimap);
-instance_create(x,y,oDayNight);
-
-Sname                 = part_system_create();
-z                     = 0;
-blur                  = 0;
-load                  = 1;
-dir                   = ""; 
-h1                    = 0;
-rychlost              = 3.5; 
-can_move              = 1;
-can_move2             = 1;
-can_move3             = 1;
-can_move4             = 1;
-can_move5             = 1;
-can_move6             = 1;
-a1                    = 0;
-last_dir              = "s";
-cyber_r               = 0;
-attack_interval       = 40;
-m1                    = 0;
-m2                    = 0;
-can_damage            = -1;
-tempN                 = 0;
-text                  = "";
-parrySlowdown         = 100;
-temp_rychlost         = rychlost;
-slowdown              = 0;
-equ_draw_head         = 1;
-equ_draw_left_plate   = 1;
-egu_draw_right_plate  = 1;
-equ_draw_body         = 1;
-equ_draw_right_hand   = 1;
-equ_draw_left_hand    = 1;
-equ_draw_left_ring1   = 1;
-equ_draw_left_ring2   = 1;
-equ_draw_right_ring1  = 1;
-equ_draw_right_ring2  = 1;
-equ_draw_crown        = 1;
-equ_draw_trophy1      = 1;
-equ_draw_trophy2      = 1;
-equ_draw_trophy3      = 1;
-equ_draw_special1     = 1;
-equ_draw_special2     = 1;
-equ_draw_belt         = 1;
-equ_draw_left_boot    = 1;
-equ_draw_right_boot   = 1;
-gold                  = 0;
-
-for(a = 0; a &lt; celkem_vlastnosti; a++)
-{
- vlastnost[a]   = 0;
- draw_equ[a, 0] = 0;
- draw_equ[a, 1] = 0;
-}
-
-for(a = 0; a &lt; spell_total; a++)
-{
- magic[spell_total] = 0;
-}
-
-vlastnost[vlastnost_max_zivot]      = 40;
-vlastnost[vlastnost_zivot]          = 40;
-vlastnost[vlastnost_max_stit]       = 10;
-vlastnost[vlastnost_stit]           = 10;
-vlastnost[vlastnost_max_stamina]    = 15;
-vlastnost[vlastnost_stamina]        = 15;
-vlastnost[vlastnost_max_mana]       = 50;
-vlastnost[vlastnost_mana]           = 50;
-vlastnost[vlastnost_max_zkusenosti] = 100;
-vlastnost[vlastnost_level]          = 1;
-
-last_hp      = vlastnost[vlastnost_zivot];
-last_stit    = vlastnost[vlastnost_stit];
-last_stamina = vlastnost[vlastnost_stamina];
-last_mana    = vlastnost[vlastnost_mana];
-last_xp      = 0;
 
 vlastnost[vlastnost_kriticka_sance]   = 50;
 vlastnost[vlastnost_kriticka_nasobic] = 2;
@@ -129,31 +48,11 @@ vlastnost[vlastnost_tick_stamina_add] = 1;
 
 stamina_tick = vlastnost[vlastnost_tick_stamina]; 
 
-sprinting    = 0;
-magic_repeat = 0;
-magic_timer  = 1;
-magic_id     = "";
+apiPlayerAssignSpell(0, "flash",        sSpellFlash);
+apiPlayerAssignSpell(1, "frozen_bolts", sSpellFrozenBolts);
+apiPlayerAssignSpell(2, "fire_trail",   sSpellFireBeam);
 
-spell[0]        = "";
-spell[1]        = "";
-spell[2]        = "";
-spell_cd[0]     = 0;
-spell_cd[1]     = 0;
-spell_cd[2]     = 0;
-temp_cd[0]      = 1;
-temp_cd[1]      = 1;
-temp_cd[2]      = 1;
-spell_sprite[0] = sFreeSlot;
-spell_sprite[1] = sFreeSlot;
-spell_sprite[2] = sFreeSlot;
 
-spell[0]        = "flash";
-spell_sprite[0] = sSpellFlash;
-spell[1]        = "frozen_bolts";
-spell_sprite[1] = sSpellFrozenBolts;
-spell[2]        = "fire_trail";
-spell_sprite[2] = sSpellFireBeam;
-spell_index     = -1;
 
 
 magic[spell_fireball_cost]     = 20;
@@ -180,15 +79,6 @@ skillPoints    = 10;
 propertyPoints = 5;
 talentPoints   = 10;
 spellPoints    = 20;
- 
-statusList        = ds_list_create();
-statusTimeList    = ds_list_create();
-statusSpriteList  = ds_list_create();
-statusScaleList   = ds_list_create();
-statusAlphaList   = ds_list_create();
-statusMTimeList   = ds_list_create();
-statusColorList   = ds_list_create();
-statusNList       = ds_list_create();
 
 testStatus       = 0;
 time             = 0;
@@ -199,23 +89,6 @@ scrBodyCanvasDB();
 scrBodyCanvasIni(animationEnum.walk, sBodyCanvasHumanWalk1, sBodyCanvasArmor1, sBodyCanvasHood1, sBodyCanvasBelt1, sBodyCanvasLegs1, sBodyCanvasShoes1, sBodyCanvasHands1, 0);
 scrBodyCanvasIni(animationEnum.slash, sBodyCanvasAttack1, sBodyCanvasAttackArmor1, sBodyCanvasAttackHead1, sBodyCanvasAttackBelt1, sBodyCanvasAttackLegs1, sBodyCanvasAttackShoes1, sBodyCanvasAttackHands1, 0);
 
-speechQueue       = ds_queue_create();
-speechAlpha       = 0;
-speechIn          = false;
-speechCurrentText = "";
-speechMode        = 0;
-speechSkip        = false;
-
-rankName[1] = "cizinec";
-rankName[2] = "návštěvník";
-rankName[3] = "neznámý cestovatel";
-rankName[4] = "bezejmenný kupec";
-rankName[5] = "stálý návštěvník";
-rankName[6] = "povědomá tvář";
-rankName[7] = "známý poutník";
-rankName[8] = "vzácný host";
-rankName[9] = "přítel města";
-rankName[10] = "zmocněnec královského písaře";
 </string>
           </argument>
         </arguments>

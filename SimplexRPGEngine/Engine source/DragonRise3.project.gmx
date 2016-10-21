@@ -652,56 +652,74 @@
       </scripts>
       <scripts name="Common">
         <script>scripts\plainInitEnums.gml</script>
-        <script>scripts\scrInventoryParseString.gml</script>
-        <script>scripts\clr.gml</script>
-        <script>scripts\alg.gml</script>
-        <script>scripts\fnt.gml</script>
-        <script>scripts\scl.gml</script>
-        <script>scripts\scrCenterText.gml</script>
-        <script>scripts\scrChooseFromArray.gml</script>
-        <script>scripts\mouse_in.gml</script>
-        <script>scripts\instance_nnearest.gml</script>
-        <script>scripts\scrColorflag.gml</script>
-        <script>scripts\scrColorText.gml</script>
-        <script>scripts\instance_set_position.gml</script>
-        <script>scripts\scrSetActiveComponent.gml</script>
-        <script>scripts\scrGettActiveComponent.gml</script>
-        <script>scripts\scrEndColorflag.gml</script>
-        <script>scripts\scrBasicEffect.gml</script>
         <script>scripts\scrInflect.gml</script>
-        <script>scripts\secToSteps.gml</script>
-        <script>scripts\scrDice.gml</script>
-        <script>scripts\set_position.gml</script>
-        <script>scripts\set_sprite.gml</script>
-        <script>scripts\scrSpriteDissolve.gml</script>
-        <script>scripts\scrSetParamsArray.gml</script>
-        <script>scripts\scrWordwrap.gml</script>
-        <script>scripts\scrCheckForNeighbours.gml</script>
-        <script>scripts\string_linebreak.gml</script>
+        <scripts name="GMLExtend">
+          <script>scripts\mouse_in.gml</script>
+          <script>scripts\instance_nnearest.gml</script>
+          <script>scripts\set_position.gml</script>
+          <script>scripts\set_sprite.gml</script>
+          <script>scripts\instance_set_position.gml</script>
+        </scripts>
+        <scripts name="AsmCore">
+          <script>scripts\clr.gml</script>
+          <script>scripts\alg.gml</script>
+          <script>scripts\fnt.gml</script>
+          <script>scripts\scl.gml</script>
+        </scripts>
+        <scripts name="SimplexCore">
+          <scripts name="SimplexString">
+            <script>scripts\scrColorflag.gml</script>
+            <script>scripts\scrEndColorflag.gml</script>
+            <script>scripts\scrColorText.gml</script>
+          </scripts>
+          <scripts name="AI">
+            <script>scripts\scrCheckForNeighbours.gml</script>
+          </scripts>
+          <scripts name="Misc">
+            <script>scripts\scrWordwrap.gml</script>
+            <script>scripts\scrSetParamsArray.gml</script>
+            <script>scripts\scrChooseFromArray.gml</script>
+            <script>scripts\secToSteps.gml</script>
+            <script>scripts\scrDice.gml</script>
+            <scripts name="Deprecated">
+              <script>scripts\scrCenterText.gml</script>
+            </scripts>
+          </scripts>
+          <scripts name="Active component">
+            <script>scripts\scrSetActiveComponent.gml</script>
+            <script>scripts\scrGettActiveComponent.gml</script>
+          </scripts>
+        </scripts>
       </scripts>
       <scripts name="Shaders">
         <script>scripts\scrShaderPrepareColor.gml</script>
         <script>scripts\scrShaderDrawColor.gml</script>
       </scripts>
-      <scripts name="Particle effects">
-        <script>scripts\effectFiretrail.gml</script>
-        <script>scripts\effectFireballExplode.gml</script>
-        <script>scripts\effectFireball.gml</script>
-        <script>scripts\effectSprint.gml</script>
-        <script>scripts\effectExperience.gml</script>
-        <script>scripts\effectSmoke.gml</script>
-        <script>scripts\effectFrozenTrail.gml</script>
-        <script>scripts\effectTalentUp.gml</script>
-        <script>scripts\effectPoison.gml</script>
-        <script>scripts\effectShodowPort.gml</script>
-        <script>scripts\effectShardDrop.gml</script>
-        <script>scripts\effectRealFire.gml</script>
-        <script>scripts\effectGrass.gml</script>
-        <script>scripts\effectAchievement.gml</script>
-        <script>scripts\effectSpellLevelUp.gml</script>
-        <script>scripts\effectVines.gml</script>
-        <script>scripts\effectLegendaryItem.gml</script>
-        <script>scripts\effectFirefly.gml</script>
+      <scripts name="Effects">
+        <scripts name="Particles">
+          <script>scripts\effectFiretrail.gml</script>
+          <script>scripts\effectFireballExplode.gml</script>
+          <script>scripts\effectFireball.gml</script>
+          <script>scripts\effectSprint.gml</script>
+          <script>scripts\effectSmoke.gml</script>
+          <script>scripts\effectExperience.gml</script>
+          <script>scripts\effectTalentUp.gml</script>
+          <script>scripts\effectPoison.gml</script>
+          <script>scripts\effectFrozenTrail.gml</script>
+          <script>scripts\effectShodowPort.gml</script>
+          <script>scripts\effectShardDrop.gml</script>
+          <script>scripts\effectRealFire.gml</script>
+          <script>scripts\effectAchievement.gml</script>
+          <script>scripts\effectSpellLevelUp.gml</script>
+          <script>scripts\effectGrass.gml</script>
+          <script>scripts\effectVines.gml</script>
+          <script>scripts\effectLegendaryItem.gml</script>
+          <script>scripts\effectFirefly.gml</script>
+        </scripts>
+        <scripts name="Other">
+          <script>scripts\scrSpriteDissolve.gml</script>
+          <script>scripts\scrBasicEffect.gml</script>
+        </scripts>
       </scripts>
     </scripts>
     <scripts name="Components">
@@ -721,6 +739,7 @@
         <script>scripts\inventoryOptionsSetUp.gml</script>
         <script>scripts\inventorySort.gml</script>
         <script>scripts\inventoryDelete.gml</script>
+        <script>scripts\scrInventoryParseString.gml</script>
       </scripts>
       <scripts name="Chest">
         <script>scripts\scrChestState.gml</script>
@@ -856,6 +875,7 @@
         <script>scripts\scrAffecstAddTime.gml</script>
         <script>scripts\scrAffectsRemove.gml</script>
         <script>scripts\scrAffectsUpdate.gml</script>
+        <script>scripts\scrAffectsIni.gml</script>
       </scripts>
       <scripts name="Breakable containers">
         <script>scripts\scrBCAddLoot.gml</script>
@@ -1316,7 +1336,7 @@
       <room>rooms\mapSklep</room>
     </rooms>
   </rooms>
-  <constants number="218">
+  <constants number="219">
     <constant name="baArmor">1</constant>
     <constant name="baBase">0</constant>
     <constant name="cStaticInstance">"staticInstance"</constant>
@@ -1365,7 +1385,8 @@
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
     <constant name="upgradableProperties">58</constant>
-    <constant name="celkem_vlastnosti">95</constant>
+    <constant name="celkem_vlastnosti">96</constant>
+    <constant name="vlastnost_bonusGold">95</constant>
     <constant name="vlastnost_canBeFastEquiped">94</constant>
     <constant name="vlastnost_dataSocket10">93</constant>
     <constant name="vlastnost_dataSocket9">92</constant>
