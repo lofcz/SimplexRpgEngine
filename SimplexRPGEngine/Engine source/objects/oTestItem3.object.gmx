@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>/// Initialize item
 scrItemSetUp(0, 0, itemEnum.itemSwordWooden);
-scrItemSetProperties(false, "Dřevěný meč", "Jednoduchá, poměrně neškodná zbraň. Pořádný úder je nicméně schopný napáchat určité škody, popřípadě omráčit protivníka.", -1, "zbraň", 6);
+scrItemSetProperties(false, "Dřevěný meč", "Jednoduchá, poměrně neškodná zbraň. Pořádný úder je nicméně schopný napáchat určité škody, popřípadě omráčit protivníka.", materialEnum.materialNone, "zbraň", 6);
 scrItemSetOptions();
 
 vlastnost[vlastnost_vykresli_sprit] = sShortWeapons;

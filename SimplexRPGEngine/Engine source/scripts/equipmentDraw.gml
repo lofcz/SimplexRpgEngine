@@ -933,7 +933,11 @@ for(a = 0; a < celkem_vlastnosti; a++)
                            t_text += "#Bonusové zkušenosti: "+string(oInventory.equiped_vlastnost[idd,a]) + "%";
                            break;                                                                   
                          }
-
+                    case(vlastnost_textSocket1):
+                         {
+                           t_text += string(oInventory.equiped_vlastnost[idd,a]);
+                           break;                                                                   
+                         }
                     
                     }               
           }      

@@ -3,8 +3,8 @@
 isBusy = true;
 
 var xx, yy;
-xx = x + 32-16; //view_xview + 288;
-yy = y - 80-24;//view_yview + 36;
+xx = x + 32-16; 
+yy = y - 80-24;
 tX = 0;
 tY = 0;
 
@@ -47,11 +47,11 @@ if (thumbnailPrice != -1)
      }
     }
     
-for (i = 0; i < slots; i++)
+for (var i = 0; i < slots; i++)
     {    
      color = c_black;   
      
-     if (item[i] != -1)
+     if (item[i] > 0)
      {   
      if (instance_exists(item[i]))
      {
@@ -72,10 +72,11 @@ for (i = 0; i < slots; i++)
      // Sell the item         
      if (oInventory.drag && mouse_check_button_released(mb_left) && mouse_in(xx + tX, xx + tX + 24, yy + tY, yy + tY + 24))
         {
-         // Cannot sell quest items
-         if (oInventory.equip_sprite_s[2] != rarity_quest)
+         // Cannot sell quest items and items with no value
+         if (oInventory.equip_sprite_s[2] != rarity_quest && oInventory.temp_vlastnosti[vlastnost_cena] > 0)
             {
              apiPlayerSetGold(oInventory.temp_vlastnosti[vlastnost_cena]);
+             audio_play_sound(choose(sndSold1, sndSold2, sndSold3), 0, false);
              oInventory.switch_temp[inv_number]--;
              
              if (oInventory.switch_temp[inv_number] <= 0)

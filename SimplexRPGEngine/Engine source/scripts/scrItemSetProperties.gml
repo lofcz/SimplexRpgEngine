@@ -1,4 +1,9 @@
-/// scrItemSetProperties(stackable, infoHeadText, infoBodyText, materialType, equipSlot, price, rarity)
+/// scrItemSetProperties(stackable, infoHeadText, infoBodyText, materialType, equipSlot, price, rarity, [wordwrapText])
+
+var w;
+w = true;
+
+if (argument_count > 7) {w = argument[0];}
 
 itm_stackable              = false;
 itm_sprite_number          = image_index;
@@ -19,5 +24,6 @@ if (argument_count > 4) {itm_equip_slot             = argument[4];}
 if (argument_count > 5) {vlastnost[vlastnost_cena]  = argument[5];}
 if (argument_count > 6) {itm_info_color = argument[6]; itm_effect = argument[6];}
 
-itm_info_text                        = scrWordwrap(itm_info_text, 196, fntPixelSmall);
-vlastnost[vlastnost_originalniCena] = vlastnost[vlastnost_cena];
+if (w) {itm_info_text                        = scrWordwrap(itm_info_text, 196, fntPixelSmall);}
+else {itm_info_text                          = itm_info_text;}
+vlastnost[vlastnost_originalniCena]          = vlastnost[vlastnost_cena];

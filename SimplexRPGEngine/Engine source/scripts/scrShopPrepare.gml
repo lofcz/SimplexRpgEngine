@@ -1,6 +1,6 @@
 /// scrShopPrepare(slot)
 
-var xx, yy, tar_x, tar_y, slot;
+var xx, yy, tar_x, tar_y, slot, i, tX, tY;
 xx    = x + 32-16;
 yy    = y - 80-24;
 tar_x = xx + 16;
@@ -24,10 +24,10 @@ for (a = 0; a < 15; a++)
       b.itm_number      = loot[a,ext_number];
       b.on_click        = 1;
       b.hover_info      = 1;
-      b.xx               = tar_x;
-      b.yy               = tar_y;
-      b.x                = xx + tX;
-      b.y                = yy + tY;
+      b.xx              = tar_x;
+      b.yy              = tar_y;
+      b.x               = xx + tX;
+      b.y               = yy + tY;
       b.loot            = 2;
       b.drop_id         = (id);
       b.slot            = a;
@@ -35,13 +35,11 @@ for (a = 0; a < 15; a++)
       b.animateDrop     = 0;
       b.animateDropDir  = 0;
       b.animateDropForce = 0;
-      b.vlastnost[vlastnost_cena] = 10;
-      b.vlastnost[vlastnost_originalniCena] = b.vlastnost[vlastnost_cena];
+//      b.vlastnost[vlastnost_cena] = 10;
+//      b.vlastnost[vlastnost_originalniCena] = b.vlastnost[vlastnost_cena];
 
       item[a] = (b.id);
-      
-      loot[a,ext_name]  = -1;
-      fill[a]           = 1;
+      fill[a] = 1;
      }
      else {item[a] = -1;}
      
@@ -53,9 +51,9 @@ for (a = 0; a < 15; a++)
 }
 else
     {
-     if (loot[slot,ext_name] != -1)
+     if (loot[slot, ext_name] != -1)
      {
-      for(i = 0; i < slot; i++)
+      for (i = 0; i < slot; i++)
         {
          tX += 24;
          if (tX >= 120) {tX = 0; tY += 24;}     
@@ -67,10 +65,10 @@ else
       b.itm_number      = loot[slot,ext_number];
       b.on_click        = 1;
       b.hover_info      = 1;
-      b.xx               = tar_x;
-      b.yy               = tar_y;
-      b.x                = xx + tX;
-      b.y                = yy + tY;
+      b.xx              = tar_x;
+      b.yy              = tar_y;
+      b.x               = xx + tX;
+      b.y               = yy + tY;
       b.loot            = 2;
       b.drop_id         = (id);
       b.slot            = slot;
@@ -78,13 +76,11 @@ else
       b.animateDrop     = 0;
       b.animateDropDir  = 0;
       b.animateDropForce = 0;
-      b.vlastnost[vlastnost_cena] = 10;
-      b.vlastnost[vlastnost_originalniCena] = b.vlastnost[vlastnost_cena];
+//      b.vlastnost[vlastnost_cena] = 10;
+//      b.vlastnost[vlastnost_originalniCena] = b.vlastnost[vlastnost_cena];
 
-      item[slot] = (b.id);
-      
-      loot[slot,ext_name]  = -1;
-      fill[slot]           = 1;
+      item[slot] = (b.id);      
+      fill[slot] = 1;
      }   
-     else {item[a] = -1;}
+     else {item[slot] = -1;}
     }

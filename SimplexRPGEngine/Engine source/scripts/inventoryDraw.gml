@@ -49,13 +49,27 @@ if (mouse_in(x + 256, x + 256 + 32, y, y + 32))
 // Draw all slots on the current page
 for (a = (currentPage*slotsPerPage); a < min(array_height_2d(slot), ((currentPage*slotsPerPage) + slotsPerPage)); a++)
     {
+     // Handle filtering
+     passed      = true;
+     filterAlpha = 1;
+     
+     if (currentFilter == "onlyQuickEquip")
+        {
+         passed = false;
+         if (slot[a, inv_item_star] == 1) {passed = true;}
+         
+         if (passed) {filterAlpha = 1;} else {filterAlpha = 0.1;}
+        }
+     
+     
      // Draw base rectangle and item
      clr();
-     draw_sprite(sSlotTexture, 0, xx, yy);
-     draw_rectangle(xx, yy, xx + 32,yy + 32, 1);                                                                                  
+     draw_sprite(sSlotTexture, 0, xx, yy);     
+     draw_rectangle(xx, yy, xx + 32,yy + 32, 1);   
+     clr(c_black, filterAlpha);                                                                             
      draw_sprite(sRarityEffect, itemRarityEffect(slot[a, inv_item_effect]), xx, yy); 
      draw_sprite(slot[a, inv_sprite], slot[a, inv_sprite_number], xx + 16, yy + 16);
- 
+     
      // If item is stackable, draw it's count
      if (slot[a, inv_slot_stackable])
        {
@@ -109,9 +123,9 @@ for (a = (currentPage*slotsPerPage); a < min(array_height_2d(slot), ((currentPag
     draw_sprite(sSlotOutline, 0, xx, yy);
     if (slot[a, inv_item_star] == 1) {draw_sprite(sRarityEffect, 5, xx, yy);}
     if (slot[a, inv_item_star] == 2) {draw_sprite(sRarityEffect, 6, xx, yy);}
-
+        
     xx+=36
-    if (xx > x + 256) {yy += 36; xx = x;}
+    if (xx > x + 256) {yy += 36; xx = x;}    
    }
    
 // Draw footer
@@ -180,9 +194,23 @@ if (mouse_in(x + 260, x + 288, used_y + 10, used_y + 44))
         }
     }   
     
+// Draw filters
+clr(c_black, detailsAlpha);
+if (currentFilter == "") {outline = true;} else {outline = false;}
+
+draw_rectangle(x + 256, used_y + 24 + detailsHeight - 48, x + 276, used_y + 24 + detailsHeight - 32, outline);
+
+if (mouse_in(x + 256, x + 276, used_y + 24 + detailsHeight - 48, used_y + 24 + detailsHeight - 32))
+    {
+     if (mouse_check_button_pressed(mb_left))
+        {
+         if (currentFilter == "") {currentFilter = "onlyQuickEquip";} else {currentFilter = "";}
+        }
+    }
+clr();
+    
 fnt(fntPixel);
 if (proceed) {hover_alpha = 1; hover = true; hover_id = hover_idd;}
-clr(c_black, hover_alpha);
 
 clr(c_black, hover_alpha);    
 if (hover || hover_alpha > 0)
@@ -408,7 +436,7 @@ for(a = 0; a < celkem_vlastnosti; a++)
       {
        if (slot[f,inv_id] = 0) {break;}      
 
-       if (slot_vlastnosti[f,a] > 0)
+       if (slot_vlastnosti[f, a] > 0 || (a == vlastnost_textSocket1 && slot_vlastnosti[f, a] != ""))
           {
            switch(a)
                     {
@@ -699,6 +727,11 @@ for(a = 0; a < celkem_vlastnosti; a++)
                            t_text += "#Bonusové zkušenosti: "+string(slot_vlastnosti[f, a]) + "%";
                            break;                                                                   
                          }
+                    case(vlastnost_textSocket1):
+                        {
+                         t_text += "#" + string(slot_vlastnosti[f, a]);
+                         break;      
+                        }
                }                    
           }      
       }

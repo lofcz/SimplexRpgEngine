@@ -40,7 +40,7 @@ if (show_number && loot != 2)
 {
 alg("center", fntPixelTiny);
 draw_text(x+23-16,y+25-16,itm_number);
-alg();                                                                                                                     //draw_text(x,y+16,itm_stackable);
+alg();                                                                                                                   
 }
 }
 
@@ -49,11 +49,11 @@ if (loot)
     if (instance_number((drop_id)) > 0)
       {
       if (f == 1)
-       {                                                                                                                        //effect_create_above(ef_ring,x,y-80,1,c_green);
+       {                                                                                                                       
         p = 1;
        }
       if (f == 0)
-           {                                                                                                                       //effect_create_above(ef_ring,x,y+80,1,c_red);
+           {                                                                                                                    
             p = 0;
            }
       }
@@ -97,7 +97,7 @@ if (hover_info && p == 1)
                else 
                     {
                      if (loot != 2) {inventoryPickUp();}
-                     else {if (oPlayer.gold >= vlastnost[vlastnost_cena]) {inventoryPickUp(1); audio_play_sound(sndBuyItem, 0, 0); oPlayer.gold -= vlastnost[vlastnost_cena];} else {audio_play_sound(sndError, 0, 0);}}
+                     else {if (oPlayer.gold >= vlastnost[vlastnost_cena]) {inventoryPickUp(1); audio_play_sound(sndBuyItem, 0, 0); oPlayer.gold -= vlastnost[vlastnost_cena];} else {audio_play_sound(sndError, 0, 0);} if (itm_number == 0) {(drop_id).loot[slot, ext_name] = -1;}}
                      
                    
                     }

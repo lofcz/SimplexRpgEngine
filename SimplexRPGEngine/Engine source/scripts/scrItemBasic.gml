@@ -41,3 +41,4 @@ if (argument_count > 0) {itm_id = argument[0]}
 
 scrItemImageIndex(itm_id - 1)
 realIndex = image_index;
+vlastnost[vlastnost_textSocket1] = "";

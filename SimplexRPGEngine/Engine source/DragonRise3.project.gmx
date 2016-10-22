@@ -212,6 +212,9 @@
       <sound>sound\sndCheckUnlocked</sound>
       <sound>sound\sndAchievement</sound>
       <sound>sound\sndItemUpgrade1</sound>
+      <sound>sound\sndSold3</sound>
+      <sound>sound\sndSold2</sound>
+      <sound>sound\sndSold1</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -1279,14 +1282,6 @@
         </objects>
       </objects>
     </objects>
-    <objects name="Collisions">
-      <object>objects\oBasicCollision</object>
-      <object>objects\oAdvancedCollision</object>
-      <object>objects\oNonsolidCollision</object>
-      <object>objects\oTransitionCollision</object>
-      <object>objects\oRoomTransition</object>
-      <object>objects\parSolid</object>
-    </objects>
     <objects name="Environment">
       <objects name="Trees">
         <object>objects\oTree2</object>
@@ -1312,6 +1307,14 @@
         <object>objects\oFirefly</object>
         <object>objects\oBasicVivid</object>
       </objects>
+      <objects name="Collisions">
+        <object>objects\oBasicCollision</object>
+        <object>objects\oAdvancedCollision</object>
+        <object>objects\oNonsolidCollision</object>
+        <object>objects\oTransitionCollision</object>
+        <object>objects\oRoomTransition</object>
+        <object>objects\parSolid</object>
+      </objects>
     </objects>
   </objects>
   <timelines name="timelines">
@@ -1336,7 +1339,7 @@
       <room>rooms\mapSklep</room>
     </rooms>
   </rooms>
-  <constants number="219">
+  <constants number="220">
     <constant name="baArmor">1</constant>
     <constant name="baBase">0</constant>
     <constant name="cStaticInstance">"staticInstance"</constant>
@@ -1385,7 +1388,8 @@
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
     <constant name="upgradableProperties">58</constant>
-    <constant name="celkem_vlastnosti">96</constant>
+    <constant name="celkem_vlastnosti">97</constant>
+    <constant name="vlastnost_textSocket1">96</constant>
     <constant name="vlastnost_bonusGold">95</constant>
     <constant name="vlastnost_canBeFastEquiped">94</constant>
     <constant name="vlastnost_dataSocket10">93</constant>
