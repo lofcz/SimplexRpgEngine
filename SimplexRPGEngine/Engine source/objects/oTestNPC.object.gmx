@@ -36,6 +36,7 @@ scrShopAddItem(1, oRedPearlLvl2, 1);
 scrShopSetDiscount();
 scrShopSetInfo("Nejlepší ceny!");
 
+scrShopSetPrice(0, 1);
 </string>
           </argument>
         </arguments>

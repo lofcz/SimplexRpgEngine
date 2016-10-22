@@ -407,6 +407,10 @@
         <sprite>sprites\sOverlayLight</sprite>
         <sprite>sprites\sRoomMask0</sprite>
       </sprites>
+      <sprites name="Buildings">
+        <sprite>sprites\sHut1</sprite>
+        <sprite>sprites\sBoard</sprite>
+      </sprites>
     </sprites>
     <sprites name="Effects, items &amp; particles">
       <sprites name="Items">
@@ -583,6 +587,7 @@
       <sprite>sprites\sTemp12</sprite>
       <sprite>sprites\sTemp14</sprite>
       <sprite>sprites\sTemp15</sprite>
+      <sprite>sprites\sTemp16</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -1101,6 +1106,7 @@
         <object>objects\oThrowableItem</object>
         <object>objects\oCollisionMask</object>
         <object>objects\oItemText</object>
+        <object>objects\oBuilding</object>
       </objects>
       <objects name="Optimization">
         <object>objects\oOptimize</object>

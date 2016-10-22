@@ -33,7 +33,7 @@ if (thumbnailPrice != -1)
      fnt(fntPixelSmall);
      clr(c_white);
      priceText = "";
-     discount = (100 - ((thumbnailPrice / thumbnailOriginalPrice) * 100));
+     discount = round(100 - ((thumbnailPrice / thumbnailOriginalPrice) * 100));
 
      if (discount > 0) {priceText = " (" + scrColorflag(c_yellow) + "-" + string(discount) + "%" + scrEndColorflag() + ")";}
 

@@ -76,9 +76,6 @@ else
       b.animateDrop     = 0;
       b.animateDropDir  = 0;
       b.animateDropForce = 0;
-//      b.vlastnost[vlastnost_cena] = 10;
-//      b.vlastnost[vlastnost_originalniCena] = b.vlastnost[vlastnost_cena];
-
       item[slot] = (b.id);      
       fill[slot] = 1;
      }   
