@@ -35,7 +35,9 @@ starText[1]          = "Odpad";
 starText[2]          = "Odznačit"; 
 details[0]           = "Seřadit";
 details[1]           = "Vyhodit odpad";
-currentFilter        = "";
+currentFilter        = 0;
+filterAlpha          = 1;
+fAlpha               = 1;
 
 global.QuestionResult = -1;
 

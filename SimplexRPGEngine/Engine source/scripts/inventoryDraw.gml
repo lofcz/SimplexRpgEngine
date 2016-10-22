@@ -47,26 +47,31 @@ if (mouse_in(x + 256, x + 256 + 32, y, y + 32))
    }
        
 // Draw all slots on the current page
+if (currentFilter == 1)
+        {
+         filterAlpha = lerp(filterAlpha, 0.1, 0.1);
+        }
+else {filterAlpha = lerp(filterAlpha, 1, 0.1);}
+        
 for (a = (currentPage*slotsPerPage); a < min(array_height_2d(slot), ((currentPage*slotsPerPage) + slotsPerPage)); a++)
     {
      // Handle filtering
-     passed      = true;
-     filterAlpha = 1;
+     passed = true;
      
-     if (currentFilter == "onlyQuickEquip")
+     if (currentFilter == 1)
         {
          passed = false;
          if (slot[a, inv_item_star] == 1) {passed = true;}
          
-         if (passed) {filterAlpha = 1;} else {filterAlpha = 0.1;}
+         if (passed) {fAlpha = 1;} else {fAlpha = filterAlpha;}
         }
-     
-     
+     else {if (slot[a, inv_item_star] != 1) {fAlpha = filterAlpha;} else {fAlpha = 1;}}
+         
      // Draw base rectangle and item
      clr();
      draw_sprite(sSlotTexture, 0, xx, yy);     
      draw_rectangle(xx, yy, xx + 32,yy + 32, 1);   
-     clr(c_black, filterAlpha);                                                                             
+     clr(c_black, fAlpha);                                                                             
      draw_sprite(sRarityEffect, itemRarityEffect(slot[a, inv_item_effect]), xx, yy); 
      draw_sprite(slot[a, inv_sprite], slot[a, inv_sprite_number], xx + 16, yy + 16);
      
@@ -196,15 +201,19 @@ if (mouse_in(x + 260, x + 288, used_y + 10, used_y + 44))
     
 // Draw filters
 clr(c_black, detailsAlpha);
-if (currentFilter == "") {outline = true;} else {outline = false;}
+if (currentFilter == 1) {outline = true;} else {outline = false;}
 
-draw_rectangle(x + 256, used_y + 24 + detailsHeight - 48, x + 276, used_y + 24 + detailsHeight - 32, outline);
+draw_sprite(sSlotTexture, 8, x + 256, used_y + 24 + detailsHeight - 48);
+draw_sprite(sRarityEffect, 11, x + 256, used_y + 24 + detailsHeight - 48);
+if (outline) {clr(c_yellow, detailsAlpha / 2); draw_rectangle( x + 256, used_y + 24 + detailsHeight - 48,  x + 256 + 16, used_y + 24 + detailsHeight - 32, false); clr(c_black, detailsAlpha);}
+draw_sprite(sSlotTexture, 7, x + 256, used_y + 24 + detailsHeight - 48);
+
 
 if (mouse_in(x + 256, x + 276, used_y + 24 + detailsHeight - 48, used_y + 24 + detailsHeight - 32))
     {
      if (mouse_check_button_pressed(mb_left))
         {
-         if (currentFilter == "") {currentFilter = "onlyQuickEquip";} else {currentFilter = "";}
+         if (currentFilter == 0) {currentFilter = 1;} else {currentFilter = 0;}
         }
     }
 clr();
