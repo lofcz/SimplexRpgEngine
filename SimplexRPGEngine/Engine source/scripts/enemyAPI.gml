@@ -184,11 +184,15 @@ object = self;
 
 if (argument_count > 0) {object = argument[0];}
 
-with(object)
-                 {
-                  x = xprevious;
-                  y = yprevious;
-                 }
+with (object)
+     {
+      x = xprevious;
+      y = yprevious;
+     }
+     
+x = xprevious;
+y = yprevious;
+
 #define scrEnemyDamage
 /// scrEnemyDamage(object, cooldown, stateLog)
 

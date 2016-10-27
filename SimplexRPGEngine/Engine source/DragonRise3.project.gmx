@@ -171,6 +171,7 @@
     <sounds name="Sounds">
       <sound>sound\sound0</sound>
       <sound>sound\sndCoin</sound>
+      <sound>sound\sndPouch1</sound>
       <sound>sound\sndCoinPile</sound>
       <sound>sound\sndWeaponPickup</sound>
       <sound>sound\sndRindPickup</sound>
@@ -219,7 +220,6 @@
       <sound>sound\sndSold2</sound>
       <sound>sound\sndSold1</sound>
     </sounds>
-    <sound>sound\sndPouch1</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\sCatchError</sprite>
