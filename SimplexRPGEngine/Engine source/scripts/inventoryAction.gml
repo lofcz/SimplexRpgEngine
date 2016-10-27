@@ -120,6 +120,17 @@ switch (idd)
             }     
          break;
         }
+    case (itemEnum.itemPouch):
+        {
+         if (number == 0)
+            {
+             var v = scrDiceGetValue(5, 30, 30, 3);
+             scrLog("+ " + string(v) + " " + scrInflect("zlatka", v), c_yellow, sCoin);
+             inventoryDelete(itemEnum.itemPouch, 1);
+             audio_play_sound(sndPouch1, 0, false);
+            }
+         break;
+        }
     default:
         {
          show_message("Something in scrAction, switch statement went wrong :/#(probably unassigned action, check inventoryActions)");

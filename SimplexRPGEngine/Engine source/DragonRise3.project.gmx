@@ -3,10 +3,10 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="16" name="datafiles">
-    <datafiles number="16" name="Resources">
-      <datafiles number="16" name="Sprites">
-        <datafiles number="16" name="BodyCanvas">
+  <datafiles number="19" name="datafiles">
+    <datafiles number="19" name="Resources">
+      <datafiles number="19" name="Sprites">
+        <datafiles number="19" name="BodyCanvas">
           <datafile>
             <name>sBodyCanvas.png</name>
             <exists>-1</exists>
@@ -77,7 +77,7 @@
           </datafile>
         </datafiles>
       </datafiles>
-      <datafiles number="16" name="SFX">
+      <datafiles number="19" name="SFX">
         <datafile>
           <name>coins.wav</name>
           <exists>-1</exists>
@@ -199,6 +199,9 @@
       <sound>sound\sndSpellLevelUp</sound>
       <sound>sound\sndSoundLevelUp</sound>
       <sound>sound\sndArmor2</sound>
+      <sound>sound\sndSwing2</sound>
+      <sound>sound\sndSwing3</sound>
+      <sound>sound\sndSwing1</sound>
       <sound>sound\sndArmor4</sound>
       <sound>sound\sndArmor3</sound>
       <sound>sound\sndArmor1</sound>
@@ -216,6 +219,7 @@
       <sound>sound\sndSold2</sound>
       <sound>sound\sndSold1</sound>
     </sounds>
+    <sound>sound\sndPouch1</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\sCatchError</sprite>
@@ -446,6 +450,7 @@
         <sprites name="ItemAnimations3D">
           <sprites name="Coins">
             <sprite>sprites\sCoin</sprite>
+            <sprite>sprites\sPouchEffect1</sprite>
             <sprite>sprites\sCoin2</sprite>
           </sprites>
           <sprites name="Gems &amp; materials &amp; herbs &amp; pearls">
@@ -659,8 +664,6 @@
         <script>scripts\mathAPI.gml</script>
       </scripts>
       <scripts name="Common">
-        <script>scripts\plainInitEnums.gml</script>
-        <script>scripts\scrInflect.gml</script>
         <scripts name="GMLExtend">
           <script>scripts\mouse_in.gml</script>
           <script>scripts\instance_nnearest.gml</script>
@@ -689,6 +692,8 @@
             <script>scripts\scrChooseFromArray.gml</script>
             <script>scripts\secToSteps.gml</script>
             <script>scripts\scrDice.gml</script>
+            <script>scripts\scrInflect.gml</script>
+            <script>scripts\plainInitEnums.gml</script>
             <scripts name="Deprecated">
               <script>scripts\scrCenterText.gml</script>
             </scripts>
@@ -698,10 +703,6 @@
             <script>scripts\scrGettActiveComponent.gml</script>
           </scripts>
         </scripts>
-      </scripts>
-      <scripts name="Shaders">
-        <script>scripts\scrShaderPrepareColor.gml</script>
-        <script>scripts\scrShaderDrawColor.gml</script>
       </scripts>
       <scripts name="Effects">
         <scripts name="Particles">
@@ -727,6 +728,10 @@
         <scripts name="Other">
           <script>scripts\scrSpriteDissolve.gml</script>
           <script>scripts\scrBasicEffect.gml</script>
+        </scripts>
+        <scripts name="Shaders">
+          <script>scripts\scrShaderPrepareColor.gml</script>
+          <script>scripts\scrShaderDrawColor.gml</script>
         </scripts>
       </scripts>
     </scripts>
@@ -1280,6 +1285,7 @@
           <object>objects\oRelicLeftPart</object>
           <object>objects\oRelicRightPart</object>
           <object>objects\oRelic</object>
+          <object>objects\oPouch</object>
           <object>objects\oAlchemyDust</object>
           <object>objects\oLofsGift</object>
           <object>objects\oBasicLetter</object>

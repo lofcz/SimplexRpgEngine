@@ -460,6 +460,7 @@
     <instance objName="oQuestIemGem1" x="832" y="224" name="inst_64FABD14" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBuilding" x="576" y="1312" name="inst_DA97A5B3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oWoodLvl1" x="608" y="1392" name="inst_F05BE1C6" locked="0" code="itm_number = 10;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oPouch" x="400" y="528" name="inst_CE553854" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bcgShd1" x="1600" y="1712" w="32" h="32" xo="32" yo="0" id="10006696" name="inst_AC26E277" depth="1000001" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

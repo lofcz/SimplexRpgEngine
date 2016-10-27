@@ -32,7 +32,7 @@ if ((keyboard_check_released(vk_space) && chargeMode) || (keyboard_check_pressed
    {   
     if (!attack && oPlayer.vlastnost[vlastnost_stamina] >= oPlayer.vlastnost[vlastnost_stamina_cost] && attackMode == "attack")
        {
-        audio_play_sound(sndSword2,0,0);
+        audio_play_sound(choose(sndSwing1, sndSwing2, sndSwing3), 0, 0);
         attack = 1;
         tick   = oPlayer.attack_interval;
         mode   = 1;

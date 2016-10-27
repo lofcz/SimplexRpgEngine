@@ -180,6 +180,14 @@ if (m == itemEnum.itemStone)
     {
      str = scrWordwrap("Kámen s lehkou přísměsí kovové rudy.", 128, fntPixelTiny);
     }
+if (m == itemEnum.itemPearlRed)
+    {
+     str = scrWordwrap("Červená perla symbolizuje sílu, život a vytrvalost.", 128, fntPixelTiny);
+    }
+if (m == itemEnum.itemPearlGreen)
+    {
+     str = scrWordwrap("Zelená perla značí přírodní energii, štěstí a moc.", 128, fntPixelTiny);
+    }
 return str;
 
 #define scrCraftingCraft

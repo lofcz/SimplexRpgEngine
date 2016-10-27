@@ -67,5 +67,6 @@ itemGem11,
 itemGem12,
 itemGem13,
 itemGem14,
-itemGemQuest1
+itemGemQuest1,
+itemPouch
 };

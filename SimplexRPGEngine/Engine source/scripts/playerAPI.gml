@@ -1084,3 +1084,12 @@ else
     {
      if (r) {oPlayer.gold += (a + (a * oPlayer.vlastnost[vlastnost_bonusGold]));} else {oPlayer.gold = (a + (a * oPlayer.vlastnost[vlastnost_bonusGold]));}
     }
+#define apiPlayerGetPropertyValue
+/// apiPlayerGetPropertyValue(index)
+
+var i;
+i = vlastnost_zivot;
+
+if (argument_count > 0) {i = argument[0];}
+
+return (oPlayer.vlastnost[i]);

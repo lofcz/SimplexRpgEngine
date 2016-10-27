@@ -22,3 +22,10 @@ if (word == "bod")
      else if (n < 5) {return "body";}
      else {return "bodů";}
     }
+if (word == "zlatka")
+    {
+     if (n <= 0) {return "zlatek";}
+     else if (n < 2) {return "zlatka";}
+     else if (n < 5) {return "zlatky";}
+     else {return "zlatek";}
+    }    
