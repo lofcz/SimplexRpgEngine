@@ -127,6 +127,7 @@ switch (idd)
              var v = scrDiceGetValue(5, 30, 30, 3);
              scrLog("+ " + string(v) + " " + scrInflect("zlatka", v), c_yellow, sCoin);
              inventoryDelete(itemEnum.itemPouch, 1);
+             apiPlayerSetGold(v);
              audio_play_sound(sndPouch1, 0, false);
             }
          break;

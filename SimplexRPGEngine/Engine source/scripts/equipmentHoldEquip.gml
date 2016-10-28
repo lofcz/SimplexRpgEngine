@@ -1,6 +1,6 @@
 /// equipmentHoldEquip(equipSlot, x1, x2, y1, y2, forceEquip)
 
-var equip_slot, x_x1, x_x1, y_y1, y_y1, f;
+var equip_slot, x_x1, x_x1, y_y1, y_y1, f, a;
 equip_slot = 0;
 x_x1       = 0;
 x_x2       = 0;
@@ -26,22 +26,22 @@ if ((oInventory.drag && mouse_check_button_released(mb_left) && equiped[equip_sl
                          oInventory.pre_switch = 1;
                          equiped[equip_slot]   = 1;
                          
-                         equiped_image[equip_slot,0] =  equip_sprite_s[0];
-                         equiped_image[equip_slot,1] =  equip_sprite_s[1];
-                         equiped_image[equip_slot,2] =  equip_sprite_s[2];
-                         equiped_image[equip_slot,3] =  equip_sprite_s[3];                                                                                                                                                        
-                         equiped_image[equip_slot,4] =  equip_sprite_s[4];      
+                         equiped_image[equip_slot, 0] =  equip_sprite_s[0];
+                         equiped_image[equip_slot, 1] =  equip_sprite_s[1];
+                         equiped_image[equip_slot, 2] =  equip_sprite_s[2];
+                         equiped_image[equip_slot, 3] =  equip_sprite_s[3];                                                                                                                                                        
+                         equiped_image[equip_slot, 4] =  equip_sprite_s[4];      
                                          
                          drag = 0;
                          drag_controll = 0;
 
                          for (a = 0; a < celkem_vlastnosti; a++)
                              {
-                              equiped_vlastnost[equip_slot,a] = slot_vlastnosti[h_c,a];
+                              equiped_vlastnost[equip_slot,a] = slot_vlastnosti[h_c, a];
                               
                               if (a != vlastnost_bodyCanvasIndex && a != vlastnost_bodyCanvasSprite && a!= vlastnost_bodyCanvasSlashSprite)
                               {
-                              oPlayer.vlastnost[a] += slot_vlastnosti[h_c,a];
+                              oPlayer.vlastnost[a] += slot_vlastnosti[h_c, a];
                               }
                               else if (slot_vlastnosti[h_c,vlastnost_bodyCanvasIndex] != 0)
                                 {
@@ -50,13 +50,13 @@ if ((oInventory.drag && mouse_check_button_released(mb_left) && equiped[equip_sl
                                 }                                                    
                              }
                              
-                         for (a = 0; a<inv_atributes_total; a++)
+                         for (a = 0; a < inv_atributes_total; a++)
                          {
                           equiped_stats[equip_slot,a] = temp_equip[a];
                          
-                          if(scrInventoryParseString())
+                          if(scrInventoryParseString(a))
                             {
-                            slot[h_c,a] = 0;
+                             slot[h_c,a] = 0;
                             }
                          else {slot[h_c,a] = "";}  
                    

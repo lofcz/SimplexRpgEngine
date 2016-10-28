@@ -93,7 +93,7 @@ for (a = (currentPage*slotsPerPage); a < min(array_height_2d(slot), ((currentPag
      if (mouse_in(xx, xx + 32, yy, yy + 32) && !scrGettActiveComponent())
         {  
          hover_slot_alpha[a] = lin(hover_slot_alpha[a], 0.5, 0.03);
-         hover               = 1;
+         hover               = true;
          hover_id            = a;
          hover_x             = xx;
          hover_y             = yy; 
@@ -158,7 +158,7 @@ else
     for (i = 0; i < array_length_1d(details); i++)
         {
          color = c_black;     
-         if (mouse_in(x, x + string_width(details[i]) + 6, used_y + (i * 24) + 32, used_y + (i * 24) + 55)) {color = c_white;}
+         if (mouse_in(x, x + string_width(string(details[i])) + 6, used_y + (i * 24) + 32, used_y + (i * 24) + 55)) {color = c_white;}
               
          clr(color, detailsAlpha);
          draw_text(x + 6, used_y + (i * 24) + 32, details[i]);
@@ -222,11 +222,11 @@ fnt(fntPixel);
 if (proceed) {hover_alpha = 1; hover = true; hover_id = hover_idd;}
 
 clr(c_black, hover_alpha);    
-if (hover || hover_alpha > 0)
+if ((hover || hover_alpha > 0))
   {
    tText         = inventoryDrawStats();
-   currentHeight = max(196, string_height(tText) + string_height(slot[hover_id,inv_item_info_head]) + string_height(slot[hover_id,inv_item_info_text]));
-  
+   currentHeight = max(196, string_height(string(tText)) + string_height(string(slot[hover_id, inv_item_info_head])) + string_height(string(slot[hover_id, inv_item_info_text])));
+
    if (currentHeight <= 196) {draw_sprite(sInfoboxTexture, 0, x, used_y + 32);}
    else {draw_sprite_stretched(sInfoboxTexture, 0, x, used_y + 32, 288, currentHeight);}
   
@@ -243,7 +243,7 @@ if (hover || hover_alpha > 0)
        clr(slot[f, inv_item_info_color], hover_alpha);
        alg("center", fntPixel);
       
-       if (string_width(slot[f,inv_item_info_head]) >= 250) {fnt(fntPixelSmall);}      
+       if (string_width(string(string(slot[f,inv_item_info_head]))) >= 250) {fnt(fntPixelSmall);}      
        draw_text(x + 128, used_y + 44, slot[f, inv_item_info_head]);
    
        // Draw attached pearls
@@ -268,8 +268,8 @@ if (hover || hover_alpha > 0)
           }
  
        alg();  
-       draw_text_colored(x + 4, used_y + 56, slot[f, inv_item_info_text]);
-       draw_text_colored(x + 4, used_y + 56 + string_height(slot[f, inv_item_info_text]), inventoryDrawStats());
+       draw_text_colored(x + 4, used_y + 56, string(slot[f, inv_item_info_text]));
+       draw_text_colored(x + 4, used_y + 56 + string_height(string(slot[f, inv_item_info_text])), inventoryDrawStats());
        clr(); 
       }                                                                  
   }
@@ -445,7 +445,7 @@ for(a = 0; a < celkem_vlastnosti; a++)
       {
        if (slot[f,inv_id] = 0) {break;}      
 
-       if (slot_vlastnosti[f, a] > 0 || (a == vlastnost_textSocket1 && slot_vlastnosti[f, a] != ""))
+       if (slot_vlastnosti[f, a] > 0)
           {
            switch(a)
                     {
@@ -736,11 +736,6 @@ for(a = 0; a < celkem_vlastnosti; a++)
                            t_text += "#Bonusové zkušenosti: "+string(slot_vlastnosti[f, a]) + "%";
                            break;                                                                   
                          }
-                    case(vlastnost_textSocket1):
-                        {
-                         t_text += "#" + string(slot_vlastnosti[f, a]);
-                         break;      
-                        }
                }                    
           }      
       }

@@ -647,6 +647,9 @@
     <backgrounds name="TEMP - RESOURCES">
       <background>background\bcgTemp1</background>
     </backgrounds>
+    <backgrounds name="Caves">
+      <background>background\bcgCaves1</background>
+    </backgrounds>
   </backgrounds>
   <paths name="paths">
     <path>paths\pthCutsceneObet1</path>
@@ -1345,6 +1348,7 @@
     <room>rooms\mapDefault</room>
     <rooms name="Game world">
       <room>rooms\mapHouse1</room>
+      <room>rooms\room9</room>
       <room>rooms\mapHouseAlice</room>
       <room>rooms\mapLedovaJeskyne</room>
       <room>rooms\mapHolohlavy</room>
@@ -1400,8 +1404,7 @@
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
     <constant name="upgradableProperties">58</constant>
-    <constant name="celkem_vlastnosti">97</constant>
-    <constant name="vlastnost_textSocket1">96</constant>
+    <constant name="celkem_vlastnosti">96</constant>
     <constant name="vlastnost_bonusGold">95</constant>
     <constant name="vlastnost_canBeFastEquiped">94</constant>
     <constant name="vlastnost_dataSocket10">93</constant>
@@ -1553,6 +1556,7 @@
     <constant name="rarity_fine">c_aqua</constant>
     <constant name="rarity_normal">c_black</constant>
     <constant name="rarity_junk">c_dkgray</constant>
+    <constant name="inv_item_info_footer">16</constant>
     <constant name="inv_item_beingUsed">15</constant>
     <constant name="inv_item_materialType">14</constant>
     <constant name="inv_item_star">13</constant>

@@ -179,7 +179,6 @@ if (chance >= random(100 - chance))
 /// scrEnemyCollision(with)
 
 var object;
-
 object = self;
 
 if (argument_count > 0) {object = argument[0];}
