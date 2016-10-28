@@ -90,24 +90,26 @@ if (param_stackable = 1)
     oInventory.slot[free_slot, inv_slot_stackable]            = 1;
     oInventory.slot[free_slot, inv_sprite_number]             = itm_sprite_number;
     
-    if (count == -1) {oInventory.slot[free_slot, inv_number] += itm_number; }
+    if (count == -1) {oInventory.slot[free_slot, inv_number] += itm_number;}
     else {oInventory.slot[free_slot,inv_number]              += count;}    
    }
 else
     {
-     oInventory.slot[free_slot,inv_id]             = itm_id;
-     oInventory.slot[free_slot,inv_sprite]         = itm_sprite;
-     oInventory.slot[free_slot,inv_slot_stackable] = 0;
-     oInventory.slot[free_slot,inv_sprite_number]  = itm_sprite_number;
-     oInventory.slot[free_slot,inv_number]         = 1;   
+     oInventory.slot[free_slot, inv_id]             = itm_id;
+     oInventory.slot[free_slot, inv_sprite]         = itm_sprite;
+     oInventory.slot[free_slot, inv_slot_stackable] = 0;
+     oInventory.slot[free_slot, inv_sprite_number]  = itm_sprite_number;
+     oInventory.slot[free_slot, inv_number]         = 1;   
     }
 
-oInventory.slot[free_slot,inv_item_effect]            = itm_effect;    
-oInventory.slot[free_slot,inv_item_info_head]         = itm_info_head;
-oInventory.slot[free_slot,inv_item_info_text]         = itm_info_text;
-oInventory.slot[free_slot,inv_item_info_color]        = itm_info_color;
-oInventory.slot[free_slot,inv_item_equip_slot]        = itm_equip_slot;
-oInventory.slot[free_slot,inv_item_materialType]      = itm_materialType;
-                                                                                                                      //show_message(oInventory.slot[free_slot,inv_item_equip_slot])
+oInventory.slot[free_slot, inv_item_effect]            = itm_effect;    
+oInventory.slot[free_slot, inv_item_info_head]         = itm_info_head;
+oInventory.slot[free_slot, inv_item_info_text]         = itm_info_text;
+oInventory.slot[free_slot, inv_item_info_color]        = itm_info_color;
+oInventory.slot[free_slot, inv_item_equip_slot]        = itm_equip_slot;
+oInventory.slot[free_slot, inv_item_materialType]      = itm_materialType;
+oInventory.slot[free_slot, inv_item_info_footer]       = itm_info_footer;
+oInventory.slot[free_slot, inv_item_info_footer_color] = itm_info_footer_color;
+                                                                                                                      
 for(a = 0; a < 10; a++)                  {oInventory.slot_option[free_slot, a]     = itm_options[a];}
 for(a = 0; a < celkem_vlastnosti; a++)   {oInventory.slot_vlastnosti[free_slot, a] = vlastnost[a];}

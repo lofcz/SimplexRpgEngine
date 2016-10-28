@@ -62,7 +62,15 @@ particleSystem = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (particleSystem) {part_system_destroy(Sname);}
+            <string>/// Free memory
+
+if (particleSystem) {part_system_destroy(Sname);}
+
+if (ds_list_find_index(oOptimize.activeList, id) != -1)
+    {
+     var index = ds_list_find_index(oOptimize.activeList, id);
+     ds_list_delete(oOptimize.activeList, index);
+    }
 </string>
           </argument>
         </arguments>

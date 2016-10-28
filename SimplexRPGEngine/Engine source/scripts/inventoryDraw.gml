@@ -217,7 +217,9 @@ if (mouse_in(x + 256, x + 276, used_y + 24 + detailsHeight - 48, used_y + 24 + d
         }
     }
 clr();
-    
+   
+// Draw infobox
+// **************************************************************** 
 fnt(fntPixel);
 if (proceed) {hover_alpha = 1; hover = true; hover_id = hover_idd;}
 
@@ -244,7 +246,7 @@ if ((hover || hover_alpha > 0))
        alg("center", fntPixel);
       
        if (string_width(string(string(slot[f,inv_item_info_head]))) >= 250) {fnt(fntPixelSmall);}      
-       draw_text(x + 128, used_y + 44, slot[f, inv_item_info_head]);
+       draw_text(x + 128, used_y + 44, slot[f, inv_item_info_head]);      
    
        // Draw attached pearls
        if (slot_vlastnosti[f, vlastnost_upgradeSloty] > 0) {inventoryDrawPearls(f);}
@@ -259,7 +261,18 @@ if ((hover || hover_alpha > 0))
            priceStr = (string(slot_vlastnosti[f,vlastnost_cena]) + "G");
            draw_text(x + (283 - string_width(priceStr)), used_y + (max(196, currentHeight) + 5), priceStr);      
           }
-   
+          
+       // Draw item type
+       fnt(fntPixelExtraTiny);
+       alg();
+       if (slot[f, inv_item_equip_slot] != "") {typeStr = "[" + slot[f, inv_item_equip_slot] + "]";}
+       else if (slot[f, inv_item_materialType] != materialEnum.materialNone && slot[f, inv_item_materialType] != -1) {typeStr = "[Materiál]";}
+       else if (slot_vlastnosti[f, vlastnost_canBeFastEquiped]) {typeStr = "[Spotřební]";}
+       else {typeStr = "";}
+       
+       draw_text(x + 4, used_y + (max(196, currentHeight) + 9), typeStr);  
+       
+       // Draw item count
        alg("center");
        fnt(fntPixelSmall);  
        if (slot[f, inv_slot_stackable])
@@ -270,6 +283,12 @@ if ((hover || hover_alpha > 0))
        alg();  
        draw_text_colored(x + 4, used_y + 56, string(slot[f, inv_item_info_text]));
        draw_text_colored(x + 4, used_y + 56 + string_height(string(slot[f, inv_item_info_text])), inventoryDrawStats());
+       fnt(fntPixelTiny);
+       if (string(slot[f, inv_item_info_footer]) != "0")
+          {
+           clr(slot[f, inv_item_info_footer_color], hover_alpha);
+           draw_text(x + 4, used_y + 56 + string_height(string(slot[f, inv_item_info_text])) + string_height(inventoryDrawStats()) + 16, string(slot[f, inv_item_info_footer]));
+          }
        clr(); 
       }                                                                  
   }

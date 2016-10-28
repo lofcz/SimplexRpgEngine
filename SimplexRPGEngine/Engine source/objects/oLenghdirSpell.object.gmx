@@ -426,6 +426,7 @@ if (type = "fire_trail")
      if (idd.particleSystem == false)
      { 
      with(idd) {Sname = part_system_create(); particleSystem = true;}
+     ds_list_add(oOptimize.activeList, (idd));
      }
      
    }

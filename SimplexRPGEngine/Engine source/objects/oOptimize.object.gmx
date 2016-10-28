@@ -126,6 +126,11 @@ if (instance_number(oBunny &gt; 0))
      instance_activate_region(other.x - 128, other.y - 128, 256, 256, true);
      }
     }
+    
+for (i = 0; i &lt; ds_list_size(activeList); i++)
+    {
+     instance_activate_object(activeList[| i]);
+    }
 </string>
           </argument>
         </arguments>

@@ -7,6 +7,7 @@ itm_sprite_number         = 0;
 itm_sprite                = sTestItem;
 itm_info_text             = "Unassigned item [INFO TEXT]";
 itm_info_head             = "Unassigned item [INFO HEAD]";
+itm_info_footer           = "";
 itm_info_color            = c_black;
 itm_materialType          = materialEnum.materialNone;
 on_click                  = 0;
@@ -33,6 +34,7 @@ shadowAlpha               = 1;
 spd_down                  = 0;
 mode                      = choose(0,1);
 isDrop                    = false;
+itm_info_footer_color     = c_gray;
 
 for(a = 0; a < 10; a++)                  {itm_options[a] = "";}
 for(a = 0; a < celkem_vlastnosti; a++)   {vlastnost[a]   = 0;}

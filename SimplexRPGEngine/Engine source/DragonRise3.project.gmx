@@ -1046,6 +1046,7 @@
         <font>fonts\fntPixelBig</font>
         <font>fonts\fntPixel</font>
         <font>fonts\fntPixelTiny</font>
+        <font>fonts\fntPixelExtraTiny</font>
         <font>fonts\fntPixelSmall</font>
       </fonts>
       <fonts name="Misc">
@@ -1355,7 +1356,7 @@
       <room>rooms\mapSklep</room>
     </rooms>
   </rooms>
-  <constants number="220">
+  <constants number="221">
     <constant name="baArmor">1</constant>
     <constant name="baBase">0</constant>
     <constant name="cStaticInstance">"staticInstance"</constant>
@@ -1556,6 +1557,7 @@
     <constant name="rarity_fine">c_aqua</constant>
     <constant name="rarity_normal">c_black</constant>
     <constant name="rarity_junk">c_dkgray</constant>
+    <constant name="inv_item_info_footer_color">17</constant>
     <constant name="inv_item_info_footer">16</constant>
     <constant name="inv_item_beingUsed">15</constant>
     <constant name="inv_item_materialType">14</constant>
@@ -1574,7 +1576,7 @@
     <constant name="inv_number">1</constant>
     <constant name="inv_id">0</constant>
     <constant name="mInventoryID">0</constant>
-    <constant name="inv_atributes_total">16</constant>
+    <constant name="inv_atributes_total">18</constant>
     <constant name="event_user_destroy">0</constant>
   </constants>
   <help>
