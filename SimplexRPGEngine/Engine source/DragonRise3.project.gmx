@@ -219,6 +219,7 @@
       <sound>sound\sndSold3</sound>
       <sound>sound\sndSold2</sound>
       <sound>sound\sndSold1</sound>
+      <sound>sound\sndWoodGet1</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -594,6 +595,7 @@
       <sprite>sprites\sTemp15</sprite>
       <sprite>sprites\sTemp16</sprite>
     </sprites>
+    <sprite>sprites\sprite242</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name=" Single tile backgrounds">
@@ -977,6 +979,9 @@
           <script>scripts\scrPathfindingInit.gml</script>
           <script>scripts\scrPathfindingFindPath.gml</script>
           <script>scripts\scrPathfindingAddObstacle.gml</script>
+        </scripts>
+        <scripts name="Simple AI">
+          <script>scripts\scrSimpleAiStep.gml</script>
         </scripts>
       </scripts>
       <scripts name="Pop up">

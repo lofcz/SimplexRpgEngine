@@ -630,6 +630,16 @@ if (idd != -1)
              priceStr = (string(oInventory.equiped_vlastnost[oInventory.draw_equ_infobox_id, vlastnost_cena]) + "G");
              draw_text(x + (283 - string_width(priceStr)), oInventory.used_y + (max(196, height) + 5), priceStr);      
             }
+            
+         fnt(fntPixelExtraTiny);
+         alg();
+         if (oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_equip_slot] != "") {typeStr = "[" + oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_equip_slot] + "]";}
+         else if (oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_materialType] != materialEnum.materialNone && oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_materialType] != -1) {typeStr = "[Materiál]";}
+         else if (oInventory.equiped_vlastnost[oInventory.draw_equ_infobox_id, vlastnost_canBeFastEquiped]) {typeStr = "[Spotřební]";}
+         else {typeStr = "";}
+       
+         draw_text(x + 4, oInventory.used_y + (max(196, height) + 9), typeStr); 
+         fnt(); 
         }
     }
 
@@ -933,12 +943,6 @@ for(a = 0; a < celkem_vlastnosti; a++)
                            t_text += "#Bonusové zkušenosti: "+string(oInventory.equiped_vlastnost[idd,a]) + "%";
                            break;                                                                   
                          }
-                    case(vlastnost_textSocket1):
-                         {
-                           t_text += string(oInventory.equiped_vlastnost[idd,a]);
-                           break;                                                                   
-                         }
-                    
                     }               
           }      
       }

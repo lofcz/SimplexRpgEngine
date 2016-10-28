@@ -211,7 +211,7 @@ draw_sprite(sSlotTexture, 7, x + 256, used_y + 24 + detailsHeight - 48);
 
 if (mouse_in(x + 256, x + 276, used_y + 24 + detailsHeight - 48, used_y + 24 + detailsHeight - 32))
     {
-     if (mouse_check_button_pressed(mb_left))
+     if (mouse_check_button_pressed(mb_left) && detailsHeight >  (detailsMaxHeight - 1))
         {
          if (currentFilter == 0) {currentFilter = 1;} else {currentFilter = 0;}
         }

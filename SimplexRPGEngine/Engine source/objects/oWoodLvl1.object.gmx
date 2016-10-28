@@ -28,8 +28,8 @@
             <string>/// Initialize item
 
 scrItemSetUp(0, 0, itemEnum.itemWood);
-scrItemSetProperties(true, "Wood lvl 1", "Content", materialEnum.materialWood, "");
-scrItemSetOptions("Option n1", "Option n2", "Option n3");
+scrItemSetProperties(true, "Dřevěná kláda", "Skvělé topivo, stavební materiál, výchozí surovina pro tvorbu prken.", materialEnum.materialWood, "", 3);
+scrItemSetOptions();
 scrItemSetUpFinalize();
 
 </string>
@@ -60,8 +60,8 @@ if (loot = 0)
 {
 if (inventoryPickUp())
 {
-audio_play_sound(sndRindPickup,0,0);
-scrLog("+ Dřevěné prkno",c_orange,sWoodEffect,0,0.5);
+audio_play_sound(sndWoodGet1,0,0);
+scrLog("+ Dřevěná kláda",c_white,sWoodEffect,0,0.5);
 }
 }
 </string>

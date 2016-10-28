@@ -224,17 +224,6 @@ if (z_mood == 2)
 }
  
 
-
-if (last_hp &lt;= 0.05) {if (mood !="dying") {event_user(0);}}
-
-if (mood == "dying")
-{
-if (safeDying) {safeDying = false; scrGoreExplodeDropShards(32, 8, spr[0]);}
-draw_sprite_ext(spr[0],spr[1],x,y,1,1,0,c_white,image_alpha);
-if (image_alpha &gt; 0) {image_alpha -= 0.02;} else {instance_destroy();}   
-}
-
-
 if (forcedX &lt; 1 &amp;&amp; forcedY &lt; 1)
 {    
 forcedX = 0;
