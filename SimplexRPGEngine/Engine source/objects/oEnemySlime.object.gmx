@@ -54,10 +54,13 @@ scrEnemyIni(30,5,1,choose(1,1,2),"Slime",bestiaryEnemySlime,scrColorflag(c_blue)
           <argument>
             <kind>1</kind>
             <string>/// Collide
+
+if (other.id != oPlayer.id)
+{
 event_inherited();
 
 if (mood == "jump") {randomize(); bonus_damage = 10; repeat(5) {instance_create(x-random(10)+random(10),y+random(10)-random(10),oBlob);}}
-
+}
 </string>
           </argument>
         </arguments>

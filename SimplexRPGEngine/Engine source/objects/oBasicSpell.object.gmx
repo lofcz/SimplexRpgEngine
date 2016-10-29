@@ -271,6 +271,8 @@ if (mode = 1) {speed = 0;}
             <kind>1</kind>
             <string>/// Hold imapct
 
+if (other.id != oPlayer.id)
+{
 // Fireball
 if (type = "fireball")
    {
@@ -282,7 +284,7 @@ if (type = "frozen_bolt")
    {
    if (mode = 0) {mode = 1; other.hp -= dmg; alarm[2] = 40; speed = 0; if (alarm[0] &gt; 100) { audio_play_sound(sndIcicle1Impact,0,0);}}      
    }
-
+}
 </string>
           </argument>
         </arguments>

@@ -2,7 +2,7 @@
 
 enum materialEnum
 {
-materialNone, materialPearl, materialMetal, materialWood, materialHerb, materialStone, materialGolde
+materialNone, materialPearl, materialMetal, materialWood, materialHerb, materialStone, materialGolde, materialFur, materialBone
 };
 
 enum itemEnum
@@ -68,5 +68,7 @@ itemGem12,
 itemGem13,
 itemGem14,
 itemGemQuest1,
-itemPouch
+itemPouch,
+itemFurRabbit,
+itemBone
 };

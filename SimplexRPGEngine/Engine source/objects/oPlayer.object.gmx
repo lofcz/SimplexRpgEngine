@@ -5,7 +5,7 @@
   <visible>-1</visible>
   <depth>-10</depth>
   <persistent>-1</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>parSolid</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -28,6 +28,7 @@
             <string>/// Initialise
 
 apiPlayerCreate();
+event_inherited();
 
 // scrSimpleLightIni() // &lt;-- TODO
 sprLight      = sBasicLight;

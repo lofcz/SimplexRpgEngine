@@ -478,6 +478,7 @@
               <sprite>sprites\sMetalEffect</sprite>
               <sprite>sprites\sStoneEffect</sprite>
               <sprite>sprites\sLeafEffect</sprite>
+              <sprite>sprites\sFurEffect</sprite>
               <sprite>sprites\sGoldEffect</sprite>
             </sprites>
             <sprites name="Pearls">
@@ -508,6 +509,7 @@
               <sprite>sprites\sGiftEffect</sprite>
               <sprite>sprites\sLetterEffect</sprite>
               <sprite>sprites\sQuestEffect</sprite>
+              <sprite>sprites\sBoneEffect</sprite>
               <sprite>sprites\sLockpickEffect</sprite>
             </sprites>
             <sprites name="Weapons">
@@ -1216,6 +1218,10 @@
             </objects>
             <objects name="Wood">
               <object>objects\oWoodLvl1</object>
+            </objects>
+            <objects name="Furs">
+              <object>objects\oFurRabbit</object>
+              <object>objects\oBone</object>
             </objects>
           </objects>
           <objects name="Gems">

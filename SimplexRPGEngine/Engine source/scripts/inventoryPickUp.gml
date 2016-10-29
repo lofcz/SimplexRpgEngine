@@ -118,4 +118,3 @@ for(a = 0; a < celkem_vlastnosti; a++)   {oInventory.slot_vlastnosti[free_slot, 
 if (itm_effect = rarity_legendary) {with(oPlayer) {effectLegendaryItem();}}
 if (itm_effect = rarity_fine) {with(oPlayer) {effectFineItem();}}
 if (itm_effect = rarity_rare) {with(oPlayer) {effectRareItem();}}
-
