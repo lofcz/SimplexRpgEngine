@@ -113,3 +113,9 @@ oInventory.slot[free_slot, inv_item_info_footer_color] = itm_info_footer_color;
                                                                                                                       
 for(a = 0; a < 10; a++)                  {oInventory.slot_option[free_slot, a]     = itm_options[a];}
 for(a = 0; a < celkem_vlastnosti; a++)   {oInventory.slot_vlastnosti[free_slot, a] = vlastnost[a];}
+
+// Spawn particles
+if (itm_effect = rarity_legendary) {with(oPlayer) {effectLegendaryItem();}}
+if (itm_effect = rarity_fine) {with(oPlayer) {effectFineItem();}}
+if (itm_effect = rarity_rare) {with(oPlayer) {effectRareItem();}}
+

@@ -64,7 +64,6 @@ if (inventoryPickUp())
 {
 audio_play_sound(sndRindPickup,0,0);
 scrLog("+ Lofův dárek",c_yellow,sGiftEffect,0,0.5);
-with(oPlayer) {effectLegendaryItem();}
 }
 }
 </string>

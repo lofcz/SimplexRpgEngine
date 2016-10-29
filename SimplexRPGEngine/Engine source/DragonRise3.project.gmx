@@ -733,6 +733,8 @@
           <script>scripts\effectVines.gml</script>
           <script>scripts\effectLegendaryItem.gml</script>
           <script>scripts\effectFirefly.gml</script>
+          <script>scripts\effectFineItem.gml</script>
+          <script>scripts\effectRareItem.gml</script>
           <script>scripts\effectExplosion.gml</script>
         </scripts>
         <scripts name="Other">
