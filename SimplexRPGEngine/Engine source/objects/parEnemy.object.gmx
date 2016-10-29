@@ -58,6 +58,7 @@ force_timer                   = 400;
 timeToPerform                 = 0;
 tempSpd                       = spd;
 safeDying                     = true;
+cced                          = false;
 
 
 </string>
@@ -202,7 +203,7 @@ else if (mood == "cutscene" &amp;&amp; distance_to_point(cutsceneX, cutsceneY) =
 if (can_damage &gt; 0) {can_damage--;} else {can_damage = -1;}
 last_hp = lerp(last_hp, hp, 0.1);
 
-if (last_hp &lt;= 0.05) {if (mood !="dying") {event_user(0);}}
+if (last_hp &lt;= 0.05) {if (mood != "dying") {event_user(0);} mood = "dying";}
 
 if (mood == "dying")
 {
@@ -210,6 +211,13 @@ if (safeDying) {safeDying = false; scrGoreExplodeDropShards(32, 8, spr[0]);}
 draw_sprite_ext(spr[0],spr[1],x,y,1,1,0,c_white,image_alpha);
 if (image_alpha &gt; 0) {image_alpha -= 0.02;} else {instance_destroy();}   
 }
+
+if (cced)
+    {
+     speed = lerp(speed, 0, 0.05);
+     image_angle = direction;
+     if (speed &lt; 0.1) {speed = 0; cced = false; direction = 0; image_angle = 0;}
+    }
 
 </string>
           </argument>

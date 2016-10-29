@@ -80,7 +80,18 @@ if (instance_number(oLenghdirSpell) = 0) {instance_destroy();}
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_destroy();
+            <string>
+if (mode = 0)
+   {
+   if (instance_number(oLenghdirSpell) &gt; 0)
+      {
+      oLenghdirSpell.idd = other.id;
+      with(oLenghdirSpell) {event_user(1);}   
+      }
+   }
+   
+instance_destroy();
+
 </string>
           </argument>
         </arguments>

@@ -274,13 +274,13 @@ if (mode = 1) {speed = 0;}
 // Fireball
 if (type = "fireball")
    {
-   if (mode = 0) {mode = 1; alarm[2] = 40; speed = 0; audio_play_sound(sndFireball1Explosion,0,0);}      
+   if (mode = 0) {mode = 1; other.hp -= dmg; alarm[2] = 40; speed = 0; audio_play_sound(sndFireball1Explosion,0,0);}      
    }
 
 // Frozen bolt
 if (type = "frozen_bolt")
    {
-   if (mode = 0) {mode = 1; alarm[2] = 40; speed = 0; if (alarm[0] &gt; 100) { audio_play_sound(sndIcicle1Impact,0,0);}}      
+   if (mode = 0) {mode = 1; other.hp -= dmg; alarm[2] = 40; speed = 0; if (alarm[0] &gt; 100) { audio_play_sound(sndIcicle1Impact,0,0);}}      
    }
 
 </string>

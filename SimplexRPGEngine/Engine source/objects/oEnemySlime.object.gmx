@@ -396,7 +396,7 @@ if (mood != "dying" &amp;&amp; mood != "slime")
    draw_sprite_ext(sXpPoint,p,x,y,1,1,0,c_aqua,0.6);
    }
 
-if (mood = "slime")
+if (mood == "slime")
    {
    if( shader_is_compiled(shdLerp) )
     {              
@@ -425,7 +425,7 @@ if (mood = "slime")
  
       
    }   
-if (mood = "heal")
+if (mood == "heal")
    {
    if( shader_is_compiled(shdLerp) )
     {              

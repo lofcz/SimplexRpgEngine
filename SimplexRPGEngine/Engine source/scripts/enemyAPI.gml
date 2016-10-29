@@ -148,7 +148,7 @@ repeat(rep)
 {
 randomize();
 
-if (chance >= random(100 - chance))
+if (chance >= random(100))
    {
    var ix, iy, ip;
    ip = 0;
@@ -275,11 +275,9 @@ other.can_damage = -2;
 /// scrEnemyDie(blood)
 
 var blood;
-
 blod = true;
 
 if (argument_count > 0) {blood = argument[0];}
-
 
 mood = "dying";
 drop = 0;
@@ -293,9 +291,9 @@ if (blood)
 if (instance_number(oBestiar) > 0) 
    {
    oBestiar.monster[bestiary,bestiary_monster_killed]++;
-   oBestiar.unlocked[bestiary] = 1;
-    
+   oBestiar.unlocked[bestiary] = 1;    
    } 
+
 #define scrEnemyApplyAffect
 /// scrEnemyApplyAffect(affect, time, imageIndex, color, stackNumber, chance%, resetTime, addTime, addOnlyOnHit)
 

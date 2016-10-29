@@ -219,6 +219,7 @@
       <sound>sound\sndSold3</sound>
       <sound>sound\sndSold2</sound>
       <sound>sound\sndSold1</sound>
+      <sound>sound\sndExplosion1</sound>
       <sound>sound\sndWoodGet1</sound>
     </sounds>
   </sounds>
@@ -596,6 +597,8 @@
       <sprite>sprites\sTemp16</sprite>
     </sprites>
     <sprite>sprites\sprite242</sprite>
+    <sprite>sprites\sBarrel</sprite>
+    <sprite>sprites\sprite244</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name=" Single tile backgrounds">
@@ -652,6 +655,7 @@
     <backgrounds name="Caves">
       <background>background\bcgCaves1</background>
     </backgrounds>
+    <background>background\AIN_Secrets3_zpsa22760a3</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\pthCutsceneObet1</path>
@@ -729,6 +733,7 @@
           <script>scripts\effectVines.gml</script>
           <script>scripts\effectLegendaryItem.gml</script>
           <script>scripts\effectFirefly.gml</script>
+          <script>scripts\effectExplosion.gml</script>
         </scripts>
         <scripts name="Other">
           <script>scripts\scrSpriteDissolve.gml</script>
@@ -1323,6 +1328,7 @@
       <objects name="Containers">
         <object>objects\oChest</object>
         <object>objects\oJug</object>
+        <object>objects\oBarrelExplosive</object>
       </objects>
       <objects name="Vivid">
         <object>objects\oFirefly</object>
@@ -1337,6 +1343,7 @@
         <object>objects\parSolid</object>
       </objects>
     </objects>
+    <object>objects\oExplosion</object>
   </objects>
   <timelines name="timelines">
     <timelines name="Cutscenes">
