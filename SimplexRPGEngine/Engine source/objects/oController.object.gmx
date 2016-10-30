@@ -107,7 +107,10 @@ if (room == mapHouseAlice)
 {
  if (player_pos == 1) {oPlayer.x = 504; oPlayer.y = 408;}
 }
-
+if (room == mapKrysiSklipek)
+{
+ oPlayer.x = 1024; oPlayer.y = 928;
+}
 alarm[0] = 1;
 </string>
           </argument>

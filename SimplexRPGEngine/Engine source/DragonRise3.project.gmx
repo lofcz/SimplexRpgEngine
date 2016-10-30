@@ -606,6 +606,7 @@
     <backgrounds name=" Single tile backgrounds">
       <background>background\bcgStb1</background>
       <background>background\bcgStb2</background>
+      <background>background\bcgStb3</background>
     </backgrounds>
     <backgrounds name=" Exterier">
       <background>background\bcgEx1</background>
@@ -629,6 +630,7 @@
       <background>background\bcgExObj13</background>
       <background>background\bcgExObj14</background>
       <background>background\bcgExObj15</background>
+      <background>background\bcgExObj16</background>
     </backgrounds>
     <backgrounds name=" Exterier buildings">
       <background>background\bcgExBui1</background>
@@ -656,6 +658,10 @@
     </backgrounds>
     <backgrounds name="Caves">
       <background>background\bcgCaves1</background>
+      <background>background\bcgCaves2</background>
+      <background>background\bcgCavesAnimated1</background>
+      <background>background\bcgCaves3</background>
+      <background>background\bcgCaves4</background>
     </backgrounds>
     <background>background\AIN_Secrets3_zpsa22760a3</background>
   </backgrounds>
@@ -1221,6 +1227,8 @@
             </objects>
             <objects name="Furs">
               <object>objects\oFurRabbit</object>
+            </objects>
+            <objects name="Misc">
               <object>objects\oBone</object>
             </objects>
           </objects>
@@ -1369,7 +1377,7 @@
     <room>rooms\mapDefault</room>
     <rooms name="Game world">
       <room>rooms\mapHouse1</room>
-      <room>rooms\room9</room>
+      <room>rooms\mapKrysiSklipek</room>
       <room>rooms\mapHouseAlice</room>
       <room>rooms\mapLedovaJeskyne</room>
       <room>rooms\mapHolohlavy</room>

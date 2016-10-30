@@ -30,6 +30,8 @@
 apiPlayerCreate();
 event_inherited();
 
+
+
 // scrSimpleLightIni() // &lt;-- TODO
 sprLight      = sBasicLight;
 sprLightIndex = 0;
