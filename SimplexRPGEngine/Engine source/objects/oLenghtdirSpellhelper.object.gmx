@@ -57,7 +57,7 @@ if (dir = "s") {y+=12;}
 if (dir = "a") {x-=12;}
 if (dir = "d") {x+=12;}
 
-if (instance_number(oLenghdirSpell) = 0) {instance_destroy();}
+if (instance_number(oLenghdirSpell) == 0) {instance_destroy();}
 </string>
           </argument>
         </arguments>
@@ -80,7 +80,7 @@ if (instance_number(oLenghdirSpell) = 0) {instance_destroy();}
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
+            <string>/*
 if (mode = 0)
    {
    if (instance_number(oLenghdirSpell) &gt; 0)
@@ -89,9 +89,11 @@ if (mode = 0)
       with(oLenghdirSpell) {event_user(1);}   
       }
    }
-   
+*/   
+if (other.id != oPlayer.id)
+{
 instance_destroy();
-
+}
 </string>
           </argument>
         </arguments>
@@ -116,13 +118,13 @@ instance_destroy();
             <kind>1</kind>
             <string>/// Call oLengthdirSpell enemy collide event
 
-if (mode = 0)
-   {
-   if (instance_number(oLenghdirSpell) &gt; 0)
-      {
-      oLenghdirSpell.idd = other.id;
-      with(oLenghdirSpell) {event_user(1);}   
-      }
+if (mode == 0)
+   {    
+    if (instance_number(oLenghdirSpell) &gt; 0)
+       {
+       oLenghdirSpell.idd = other.id;
+       with(oLenghdirSpell) {event_user(1);}   
+       }
    }
 </string>
           </argument>

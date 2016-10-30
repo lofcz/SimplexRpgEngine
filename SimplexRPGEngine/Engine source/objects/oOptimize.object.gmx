@@ -130,6 +130,11 @@ if (instance_number(oBunny &gt; 0))
 for (i = 0; i &lt; ds_list_size(activeList); i++)
     {
      instance_activate_object(activeList[| i]);
+     
+     if ((activeList[| i]).object_index == oAdvancedCollision)
+        {
+         if ((activeList[| i]).alpha &lt; 0.05) {ds_list_delete(activeList, i);}
+        }
     }
 </string>
           </argument>

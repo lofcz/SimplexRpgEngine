@@ -40,6 +40,7 @@ affect    = "";
 hp        = -1;
 hitStacks = 2;
 particleSystem = false;
+flag2          = true;
 </string>
           </argument>
         </arguments>
@@ -169,10 +170,11 @@ if (mode == 1)
 
 if (tA == 1 &amp;&amp; hp != -1)
     {
-    if (affect == "burning") {effectRealFire(x, y, 3);}
+    if (affect == "burning") {effectRealFire(x, y, 3); hp = lerp(hp, 0, 0.05);}
     }
 
-if (hp &lt;= 0 &amp;&amp; mode == 0) {mode = 1;}
+if (hp &lt;= 0.1 &amp;&amp; mode == 0) {mode = 1;}
+if (hp &lt; 0.5 &amp;&amp; flag2) {flag2 = false; event_user(3);}
 </string>
           </argument>
         </arguments>
@@ -215,6 +217,31 @@ audio_play_sound(sndSwordCutBush, 1, 0);
 event_user(2);
 }
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="13">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Drop random loot on destroy
+
+scrEnemyLoot(oXpDrop, 1, 2, true, 70, 2);
 </string>
           </argument>
         </arguments>
@@ -343,7 +370,7 @@ if (idd = "kalokvet")
             <kind>1</kind>
             <string>/// Draw nothing
 
-if (mode == 0)
+if (mode == 0 &amp;&amp; alpha &gt; 0.05)
 {
 if (draw &amp;&amp; text[0] != "")
 {

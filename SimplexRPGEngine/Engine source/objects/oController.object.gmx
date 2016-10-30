@@ -102,6 +102,7 @@ if (room == mapTest)
 {
  if (player_pos == 1) {oPlayer.x = 1536; oPlayer.y = 1792;}
  else if (player_pos == 2) {instance_set_position(884, 700, oPlayer);}
+ else if (player_pos == 3) {instance_set_position(1696, 944, oPlayer);}
 }
 if (room == mapHouseAlice)
 {

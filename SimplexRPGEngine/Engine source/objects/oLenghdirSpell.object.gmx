@@ -419,8 +419,9 @@ event_user(0);
 
 // Fire trail
 if (type = "fire_trail")
-   {     
-     idd.hp -= (dmg / 5);
+   {  
+     if ((idd).hitType == "breakableGrass")
+     {   
      idd.affect = "burning"; 
      
      if (idd.particleSystem == false)
@@ -428,7 +429,7 @@ if (type = "fire_trail")
      with(idd) {Sname = part_system_create(); particleSystem = true;}
      ds_list_add(oOptimize.activeList, (idd));
      }
-     
+     }
    }
    
    
