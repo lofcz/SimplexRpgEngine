@@ -106,7 +106,7 @@ if (room == mapTest)
 }
 if (room == mapHouseAlice)
 {
- if (player_pos == 1) {oPlayer.x = 504; oPlayer.y = 408;}
+ if (player_pos == 1) {oPlayer.x = 504; oPlayer.y = 438;}
 }
 if (room == mapKrysiSklipek)
 {

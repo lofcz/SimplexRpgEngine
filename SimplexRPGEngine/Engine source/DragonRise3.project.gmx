@@ -270,6 +270,7 @@
       </sprites>
       <sprites name="Nature">
         <sprite>sprites\sButterfly</sprite>
+        <sprite>sprites\sRat</sprite>
       </sprites>
     </sprites>
     <sprites name="Environment">
@@ -1092,6 +1093,7 @@
       </objects>
       <objects name="Animals">
         <object>objects\oBunny</object>
+        <object>objects\oRat</object>
       </objects>
     </objects>
     <objects name="Controllers">
