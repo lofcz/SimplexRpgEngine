@@ -28,6 +28,7 @@
             <string>scl(lerp(image_xscale, 7, 0.1), image_xscale);
 
 if (image_xscale &gt; 6.9) {instance_destroy();}
+
 </string>
           </argument>
         </arguments>
