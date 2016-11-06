@@ -44,18 +44,16 @@ fovRange = 128;
 
 //event_user(0);
 
-life = 2;
-mySpeed = 2;       
-docile = true;
 
-myLife = life;
-paces = 0;
-canMove = true;
+docile    = true;
+paces     = 0;
+canMove   = true;
 horiSpeed = 0;
 vertSpeed = 0;
-state = "idle";
-idleTimer = 1*room_speed;
-face = 0;
+state     = "idle";
+idleTimer = 1 * room_speed;
+face      = 0;
+
 
 </string>
           </argument>
@@ -167,102 +165,8 @@ y = floor(y);
 event_inherited();
 if (sprite_index != noone) {draw_self();}
 if (hp &lt;= 0) {image_alpha = 0;}
-/*
-// Draw FOV
-if (dir == "d") {x2 = x + fovRange; y2 = y + fovRange; x3 = x + fovRange; y3 = y - fovRange;}
-if (dir == "s") {x2 = x - fovRange; y2 = y + fovRange; x3 = x + fovRange; y3 = y + fovRange;}
 
-draw_triangle(x, y, x2, y2, x3, y3, true);
-draw_circle(x, y, 64, true);
-
-draw_circle(tarX, tarY, 8, false);
-//mp_grid_draw(grid);
-
-if (x == xprevious &amp;&amp; y == yprevious)
-    {
-     mp_grid_destroy(grid);
-     path_delete(path);
-     event_user(0);
-    }    
-*/
 if (canMove) {scrSimpleAiStep(horiSpeed, vertSpeed, parSolid);}
-
-if (canMove)
-{
-switch (state)
-    {
-    case ("idle"):
-        idleTimer--;
-        if (idleTimer &lt;= 0)
-            state = "turn";
-        break;
-        
-    case ("turn"):
-        if (irandom(1))
-            horiSpeed = choose(-3, 3);
-        else
-            vertSpeed = choose(-3, 3);
-        paces = irandom_range(25, 50);
-        state = "move"; 
-        break;
-        
-    case ("move"):
-        paces--;
-        if (x == xprevious)
-        &amp;&amp; (y == yprevious)
-        || (paces &lt;= 0)
-            state = "stop";
-        break;
-        
-    case ("stop"):
-        horiSpeed = 0;
-        vertSpeed = 0;
-        state = "idle";
-        idleTimer = 1*room_speed;
-        break;
-        
-    case ("stagger"):
-        staggerTimer--;
-        image_blend = merge_color(c_white, c_red, lengthdir_x(1, staggerTimer*15));
-        if (staggerTimer &lt;= 0)
-            {
-            image_blend = c_white;
-            state = "idle";
-            beenHit = false;
-            if (myLife &lt;= 0)
-                hide = true;
-            }
-            
-        // Do stagger
-        switch (face)
-            {
-            case (0): vertSpeed = staggerTimer/5; break;
-            case (1): vertSpeed = staggerTimer/5; break;
-            case (2):  horiSpeed = staggerTimer/5; break;
-            case (3):  horiSpeed = staggerTimer/5; break;
-            }
-        break;
-    }
-
-// Sprite and animation management
-if (vertSpeed &lt; 0) face = 0;
-if (vertSpeed &gt; 0) face = 1;
-if (horiSpeed &gt; 0) face = 2;
-if (horiSpeed &lt; 0) face = 3;
-//SetSpriteFromFace(sprChickenWalkNorth, sprChickenWalkSouth, sprChickenWalkEast, sprChickenWalkWest);
-
-    // Adjust animation phase cycle       
-    if (face == 0) {if (image_index &lt; 12  || image_index &gt; 15)  {image_index = 12;}}
-    if (face == 1) {if (image_index &lt; 0 || image_index &gt; 3.9) {image_index = 0;}}    
-    if (face == 2) {if (image_index &lt; 9  || image_index &gt; 11.9) {image_index = 9;}}    
-    if (face == 3) {if (image_index &lt; 4 || image_index &gt; 7.9) {image_index = 4;}} 
-
-if (x != xprevious)
-|| (y != yprevious)
-    image_speed = 0.15;
-else
-    image_index = 0;   
-}
 </string>
           </argument>
         </arguments>

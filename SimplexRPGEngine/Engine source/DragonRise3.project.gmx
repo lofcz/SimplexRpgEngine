@@ -1092,8 +1092,10 @@
         <object>objects\parNPC</object>
       </objects>
       <objects name="Animals">
-        <object>objects\oBunny</object>
-        <object>objects\oRat</object>
+        <objects name="Idle">
+          <object>objects\oBunny</object>
+          <object>objects\oRat</object>
+        </objects>
       </objects>
     </objects>
     <objects name="Controllers">
