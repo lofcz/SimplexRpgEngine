@@ -106,7 +106,7 @@ if (x != xprevious) || (y != yprevious) {image_speed = 0.15; }
 else 
   { 
   image_speed = 0;  
-  
+                                                         
   if (image_index > 12 && image_index < 15)   {image_index = 12;}
   if (image_index > 0  && image_index < 3.9)  {image_index = 0;}
   if (image_index > 9  && image_index < 11.9) {image_index = 9;}

@@ -475,10 +475,12 @@
             </sprites>
             <sprites name="Materials">
               <sprite>sprites\sDustEffect</sprite>
+              <sprite>sprites\sStickEffect</sprite>
               <sprite>sprites\sWoodEffect</sprite>
               <sprite>sprites\sMetalEffect</sprite>
               <sprite>sprites\sStoneEffect</sprite>
               <sprite>sprites\sLeafEffect</sprite>
+              <sprite>sprites\sLianaEffect</sprite>
               <sprite>sprites\sFurEffect</sprite>
               <sprite>sprites\sGoldEffect</sprite>
             </sprites>
@@ -598,6 +600,10 @@
       <sprite>sprites\sTemp14</sprite>
       <sprite>sprites\sTemp15</sprite>
       <sprite>sprites\sTemp16</sprite>
+      <sprite>sprites\sTemp17</sprite>
+      <sprite>sprites\sTemp18</sprite>
+      <sprite>sprites\sTemp19</sprite>
+      <sprite>sprites\sTemp20</sprite>
     </sprites>
     <sprite>sprites\sprite242</sprite>
     <sprite>sprites\sBarrel</sprite>
@@ -1234,6 +1240,10 @@
             </objects>
             <objects name="Misc">
               <object>objects\oBone</object>
+            </objects>
+            <objects name="Scticks and lianas">
+              <object>objects\oStick</object>
+              <object>objects\oLiana</object>
             </objects>
           </objects>
           <objects name="Gems">

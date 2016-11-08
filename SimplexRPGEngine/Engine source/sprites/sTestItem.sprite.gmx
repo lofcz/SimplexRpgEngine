@@ -83,5 +83,7 @@
     <frame index="60">images\sTestItem_60.png</frame>
     <frame index="61">images\sTestItem_61.png</frame>
     <frame index="62">images\sTestItem_62.png</frame>
+    <frame index="63">images\sTestItem_63.png</frame>
+    <frame index="64">images\sTestItem_64.png</frame>
   </frames>
 </sprite>
