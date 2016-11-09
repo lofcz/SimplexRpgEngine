@@ -19,7 +19,8 @@
 ## Podporované vývojové prostředí:
 <img align="middle" width="128" height="128" src="https://s21.postimg.org/vghqza03r/rounded_corners.png">
 <img align="middle" src="https://s10.postimg.org/tvc4uhp3t/Lateralgmlogo.png">
-<img align="middle" width="128" height="128" src="https://s15.postimg.org/jrlizdqor/rounded_corners.jpg">
+<img align="middle" width="128" height="128" src="https://s15.postimg.org/jrlizdqor/rounded_corners.jpg">  <img align="middle" width="128" height="128" src="https://s21.postimg.org/pisaduls7/rounded_corners.png">  
+
 
 ## Výběr z úspěšných projektů, poháněných Simplex RPG Enginem:
 **Fate of Hero** (Kedarsoft)  
@@ -38,7 +39,7 @@
 <img align="middle" width="256" height="196" src="https://s16.postimg.org/lu7br103p/Noname5.png">
 <img align="middle" width="256" height="196" src="https://s16.postimg.org/mlgwuy7yt/Noname6.png">
 <img align="middle" width="256" height="196" src="https://s17.postimg.org/4j0stsy8f/Noname7.png">
-<img align="middle" width="256" height="196" src="https://s18.postimg.org/em61b12d5/Noname8.png">
+<img align="middle" width="256" height="196" src="https://s17.postimg.org/9bx4bpq9r/Noname.png">
 <img align="middle" width="256" height="196" src="https://s15.postimg.org/up5oq2nsr/Noname9.png">
 
 ## Budoucnost máš na dosah, začni [zde](https://github.com/lofcz/SimplexRpgEngine/wiki).
