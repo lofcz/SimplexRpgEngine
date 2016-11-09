@@ -31,7 +31,7 @@
 *Zveřejněno na Google Play*   
 <a href="https://play.google.com/store/apps/details?id=sk.KandPGames.Shuups">![](http://s21.postimg.org/wpxsja7o7/Noname.png)</a>
 
-## Engine preview 
+## Náhled enginu: 
 <img align="middle" width="256" height="196" src="https://s11.postimg.org/45t1jf2kz/Noname1.png">
 <img align="middle" width="256" height="196" src="https://s9.postimg.org/4mce74ohb/Noname.png">
 <img align="middle" width="256" height="196" src="https://s11.postimg.org/5b7gc0l03/Noname3.png">
@@ -48,7 +48,7 @@ Máš otázky nebo jsi vytvořil na Simplexu hru a chceš nám dát vědět? Nap
 - <a href="https://www.facebook.com/simplexengine/?pnref=lhc">Facebook</a>
 - <a href="https://www.youtube.com/channel/UCCDT5l4gglPpFB_tEZd5c7Q">Youtube</a>
 
-## Změny oproti základní verzi
+## Změny oproti základní verzi:
 * Nové komponenty (30+).
 * Rozšířené API.
 * Vylepšené externí nástroje.
