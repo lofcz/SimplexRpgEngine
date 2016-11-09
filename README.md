@@ -10,7 +10,7 @@
 * Unikátní systém in-game vývoje, který umožňuje hru tvořit přímo za běhu. 
 * Extrémní výkon, vysoká optimalizace.
 * GLSL / HLSL shadery, 2D fyzika, částice a další za běhu počítané efekty.
-* Možnost integrace do stávajících GMS / LGM projektů.
+* Možnost integrace do stávajících GMS / LGM / GMS2 projektů.
 * Libovolné rozlišení hry, responsivní UI layout.
 * Poráží RPG Maker a YOYO RPG v každém směru.
 * Zdarma pro nekomerční projekty, otevřený zrojový kód, GPL3 licence.
