@@ -513,6 +513,7 @@
               <sprite>sprites\sLetterEffect</sprite>
               <sprite>sprites\sQuestEffect</sprite>
               <sprite>sprites\sBoneEffect</sprite>
+              <sprite>sprites\sKeyEffect</sprite>
               <sprite>sprites\sLockpickEffect</sprite>
             </sprites>
             <sprites name="Weapons">
@@ -608,6 +609,7 @@
     <sprite>sprites\sprite242</sprite>
     <sprite>sprites\sBarrel</sprite>
     <sprite>sprites\sprite244</sprite>
+    <sprite>sprites\sEmoticons</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name=" Single tile backgrounds">
@@ -1165,6 +1167,8 @@
         <object>objects\oLog</object>
         <object>objects\oAreaScript</object>
         <object>objects\oCopyright</object>
+        <object>objects\oExplosion</object>
+        <object>objects\oEmoticon</object>
         <object>objects\oRoomConroller</object>
       </objects>
       <objects name="Effects">
@@ -1329,6 +1333,7 @@
           <object>objects\oRelicLeftPart</object>
           <object>objects\oRelicRightPart</object>
           <object>objects\oRelic</object>
+          <object>objects\oKey</object>
           <object>objects\oPouch</object>
           <object>objects\oAlchemyDust</object>
           <object>objects\oLofsGift</object>
@@ -1373,7 +1378,6 @@
         <object>objects\parSolid</object>
       </objects>
     </objects>
-    <object>objects\oExplosion</object>
   </objects>
   <timelines name="timelines">
     <timelines name="Cutscenes">

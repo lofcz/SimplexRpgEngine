@@ -1093,3 +1093,17 @@ i = vlastnost_zivot;
 if (argument_count > 0) {i = argument[0];}
 
 return (oPlayer.vlastnost[i]);
+#define apiPlayerSplashEmoticon
+/// apiPlayerSplashEmoticon(index, animationSpeed)
+
+var i, I, a;
+I = 0;
+a = 0.1;
+
+if (argument_count > 0) {I = argument[0];}
+if (argument_count > 1) {a = argument[1];}
+
+i = instance_create(oPlayer.x, oPlayer.y - 16, oEmoticon);
+i.spd         = a;
+i.image_index = i;
+

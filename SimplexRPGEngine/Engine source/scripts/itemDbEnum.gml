@@ -72,5 +72,6 @@ itemPouch,
 itemFurRabbit,
 itemBone,
 itemStick,
-itemLiana
+itemLiana,
+itemKey
 };
