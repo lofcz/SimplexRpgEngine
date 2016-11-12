@@ -1106,4 +1106,3 @@ if (argument_count > 1) {a = argument[1];}
 i = instance_create(oPlayer.x, oPlayer.y - 16, oEmoticon);
 i.spd         = a;
 i.image_index = i;
-

@@ -656,7 +656,7 @@ else
 
             }   
          
-       // Crafting details form (item to creaft is selected)
+       // Crafting details form (item to craft is selected)
        if (craftingSelectedIndex == 4 && craftingHelper == 0 && !craftingDetails)
           {
             tempX = xpos;
@@ -801,6 +801,88 @@ else
                 alg("center", fntPixelSmall);
                 clr(c_white, 1);
                 draw_text(tempX + 184, tempY + 180, "[Zrušit]");                                                       
-        }          
+        }     
+        
+      // Food form
+      // *****************************************************************************
+      if (craftingSelectedIndex == 5 && craftingHelper == -1 && !craftingDetails)
+            {    
+            j = 0;        
+            
+            // Draw frames
+            for (i = 0; i < craftingEntriesPerPage; i++)
+                {
+                 clr(c_black, 1);
+                 draw_rectangle(tempX, tempY, tempX + 32, tempY + 32, true);
+                 clr(c_white, 0.1);
+                 draw_rectangle(tempX, tempY, tempX + 32, tempY + 32, false);
+                 
+                 if (mouse_in(tempX, tempX + 32, tempY, tempY + 32))
+                    {
+                     clr(c_yellow, 0.3);
+                     draw_rectangle(tempX, tempY, tempX + 32, tempY + 32, false);                     
+                    }
+
+                 tempX += 32;
+                 j++;
+                 if (j == craftingEntriesPerRow) {j = 0; tempX = xpos; tempY += 32;}
+                 clr();
+                }
+                
+            // Draw known items
+            tempX = xpos;
+            tempY = ypos + 96;   
+            j = 0;
+            fnt(fntPixel);
+            
+            for (i = 0; i < ds_list_size(craftingKnownFood); i++)
+                {
+                 tempIndex = ds_list_find_value(craftingKnownFood, i);
+                 
+                 draw_sprite(sTestItem, craftingFoodSprite[craftingPageSelected, tempIndex], tempX + 16, tempY + 16);
+                 if (craftingFoodNewFlag[craftingPageSelected, tempIndex]) {draw_text_colour(tempX + 25, tempY, "!", c_yellow, c_yellow, c_yellow, c_yellow, 1);}
+             
+                 // On-Hover
+                 if (mouse_in(tempX, tempX + 32, tempY, tempY + 32))
+                 {
+                 
+                 fnt();
+                 text = craftingFoodName[craftingPageSelected, tempIndex];
+                 clr(c_black, 0.4);
+                 draw_roundrect(tempX + 16, tempY + 16, tempX + 32 + string_width(text), tempY + 42, false);
+                 clr(c_black, 1);
+                 draw_roundrect(tempX + 16, tempY + 16, tempX + 32 + string_width(text), tempY + 42, true);
+                 clr(c_white, 1);
+                 draw_text(tempX + 24, tempY + 16, text);
+                 clr();
+                 
+                 if (mouse_check_button_pressed(mb_left) && ds_list_find_index(craftingKnownFood, tempIndex) != -1)
+                    {
+                    craftingHelper = 0;
+                    if (craftingFoodNewFlag[craftingPageSelected, tempIndex]) {craftingFoodNewFlag[craftingPageSelected, tempIndex] = false;}                         
+                    craftingSelectedItem = tempIndex;
+                    craftingTitleHelper  = craftingFoodName[craftingPageSelected, tempIndex];
+                    craftingTitleHelper2 = craftingFoodDetailsText[craftingPageSelected, tempIndex];
+                   
+                     } 
+                 }
+                 
+                 tempX += 32;
+                 j++;
+                 if (j == craftingEntriesPerRow) {j = 0; tempX = xpos; tempY += 32;}
+                 clr();                
+                }
+
+            }   
+         
+       // Crafting details form (item to craft is selected)
+       if (craftingSelectedIndex == 5 && craftingHelper == 0 && !craftingDetails)
+          {
+            tempX = xpos;
+            tempY = ypos + 96;   
+            
+            scrCraftingFoodDB(craftingEnum.craftCraft, craftingSelectedItem);            
+          }
+     
 
 }

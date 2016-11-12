@@ -634,7 +634,7 @@ if (idd != -1)
          fnt(fntPixelExtraTiny);
          alg();
          if (oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_equip_slot] != "") {typeStr = "[" + oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_equip_slot] + "]";}
-         else if (oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_materialType] != materialEnum.materialNone && oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_materialType] != -1) {typeStr = "[Materiál]";}
+         else if (oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_materialType] != materialEnum.materialNone && oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_materialType] != -1) {if (oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_materialType] == materialEnum.materialFood) {typeStr = "[Jídlo]";} else {typeStr = "[Materiál]";}}
          else if (oInventory.equiped_vlastnost[oInventory.draw_equ_infobox_id, vlastnost_canBeFastEquiped]) {typeStr = "[Spotřební]";}
          else {typeStr = "";}
        

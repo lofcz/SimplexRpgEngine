@@ -565,6 +565,10 @@
             <sprites name="Belts">
               <sprite>sprites\sBeltEffect</sprite>
             </sprites>
+            <sprites name="Food">
+              <sprite>sprites\sMilkEffect</sprite>
+              <sprite>sprites\sCheeseEffect</sprite>
+            </sprites>
           </sprites>
         </sprites>
         <sprites name="Misc">
@@ -943,6 +947,7 @@
         <script>scripts\scrCraftingSetItemKnown.gml</script>
         <script>scripts\scrCraftingSetMaterialKnown.gml</script>
         <script>scripts\scrCraftingSetAlchemyKnown.gml</script>
+        <script>scripts\scrCraftingSetFoodKnown.gml</script>
         <script>scripts\scrCraftingDB.gml</script>
         <script>scripts\scrCraftingDraw.gml</script>
       </scripts>
@@ -1206,7 +1211,7 @@
           <object>objects\oGold</object>
           <object>objects\oGold2</object>
         </objects>
-        <objects name="Materials, herbs, gems">
+        <objects name="Materials, herbs, gems, food">
           <objects name="Herbs">
             <objects name="Junk">
               <object>objects\oLeaf</object>
@@ -1275,6 +1280,10 @@
             <objects name="Legendary">
               <object>objects\oGem15</object>
             </objects>
+          </objects>
+          <objects name="Food">
+            <object>objects\oCheese</object>
+            <object>objects\oMilk</object>
           </objects>
         </objects>
         <objects name="Weapons">

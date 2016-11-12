@@ -32,13 +32,16 @@ event_inherited();
 
 
 
-// scrSimpleLightIni() // &lt;-- TODO
+//scrSimpleLightIni() // &lt;-- TODO
 sprLight      = sBasicLight;
 sprLightIndex = 0;
-scale         = 2;
+scale2         = 2;
 color         = c_white;
 sprAlpha      = 0.5;
 rot           = 0;
+lightMode     = 0;
+scrSimpleLightIni(sBasicLight, 0, 3, c_white, 0.2, 0);
+
 
 apiPlayerIni();
 

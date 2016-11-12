@@ -266,7 +266,7 @@ if ((hover || hover_alpha > 0))
        fnt(fntPixelExtraTiny);
        alg();
        if (slot[f, inv_item_equip_slot] != "") {typeStr = "[" + slot[f, inv_item_equip_slot] + "]";}
-       else if (slot[f, inv_item_materialType] != materialEnum.materialNone && slot[f, inv_item_materialType] != -1) {typeStr = "[Materiál]";}
+       else if (slot[f, inv_item_materialType] != materialEnum.materialNone && slot[f, inv_item_materialType] != -1) {if (slot[f, inv_item_materialType] == materialEnum.materialFood) {typeStr = "[Jídlo]";} else {typeStr = "[Materiál]";}}
        else if (slot_vlastnosti[f, vlastnost_canBeFastEquiped]) {typeStr = "[Spotřební]";}
        else {typeStr = "";}
        

@@ -66,6 +66,7 @@ craftingMenuIndex[1] = "Zdokonalení";
 craftingMenuIndex[2] = "Materiály";
 craftingMenuIndex[3] = "Zušlechtění";
 craftingMenuIndex[4] = "Alchymie";
+craftingMenuIndex[5] = "Kulinářství";
 craftingTitleHelper  = "";
 activeComponent      = false;
 tempComponent        = false;
@@ -77,18 +78,21 @@ craftingPageSelected = 0;
 craftingKnownItems = ds_list_create();
 craftingKnownMaterials = ds_list_create();
 craftingKnownAlchemy = ds_list_create();
+craftingKnownFood    = ds_list_create();
 craftingItemsNewFlag[0, 48] = false;
 craftingMaterialsNewFlag[0, 48] = false;
 craftingAlchemyNewFlag[0, 48] = false;
+craftingFoodNewFlag[0, 48] = false;
 craftingEntriesPerPage = 48;
 craftingEntriesPerRow  = 8;
 craftingItemsSprite[0, 48] = 0;
 craftingMaterialsSprite[0, 48] = 0;
 craftingAlchemySprite[0, 48] = 0;
+craftingFoodSprite[0, 48] = 0;
 craftingItemsName[0, 48] = "";
 craftingMaterialsName[0, 48] = "";
 craftingAlchemyName[0, 48] = "";
-craftingAlchemyName[0, 48] = "";
+craftingFoodName[0, 48] = "";
 craftingSelectedItem = -1;
 craftingDetails = false;
 craftingDetailsHeight = 0;
@@ -97,6 +101,7 @@ craftingSlot[10, 5] = 0;
 craftingDetailsText[0, 48] = "";
 craftingAlchemyDetailsText[0, 48] = "";
 craftingMaterialsDetailsText[0, 48] = "";
+craftingFoodDetailsText[0, 48] = "";
 craftingTitleHelper2 = "";
 
 craftingSlotFree[10] = true;
@@ -136,6 +141,10 @@ scrCraftingSetMaterialKnown(3, "Ocel", "Základní materiál.");
 // Crafting alchemy
 craftingAlchemySprite[0, 3] = 28; // HP Pot
 scrCraftingSetAlchemyKnown(3, "Lektvar zdraví", "Jednoduchý dryák s léčivými účinky.");
+
+// Crafting food
+craftingFoodSprite[0, 3] = (itemEnum.itemFoodCheese - 1); // HP Pot
+scrCraftingSetFoodKnown(3, "Sýr", "Voňavý sýr.");
 
 
 iconActive[hudIcons.bestiary]  = true;

@@ -32,7 +32,7 @@ if (!surface_exists(surf))
     }
 
 
-if (alpha > 0)
+if (alpha > 0.01)
 {
 surface_set_target(surf);
 draw_clear(c_black);
@@ -49,7 +49,11 @@ with(oLight)
     
 with(oPlayer)
     {
-     draw_sprite_ext(sprLight, sprLightIndex, x - view_xview, y - view_yview, scale, scale, rot, color, sprAlpha);    
+     draw_sprite_ext(sprLight, sprLightIndex, x - view_xview, y - view_yview, scale2, scale2, rot, color, sprAlpha);    
+     draw_sprite_ext(sprite, index, x - view_xview, y - view_yview, scale, scale, rot, color, alpha);
+     if (lightMode == 0) {scale = lerp(scale, 3.2, 0.05); if (scale >= 3.19) {lightMode = 1;}}
+     if (lightMode == 1) {scale = lerp(scale, 2.8, 0.05); if (scale <= 2.79) {lightMode = 0;}}
+     
     }
 draw_set_blend_mode(bm_normal);
 surface_reset_target();
