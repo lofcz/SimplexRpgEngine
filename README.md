@@ -1,4 +1,4 @@
-<img src="https://img.shields.io/badge/Verze-1.0%20RC1-brightgreen.svg"> <img src="https://img.shields.io/badge/Status-V%20po%C5%99%C3%A1dku-green.svg"> <img src="https://img.shields.io/badge/License-GPL3-blue.svg">
+<img src="https://img.shields.io/badge/Verze-1.0%20RC2-brightgreen.svg"> <img src="https://img.shields.io/badge/Status-V%20po%C5%99%C3%A1dku-green.svg"> <img src="https://img.shields.io/badge/License-GPL3-blue.svg">
 <br><br>
 <img align="middle" src="https://s22.postimg.org/xwq6o7t9t/Noname.png">
 <br>
@@ -10,7 +10,7 @@
 * Unikátní systém in-game vývoje, který umožňuje hru tvořit přímo za běhu. 
 * Extrémní výkon, vysoká optimalizace.
 * GLSL / HLSL shadery, 2D fyzika, částice a další za běhu počítané efekty.
-* Možnost integrace do stávajících GMS / LGM projektů.
+* Možnost integrace do stávajících GMS / LGM / GMS2 projektů.
 * Libovolné rozlišení hry, responsivní UI layout.
 * Poráží RPG Maker a YOYO RPG v každém směru.
 * Zdarma pro nekomerční projekty, otevřený zrojový kód, GPL3 licence.
@@ -31,7 +31,7 @@
 *Zveřejněno na Google Play*   
 <a href="https://play.google.com/store/apps/details?id=sk.KandPGames.Shuups">![](http://s21.postimg.org/wpxsja7o7/Noname.png)</a>
 
-## Engine preview 
+## Náhled enginu: 
 <img align="middle" width="256" height="196" src="https://s11.postimg.org/45t1jf2kz/Noname1.png">
 <img align="middle" width="256" height="196" src="https://s9.postimg.org/4mce74ohb/Noname.png">
 <img align="middle" width="256" height="196" src="https://s11.postimg.org/5b7gc0l03/Noname3.png">
@@ -48,7 +48,7 @@ Máš otázky nebo jsi vytvořil na Simplexu hru a chceš nám dát vědět? Nap
 - <a href="https://www.facebook.com/simplexengine/?pnref=lhc">Facebook</a>
 - <a href="https://www.youtube.com/channel/UCCDT5l4gglPpFB_tEZd5c7Q">Youtube</a>
 
-## Změny oproti základní verzi
+## Změny oproti základní verzi:
 * Nové komponenty (30+).
 * Rozšířené API.
 * Vylepšené externí nástroje.
