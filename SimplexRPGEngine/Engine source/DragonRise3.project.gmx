@@ -250,6 +250,8 @@
             <sprite>sprites\sBodyCanvasAttackWeapon1</sprite>
             <sprite>sprites\sBodyCanvasAttackWeapon2</sprite>
             <sprite>sprites\sBodyCanvasAttackBelt1</sprite>
+            <sprite>sprites\sBodyCanvasAttackHead2</sprite>
+            <sprite>sprites\sBodyCanvasAttackHair1</sprite>
             <sprite>sprites\sBodyCanvasAttackLegs1</sprite>
           </sprites>
           <sprites name="Walk">
@@ -257,10 +259,12 @@
             <sprite>sprites\sBodyCanvasWeapon2</sprite>
             <sprite>sprites\sBodyCanvasWeapon1</sprite>
             <sprite>sprites\sBodyCanvasHood1</sprite>
+            <sprite>sprites\sBodyCanvasHead1</sprite>
             <sprite>sprites\sBodyCanvasBelt1</sprite>
             <sprite>sprites\sBodyCanvasLegs1</sprite>
             <sprite>sprites\sBodyCanvasShoes1</sprite>
             <sprite>sprites\sBodyCanvasHands1</sprite>
+            <sprite>sprites\sBodyCanvasHair1</sprite>
             <sprite>sprites\sBodyCanvasArmor1</sprite>
           </sprites>
         </sprites>
@@ -525,6 +529,7 @@
             <sprites name="Helmets">
               <sprite>sprites\sHelmetEffect</sprite>
               <sprite>sprites\sHelmetEffect2</sprite>
+              <sprite>sprites\sHelmetEffect3</sprite>
             </sprites>
             <sprites name="Rings">
               <sprite>sprites\sRingEffect</sprite>
@@ -805,6 +810,7 @@
         <script>scripts\scrItemSetOptions.gml</script>
         <script>scripts\scrItemSetUpFinalize.gml</script>
         <script>scripts\scrItemSetDataSockets.gml</script>
+        <script>scripts\scrItemMarkAsUsable.gml</script>
         <script>scripts\scrItemBasic.gml</script>
         <script>scripts\itemDraw.gml</script>
         <script>scripts\itemDrawStats.gml</script>
@@ -1291,6 +1297,7 @@
         </objects>
         <objects name="Helmets">
           <object>objects\oKozenaHelma</object>
+          <object>objects\oHelmet2</object>
         </objects>
         <objects name="Quest items">
           <object>objects\oQuestItemAxe1</object>
@@ -1411,7 +1418,7 @@
       <room>rooms\mapSklep</room>
     </rooms>
   </rooms>
-  <constants number="221">
+  <constants number="225">
     <constant name="baArmor">1</constant>
     <constant name="baBase">0</constant>
     <constant name="cStaticInstance">"staticInstance"</constant>
@@ -1460,7 +1467,11 @@
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
     <constant name="upgradableProperties">58</constant>
-    <constant name="celkem_vlastnosti">96</constant>
+    <constant name="celkem_vlastnosti">100</constant>
+    <constant name="vlastnost_healShield">99</constant>
+    <constant name="vlastnost_healStamina">98</constant>
+    <constant name="vlastnost_healMp">97</constant>
+    <constant name="vlastnost_healHp">96</constant>
     <constant name="vlastnost_bonusGold">95</constant>
     <constant name="vlastnost_canBeFastEquiped">94</constant>
     <constant name="vlastnost_dataSocket10">93</constant>

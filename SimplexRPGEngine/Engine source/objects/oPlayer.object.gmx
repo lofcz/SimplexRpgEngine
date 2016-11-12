@@ -92,8 +92,8 @@ currentAnimation = animationEnum.walk;
 bci[5, 16]       = 0;
 
 scrBodyCanvasDB();
-scrBodyCanvasIni(animationEnum.walk, sBodyCanvasHumanWalk1, sBodyCanvasArmor1, sBodyCanvasHood1, sBodyCanvasBelt1, sBodyCanvasLegs1, sBodyCanvasShoes1, sBodyCanvasHands1, 0);
-scrBodyCanvasIni(animationEnum.slash, sBodyCanvasAttack1, sBodyCanvasAttackArmor1, sBodyCanvasAttackHead1, sBodyCanvasAttackBelt1, sBodyCanvasAttackLegs1, sBodyCanvasAttackShoes1, sBodyCanvasAttackHands1, 0);
+scrBodyCanvasIni(animationEnum.walk, sBodyCanvasHumanWalk1, sBodyCanvasHair1, sBodyCanvasArmor1, sBodyCanvasHood1, sBodyCanvasBelt1, sBodyCanvasLegs1, sBodyCanvasShoes1, sBodyCanvasHands1, 0);
+scrBodyCanvasIni(animationEnum.slash, sBodyCanvasAttack1, sBodyCanvasAttackHair1, sBodyCanvasAttackArmor1, sBodyCanvasAttackHead1, sBodyCanvasAttackBelt1, sBodyCanvasAttackLegs1, sBodyCanvasAttackShoes1, sBodyCanvasAttackHands1, 0);
 
 </string>
           </argument>

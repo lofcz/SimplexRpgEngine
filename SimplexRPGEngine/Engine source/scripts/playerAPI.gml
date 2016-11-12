@@ -137,7 +137,7 @@ else
 // Draw body canvas
 for (i = 0; i < 15; i++)
     {
-     if (bci[i] != 0) {draw_sprite(bci[currentAnimation, i], image_index, x, y);}     
+     if (bci[i] != 0) {draw_sprite(bci[currentAnimation, i], image_index, x, y);} 
     }
 
 // In case of attack, spell cast or other special action flow the animation    
@@ -147,7 +147,7 @@ if (currentAnimation != animationEnum.walk)
  
      if (currentAnimation == animationEnum.slash)
         {
-         draw_sprite(sBodyCanvasAttackWeapon2, image_index, x, y);
+         draw_sprite(sBodyCanvasAttackWeapon2, image_index, x, y);         
         }
   
      if (last_dir == "s" || last_dir == "") {if (image_index > 17) {sprite_index  = bci[0, 0]; currentAnimation = animationEnum.walk; image_index = 12; image_speed = 0;}}
@@ -1106,3 +1106,15 @@ if (argument_count > 1) {a = argument[1];}
 i = instance_create(oPlayer.x, oPlayer.y - 16, oEmoticon);
 i.spd         = a;
 i.image_index = i;
+#define apiPlayerGetHealth
+/// apiPlayerGetHealth(value)
+
+var v;
+v = 0;
+
+if (argument_count > 0) {v = argument[0];}
+
+oPlayer.vlastnost[vlastnost_zivot] +=  v;
+
+return(v);
+

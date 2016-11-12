@@ -30,6 +30,7 @@
 scrItemSetUp(0, 0, itemEnum.itemFoodCheese);
 scrItemSetProperties(true, "Sýr", "Silně kořeněný sýr s ořechovou vůní. Pochoutka, kterou by ani zemský šlechtic neopovrhnul.", materialEnum.materialFood, "", 5);
 scrItemSetOptions("Sníst");
+scrItemMarkAsUsable(18);
 scrItemSetUpFinalize();
 </string>
           </argument>

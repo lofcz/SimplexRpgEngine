@@ -75,5 +75,6 @@ itemStick,
 itemLiana,
 itemKey,
 itemFoodCheese,
-itemFoodMilk
+itemFoodMilk,
+itemHelmetHat
 };

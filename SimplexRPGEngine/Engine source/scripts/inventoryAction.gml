@@ -132,6 +132,20 @@ switch (idd)
             }
          break;
         }
+    case (itemEnum.itemFoodMilk):
+        {
+         if (number == 0)
+            {
+             if (scrAffectsGetStacks("vivid") == -1)
+             {
+             inventoryDelete(itemEnum.itemFoodMilk, 1);
+             stateAddEntry("Vypil jsem mléko.");
+             apiPlayerGetHealth(slot_vlastnosti[hover_idd, vlastnost_healHp]);
+             scrAffecstAdd("vivid", secToSteps(2), 5, c_yellow, 1, false);
+             }
+            }
+         break;
+        }        
     default:
         {
          show_message("Something in scrAction, switch statement went wrong :/#(probably unassigned action, check inventoryActions)");

@@ -1,4 +1,4 @@
-/// scrBodyCanvasIni(animationType, base, armor, head, belt, legs, shoes, hands, weapon)
+/// scrBodyCanvasIni(animationType, base, hair, armor, head, belt, legs, shoes, hands, weapon)
 
 bci[15] = 0; 
 

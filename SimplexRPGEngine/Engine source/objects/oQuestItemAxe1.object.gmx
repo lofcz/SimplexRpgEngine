@@ -36,7 +36,7 @@ vlastnost[vlastnost_poskozeni] = 4;
 vlastnost[vlastnost_vykresli_sprit] = sShortWeapons;
 vlastnost[vlastnost_vykresli_index] = 0;
 vlastnost[vlastnost_stamina_cost] = choose(4,5);
-vlastnost[vlastnost_bodyCanvasIndex] = 7;
+vlastnost[vlastnost_bodyCanvasIndex] = 8;
 vlastnost[vlastnost_bodyCanvasSprite] = sBodyCanvasWeapon2;
 vlastnost[vlastnost_bodyCanvasSlashSprite] = sBodyCanvasAttackWeapon2;
 

@@ -46,7 +46,7 @@ if ((oInventory.drag && mouse_check_button_released(mb_left) && equiped[equip_sl
                               else if (slot_vlastnosti[h_c,vlastnost_bodyCanvasIndex] != 0)
                                 {
                                  if (a == vlastnost_bodyCanvasSprite) {oPlayer.bci[0, slot_vlastnosti[h_c,vlastnost_bodyCanvasIndex]] = slot_vlastnosti[h_c,a];}
-                                 if (a == vlastnost_bodyCanvasSlashSprite) {oPlayer.bci[1, slot_vlastnosti[h_c,vlastnost_bodyCanvasSlashSprite]] = slot_vlastnosti[h_c,a];}                                
+                                 if (a == vlastnost_bodyCanvasSlashSprite) {oPlayer.bci[animationEnum.slash, slot_vlastnosti[h_c,vlastnost_bodyCanvasIndex]] = slot_vlastnosti[h_c,a]; }                                
                                 }                                                    
                              }
                              

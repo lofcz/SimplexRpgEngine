@@ -30,7 +30,9 @@
 scrItemSetUp(0, 0, itemEnum.itemFoodMilk);
 scrItemSetProperties(true, "Mléko", "Husté, voňavé mléko. Zasytí i utiší žízeň, ovšem dají se z něj připravit roztodivné pochoutky.", materialEnum.materialFood, "", 2);
 scrItemSetOptions("Vypít");
+scrItemMarkAsUsable(5);
 scrItemSetUpFinalize();
+
 </string>
           </argument>
         </arguments>

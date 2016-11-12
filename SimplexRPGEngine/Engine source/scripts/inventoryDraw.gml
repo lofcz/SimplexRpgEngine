@@ -755,6 +755,26 @@ for(a = 0; a < celkem_vlastnosti; a++)
                            t_text += "#Bonusové zkušenosti: "+string(slot_vlastnosti[f, a]) + "%";
                            break;                                                                   
                          }
+                    case(vlastnost_healHp):
+                         {
+                           t_text += "#Obnoví zdraví: "+string(slot_vlastnosti[f, a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_healMp):
+                         {
+                           t_text += "#Obnoví manu: "+string(slot_vlastnosti[f, a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_healStamina):
+                         {
+                           t_text += "#Obnoví výdrž: "+string(slot_vlastnosti[f, a]);
+                           break;                                                                   
+                         }
+                    case(vlastnost_healShield):
+                         {
+                           t_text += "#Obnoví štít: "+string(slot_vlastnosti[f, a]);
+                           break;                                                                   
+                         }                                                                                     
                }                    
           }      
       }
