@@ -76,5 +76,6 @@ itemLiana,
 itemKey,
 itemFoodCheese,
 itemFoodMilk,
-itemHelmetHat
+itemHelmetHat,
+itemArmorMetal
 };

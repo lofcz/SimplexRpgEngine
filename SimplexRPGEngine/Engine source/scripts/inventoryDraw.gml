@@ -154,6 +154,7 @@ else
         detailsAlpha = lerp(detailsAlpha, 0, 0.1);
         }    
     
+    // Draw options fe. "sort"    
     fnt(fntPixelSmall);
     for (i = 0; i < array_length_1d(details); i++)
         {
@@ -167,9 +168,15 @@ else
             {
              audio_play_sound(sndMenuClick1, 0, false);
              
+             // Sort
              if (i == 0)
                 {
                  for (j = 0; j < slots; j++) {inventorySort(j);}
+                }
+             // Throw out trash
+             if (i == 1)
+                {
+                 for (j = 0; j < slots; j++) {if (slot[j, inv_item_star] == 2) {inventoryDrop(j);}}
                 }
             }
         }

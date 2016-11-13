@@ -4,7 +4,7 @@ var xx,yy,force_pickup;
 ar_slot      = 0;
 xx           = oPlayer.x;
 yy           = oPlayer.y;
-force_pickup = 0;
+force_pickup = false;
 
 if (argument_count > 0) {ar_slot      = argument[0]}
 if (argument_count > 1) {xx           = argument[1]}
@@ -53,6 +53,8 @@ if (xx != -1 && yy != -1)
            itm_effect                = oInventory.drop[inv_item_effect];
            itm_equip_slot            = oInventory.drop[inv_item_equip_slot];
            itm_materialType          = oInventory.drop[inv_item_materialType];
+           itm_info_footer           = oInventory.drop[inv_item_info_footer];
+           itm_info_footer_color     = oInventory.drop[inv_item_info_footer_color];
            animateDrop               = 0;
            animateDropDir            = 0;
            animateDropForce          = 0;

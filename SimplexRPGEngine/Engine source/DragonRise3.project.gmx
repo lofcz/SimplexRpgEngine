@@ -252,6 +252,7 @@
             <sprite>sprites\sBodyCanvasAttackBelt1</sprite>
             <sprite>sprites\sBodyCanvasAttackHead2</sprite>
             <sprite>sprites\sBodyCanvasAttackHair1</sprite>
+            <sprite>sprites\sBodyCanvasAttackArmor2</sprite>
             <sprite>sprites\sBodyCanvasAttackLegs1</sprite>
           </sprites>
           <sprites name="Walk">
@@ -265,6 +266,7 @@
             <sprite>sprites\sBodyCanvasShoes1</sprite>
             <sprite>sprites\sBodyCanvasHands1</sprite>
             <sprite>sprites\sBodyCanvasHair1</sprite>
+            <sprite>sprites\sBodyCanvasArmor2</sprite>
             <sprite>sprites\sBodyCanvasArmor1</sprite>
           </sprites>
         </sprites>
@@ -537,6 +539,7 @@
             </sprites>
             <sprites name="Armors">
               <sprite>sprites\sArmorEffect</sprite>
+              <sprite>sprites\sArmorEffect2</sprite>
             </sprites>
             <sprites name="Shoulders">
               <sprite>sprites\sShoulderEffect</sprite>
@@ -1305,6 +1308,7 @@
         </objects>
         <objects name="Armors">
           <object>objects\oArmorLeather</object>
+          <object>objects\oArmorMetal</object>
         </objects>
         <objects name="Shoulders">
           <object>objects\oShoulderRightLeather</object>
