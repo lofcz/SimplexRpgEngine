@@ -208,8 +208,7 @@ if (speechIn)
 for (a = 0; a < 3; a++)
     {
      if (spell_cd[a] > 0) {spell_cd[a]--;}
-    }       
-       
+    }            
 
 #define apiPlayerUnstuck
 /// apiPlayerUnstuck()
@@ -644,13 +643,20 @@ if (returnedArray[0] != "") {return true;} else {return false;}
 #define apiPlayerUpdateProperties
 /// apiPlayerUpdateProperties()
 
-oPlayer.vlastnost[vlastnost_zivot]   = clamp(oPlayer.vlastnost[vlastnost_zivot],   0, oPlayer.vlastnost[vlastnost_max_zivot]);
+// Atributes
+oPlayer.maxHp = (oPlayer.vlastnost[vlastnost_max_zivot] + oPlayer.vlastnost[vlastnost_odolnost] * 5);  
+
+// Clamp vars to bounds
+oPlayer.vlastnost[vlastnost_zivot]   = clamp(oPlayer.vlastnost[vlastnost_zivot],   0, oPlayer.maxHp);
 oPlayer.vlastnost[vlastnost_mana]    = clamp(oPlayer.vlastnost[vlastnost_mana],    0, oPlayer.vlastnost[vlastnost_max_mana]);
 oPlayer.vlastnost[vlastnost_stamina] = clamp(oPlayer.vlastnost[vlastnost_stamina], 0, oPlayer.vlastnost[vlastnost_max_stamina]);
 oPlayer.vlastnost[vlastnost_stit]    = clamp(oPlayer.vlastnost[vlastnost_stit],    0, oPlayer.vlastnost[vlastnost_max_stit]);
 
+// Check for lvl-up / death
 if (oPlayer.last_hp < 0) {oPlayer.last_hp = 0;}
 if (oPlayer.last_xp >= oPlayer.vlastnost[vlastnost_max_zkusenosti]) {apiPlayerLevelUp();}
+
+
 
 
 #define apiPlayerGetXP
@@ -1030,6 +1036,10 @@ rankName[8]  = "vzácný host";
 rankName[9]  = "přítel města";
 rankName[10] = "zmocněnec královského písaře";
 
+maxHp = (vlastnost[vlastnost_max_zivot] + vlastnost[vlastnost_odolnost] * 5);
+maxMp = 0;
+maxSh = 0;
+maxSt = 0;
 
 #define apiPlayerUpdateKeysFromConfig
 /// apiPlayerUpdateKeysFromConfig()
@@ -1117,4 +1127,3 @@ if (argument_count > 0) {v = argument[0];}
 oPlayer.vlastnost[vlastnost_zivot] +=  v;
 
 return(v);
-

@@ -128,6 +128,8 @@ for (i = 0; i &lt; celkem_vlastnosti; i++)
                         {
                          oPlayer.skillPoints--;
                          oPlayer.vlastnost[i]++;
+                         if (i == vlastnost_odolnost) {oPlayer.vlastnost[vlastnost_zivot] += 5;}
+                         
                          audio_play_sound(sndSkillUp, 0, false);
                         }
                    }

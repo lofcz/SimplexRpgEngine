@@ -1017,4 +1017,3 @@ for (q = 0; q < 10; q++)
       craftingSlotItemID[q] = -1;
     }
     }
-

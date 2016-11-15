@@ -43,7 +43,7 @@
   </backgrounds>
   <views>
     <view visible="-1" objName="oCamera" xview="0" yview="0" wview="800" hview="600" xport="0" yport="0" wport="800" hport="600" hborder="400" vborder="300" hspeed="-1" vspeed="-1"/>
-    <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="2048" hview="2048" xport="0" yport="0" wport="2048" hport="2048" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
+    <view visible="0" objName="oPlayer" xview="0" yview="0" wview="2016" hview="2016" xport="200" yport="100" wport="402" hport="402" hborder="320" vborder="320" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>

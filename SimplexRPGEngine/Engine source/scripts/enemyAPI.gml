@@ -188,9 +188,6 @@ with (object)
       x = xprevious;
       y = yprevious;
      }
-     
-x = xprevious;
-y = yprevious;
 
 #define scrEnemyDamage
 /// scrEnemyDamage(object, cooldown, stateLog)
@@ -254,15 +251,18 @@ if (scrAffectsGetStacks("flash") != -1) {dmg += (scrAffectsGetStacks("flash") * 
 
 if (combatGetCriticalHit( oPlayer.vlastnost[vlastnost_kriticka_sance]))
    {
-   dmg += oPlayer.vlastnost[vlastnost_poskozeni]*oPlayer.vlastnost[vlastnost_kriticka_nasobic];   
-   scrLog(dmg,c_white,-1,0,0.2,x,y-32,oController.fontDamage,"combat");
+    dmg += (oPlayer.vlastnost[vlastnost_poskozeni] * oPlayer.vlastnost[vlastnost_kriticka_nasobic]);   
    }
 else
     {
-   dmg += oPlayer.vlastnost[vlastnost_poskozeni];   
-   scrLog(dmg,c_white,-1,0,0.2,x,y-32,oController.fontDamage,"combat");    
+     dmg += oPlayer.vlastnost[vlastnost_poskozeni];   
     }
+dmg += (oPlayer.vlastnost[vlastnost_sila] / 2);
+dmg += random_range(-2, 2);
+dmg += (random_range(-(oPlayer.vlastnost[vlastnost_obratnost] / 2), oPlayer.vlastnost[vlastnost_obratnost]) / 2);
+dmg = round(dmg);
 hp -= dmg;
+scrLog(dmg,c_white,-1,0,0.2,x,y-32,oController.fontDamage,"combat");
 
 scale = 1.4;
 scrGoreFull(x,y,3,c_aqua);

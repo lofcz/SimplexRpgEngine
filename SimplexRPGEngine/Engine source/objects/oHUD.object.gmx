@@ -262,6 +262,8 @@ draw = true;
             <kind>1</kind>
             <string>/// Draw HUD
 
+if (view_current == 0)
+{
 x = view_xview;
 y = view_yview;
 
@@ -281,7 +283,7 @@ clr(c_black, hudAlpha);
 alg("center", fntPixelSmall);    
 
 // Draw HUD bars (hp, shield, mana, stamina) + experience bar
-scrHudDrawBar(600, 0, 2, 10, 1, oPlayer.last_hp, oPlayer.vlastnost[vlastnost_max_zivot], 0);
+scrHudDrawBar(600, 0, 2, 10, 1, oPlayer.last_hp, oPlayer.maxHp, 0);
 scrHudDrawBar(600, 30, 4, 11, 2, oPlayer.last_stit, oPlayer.vlastnost[vlastnost_max_stit], 1);
 scrHudDrawBar(600, 60, 0, 9, 0, oPlayer.last_mana, oPlayer.vlastnost[vlastnost_max_mana], 2);
 scrHudDrawBar(600, 90, 6, 12, 3, oPlayer.last_stamina, oPlayer.vlastnost[vlastnost_max_stamina], 3);
@@ -622,7 +624,7 @@ draw_set_blend_mode(bm_add);
 draw_sprite(sRoomMask0, 0, 144, 16);
 draw_set_blend_mode(bm_normal);
 }
-
+}
 </string>
           </argument>
         </arguments>

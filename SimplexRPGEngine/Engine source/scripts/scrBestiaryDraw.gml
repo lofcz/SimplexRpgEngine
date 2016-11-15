@@ -1,5 +1,7 @@
 /// scrBestiaryDraw()
 
+if (view_current == 0)
+{
 x = (view_xview + view_wview);
 y = (view_yview + 150);
 
@@ -204,3 +206,4 @@ for (i = (currentPage * entriesPerPage); i < (((currentPage * entriesPerPage)) +
 
 if (hover) {if (hoverA < 0.5) {hoverA = lerp(hoverA, 0.5, 0.1);}}
 else {if (hoverA > 0) {hoverA = 0;}}
+}
