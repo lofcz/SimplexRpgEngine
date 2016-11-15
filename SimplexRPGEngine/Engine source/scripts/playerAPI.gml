@@ -644,11 +644,12 @@ if (returnedArray[0] != "") {return true;} else {return false;}
 /// apiPlayerUpdateProperties()
 
 // Atributes
-oPlayer.maxHp = (oPlayer.vlastnost[vlastnost_max_zivot] + oPlayer.vlastnost[vlastnost_odolnost] * 5);  
+oPlayer.maxHp = (oPlayer.vlastnost[vlastnost_max_zivot] + oPlayer.vlastnost[vlastnost_odolnost] * oStatusMenu.incHealth);  
+oPlayer.maxMp = (oPlayer.vlastnost[vlastnost_max_mana] + oPlayer.vlastnost[vlastnost_inteligence] * oStatusMenu.incMana);  
 
 // Clamp vars to bounds
 oPlayer.vlastnost[vlastnost_zivot]   = clamp(oPlayer.vlastnost[vlastnost_zivot],   0, oPlayer.maxHp);
-oPlayer.vlastnost[vlastnost_mana]    = clamp(oPlayer.vlastnost[vlastnost_mana],    0, oPlayer.vlastnost[vlastnost_max_mana]);
+oPlayer.vlastnost[vlastnost_mana]    = clamp(oPlayer.vlastnost[vlastnost_mana],    0, oPlayer.maxMp);
 oPlayer.vlastnost[vlastnost_stamina] = clamp(oPlayer.vlastnost[vlastnost_stamina], 0, oPlayer.vlastnost[vlastnost_max_stamina]);
 oPlayer.vlastnost[vlastnost_stit]    = clamp(oPlayer.vlastnost[vlastnost_stit],    0, oPlayer.vlastnost[vlastnost_max_stit]);
 
@@ -702,6 +703,18 @@ if (ds_queue_size(oPlayer.speechQueue) > 0)
 /// apiPlayerGetRankName()
 
 return oPlayer.rankName[oPlayer.vlastnost[vlastnost_level]];
+
+#define apiPlayerGetMana
+/// apiPlayerGetMana(value)
+
+var v;
+v = 0;
+
+if (argument_count > 0) {v = argument[0];}
+
+oPlayer.vlastnost[vlastnost_mana] +=  v;
+
+return(v);
 
 #define apiPlayerGetDamage
 /// apiPlayerGetDamage(damage, damageType, elementType, goreSound, destroySelf, logDmg, stateLog)
@@ -788,18 +801,6 @@ if (z != "") {stateAddEntry(z);}
 
 // Destroy self
 if (s) {instance_destroy();}
-
-#define apiPlayerGetMana
-/// apiPlayerGetMana(value)
-
-var v;
-v = 0;
-
-if (argument_count > 0) {v = argument[0];}
-
-oPlayer.vlastnost[vlastnost_mana] +=  v;
-
-return(v);
 
 #define apiPlayerGetShield
 /// apiPlayerGetShield(value)
@@ -1037,7 +1038,7 @@ rankName[9]  = "přítel města";
 rankName[10] = "zmocněnec královského písaře";
 
 maxHp = (vlastnost[vlastnost_max_zivot] + vlastnost[vlastnost_odolnost] * 5);
-maxMp = 0;
+maxMp = (vlastnost[vlastnost_max_zivot] + vlastnost[vlastnost_inteligence] * 3);
 maxSh = 0;
 maxSt = 0;
 

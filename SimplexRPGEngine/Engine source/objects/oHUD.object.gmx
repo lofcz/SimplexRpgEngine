@@ -285,7 +285,7 @@ alg("center", fntPixelSmall);
 // Draw HUD bars (hp, shield, mana, stamina) + experience bar
 scrHudDrawBar(600, 0, 2, 10, 1, oPlayer.last_hp, oPlayer.maxHp, 0);
 scrHudDrawBar(600, 30, 4, 11, 2, oPlayer.last_stit, oPlayer.vlastnost[vlastnost_max_stit], 1);
-scrHudDrawBar(600, 60, 0, 9, 0, oPlayer.last_mana, oPlayer.vlastnost[vlastnost_max_mana], 2);
+scrHudDrawBar(600, 60, 0, 9, 0, oPlayer.last_mana, oPlayer.maxMp, 2);
 scrHudDrawBar(600, 90, 6, 12, 3, oPlayer.last_stamina, oPlayer.vlastnost[vlastnost_max_stamina], 3);
 scrHudDrawXpBar(275, 571);
 

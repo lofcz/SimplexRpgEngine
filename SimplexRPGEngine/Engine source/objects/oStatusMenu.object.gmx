@@ -34,6 +34,9 @@ pages               = ceil(upgradableProperties / itemsPerPage);
 currentPage         = 0;
 selectedSkillsIndex = 1;
 skillsIndexMax      = 5;
+textAlpha           = 0;
+hint                = "";
+hint2               = "";
 
 
 skillIndexName[1] = "Řemesla";
@@ -49,6 +52,10 @@ for(i = 0; i &lt; celkem_vlastnosti; i++)
     {
      propertyColor[i] = c_white;
     }
+
+// consts    
+incHealth = 5;
+incMana = 3;
 </string>
           </argument>
         </arguments>
@@ -77,7 +84,7 @@ for(i = 0; i &lt; celkem_vlastnosti; i++)
 xx   = view_xview;
 yy   = view_yview + 32;
 ti   = 0;
-hint = "";
+hit  = false;
 
 // Lerp main alpha channel
 if (activated) {activatedAlpha = lerp(activatedAlpha, 1, 0.1);}
@@ -121,14 +128,20 @@ for (i = 0; i &lt; celkem_vlastnosti; i++)
                if (mouse_in(xx + xoffset + 192, xx + xoffset + 200 + 16, yy + yoffset + tempY, yy + yoffset + tempY + 24))
                    {
                     color = c_lime;
-                    hint = returnedArray[3];
                     
+                    if (returnedArray[3] != "")
+                    {
+                     hint  = returnedArray[3];     
+                     hit   = true;
+                    }
+                                        
                     // Assign point to property on click
                     if (mouse_check_button_pressed(mb_left))
                         {
                          oPlayer.skillPoints--;
                          oPlayer.vlastnost[i]++;
-                         if (i == vlastnost_odolnost) {oPlayer.vlastnost[vlastnost_zivot] += 5;}
+                         if (i == vlastnost_odolnost) {oPlayer.vlastnost[vlastnost_zivot] += incHealth;}
+                         if (i == vlastnost_inteligence) {oPlayer.vlastnost[vlastnost_mana] += incMana;}
                          
                          audio_play_sound(sndSkillUp, 0, false);
                         }
@@ -146,18 +159,22 @@ for (i = 0; i &lt; celkem_vlastnosti; i++)
     } 
     
 // Draw hint
-if (hint != "")
-    {
-     fnt(fntPixelSmall);
-     draw_text_colored(xx + xoffset, yy + yoffset + tempY, hint);
-    }
+if (hit) {textAlpha = lerp(textAlpha, 1, 0.1);}
+else {textAlpha = lerp(textAlpha, 0, 0.1);}
+
+if (textAlpha &gt; 0.01)
+   {
+    fnt(fntPixelSmall);
+    clr(c_white, textAlpha);
+    draw_text_colored(xx + xoffset, yy + yoffset + tempY, hint);
+    clr(c_white);
+   }
 
 // Draw skills form
 fnt();
 xx   = view_xview + 300;
 yy   = view_yview + 32;
 ti   = 0;
-hint = "";
 
 // Skills header
 propertyPointsText = "";
@@ -223,7 +240,7 @@ for (i = 0; i &lt; celkem_vlastnosti; i++)
                if (mouse_in(xx + xoffset + 192, xx + xoffset + 200 + 16, yy + yoffset + tempY, yy + yoffset + tempY + 24))
                    {
                     color = c_lime;
-                    hint = returnedArray[3];
+                    hint2 = returnedArray[3];
                     
                     // Assign point to property on click
                     if (mouse_check_button_pressed(mb_left))
@@ -257,8 +274,8 @@ draw_line(xx + xoffset, yy + yoffset + 24, xx + xoffset + 220, yy + yoffset + 24
 clr(c_white, activatedAlpha)
 fnt();
 
-draw_text_colored(xx + xoffset, yy + yoffset + 32, "Zdraví: " + string(round(oPlayer.vlastnost[vlastnost_zivot])) + " / " + string(oPlayer.vlastnost[vlastnost_max_zivot]));
-draw_text_colored(xx + xoffset, yy + yoffset + 64, "Mana: " + string(round(oPlayer.vlastnost[vlastnost_mana])) + " / " + string(oPlayer.vlastnost[vlastnost_max_mana]));
+draw_text_colored(xx + xoffset, yy + yoffset + 32, "Zdraví: " + string(round(oPlayer.vlastnost[vlastnost_zivot])) + " / " + string(oPlayer.maxHp));
+draw_text_colored(xx + xoffset, yy + yoffset + 64, "Mana: " + string(round(oPlayer.vlastnost[vlastnost_mana])) + " / " + string(oPlayer.maxMp));
 draw_text_colored(xx + xoffset, yy + yoffset + 96, "Štít: " + string(round(oPlayer.vlastnost[vlastnost_stit])) + " / " + string(oPlayer.vlastnost[vlastnost_max_stit]));
 draw_text_colored(xx + xoffset, yy + yoffset + 128, "Stamina: " + string(round(oPlayer.vlastnost[vlastnost_stamina])) + " / " + string(oPlayer.vlastnost[vlastnost_max_stamina]));
 
