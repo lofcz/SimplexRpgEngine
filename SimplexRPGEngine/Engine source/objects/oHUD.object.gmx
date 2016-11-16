@@ -80,6 +80,7 @@ craftingKnownMaterials = ds_list_create();
 craftingKnownAlchemy = ds_list_create();
 craftingKnownFood    = ds_list_create();
 craftingItemsNewFlag[0, 48] = false;
+craftingItemsLevelReq[0, 38] = 0;
 craftingMaterialsNewFlag[0, 48] = false;
 craftingAlchemyNewFlag[0, 48] = false;
 craftingFoodNewFlag[0, 48] = false;
@@ -132,7 +133,7 @@ enrichtingOutputSprite = 0;
 
 // Crafting Item
 craftingItemsSprite[0, 3] = 3; // Wooden sword
-scrCraftingSetItemKnown(3, "Dřevěný meč", "Poškození: " + scrColorflag(c_lime) + "5" + scrEndColorflag() + " - " + scrColorflag(c_lime) + "8#" + scrEndColorflag() + "Stamina na úder: " + scrColorflag(c_red) + "4 " + scrEndColorflag() + "- " + scrColorflag(c_red) + "5#");
+scrCraftingSetItemKnown(3, "Dřevěný meč", "Poškození: " + scrColorflag(c_lime) + "5" + scrEndColorflag() + " - " + scrColorflag(c_lime) + "8#" + scrEndColorflag() + "Stamina na úder: " + scrColorflag(c_red) + "4 " + scrEndColorflag() + "- " + scrColorflag(c_red) + "5#", 4);
 
 // Crafting Material
 craftingMaterialsSprite[0, 3] = 25; // Steel

@@ -191,35 +191,43 @@ else
             tempY = ypos + 96;   
             j = 0;
             fnt(fntPixel);
+            var z = apiPlayerGetPropertyValue(vlastnost_zrucnost);
             
             for (i = 0; i < ds_list_size(craftingKnownItems); i++)
                 {
-                 draw_sprite(sTestItem, craftingItemsSprite[craftingPageSelected, ds_list_find_value(craftingKnownItems, i)], tempX+16, tempY+16);
-                 if (craftingItemsNewFlag[craftingPageSelected, ds_list_find_value(craftingKnownItems, i)]) {draw_text_colour(tempX + 25, tempY, "!", c_yellow, c_yellow, c_yellow, c_yellow, 1);}
-             
+                 var v = ds_list_find_value(craftingKnownItems, i);
+                 
+                 draw_sprite(sTestItem, craftingItemsSprite[craftingPageSelected, v], tempX+16, tempY+16);
+                 if (craftingItemsNewFlag[craftingPageSelected, v]) {draw_text_colour(tempX + 25, tempY, "!", c_yellow, c_yellow, c_yellow, c_yellow, 1);}
+                 if (z >= craftingItemsLevelReq[craftingPageSelected, v]) {u = true;} else {u = false;} 
+                 if (!u) {clr(c_black, 0.5); draw_rectangle(tempX, tempY, tempX + 32, tempY + 32, false); clr();}
+                 
                  // On-Hover
                  if (mouse_in(tempX, tempX + 32, tempY, tempY + 32))
-                 {
-                 
+                 {               
                  fnt();
-                 text = craftingItemsName[craftingPageSelected, ds_list_find_value(craftingKnownItems, i)];
+                 text  = craftingItemsName[craftingPageSelected, v];
+                 color = c_white;
+                 
+                 if (!u) {color = c_red; text = "Vyžaduje zručnost na úrovni " + string(craftingItemsLevelReq[craftingPageSelected, v]) + ".";}
+                 
                  clr(c_black, 0.4);
                  draw_roundrect(tempX + 16, tempY + 16, tempX + 32 + string_width(text), tempY + 42, false);
                  clr(c_black, 1);
                  draw_roundrect(tempX + 16, tempY + 16, tempX + 32 + string_width(text), tempY + 42, true);
-                 clr(c_white, 1);
+                 clr(color, 1);
                  draw_text(tempX + 24, tempY + 16, text);
-                  clr();
+                 clr();
                  
-                 if (mouse_check_button_pressed(mb_left) && ds_list_find_index(craftingKnownItems, ds_list_find_value(craftingKnownItems, i)) != -1)
+                 if (mouse_check_button_pressed(mb_left) && ds_list_find_index(craftingKnownItems, v) != -1 && u)
                     {
-                    craftingHelper = 0;
-                    if (craftingItemsNewFlag[craftingPageSelected, ds_list_find_value(craftingKnownItems, i)]) {craftingItemsNewFlag[craftingPageSelected, ds_list_find_value(craftingKnownItems, i)] = 0;}                         
-                    craftingSelectedItem = ds_list_find_value(craftingKnownItems, i);
-                    craftingTitleHelper = craftingItemsName[craftingPageSelected, ds_list_find_value(craftingKnownItems, i)];
-                    craftingTitleHelper2 = craftingDetailsText[craftingPageSelected, ds_list_find_value(craftingKnownItems, i)];
-                   
-                     } 
+                     craftingHelper = 0;
+                     if (craftingItemsNewFlag[craftingPageSelected, v]) {craftingItemsNewFlag[craftingPageSelected, v] = 0;}   
+                                           
+                     craftingSelectedItem = v;
+                     craftingTitleHelper = craftingItemsName[craftingPageSelected, v];
+                     craftingTitleHelper2 = craftingDetailsText[craftingPageSelected, v];                  
+                    } 
                  }
                  
                  tempX += 32;
