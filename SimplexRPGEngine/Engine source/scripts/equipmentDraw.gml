@@ -595,6 +595,8 @@ idd     = argument2;
 yoffset = 16;
 xoffset = 16;
 
+if (!oHUD.draw_equipment) {alpha = 0;}
+
 fnt(fntPixel);
 width = 288;
 text = "";
@@ -644,9 +646,8 @@ if (idd != -1)
     }
 
 clr(c_black, alpha);
-draw_set_font(fntPixelSmall);
-
-draw_text(x + 4,oInventory.used_y+32,text);
+fnt(fntPixelSmall);
+draw_text(x + 4, oInventory.used_y + 32, text);
 
 
 #define equipmentDrawAbilities

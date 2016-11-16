@@ -145,7 +145,17 @@ switch (idd)
              }
             }
          break;
-        }        
+        }    
+    case (itemEnum.itemInventoryExtension):
+        {
+         if (number == 0)
+            {
+             inventoryDelete(itemEnum.itemInventoryExtension, 1);
+             inventoryExtend(oInventory.slotsPerPage);
+
+            }
+         break;
+        }            
     default:
         {
          show_message("Something in scrAction, switch statement went wrong :/#(probably unassigned action, check inventoryActions)");

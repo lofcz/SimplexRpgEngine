@@ -520,6 +520,7 @@
               <sprite>sprites\sQuestEffect</sprite>
               <sprite>sprites\sBoneEffect</sprite>
               <sprite>sprites\sKeyEffect</sprite>
+              <sprite>sprites\sInventoryExtensionEffect</sprite>
               <sprite>sprites\sLockpickEffect</sprite>
             </sprites>
             <sprites name="Weapons">
@@ -1353,6 +1354,7 @@
           <object>objects\oRelicLeftPart</object>
           <object>objects\oRelicRightPart</object>
           <object>objects\oRelic</object>
+          <object>objects\oInventoryExtension</object>
           <object>objects\oKey</object>
           <object>objects\oPouch</object>
           <object>objects\oAlchemyDust</object>
@@ -1621,7 +1623,7 @@
     <constant name="rarity_legendary">c_yellow</constant>
     <constant name="rarity_token">c_orange</constant>
     <constant name="rarity_artifact">c_aqua</constant>
-    <constant name="rarity_mythic">c_fuchsia</constant>
+    <constant name="rarity_mythic">make_color_rgb(76,0,153)</constant>
     <constant name="rarity_set">make_color_rgb(176,250,157)</constant>
     <constant name="rarity_rare">c_lime</constant>
     <constant name="rarity_fine">c_aqua</constant>

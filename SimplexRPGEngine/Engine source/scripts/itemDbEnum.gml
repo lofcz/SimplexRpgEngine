@@ -77,5 +77,6 @@ itemKey,
 itemFoodCheese,
 itemFoodMilk,
 itemHelmetHat,
-itemArmorMetal
+itemArmorMetal,
+itemInventoryExtension
 };

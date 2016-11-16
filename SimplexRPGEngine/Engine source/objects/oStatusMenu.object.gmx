@@ -37,6 +37,7 @@ skillsIndexMax      = 5;
 textAlpha           = 0;
 hint                = "";
 hint2               = "";
+prevHit             = 0;
 
 
 skillIndexName[1] = "Řemesla";
@@ -131,8 +132,10 @@ for (i = 0; i &lt; celkem_vlastnosti; i++)
                     
                     if (returnedArray[3] != "")
                     {
-                     hint  = returnedArray[3];     
-                     hit   = true;
+                     hint    = returnedArray[3];     
+                     hit     = true;
+                     if (prevHit != i) {textAlpha = 0;}
+                     prevHit = i;
                     }
                                         
                     // Assign point to property on click

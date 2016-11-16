@@ -29,6 +29,10 @@ if (color == rarity_legendary)
    {
     index = 4;
    } 
+if (color == rarity_mythic)
+   {
+    index = 12;
+   }
 }
 else
 {
@@ -47,6 +51,10 @@ if (color == rarity_rare)
 if (color == rarity_legendary)
    {
     index = 9;
+   }
+if (color == rarity_mythic)
+   {
+    index = 12;
    }
 }
 

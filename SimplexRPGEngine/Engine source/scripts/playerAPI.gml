@@ -336,6 +336,7 @@ if (argument_count > 0) {index = argument[0];}
                     case(vlastnost_obratnost):
                          {
                            text = "Obratnost";
+                           hint = "Zvyšuje šanci na vyhnutí se útoku.";
                            break;                                                                   
                          }
                     case(vlastnost_kovarstvi):
@@ -359,28 +360,40 @@ if (argument_count > 0) {index = argument[0];}
                     case(vlastnost_odolnost):
                          {
                            text = "Odolnost";
+                           hint = "Činí tvé tělo odolnějším, dokážeš snést více ran, než zemřeš.";
+
                            break;                                                                   
                          }
                     case(vlastnost_vytrvalost):
                          {
                            text = "Vytrvalost";
+                           hint = "Zvyšuje tvoji výdrž, prodlužuje dobu, po kterou dokážeš běžet.";
                            break;                                                                   
                          }
                      case(vlastnost_presnost):
                          {
                            text = "Přesnost";
+                           hint = "Tvé údery nikdy neminou cíl a mají šanci najít na protivníkovi zranitelné místo.";
                            break;                                                                   
                          }
                      case(vlastnost_rychlost):
                          {
                            text = "Rychlost";
+                           ut   = 666;
                            break;                                                                   
                          }
                     case(vlastnost_zrucnost):
                          {
-                           text = "Odolnost";
+                           text = "Zručnost";
+                           hint = "Umožňuje ti vytvářet mocnější předměty.";
                            break;                                                                   
                          }
+                    case(vlastnost_stesti):
+                        {
+                           text = "Štěstí";
+                           hint = "Najdeš více předmětů a zlata. Také se na tebe občas usměje Foruna.";                       
+                           break;
+                        }
                     case(vlastnost_svadeni):
                          {
                            text = "Svádění";
@@ -439,6 +452,7 @@ if (argument_count > 0) {index = argument[0];}
                     case(vlastnost_inteligence):
                          {
                            text = "Inteligence";
+                           hint = "Zvyšuje účinky tvých kouzel a zásobu many.";
                            break;                                                                   
                          }
                     case(vlastnost_ritualy):
@@ -640,6 +654,7 @@ returnedArray[2] = ut;
 returnedArray[3] = hint;
 
 if (returnedArray[0] != "") {return true;} else {return false;}
+
 #define apiPlayerUpdateProperties
 /// apiPlayerUpdateProperties()
 
