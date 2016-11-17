@@ -663,7 +663,7 @@ else
                 }
 
             }   
-         
+       // --> Occupied by satan <--  
        // Crafting details form (item to craft is selected)
        if (craftingSelectedIndex == 4 && craftingHelper == 0 && !craftingDetails)
           {
@@ -731,9 +731,9 @@ else
             if (mouse_check_button_pressed(mb_left))
                 {
                 // Reset enricht variables
+                if (enrichtItemSlotID > -1) {oInventory.slot[enrichtItemSlotID, inv_item_beingUsed] = false;}
                 enrichtItemSprite = 0;  
-                enrichtItemID     = -1;      
-                oInventory.slot[enrichtItemSlotID, inv_item_beingUsed] = false;   
+                enrichtItemID     = -1;         
                 enrichtItemSlotID = -1;        
                 enrichtingOutputSprite = 0;                      
                 }
@@ -788,9 +788,9 @@ else
                      if (mouse_check_button_pressed(mb_left))
                         {                          
                         // Remove attached material
-                        enrichtItemID       = 0;  
-                        enrichtItemSlotID   = -1;      
                         if (enrichtItemSlotID > 0) {oInventory.slot[enrichtItemSlotID, inv_item_beingUsed] = false;}   
+                        enrichtItemID       = 0;  
+                        enrichtItemSprite   = 0;      
                         enrichtItemSlotID   = -1;
                         enrichtingOutputSprite = 0;  
                         
@@ -892,5 +892,123 @@ else
             scrCraftingFoodDB(craftingEnum.craftCraft, craftingSelectedItem);            
           }
      
+      // Crafting details form - repair item
+      // *********************************************************************************************
+      if (craftingSelectedIndex == 6) 
+        {
+         tempX = xpos;
+         tempY = ypos + 96; 
+         color = c_white;
+         
+         if (oInventory.drag)
+            {
+             if (oInventory.equip_sprite_s[7] != "") {color = c_lime;}
+            }
+         
+         // Draw input slot
+         clr(color, 0.1);
+         draw_roundrect(tempX + 96, tempY, tempX + 128, tempY + 32, false);
+         clr();
+         draw_roundrect(tempX + 96, tempY, tempX + 128, tempY + 32, true);
+                  
+         clr(c_white, 1);
+    //     draw_text(tempX + 38, tempY + 4, "4x");
+        // draw_text(tempX + 106, tempY + 4, "-->");
+         if (repairItemSprite > 0) {draw_sprite(sTestItem, repairItemSprite, tempX + 96 + 16, tempY + 16);}
 
+        // Slot for input item
+        if (mouse_in(tempX + 96, tempX + 128, tempY, tempY + 32) && (color == c_lime || repairItemID != -1))
+            {
+            // Put in
+            if (mouse_check_button_released(mb_left))
+                {
+                 oInventory.pre_switch                               = true;
+                 oInventory.draw_item_mouse                          = false;
+                 oInventory.slot[oInventory.h_c, inv_item_beingUsed] = true;
+                 repairItemID                                        = oInventory.equip_sprite_s[6];
+                 repairItemSlotID                                    = oInventory.h_c;
+                 repairItemSprite                                    = oInventory.equip_sprite_s[1];
+                }
+                 
+            // Take out
+            if (mouse_check_button_pressed(mb_left))
+                {
+                 // Reset enricht variables
+                 repairItemSprite = 0;  
+                 repairItemID     = -1;      
+                 oInventory.slot[repairItemSlotID, inv_item_beingUsed] = false;   
+                 repairItemSlotID = -1;                            
+                }
+            } 
+            
+                 // Draw navigation
+                // ******************************************                
+                textColor = c_gray;
+                bcgColor  = c_black;
+                
+                // Check for ability to confirm crafting
+                if (repairItemSlotID >= 0)
+                    { 
+                     textColor = c_lime;
+                    }
+                   
+                // Check for on-hover event
+                if (mouse_in(tempX + 16, tempX + 112, tempY + 170, tempY + 190))
+                    {
+                     bcgColor = c_yellow;
+                     
+                     // Confirm material upgrade
+                     if (mouse_check_button_pressed(mb_left))
+                        {
+                      //   inventoryDelete(enrichtItemID, 4);
+                       //  oInventory.slot[enrichtItemSlotID, inv_item_beingUsed] = false;
+                      //   scrCraftingDbMaterialEnricht(enrichtItemID, true);
+                      //   enrichtItemID = -1;
+                      //   enrichtItemSprite = 0;
+                      //   enrichtItemSlotID = -1;        
+                        // enrichtingOutputSprite = 0;         
+                        }                                                    
+                    }
+                    
+                    
+                // Draw "upgrade button"
+                clr(bcgColor, 0.4);
+                draw_roundrect(tempX + 16, tempY + 170, tempX + 112, tempY + 190, false);
+                clr(c_black, 1);
+                draw_roundrect(tempX + 16, tempY + 170, tempX + 112, tempY + 190, true);
+                alg("center", fntPixelSmall);
+                clr(textColor, 1);
+                draw_text(tempX + 64, tempY + 180, "[Opravit]");     
+                
+                // Draw "abort" button
+                bcgColor = c_black;
+                
+                if (mouse_in(tempX + 128, tempX + 240, tempY + 170, tempY + 190))
+                    {
+                     bcgColor = c_yellow;
+                     
+                     if (mouse_check_button_pressed(mb_left))
+                        {                          
+                        // Remove attached material
+                        if (repairItemSlotID > 0) {oInventory.slot[repairItemSlotID, inv_item_beingUsed] = false;}                           
+                        repairItemID       = 0;  
+                        repairItemSlotID   = -1;      
+                        repairItemSprite   = -1;
+                        
+                        // Return to main menu
+                        craftingHelper = -1;
+                        craftingTitleHelper = "";
+                        craftingSelectedIndex = -1;
+                        craftingMenuAlpha = 1;
+                        }                     
+                    }     
+                    
+                clr(bcgColor, 0.4);
+                draw_roundrect(tempX + 128, tempY + 170, tempX + 240, tempY + 190, false);
+                clr(c_black, 1);
+                draw_roundrect(tempX + 128, tempY + 170, tempX + 240, tempY + 190, true);
+                alg("center", fntPixelSmall);
+                clr(c_white, 1);
+                draw_text(tempX + 184, tempY + 180, "[Zrušit]");                                                       
+        } 
 }

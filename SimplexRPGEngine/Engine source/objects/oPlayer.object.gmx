@@ -30,7 +30,7 @@
 apiPlayerCreate();
 event_inherited();
 
-
+name = "Lof";
 
 //scrSimpleLightIni() // &lt;-- TODO
 sprLight      = sBasicLight;

@@ -260,7 +260,7 @@ else
 dmg += (oPlayer.vlastnost[vlastnost_sila] / 2);
 dmg += random_range(-2, 2);
 dmg += (random_range(-(oPlayer.vlastnost[vlastnost_obratnost] / 2), oPlayer.vlastnost[vlastnost_obratnost]) / 2);
-dmg = round(dmg);
+dmg = round(equipmentNormalizeValue(0, dmg));
 hp -= dmg;
 scrLog(dmg,c_white,-1,0,0.2,x,y-32,oController.fontDamage,"combat");
 

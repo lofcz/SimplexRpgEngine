@@ -35,9 +35,12 @@ currentPage         = 0;
 selectedSkillsIndex = 1;
 skillsIndexMax      = 5;
 textAlpha           = 0;
+textAlpha2          = 0;
 hint                = "";
 hint2               = "";
 prevHit             = 0;
+prevHit2            = 0;
+
 
 
 skillIndexName[1] = "Řemesla";
@@ -57,6 +60,93 @@ for(i = 0; i &lt; celkem_vlastnosti; i++)
 // consts    
 incHealth = 5;
 incMana = 3;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="12">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Reset properties color
+
+for (i = 0; i &lt; celkem_vlastnosti; i++)
+    {
+     if (apiPlayerGetProperty(i)) {if (returnedArray[2] != 0 &amp;&amp; returnedArray[1]) {propertyColor[i] = c_white;}}
+    }
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="11">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Reset properties color
+
+for (i = 0; i &lt; celkem_vlastnosti; i++)
+    {
+     if (apiPlayerGetProperty(i)) {if (returnedArray[2] == 0 &amp;&amp; returnedArray[1]) {propertyColor[i] = c_white;}}
+    }
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Reset properties color
+
+for (i = 0; i &lt; celkem_vlastnosti; i++)
+    {
+     propertyColor[i] = c_white;
+    }
+
 </string>
           </argument>
         </arguments>
@@ -92,16 +182,16 @@ if (activated) {activatedAlpha = lerp(activatedAlpha, 1, 0.1);}
 else           {activatedAlpha = lerp(activatedAlpha, 0, 0.1);}
 
 // Draw form
-if (activatedAlpha &gt; 0.01)
+if (activatedAlpha &gt; 0.05)
 {
 fnt();
-clr(c_black, activatedAlpha / 2);
+clr(c_black, ((activatedAlpha / 4) * 3));
 draw_rectangle(view_xview, view_yview, view_xview + view_wview, view_yview + view_hview, false);
 clr(c_white, activatedAlpha)
 
 // Draw overall header
 fnt(fntPixelHuge);
-draw_text_colored(view_xview + 5, view_yview, "Lord of Flies, úroveň " + scrColorflag(c_lime) + string(oPlayer.vlastnost[vlastnost_level]) + scrEndColorflag() + " "); 
+draw_text_colored(view_xview + 5, view_yview, oPlayer.name + ", úroveň " + scrColorflag(c_lime) + string(oPlayer.vlastnost[vlastnost_level]) + scrEndColorflag() + " - " + apiPlayerGetRankName()); 
 fnt();
 
 // Draw attributes
@@ -120,7 +210,7 @@ for (i = 0; i &lt; celkem_vlastnosti; i++)
         {
          if (returnedArray[2] == 0 &amp;&amp; returnedArray[1])
          {
-          draw_text_colored(xx + xoffset, yy + yoffset + tempY, returnedArray[0] + ": " + scrColorflag(propertyColor[i]) + string(oPlayer.vlastnost[i]) + scrEndColorflag() + " ");
+          draw_text_colored(xx + xoffset, yy + yoffset + tempY, returnedArray[0] + ": " + scrColorText(apiPlayerGetPropertyValue(i, true), propertyColor[i]));
           
           // If player have some points to spend
           if (oPlayer.skillPoints &gt; 0) 
@@ -145,13 +235,13 @@ for (i = 0; i &lt; celkem_vlastnosti; i++)
                          oPlayer.vlastnost[i]++;
                          if (i == vlastnost_odolnost) {oPlayer.vlastnost[vlastnost_zivot] += incHealth;}
                          if (i == vlastnost_inteligence) {oPlayer.vlastnost[vlastnost_mana] += incMana;}
+                         propertyColor[i] = c_yellow;
                          
                          audio_play_sound(sndSkillUp, 0, false);
                         }
                    }
                    
-               draw_text_colour(xx + xoffset + 200, yy + yoffset + tempY, "+", color, color, color, color, draw_get_alpha());
-               
+               draw_text_colour(xx + xoffset + 200, yy + yoffset + tempY, "+", color, color, color, color, draw_get_alpha());               
               }
               
           tempY += 32;
@@ -172,6 +262,8 @@ if (textAlpha &gt; 0.01)
     draw_text_colored(xx + xoffset, yy + yoffset + tempY, hint);
     clr(c_white);
    }
+nx = xx + xoffset;
+ny = yy + yoffset + tempY;
 
 // Draw skills form
 fnt();
@@ -227,6 +319,7 @@ draw_text_colour(xx + xoffset, yy + yoffset + 32, "&lt;", c1, c1, c1, c1, draw_g
 draw_text_colour(xx + xoffset + 210, yy + yoffset + 32, "&gt;", c2, c2, c2, c2, draw_get_alpha()); 
   
 tempY = 64;
+hit   = false;
 for (i = 0; i &lt; celkem_vlastnosti; i++)  
     {
      // If searched property is defined in player's properties and it's a basic property
@@ -234,7 +327,7 @@ for (i = 0; i &lt; celkem_vlastnosti; i++)
         {
          if (returnedArray[2] == selectedSkillsIndex &amp;&amp; returnedArray[1])
          {
-          draw_text_colored(xx + xoffset, yy + yoffset + tempY, returnedArray[0] + ": " + scrColorflag(propertyColor[i]) + string(oPlayer.vlastnost[i]) + scrEndColorflag() + " ");
+          draw_text_colored(xx + xoffset, yy + yoffset + tempY, returnedArray[0] + ": " + scrColorText(apiPlayerGetPropertyValue(i, true), propertyColor[i]));
           
           // If player have some points to spend
           if (oPlayer.propertyPoints &gt; 0) 
@@ -243,14 +336,23 @@ for (i = 0; i &lt; celkem_vlastnosti; i++)
                if (mouse_in(xx + xoffset + 192, xx + xoffset + 200 + 16, yy + yoffset + tempY, yy + yoffset + tempY + 24))
                    {
                     color = c_lime;
-                    hint2 = returnedArray[3];
-                    
+                   
+                    if (returnedArray[3] != "")
+                       {
+                        hint2    = returnedArray[3];     
+                        hit      = true;
+                        if (prevHit2 != i) {textAlpha2 = 0;}
+                        prevHit2 = i;
+                       }
+                   
                     // Assign point to property on click
                     if (mouse_check_button_pressed(mb_left))
                         {
                          oPlayer.propertyPoints--;
                          oPlayer.vlastnost[i]++;
                          audio_play_sound(sndSkillUp, 0, false);
+                         
+                         propertyColor[i] = c_yellow;
                         }
                    }
                    
@@ -264,6 +366,19 @@ for (i = 0; i &lt; celkem_vlastnosti; i++)
         
      ti++; // Normalized interated index
     }
+    
+// Draw hint
+if (hit) {textAlpha2  = lerp(textAlpha2, 1, 0.1);}
+else {textAlpha2      = lerp(textAlpha2, 0, 0.1);}
+      
+if (textAlpha2 &gt; 0.01)
+   {   
+    fnt(fntPixelSmall);
+    clr(c_white, textAlpha2);
+    draw_text_colored(nx, ny, hint2);
+    clr(c_white);
+   }
+   
     
 // Now draw player's status
 fnt();
@@ -330,7 +445,7 @@ for (i = 0; i &lt; celkem_vlastnosti; i++)
         {
          if (returnedArray[2] == 1000 &amp;&amp; !returnedArray[1] &amp;&amp; oPlayer.vlastnost[i] &gt; 0)
          {
-          draw_text_colored(xx + xoffset, yy + yoffset + tempY, returnedArray[0] + ": " + scrColorflag(propertyColor[i]) + string(oPlayer.vlastnost[i]) + scrEndColorflag() + " ");
+          draw_text_colored(xx + xoffset, yy + yoffset + tempY, returnedArray[0] + ": " + string(oPlayer.vlastnost[i]) + "%");
           tempY += 22;
          }
         }

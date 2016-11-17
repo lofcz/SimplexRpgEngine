@@ -509,6 +509,7 @@
           <sprites name="Items">
             <sprites name="Elixirs">
               <sprite>sprites\sElixirEffect2</sprite>
+              <sprite>sprites\sElixirEffect3</sprite>
               <sprite>sprites\sElixirEffect</sprite>
             </sprites>
             <sprites name="Misc">
@@ -828,6 +829,8 @@
       <scripts name="Equipment">
         <script>scripts\equipmentDraw.gml</script>
         <script>scripts\equipmentHoldEquip.gml</script>
+        <script>scripts\equipmentNormalizeValue.gml</script>
+        <script>scripts\equipmentDamage.gml</script>
         <script>scripts\equipmentUnequip.gml</script>
       </scripts>
       <scripts name="Dialoque">
@@ -1347,6 +1350,7 @@
         <objects name="Elixirs">
           <object>objects\oElixirHP</object>
           <object>objects\oElixirMP</object>
+          <object>objects\oElixirSt</object>
         </objects>
         <objects name="Misc">
           <object>objects\oShuriken</object>
@@ -1424,7 +1428,7 @@
       <room>rooms\mapSklep</room>
     </rooms>
   </rooms>
-  <constants number="225">
+  <constants number="228">
     <constant name="baArmor">1</constant>
     <constant name="baBase">0</constant>
     <constant name="cStaticInstance">"staticInstance"</constant>
@@ -1473,7 +1477,10 @@
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
     <constant name="upgradableProperties">58</constant>
-    <constant name="celkem_vlastnosti">100</constant>
+    <constant name="celkem_vlastnosti">103</constant>
+    <constant name="vlastnost_repairCost">102</constant>
+    <constant name="vlastnost_max_durability">101</constant>
+    <constant name="vlastnost_durability">100</constant>
     <constant name="vlastnost_healShield">99</constant>
     <constant name="vlastnost_healStamina">98</constant>
     <constant name="vlastnost_healMp">97</constant>

@@ -39,6 +39,12 @@ for (i = 0; i < ds_list_size(oPlayer.statusList) i++)
             oPlayer.vlastnost[vlastnost_mana] += (1 * oPlayer.statusNList[| i]);  
             scrBasicEffect(oPlayer.statusNList[| i], sManaEffect, oPlayer.x, oPlayer.y - 32 + random(16));            
             }
+        // Regeneration ST
+        if (bC == "regenerationST")
+            {
+            oPlayer.vlastnost[vlastnost_stamina] += (1 * oPlayer.statusNList[| i]);  
+            scrBasicEffect(oPlayer.statusNList[| i], sHealthEffect2, oPlayer.x, oPlayer.y - 32 + random(16));            
+            }            
      }
                       
       // Actual update     

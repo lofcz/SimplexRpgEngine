@@ -60,3 +60,8 @@ enum elementEnum
 {
 elementNone
 };
+
+enum equipmentEnum
+{
+weapon
+};

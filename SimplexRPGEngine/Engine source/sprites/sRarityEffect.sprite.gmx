@@ -33,5 +33,8 @@
     <frame index="10">images\sRarityEffect_10.png</frame>
     <frame index="11">images\sRarityEffect_11.png</frame>
     <frame index="12">images\sRarityEffect_12.png</frame>
+    <frame index="13">images\sRarityEffect_13.png</frame>
+    <frame index="14">images\sRarityEffect_14.png</frame>
+    <frame index="15">images\sRarityEffect_15.png</frame>
   </frames>
 </sprite>

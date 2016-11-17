@@ -165,6 +165,15 @@ if (oInventory.drag && oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "z
    }
 draw_sprite(sSlotOutline,0,xx+equ_axis_right_hand_x-2,yy+equ_axis_right_hand_y-2);  
 
+if (oInventory.equiped_vlastnost[0, vlastnost_durability] > 0)
+   {
+    percent = ((oInventory.equiped_vlastnost[0, vlastnost_durability] / oInventory.equiped_vlastnost[0, vlastnost_max_durability]) * 100);
+       
+    if (oInventory.equiped_vlastnost[0, vlastnost_durability] == 1) {draw_sprite(sRarityEffect, 15, xx+equ_axis_right_hand_x, yy+equ_axis_right_hand_y);}         
+    else if (percent < 25) {draw_sprite(sRarityEffect, 14, xx+equ_axis_right_hand_x, yy+equ_axis_right_hand_y);}         
+    else if (percent < 50) {draw_sprite(sRarityEffect, 13, xx+equ_axis_right_hand_x, yy+equ_axis_right_hand_y);}
+   }
+
 }
 // Draw left hand slot 
 if (oPlayer.equ_draw_left_hand)
@@ -613,7 +622,8 @@ else
 {
 draw_sprite_stretched(sInfoboxTexture,0,oInventory.x,oInventory.used_y+32,288,height);
 }
-draw_set_font(fntPixel);
+fnt(fntPixel);
+
 if (idd != -1) 
     {
     if (oInventory.equiped[oInventory.draw_equ_infobox_id]) 
@@ -635,13 +645,29 @@ if (idd != -1)
             
          fnt(fntPixelExtraTiny);
          alg();
-         if (oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_equip_slot] != "") {typeStr = "[" + oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_equip_slot] + "]";}
+         if (oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_equip_slot] != "") {typeStr = "[" + oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_equip_slot] + ",";}
          else if (oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_materialType] != materialEnum.materialNone && oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_materialType] != -1) {if (oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_materialType] == materialEnum.materialFood) {typeStr = "[Jídlo]";} else {typeStr = "[Materiál]";}}
          else if (oInventory.equiped_vlastnost[oInventory.draw_equ_infobox_id, vlastnost_canBeFastEquiped]) {typeStr = "[Spotřební]";}
          else {typeStr = "";}
        
          draw_text(x + 4, oInventory.used_y + (max(196, height) + 9), typeStr); 
          fnt(); 
+         
+         // Draw durability
+         if (oInventory.equiped_vlastnost[oInventory.draw_equ_infobox_id, vlastnost_durability] > 0)
+          {
+           alg();
+           fnt(fntPixelExtraTiny);
+           color = c_black;
+           if (oInventory.equiped_vlastnost[oInventory.draw_equ_infobox_id, vlastnost_durability] == 1) {color = c_red;}
+           
+           clr(color, alpha);
+           draw_text(x + 8 + string_width(typeStr), oInventory.used_y + (max(196, height) + 9), "" + string(oInventory.equiped_vlastnost[oInventory.draw_equ_infobox_id, vlastnost_durability]) + " / " + string(oInventory.equiped_vlastnost[oInventory.draw_equ_infobox_id, vlastnost_max_durability]));
+           clr(c_black, alpha);
+           draw_text(x + 8 + string_width(typeStr) + string_width("" + string(oInventory.equiped_vlastnost[oInventory.draw_equ_infobox_id, vlastnost_durability]) + " / " + string(oInventory.equiped_vlastnost[oInventory.draw_equ_infobox_id, vlastnost_max_durability])), oInventory.used_y + (max(196, height) + 9), "]"); 
+          }
+
+
         }
     }
 
