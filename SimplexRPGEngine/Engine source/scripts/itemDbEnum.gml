@@ -78,5 +78,6 @@ itemFoodCheese,
 itemFoodMilk,
 itemHelmetHat,
 itemArmorMetal,
-itemInventoryExtension
+itemInventoryExtension,
+itemElixirStamina
 };

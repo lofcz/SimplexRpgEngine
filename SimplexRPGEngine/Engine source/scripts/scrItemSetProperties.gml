@@ -1,4 +1,4 @@
-/// scrItemSetProperties(stackable, infoHeadText, infoBodyText, materialType, equipSlot, price, rarity, wordwrapText, infoFooterText, infoFooterColor)
+/// scrItemSetProperties(stackable, infoHeadText, infoBodyText, materialType, equipSlot, price, rarity, wordwrapText, infoFooterText, infoFooterColor, durability, maxDurability)
 
 var w;
 w = true;
@@ -17,6 +17,8 @@ itm_info_color             = rarity_normal;
 itm_effect                 = rarity_normal;
 itm_info_footer_color      = c_dkgray;
 vlastnost[vlastnost_cena]  = 0;
+vlastnost[vlastnost_durability]     = -1;
+vlastnost[vlastnost_max_durability] = -1;
 
 if (argument_count > 0) {itm_stackable              = argument[0];}
 if (argument_count > 1) {itm_info_head              = argument[1];}
@@ -28,6 +30,8 @@ if (argument_count > 6) {itm_info_color = argument[6]; itm_effect = argument[6];
 if (argument_count > 7) {w                          = argument[7];}
 if (argument_count > 8) {itm_info_footer            = argument[8];}
 if (argument_count > 9) {itm_info_footer_color      = argument[9];}
+if (argument_count > 10) {vlastnost[vlastnost_durability]      = argument[10];}
+if (argument_count > 11) {vlastnost[vlastnost_max_durability]      = argument[11];}
 
 if (w) {itm_info_text   = scrWordwrap(string(itm_info_text), 196, fntPixelSmall);}
 if (w) {itm_info_footer = scrWordwrap(string(itm_info_footer), 196, fntPixelTiny);}

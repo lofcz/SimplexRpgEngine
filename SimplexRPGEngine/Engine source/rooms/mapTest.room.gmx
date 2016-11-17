@@ -420,10 +420,10 @@
     <instance objName="oEnemySlime" x="368" y="1728" name="inst_A9D84AF3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicVivid" x="556" y="176" name="inst_DD9DA905" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oLofsGift" x="456" y="524" name="inst_A290ECF1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oElixirHP" x="420" y="280" name="inst_D9AB41F7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oElixirHP" x="452" y="280" name="inst_42135183" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oElixirMP" x="420" y="252" name="inst_DF122B6F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oElixirMP" x="452" y="252" name="inst_206A988C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oElixirHP" x="416" y="288" name="inst_D9AB41F7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oElixirHP" x="448" y="288" name="inst_42135183" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oElixirMP" x="416" y="256" name="inst_DF122B6F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oElixirMP" x="448" y="256" name="inst_206A988C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oHerbSuzenka" x="224" y="208" name="inst_70B0DC6B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oHerbBazinatka" x="252" y="208" name="inst_5DFB435D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oHerbCtyrlistek" x="280" y="208" name="inst_3B0A3E7E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -474,6 +474,12 @@
     <instance objName="oHelmet2" x="848" y="1184" name="inst_124ACDDD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oArmorMetal" x="896" y="1184" name="inst_B7BCC2C7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oInventoryExtension" x="736" y="1216" name="inst_8E868A59" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oTestItem3" x="544" y="816" name="inst_991B06E1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oTestItem3" x="576" y="816" name="inst_BAF9937C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oTestItem3" x="544" y="848" name="inst_606429F0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oTestItem3" x="576" y="848" name="inst_4A790B6D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oElixirSt" x="416" y="320" name="inst_84216E47" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oElixirSt" x="448" y="320" name="inst_B4A80F5E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bcgShd1" x="1600" y="1712" w="32" h="32" xo="32" yo="0" id="10006696" name="inst_AC26E277" depth="1000001" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

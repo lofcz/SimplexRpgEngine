@@ -75,6 +75,15 @@ for (a = (currentPage*slotsPerPage); a < min(array_height_2d(slot), ((currentPag
      draw_sprite(sRarityEffect, itemRarityEffect(slot[a, inv_item_effect]), xx, yy); 
      draw_sprite(slot[a, inv_sprite], slot[a, inv_sprite_number], xx + 16, yy + 16);
      
+     if (slot_vlastnosti[a, vlastnost_durability] > 0)
+        {
+         percent = ((slot_vlastnosti[a, vlastnost_durability] / slot_vlastnosti[a, vlastnost_max_durability]) * 100);
+       
+         if (slot_vlastnosti[a, vlastnost_durability] == 1) {draw_sprite(sRarityEffect, 15, xx, yy);}         
+         else if (percent < 25) {draw_sprite(sRarityEffect, 14, xx, yy);}         
+         else if (percent < 50) {draw_sprite(sRarityEffect, 13, xx, yy);}
+        }
+     
      // If item is stackable, draw it's count
      if (slot[a, inv_slot_stackable])
        {
@@ -256,7 +265,7 @@ if ((hover || hover_alpha > 0))
        draw_text(x + 128, used_y + 44, slot[f, inv_item_info_head]);      
    
        // Draw attached pearls
-       if (slot_vlastnosti[f, vlastnost_upgradeSloty] > 0) {inventoryDrawPearls(f);}
+       if (slot_vlastnosti[f, vlastnost_upgradeSloty] > 0) {inventoryDrawPearls(f);}       
    
        // Draw price info
        clr(c_black, hover_alpha);
@@ -272,12 +281,27 @@ if ((hover || hover_alpha > 0))
        // Draw item type
        fnt(fntPixelExtraTiny);
        alg();
-       if (slot[f, inv_item_equip_slot] != "") {typeStr = "[" + slot[f, inv_item_equip_slot] + "]";}
+       if (slot[f, inv_item_equip_slot] != "") {typeStr = "[" + slot[f, inv_item_equip_slot] + ",";}
        else if (slot[f, inv_item_materialType] != materialEnum.materialNone && slot[f, inv_item_materialType] != -1) {if (slot[f, inv_item_materialType] == materialEnum.materialFood) {typeStr = "[Jídlo]";} else {typeStr = "[Materiál]";}}
        else if (slot_vlastnosti[f, vlastnost_canBeFastEquiped]) {typeStr = "[Spotřební]";}
        else {typeStr = "";}
        
        draw_text(x + 4, used_y + (max(196, currentHeight) + 9), typeStr);  
+       
+       // Draw durability
+       if (slot_vlastnosti[f, vlastnost_durability] > 0)
+          {
+           alg();
+           fnt(fntPixelExtraTiny);
+           color = c_black;
+           if (slot_vlastnosti[f, vlastnost_durability] == 1) {color = c_red;}
+           
+           clr(color, hover_alpha);
+           draw_text(x + 8 + string_width(typeStr), used_y + (max(196, currentHeight) + 9), "" + string(slot_vlastnosti[f, vlastnost_durability]) + " / " + string(slot_vlastnosti[f, vlastnost_max_durability]));
+           clr(c_black, hover_alpha);
+           draw_text(x + 8 + string_width(typeStr) + string_width("" + string(slot_vlastnosti[f, vlastnost_durability]) + " / " + string(slot_vlastnosti[f, vlastnost_max_durability])), used_y + (max(196, currentHeight) + 9), "]"); 
+          }
+
        
        // Draw item count
        alg("center");
@@ -331,13 +355,14 @@ if (mouse_in(hover_x, hover_x + 32, hover_y, hover_y + 32))
              
              if (a != inv_item_equip_slot)
                 { 
-                 if (a = inv_sprite)            {equip_sprite_s[0] = slot[hover_id,a];}
-                 if (a = inv_sprite_number)     {equip_sprite_s[1] = slot[hover_id,a];}
-                 if (a = inv_item_effect)       {equip_sprite_s[2] = slot[hover_id,a];}
-                 if (a = inv_item_materialType) {equip_sprite_s[3] = slot[hover_id,a];}
-                 if (a = inv_item_beingUsed)    {equip_sprite_s[4] = slot[hover_id,a];}
-                 if (a = inv_number)            {equip_sprite_s[5] = slot[hover_id,a];}             
-                 if (a = inv_id)                {equip_sprite_s[6] = slot[hover_id,a]; use_this_id = a;}
+                 if (a == inv_sprite)            {equip_sprite_s[0] = slot[hover_id,a];}
+                 if (a == inv_sprite_number)     {equip_sprite_s[1] = slot[hover_id,a];}
+                 if (a == inv_item_effect)       {equip_sprite_s[2] = slot[hover_id,a];}
+                 if (a == inv_item_materialType) {equip_sprite_s[3] = slot[hover_id,a];}
+                 if (a == inv_item_beingUsed)    {equip_sprite_s[4] = slot[hover_id,a];}
+                 if (a == inv_number)            {equip_sprite_s[5] = slot[hover_id,a];}             
+                 if (a == inv_id)                {equip_sprite_s[6] = slot[hover_id,a]; use_this_id = a;}
+
                         
                  if (a!= inv_item_info_head && a!= inv_item_info_text && a!= inv_options && a!= inv_item_equip_slot)
                     {
@@ -347,6 +372,8 @@ if (mouse_in(hover_x, hover_x + 32, hover_y, hover_y + 32))
                  
                  if (a == inv_sprite) {slot[hover_id, a] = sFreeSlot;}    
                }
+               if (a == inv_item_equip_slot)   {equip_sprite_s[7] = slot[hover_id,a];}
+
             } 
 
        draw_item_mouse = 1;

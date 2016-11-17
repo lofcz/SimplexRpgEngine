@@ -296,6 +296,14 @@ if (argument_count > 0) {index = argument[0];}
                            ut   = 1000;
                            break;                                                                   
                          }
+                    case(vlastnost_bonusoveZkusenosti):
+                         {
+                           text = "Bonusové zkušenosti";
+                           cbu  = false;
+                           ut   = 1000;
+                           break;                                                                   
+                         }
+                    
                     case(vlastnost_stackSezehnuti):
                          {
                            text = "Šance na sežehnutí při zásahu";
@@ -342,6 +350,7 @@ if (argument_count > 0) {index = argument[0];}
                     case(vlastnost_kovarstvi):
                          {
                            text = "Kovářství";
+                           hint = "Odhaluje dávné znalosti o zpracování kovů a jejich využití.";
                            ut   = 1;
                            break;                                                                   
                          }
@@ -1111,14 +1120,18 @@ else
      if (r) {oPlayer.gold += (a + (a * oPlayer.vlastnost[vlastnost_bonusGold]));} else {oPlayer.gold = (a + (a * oPlayer.vlastnost[vlastnost_bonusGold]));}
     }
 #define apiPlayerGetPropertyValue
-/// apiPlayerGetPropertyValue(index)
+/// apiPlayerGetPropertyValue(index, [returnAsString])
 
-var i;
+var i,r;
 i = vlastnost_zivot;
+r = false;
 
 if (argument_count > 0) {i = argument[0];}
+if (argument_count > 1) {r = argument[1];}
 
+if (r) {return string(oPlayer.vlastnost[i]);}
 return (oPlayer.vlastnost[i]);
+
 #define apiPlayerSplashEmoticon
 /// apiPlayerSplashEmoticon(index, animationSpeed)
 

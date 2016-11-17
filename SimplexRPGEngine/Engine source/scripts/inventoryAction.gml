@@ -51,7 +51,16 @@ switch (idd)
              inventoryDelete(itemEnum.itemElixirMP, 1);
             }
         break;
-        }       
+        } 
+    case (itemEnum.itemElixirStamina):
+        {
+         if (number == 0)
+            {
+             scrAffecstAdd("regenerationST", secToSteps(10), 6, c_lime, 1, false); 
+             inventoryDelete(itemEnum.itemElixirStamina, 1);
+            }
+        break;
+        }               
     case (itemEnum.itemGiftLof):
         {
          if (number == 0)

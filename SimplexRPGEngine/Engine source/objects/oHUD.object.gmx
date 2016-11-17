@@ -67,6 +67,7 @@ craftingMenuIndex[2] = "Materiály";
 craftingMenuIndex[3] = "Zušlechtění";
 craftingMenuIndex[4] = "Alchymie";
 craftingMenuIndex[5] = "Kulinářství";
+craftingMenuIndex[6] = "Opravit předmět";
 craftingTitleHelper  = "";
 activeComponent      = false;
 tempComponent        = false;
@@ -127,6 +128,10 @@ enrichtItemID = -1;
 enrichtItemSprite = 0;
 enrichtItemSlotID = -1;
 enrichtingOutputSprite = 0;
+
+repairItemID = -1;
+repairItemSprite = 0;
+repairItemSlotID = -1;
 
 // TEST - CRAFTING
 // *****************************************
@@ -517,6 +522,7 @@ alg("default", fntPixelHuge);
         if (keyboard_check_pressed(ord("T")) &amp;&amp; iconActive[hudIcons.status] &amp;&amp; !scrGettActiveComponent())
         {
         draw_status = !draw_status;
+        if (!draw_status) {with(oStatusMenu) {event_user(0);}}
         if (instance_number(oStatusMenu) &gt; 0) {oStatusMenu.activated = !oStatusMenu.activated;}
         }  
     // Bestiář   
