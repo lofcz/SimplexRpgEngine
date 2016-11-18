@@ -914,7 +914,12 @@ else
          clr(c_white, 1);
     //     draw_text(tempX + 38, tempY + 4, "4x");
         // draw_text(tempX + 106, tempY + 4, "-->");
-         if (repairItemSprite > 0) {draw_sprite(sTestItem, repairItemSprite, tempX + 96 + 16, tempY + 16);}
+         if (repairItemSprite > 0) 
+            {
+             draw_sprite(sTestItem, repairItemSprite, tempX + 96 + 16, tempY + 16);
+             t = (string(oInventory.temp_vlastnosti[vlastnost_repairCost]) + "x");
+             draw_text(tempX + 96 + 16 - string_width(t) / 2, tempY + 48, t);
+            }
 
         // Slot for input item
         if (mouse_in(tempX + 96, tempX + 128, tempY, tempY + 32) && (color == c_lime || repairItemID != -1))

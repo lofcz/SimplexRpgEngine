@@ -606,31 +606,37 @@ xoffset = 16;
 
 if (!oHUD.draw_equipment) {alpha = 0;}
 
+if (idd != -1 &&oInventory.equiped[oInventory.draw_equ_infobox_id]) 
+{
 fnt(fntPixel);
+h  = oInventory.equiped_stats[oInventory.draw_equ_infobox_id,inv_item_info_head];
+hh = string_height(h);
+fnt(fntPixelSmall);
+q = oInventory.equiped_stats[oInventory.draw_equ_infobox_id,inv_item_info_text];
+qq = string_height(q);
+fnt(fntPixelTiny);
 width = 288;
 text = "";
-if (idd != -1) {if (oInventory.equiped[oInventory.draw_equ_infobox_id]) {text = equipmentDrawAbilities(idd,width,yoffset,xx,yy,xoffset);}}
-height += string_height(text);
+text = equipmentDrawAbilities(idd,width,yoffset,xx,yy,xoffset);
+height += (string_height(text) + hh + qq);
+}
+
 height = max(196, height);
+fnt(fntPixel);
  
 clr(c_black, alpha);
-if (height <= 196)
-{
-draw_sprite(sInfoboxTexture,0,x,oInventory.used_y+32);
-}
-else
-{
-draw_sprite_stretched(sInfoboxTexture,0,oInventory.x,oInventory.used_y+32,288,height);
-}
+if (height <= 196) {draw_sprite(sInfoboxTexture,0,x,oInventory.used_y+32);}
+else {draw_sprite_stretched(sInfoboxTexture,0,oInventory.x,oInventory.used_y+32,288,height);}
 fnt(fntPixel);
 
-if (idd != -1) 
+if (idd != -1 && oInventory.draw_equipment) 
     {
     if (oInventory.equiped[oInventory.draw_equ_infobox_id]) 
         {
          clr(oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_info_color], alpha);
          alg("center");
-         draw_text(x+128,oInventory.used_y+44,oInventory.equiped_stats[oInventory.draw_equ_infobox_id,inv_item_info_head]);
+
+         draw_text(x+128,oInventory.used_y+44,h);
          alg();
          
          if (oInventory.equiped_vlastnost[oInventory.draw_equ_infobox_id, vlastnost_upgradeSloty] > 0) {equipmentDrawPearls(oInventory.draw_equ_infobox_id);}
@@ -667,13 +673,16 @@ if (idd != -1)
            draw_text(x + 8 + string_width(typeStr) + string_width("" + string(oInventory.equiped_vlastnost[oInventory.draw_equ_infobox_id, vlastnost_durability]) + " / " + string(oInventory.equiped_vlastnost[oInventory.draw_equ_infobox_id, vlastnost_max_durability])), oInventory.used_y + (max(196, height) + 9), "]"); 
           }
 
-
-        }
-    }
-
+        
 clr(c_black, alpha);
 fnt(fntPixelSmall);
-draw_text(x + 4, oInventory.used_y + 32, text);
+draw_text(x + 4, oInventory.used_y + 32 + hh, q);
+fnt(fntPixelTiny);
+draw_text(x + 4, oInventory.used_y + qq + hh, text);
+
+        }        
+    }
+
 
 
 #define equipmentDrawAbilities
@@ -687,9 +696,6 @@ yoffset  = argument2;
 xx       = argument3;
 yy       = argument4;
 xoffset  = argument5;
-
-
-t_text += oInventory.equiped_stats[idd,inv_item_info_text] + "#";
 
 for(a = 0; a < celkem_vlastnosti; a++)
       {  
@@ -987,7 +993,7 @@ if (argument_count > 0) {s = argument[0];}
 i  = oInventory.equiped_vlastnost[s, vlastnost_upgradeSloty];
 ox = (x + 288 - (i * 14));
 
-
+clr(c_black, alpha);
 for (j = 0; j < i; j++)
     {     
      if (oInventory.equiped_vlastnost[s, vlastnost_upgradeSprite1 + j] != 0)

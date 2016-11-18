@@ -236,15 +236,18 @@ clr();
    
 // Draw infobox
 // **************************************************************** 
-fnt(fntPixel);
 if (proceed) {hover_alpha = 1; hover = true; hover_id = hover_idd;}
 
 clr(c_black, hover_alpha);    
 if ((hover || hover_alpha > 0))
   {
-   tText         = inventoryDrawStats();
-   currentHeight = max(196, string_height(string(tText)) + string_height(string(slot[hover_id, inv_item_info_head])) + string_height(string(slot[hover_id, inv_item_info_text])));
-
+   tText = inventoryDrawStats();
+   fnt(fntPixelTiny);
+   currentHeight = string_height(string(tText));
+   fnt(fntPixel);
+   currentHeight += (string_height(string(slot[hover_id, inv_item_info_head])) + string_height(string(slot[hover_id, inv_item_info_text])));
+   currentHeight  = max(196, currentHeight + 16); 
+   
    if (currentHeight <= 196) {draw_sprite(sInfoboxTexture, 0, x, used_y + 32);}
    else {draw_sprite_stretched(sInfoboxTexture, 0, x, used_y + 32, 288, currentHeight);}
   
@@ -254,10 +257,9 @@ if ((hover || hover_alpha > 0))
       {
        alg("center");
       
-       if (!proceed) {f = hover_id;}
-       else {f = hover_idd;}
-      
-       if (proceed) {hover_alpha = 1;}        
+       if (!proceed) {f = hover_id;} else {f = hover_idd;}      
+       if (proceed) {hover_alpha = 1;}
+               
        clr(slot[f, inv_item_info_color], hover_alpha);
        alg("center", fntPixel);
       
@@ -311,10 +313,10 @@ if ((hover || hover_alpha > 0))
            draw_text_colour(x + 264, used_y + 49, "x" + string(slot[f, inv_number]), c_black, c_black, c_black, c_black, 1);
           }
  
-       alg();  
-       draw_text_colored(x + 4, used_y + 56, string(slot[f, inv_item_info_text]));
-       draw_text_colored(x + 4, used_y + 56 + string_height(string(slot[f, inv_item_info_text])), inventoryDrawStats());
-       fnt(fntPixelTiny);
+       alg();        
+       draw_text_colored(x + 4, used_y + 56, string(slot[f, inv_item_info_text])); 
+       fnt(fntPixelTiny);      
+       draw_text_colored(x + 4, used_y + 56 + string_height(string(slot[f, inv_item_info_text])), tText);
        if (string(slot[f, inv_item_info_footer]) != "0")
           {
            clr(slot[f, inv_item_info_footer_color], hover_alpha);
