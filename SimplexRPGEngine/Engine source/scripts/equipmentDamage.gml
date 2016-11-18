@@ -19,7 +19,7 @@ if (l >= 25 && l2 < 25) {stateAddEntry(oInventory.equiped_stats[i, inv_item_info
 if (oInventory.equiped_vlastnost[i, vlastnost_durability] == 1) {stateAddEntry(oInventory.equiped_stats[i, inv_item_info_head] + " je zničený!", c_red);} 
 
 // Adjust item price
-oInventory.equiped_vlastnost[i, vlastnost_cena] = round(oInventory.equiped_vlastnost[i, vlastnost_originalniCena] * (l / 100)); 
+oInventory.equiped_vlastnost[i, vlastnost_cena] = max(round(oInventory.equiped_vlastnost[i, vlastnost_originalniCena] * (l / 100)), 1); 
 
 if (l != l2) {return true;}
 return false;

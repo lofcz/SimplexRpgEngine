@@ -116,7 +116,7 @@ for (a = (currentPage*slotsPerPage); a < min(array_height_2d(slot), ((currentPag
      if (combine)
         { 
          if (a == combine_default_slot) {clr(c_yellow, c_a * 3); draw_rectangle(xx, yy, xx + 32, yy + 32, false) clr();}
-         if (inventoryCombinations(slot[combine_default_slot, inv_id], slot[a, inv_id], a) && a != combine_default_slot) {clr(c_lime,c_a * 3); draw_rectangle(xx, yy, xx + 32, yy + 32, false) clr();}
+         if  (inventoryCombinations(slot[combine_default_slot, inv_id], slot[a, inv_id], a) && a != combine_default_slot) {clr(c_lime,c_a * 3); draw_rectangle(xx, yy, xx + 32, yy + 32, false) clr();}
          else if (a != combine_default_slot) {clr(c_red, c_a); draw_rectangle(xx, yy, xx + 32,yy + 32, false) clr();}
                
          if (mouse_check_button_pressed(mb_left)) 
@@ -283,7 +283,7 @@ if ((hover || hover_alpha > 0))
        // Draw item type
        fnt(fntPixelExtraTiny);
        alg();
-       if (slot[f, inv_item_equip_slot] != "") {typeStr = "[" + slot[f, inv_item_equip_slot] + ",";}
+       if (slot[f, inv_item_equip_slot] != "") {typeStr = "[" + inventoryDrawEquipSlotToString(slot[f, inv_item_equip_slot]) + ",";}
        else if (slot[f, inv_item_materialType] != materialEnum.materialNone && slot[f, inv_item_materialType] != -1) {if (slot[f, inv_item_materialType] == materialEnum.materialFood) {typeStr = "[Jídlo]";} else {typeStr = "[Materiál]";}}
        else if (slot_vlastnosti[f, vlastnost_canBeFastEquiped]) {typeStr = "[Spotřební]";}
        else {typeStr = "";}
@@ -302,12 +302,15 @@ if ((hover || hover_alpha > 0))
            draw_text(x + 8 + string_width(typeStr), used_y + (max(196, currentHeight) + 9), "" + string(slot_vlastnosti[f, vlastnost_durability]) + " / " + string(slot_vlastnosti[f, vlastnost_max_durability]));
            clr(c_black, hover_alpha);
            draw_text(x + 8 + string_width(typeStr) + string_width("" + string(slot_vlastnosti[f, vlastnost_durability]) + " / " + string(slot_vlastnosti[f, vlastnost_max_durability])), used_y + (max(196, currentHeight) + 9), "]"); 
+
+           // Draw durability state
            l = ((slot_vlastnosti[f, vlastnost_durability] / slot_vlastnosti[f, vlastnost_max_durability]) * 100);
-           clr(c_red, hover_alpha);
+           cd = c_red;           
            td = "";
            if (slot_vlastnosti[f, vlastnost_durability] == 1) {td = " - Zničeno!";}
            else if (l < 25) {td = " - Na pokraji zničení!";}
-           if (l < 50) {td = " - Lehce poškozeno";}
+           else if (l < 50) {td = " - Lehce poškozeno"; cd = c_orange;}
+           clr(cd, hover_alpha);
            draw_text(x + string_width("]") + 8 + string_width(typeStr) + string_width("" + string(slot_vlastnosti[f, vlastnost_durability]) + " / " + string(slot_vlastnosti[f, vlastnost_max_durability])), used_y + (max(196, currentHeight) + 9), td);
            clr(c_black, hover_alpha);
           }
@@ -1019,3 +1022,34 @@ for (j = 0; j < i; j++)
          draw_circle(ox + (j * 14), used_y + 44, 6, true);
         }    
     }
+#define inventoryDrawEquipSlotToString
+/// inventoryDrawEquipSlotToString(equipSlot)
+
+var e, r;
+e = "";
+r = "";
+
+if (argument_count > 0) {e = argument[0];}
+
+if (e == "zbraň") {r = "Zbraň";}
+else if (e == "shield")         {r = "Štít";}
+else if (e == "crystallisator") {r = "Krystalizátor";}
+else if (e == "booster")        {r = "Posilovač";}
+else if (e == "ring")           {r = "Prsten";}
+else if (e == "necklace")       {r = "Náhrdelník";}
+else if (e == "rightBoot")      {r = "Pravá bota";}
+else if (e == "leftBoot")       {r = "Levá bota";}
+else if (e == "belt")           {r = "Opasek";}
+else if (e == "armor")          {r = "Brnění";}
+else if (e == "rightPlate")     {r = "Pravý chránič";}
+else if (e == "leftPlate")      {r = "Levý chránič";}
+else if (e == "helma")          {r = "Helma";}
+else if (e == "medal")          {r = "Odznak";}
+else if (e == "trophy")         {r = "Trofej";}
+else if (e == "card")           {r = "Karta";}
+
+                        
+
+
+
+return r;

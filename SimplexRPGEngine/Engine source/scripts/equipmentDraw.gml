@@ -651,7 +651,7 @@ if (idd != -1 && oInventory.draw_equipment)
             
          fnt(fntPixelExtraTiny);
          alg();
-         if (oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_equip_slot] != "") {typeStr = "[" + oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_equip_slot] + ",";}
+         if (oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_equip_slot] != "") {typeStr = "[" + inventoryDrawEquipSlotToString(oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_equip_slot]) + ",";}
          else if (oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_materialType] != materialEnum.materialNone && oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_materialType] != -1) {if (oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_materialType] == materialEnum.materialFood) {typeStr = "[Jídlo]";} else {typeStr = "[Materiál]";}}
          else if (oInventory.equiped_vlastnost[oInventory.draw_equ_infobox_id, vlastnost_canBeFastEquiped]) {typeStr = "[Spotřební]";}
          else {typeStr = "";}
@@ -671,6 +671,18 @@ if (idd != -1 && oInventory.draw_equipment)
            draw_text(x + 8 + string_width(typeStr), oInventory.used_y + (max(196, height) + 9), "" + string(oInventory.equiped_vlastnost[oInventory.draw_equ_infobox_id, vlastnost_durability]) + " / " + string(oInventory.equiped_vlastnost[oInventory.draw_equ_infobox_id, vlastnost_max_durability]));
            clr(c_black, alpha);
            draw_text(x + 8 + string_width(typeStr) + string_width("" + string(oInventory.equiped_vlastnost[oInventory.draw_equ_infobox_id, vlastnost_durability]) + " / " + string(oInventory.equiped_vlastnost[oInventory.draw_equ_infobox_id, vlastnost_max_durability])), oInventory.used_y + (max(196, height) + 9), "]"); 
+          
+           // Draw durability state
+           l = ((oInventory.equiped_vlastnost[oInventory.draw_equ_infobox_id, vlastnost_durability] / oInventory.equiped_vlastnost[oInventory.draw_equ_infobox_id, vlastnost_max_durability]) * 100);
+           cd = c_red;           
+           td = "";
+           if (oInventory.equiped_vlastnost[oInventory.draw_equ_infobox_id, vlastnost_durability] == 1) {td = " - Zničeno!";}
+           else if (l < 25) {td = " - Na pokraji zničení!";}
+           else if (l < 50) {td = " - Lehce poškozeno"; cd = c_orange;}
+           clr(cd, alpha);
+           draw_text(x + string_width("]") + 8 + string_width(typeStr) + string_width("" + string(oInventory.equiped_vlastnost[oInventory.draw_equ_infobox_id, vlastnost_durability]) + " / " + string(oInventory.equiped_vlastnost[oInventory.draw_equ_infobox_id, vlastnost_max_durability])), oInventory.used_y + (max(196, height) + 9), td);
+           clr(c_black, alpha);
+
           }
 
         
