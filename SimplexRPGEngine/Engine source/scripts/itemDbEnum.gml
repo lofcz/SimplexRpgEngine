@@ -79,5 +79,6 @@ itemFoodMilk,
 itemHelmetHat,
 itemArmorMetal,
 itemInventoryExtension,
-itemElixirStamina
+itemElixirStamina,
+itemWhetstone
 };

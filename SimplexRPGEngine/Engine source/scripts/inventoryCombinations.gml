@@ -1,18 +1,20 @@
 #define inventoryCombinations
-/// inventoryCombinations(id, slot.id)
+/// inventoryCombinations(id, slot.id, slot)
 
-var idd, s;
+var idd, s, S;
 idd = 0;
 s   = 0;
+S   = 0;
 
 if (argument_count > 0) {idd = argument[0];}
-if (argument_count > 0) {s   = argument[1];}
+if (argument_count > 1) {s   = argument[1];}
+if (argument_count > 2) {S   = argument[2];}
 
 switch (idd)
            {
-            case(3):
+            case(itemEnum.itemWhetstone):
                     {
-                     if (s == 3) {return true;}    
+                     if (slot[S, inv_item_equip_slot] == "zbraň") {return true;}    
                      break;                 
                     }
             case(itemEnum.itemRelicLeftPart):
@@ -44,13 +46,14 @@ if (argument_count > 3) {slot2 = argument[3];}
 
 switch(id1)
            {
-            case(3):
-                    {
-                     if (id2 == 3)
-                        {                         
-                         slot_vlastnosti[slot2,vlastnost_poskozeni] += slot_vlastnosti[slot1,vlastnost_poskozeni];
-                         inventoryDrop(slot1, -1, -1);   
-                        }
+            case(itemEnum.itemWhetstone):
+                    { 
+                     if (slot[slot2, inv_item_equip_slot] == "zbraň")
+                        {                       
+                         slot_vlastnosti[slot2, vlastnost_durability] = min(slot_vlastnosti[slot2,vlastnost_durability] + 20, slot_vlastnosti[slot2,vlastnost_max_durability]); 
+                         inventoryDelete(itemEnum.itemWhetstone, 1); 
+                         stateAddEntry("Nabrousil jsi " + string_lower(slot[slot2, inv_item_info_head]) + ".");
+                        }  
                      break;
                     }
             case(itemEnum.itemRelicRightPart):

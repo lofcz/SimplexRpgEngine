@@ -522,6 +522,7 @@
               <sprite>sprites\sBoneEffect</sprite>
               <sprite>sprites\sKeyEffect</sprite>
               <sprite>sprites\sInventoryExtensionEffect</sprite>
+              <sprite>sprites\sWhetstoneEffect</sprite>
               <sprite>sprites\sLockpickEffect</sprite>
             </sprites>
             <sprites name="Weapons">
@@ -816,6 +817,7 @@
         <script>scripts\scrItemSetUpFinalize.gml</script>
         <script>scripts\scrItemSetDataSockets.gml</script>
         <script>scripts\scrItemMarkAsUsable.gml</script>
+        <script>scripts\scrItemRepair.gml</script>
         <script>scripts\scrItemBasic.gml</script>
         <script>scripts\itemDraw.gml</script>
         <script>scripts\itemDrawStats.gml</script>
@@ -1362,6 +1364,7 @@
           <object>objects\oKey</object>
           <object>objects\oPouch</object>
           <object>objects\oAlchemyDust</object>
+          <object>objects\oWhetstone</object>
           <object>objects\oLofsGift</object>
           <object>objects\oBasicLetter</object>
           <object>objects\oBasicItem</object>

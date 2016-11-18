@@ -116,9 +116,9 @@ for (a = (currentPage*slotsPerPage); a < min(array_height_2d(slot), ((currentPag
      if (combine)
         { 
          if (a == combine_default_slot) {clr(c_yellow, c_a * 3); draw_rectangle(xx, yy, xx + 32, yy + 32, false) clr();}
-         if (inventoryCombinations(slot[combine_default_slot, inv_id], slot[a, inv_id]) && a != combine_default_slot) {clr(c_lime,c_a * 3); draw_rectangle(xx, yy, xx + 32, yy + 32, false) clr();}
+         if (inventoryCombinations(slot[combine_default_slot, inv_id], slot[a, inv_id], a) && a != combine_default_slot) {clr(c_lime,c_a * 3); draw_rectangle(xx, yy, xx + 32, yy + 32, false) clr();}
          else if (a != combine_default_slot) {clr(c_red, c_a); draw_rectangle(xx, yy, xx + 32,yy + 32, false) clr();}
-  
+               
          if (mouse_check_button_pressed(mb_left)) 
             {
              if (mouse_in(xx, xx + 32, yy, yy + 32)) 
@@ -302,6 +302,14 @@ if ((hover || hover_alpha > 0))
            draw_text(x + 8 + string_width(typeStr), used_y + (max(196, currentHeight) + 9), "" + string(slot_vlastnosti[f, vlastnost_durability]) + " / " + string(slot_vlastnosti[f, vlastnost_max_durability]));
            clr(c_black, hover_alpha);
            draw_text(x + 8 + string_width(typeStr) + string_width("" + string(slot_vlastnosti[f, vlastnost_durability]) + " / " + string(slot_vlastnosti[f, vlastnost_max_durability])), used_y + (max(196, currentHeight) + 9), "]"); 
+           l = ((slot_vlastnosti[f, vlastnost_durability] / slot_vlastnosti[f, vlastnost_max_durability]) * 100);
+           clr(c_red, hover_alpha);
+           td = "";
+           if (slot_vlastnosti[f, vlastnost_durability] == 1) {td = " - Zničeno!";}
+           else if (l < 25) {td = " - Na pokraji zničení!";}
+           if (l < 50) {td = " - Lehce poškozeno";}
+           draw_text(x + string_width("]") + 8 + string_width(typeStr) + string_width("" + string(slot_vlastnosti[f, vlastnost_durability]) + " / " + string(slot_vlastnosti[f, vlastnost_max_durability])), used_y + (max(196, currentHeight) + 9), td);
+           clr(c_black, hover_alpha);
           }
 
        

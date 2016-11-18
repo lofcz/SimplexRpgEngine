@@ -24,12 +24,12 @@ switch (idd)
             }
          break;
         }
-     case (itemEnum.itemSwordWooden):
+     case (itemEnum.itemWhetstone):
         {
          if (number == 0)
             {
              combine              = 1;
-             combine_id           = 3;
+             combine_id           = itemEnum.itemSwordWooden;
              combine_default_slot = hover_idd;                  
             }     
          break;
