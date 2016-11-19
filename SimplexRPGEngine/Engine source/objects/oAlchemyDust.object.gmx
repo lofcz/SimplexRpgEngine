@@ -28,7 +28,7 @@
             <string>/// Initialize item
 
 scrItemSetUp(0, 0, itemEnum.itemAlchemyDust);
-scrItemSetProperties(true, "Esence", "Univerzální prach z drahokamů, základní přísada do lektvarů.", -1, "", 2);
+scrItemSetProperties(true, "Esence", "Univerzální prach z drahokamů, používá se k výrobě, opravě vybavení a jako platidlo.", -1, "", 2);
 scrItemSetOptions();
 scrItemSetUpFinalize();
 

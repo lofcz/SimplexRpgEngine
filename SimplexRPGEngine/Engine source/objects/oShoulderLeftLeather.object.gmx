@@ -27,36 +27,16 @@
             <kind>1</kind>
             <string>/// Initialize item
 
-scrItemSetUp(0,0);
-scrItemBasic(itemEnum.itemShoulderLeftLeather);
+scrItemSetUp(0, 0, itemEnum.itemShoulderLeftLeather);
+scrItemSetProperties(false, "Kožený chránič levého ramene", "Čtyřdílný nárameník z kvalitního usně. Ochrání i proti šipce z kuše.", materialEnum.materialNone, "leftPlate", 40, rarity_normal, true, "", c_dkgray, 35, 35, 4);
+scrItemSetOptions();
 
-//*********** Prefix **************
-image_index = 10;
-randomize();
+scrItemSetProperty(vlastnost_max_zivot, 2);
+scrItemSetProperty(vlastnost_max_stit, 4);
+scrItemSetProperty(vlastnost_max_stamina, 1);
 
-//****** Item settings ************
+scrItemSetUpFinalize();
 
-itm_stackable           = 0;
-itm_sprite_number       = image_index;
-itm_info_head           = "Kožený chránič levého ramene";
-itm_info_text           = "Testing equipment";
-itm_options[0]          = "Nabídka 2";
-itm_sprite              = sprite_index;
-itm_equip_slot          = "leftPlate";
-
-
-vlastnost[vlastnost_max_zivot] = irandom_range(2, 4);
-vlastnost[vlastnost_max_stamina] = irandom_range(2, 4);
-
-scr = vlastnost[vlastnost_max_zivot] + vlastnost[vlastnost_max_stamina];
-
-if (scr &lt; 4) {itm_info_color = rarity_normal;}
-else if (scr &lt; 6) {itm_info_color = rarity_rare;}
-else {itm_info_color = rarity_fine;}
-
-//*********** Suffix *****************
-scrItemSetUpFinalize(true);
-//************************************
 </string>
           </argument>
         </arguments>

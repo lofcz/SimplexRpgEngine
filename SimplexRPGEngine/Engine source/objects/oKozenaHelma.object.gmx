@@ -27,54 +27,18 @@
             <kind>1</kind>
             <string>/// Initialize item
 
-scrItemSetUp(0,0);
-scrItemBasic(itemEnum.itemHelmetLeather);
-//*********** Prefix **************
-image_index = 5;
-randomize();
-//****** Item settings ************
+scrItemSetUp(0, 0, itemEnum.itemHelmetLeather + 1);
+scrItemSetProperties(false, "Kožená helma", "Prošívaná helma normanského střihu. Ochrání nejen před úderem či šípem, ale i mrazem a větrem. Vzbuzuje pocit bezpečí.", materialEnum.materialNone, "helma", 65, rarity_normal, true, "", c_dkgray, 40, 40, 8);
+scrItemSetOptions();
 
-itm_stackable           = 0;
-itm_sprite_number       = 5;
-itm_info_head           = "Kožená helma";
-itm_info_text           = "Ušitá z hověziny, poskytne ochranu proti# větru a mrazu.";
-itm_options[0]          = "Zkombinovat";
-itm_options[1]          = "Nabídka 2";
-itm_sprite              = sprite_index;
-itm_equip_slot          = "helma";
+scrItemSetProperty(vlastnost_max_zivot, 4);
+scrItemSetProperty(vlastnost_odolnost, 1);
+scrItemSetProperty(vlastnost_max_stamina, 2);
 
-/*
-vlastnost[vlastnost_vykresli_sprit] = sShortWeapons;
-vlastnost[vlastnost_vykresli_index] = 0;
+scrItemSetUpFinalize();
 
-pre = irandom_range(0,100);
 
-if      (pre &gt;= 0 &amp;&amp; pre &lt; 20)   {vlastnost[vlastnost_poskozeni] = 4; points += 1;}
-else if (pre &gt; 20 &amp;&amp; pre &lt; 40)   {vlastnost[vlastnost_poskozeni] = 6; points += 2; vlastnost[vlastnost_max_zivot] = irandom_range(6,10); points += round(vlastnost[vlastnost_max_zivot] / 2); itm_info_head += " života";}
-else if (pre &gt; 40 &amp;&amp; pre &lt; 70)   {vlastnost[vlastnost_poskozeni] = 6; points += 2;}
-else if (pre &gt; 70 &amp;&amp; pre &lt; 90)   {vlastnost[vlastnost_poskozeni] = 7; points += 4;}
-else                             {vlastnost[vlastnost_poskozeni] = 8; points += 5;}
 
-if      (points &lt; 2)  {itm_info_color = rarity_junk;}
-else if (points &lt; 4)  {itm_info_color = rarity_normal;}
-else if (points &lt; 6)  {itm_info_color = rarity_fine;}
-else                  {itm_info_color = rarity_rare; vlastnost[vlastnost_max_mana] = irandom_range(5,10);}
-
-//vlastnost[vlastnost_stamina_cost] = choose(4,5);
-
-//itm_info_text += "#Poškození: "+string(vlastnost[vlastnost_poskozeni]);
-*/
-
-for (i = 10; i &lt; 22; i++)
-    {
-     vlastnost[i] = irandom_range(3,8);
-    }
-
-//*********** Suffix *****************
-
-scrItemSetUpFinalize(true);
-
-//************************************
 </string>
           </argument>
         </arguments>

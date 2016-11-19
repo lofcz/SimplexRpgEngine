@@ -621,7 +621,7 @@ text = equipmentDrawAbilities(idd,width,yoffset,xx,yy,xoffset);
 height += (string_height(text) + hh + qq);
 }
 
-height = max(196, height);
+height = max(196, height - 16);
 fnt(fntPixel);
  
 clr(c_black, alpha);

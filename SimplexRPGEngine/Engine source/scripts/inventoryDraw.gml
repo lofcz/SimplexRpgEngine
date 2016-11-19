@@ -245,7 +245,10 @@ if ((hover || hover_alpha > 0))
    fnt(fntPixelTiny);
    currentHeight = string_height(string(tText));
    fnt(fntPixel);
-   currentHeight += (string_height(string(slot[hover_id, inv_item_info_head])) + string_height(string(slot[hover_id, inv_item_info_text])));
+   tf = string_height(slot[hover_id, inv_item_info_head]);
+   fnt(fntPixelSmall);
+   tf = (tf + string_height(string(slot[hover_id, inv_item_info_text])));
+   currentHeight += tf;
    currentHeight  = max(196, currentHeight + 16); 
    
    if (currentHeight <= 196) {draw_sprite(sInfoboxTexture, 0, x, used_y + 32);}
@@ -327,7 +330,7 @@ if ((hover || hover_alpha > 0))
        alg();        
        draw_text_colored(x + 4, used_y + 56, string(slot[f, inv_item_info_text])); 
        fnt(fntPixelTiny);      
-       draw_text_colored(x + 4, used_y + 56 + string_height(string(slot[f, inv_item_info_text])), tText);
+       draw_text_colored(x + 4, used_y + tf + 16, tText);
        if (string(slot[f, inv_item_info_footer]) != "0")
           {
            clr(slot[f, inv_item_info_footer_color], hover_alpha);

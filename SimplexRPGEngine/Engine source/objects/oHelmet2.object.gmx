@@ -28,13 +28,13 @@
             <string>/// Initialize item
 
 scrItemSetUp(0, 0, itemEnum.itemHelmetHat);
-scrItemSetProperties(false, "Štramácký klobouk", "Nedbalá elegance, kterou vyzařuje spolu s úsměvy jeho předchozích majitelů už otevřelo cestu ke klínům mnoha dívek.", materialEnum.materialNone, "helma", 45);
+scrItemSetProperties(false, "Štramácký klobouk", "Nedbalá elegance, kterou vyzařuje spolu s úsměvy jeho předchozích majitelů už otevřelo cestu ke klínům mnoha dívek.", materialEnum.materialNone, "helma", 45, rarity_normal, true, "", c_dkgray, 25, 25, 5);
 scrItemSetOptions();
 
-vlastnost[vlastnost_poskozeni] = 4;
-vlastnost[vlastnost_bodyCanvasIndex] = 3;
-vlastnost[vlastnost_bodyCanvasSprite] = sBodyCanvasHead1;
-vlastnost[vlastnost_bodyCanvasSlashSprite] = sBodyCanvasAttackHead2;
+scrItemSetProperty(vlastnost_max_zivot, 2);
+scrItemSetProperty(vlastnost_max_stamina, 3);
+scrItemSetProperty(vlastnost_elegance, 1);
+scrItemSetBodyCanvas(3, sBodyCanvasHead1, sBodyCanvasAttackHead2);
 
 scrItemSetUpFinalize();
 

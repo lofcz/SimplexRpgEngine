@@ -253,6 +253,7 @@
             <sprite>sprites\sBodyCanvasAttackHead2</sprite>
             <sprite>sprites\sBodyCanvasAttackHair1</sprite>
             <sprite>sprites\sBodyCanvasAttackArmor2</sprite>
+            <sprite>sprites\sBodyCanvasAttackArmor3</sprite>
             <sprite>sprites\sBodyCanvasAttackLegs1</sprite>
           </sprites>
           <sprites name="Walk">
@@ -267,6 +268,7 @@
             <sprite>sprites\sBodyCanvasHands1</sprite>
             <sprite>sprites\sBodyCanvasHair1</sprite>
             <sprite>sprites\sBodyCanvasArmor2</sprite>
+            <sprite>sprites\sBodyCanvasArmor3</sprite>
             <sprite>sprites\sBodyCanvasArmor1</sprite>
           </sprites>
         </sprites>
@@ -625,6 +627,8 @@
     <sprite>sprites\sBarrel</sprite>
     <sprite>sprites\sprite244</sprite>
     <sprite>sprites\sEmoticons</sprite>
+    <sprite>sprites\sprite270</sprite>
+    <sprite>sprites\sprite272</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name=" Single tile backgrounds">
@@ -819,6 +823,8 @@
         <script>scripts\scrItemMarkAsUsable.gml</script>
         <script>scripts\scrItemRepair.gml</script>
         <script>scripts\scrItemBasic.gml</script>
+        <script>scripts\scrItemSetProperty.gml</script>
+        <script>scripts\scrItemSetBodyCanvas.gml</script>
         <script>scripts\itemDraw.gml</script>
         <script>scripts\itemDrawStats.gml</script>
         <script>scripts\scrItemRarity.gml</script>
@@ -1431,7 +1437,7 @@
       <room>rooms\mapSklep</room>
     </rooms>
   </rooms>
-  <constants number="228">
+  <constants number="229">
     <constant name="baArmor">1</constant>
     <constant name="baBase">0</constant>
     <constant name="cStaticInstance">"staticInstance"</constant>
@@ -1480,7 +1486,8 @@
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
     <constant name="upgradableProperties">58</constant>
-    <constant name="celkem_vlastnosti">103</constant>
+    <constant name="celkem_vlastnosti">104</constant>
+    <constant name="vlastnost_defense">103</constant>
     <constant name="vlastnost_repairCost">102</constant>
     <constant name="vlastnost_max_durability">101</constant>
     <constant name="vlastnost_durability">100</constant>

@@ -28,13 +28,12 @@
             <string>/// Initialize item
 
 scrItemSetUp(0, 0, itemEnum.itemArmorMetal);
-scrItemSetProperties(false, "Ocelový pancíř", "Kvalitní, s láskou vyrobená zbroj. Použitá ocel je podivuhodně lehká, ale pevná.", materialEnum.materialNone, "armor", 240);
+scrItemSetProperties(false, "Ocelový pancíř", "Kvalitní, s láskou vyrobená zbroj. Použitá ocel je podivuhodně lehká, ale pevná.", materialEnum.materialNone, "armor", 240, rarity_normal, true, "", c_dkgray, 80, 80, 24);
 scrItemSetOptions();
 
-vlastnost[vlastnost_poskozeni] = 4;
-vlastnost[vlastnost_bodyCanvasIndex] = 2;
-vlastnost[vlastnost_bodyCanvasSprite] = sBodyCanvasArmor2;
-vlastnost[vlastnost_bodyCanvasSlashSprite] = sBodyCanvasAttackArmor2;
+scrItemSetProperty(vlastnost_max_zivot, 26);
+scrItemSetProperty(vlastnost_odolnost, 4);
+scrItemSetBodyCanvas(2, sBodyCanvasArmor2, sBodyCanvasAttackArmor2);
 
 scrItemSetUpFinalize();
 
@@ -68,7 +67,7 @@ if (loot = 0)
 {
 if (inventoryPickUp())
 {
-scrLog("+ Kožené brnění",c_white,sArmorEffect,1,0.5);
+scrLog("+ Ocelový pancíř",c_white,sArmorEffect,1,0.5);
 audio_play_sound(sndWeaponPickup,0,0);
 }
 }

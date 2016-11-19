@@ -27,33 +27,15 @@
             <kind>1</kind>
             <string>/// Initialize item
 
-scrItemSetUp(0,0);
-scrItemBasic(itemEnum.itemRingGolden);
+scrItemSetUp(0, 0, itemEnum.itemRingGolden);
+scrItemSetProperties(false, "Zlatý prsten", "Prsten vypadá spíš jako nepříliš povedená slitina mědi a stříbra potažená vrstvičkou zlata. Nejspíš výrobek levnější třídy z dílny Nicolase Flamela.", materialEnum.materialNone, "ring", 60, rarity_normal, true, "", c_dkgray, 15, 15, 6);
+scrItemSetOptions();
 
-//*********** Prefix **************
-image_index = 12;
-randomize();
+scrItemSetProperty(vlastnost_max_mana, 12);
+scrItemSetProperty(vlastnost_dustojnost, 1);
+scrItemSetProperty(vlastnost_inteligence, 1);
 
-//****** Item settings ************
-
-itm_stackable           = 0;
-itm_sprite_number       = image_index;
-itm_info_head           = "Zlatý prsten";
-itm_info_text           = "Testing equipment";
-itm_options[0]          = "Nabídka 2";
-itm_sprite              = sprite_index;
-itm_equip_slot          = "ring";
-
-
-vlastnost[vlastnost_max_mana] = irandom_range(8, 15);
-scr = vlastnost[vlastnost_max_mana];
-
-if (scr &lt; 12) {itm_info_color = rarity_normal;}
-else {itm_info_color = rarity_rare;}
-
-//*********** Suffix *****************
-scrItemSetUpFinalize(true);
-//************************************
+scrItemSetUpFinalize();
 </string>
           </argument>
         </arguments>

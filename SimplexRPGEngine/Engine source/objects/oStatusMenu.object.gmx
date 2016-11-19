@@ -173,7 +173,7 @@ for (i = 0; i &lt; celkem_vlastnosti; i++)
  
 // Temp vars
 xx   = view_xview;
-yy   = view_yview + 32;
+yy   = view_yview + 48;
 ti   = 0;
 hit  = false;
 
@@ -190,9 +190,10 @@ draw_rectangle(view_xview, view_yview, view_xview + view_wview, view_yview + vie
 clr(c_white, activatedAlpha)
 
 // Draw overall header
-fnt(fntPixelHuge);
-draw_text_colored(view_xview + 5, view_yview, oPlayer.name + ", úroveň " + scrColorflag(c_lime) + string(oPlayer.vlastnost[vlastnost_level]) + scrEndColorflag() + " - " + apiPlayerGetRankName()); 
+alg("center", fntPixelHuge);
+draw_text_colored(view_xview + 400, view_yview + 24, oPlayer.name + ", úroveň " + string(oPlayer.vlastnost[vlastnost_level]) + " - " + apiPlayerGetRankName()); 
 fnt();
+alg();
 
 // Draw attributes
 propertyPointsText = "";
@@ -267,8 +268,8 @@ ny = yy + yoffset + tempY;
 
 // Draw skills form
 fnt();
-xx   = view_xview + 300;
-yy   = view_yview + 32;
+xx   = view_xview + 280;
+yy   = view_yview + 48;
 ti   = 0;
 
 // Skills header
@@ -383,10 +384,10 @@ if (textAlpha2 &gt; 0.01)
 // Now draw player's status
 fnt();
 xx   = view_xview;
-yy   = view_yview + 380;
+yy   = view_yview + 396;
 ti   = 0;
 
-draw_text_colored(xx + xoffset, yy + yoffset, "Status");
+draw_text_colored(xx + xoffset, yy + yoffset, "Kondice");
 clr(c_white, activatedAlpha / 2);
 draw_line(xx + xoffset, yy + yoffset + 24, xx + xoffset + 220, yy + yoffset + 24);
 clr(c_white, activatedAlpha)
@@ -399,8 +400,8 @@ draw_text_colored(xx + xoffset, yy + yoffset + 128, "Stamina: " + string(round(o
 
 // Lastly player's resistances
 fnt();
-xx   = view_xview + 260;
-yy   = view_yview + 380;
+xx   = view_xview + 280;
+yy   = view_yview + 396;
 ti   = 0;
 
 draw_text_colored(xx + xoffset, yy + yoffset, "Odolnosti");
@@ -427,14 +428,14 @@ for (i = 0; i &lt; celkem_vlastnosti; i++)
     
 // Player's bonuses, last thing, I swear
 fnt();
-xx   = view_xview + 500;
-yy   = view_yview + 380;
+xx   = view_xview + 540;
+yy   = view_yview + 396;
 ti   = 0;
 
 draw_text_colored(xx + xoffset, yy + yoffset, "Bonusy");
 clr(c_white, activatedAlpha / 2);
 draw_line(xx + xoffset, yy + yoffset + 24, xx + xoffset + 220, yy + yoffset + 24);
-clr(c_white, activatedAlpha)
+clr(c_white, activatedAlpha);
 
 fnt(fntPixelSmall);
 tempY = 32;
@@ -451,10 +452,27 @@ for (i = 0; i &lt; celkem_vlastnosti; i++)
         }
         
      ti++;
-    }
-    
+    }    
 fnt();
 clr();
+
+// I lied... here comes the last part
+xx   = view_xview + 540;
+yy   = view_yview + 48;
+ti   = 0;
+
+clr(c_white);
+draw_text_colored(xx + xoffset, yy + yoffset, "Status ");
+clr(c_white, activatedAlpha / 2);
+draw_line(xx + xoffset, yy + yoffset + 24, xx + xoffset + 220, yy + yoffset + 24);
+clr(c_white, activatedAlpha);
+
+draw_text_colored(xx + xoffset, yy + yoffset + 32, "Poškození: " + string(round(oPlayer.vlastnost[vlastnost_poskozeni])));
+draw_text_colored(xx + xoffset, yy + yoffset + 64, "Obrana: " + string(round(oPlayer.vlastnost[vlastnost_defense])));
+draw_text_colored(xx + xoffset, yy + yoffset + 96, "Šance na kritický úder: " + string(round(oPlayer.vlastnost[vlastnost_kriticka_sance])) + "%");
+fnt(fntPixelSmall); draw_text_colored(xx + xoffset + 16, yy + yoffset + 128, "- Kritické poškození: " + string(round(oPlayer.vlastnost[vlastnost_kriticka_nasobic] * 100)) + "%"); fnt();
+
+
 }
 </string>
           </argument>
