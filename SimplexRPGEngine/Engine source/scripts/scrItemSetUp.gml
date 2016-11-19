@@ -6,6 +6,7 @@ show_number    = 0;
 points         = 0;
 in             = false;
 canBeQuickUsed = false;
+points         = 0;
 
 if (argument_count > 0) {animate          = argument[0];}
 if (argument_count > 1) {show_number      = argument[1];}

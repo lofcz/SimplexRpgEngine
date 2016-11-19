@@ -825,6 +825,9 @@
         <script>scripts\scrItemBasic.gml</script>
         <script>scripts\scrItemSetProperty.gml</script>
         <script>scripts\scrItemSetBodyCanvas.gml</script>
+        <script>scripts\scrItemSetRarityPointsBased.gml</script>
+        <script>scripts\scrItemSetRarityDistributionBased.gml</script>
+        <script>scripts\scrItemGetRarity.gml</script>
         <script>scripts\itemDraw.gml</script>
         <script>scripts\itemDrawStats.gml</script>
         <script>scripts\scrItemRarity.gml</script>

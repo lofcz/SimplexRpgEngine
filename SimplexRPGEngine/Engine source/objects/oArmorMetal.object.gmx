@@ -37,8 +37,6 @@ scrItemSetBodyCanvas(2, sBodyCanvasArmor2, sBodyCanvasAttackArmor2);
 
 scrItemSetUpFinalize();
 
-
-
 </string>
           </argument>
         </arguments>

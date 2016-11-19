@@ -663,7 +663,7 @@ else
                 }
 
             }   
-       // --> Occupied by satan <--  
+       // --> Occupied by the devil <--  
        // Crafting details form (item to craft is selected)
        if (craftingSelectedIndex == 4 && craftingHelper == 0 && !craftingDetails)
           {

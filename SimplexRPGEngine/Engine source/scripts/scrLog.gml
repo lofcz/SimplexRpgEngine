@@ -45,6 +45,21 @@ if (override)
                                 color = c_lime;
                                 break;
                                }
+                           case rarity_legendary:
+                               {
+                                color = c_yellow;
+                                break;
+                               } 
+                           case 6553600:
+                               {
+                                color = 6553600;
+                                break;
+                               }  
+                           case 4980889:
+                               {
+                                color = 4980889;
+                                break;
+                               }                                                                                            
                          }
    }
 

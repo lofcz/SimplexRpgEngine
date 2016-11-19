@@ -31,10 +31,27 @@ scrItemSetUp(0, 0, itemEnum.itemRingGolden);
 scrItemSetProperties(false, "Zlatý prsten", "Prsten vypadá spíš jako nepříliš povedená slitina mědi a stříbra potažená vrstvičkou zlata. Nejspíš výrobek levnější třídy z dílny Nicolase Flamela.", materialEnum.materialNone, "ring", 60, rarity_normal, true, "", c_dkgray, 15, 15, 6);
 scrItemSetOptions();
 
-scrItemSetProperty(vlastnost_max_mana, 12);
-scrItemSetProperty(vlastnost_dustojnost, 1);
-scrItemSetProperty(vlastnost_inteligence, 1);
+scrItemSetRarityDistributionBased(30, 20, 0, 0, 0, 50);
 
+if (scrItemGetRarity() == rarity_junk)
+   {
+    scrItemSetProperty(vlastnost_max_mana, irandom_range(9, 12));
+    scrItemSetProperty(vlastnost_dustojnost, 1);
+    scrItemSetProperty(vlastnost_inteligence, 1);   
+   }
+if (scrItemGetRarity() == rarity_normal)
+   {
+    scrItemSetProperty(vlastnost_max_mana, irandom_range(14, 20));
+    scrItemSetProperty(vlastnost_dustojnost, 1);
+    scrItemSetProperty(vlastnost_inteligence, irandom_range(1, 2));   
+   }
+if (scrItemGetRarity() == rarity_legendary)
+   {
+    scrItemSetProperty(vlastnost_max_mana, irandom_range(30, 50));
+    scrItemSetProperty(vlastnost_dustojnost, irandom_range(2, 4));
+    scrItemSetProperty(vlastnost_inteligence, irandom_range(3, 5));  
+    scrItemSetProperty(vlastnost_stesti, irandom_range(1, 5));       
+   }   
 scrItemSetUpFinalize();
 </string>
           </argument>
@@ -64,7 +81,7 @@ if (loot = 0)
 {
 if (inventoryPickUp())
 { 
-scrLog("+ Zlatý prsten",c_white,sRingEffect2,1,0.5);
+scrLog("+ Zlatý prsten",c_white,sRingEffect2,true,0.5);
 audio_play_sound(sndWeaponPickup,0,0);
 }
 }
