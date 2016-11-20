@@ -655,7 +655,7 @@ if (idd != -1 && oInventory.draw_equipment)
          else if (oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_materialType] != materialEnum.materialNone && oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_materialType] != -1) {if (oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_materialType] == materialEnum.materialFood) {typeStr = "[Jídlo]";} else {typeStr = "[Materiál]";}}
          else if (oInventory.equiped_vlastnost[oInventory.draw_equ_infobox_id, vlastnost_canBeFastEquiped]) {typeStr = "[Spotřební]";}
          else {typeStr = "";}
-       
+         clr(c_black, alpha);
          draw_text(x + 4, oInventory.used_y + (max(196, height) + 9), typeStr); 
          fnt(); 
          

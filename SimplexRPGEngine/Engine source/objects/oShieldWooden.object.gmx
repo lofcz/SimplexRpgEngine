@@ -27,33 +27,15 @@
             <kind>1</kind>
             <string>/// Initialize item
 
-scrItemSetUp(0,0);
-scrItemBasic(itemEnum.itemShieldWooden);
+scrItemSetUp(0, 0, itemEnum.itemShieldWooden);
+scrItemSetProperties(false, "Dřevěný štít", "Cizokrajný druh štítu, zavlečený sem v druhém věku Západní legií. Od té doby se pro skvělé pokrytí těla a levnou výrobu velmi rozšířil.", materialEnum.materialNone, "shield", 50, rarity_normal, true, "", c_dkgray, 40, 40, 5);
+scrItemSetOptions();
 
-//*********** Prefix **************
-image_index = 11;
-randomize();
+scrItemSetProperty(vlastnost_max_stit, 8);
+scrItemSetProperty(vlastnost_max_stamina, -2);
 
-//****** Item settings ************
+scrItemSetUpFinalize();
 
-itm_stackable           = 0;
-itm_sprite_number       = image_index;
-itm_info_head           = "Dřevěný štít";
-itm_info_text           = "Testing equipment";
-itm_options[0]          = "Nabídka 2";
-itm_sprite              = sprite_index;
-itm_equip_slot          = "shield";
-
-
-vlastnost[vlastnost_odolnost] = irandom_range(2, 4);
-scr = vlastnost[vlastnost_odolnost];
-
-if (scr &lt; 3) {itm_info_color = rarity_normal;}
-else {itm_info_color = rarity_rare;}
-
-//*********** Suffix *****************
-scrItemSetUpFinalize(true);
-//************************************
 </string>
           </argument>
         </arguments>

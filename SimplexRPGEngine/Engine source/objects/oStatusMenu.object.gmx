@@ -259,7 +259,7 @@ else {textAlpha = lerp(textAlpha, 0, 0.1);}
 if (textAlpha &gt; 0.01)
    {
     fnt(fntPixelSmall);
-    clr(c_white, textAlpha);
+    clr(c_white, min(textAlpha, activatedAlpha));
     draw_text_colored(xx + xoffset, yy + yoffset + tempY, hint);
     clr(c_white);
    }
@@ -275,6 +275,7 @@ ti   = 0;
 // Skills header
 propertyPointsText = "";
 if (oPlayer.propertyPoints &gt; 0) {propertyPointsText = "(" + scrColorflag(c_lime) + "+" + string(oPlayer.propertyPoints) + scrEndColorflag() + ")";}
+clr(c_white, activatedAlpha);
 draw_text_colored(xx + xoffset, yy + yoffset, "Dovednosti " + propertyPointsText);
 clr(c_white, activatedAlpha / 2);
 draw_line(xx + xoffset, yy + yoffset + 24, xx + xoffset + 220, yy + yoffset + 24);
@@ -375,7 +376,7 @@ else {textAlpha2      = lerp(textAlpha2, 0, 0.1);}
 if (textAlpha2 &gt; 0.01)
    {   
     fnt(fntPixelSmall);
-    clr(c_white, textAlpha2);
+    clr(c_white, min(textAlpha2, activatedAlpha));
     draw_text_colored(nx, ny, hint2);
     clr(c_white);
    }
@@ -461,7 +462,7 @@ xx   = view_xview + 540;
 yy   = view_yview + 48;
 ti   = 0;
 
-clr(c_white);
+clr(c_white, activatedAlpha);
 draw_text_colored(xx + xoffset, yy + yoffset, "Status ");
 clr(c_white, activatedAlpha / 2);
 draw_line(xx + xoffset, yy + yoffset + 24, xx + xoffset + 220, yy + yoffset + 24);
