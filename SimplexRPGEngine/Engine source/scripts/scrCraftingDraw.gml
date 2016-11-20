@@ -930,11 +930,34 @@ else
          clr(c_white, 1);
     //     draw_text(tempX + 38, tempY + 4, "4x");
         // draw_text(tempX + 106, tempY + 4, "-->");
+         color2 = c_red;
          if (repairItemSprite > 0) 
             {
-             draw_sprite(sTestItem, repairItemSprite, tempX + 96 + 16, tempY + 16);
+             if (inventoryNumber(itemEnum.itemAlchemyDust) >= oInventory.temp_vlastnosti[vlastnost_repairCost]) {color2 = c_lime;}
+             
              t = (string(oInventory.temp_vlastnosti[vlastnost_repairCost]) + "x");
-             draw_text(tempX + 96 + 16 - string_width(t) / 2, tempY + 48, t);
+             clr(color2, -1);
+             draw_text(tempX + 96 + 8 - ((string_width(t) + 16) / 2), tempY + 48, t);
+             clr(c_white, -1);
+             draw_sprite(sTestItem, itemEnum.itemAlchemyDust - 1, tempX + 96 + 16 + string_width(t) / 2, tempY + 60);
+             fnt(fntPixelSmall);
+             draw_text(tempX + 4, tempY + 86, "Trvanlivost: " + string(oInventory.temp_vlastnosti[vlastnost_durability]) + " / " + string(oInventory.temp_vlastnosti[vlastnost_max_durability]));
+             fnt();
+            
+            clr(-1, 0.8);
+            draw_sprite(sRarityEffect, itemRarityEffect(oInventory.equip_sprite_s[2]), tempX + 96 + 1, tempY + 1);  
+                 
+             if (oInventory.temp_vlastnosti[vlastnost_durability] > 0)
+                {
+                 var percent = ((oInventory.temp_vlastnosti[vlastnost_durability] / oInventory.temp_vlastnosti[vlastnost_max_durability]) * 100);
+       
+                 if (oInventory.temp_vlastnosti[vlastnost_durability] == 1) {draw_sprite(sRarityEffect, 15, tempX + 96 + 1, tempY + 1);}         
+                 else if (percent < 25) {draw_sprite(sRarityEffect, 14, tempX + 96 + 1, tempY + 1);}         
+                 else if (percent < 50) {draw_sprite(sRarityEffect, 13, tempX + 96 + 1, tempY + 1);}
+                }               
+             clr();
+             draw_sprite(sTestItem, repairItemSprite, tempX + 96 + 16, tempY + 16);
+
             }
 
         // Slot for input item
@@ -968,7 +991,7 @@ else
                 bcgColor  = c_black;
                 
                 // Check for ability to confirm crafting
-                if (repairItemSlotID >= 0)
+                if (color2 == c_lime)
                     { 
                      textColor = c_lime;
                     }
@@ -979,15 +1002,15 @@ else
                      bcgColor = c_yellow;
                      
                      // Confirm material upgrade
-                     if (mouse_check_button_pressed(mb_left))
+                     if (mouse_check_button_pressed(mb_left) && textColor == c_lime)
                         {
-                      //   inventoryDelete(enrichtItemID, 4);
-                       //  oInventory.slot[enrichtItemSlotID, inv_item_beingUsed] = false;
-                      //   scrCraftingDbMaterialEnricht(enrichtItemID, true);
-                      //   enrichtItemID = -1;
-                      //   enrichtItemSprite = 0;
-                      //   enrichtItemSlotID = -1;        
-                        // enrichtingOutputSprite = 0;         
+                         inventoryDelete(itemEnum.itemAlchemyDust, oInventory.temp_vlastnosti[vlastnost_repairCost]);
+                         oInventory.slot[repairItemSlotID, inv_item_beingUsed] = false;
+                         oInventory.slot_vlastnosti[repairItemSlotID, vlastnost_durability] = oInventory.slot_vlastnosti[repairItemSlotID, vlastnost_max_durability];
+                         repairItemID = -1;
+                         repairItemSprite = 0;
+                         repairItemSlotID = -1;        
+                         audio_play_sound(sndRepair, 0, false);    
                         }                                                    
                     }
                     

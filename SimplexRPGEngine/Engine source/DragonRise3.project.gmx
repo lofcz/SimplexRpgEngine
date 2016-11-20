@@ -221,6 +221,7 @@
       <sound>sound\sndSold1</sound>
       <sound>sound\sndExplosion1</sound>
       <sound>sound\sndWoodGet1</sound>
+      <sound>sound\sndRepair</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
