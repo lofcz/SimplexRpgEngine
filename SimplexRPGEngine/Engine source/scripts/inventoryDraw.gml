@@ -512,9 +512,9 @@ if (slot[f, inv_item_equip_slot] != "")
 
 for(a = 0; a < celkem_vlastnosti; a++)
       {
-       if (slot[f,inv_id] = 0) {break;}      
+       if (slot[f,inv_id] == 0) {break;}      
 
-       if (slot_vlastnosti[f, a] > 0)
+       if (slot_vlastnosti[f, a] != 0)
           {
            switch(a)
                     {

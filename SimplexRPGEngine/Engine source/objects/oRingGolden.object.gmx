@@ -31,7 +31,7 @@ scrItemSetUp(0, 0, itemEnum.itemRingGolden);
 scrItemSetProperties(false, "Zlatý prsten", "Prsten vypadá spíš jako nepříliš povedená slitina mědi a stříbra potažená vrstvičkou zlata. Nejspíš výrobek levnější třídy z dílny Nicolase Flamela.", materialEnum.materialNone, "ring", 60, rarity_normal, true, "", c_dkgray, 15, 15, 6);
 scrItemSetOptions();
 
-scrItemSetRarityDistributionBased(30, 20, 0, 0, 0, 50);
+scrItemSetRarityDistributionBased(30, 20, 0, 0, 50, 0);
 
 if (scrItemGetRarity() == rarity_junk)
    {
@@ -77,7 +77,7 @@ scrItemSetUpFinalize();
             <kind>1</kind>
             <string>/// Loot
 
-if (loot = 0)
+if (loot == 0)
 {
 if (inventoryPickUp())
 { 

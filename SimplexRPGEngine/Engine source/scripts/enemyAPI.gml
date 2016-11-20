@@ -44,10 +44,9 @@
 
 
 #define scrEnemyIni
-/// scrEnemyIni(health, damage, defense, level,name, bestiary_name, coloredName)
+/// scrEnemyIni(health, damage, defense, level,name, bestiary_name, coloredName, enemyType)
 
-var t_hp,t_damage,t_defense,t_level,t_name,t_bestiary,t_cName;
-
+var t_hp,t_damage,t_defense,t_level,t_name,t_bestiary,t_cName,t_t;
 t_hp         = 10;
 t_damage     = 5;
 t_defense    = 2;
@@ -55,6 +54,7 @@ t_level      = choose(1,1,2);
 t_name       = "Enemy";
 t_bestiary   = bestiaryEnemySlime;
 t_cName      = scrColorflag(c_red) + "Enemy" + scrEndColorflag();
+t_t          = "animal";
 
 if (argument_count > 0) {t_hp       = argument[0];}
 if (argument_count > 1) {t_damage   = argument[1];}
@@ -63,6 +63,7 @@ if (argument_count > 3) {t_level    = argument[3];}
 if (argument_count > 4) {t_name     = argument[4];}
 if (argument_count > 5) {t_bestiary = argument[5];}
 if (argument_count > 6) {t_cName    = argument[6];}
+if (argument_count > 7) {t_t        = argument[7];}
 
 hp           = t_hp;
 damage       = t_damage;
@@ -80,6 +81,7 @@ forcedBaseY  = 0;
 forcedHelp   = 0;
 can_move     = true;
 followMouse  = false;
+enemyType    = t_t;
 
 #define scrEnemyGetPosition
 /// scrEnemyGetPosition()

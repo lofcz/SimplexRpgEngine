@@ -28,7 +28,7 @@
             <string>/// Ini
 
 event_inherited();
-scrEnemyIni(1,5,1,choose(1,1,2),"Slime",bestiaryEnemySlime,scrColorflag(c_blue) + "Slime" + scrEndColorflag());
+scrEnemyIni(1,5,1,choose(1,1,2),"Slime",bestiaryEnemySlime,scrColorflag(c_blue) + "Slime" + scrEndColorflag(), "animal");
 
 mood = "";
 image_speed = 0;

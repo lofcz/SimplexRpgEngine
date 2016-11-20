@@ -266,7 +266,22 @@ else
              clr();
              draw_roundrect(tempX + 96, tempY, tempX + 128, tempY + 32, true);
              
-             if (upgradingItemSprite > 0) {draw_sprite(sTestItem, upgradingItemSprite, tempX + 96 + 16, tempY + 16);}
+             if (upgradingItemSprite > 0) 
+                {
+                 clr(-1, 0.8);
+                 draw_sprite(sRarityEffect, itemRarityEffect(oInventory.slot[upgradingItemSlotID, inv_item_effect]), tempX + 96 + 1, tempY + 1);  
+                 
+                 if (oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_durability] > 0)
+                    {
+                     var percent = ((oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_durability] / oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_max_durability]) * 100);
+       
+                     if (oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_durability] == 1) {draw_sprite(sRarityEffect, 15, tempX + 96 + 1, tempY + 1);}         
+                     else if (percent < 25) {draw_sprite(sRarityEffect, 14, tempX + 96 + 1, tempY + 1);}         
+                     else if (percent < 50) {draw_sprite(sRarityEffect, 13, tempX + 96 + 1, tempY + 1);}
+                    }               
+                 clr();
+                 draw_sprite(sTestItem, upgradingItemSprite, tempX + 96 + 16, tempY + 16);
+                }
 
              
              // Slot for input item
@@ -378,6 +393,7 @@ else
                     if (enchantItemSprite[i] > 0) 
                     {
                     draw_sprite(sTestItem, enchantItemSprite[i], tempX + 16, tempY + 32 + (48 * i) + 16);
+
                     clr(c_white, 1);
                     fnt(fntPixelTiny);
                     draw_text_colored(tempX + 40, tempY + 32 + (48 * i), scrCraftingGetUpgradeText(enchantItemID[i], 1));

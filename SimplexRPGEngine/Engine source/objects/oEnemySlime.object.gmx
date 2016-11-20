@@ -28,7 +28,7 @@
             <string>/// Initialise enemy
 
 event_inherited();
-scrEnemyIni(30,5,1,choose(1,1,2),"Slime",bestiaryEnemySlime,scrColorflag(c_blue) + "Slime" + scrEndColorflag());
+scrEnemyIni(30,5,1,choose(1,1,2),"Slime",bestiaryEnemySlime,scrColorflag(c_blue) + "Slime" + scrEndColorflag(), "animal");
 
 
 </string>

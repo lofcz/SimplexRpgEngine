@@ -115,6 +115,9 @@ for(a = 0; a < 10; a++)                  {oInventory.slot_option[free_slot, a]  
 for(a = 0; a < celkem_vlastnosti; a++)   {oInventory.slot_vlastnosti[free_slot, a] = vlastnost[a];}
 
 // Spawn particles
-if (itm_effect = rarity_legendary) {with(oPlayer) {effectLegendaryItem();}}
-if (itm_effect = rarity_fine) {with(oPlayer) {effectFineItem();}}
-if (itm_effect = rarity_rare) {with(oPlayer) {effectRareItem();}}
+if (itm_effect == rarity_legendary) {with(oPlayer) {effectLegendaryItem();}}
+if (itm_effect == rarity_fine)      {with(oPlayer) {effectFineItem();}}
+if (itm_effect == rarity_rare)      {with(oPlayer) {effectRareItem();}}
+if (itm_effect == rarity_mythic)    {with(oPlayer) {effectMythicItem();}}
+
+

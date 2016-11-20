@@ -81,6 +81,7 @@ craftingKnownMaterials = ds_list_create();
 craftingKnownAlchemy = ds_list_create();
 craftingKnownFood    = ds_list_create();
 craftingItemsNewFlag[0, 48] = false;
+craftingItemsSlot[0, 48] = -1;
 craftingItemsLevelReq[0, 38] = 0;
 craftingMaterialsNewFlag[0, 48] = false;
 craftingAlchemyNewFlag[0, 48] = false;
