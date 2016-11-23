@@ -1,34 +1,34 @@
-<img src="https://img.shields.io/badge/Verze-1.0%20RC3-brightgreen.svg"> <img src="https://img.shields.io/badge/Status-V%20po%C5%99%C3%A1dku-green.svg"> <img src="https://img.shields.io/badge/License-GPL3-blue.svg">
+<img src="https://img.shields.io/badge/version-1.0%20RC3-brightgreen.svg"> <img src="https://img.shields.io/shippable/5444c5ecb904a4b21567b0ff.svg"> <img src="https://img.shields.io/badge/license-GPL3-blue.svg">
 <br><br>
 <img align="middle" src="https://s22.postimg.org/xwq6o7t9t/Noname.png">
 <br>
 
-## Moderní RPG Engine, redefinující JRPG žánr.
-* Vhodný pro jednotlivce i studia.
-* Systém komponent, řešící základní i pokročilé RPG problémy (80+ komponent).
-* Externí C# nástroje pro zvýšení efektivity práce v enginu.
-* Unikátní systém in-game vývoje, který umožňuje hru tvořit přímo za běhu. 
-* Extrémní výkon, vysoká optimalizace.
-* GLSL / HLSL shadery, 2D fyzika, částice a další za běhu počítané efekty.
-* Možnost integrace do stávajících GMS / LGM / GMS2 projektů.
-* Libovolné rozlišení hry, responsivní UI layout.
-* Poráží RPG Maker a YOYO RPG v každém směru.
-* Zdarma pro nekomerční projekty, otevřený zrojový kód, GPL3 licence.
-* HTML5 ready, podpora Android platformy.
+## Modern RPG Engine that redifines the JRPG genre.
+* Suitable for anyone from individuals to large game studios. 
+* A system of components, solving both basic and advanced RPG problems.
+* An external C# toolkit for maximizing work efficiency. 
+* A Unique in-game development system allows for seamless development while the game is running. 
+* Extreme performance, high optimization. 
+* GLSL / HLSL shaders, 2D physics, particles and other effects computed in real time. 
+* Can be integrated into already created projects. 
+* Responsive UI layot allows for any resolution of the game window.
+* Defeats RPG Maker and YOYO RPG in every way.
+* Free for non-commercial projects, open-source, GPL3 licensed.
+* HTML5 and Android ready.
 
-## Podporované vývojové prostředí:
+## Supported IDEs:
 <img align="middle" width="128" height="128" src="https://s21.postimg.org/vghqza03r/rounded_corners.png">
 <img align="middle" src="https://s10.postimg.org/tvc4uhp3t/Lateralgmlogo.png">
 <img align="middle" width="128" height="128" src="https://s15.postimg.org/jrlizdqor/rounded_corners.jpg">  <img align="middle" width="128" height="128" src="https://s21.postimg.org/pisaduls7/rounded_corners.png">  
 
 
-## Výběr z úspěšných projektů, poháněných Simplex RPG Enginem:
+## A handful of commercially successful projects powered by the Simplex RPG Engine:
 **Fate of Hero** (Kedarsoft)  
-*Úspěšná kampaň na startovac.cz, vybraná částka: 10 000 czk*   
+*A successful crowdfunding campaign on Startovac.cz, 10 000 CZK (370 EUR) raised.*   
 <a href="https://www.startovac.cz/projekty/fate-of-hero/">![](http://s13.postimg.org/u6dvlctif/5303_aaaa_png_200x113.png)</a>
 
 **Shuups** (K&P Games)  
-*Zveřejněno na Google Play*   
+*Published on the Google Play*   
 <a href="https://play.google.com/store/apps/details?id=sk.KandPGames.Shuups">![](http://s21.postimg.org/wpxsja7o7/Noname.png)</a>
 
 ## Náhled enginu: 
@@ -42,18 +42,12 @@
 <img align="middle" width="256" height="196" src="https://s17.postimg.org/9bx4bpq9r/Noname.png">
 <img align="middle" width="256" height="196" src="https://s15.postimg.org/up5oq2nsr/Noname9.png">
 
-## Budoucnost máš na dosah, začni [zde](https://github.com/lofcz/SimplexRpgEngine/wiki).
+## The future is within your grasp. Start [here](https://github.com/lofcz/SimplexRpgEngine/wiki).
 
-Máš otázky nebo jsi vytvořil na Simplexu hru a chceš nám dát vědět? Napiš nám!
+o you have any questions, or have you created a game using Simplex and you want to let us know? Contact us!
 - <a href="https://www.facebook.com/simplexengine/?pnref=lhc">Facebook</a>
 - <a href="https://www.youtube.com/channel/UCCDT5l4gglPpFB_tEZd5c7Q">Youtube</a>
 
-## Změny oproti základní verzi:
-* Nové komponenty (30+).
-* Rozšířené API.
-* Vylepšené externí nástroje.
-* Databáze výchozích assetů pro snadný začátek vývoje projektu.
-
 <sub><sup>Copyright © 2016 Matěj Štágl.</sup></sub>  
-<sub><sup><a href="https://github.com/lofcz/SimplexRpgEngine/wiki/Auto%C5%99i">Vývojový tým</a></sup></sub>  
-<sub><sup>[Čtěte licenci, pod kterou je projekt dostupný.](https://github.com/lofcz/SimplexRpgEngine/blob/master/license.md)</sup></sub>
+<sub><sup><a href="https://github.com/lofcz/SimplexRpgEngine/wiki/Auto%C5%99i">Development team</a></sup></sub>  
+<sub><sup>[Read the license, under which the project is available.](https://github.com/lofcz/SimplexRpgEngine/blob/master/license.md)</sup></sub>
