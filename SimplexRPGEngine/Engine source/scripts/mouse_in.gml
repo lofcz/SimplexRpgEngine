@@ -1,5 +1,6 @@
-/// mouse_in(min_x,max_x,min_y,max_y)
+/// mouse_in(minX, maxX, minY, maxY)
 
+var min_x, min_y, max_x, max_y;
 min_x = 0;
 min_y = 0;
 max_x = 0;

@@ -351,6 +351,7 @@
         <sprite>sprites\sCrafting</sprite>
         <sprite>sprites\sLockIcon</sprite>
         <sprite>sprites\sSpellsUI</sprite>
+        <sprite>sprites\sSpellsUI48</sprite>
         <sprite>sprites\sTalentMenuIcons</sprite>
         <sprite>sprites\sConstructionSiteMask</sprite>
         <sprite>sprites\sUpgradeIcons</sprite>
@@ -362,6 +363,7 @@
         <sprite>sprites\sHealthBar</sprite>
         <sprite>sprites\sExperienceBarSubs</sprite>
         <sprite>sprites\sExperienceBar</sprite>
+        <sprite>sprites\sExperienceBarNew</sprite>
       </sprites>
       <sprites name="Controllers icons">
         <sprite>sprites\sPlayer</sprite>

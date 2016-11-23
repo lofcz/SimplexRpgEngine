@@ -8,22 +8,20 @@
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
   <bbox_left>0</bbox_left>
-  <bbox_right>35</bbox_right>
+  <bbox_right>431</bbox_right>
   <bbox_top>0</bbox_top>
-  <bbox_bottom>35</bbox_bottom>
+  <bbox_bottom>11</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
     <TextureGroup0>0</TextureGroup0>
   </TextureGroups>
   <For3D>0</For3D>
-  <width>36</width>
-  <height>36</height>
+  <width>432</width>
+  <height>12</height>
   <frames>
-    <frame index="0">images\sSpellsUI_0.png</frame>
-    <frame index="1">images\sSpellsUI_1.png</frame>
-    <frame index="2">images\sSpellsUI_2.png</frame>
-    <frame index="3">images\sSpellsUI_3.png</frame>
-    <frame index="4">images\sSpellsUI_4.png</frame>
+    <frame index="0">images\sExperienceBarNew_0.png</frame>
+    <frame index="1">images\sExperienceBarNew_1.png</frame>
+    <frame index="2">images\sExperienceBarNew_2.png</frame>
   </frames>
 </sprite>

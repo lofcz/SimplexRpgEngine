@@ -120,4 +120,3 @@ if (itm_effect == rarity_fine)      {with(oPlayer) {effectFineItem();}}
 if (itm_effect == rarity_rare)      {with(oPlayer) {effectRareItem();}}
 if (itm_effect == rarity_mythic)    {with(oPlayer) {effectMythicItem();}}
 
-

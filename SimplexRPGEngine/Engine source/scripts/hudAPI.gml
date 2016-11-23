@@ -63,9 +63,9 @@ if (argument_count > 0) {xx = argument[0];}
 if (argument_count > 1) {yy = argument[1];}
 
 // Draw bar background and cover it with part of filled bar
-draw_sprite(sExperienceBarSubs, 0, (x + xx + spellsxPlus), (y + yy + yoffset));
-draw_sprite_part(sExperienceBarSubs, 1, 0, 0, (oPlayer.last_xp / oPlayer.vlastnost[vlastnost_max_zkusenosti] * sprite_get_width(sExperienceBarSubs)), sprite_get_height(sExperienceBarSubs), (x + xx + spellsxPlus), (y + yy + yoffset));
-draw_sprite(sExperienceBar, 0, (x + (xx - 31) + spellsxPlus), (y + (yy - 11) + yoffset));
+draw_sprite(sExperienceBarNew, 0, (x + xx + spellsxPlus), (y + yy + yoffset));
+draw_sprite_part(sExperienceBarNew, 1, 0, 0, (oPlayer.last_xp / oPlayer.vlastnost[vlastnost_max_zkusenosti] * sprite_get_width(sExperienceBarNew)), sprite_get_height(sExperienceBarNew), (x + xx + spellsxPlus), (y + yy + yoffset));
+draw_sprite(sExperienceBarNew, 2, (x + (xx) + spellsxPlus), (y + (yy) + yoffset));
   
 // Clear draw mode and draw exp text   
 clr(c_black, hudAlpha);

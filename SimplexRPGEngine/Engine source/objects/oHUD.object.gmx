@@ -194,6 +194,12 @@ scrAchievementRegister(0, "Objevil jsi Simplex!", "Vítej, vývojáři.", 0, med
 
 scrAchievementUnlock(0);
 
+for (i = 0; i &lt; 9; i++)
+{
+hotslot[i, 0] = 0;  //id, [slotType {spell;item}]
+}
+
+
 </string>
           </argument>
         </arguments>
@@ -294,7 +300,35 @@ scrHudDrawBar(600, 0, 2, 10, 1, oPlayer.last_hp, oPlayer.maxHp, 0);
 scrHudDrawBar(600, 30, 4, 11, 2, oPlayer.last_stit, oPlayer.vlastnost[vlastnost_max_stit], 1);
 scrHudDrawBar(600, 60, 0, 9, 0, oPlayer.last_mana, oPlayer.maxMp, 2);
 scrHudDrawBar(600, 90, 6, 12, 3, oPlayer.last_stamina, oPlayer.vlastnost[vlastnost_max_stamina], 3);
-scrHudDrawXpBar(275, 571);
+scrHudDrawXpBar(184, 546);
+
+qx = 184 + view_xview;
+qy = 560 + view_yview;
+canBind = true;
+for (var z = 0; z &lt; 9; z++)
+     {
+     draw_sprite(sSpellsUI, 4, qx, qy);
+    
+     if (mouse_in(qx, qx + 48, qy, qy + 48) &amp;&amp; canBind)
+        {
+          if (oInventory.drag &amp;&amp; mouse_check_button_released(mb_left) &amp;&amp; oInventory.slot_vlastnosti[oInventory.h_c, vlastnost_canBeFastEquiped])
+                    {
+                      hotslot[z, 0] = oInventory.equip_sprite_s[6];
+                      canBind = false;
+                    }
+          else if (mouse_check_button_pressed(mb_left))
+                    {
+                     hotslot[z, 0] = 0;
+                    }                    
+        }
+        
+     if (hotslot[z, 0] != 0)
+        {
+         draw_sprite(sTestItem, (hotslot[z, 0] - 1), qx + 16, qy + 16);                  
+        }                    
+        
+     qx += 48;
+    }
 
 // Draw binded spells
 alg("default", fntPixelHuge);
