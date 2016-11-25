@@ -31,7 +31,7 @@
 *Published on the Google Play*   
 <a href="https://play.google.com/store/apps/details?id=sk.KandPGames.Shuups">![](http://s21.postimg.org/wpxsja7o7/Noname.png)</a>
 
-## Náhled enginu: 
+## Engine preview: 
 <img align="middle" width="256" height="196" src="https://s11.postimg.org/45t1jf2kz/Noname1.png">
 <img align="middle" width="256" height="196" src="https://s22.postimg.org/ji17ruutt/Noname.png">
 <img align="middle" width="256" height="196" src="https://s11.postimg.org/5b7gc0l03/Noname3.png">
