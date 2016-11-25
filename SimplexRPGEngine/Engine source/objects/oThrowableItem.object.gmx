@@ -110,7 +110,10 @@ instance_destroy();
             <kind>1</kind>
             <string>/// Destroy
 
-instance_destroy();
+if (other.id != oPlayer.id)
+   {
+    instance_destroy();
+   }
 </string>
           </argument>
         </arguments>

@@ -83,6 +83,8 @@ drawI = -1
 
 for (i = 0; i < ds_list_size(pointList); i++)
     {
+    if (pointListMap[| i] == room)
+    {
      alg("center", fntPixelSmall);
      clr(pointListColor[| i], oHUD.hudAlpha);
      draw_text(oMinimap.x+(( pointListX[| i]-oMinimap.x1)*oMinimap.sizex), oMinimap.y+((pointListY[| i]-oMinimap.y1)*oMinimap.sizey), pointListSymbol[| i]);
@@ -94,6 +96,7 @@ for (i = 0; i < ds_list_size(pointList); i++)
          decA = false;
          drawI = i;
         }
+     }
     }
 
 if (drawI != -1)
@@ -224,6 +227,9 @@ drawI = -1
 
 for (i = 0; i < ds_list_size(pointList); i++)
     {
+     show_message(string(pointListMap[| i]));
+     if (pointListMap[| i] == room)
+     {
      alg("center", fntPixelSmall);
      clr(pointListColor[| i], oHUD.hudAlpha);
      draw_text(oMinimap.x+(( pointListX[| i]-oMinimap.x1)*oMinimap.sizex), oMinimap.y+((pointListY[| i]-oMinimap.y1)*oMinimap.sizey), pointListSymbol[| i]);
@@ -235,6 +241,7 @@ for (i = 0; i < ds_list_size(pointList); i++)
          decA = false;
          drawI = i;
         }
+     }
     }
 
 if (drawI != -1)

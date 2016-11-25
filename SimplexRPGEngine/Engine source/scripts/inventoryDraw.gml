@@ -382,7 +382,7 @@ if (mouse_in(hover_x, hover_x + 32, hover_y, hover_y + 32))
                         
                  if (a!= inv_item_info_head && a!= inv_item_info_text && a!= inv_options && a!= inv_item_equip_slot)
                     {
-                    slot[hover_id, a] = 0;
+                     slot[hover_id, a] = 0;
                     }
                  else {slot[hover_id, a] = "";}  
                  
