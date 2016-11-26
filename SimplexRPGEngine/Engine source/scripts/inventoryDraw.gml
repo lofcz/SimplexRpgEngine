@@ -412,6 +412,7 @@ if (mouse_in(hover_x, hover_x + 32, hover_y, hover_y + 32))
           {          
            if (!inventorySwitchPre())
               {
+               switch_slot   = inventoryGetFirstFreeSlot();
                drag          = false;
                drag_controll = 0;
 

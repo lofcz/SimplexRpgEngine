@@ -10,6 +10,8 @@ if (argument_count > 0) {n = argument[0];}
 
 if (itm_stackable)
     {
+     if (oInventory.drag) {if (oInventory.switch_temp[0,inv_id] == itm_id) {oInventory.switch_temp[0, inv_number] += itm_number; event_user(event_user_destroy); return true;}}
+     
      for (a = 0; a < oInventory.slots; a++)
          {
           if (oInventory.slot[a, inv_id] == itm_id)
@@ -119,3 +121,15 @@ if (itm_effect == rarity_legendary) {with(oPlayer) {effectLegendaryItem();}}
 if (itm_effect == rarity_fine)      {with(oPlayer) {effectFineItem();}}
 if (itm_effect == rarity_rare)      {with(oPlayer) {effectRareItem();}}
 if (itm_effect == rarity_mythic)    {with(oPlayer) {effectMythicItem();}}
+#define inventoryGetFirstFreeSlot
+/// inventoryGetFirstFreeSlot()
+
+for (var a = 0; a < oInventory.slots; a++)         
+    {
+     if (oInventory.slot[a, inv_id] == 0)
+        {
+         return a;
+        }                
+    } 
+return -1;
+

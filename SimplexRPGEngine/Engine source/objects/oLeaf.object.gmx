@@ -55,7 +55,7 @@ scrItemSetUpFinalize();
             <kind>1</kind>
             <string>/// Loot
 
-if (loot = 0)
+if (loot == 0)
 {
 if (inventoryPickUp())
 {
