@@ -1,7 +1,7 @@
 #define inventoryPickUp
 /// inventoryPickUp(count)
 
-var n;
+var n, tempSecure;
 in_inv    = 0;
 free_slot = -1;
 n         = -1;
@@ -33,7 +33,8 @@ if (itm_stackable)
              {
               if (oInventory.slot[a, inv_id] == 0)
                  {
-                  free_slot = a;                                                              //show_message("Slot: "+string(free_slot));
+                  if (oInventory.drag) {if (a == inventoryGetLastFreeSlot()) {continue;}}
+                  free_slot = a;                                              
                   break;
                  }                
              } 
@@ -55,11 +56,12 @@ if (itm_stackable)
         }
     }
 else
-    {
+    { 
      for (a = 0; a < oInventory.slots; a++)
-         {
+         {         
           if (oInventory.slot[a, inv_id] == 0)
              {
+              if (oInventory.drag) {if (a == inventoryGetLastFreeSlot()) {continue;}}
               free_slot = a;                                                            
               break;
              }                
@@ -132,4 +134,20 @@ for (var a = 0; a < oInventory.slots; a++)
         }                
     } 
 return -1;
+
+
+#define inventoryGetLastFreeSlot
+/// inventoryGetLastFreeSlot()
+
+var tempSlot = -1;
+
+for (var a = 0; a < oInventory.slots; a++)         
+    {
+     if (oInventory.slot[a, inv_id] == 0)
+        {
+         tempSlot = a;
+        }                
+    } 
+return tempSlot;
+
 

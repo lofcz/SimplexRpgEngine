@@ -66,6 +66,13 @@ for (a = (currentPage*slotsPerPage); a < min(array_height_2d(slot), ((currentPag
          if (passed) {fAlpha = 1;} else {fAlpha = filterAlpha;}
         }
      else {if (slot[a, inv_item_star] != 1) {fAlpha = filterAlpha;} else {fAlpha = 1;}}
+     
+     if (h_c == a) 
+        {
+         clr(-1, 0.5);
+         draw_sprite(sTestItem, equip_sprite_s[1], xx + 16, yy + 16); 
+         clr();
+        }
          
      // Draw base rectangle and item
      clr();
@@ -270,7 +277,7 @@ if ((hover || hover_alpha > 0))
        draw_text(x + 128, used_y + 44, slot[f, inv_item_info_head]);      
    
        // Draw attached pearls
-       if (slot_vlastnosti[f, vlastnost_upgradeSloty] > 0) {inventoryDrawPearls(f);}       
+       if (slot_vlastnosti[f, vlastnost_upgradeSloty] > 0 && slot[f, inv_id] != 0) {inventoryDrawPearls(f);}       
    
        // Draw price info
        clr(c_black, hover_alpha);
@@ -379,7 +386,7 @@ if (mouse_in(hover_x, hover_x + 32, hover_y, hover_y + 32))
                  if (a == inv_number)            {equip_sprite_s[5] = slot[hover_id,a];}             
                  if (a == inv_id)                {equip_sprite_s[6] = slot[hover_id,a]; use_this_id = a;}
 
-                        
+                       
                  if (a!= inv_item_info_head && a!= inv_item_info_text && a!= inv_options && a!= inv_item_equip_slot)
                     {
                      slot[hover_id, a] = 0;
@@ -459,8 +466,9 @@ if (mouse_in(hover_x, hover_x + 32, hover_y, hover_y + 32))
                {
                 if (drag)
                    {
-                    drag = false;
-                    
+                    drag        = false;
+                    if (slot[switch_slot, inv_id] != 0) {switch_slot = inventoryGetFirstFreeSlot();}
+
                     for (a = 0; a<inv_atributes_total; a++)
                         {           
                          if (a!= inv_item_beingUsed) { slot[switch_slot,a] = switch_temp[0,a]; }     
@@ -470,7 +478,11 @@ if (mouse_in(hover_x, hover_x + 32, hover_y, hover_y + 32))
                         {
                          slot_option[switch_slot,c] = switch_option[0,c];           
                         } 
-                                         
+                    
+                    for (d = 0; d < celkem_vlastnosti; d++)
+                        {
+                         slot_vlastnosti[switch_slot, d] = temp_vlastnosti[d];       
+                        }                                         
                     draw_item_mouse = 0;
                     drag_alpha      = 1;                 
                    }
