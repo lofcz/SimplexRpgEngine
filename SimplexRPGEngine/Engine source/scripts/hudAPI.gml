@@ -70,17 +70,17 @@ draw_sprite(sExperienceBarNew, 2, (x + (xx) + spellsxPlus), (y + (yy) + yoffset)
 // Clear draw mode and draw exp text   
 clr(c_black, hudAlpha);
 alg("center", fntPixelSmall);
-draw_text((x + xx + 119 + spellsxPlus), (y + (yy - 11) + yoffset), (string(oPlayer.last_xp)+ " / " + string(oPlayer.vlastnost[vlastnost_max_zkusenosti])));
+draw_text(view_xview + xx + 400 - (string_width((string(oPlayer.last_xp)+ " / " + string(oPlayer.vlastnost[vlastnost_max_zkusenosti]))) / 2), (y + (yy - 11) + yoffset) + 15, (string(oPlayer.last_xp)+ " / " + string(oPlayer.vlastnost[vlastnost_max_zkusenosti])));
 
 // Change font to bigger one and take care of unspent talent points notification
 alg("center", fntPixel);
 if (oPlayer.talentPoints == 0) 
     {
-     draw_text((x + (xx - 15) + spellsxPlus), (y + yy + 4 + yoffset), string(oPlayer.vlastnost[vlastnost_level]));
+    // draw_text((x + (xx - 15) + spellsxPlus), (y + yy + 4 + yoffset), string(oPlayer.vlastnost[vlastnost_level]));
     }
 else 
     {
-     draw_text((x + (xx - 15) + spellsxPlus), (y + yy + 4 + yoffset), ("+" + string(oPlayer.talentPoints)));
+  //   draw_text((x + (xx - 15) + spellsxPlus), (y + yy + 4 + yoffset), ("+" + string(oPlayer.talentPoints)));
     }
 alg();
 
@@ -96,7 +96,7 @@ if (oPlayer.talentPoints > 0)
          if (skillPointsA > 0.5)  {skillPointsA -= 0.02;} else {skillPointsM = false;}
         }
           
-     draw_sprite_ext(sExperienceBar, 1, (x + (xx - 31) + spellsxPlus), (y + (yy - 11) + yoffset), 1, 1 , 0, c_white, min(skillPointsA, hudAlpha));                 
+//     draw_sprite_ext(sExperienceBar, 1, (x + (xx - 31) + spellsxPlus), (y + (yy - 11) + yoffset), 1, 1 , 0, c_white, min(skillPointsA, hudAlpha));                 
      }
 
 // Check if mouse clicked in the notification area

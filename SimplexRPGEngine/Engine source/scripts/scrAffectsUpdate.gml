@@ -2,7 +2,7 @@
 
 var index, pos, xx, yy, xxx, yyy, offset, lineN, doTick;
 xx     = view_xview + 620;
-yy     = view_yview + 142;
+yy     = view_yview + 222;
 offset = 46;
 lineN  = 4;
 doTick = false;

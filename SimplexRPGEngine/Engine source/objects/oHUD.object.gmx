@@ -304,14 +304,14 @@ alg("center", fntPixelSmall);
 //scrHudDrawBar(600, 30, 4, 11, 2, oPlayer.last_stit, oPlayer.vlastnost[vlastnost_max_stit], 1);
 //scrHudDrawBar(600, 60, 0, 9, 0, oPlayer.last_mana, oPlayer.maxMp, 2);
 //scrHudDrawBar(600, 90, 6, 12, 3, oPlayer.last_stamina, oPlayer.vlastnost[vlastnost_max_stamina], 3);
-scrHudDrawXpBar(184, 546);
+scrHudDrawXpBar(0, 588);
 
 qx      = 184 + view_xview;
-qy      = 560 + view_yview;
+qy      = 548 + view_yview;
 canBind = true;
 temp    = false;
 
-for (var z = 0; z &lt; 9; z++)
+for (z = 0; z &lt; 9; z++)
      {
      draw_sprite(sSpellsUI, 4, qx, qy);
      
@@ -325,6 +325,16 @@ for (var z = 0; z &lt; 9; z++)
         {
           if (oInventory.drag &amp;&amp; mouse_check_button_released(mb_left) &amp;&amp; oInventory.slot_vlastnosti[oInventory.h_c, vlastnost_canBeFastEquiped])
                     {
+                      // If any other slot is occupied by the same item, delete the old reference
+                      for (zz = 0; zz &lt; 9; zz++)
+                          {
+                           if (hotslot[zz, 0] == oInventory.equip_sprite_s[6])
+                              {
+                               hotslot[zz, 0] = 0;
+                               hotslot[zz, 3] = 0;                     
+                              }
+                          }
+                                             
                       hotslot[z, 0] = oInventory.equip_sprite_s[6];
                       canBind       = false;
                       hotslot[z, 1] = 1;
@@ -348,11 +358,9 @@ for (var z = 0; z &lt; 9; z++)
      var number = -1;
      if (hotslot[z, 3] != 0 &amp;&amp; !temp) 
         {
-        if (!oInventory.drag)
-        {
+
         number = inventoryNumber(hotslot[z, 0]);
         if (number == 0) {hotslot[z, 0] = 0; hotslot[z, 3] = 0;}
-       }
        
      clr(c_black, hudAlpha / 2);
      draw_roundrect_ext(qx+23-(string_width(string(number))/2),qy,qx+26+(string_width(string(number))/2),qy+12,10,10,0);
@@ -370,7 +378,7 @@ for (var z = 0; z &lt; 9; z++)
         
      qx += 48;
     }
-
+/*
 // Draw binded spells
 alg("default", fntPixelHuge);
 
@@ -458,7 +466,7 @@ alg("default", fntPixelHuge);
      // Adjust alpha
      if (drawItemsSlots) {itemSlotsAlpha = lerp(itemSlotsAlpha, 1, 0.1);}
      else {itemSlotsAlpha = lerp(itemSlotsAlpha, 0, 0.1);}   
-     
+*/     
      
      // Draw item slots   
      if (itemSlotsAlpha &gt; 0.05)
@@ -526,6 +534,7 @@ alg("default", fntPixelHuge);
      if (scale_status    &lt; 1.2 &amp;&amp; draw_status)    {scale_status    += 0.02;}
  
      // Draw outline
+     /*
      tempAlpha = min(0.7, iconAlpha[hudIcons.bestiary], hudAlpha);
      if (iconAlpha[hudIcons.bestiary] &lt; 1) {tempAlpha = 0;}
      draw_sprite_ext(sBestiary,0,view_xview+8+16,view_yview+560+16+yoffset,effect_scale,effect_scale,0,c_black,tempAlpha);
@@ -541,15 +550,16 @@ alg("default", fntPixelHuge);
      tempAlpha = min(0.7, iconAlpha[hudIcons.quest], hudAlpha);
      if (iconAlpha[hudIcons.quest]  &lt; 1) {tempAlpha = 0;}
      draw_sprite_ext(sQuestIcon,0,view_xview+96+8,view_yview+560+16+yoffset,effect_scale2,effect_scale2,0,c_black,tempAlpha);
-
+    */
      
      // Draw full icons
+     /*
      draw_sprite_ext(sBestiary,  0, (view_xview + 24 ), (view_yview + 576 + yoffset), iconAlpha[hudIcons.bestiary],  iconAlpha[hudIcons.bestiary],  0, c_white, min(iconAlpha[hudIcons.bestiary], hudAlpha));
      draw_sprite_ext(sCrafting,  0, (view_xview + 144), (view_yview + 576 + yoffset), iconAlpha[hudIcons.crafting],  iconAlpha[hudIcons.crafting],  0, c_white, min(iconAlpha[hudIcons.crafting], hudAlpha));
      draw_sprite_ext(sEquipment, 0, (view_xview + 184), (view_yview + 576 + yoffset), iconAlpha[hudIcons.equipment], iconAlpha[hudIcons.equipment], 0, c_white, min(iconAlpha[hudIcons.equipment], hudAlpha));
      draw_sprite_ext(sStatus,    0, (view_xview + 224), (view_yview + 576 + yoffset), iconAlpha[hudIcons.status],    iconAlpha[hudIcons.status],    0, c_white, min(iconAlpha[hudIcons.status], hudAlpha));
      draw_sprite_ext(sQuestIcon, 0, (view_xview + 104), (view_yview + 576 + yoffset), iconAlpha[hudIcons.quest],     iconAlpha[hudIcons.quest],     0, c_white, min(iconAlpha[hudIcons.quest], hudAlpha));
-
+    */
      // Adjust full icons alpha
      for (i = 0; i &lt; array_length_1d(iconAlpha); i++)
         {
@@ -619,11 +629,12 @@ if (oPlayer.last_hp &lt;= 0) {die = 1; oPlayer.can_move2 = 0;}
    
 if (die)
     {
+     var_vsync = false;
      die_alpha += 0.05;
      draw_set_color(c_black);
      draw_set_alpha(die_alpha);
      draw_rectangle(view_xview,view_yview,view_xview+view_wview,view_yview+view_hview,0);        
-     if (die_alpha &gt;= 1) {game_restart();}
+     if (die_alpha &gt;= 1) {display_reset(0,!var_vsync); display_reset(0,var_vsync); game_restart();}
     }
 
 // Spell switching

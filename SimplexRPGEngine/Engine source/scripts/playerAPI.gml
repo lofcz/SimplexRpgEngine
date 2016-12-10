@@ -1032,6 +1032,8 @@ speechIn              = false;
 speechCurrentText     = "";
 speechMode            = 0;
 speechSkip            = false;
+last_mp               = 0;
+
 set_sprite(sprite_index, 0);
 
 for(a = 0; a < celkem_vlastnosti; a++)

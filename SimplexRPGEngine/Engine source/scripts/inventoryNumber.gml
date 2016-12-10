@@ -13,7 +13,7 @@ for (a = 0; a < oInventory.slots; a++)
      if (oInventory.slot[a, inv_id] == idd)
         {
          ret += oInventory.slot[a, inv_number];
-         t    = i;
+         t    = a;
         }    
     }    
     
