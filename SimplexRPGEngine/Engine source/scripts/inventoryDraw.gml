@@ -67,7 +67,7 @@ for (a = (currentPage*slotsPerPage); a < min(array_height_2d(slot), ((currentPag
         }
      else {if (slot[a, inv_item_star] != 1) {fAlpha = filterAlpha;} else {fAlpha = 1;}}
      
-     if (h_c == a) 
+     if (h_c == a && h_c > 0) 
         {
          clr(-1, 0.5);
          draw_sprite(sTestItem, equip_sprite_s[1], xx + 16, yy + 16); 
@@ -368,7 +368,7 @@ if (mouse_in(hover_x, hover_x + 32, hover_y, hover_y + 32))
        {
         h_c           = hover_id;
         drag          = true;
-        drag_controll = 1;
+        drag_controll = true;
             
         for (a = 0; a < inv_atributes_total; a++)
             {
@@ -399,7 +399,7 @@ if (mouse_in(hover_x, hover_x + 32, hover_y, hover_y + 32))
 
             } 
 
-       draw_item_mouse = 1;
+       draw_item_mouse = true;
            
        for (b = 0; b < 10; b++)
            {
@@ -417,7 +417,7 @@ if (mouse_in(hover_x, hover_x + 32, hover_y, hover_y + 32))
            
     if (mouse_check_button_released(mb_left) && drag && !proceed)
           {          
-           if (!inventorySwitchPre())
+           if (!inventorySwitchPre() && equip_sprite_s[5] > 0)
               {
                switch_slot   = inventoryGetFirstFreeSlot();
                drag          = false;

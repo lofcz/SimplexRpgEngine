@@ -3,7 +3,7 @@
 if (view_current == 0)
 {
 x = (view_xview + view_wview);
-y = (view_yview + 150);
+y = (view_yview + 220);
 
 // Computations
 nX    = (x - drawX);
@@ -18,6 +18,8 @@ if (activated) {if (drawX < xOffset) {drawX = lerp(drawX, xOffset + 8, 0.05);}}
 else {if (drawX > 0) {drawX = lerp(drawX, -8, 0.05);}}
 
 // Draw header 
+if (drawX > 0.1)
+{
 clr();
 draw_sprite(sBestiar, 0, nX, y);
 draw_sprite(sBestiar, 2, nX, y);
@@ -206,4 +208,5 @@ for (i = (currentPage * entriesPerPage); i < (((currentPage * entriesPerPage)) +
 
 if (hover) {if (hoverA < 0.5) {hoverA = lerp(hoverA, 0.5, 0.1);}}
 else {if (hoverA > 0) {hoverA = 0;}}
+}
 }

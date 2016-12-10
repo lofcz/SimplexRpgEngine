@@ -481,7 +481,7 @@
     <option_tvos_splash_png>Configs\Default\tvos\splash.png</option_tvos_splash_png>
     <option_tvos_splash_time>0</option_tvos_splash_time>
     <option_tvos_texture_page>2048</option_tvos_texture_page>
-    <option_use_fast_collision>True</option_use_fast_collision>
+    <option_use_fast_collision>False</option_use_fast_collision>
     <option_use_new_audio>True</option_use_new_audio>
     <option_variableerrors>False</option_variableerrors>
     <option_version>100</option_version>

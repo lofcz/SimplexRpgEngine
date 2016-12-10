@@ -28,9 +28,14 @@
             <string>/// Set up
 
 scrMinimapIni(200, 200, "M");
-oSurface = -1;
 
 zoomFactor = 800;
+
+iconAlpha[0] = 0;
+iconAlpha[1] = 0;
+iconAlpha[2] = 0;
+iconAlpha[3] = 0;
+
 </string>
           </argument>
         </arguments>
@@ -58,61 +63,6 @@ zoomFactor = 800;
 draw = 1;
 event_user(0);
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Create and populate Surface
-
-/* If the surface does not exist, we create it. Surfaces can be discarded in memory at any time, so we need to always check this before we use it. */
-if (!surface_exists(oSurface)){
-    oSurface = surface_create(room_width, room_height);
-}
-
-// Set the surface as texture taret
-surface_set_target(oSurface);
-
-// Clear it with black
-draw_clear_alpha(c_black, 0.5);
-
-/* Draw the second, dark background. You can leave this out if you prefer the minimap to have a black background or you can also draw the same background as the real room, but I don't like that. However, it is up to you. */
-//draw_background_tiled(background1, 0, 0);
-//
-// Here we find out how many objects exist that want to be drawn on the minimap.
-var numObjects = instance_number(parTree)
-
-// Here we loop through all those objects from 0 to the max number of objects.
-for ( var i = 0; i &lt; numObjects; i++ )
-{
-    var obj = instance_find( parTree, i );
-    scrMinimapProcessInstance(obj);
-
-         // Remember that we have 2 images inside our sprites? This code draws the second one.
-        draw_sprite( obj.sprite_index, 1, obj.x, obj.y );
-
-}
-
-// Tell GM:S to stop drawing to this surface.
-
-surface_reset_target();
 </string>
           </argument>
         </arguments>

@@ -9,30 +9,46 @@ if (argument_count > 0) {ar_id    = argument[0];}
 if (argument_count > 1) {ar_count = argument[1];}
 
 if (inventoryNumber(ar_id) > 0)
-{
-for(a = (oInventory.slots - 1); a >= 0; a--)
-{
-if (oInventory.slot[a,inv_id] == ar_id)
    {
-    slot_count = oInventory.slot[a,inv_number];
+    // Iterate all the slots
+    for (a = (oInventory.slots - 1); a >= 0; a--)
+        {
+         if (oInventory.slot[a,inv_id] == ar_id)
+            {
+             slot_count = oInventory.slot[a,inv_number];
     
-    if (slot_count >= ar_count)
-       {
-       if (slot_count == ar_count) 
-          {
-          inventoryResetSlot(a);
-          }
-       else {oInventory.slot[a,inv_number] -= ar_count;}
+             if (slot_count >= ar_count)
+                {
+                 if (slot_count == ar_count) {inventoryResetSlot(a);}
+                 else {oInventory.slot[a,inv_number] -= ar_count;}
+                }
+             else
+                 {                                                                                                                                                                              
+                  inventoryResetSlot(a);  
+                  inventoryDelete(ar_id, ar_count);
+                 }
+             break;
+            }                 
        }
-       else
-           {                                                                                                       //show_message(ar_count);           ar_count -= slot_count;                                                                                                       //show_message("reset clot: slot_count< ar_count"); 
-           inventoryResetSlot(a);  
-           inventoryDelete(ar_id, ar_count);
+    // Check if item is not being draged
+    if (ar_count > 0)
+       {
+        if (oInventory.drag)
+           {
+            if (oInventory.equip_sprite_s[6] == ar_id)
+               {
+                oInventory.equip_sprite_s[5] -= ar_count;
+                
+                // Check if item was has been completely deleted
+                if (oInventory.equip_sprite_s[5] <= 0)
+                   {
+                    oInventory.drag            = false;
+                    oInventory.draw_item_mouse = false;
+                   }
+               }
            }
-    break;
-  }                 
- }
-}
+       }
+  }
 
 #define inventoryResetSlot
 /// inventoryResetSlot(slot)

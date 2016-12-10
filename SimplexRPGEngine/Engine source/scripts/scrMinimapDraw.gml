@@ -4,27 +4,6 @@
 /// Draw Surface to Screen
 
 // Check for surface before drawing, it could be dead already. Should not happen, but can.
-if (surface_exists(oSurface))
-{
-    // Draw the surface first. But, since this surface is quite big, we are going to scale it down a bit and draw it to the top left on the screen.
-     //shader_set(shdCircle);
- //    draw_set_blend_mode(bm_subtract);
-  //   draw_surface_stretched( oSurface, view_xview+40, view_yview+40, 512, 512);
-    // draw_sprite(sLightGradient, 0, 40, 40);
-   //  draw_set_blend_mode(bm_normal);
- //    shader_reset();
- //   // Save the old color that was set
-  //  var old = draw_get_color();
-
-    // Get us a nice red
-  //  draw_set_color(c_red);
-
-    // Draw a red rectangle around it, so we can even better distinguish it from the actual room.
- //   draw_rectangle( 40, 40, room_width/8+40, room_height/8+40, true);
-
-    // Set the old draw color
-  //  draw_set_color(old);
-}
 
 if (draw)
 {
@@ -59,7 +38,7 @@ if (instance_number(oPlayer) > 0 && draw)
 m_alpha = min(1, oHUD.hudAlpha);
 
 //shader_set(shdCircle);
-
+draw_set_circle_precision(64);
 draw_set_alpha(min(0.3, oHUD.hudAlpha))
 draw_set_color(c_black)
 //draw_circle(x + (width / 2),y + (width / 2), width, false);//
@@ -68,17 +47,9 @@ draw_set_color(c_black)
 draw_set_alpha(min(1, oHUD.hudAlpha))
 //draw_circle(x + (width / 2),y + (width / 2), width, true);//
 draw_roundrect_ext(x,y,x+width-2,y+height-2,256,256,true)
+draw_set_circle_precision(24);
 
 
-draw_set_alpha(min(1, oHUD.hudAlpha))      
-draw_set_color(c_gray)
-             
-draw_circle(x + 100, y + 195, 16, false);
-draw_set_color(c_black)
-             
-draw_circle(x + 100, y + 195, 16, true);
-
-draw_set_alpha(min(1, oHUD.hudAlpha))
 
 
 
@@ -207,12 +178,34 @@ show_message("Minimap zoom");
 
 }
 */
+if (oInventory.draw_inventory) {iconAlpha[0] = lerp(iconAlpha[0], 0.5, 0.1);}
+else {iconAlpha[0] = lerp(iconAlpha[0], 0, 0.1);}
+if (oBestiar.activated) {iconAlpha[1] = lerp(iconAlpha[1], 0.5, 0.1);}
+else {iconAlpha[1] = lerp(iconAlpha[1], 0, 0.1);}
+
+scrMinimapDrawIcon(0, sInventory, x + 100, y + 195, 20, 3);
+scrMinimapDrawIcon(1, sBestiary,  x + 152, y + 180, 20, 2);
+scrMinimapDrawIcon(2, sQuestIcon, x + 185, y + 140, 20, 2);
+scrMinimapDrawIcon(3, sStatus,    x + 45, y + 20, 20, 2);
+
+scrMinimapDrawTool(sZoomInIcon,  x + 155, y + 20);
+scrMinimapDrawTool(sZoomOutIcon, x + 178, y + 40);
+
+
+/*
+draw_set_alpha(min(1, oHUD.hudAlpha))      
+draw_set_color(c_gray)             
+draw_circle_colour(x + 100, y + 195, 14, c_gray, c_dkgray, false);
+draw_sprite_stretched(sInventory, 0, x + 100 - 11, y + 195 - 12, 26, 26); 
+draw_set_color(c_black)             
+draw_circle(x + 100, y + 195, 14, true);
+draw_set_alpha(min(1, oHUD.hudAlpha))*/
+
 }
 
 
 if (drawMode == 1)
 {
-
 view_visible[1] = true;
 
 x1       = 0;
@@ -372,3 +365,49 @@ if (instance_exists(i))
    
 returnArray[0] = qx;
 returnArray[1] = qy;
+#define scrMinimapDrawIcon
+/// scrMinimapDrawIcon(index, sprite, x, y, iconSize, offset)
+
+var i, s, xx, yy, is, o;
+i  = 0;
+s  = sInventory;
+xx = x;
+yy = y;
+is = 26;
+o  = 0;
+
+if (argument_count > 0) {i  = argument[0];}
+if (argument_count > 1) {s  = argument[1];}
+if (argument_count > 2) {xx = argument[2];}
+if (argument_count > 3) {yy = argument[3];}
+if (argument_count > 4) {is = argument[4];}
+if (argument_count > 5) {o  = argument[5];}
+
+
+clr(c_black, min(1, oHUD.hudAlpha));               
+draw_circle_colour(xx, yy, 14, c_gray, c_dkgray, false);
+draw_sprite_stretched(s, 0, xx - 11 + o, yy - 12 + o, is, is);   
+clr(-1, min(oHUD.hudAlpha, iconAlpha[i])); 
+draw_circle_colour(xx, yy, 14, c_white, c_white, false);   
+clr(c_black, min(1, oHUD.hudAlpha));       
+draw_circle(xx, yy, 14, true);
+
+
+#define scrMinimapDrawTool
+/// scrMinimapDrawTool(sprite, x, y)
+
+var s, xx, yy
+s  = 1;
+xx = x;
+yy = y;
+
+if (argument_count > 0) {s  = argument[0];}
+if (argument_count > 1) {xx = argument[1];}
+if (argument_count > 2) {yy = argument[2];}
+
+clr(c_black, min(1, oHUD.hudAlpha));               
+draw_circle_colour(xx, yy, 10, c_gray, c_dkgray, false);
+draw_sprite_stretched(s, 0, xx - 5, yy - 5, 12, 12);     
+clr(c_black, min(1, oHUD.hudAlpha));       
+draw_circle(xx, yy, 10, true);
+

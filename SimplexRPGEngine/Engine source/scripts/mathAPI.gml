@@ -60,7 +60,7 @@ return(r);
 #define stp
 /// stp(min, max, amount)
 
-var v, mi, ma, r, p;
+var v, mi, ma, r, p, r, q;
 v  = 0;
 ma = 1;
 mi = 0;
@@ -69,5 +69,10 @@ if (argument_count > 0) {mi = argument[0];}
 if (argument_count > 1) {ma = argument[1];}
 if (argument_count > 2) {v  = argument[2];}
 
-p = clamp((v - mi) / (ma - mi), 0.0, 1.0);
-return (p * p * (3 - 2 * p));
+r = (mi / ma);
+
+
+p = clamp((v - 1) / (1 - r), 0.0, 1.0);
+q = (p * p * (3 - 2 * p));
+
+return (q * ma);

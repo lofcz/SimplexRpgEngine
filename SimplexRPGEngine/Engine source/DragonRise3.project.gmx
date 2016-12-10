@@ -355,6 +355,8 @@
         <sprite>sprites\sTalentMenuIcons</sprite>
         <sprite>sprites\sConstructionSiteMask</sprite>
         <sprite>sprites\sUpgradeIcons</sprite>
+        <sprite>sprites\sZoomInIcon</sprite>
+        <sprite>sprites\sZoomOutIcon</sprite>
         <sprite>sprites\sMinimapIcons</sprite>
       </sprites>
       <sprites name="HUD Bars">
