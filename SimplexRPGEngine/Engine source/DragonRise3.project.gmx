@@ -402,6 +402,7 @@
         <sprite>sprites\sSwordSwingDown</sprite>
         <sprite>sprites\sSwordSwingReversed</sprite>
         <sprite>sprites\sSwordSwingUp</sprite>
+        <sprite>sprites\sLightGradient</sprite>
       </sprites>
       <sprites name="Masks">
         <sprite>sprites\sMask26x26</sprite>
@@ -1091,6 +1092,7 @@
     <shaders name="Lightmap">
       <shader type="GLSLES">shaders\shdLightmap.shader</shader>
     </shaders>
+    <shader type="GLSLES">shaders\shdCircle.shader</shader>
   </shaders>
   <fonts name="fonts">
     <fonts name="Standard game fonts">

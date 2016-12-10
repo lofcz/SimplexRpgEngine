@@ -1,29 +1,89 @@
+#define scrMinimapDraw
 /// scrMinimapDraw()
+
+/// Draw Surface to Screen
+
+// Check for surface before drawing, it could be dead already. Should not happen, but can.
+if (surface_exists(oSurface))
+{
+    // Draw the surface first. But, since this surface is quite big, we are going to scale it down a bit and draw it to the top left on the screen.
+     //shader_set(shdCircle);
+ //    draw_set_blend_mode(bm_subtract);
+  //   draw_surface_stretched( oSurface, view_xview+40, view_yview+40, 512, 512);
+    // draw_sprite(sLightGradient, 0, 40, 40);
+   //  draw_set_blend_mode(bm_normal);
+ //    shader_reset();
+ //   // Save the old color that was set
+  //  var old = draw_get_color();
+
+    // Get us a nice red
+  //  draw_set_color(c_red);
+
+    // Draw a red rectangle around it, so we can even better distinguish it from the actual room.
+ //   draw_rectangle( 40, 40, room_width/8+40, room_height/8+40, true);
+
+    // Set the old draw color
+  //  draw_set_color(old);
+}
 
 if (draw)
 {
+x        = view_xview+(view_wview - width);
+y        = view_yview;
+
+clr(c_black, 0.5);
+rr = (r / 2);
+//draw_circle(x + rr, y + rr, r, false);
+clr();
+//draw_circle(x + rr, y + rr, r, true);
+
+
+scrMinimapProcessInstance(oPlayer);
+
+clr(c_blue, 1);
+draw_circle(x + returnArray[0], y + returnArray[1], 16, false);
+
+
+
 if (drawMode == 0)
 {
-view_visible[1] = false;
 x1       = 0;
 y1       = 0;
 x2       = zoom_x;
 y2       = zoom_y;
 m_alpha  = 1;
-x        = view_xview+(view_wview - width);
-y        = view_yview+(view_hview - height);
 
    
 if (instance_number(oPlayer) > 0 && draw) 
 {
 m_alpha = min(1, oHUD.hudAlpha);
 
+//shader_set(shdCircle);
+
 draw_set_alpha(min(0.3, oHUD.hudAlpha))
 draw_set_color(c_black)
-draw_roundrect(x,y,x+width-1,y+height-2,0)
+//draw_circle(x + (width / 2),y + (width / 2), width, false);//
+draw_roundrect_ext(x,y,x+width-1,y+height-2,256, 256, false);
 draw_set_color(c_black)
 draw_set_alpha(min(1, oHUD.hudAlpha))
-draw_roundrect(x,y,x+width-2,y+height-2,1)
+//draw_circle(x + (width / 2),y + (width / 2), width, true);//
+draw_roundrect_ext(x,y,x+width-2,y+height-2,256,256,true)
+
+
+draw_set_alpha(min(1, oHUD.hudAlpha))      
+draw_set_color(c_gray)
+             
+draw_circle(x + 100, y + 195, 16, false);
+draw_set_color(c_black)
+             
+draw_circle(x + 100, y + 195, 16, true);
+
+draw_set_alpha(min(1, oHUD.hudAlpha))
+
+
+
+
+//shader_reset();
 
 //draw_sprite_stretched(screenSave, 0, x, y, 128, 128);
 
@@ -35,6 +95,11 @@ if x>oMinimap.x1
 if y>oMinimap.y1
 if x<oMinimap.x2
 if y<oMinimap.y2
+
+dx = oMinimap.x+((x-oMinimap.x1)*oMinimap.sizex);
+dy = oMinimap.y+((y-oMinimap.y1)*oMinimap.sizey);
+
+if (point_in_circle(dx, dy, oMinimap.x + 100, oMinimap.y + 100, 96))
 draw_circle(oMinimap.x+((x-oMinimap.x1)*oMinimap.sizex),oMinimap.y+((y-oMinimap.y1)*oMinimap.sizey),2,false)
 }
 with (parEnemy)
@@ -143,6 +208,7 @@ show_message("Minimap zoom");
 }
 */
 }
+
 
 if (drawMode == 1)
 {
@@ -289,3 +355,20 @@ if (instance_number(oPlayer) > 0)
       if (keyboard_check_pressed(ord(action_key))) {draw = !draw;}
       }
    }
+
+#define scrMinimapProcessInstance
+/// scrMinimapProcessInstance(instance)
+
+var i, qx, qy;
+i = -1;
+
+if (argument_count > 0) {i = argument[0];}
+
+if (instance_exists(i))
+   {
+    qx = ((zoomFactor / room_width)  * i.x);
+    qy = ((zoomFactor / room_height) * i.y);    
+   }
+   
+returnArray[0] = qx;
+returnArray[1] = qy;

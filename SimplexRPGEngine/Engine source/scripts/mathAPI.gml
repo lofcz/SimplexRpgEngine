@@ -57,3 +57,17 @@ if (v > 0) {if (mi < ma) {r += v;}}
 else {if (mi > ma) {r += v;}}
 
 return(r);
+#define stp
+/// stp(min, max, amount)
+
+var v, mi, ma, r, p;
+v  = 0;
+ma = 1;
+mi = 0;
+
+if (argument_count > 0) {mi = argument[0];}
+if (argument_count > 1) {ma = argument[1];}
+if (argument_count > 2) {v  = argument[2];}
+
+p = clamp((v - mi) / (ma - mi), 0.0, 1.0);
+return (p * p * (3 - 2 * p));

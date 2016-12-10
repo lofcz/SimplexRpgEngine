@@ -39,5 +39,6 @@ pointListMap    = ds_list_create();
 hoverAlpha      = 0;
 lastI           = -1;
 drawMode        = 0;
+r               = 100;
 
 alarm[0]       = 1;

@@ -108,8 +108,17 @@ if (currentAnimation == animationEnum.walk)
 // Drain stamina and spawn particles. Also stop sprinting in case of insufficient stamina.
 if (keyboard_check(vk_shift))       
     {
-     if (vlastnost[vlastnost_stamina] > 0) {vlastnost[vlastnost_stamina] -= 0.1; speed += 1; sprinting = 1; effectSprint();}
-     else {sprinting = 0;} 
+     if (vlastnost[vlastnost_stamina] > 0) {vlastnost[vlastnost_stamina] -= 0.1; speed += 1; sprinting = true;}
+     else {sprinting = false;} 
+     
+     // Splash particles
+     if (sprinting)
+        {
+         if (dir == "w") {effectSprint(x, y + 24);}
+         else if (dir == "s") {effectSprint();}
+         else if (dir == "a") {effectSprint(x, y + 24);}
+         else if (dir == "d") {effectSprint(x, y + 24);}
+        }
     }
 else 
     {
@@ -163,8 +172,7 @@ health_dif  = abs(last_hp - vlastnost[vlastnost_zivot]);
 if (stamina_dif <= 5) {stamina_bar = 0.1;}
 if (health_dif  <= 5) {health_bar = 0.1;}
 else {health_bar = 1;} 
-
-      
+     
 last_hp      = lerp(last_hp,       vlastnost[vlastnost_zivot],      0.1);
 last_stit    = lerp(last_stit,     vlastnost[vlastnost_stit],       0.1);
 last_mana    = lerp(last_mana,     vlastnost[vlastnost_mana],       0.1);

@@ -149,5 +149,3 @@ for (var a = 0; a < oInventory.slots; a++)
         }                
     } 
 return tempSlot;
-
-
