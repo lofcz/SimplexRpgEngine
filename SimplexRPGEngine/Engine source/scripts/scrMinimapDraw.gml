@@ -4,38 +4,21 @@
 /// Draw Surface to Screen
 
 // Check for surface before drawing, it could be dead already. Should not happen, but can.
-
 if (draw)
 {
-x        = view_xview+(view_wview - width);
-y        = view_yview;
-
-clr(c_black, 0.5);
-rr = (r / 2);
-//draw_circle(x + rr, y + rr, r, false);
-clr();
-//draw_circle(x + rr, y + rr, r, true);
-
-
-scrMinimapProcessInstance(oPlayer);
-
-clr(c_blue, 1);
-draw_circle(x + returnArray[0], y + returnArray[1], 16, false);
-
-
+x = view_xview+(view_wview - width);
+y = view_yview;
 
 if (drawMode == 0)
 {
-x1       = 0;
-y1       = 0;
-x2       = zoom_x;
-y2       = zoom_y;
-m_alpha  = 1;
+x1              = max(view_xview - minimapZoom, 0);
+y1              = max(view_yview - minimapZoom, 0);
+x2              = min(view_xview + view_wview + minimapZoom, room_width);
+y2              = min(view_yview + view_hview + minimapZoom, room_height);
+m_alpha         = 1;
 
-   
 if (instance_number(oPlayer) > 0 && draw) 
 {
-
 m_alpha = min(1, oHUD.hudAlpha);
 
 //shader_set(shdCircle);
@@ -54,40 +37,39 @@ clr(c_aqua, -1);
 // Draw points on map
 with (oPlayer)
 {
-if (x > oMinimap.x1 && y > oMinimap.y1 && x < oMinimap.x2 && y < oMinimap.y2)
-   {
     dx = oMinimap.x+((x-oMinimap.x1)*oMinimap.sizex);
     dy = oMinimap.y+((y-oMinimap.y1)*oMinimap.sizey);
-
-    if (point_in_circle(dx, dy, oMinimap.x + 100, oMinimap.y + 100, 96)) {draw_circle(oMinimap.x+((x-oMinimap.x1)*oMinimap.sizex),oMinimap.y+((y-oMinimap.y1)*oMinimap.sizey),2,false);}
-   }
+    
+    if (point_in_circle(dx, dy, oMinimap.x + 100, oMinimap.y + 100, 96)) {draw_circle(dx,dy,2,false);}
 }
 
 with (parEnemy)
 {
-if (x > oMinimap.x1 && y > oMinimap.y1 && x < oMinimap.x2 && y < oMinimap.y2)
-   {
+m_alpha = 5-(distance_to_object(oPlayer)/100);
+
+if (m_alpha > 0.02)
+{
     dx = oMinimap.x+((x-oMinimap.x1)*oMinimap.sizex);
     dy = oMinimap.y+((y-oMinimap.y1)*oMinimap.sizey);
-    m_alpha = 5-(distance_to_object(oPlayer)/100);
 
     clr(-1, min(m_alpha, oHUD.hudAlpha));
     if (point_in_circle(dx, dy, oMinimap.x + 100, oMinimap.y + 100, 96)) {draw_circle_colour(oMinimap.x+((x-oMinimap.x1)*oMinimap.sizex),oMinimap.y+((y-oMinimap.y1)*oMinimap.sizey),2,c_red, c_red,false);}
-   }
+}
 }
 
 
 with (parTree)
 {
-if (x > oMinimap.x1 && y > oMinimap.y1 && x < oMinimap.x2 && y < oMinimap.y2)
-   {
+m_alpha = 5-(distance_to_object(oPlayer)/100);
+
+if (m_alpha > 0.02)
+{
     dx = oMinimap.x+((x-oMinimap.x1)*oMinimap.sizex);
     dy = oMinimap.y+((y-oMinimap.y1)*oMinimap.sizey);
-    m_alpha = 5-(distance_to_object(oPlayer)/100);
 
     clr(-1, min(m_alpha, oHUD.hudAlpha));
     if (point_in_circle(dx, dy, oMinimap.x + 100, oMinimap.y + 100, 96)) {draw_rectangle_colour(oMinimap.x+((x-oMinimap.x1)*oMinimap.sizex),oMinimap.y+((y-oMinimap.y1)*oMinimap.sizey),oMinimap.x+((x-oMinimap.x1)*oMinimap.sizex)+4,oMinimap.y+((y-oMinimap.y1)*oMinimap.sizey)+4,m_color,m_color,m_color,m_color,0);}
-   }
+}
 }
 
 // Draw waypoints
@@ -103,7 +85,10 @@ for (i = 0; i < ds_list_size(pointList); i++)
      alg("center", fntPixelSmall);
      clr(pointListColor[| i], oHUD.hudAlpha);
      draw_text(oMinimap.x+(( pointListX[| i]-oMinimap.x1)*oMinimap.sizex), oMinimap.y+((pointListY[| i]-oMinimap.y1)*oMinimap.sizey), pointListSymbol[| i]);
-     if (pointListSprite[| i] != -1) {draw_sprite_ext(sMinimapIcons, pointListSprite[| i], oMinimap.x+(( pointListX[| i]-oMinimap.x1)*oMinimap.sizex), oMinimap.y+((pointListY[| i]-oMinimap.y1)*oMinimap.sizey), 0.5, 0.5, 0, c_white, min(1, oHUD.hudAlpha)); }
+     dx = oMinimap.x+(( pointListX[| i]-oMinimap.x1)*oMinimap.sizex);
+     dy = oMinimap.y+((pointListY[| i]-oMinimap.y1)*oMinimap.sizey);
+     
+     if (point_in_circle(dx, dy, oMinimap.x + 100, oMinimap.y + 100, 96)) {if (pointListSprite[| i] != -1) {draw_sprite_ext(sMinimapIcons, pointListSprite[| i], dx, dy, 0.5, 0.5, 0, c_white, min(1, oHUD.hudAlpha));}}
      alg();
      
      if (mouse_in(oMinimap.x+(( pointListX[| i]-oMinimap.x1)*oMinimap.sizex) - 8, oMinimap.x+(( pointListX[| i]-oMinimap.x1)*oMinimap.sizex) + 2, oMinimap.y+((pointListY[| i]-oMinimap.y1)*oMinimap.sizey) - 5, oMinimap.y+((pointListY[| i]-oMinimap.y1)*oMinimap.sizey) + 5))
@@ -184,8 +169,8 @@ scrMinimapDrawIcon(1, sBestiary,  x + 152, y + 180, 20, 2);
 scrMinimapDrawIcon(2, sQuestIcon, x + 185, y + 140, 20, 2);
 scrMinimapDrawIcon(3, sStatus,    x + 45, y + 20, 20, 2);
 
-scrMinimapDrawTool(sZoomInIcon,  x + 155, y + 20);
-scrMinimapDrawTool(sZoomOutIcon, x + 178, y + 40);
+scrMinimapDrawTool(sZoomInIcon,  x + 155, y + 20, 0);
+scrMinimapDrawTool(sZoomOutIcon, x + 178, y + 40, 1);
 
 /*
 draw_set_alpha(min(1, oHUD.hudAlpha))      
@@ -208,22 +193,6 @@ if (instance_number(oPlayer) > 0)
       }
    }
 
-#define scrMinimapProcessInstance
-/// scrMinimapProcessInstance(instance)
-
-var i, qx, qy;
-i = -1;
-
-if (argument_count > 0) {i = argument[0];}
-
-if (instance_exists(i))
-   {
-    qx = ((zoomFactor / room_width)  * i.x);
-    qy = ((zoomFactor / room_height) * i.y);    
-   }
-   
-returnArray[0] = qx;
-returnArray[1] = qy;
 #define scrMinimapDrawIcon
 /// scrMinimapDrawIcon(index, sprite, x, y, iconSize, offset)
 
@@ -253,20 +222,42 @@ draw_circle(xx, yy, 14, true);
 
 
 #define scrMinimapDrawTool
-/// scrMinimapDrawTool(sprite, x, y)
+/// scrMinimapDrawTool(sprite, x, y, index)
 
-var s, xx, yy
+var s, xx, yy, i
 s  = 1;
 xx = x;
 yy = y;
+i  = 0;
 
 if (argument_count > 0) {s  = argument[0];}
 if (argument_count > 1) {xx = argument[1];}
 if (argument_count > 2) {yy = argument[2];}
+if (argument_count > 3) {i  = argument[3];}
 
 clr(c_black, min(1, oHUD.hudAlpha));               
 draw_circle_colour(xx, yy, 10, c_gray, c_dkgray, false);
 draw_sprite_stretched(s, 0, xx - 5, yy - 5, 12, 12);     
 clr(c_black, min(1, oHUD.hudAlpha));       
 draw_circle(xx, yy, 10, true);
+
+if (mouse_check_button_pressed(mb_left))
+   {
+    if (point_in_circle(mouse_x, mouse_y, xx, yy, 10))
+       {
+        if (i == 0) {oMinimap.minimapZoom -= 100;}
+        if (i == 1) {oMinimap.minimapZoom += 100;}  
+        x1              = 0 - minimapZoom;
+y1              = 0 - minimapZoom;
+x2              = 0 + view_wview + minimapZoom;
+y2              = 0 + view_hview + minimapZoom;
+lenx            = x2-x1;
+leny            = y2-y1;
+sizex           = width/lenx;
+sizey           = height/leny;
+      
+       }
+   }
+
+
 

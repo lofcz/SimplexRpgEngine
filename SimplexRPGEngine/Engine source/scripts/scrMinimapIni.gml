@@ -10,10 +10,11 @@ if (argument_count > 1) {iWidth      = real(argument[1]);}
 if (argument_count > 2) {iActionKey  = string(argument[2]);}
 
 iActionKey      = string_upper(iActionKey);
-x1              = 0;
-y1              = 0;
-x2              = room_width;
-y2              = room_height;
+minimapZoom = 200;
+x1              = 0 - minimapZoom;
+y1              = 0 - minimapZoom;
+x2              = 0 + view_wview + minimapZoom;
+y2              = 0 + view_hview + minimapZoom;
 height          = iHeight;
 width           = iWidth;
 lenx            = x2-x1;
