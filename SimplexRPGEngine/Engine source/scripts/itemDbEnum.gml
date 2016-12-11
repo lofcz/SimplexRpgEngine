@@ -80,5 +80,7 @@ itemHelmetHat,
 itemArmorMetal,
 itemInventoryExtension,
 itemElixirStamina,
-itemWhetstone
+itemWhetstone,
+itemGift2
+
 };

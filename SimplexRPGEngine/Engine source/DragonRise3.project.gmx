@@ -524,6 +524,7 @@
               <sprite>sprites\sRelicLeftEffect</sprite>
               <sprite>sprites\sRelicRightEffect</sprite>
               <sprite>sprites\sRelicEffect</sprite>
+              <sprite>sprites\sGift2Effect</sprite>
               <sprite>sprites\sGiftEffect</sprite>
               <sprite>sprites\sLetterEffect</sprite>
               <sprite>sprites\sQuestEffect</sprite>
@@ -1383,6 +1384,7 @@
           <object>objects\oAlchemyDust</object>
           <object>objects\oWhetstone</object>
           <object>objects\oLofsGift</object>
+          <object>objects\oLofsGift2</object>
           <object>objects\oBasicLetter</object>
           <object>objects\oBasicItem</object>
           <object>objects\parItem</object>

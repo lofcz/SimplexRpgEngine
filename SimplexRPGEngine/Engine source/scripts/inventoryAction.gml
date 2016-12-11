@@ -70,7 +70,20 @@ switch (idd)
              inventoryAdd(oElixirHP, 10);
              inventoryAdd(oElixirMP, 10);
              inventoryAdd(oAlchemyDust, 10);
-             inventoryAdd(oGold, 150);
+             inventoryAdd(oGold, 80);
+            }
+         break;
+        }
+    case (itemEnum.itemGift2):
+        {
+         if (number == 0)
+            {
+             scrHintShow("Lof", "Ultimátní, megapekelný dárek pro backery Simplexu:##- 10x " + scrColorflag(c_red) + "Lektvar zdraví" + scrEndColorflag() + "#- 10x " + scrColorflag(c_aqua) + "Lektvar many" + scrEndColorflag() + "#- 60x " + scrColorflag(c_yellow) + "Esence" + scrEndColorflag() + "#- 160x " + scrColorflag(c_yellow) + "Zlatky" + scrEndColorflag() + " ");
+             inventoryDelete(itemEnum.itemGift2, 1);
+             inventoryAdd(oElixirHP, 10);
+             inventoryAdd(oElixirMP, 10);
+             inventoryAdd(oAlchemyDust, 60);
+             inventoryAdd(oGold, 160);
             }
          break;
         } 

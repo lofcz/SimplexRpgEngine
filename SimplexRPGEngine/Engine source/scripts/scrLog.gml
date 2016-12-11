@@ -21,6 +21,10 @@ if (argument_count > 6) {yy       = argument[6];}
 if (argument_count > 7) {font     = argument[7];}
 if (argument_count > 8) {mode     = argument[8];}
 
+if (text   == "-1") {text   = "+ " + itm_info_head;}
+if (color  == -1)   {color  = itm_effect;}
+if (sprite == -1)   {sprite = tempSpr;}
+
 if (override) 
    {
    switch(itm_info_color)
