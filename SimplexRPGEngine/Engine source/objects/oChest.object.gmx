@@ -131,8 +131,7 @@ if (animate = 2) {image_index = 0; image_speed = 0; animate = 0;}
             <kind>1</kind>
             <string>/// Draw chest
 
-scrShaderDrawColor()
-scrChestDraw()
+scrChestDraw();
 </string>
           </argument>
         </arguments>

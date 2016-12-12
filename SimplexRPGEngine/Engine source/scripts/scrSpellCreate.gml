@@ -1,18 +1,22 @@
 #define scrSpellCreate
-/// scrSpellCreate(spell, level)
+/// scrSpellCreate(spell, level, unlocked)
 
-var spell, level;
+var spell, level, u;
 spell    = SpellEnum.spellFlash;
 level    = 0;
+u        = true;
 
 if (argument_count > 0) {spell     = argument[0];} 
 if (argument_count > 1) {level     = argument[1];} 
+if (argument_count > 2) {u         = argument[2];} 
 
 spellLevel[spell,0]   = 0;    
 spellLevel[spell,1]   = 0; 
 ds_list_add(spellList, "");
 ds_list_add(spellListAlpha, 0);
 tempSpell = spell;
+spellUnlocked[spell] = u; 
+
 
 #define scrSpellCreateDetails
 /// scrSpellCreateDetails(spellNameLevel1, spellNameLevel2, spellNameLevel3, spellDetailsLevel1, spellDetailsLevel2, spellDetailsLevel3, spellImageIndexLevel1, spellImageIndexLevel2, spellImageIndexLevel3)

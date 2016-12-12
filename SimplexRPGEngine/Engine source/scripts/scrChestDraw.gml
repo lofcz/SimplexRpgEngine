@@ -1,5 +1,7 @@
 /// scrChestDraw()
 
+scrShaderDrawColor();
+
 if (animate == 1)
    {
     image_speed = animate_speed;
@@ -107,7 +109,7 @@ if (open)
                  clr();
                  alg();
                         
-                 if (keyboard_check_pressed(ord("E")) && distance_to_object(oPlayer) < open_dis && text) {apiPlayerReverseState(); if (instance_number(oLockpickingScreen) == 0 && inventoryNumber(itemEnum.itemLockpick) > 0) {scrLockpickingIni(tumblers); for(j = 0; j < combinations; j++) { scrLockpickingAddTumblerCombination(c[j, 0], c[j, 1], c[j, 2]);}} else {if (apiPlayerGetSpeechSize() == 0) {apiPlayerSay("Potřebuji paklíč");}}}
+                 if (keyboard_check_pressed(ord("E")) && distance_to_object(oPlayer) < open_dis && text) {apiPlayerReverseState(); if (instance_number(oLockpickingScreen) == 0 && inventoryNumber(itemEnum.itemLockpick) > 0) {scrLockpickingIni(tumblers); for(j = 0; j < combinations; j++) { scrLockpickingAddTumblerCombination(c[j, 0], c[j, 1], c[j, 2]);}} else {if (apiPlayerGetSpeechSize() == 0) {apiPlayerSay("Potřebuji paklíč", true);}}}
                 }
            }
        }

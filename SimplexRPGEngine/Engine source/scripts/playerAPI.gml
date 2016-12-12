@@ -715,14 +715,19 @@ if (oPlayer.last_dir == "w") {oPlayer.image_index = 0;}
 if (oPlayer.last_dir == "s") {oPlayer.image_index = 12;}
 
 #define apiPlayerSay
-/// apiPlayerSay(text)
+/// apiPlayerSay(text, [onlyOnEmptyFront])
 
-var t;
+var t, o;
 t = "Sample text";
+o = false;
 
 if (argument_count > 0) {t = argument[0];}
+if (argument_count > 1) {o = argument[1];}
+
+if (o) {if (ds_queue_size(oPlayer.speechQueue) > 0 || oPlayer.speechAlpha > 0.02) {return false;}}
 
 ds_queue_enqueue(oPlayer.speechQueue, t);
+return true;
 
 #define apiPlayerSayNext
 /// apiPlayerSayNext()

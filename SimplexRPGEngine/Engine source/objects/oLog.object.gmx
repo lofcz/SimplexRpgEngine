@@ -126,11 +126,11 @@ draw_set_alpha(image_alpha);
 if (mode = "normal") {draw_text_colored(x-(string_width(text) / 2),y -yy,text);}
 if (mode = "combat") {scrCenterText(); draw_text_transformed(x-(string_width(text)/2),y-(string_height(text)/2),text,scale,scale,0); scrCenterText(0);}
 
-if (sprite != -1) 
+if (sprite &gt; 0) 
    {
    if (a &lt; sprite_get_number(sprite)) {a += ani;} else {a = 0;}
    draw_sprite(sprite,a,x+(string_width(text)/2) + 16,y + 16);
-   
+  
    }
 draw_set_color(c_black);
 draw_set_alpha(1);

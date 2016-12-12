@@ -71,6 +71,10 @@ craftingMenuIndex[6] = "Opravit předmět";
 craftingTitleHelper  = "";
 activeComponent      = false;
 tempComponent        = false;
+tempSpr              = 0;
+drawTip              = -1;
+drawTipAlpha         = 0;
+drawTipTempIndex     = -1;
 
 drawCraftingMenu = 1;
 craftingSelectedIndex = -1;
@@ -204,6 +208,11 @@ hotslot[i, 3] = 0;
 }
 
 
+for (i = 0; i &lt; 10; i++)
+    {
+    spellAlpha[i] = 0;
+    }
+
 </string>
           </argument>
         </arguments>
@@ -313,13 +322,18 @@ temp    = false;
 
 for (z = 0; z &lt; 9; z++)
      {
+     clr(c_black, hudAlpha);
      draw_sprite(sSpellsUI, 4, qx, qy);
      
      // Adjust slot alpha effect
-     if (hotslot[z, 3] == 1 || hotslot[z, 3] == 2) {hotslot[z, 2] = lerp(hotslot[z, 2], 1, 0.1);} 
+     if (hotslot[z, 3] == 1 || hotslot[z, 3] == 2 || hotslot[z, 1] == 2) {hotslot[z, 2] = lerp(hotslot[z, 2], 1, 0.1);} 
      else {hotslot[z, 2] = lerp(hotslot[z, 2], 0, 0.1); if (hotslot[z, 2] &lt; 0.05) {hotslot[z, 1] = 0;}}
      
-     if (hotslot[z, 2] &gt; 0) {if (hotslot[z, 1] == 1) {clr(-1, hotslot[z, 2]); draw_sprite(sSpellsUI, 2, qx, qy); clr();}}
+     if (hotslot[z, 2] &gt; 0 || hotslot[z, 1] == 2) 
+        {
+         if (hotslot[z, 1] == 1) {clr(-1, min(hotslot[z, 2],hudAlpha)); draw_sprite(sSpellsUI, 2, qx, qy); clr();}
+         if (hotslot[z, 1] == 2) {clr(-1, min(hotslot[z, 2],hudAlpha)); draw_sprite(hotslot[z, 3], 0, qx, qy); draw_sprite(sSpellsUI, 1, qx, qy); clr();}
+        }
     
      if (mouse_in(qx, qx + 48, qy, qy + 48) &amp;&amp; canBind)
         {
@@ -341,11 +355,21 @@ for (z = 0; z &lt; 9; z++)
                       hotslot[z, 3] = 1;
                       temp          = true;
                     }
-          else if (mouse_check_button_pressed(mb_left))
+          else 
+          {
+          if (mouse_check_button_pressed(mb_left))
                     {
                      hotslot[z, 0] = 0;
                      hotslot[z, 3] = 0;
-                    }                    
+                     if (hotslot[z, 1] == 2) {hotslot[z, 1] = 0;}
+                    }
+          if (mouse_check_button_pressed(mb_right))
+                    {
+                     drawTip = z;
+                     drawTipTempIndex = z;
+                    }
+             
+          }                  
         }
         
      if (hotslot[z, 0] != 0)
@@ -354,9 +378,9 @@ for (z = 0; z &lt; 9; z++)
         }    
      
      // Check if item still exists in the inventory &amp;&amp; draw it's count   
-     clr();
+     clr(-1, hudAlpha);
      var number = -1;
-     if (hotslot[z, 3] != 0 &amp;&amp; !temp) 
+     if (hotslot[z, 3] != 0 &amp;&amp; !temp &amp;&amp; hotslot[z, 1] != 2) 
         {
 
         number = inventoryNumber(hotslot[z, 0]);
@@ -378,6 +402,50 @@ for (z = 0; z &lt; 9; z++)
         
      qx += 48;
     }
+qx      = 184 + view_xview + 4;
+qy      = 548 + view_yview - 36;
+    
+if (drawTip != -1) {if (mouse_check_button_released(mb_right)) {drawTip = -1;}}
+
+if (drawTip != -1) {drawTipAlpha = lerp(drawTipAlpha, 1, 0.1);}
+else               {drawTipAlpha = lerp(drawTipAlpha, 0, 0.1);}
+
+if (drawTipAlpha &gt; 0.02)
+   {
+    spells = array_length_1d(oSpellMenu.spellUnlocked);
+    tx = 0;
+    
+    for (i = 0; i &lt; spells; i++)
+        {
+         if (!oSpellMenu.spellUnlocked[i]) {continue;}
+         
+         clr(c_black, drawTipAlpha / 2 + spellAlpha[i]);
+         draw_sprite_stretched(sSpells, oSpellMenu.spellDetails[i,2], qx + (tx * 48), qy, 32, 32);
+         clr(c_black, drawTipAlpha);
+         draw_circle(qx + (tx * 48) + 15, qy + 15, 16, true);
+         
+         
+         if (mouse_in(qx + (tx * 48), qx + (tx * 48) + 32, qy, qy + 32))
+            {
+             if (drawTip != -1)
+                {
+                 spellAlpha[i] = lerp(spellAlpha[i], 0.5, 0.1);                   
+                } 
+             else {spellAlpha[i] = lerp(spellAlpha[i], 0, 0.1);}
+             
+             if (mouse_check_button_released(mb_right))
+                {
+                 hotslot[drawTipTempIndex, 1] = 2;
+                 
+                 if (tx == SpellEnum.spellFlash) {hotslot[drawTipTempIndex, 3] = sSpellFlash;}
+                }
+          
+            }
+         else {spellAlpha[i] = lerp(spellAlpha[i], 0, 0.1);}
+         tx++;
+        }
+   }
+
 /*
 // Draw binded spells
 alg("default", fntPixelHuge);

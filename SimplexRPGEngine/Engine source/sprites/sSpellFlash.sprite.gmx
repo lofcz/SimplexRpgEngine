@@ -21,5 +21,6 @@
   <height>36</height>
   <frames>
     <frame index="0">images\sSpellFlash_0.png</frame>
+    <frame index="1">images\sSpellFlash_1.png</frame>
   </frames>
 </sprite>

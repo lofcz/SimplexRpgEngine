@@ -213,7 +213,7 @@ dmg                               += choose(-1, -2, 0, 1, 2);
 
 scrGoreFull(object.x,object.y);
 scrEnemyGetPosition();
-scrLog(dmg,c_black,-1,0,0,object.x,object.y-48,fntPixelHuge);
+scrLog(dmg,c_black,0,0,0,object.x,object.y-48,fntPixelHuge);
 can_damage = cd;
 if (sL != "") 
     {

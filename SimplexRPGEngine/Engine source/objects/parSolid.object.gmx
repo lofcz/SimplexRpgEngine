@@ -43,6 +43,7 @@ splashMessageAlpha = 0;
 
 hp       = -1;
 affect   = "";
+tempSpr  = 0;
 
 canColide = true;
 particleSystem = false;

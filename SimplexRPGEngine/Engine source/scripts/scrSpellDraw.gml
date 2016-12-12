@@ -77,7 +77,7 @@ draw_text_colored(210, 410 + string_height(spellDetails[spell, 1]) + 32, index);
          
          if (spellLevel[spell, 1] == 1)
          {
-         spellDetails[spell, 0]  = spellDetails[spell, 3];
+         spellDetails[spell, 0] = spellDetails[spell, 3];
          spellDetails[spell, 1] =  spellDetails[spell, 4];
          spellDetails[spell, 2] =  spellDetails[spell, 5];
          }
@@ -220,7 +220,7 @@ front_surface=surface_create(card_width,card_height);
     if (choosenSpell != -1)
     {
     draw_clear_alpha(0,0);
-    draw_sprite_ext(sSpells,spellDetails[max(choosenSpell,0), 2],0,0, 1, 1, 0, c_white, 1);//draw the sprite in the top left corner of the surface.
+    draw_sprite_ext(sSpells,spellDetails[max(choosenSpell,0), 2],0,0, 1, 1, 0, c_white, 1);
     }
   }
   surface_reset_target();

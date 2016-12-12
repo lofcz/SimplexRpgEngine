@@ -231,14 +231,21 @@ hover = false;
 
 if (mode == "in")
     {
-     if (bacAlpha &lt; 1) {bacAlpha += 0.1;  oHUD.draw = false; scrSetActiveComponent(true);}
+     if (bacAlpha &lt; 1) {bacAlpha = 1;  scrSetActiveComponent(true);}
+     push = 0;
+     pushValue = 0;
     }
 if (mode == "out")
     {
-     if (bacAlpha &gt; 0) {bacAlpha -= 0.1;} else {draw = false; mode = ""; oHUD.draw = true; scrSetActiveComponent(false);}
+     if (bacAlpha &gt; 0) {bacAlpha -= 0.1;} else {draw = false; mode = ""; scrSetActiveComponent(false);}
+    }
+if (mode == "outSlow")
+    {
+     if (bacAlpha &gt; 0) {bacAlpha -= 0.05;} else {draw = false; mode = ""; scrSetActiveComponent(false);}
+     if (push == 1) {pushValue = lerp(pushValue, 800, 0.1);}
     }
     
-clr(c_black, bacAlpha / 2);
+clr(c_black, bacAlpha / 4 * 3);
 draw_rectangle(x, y, x + 800, y + 600, false);
 clr(c_black, bacAlpha);
 draw_sprite_ext(sTalentMenuIcons, 0, x + 768 + 16, y + 16, 1, 1, 0, c_white, 1);
@@ -255,12 +262,13 @@ if (point_in_rectangle(mouse_x, mouse_y, x + 768, y, x + 800, y + 32))
 // Hlavička
 clr(c_white, bacAlpha);
 alg("center", fntPixelHuge);
-draw_text(x + 496, y + 16, "Kouzla");
+draw_text(x + 400, y + 24, "Magie");
 alg("center", fntPixel);
 
 bs = "Nemáš žádné body magie";
-if (oPlayer.spellPoints &gt; 0) {bs = "Máš " + string(oPlayer.spellPoints) + " " + scrInflect("bod", oPlayer.talentPoints) + " bodů magie";}
-draw_text(x + 496, y + 36, bs);
+fnt(fntPixel);
+if (oPlayer.spellPoints &gt; 0) {bs = "Máš " + string(oPlayer.spellPoints) + " " + scrInflect("bod", oPlayer.talentPoints) + " bodů čarodějnictví.";}
+draw_text(x + 400, y + 42, bs);
 alg();
   
 // Vykreslování kouzel
