@@ -30,16 +30,17 @@
 scrSpellIni();
 
 scrSpellCreate(SpellEnum.spellFlash, 0);
-    scrSpellCreateDetails("Záblesk", "Posílený záblesk", "Mocný záblesk", "text1", "text2", "text3", 0, 1, 2);
-    scrSpellCreatePointDetails("detail1", "detail2", "detail3", "detail4", "detail5", "detail6", "detail7", "detail8", "detail9", "detail10", "detail11");
-
+    scrSpellCreateDetails("Záblesk", "Posílený záblesk", "Mocný záblesk", "Záblesk", "Posílený záblesk", "Mocný záblesk", 0, 1, 2);
+    scrSpellCreatePointDetails("Přemístí sesilatele na krátkou vzdálenost ve směru jeho pohybu.", "Přemístí sesílatele na krátkou vzdálenost ve směru jeho pohybu a umístí na něj " + scrColorText("znak přesunu", c_aqua) + ".", "Přemístí sesílatele na krátkou vzdálenost ve směru jeho pohybu a umístí na něj " + scrColorText("znak přesunu", c_aqua) + ". Pokud je kouzlo zdárné a projde nepřátelskou bytostí, způsobí jí záblesk přímé poškození v závisloti na procentu chybějícího zdraví.");
+    scrSpellCreatePointProperties("detail1", "detail2", "detail3", "detail4", "detail5", "detail6", "detail7", "detail8", "detail9", "detail10", "detail11", "detail12", "Potřebná mana: " + scrColorText("27", c_lime) + "#Přebíjecí doba: " + scrColorText("3,4s", c_lime) + "#Nejvyšší počet znaků přesunu: " + scrColorText("12", c_lime) + "#Poškození při průchodu: " + scrColorText("8%", c_lime) + " chybějícího zdraví.");
+    
 scrSpellCreate(SpellEnum.spellFireball, 0);
     scrSpellCreateDetails("Ohnivá koule", "Ohnivá bouře", "Inferno", "text1", "text2", "text3", 3, 4, 5);
-    scrSpellCreatePointDetails("detail1", "detail2", "detail3", "detail4", "detail5", "detail6", "detail7", "detail8", "detail9", "detail10", "detail11");
+    scrSpellCreatePointDetails("detail1", "detail2", "detail3", "detail4", "detail5", "detail6", "detail7", "detail8", "detail9", "detail10", "detail11", "detail12", "detail13");
     
 scrSpellCreate(SpellEnum.spellVines, 0);
     scrSpellCreateDetails("Zákeřné ostny", "Smrtící spoutání", "Divoká pomsta", "text1", "text2", "text3", 6, 7, 8);
-    scrSpellCreatePointDetails("detail1", "detail2", "detail3", "detail4", "detail5", "detail6", "detail7", "detail8", "detail9", "detail10", "detail11");
+    scrSpellCreatePointDetails("detail1", "detail2", "detail3", "detail4", "detail5", "detail6", "detail7", "detail8", "detail9", "detail10", "detail11", "detail12", "detail13");
 
 </string>
           </argument>
@@ -68,6 +69,31 @@ scrSpellCreate(SpellEnum.spellVines, 0);
 part_system_destroy(Sname);
 ds_list_destroy(spellList);
 ds_list_destroy(spellListAlpha);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>        mode                 = "out";
+        bacAlpha             = 0;
+
 </string>
           </argument>
         </arguments>
@@ -244,33 +270,70 @@ if (mode == "outSlow")
      if (bacAlpha &gt; 0) {bacAlpha -= 0.05;} else {draw = false; mode = ""; scrSetActiveComponent(false);}
      if (push == 1) {pushValue = lerp(pushValue, 800, 0.1);}
     }
-    
+       
 clr(c_black, bacAlpha / 4 * 3);
 draw_rectangle(x, y, x + 800, y + 600, false);
 clr(c_black, bacAlpha);
-draw_sprite_ext(sTalentMenuIcons, 0, x + 768 + 16, y + 16, 1, 1, 0, c_white, 1);
+//draw_sprite_ext(sTalentMenuIcons, 0, x + 768 + 16, y + 16, 1, 1, 0, c_white, 1);
 
-
-if (point_in_rectangle(mouse_x, mouse_y, x + 768, y, x + 800, y + 32))
-    {
-     if (mouse_check_button_pressed(mb_left))
+     if (keyboard_check_pressed(ord("T")))
         {
          if (mode == "in") {mode = "out";}
         }
-    }   
    
 // Hlavička
 clr(c_white, bacAlpha);
 alg("center", fntPixelHuge);
-draw_text(x + 400, y + 24, "Magie");
+draw_text(x + 480, y + 24, "Magie");
 alg("center", fntPixel);
 
 bs = "Nemáš žádné body magie";
-fnt(fntPixel);
+fnt(fntPixelSmall);
 if (oPlayer.spellPoints &gt; 0) {bs = "Máš " + string(oPlayer.spellPoints) + " " + scrInflect("bod", oPlayer.talentPoints) + " bodů čarodějnictví.";}
-draw_text(x + 400, y + 42, bs);
+draw_text(x + 480, y + 48, bs);
 alg();
-  
+fnt(fntPixelTiny);
+
+c1 = c_white;
+c2 = c_white;
+
+if (mouse_in(x + 360, x + 360 + string_width("Talenty &gt;"), y + 4, y + 4 + string_height("Talenty &gt;")))
+   {
+    c1 = c_lime;
+    
+    if (mouse_check_button_pressed(mb_left))
+       {
+        mode                 = "out";
+        bacAlpha             = 0;
+        draw                 = false;
+        oTalentMenu.draw     = true;
+        oTalentMenu.bacAlpha = 1;
+        oTalentMenu.mode     = "in";
+       }
+
+   }
+   
+if (mouse_in(x + 540, x + 540 + string_width("&lt; Status"), y + 4, y + 4 + string_height("&lt; Status")))
+   {       
+    c2 = c_lime;
+    
+    if (mouse_check_button_pressed(mb_left))
+       {
+        mode                       = "out";
+        oStatusMenu.activated      = true;
+        oStatusMenu.activatedAlpha = 1;
+       }
+
+   }   
+
+clr(c1, -1);
+draw_text(x + 360, y + 4, "&lt; Talenty");
+clr(c2, -1);
+draw_text(x + 540, y + 4, "Status &gt;");
+
+clr(c_white, bacAlpha);   
+   
+fnt()  
 // Vykreslování kouzel
 var xx, yy;
 xx = 466;
@@ -307,7 +370,7 @@ clr();
 
 }
 
-
+clr();
 
 
 

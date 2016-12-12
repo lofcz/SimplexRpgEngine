@@ -928,6 +928,8 @@ if (can_move2)
 // Pause game    
 if (keyboard_check_pressed(vk_escape)) {scrPauseGame();}
 
+// Hide HUD [TEMP]
+if (keyboard_check_pressed(ord("Y"))) {oHUD.draw = !oHUD.draw}
 
 #define apiPlayerSpellCast
 /// apiPlayerSpellCast()

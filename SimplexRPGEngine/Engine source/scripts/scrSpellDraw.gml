@@ -12,8 +12,8 @@ if (argument_count > 1) {yy    = argument[2];}
 
 scrSpellDrawSurface();
 fnt();
-clr(c_white, draw_get_alpha());
-draw_text(view_xview + xx, view_yview + yy - 24, spellDetails[spell, 0]); // Spell name
+clr(c_white, -1);
+//draw_text(view_xview + xx, view_yview + yy - 24, spellDetails[spell, 0]); // Spell name
 
 if (surface_exists(front_surface) && surface_exists(back_surface)) 
 {
@@ -48,11 +48,15 @@ draw_roundrect(200, 400, 790, 590, false);
 clr(c_black, choosenSpellAlpha * 3);
 draw_roundrect(200, 400, 790, 590, true);
 clr(c_white, choosenSpellAlpha * 3);
-draw_text_colored(210, 410, spellDetails[spell, 1]);
-
-index = spellDetails[spell, 9 + spellLevel[spell, 0] + (spellLevel[spell, 1] * 5)];
-draw_text_colored(210, 410 + string_height(spellDetails[spell, 1]) + 32, index);
-
+fnt();
+draw_text_colored(210, 410, spellDetails[spell, 0]);
+index = spellDetails[spell,  9 + (spellLevel[spell, 1])];
+fnt(fntPixelSmall);
+draw_text_colored(210, 380 + 64, index);
+indexH = string_height(index);
+fnt(fntPixelTiny);
+draw_text_colored(210, 390 + indexH + 64, spellProperties[9 + spellLevel[spell, 0] + (spellLevel[spell, 1] * 5) + (spellLevel[spell, 1])]); 
+fnt();
 
      maxVerticles = 360;
      choosenSpellScale = lerp(choosenSpellScale, 1.2, 0.1);
@@ -99,7 +103,16 @@ if (mouse_in(xx + view_xview - 128, xx + 128 + view_xview, yy + view_yview - 64,
     
      if (mouse_check_button_pressed(mb_left) && mode == "in")
         {
-         event_user(0);
+         if (oPlayer.spellPoints > 0 && spellLevel[spell, 1] < 2 && spellLevel[spell, 0] < 5)
+            {
+             spellLevel[spell, 0]++;
+             oPlayer.spellPoints--;
+             audio_play_sound(sndSpellUpgrade, 0, false);
+             levelUpSpell = spell;
+             level  = spellLevel[spell, 1];
+             points = spellLevel[spell, 0];
+             event_user(2);
+            }
         }
      if (mouse_check_button_pressed(mb_right) && mode == "in")
         {
@@ -162,6 +175,10 @@ draw_roundrect(xx, yy + 10, xx + 196, yy + 590, true);
 clr(c_white, draw_get_alpha() * 2);
 fnt();
 
+clr(c_black, draw_get_alpha() * 2);
+//draw_circle(xx + 196, yy + 196, 16, false);
+
+clr(c_white, draw_get_alpha() * 2);
 xx += 8;
 yy += 48;
 
@@ -190,8 +207,14 @@ for (i = 0; i < ds_list_size(spellList); i++)
          // On-click LMB
          if (mouse_check_button_pressed(mb_left))
             {
-             spell = i;
-             event_user(0);
+             if (choosenSpell != i)
+             {
+             choosenSpell = i;             
+             flip_angle = 0;
+             }
+             choosenSpellScale = 1;
+             verticles = 0;
+             realVerticles = 0;
             }
         }
       else {spellListAlpha[| i] = lerp(spellListAlpha[| i], 0, 0.1);}

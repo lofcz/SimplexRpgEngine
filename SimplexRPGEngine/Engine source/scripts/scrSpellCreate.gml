@@ -60,9 +60,17 @@ spellDetails[tempSpell,8] = i3;
 
 
 #define scrSpellCreatePointDetails
-/// scrSpellCreatePointDetails(detail1Level0... detail5Level2)
+/// scrSpellCreatePointDetails(detail1Level0.. detail1Level3)
 
 for (i = 0; i < 16; i++)
     {
-    if (argument_count > i) {spellDetails[tempSpell, (9 + i)] = argument[i];} 
+    if (argument_count > i) {spellDetails[tempSpell, (9 + i)] = scrWordwrap(argument[i], 550, fntPixelSmall);} 
+    }              
+
+#define scrSpellCreatePointProperties
+/// scrSpellCreatePointProperties(detail1Level0.. detail1Level3)
+
+for (i = 0; i < 16; i++)
+    {
+    if (argument_count > i) {spellProperties[tempSpell, (9 + i)] = argument[i];} 
     }
