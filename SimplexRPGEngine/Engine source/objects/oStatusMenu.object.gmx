@@ -187,6 +187,16 @@ else           {activatedAlpha = lerp(activatedAlpha, 0, 0.1);}
 
 if (push) {pushValue = lerp(pushValue, 800, 0.1);}
 
+if (keyboard_check_pressed(ord("T")))
+   {
+    if (scrGettActiveComponent())
+       {
+        activated = false;
+        scrSetActiveComponent(false);
+       }
+   } 
+
+
 // Draw form
 if (activatedAlpha &gt; 0.05)
 {
