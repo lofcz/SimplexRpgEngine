@@ -259,4 +259,3 @@ sizey           = height/leny;
        }
    }
 
-

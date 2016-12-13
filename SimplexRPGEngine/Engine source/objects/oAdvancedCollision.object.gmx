@@ -36,6 +36,7 @@ mode     = 0;
 tA       = 1;
 tile     = -1;
 flag     = 1;
+tempSpr  = 0;
 
 alarm[0] = 1;
 

@@ -1046,8 +1046,8 @@ set_sprite(sprite_index, 0);
 for(a = 0; a < celkem_vlastnosti; a++)
 {
  vlastnost[a]   = 0;
- draw_equ[a, 0] = 0;
- draw_equ[a, 1] = 0;
+// draw_equ[a, 0] = 0;
+// draw_equ[a, 1] = 0;
 }
 
 for(a = 0; a < spell_total; a++)

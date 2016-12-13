@@ -41,6 +41,7 @@ hp        = -1;
 hitStacks = 2;
 particleSystem = false;
 flag2          = true;
+tempSpr = 0;
 </string>
           </argument>
         </arguments>

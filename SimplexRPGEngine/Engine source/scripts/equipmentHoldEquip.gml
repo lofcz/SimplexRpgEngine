@@ -66,8 +66,8 @@ if ((oInventory.drag && mouse_check_button_released(mb_left) && equiped[equip_sl
                           // NEW
                           if (equiped_stats[equip_slot,inv_item_equip_slot] == "zbraň")
                             {
-                             oPlayer.draw_equ[id_Mec,0] =  equiped_vlastnost[equip_slot,vlastnost_vykresli_sprit];
-                             oPlayer.draw_equ[id_Mec,1] =  equiped_vlastnost[equip_slot,vlastnost_vykresli_index];
+                             oPlayerCombat.draw   = true;
+                             oPlayerCombat.sprite = true;
                             }
 
                           draw_item_mouse = 0;

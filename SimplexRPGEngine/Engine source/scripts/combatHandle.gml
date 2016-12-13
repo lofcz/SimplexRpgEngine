@@ -8,8 +8,8 @@ if (instance_number(oPlayer) > 0)
 {     
 sprite_index = sWeaponCollision;
 
-sprite = oPlayer.draw_equ[id_Mec,0];
-index  = oPlayer.draw_equ[id_Mec,1];
+//sprite = oPlayer.draw_equ[id_Mec,0];
+//index  = oPlayer.draw_equ[id_Mec,1];
       
 if (sprite != 0)
 {
