@@ -29,5 +29,8 @@
     <frame index="6">images\sSpells_6.png</frame>
     <frame index="7">images\sSpells_7.png</frame>
     <frame index="8">images\sSpells_8.png</frame>
+    <frame index="9">images\sSpells_9.png</frame>
+    <frame index="10">images\sSpells_10.png</frame>
+    <frame index="11">images\sSpells_11.png</frame>
   </frames>
 </sprite>

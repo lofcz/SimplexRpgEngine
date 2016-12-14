@@ -212,8 +212,8 @@ if (speechIn)
      }
 
 
-// Decrease spell colldowns      
-for (a = 0; a < 3; a++)
+// Decrease spells colldowns      
+for (a = 0; a < spell_total; a++)
     {
      if (spell_cd[a] > 0) {spell_cd[a]--;}
     }            
@@ -932,28 +932,46 @@ if (keyboard_check_pressed(vk_escape)) {scrPauseGame();}
 if (keyboard_check_pressed(ord("Y"))) {oHUD.draw = !oHUD.draw}
 
 #define apiPlayerSpellCast
-/// apiPlayerSpellCast()
+/// apiPlayerSpellCast(index, [returnIndex])
 
-if (spell[spell_index] == "fireball")
+with(oPlayer)
+{
+var index, r;
+index = 0;
+r     = false;
+
+if (argument_count > 0) {index = argument[0];}
+if (argument_count > 1) {r     = argument[1];}
+
+if (r)
+   {
+    if (oHUD.hotslot[index, 3] == sSpellFlash) {return SpellEnum.spellFlash;}
+    if (oHUD.hotslot[index, 3] == sSpellFrozenBolts) {return SpellEnum.spellFrozenBolts;}
+   }
+
+
+if (oHUD.hotslot[index, 3] == sSpellFireball)
    {
     if (vlastnost[vlastnost_mana] >= magic[spell_fireball_cost] && spell_cd[spell_index] = 0) {spell_cd[spell_index] = magic[spell_fireball_cooldown]; temp_cd[spell_index] = spell_cd[spell_index]; vlastnost[vlastnost_mana] -= magic[spell_fireball_cost]; i = instance_create(x,y,oBasicSpell); i.type = "fireball";}
    }
-if (spell[spell_index] == "frozen_bolts")
+else if (oHUD.hotslot[index, 3] == sSpellFrozenBolts)
    {
-    if (vlastnost[vlastnost_mana] >= magic[spell_frozen_bolts_cost] && spell_cd[spell_index] = 0) {spell_cd[spell_index] = magic[spell_frozen_bolts_cooldown]; temp_cd[spell_index] = spell_cd[spell_index]; vlastnost[vlastnost_mana] -= magic[spell_frozen_bolts_cost]; magic_repeat = magic[spell_frozen_bolts_number]; i = instance_create(x,y,oBasicSpell); i.type = "frozen_bolt"; alarm[1] = random_range(5,8); magic_timer = random_range(2,4); magic_id = "frozen_bolt"; can_move3 = 0; speed = 0; image_speed = 0;}
+    if (vlastnost[vlastnost_mana] >= magic[spell_frozen_bolts_cost] && spell_cd[SpellEnum.spellFrozenBolts] = 0) {spell_cd[SpellEnum.spellFrozenBolts] = magic[spell_frozen_bolts_cooldown]; temp_cd[SpellEnum.spellFrozenBolts] = spell_cd[SpellEnum.spellFrozenBolts]; vlastnost[vlastnost_mana] -= magic[spell_frozen_bolts_cost]; magic_repeat = magic[spell_frozen_bolts_number]; i = instance_create(x,y,oBasicSpell); i.type = "frozen_bolt"; alarm[1] = random_range(5,8); magic_timer = random_range(2,4); magic_id = "frozen_bolt"; can_move3 = 0; speed = 0; image_speed = 0;}
    }
-if (spell[spell_index] == "fire_trail")
+else if (oHUD.hotslot[index, 3] == sSpellFireBeam)
    {
     if (vlastnost[vlastnost_mana] >= magic[spell_fire_trail_cost] && spell_cd[spell_index] = 0) {if (instance_number(oLenghdirSpell) = 0 && (dir != "" || last_dir != "")) {i = instance_create(x,y,oLenghdirSpell); i.dir = last_dir; i.type = "fire_trail"; i.index = spell_index; can_move3 = 0; speed = 0; image_speed = 0; vlastnost[vlastnost_mana] -= magic[spell_fire_trail_cost];} else {if (oLenghdirSpell.alarm[1] < 2) {vlastnost[vlastnost_mana] -= magic[spell_fire_trail_cost]; oLenghdirSpell.alarm[1] = 20;} }   }
    }
-if (spell[spell_index] == "flash")
+else if (oHUD.hotslot[index, 3] == sSpellFlash)
    {
-    if (vlastnost[vlastnost_mana] >= magic[spell_flash_cost] && spell_cd[spell_index] = 0) {spell_cd[spell_index] = magic[spell_flash_cooldown]; temp_cd[spell_index] = spell_cd[spell_index]; vlastnost[vlastnost_mana] -= magic[spell_flash_cost]; tempI = 0; if (last_dir = "d") {repeat(96/8) {effectShodowPort(x + tempI, y, 1); tempI += 8;} x += 96;} if (last_dir = "a") {repeat(96/8) {effectShodowPort(x - tempI, y, 1); tempI += 8;} x -= 96;} if (last_dir = "w") {repeat(96/8) {effectShodowPort(x, y - tempI, 1); tempI += 8;} y -= 96;} if (last_dir = "s") {repeat(96/8) {effectShodowPort(x, y + tempI, 1); tempI += 8;} y += 96;} scrEnemyApplyAffect("flash", 120, 1, c_lime, 1, 100, true, false, false);  }
+    if (vlastnost[vlastnost_mana] >= magic[spell_flash_cost] && spell_cd[SpellEnum.spellFlash] == 0) {spell_cd[SpellEnum.spellFlash] = magic[spell_flash_cooldown];  temp_cd[SpellEnum.spellFlash] = spell_cd[SpellEnum.spellFlash]; vlastnost[vlastnost_mana] -= magic[spell_flash_cost]; tempI = 0; if (last_dir = "d") {repeat(96/8) {effectShodowPort(x + tempI, y, 1); tempI += 8;} x += 96;} if (last_dir = "a") {repeat(96/8) {effectShodowPort(x - tempI, y, 1); tempI += 8;} x -= 96;} if (last_dir = "w") {repeat(96/8) {effectShodowPort(x, y - tempI, 1); tempI += 8;} y -= 96;} if (last_dir = "s") {repeat(96/8) {effectShodowPort(x, y + tempI, 1); tempI += 8;} y += 96;} scrEnemyApplyAffect("flash", 120, 1, c_lime, 1, 100, true, false, false);  }
    }
-if (spell[spell_index] == "vines")
+else if (oHUD.hotslot[index, 3] == sSpellVines)
    {
     if (vlastnost[vlastnost_mana] >= magic[spell_vines_cost] && spell_cd[spell_index] = 0) {spell_cd[spell_index] = magic[spell_vines_cooldown]; temp_cd[spell_index] = spell_cd[spell_index]; vlastnost[vlastnost_mana] -= magic[spell_vines_cost]; tempI = 0; i = instance_create(x,y,oBasicSpell); i.type = "vines";}
    }
+}
+
 #define apiPlayerSetMagic
 /// apiPlayerSetMagic(index, value)
 
@@ -1046,13 +1064,12 @@ set_sprite(sprite_index, 0);
 for(a = 0; a < celkem_vlastnosti; a++)
 {
  vlastnost[a]   = 0;
-// draw_equ[a, 0] = 0;
-// draw_equ[a, 1] = 0;
 }
 
 for(a = 0; a < spell_total; a++)
 {
- magic[spell_total] = 0;
+ magic[a]    = 0;
+ spell_cd[a] = 0; 
 }
 
 // Create needed objects

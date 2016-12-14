@@ -29,14 +29,13 @@
 
 randomize();
 
-Sname     = part_system_create();
-
-logic   = 0;
-mode    = 0;
-dmg     = 0;
-spd     = 0;
-max_spd = 0;
-
+Sname    = part_system_create();
+logic    = 0;
+mode     = 0;
+dmg      = 0;
+spd      = 0;
+max_spd  = 0;
+tempSpr  = 0;
 alarm[0] = 1;
 alarm[1] = 200;
 

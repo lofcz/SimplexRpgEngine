@@ -331,9 +331,36 @@ for (z = 0; z &lt; 9; z++)
      
      if (hotslot[z, 2] &gt; 0 || hotslot[z, 1] == 2) 
         {
+         // Handle items
          if (hotslot[z, 1] == 1) {clr(-1, min(hotslot[z, 2],hudAlpha)); draw_sprite(sSpellsUI, 2, qx, qy); clr();}
-         if (hotslot[z, 1] == 2) {clr(-1, min(hotslot[z, 2],hudAlpha)); draw_sprite(hotslot[z, 3], 0, qx, qy); draw_sprite(sSpellsUI, 1, qx, qy); clr();}
+         
+         // Spells
+         if (hotslot[z, 1] == 2) 
+            {
+             clr(-1, min(hotslot[z, 2],hudAlpha)); 
+             draw_sprite(hotslot[z, 3], 0, qx, qy);  
+             
+             // Draw spell cooldown 
+             var index = apiPlayerSpellCast(z, true);
+             if (oPlayer.spell_cd[index] &gt; 0)
+                {
+                 clr(c_red, min(0.5, hudAlpha));
+                 draw_rectangle_cd(qx + 2, qy + 2, qx + 32, qy + 32, 360 - ((oPlayer.spell_cd[index] / (oPlayer.temp_cd[index]) * 360)));
+                }
+             clr(-1, min(hotslot[z, 2],hudAlpha));
+             draw_sprite(sSpellsUI, 1, qx, qy);
+             clr();             
+            }
         }
+        
+     // Draw slot action button
+     fnt(fntPixelTiny);
+     clr(c_black, -1);
+     draw_text(qx + 1 + 22, qy + 1 + 14, string(z + 1));     
+     clr(c_white, -1);
+     draw_text(qx + 22, qy + 14, string(z + 1));
+     clr(c_black, -1);
+     fnt();
     
      if (mouse_in(qx, qx + 48, qy, qy + 48) &amp;&amp; canBind)
         {
@@ -396,10 +423,15 @@ for (z = 0; z &lt; 9; z++)
                 
         }     
      
-
-
-                
-        
+     // Handle casting / item usage
+     if (keyboard_check_pressed(97 + z))
+        {
+         if (hotslot[z, 2] &gt; 0 || hotslot[z, 1] == 2) 
+            {
+             if (hotslot[z, 1] == 2) {apiPlayerSpellCast(z);}  // Cast spell
+            }
+        }
+                        
      qx += 48;
     }
 qx      = 184 + view_xview + 4;
@@ -438,6 +470,7 @@ if (drawTipAlpha &gt; 0.02)
                  hotslot[drawTipTempIndex, 1] = 2;
                  
                  if (tx == SpellEnum.spellFlash) {hotslot[drawTipTempIndex, 3] = sSpellFlash;}
+                 if (tx == SpellEnum.spellFrozenBolts) {hotslot[drawTipTempIndex, 3] = sSpellFrozenBolts;}
                 }
           
             }
