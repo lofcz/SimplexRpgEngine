@@ -1,14 +1,16 @@
 #define scrSpellCreate
-/// scrSpellCreate(spell, level, unlocked)
+/// scrSpellCreate(spell, level, unlocked, spriteIndex)
 
-var spell, level, u;
+var spell, level, u, s;
 spell    = SpellEnum.spellFlash;
 level    = 0;
 u        = true;
+s        = sSpellFireball;
 
 if (argument_count > 0) {spell     = argument[0];} 
 if (argument_count > 1) {level     = argument[1];} 
 if (argument_count > 2) {u         = argument[2];} 
+if (argument_count > 3) {s         = argument[3];} 
 
 spellLevel[spell,0]   = 0;    
 spellLevel[spell,1]   = 0; 
@@ -16,6 +18,7 @@ ds_list_add(spellList, "");
 ds_list_add(spellListAlpha, 0);
 tempSpell = spell;
 spellUnlocked[spell] = u; 
+spellSprite[spell] = s;
 
 
 #define scrSpellCreateDetails
@@ -41,6 +44,10 @@ if (argument_count > 5) {d3         = argument[5];}
 if (argument_count > 6) {i1         = argument[6];} 
 if (argument_count > 7) {i2         = argument[7];}
 if (argument_count > 8) {i3         = argument[8];}
+
+if (i2 == 0) {i2 = (i1 + 1);}
+if (i3 == 0) {i3 = (i2 + 1);}
+
 
 // verticle format: (text, details, imageIndex)
 // level 1

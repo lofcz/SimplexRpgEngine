@@ -41,11 +41,6 @@ enum medalEnum
 bronze, silver, gold, platinum, diamond, quest
 };
 
-enum SpellEnum
-{
-spellFlash, spellFireball, spellVines, spellFrozenBolts, spellSpell5
-};
-
 enum mapEnum
 {
 mapExterier, mapInterier, mapCave

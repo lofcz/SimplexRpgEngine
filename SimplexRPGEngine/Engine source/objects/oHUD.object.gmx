@@ -467,12 +467,9 @@ if (drawTipAlpha &gt; 0.02)
              
              if (mouse_check_button_released(mb_right))
                 {
-                 hotslot[drawTipTempIndex, 1] = 2;
-                 
-                 if (tx == SpellEnum.spellFlash) {hotslot[drawTipTempIndex, 3] = sSpellFlash;}
-                 if (tx == SpellEnum.spellFrozenBolts) {hotslot[drawTipTempIndex, 3] = sSpellFrozenBolts;}
-                }
-          
+                 hotslot[drawTipTempIndex, 1] = 2;                 
+                 hotslot[drawTipTempIndex, 3] = oSpellMenu.spellSprite[tx];
+                }          
             }
          else {spellAlpha[i] = lerp(spellAlpha[i], 0, 0.1);}
          tx++;

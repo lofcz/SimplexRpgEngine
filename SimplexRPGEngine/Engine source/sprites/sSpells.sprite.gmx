@@ -32,5 +32,11 @@
     <frame index="9">images\sSpells_9.png</frame>
     <frame index="10">images\sSpells_10.png</frame>
     <frame index="11">images\sSpells_11.png</frame>
+    <frame index="12">images\sSpells_12.png</frame>
+    <frame index="13">images\sSpells_13.png</frame>
+    <frame index="14">images\sSpells_14.png</frame>
+    <frame index="15">images\sSpells_15.png</frame>
+    <frame index="16">images\sSpells_16.png</frame>
+    <frame index="17">images\sSpells_17.png</frame>
   </frames>
 </sprite>

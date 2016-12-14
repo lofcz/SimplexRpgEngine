@@ -29,23 +29,36 @@
 
 scrSpellIni();
 
-scrSpellCreate(SpellEnum.spellFlash, 0);
-    scrSpellCreateDetails("Záblesk", "Posílený záblesk", "Mocný záblesk", "Záblesk", "Posílený záblesk", "Mocný záblesk", 0, 1, 2);
+enum SpellEnum
+{
+spellFlash, spellFireball, spellVines, spellFrozenBolts, spellFireBeam, spellHeal
+};
+
+scrSpellCreate(SpellEnum.spellFlash, 0, true, sSpellFlash);
+    scrSpellCreateDetails("Záblesk", "Posílený záblesk", "Mocný záblesk", "Záblesk", "Posílený záblesk", "Mocný záblesk", 0);
     scrSpellCreatePointDetails("Přemístí sesilatele na krátkou vzdálenost ve směru jeho pohybu.", "Přemístí sesílatele na krátkou vzdálenost ve směru jeho pohybu a umístí na něj " + scrColorText("znak přesunu", c_aqua) + ".", "Přemístí sesílatele na krátkou vzdálenost ve směru jeho pohybu a umístí na něj " + scrColorText("znak přesunu", c_aqua) + ". Pokud je kouzlo zdárné a projde nepřátelskou bytostí, způsobí jí záblesk přímé poškození v závisloti na procentu chybějícího zdraví.");
     scrSpellCreatePointProperties("detail1", "detail2", "detail3", "detail4", "detail5", "detail6", "detail7", "detail8", "detail9", "detail10", "detail11", "detail12", "Potřebná mana: " + scrColorText("27", c_lime) + "#Přebíjecí doba: " + scrColorText("3,4s", c_lime) + "#Nejvyšší počet znaků přesunu: " + scrColorText("12", c_lime) + "#Poškození při průchodu: " + scrColorText("8%", c_lime) + " chybějícího zdraví.");
     
-scrSpellCreate(SpellEnum.spellFireball, 0);
-    scrSpellCreateDetails("Ohnivá koule", "Ohnivá bouře", "Inferno", "text1", "text2", "text3", 3, 4, 5);
+scrSpellCreate(SpellEnum.spellFireball, 0, true, sSpellFireball);
+    scrSpellCreateDetails("Ohnivá koule", "Ohnivá bouře", "Inferno", "text1", "text2", "text3", 3);
     scrSpellCreatePointDetails("detail1", "detail2", "detail3", "detail4", "detail5", "detail6", "detail7", "detail8", "detail9", "detail10", "detail11", "detail12", "detail13");
     
-scrSpellCreate(SpellEnum.spellVines, 0);
-    scrSpellCreateDetails("Zákeřné ostny", "Smrtící spoutání", "Divoká pomsta", "text1", "text2", "text3", 6, 7, 8);
+scrSpellCreate(SpellEnum.spellVines, 0, true, sSpellVines);
+    scrSpellCreateDetails("Zákeřné ostny", "Smrtící spoutání", "Divoká pomsta", "text1", "text2", "text3", 6);
     scrSpellCreatePointDetails("detail1", "detail2", "detail3", "detail4", "detail5", "detail6", "detail7", "detail8", "detail9", "detail10", "detail11", "detail12", "detail13");
 
-scrSpellCreate(SpellEnum.spellFrozenBolts, 0);
-    scrSpellCreateDetails("Krystalický chlad", "Smrtící spoutání", "Divoká pomsta", "text1", "text2", "text3", 9, 10, 11);
+scrSpellCreate(SpellEnum.spellFrozenBolts, 0, true, sSpellFrozenBolts);
+    scrSpellCreateDetails("Krystalický chlad", "Smrtící spoutání", "Divoká pomsta", "text1", "text2", "text3", 9);
     scrSpellCreatePointDetails("detail1", "detail2", "detail3", "detail4", "detail5", "detail6", "detail7", "detail8", "detail9", "detail10", "detail11", "detail12", "detail13");
 
+scrSpellCreate(SpellEnum.spellFireBeam, 0, true, sSpellFireBeam);
+    scrSpellCreateDetails("Proud ohně", "Smrtící spoutání", "Divoká pomsta", "text1", "text2", "text3", 12);
+    scrSpellCreatePointDetails("detail1", "detail2", "detail3", "detail4", "detail5", "detail6", "detail7", "detail8", "detail9", "detail10", "detail11", "detail12", "detail13");
+
+scrSpellCreate(SpellEnum.spellHeal, 0, true, sSpellHeal);
+    scrSpellCreateDetails("Požehnání přírody", "Smrtící spoutání", "Divoká pomsta", "text1", "text2", "text3", 15);
+    scrSpellCreatePointDetails("detail1", "detail2", "detail3", "detail4", "detail5", "detail6", "detail7", "detail8", "detail9", "detail10", "detail11", "detail12", "detail13");
+    
 </string>
           </argument>
         </arguments>

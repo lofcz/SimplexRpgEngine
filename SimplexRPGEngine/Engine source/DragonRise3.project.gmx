@@ -319,6 +319,7 @@
         <sprite>sprites\sSpellFireBeam</sprite>
         <sprite>sprites\sSpellFrozenBolts</sprite>
         <sprite>sprites\sSpellFlash</sprite>
+        <sprite>sprites\sSpellHeal</sprite>
         <sprite>sprites\sSpells</sprite>
         <sprite>sprites\sSpellsBackFrame</sprite>
         <sprite>sprites\sSpellsFrame</sprite>

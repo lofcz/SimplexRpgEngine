@@ -945,14 +945,15 @@ if (argument_count > 1) {r     = argument[1];}
 
 if (r)
    {
-    if (oHUD.hotslot[index, 3] == sSpellFlash) {return SpellEnum.spellFlash;}
-    if (oHUD.hotslot[index, 3] == sSpellFrozenBolts) {return SpellEnum.spellFrozenBolts;}
+    for (var i = 0; i < spell_total; i++)
+        {
+         if (oHUD.hotslot[index, 3] == oSpellMenu.spellSprite[i]) {return i;}
+        }
    }
-
 
 if (oHUD.hotslot[index, 3] == sSpellFireball)
    {
-    if (vlastnost[vlastnost_mana] >= magic[spell_fireball_cost] && spell_cd[spell_index] = 0) {spell_cd[spell_index] = magic[spell_fireball_cooldown]; temp_cd[spell_index] = spell_cd[spell_index]; vlastnost[vlastnost_mana] -= magic[spell_fireball_cost]; i = instance_create(x,y,oBasicSpell); i.type = "fireball";}
+    if (vlastnost[vlastnost_mana] >= magic[spell_fireball_cost] && spell_cd[SpellEnum.spellFireball] = 0) {spell_cd[SpellEnum.spellFireball] = magic[spell_fireball_cooldown]; temp_cd[SpellEnum.spellFireball] = spell_cd[SpellEnum.spellFireball]; vlastnost[vlastnost_mana] -= magic[spell_fireball_cost]; i = instance_create(x,y,oBasicSpell); i.type = "fireball";}
    }
 else if (oHUD.hotslot[index, 3] == sSpellFrozenBolts)
    {
@@ -960,7 +961,7 @@ else if (oHUD.hotslot[index, 3] == sSpellFrozenBolts)
    }
 else if (oHUD.hotslot[index, 3] == sSpellFireBeam)
    {
-    if (vlastnost[vlastnost_mana] >= magic[spell_fire_trail_cost] && spell_cd[spell_index] = 0) {if (instance_number(oLenghdirSpell) = 0 && (dir != "" || last_dir != "")) {i = instance_create(x,y,oLenghdirSpell); i.dir = last_dir; i.type = "fire_trail"; i.index = spell_index; can_move3 = 0; speed = 0; image_speed = 0; vlastnost[vlastnost_mana] -= magic[spell_fire_trail_cost];} else {if (oLenghdirSpell.alarm[1] < 2) {vlastnost[vlastnost_mana] -= magic[spell_fire_trail_cost]; oLenghdirSpell.alarm[1] = 20;} }   }
+    if (vlastnost[vlastnost_mana] >= magic[spell_fire_trail_cost] && spell_cd[SpellEnum.spellFireBeam] = 0) {if (instance_number(oLenghdirSpell) = 0 && (dir != "" || last_dir != "")) {i = instance_create(x,y,oLenghdirSpell); i.dir = last_dir; i.type = "fire_trail"; i.index = SpellEnum.spellFireBeam; can_move3 = 0; speed = 0; image_speed = 0; vlastnost[vlastnost_mana] -= magic[spell_fire_trail_cost];} else {if (oLenghdirSpell.alarm[1] < 2) {vlastnost[vlastnost_mana] -= magic[spell_fire_trail_cost]; oLenghdirSpell.alarm[1] = 20;} }   }
    }
 else if (oHUD.hotslot[index, 3] == sSpellFlash)
    {
@@ -968,7 +969,7 @@ else if (oHUD.hotslot[index, 3] == sSpellFlash)
    }
 else if (oHUD.hotslot[index, 3] == sSpellVines)
    {
-    if (vlastnost[vlastnost_mana] >= magic[spell_vines_cost] && spell_cd[spell_index] = 0) {spell_cd[spell_index] = magic[spell_vines_cooldown]; temp_cd[spell_index] = spell_cd[spell_index]; vlastnost[vlastnost_mana] -= magic[spell_vines_cost]; tempI = 0; i = instance_create(x,y,oBasicSpell); i.type = "vines";}
+    if (vlastnost[vlastnost_mana] >= magic[spell_vines_cost] && spell_cd[SpellEnum.spellVines] = 0) {spell_cd[SpellEnum.spellVines] = magic[spell_vines_cooldown]; temp_cd[SpellEnum.spellVines] = spell_cd[SpellEnum.spellVines]; vlastnost[vlastnost_mana] -= magic[spell_vines_cost]; tempI = 0; i = instance_create(x,y,oBasicSpell); i.type = "vines";}
    }
 }
 
