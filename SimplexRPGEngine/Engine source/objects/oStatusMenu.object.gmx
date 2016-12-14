@@ -227,11 +227,26 @@ if (mouse_in(view_xview + 400 - (sW / 2) - string_width("&lt; Magie") - 16, view
         push = true; 
        }
    }
-
+   
+if (mouse_in(view_xview + 400 + (sW / 2) + 16, view_xview + 400 + (sW / 2) + 16 + string_width("Talenty &gt;"), view_yview + 10, view_yview + 24))
+   {
+    c2 = c_lime;
+    
+    if (mouse_check_button_pressed(mb_left))
+       {
+        activated = false;
+        oTalentMenu.draw     = true;
+        oTalentMenu.bacAlpha = 1;
+        oTalentMenu.mode     = "in";     
+        push = true; 
+       }
+   }
+   
 clr(c1, -1);
 draw_text(view_xview + 400 - (sW / 2) - string_width("&lt; Magie") - 16, view_yview + 4, "&lt; Magie");
 clr(c2, -1);
 draw_text(view_xview + 400 + (sW / 2) + 16, view_yview + 4, "Talenty &gt;");
+clr(c_white, -1);
 
 fnt();
 

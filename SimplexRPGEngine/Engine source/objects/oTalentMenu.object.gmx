@@ -162,6 +162,17 @@ if (mouse_in(x + 280, x + 280 + string_width("&lt; Status"), y + 4, y + 4 + stri
        }
    }
    
+if (mouse_in(x + 480, x + 480 + string_width("Magie &gt;"), y + 4, y + 4 + string_height("Magie &gt;")))
+   {
+    c1 = c_lime;
+    
+    if (mouse_check_button_pressed(mb_left))
+       {
+        mode                 = "out";
+        oSpellMenu.mode      = "in"; 
+        oSpellMenu.draw      = true;
+       }
+   }   
 clr(c2, -1);
 draw_text(x + 280, y + 4, "&lt; Status");
 clr(c1, -1);
