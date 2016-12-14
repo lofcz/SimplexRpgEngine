@@ -497,6 +497,11 @@
     <instance objName="oWhetstone" x="656" y="416" name="inst_EBC9B45F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="864" y="256" name="inst_6633D35E" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3);" scaleX="1" scaleY="0.96875" colour="4294967295" rotation="0"/>
     <instance objName="oLofsGift2" x="496" y="528" name="inst_42041B7E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oKnowledgeFragmentDrop" x="912" y="1456" name="inst_3E862272" locked="0" code="fI = 2;&#xA;m  = bestiaryEnemySlime2;&#xA;mN = &quot;Slimák stínobrodý&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oKnowledgeFragmentDrop" x="912" y="1488" name="inst_C7F0CC9E" locked="0" code="fI = 1;&#xA;m  = bestiaryEnemySlime2;&#xA;mN = &quot;Slimák stínobrodý&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oKnowledgeFragmentDrop" x="912" y="1520" name="inst_6716A8B9" locked="0" code="fI = 0;&#xA;m  = bestiaryEnemySlime2;&#xA;mN = &quot;Slimák stínobrodý&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oKnowledgeFragmentDrop" x="912" y="1552" name="inst_97A902BD" locked="0" code="fI = 3;&#xA;m  = bestiaryEnemySlime2;&#xA;mN = &quot;Slimák stínobrodý&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oKnowledgeFragmentDrop" x="912" y="1584" name="inst_CF808903" locked="0" code="fI = 4;&#xA;m  = bestiaryEnemySlime2;&#xA;mN = &quot;Slimák stínobrodý&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bcgShd1" x="1600" y="1712" w="32" h="32" xo="32" yo="0" id="10006696" name="inst_AC26E277" depth="1000001" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

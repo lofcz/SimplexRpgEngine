@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-12</depth>
+  <depth>-210</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -52,6 +52,19 @@ hoverA = 0;
 mode   = 0;
 rectangleHeight = -1;
 textAlpha = 0;
+
+fragmentEffect[0] = effectFragmentBlue; 
+fragmentEffect[1] = effectFragmentGreen; 
+fragmentEffect[2] = effectFragmentRed; 
+fragmentEffect[3] = effectFragmentBrown; 
+fragmentEffect[4] = effectFragmentYellow; 
+
+fragmentSprite[0] = sEffectFragment1;
+fragmentSprite[1] = sEffectFragment2;
+fragmentSprite[2] = sEffectFragment3;
+fragmentSprite[3] = sEffectFragment4;
+fragmentSprite[4] = sEffectFragment5;
+
 </string>
           </argument>
         </arguments>
@@ -86,12 +99,48 @@ monster[bestiaryEnemySlime,bestiary_monster_text]       = scrWordwrap("Tichý ob
 monster[bestiaryEnemySlime,bestiary_monster_sprite]     = sEnemySlime;
 monster[bestiaryEnemySlime,bestiary_monster_details]    = scrColorflag(c_white) + "Schopnosti#" + scrEndColorflag() + " - Koule slizu# - Skok";
 monster[bestiaryEnemySlime,bestiary_monster_race]       = "Divoké zvíře";
+monster[bestiaryEnemySlime,bestiary_monster_research_level] = 0;
+monster[bestiaryEnemySlime,bestiary_monster_fragment0] = false;
+monster[bestiaryEnemySlime,bestiary_monster_fragment1] = false;
+monster[bestiaryEnemySlime,bestiary_monster_fragment2] = false;
+monster[bestiaryEnemySlime,bestiary_monster_fragment3] = false;
+monster[bestiaryEnemySlime,bestiary_monster_fragment4] = false;
+monster[bestiaryEnemySlime,bestiary_monster_fragment0Text] = "Text0";
+monster[bestiaryEnemySlime,bestiary_monster_fragment1Text] = "Text1";
+monster[bestiaryEnemySlime,bestiary_monster_fragment2Text] = "Text2";
+monster[bestiaryEnemySlime,bestiary_monster_fragment3Text] = "Text3";
+monster[bestiaryEnemySlime,bestiary_monster_fragment4Text] = "Text4";
+monster[bestiaryEnemySlime,bestiary_monster_knowledge_level] = 1;
+monster[bestiaryEnemySlime,bestiary_monster_knowledge_lvl1] = 5;
+monster[bestiaryEnemySlime,bestiary_monster_knowledge_lvl2] = 20;
+monster[bestiaryEnemySlime,bestiary_monster_knowledge_lvl3] = 40;
+monster[bestiaryEnemySlime,bestiary_monster_knowledge_lvl4] = 80;
+monster[bestiaryEnemySlime,bestiary_monster_knowledge_lvl5] = 100;
+
 
 monster[bestiaryEnemySlime2,bestiary_monster_title]      = "Slimák stínobrodý";
 monster[bestiaryEnemySlime2,bestiary_monster_text]       = "Tichý obyvatel temných lesních#zákoutí. Nesnáší světlo.";
 monster[bestiaryEnemySlime2,bestiary_monster_sprite]     = sEnemySlime;
 monster[bestiaryEnemySlime2,bestiary_monster_details]    = "Lorem Ipsum" + scrColorflag(c_red) + " dolor sit amet" +scrEndColorflag() + "#consectetur adipiscing elit";
 monster[bestiaryEnemySlime2,bestiary_monster_race]       = "Divoké zvíře";
+monster[bestiaryEnemySlime2,bestiary_monster_research_level] = 0;
+monster[bestiaryEnemySlime2,bestiary_monster_fragment0] = false;
+monster[bestiaryEnemySlime2,bestiary_monster_fragment1] = false;
+monster[bestiaryEnemySlime2,bestiary_monster_fragment2] = false;
+monster[bestiaryEnemySlime2,bestiary_monster_fragment3] = false;
+monster[bestiaryEnemySlime2,bestiary_monster_fragment4] = false;
+monster[bestiaryEnemySlime2,bestiary_monster_fragment0Text] = scrWordwrap("Vodní magie způsobí o 20% vyšší poškození.", 230, fntPixelExtraTiny);
+monster[bestiaryEnemySlime2,bestiary_monster_fragment1Text] = "Text1";
+monster[bestiaryEnemySlime2,bestiary_monster_fragment2Text] = "Text2";
+monster[bestiaryEnemySlime2,bestiary_monster_fragment3Text] = "Text3";
+monster[bestiaryEnemySlime2,bestiary_monster_fragment4Text] = "Text4";
+monster[bestiaryEnemySlime2,bestiary_monster_knowledge_level] = 1;
+monster[bestiaryEnemySlime2,bestiary_monster_knowledge_current] = 0;
+monster[bestiaryEnemySlime2,bestiary_monster_knowledge_lvl1] = 5;
+monster[bestiaryEnemySlime2,bestiary_monster_knowledge_lvl2] = 20;
+monster[bestiaryEnemySlime2,bestiary_monster_knowledge_lvl3] = 40;
+monster[bestiaryEnemySlime2,bestiary_monster_knowledge_lvl4] = 80;
+monster[bestiaryEnemySlime2,bestiary_monster_knowledge_lvl5] = 100;
 
 monster[bestiaryEnemySlime,bestiary_monster_killed] = 10;
 unlocked[0] = 1;

@@ -222,6 +222,11 @@
       <sound>sound\sndExplosion1</sound>
       <sound>sound\sndWoodGet1</sound>
       <sound>sound\sndRepair</sound>
+      <sound>sound\sndFragment1</sound>
+      <sound>sound\sndFragment2</sound>
+      <sound>sound\sndFragment3</sound>
+      <sound>sound\sndFragment4</sound>
+      <sound>sound\sndFragment5</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -464,6 +469,7 @@
           <sprite>sprites\sXP</sprite>
           <sprite>sprites\sShieldEffect2</sprite>
           <sprite>sprites\sManaEffect2</sprite>
+          <sprite>sprites\sBestiaryKnowledgeFragment</sprite>
         </sprites>
         <sprites name="ItemAnimations3D">
           <sprites name="Coins">
@@ -600,6 +606,11 @@
           <sprite>sprites\sNormalMask</sprite>
           <sprite>sprites\sShadowBounce</sprite>
           <sprite>sprites\sprite160</sprite>
+          <sprite>sprites\sEffectFragment1</sprite>
+          <sprite>sprites\sEffectFragment2</sprite>
+          <sprite>sprites\sEffectFragment3</sprite>
+          <sprite>sprites\sEffectFragment4</sprite>
+          <sprite>sprites\sEffectFragment5</sprite>
           <sprite>sprites\sShieldEffect</sprite>
         </sprites>
       </sprites>
@@ -781,6 +792,11 @@
           <script>scripts\effectRareItem.gml</script>
           <script>scripts\effectMythicItem.gml</script>
           <script>scripts\effectExplosion.gml</script>
+          <script>scripts\effectFragmentBlue.gml</script>
+          <script>scripts\effectFragmentGreen.gml</script>
+          <script>scripts\effectFragmentRed.gml</script>
+          <script>scripts\effectFragmentBrown.gml</script>
+          <script>scripts\effectFragmentYellow.gml</script>
         </scripts>
         <scripts name="Other">
           <script>scripts\scrSpriteDissolve.gml</script>
@@ -1239,6 +1255,7 @@
         <object>objects\oArmorDrop</object>
         <object>objects\oXpReward</object>
         <object>objects\oHealthDrop</object>
+        <object>objects\oKnowledgeFragmentDrop</object>
       </objects>
       <objects name="Items">
         <objects name="Gold">
@@ -1451,7 +1468,7 @@
       <room>rooms\mapSklep</room>
     </rooms>
   </rooms>
-  <constants number="229">
+  <constants number="247">
     <constant name="baArmor">1</constant>
     <constant name="baBase">0</constant>
     <constant name="cStaticInstance">"staticInstance"</constant>
@@ -1472,6 +1489,24 @@
     <constant name="cNAN">999</constant>
     <constant name="bestiaryEnemySlime2">1</constant>
     <constant name="bestiaryEnemySlime">0</constant>
+    <constant name="bestiary_monster_knowledge_lvl5">23</constant>
+    <constant name="bestiary_monster_knowledge_lvl4">22</constant>
+    <constant name="bestiary_monster_knowledge_lvl3">21</constant>
+    <constant name="bestiary_monster_knowledge_lvl2">20</constant>
+    <constant name="bestiary_monster_knowledge_lvl1">19</constant>
+    <constant name="bestiary_monster_knowledge_current">18</constant>
+    <constant name="bestiary_monster_knowledge_level">17</constant>
+    <constant name="bestiary_monster_fragment4Text">16</constant>
+    <constant name="bestiary_monster_fragment3Text">15</constant>
+    <constant name="bestiary_monster_fragment2Text">14</constant>
+    <constant name="bestiary_monster_fragment1Text">13</constant>
+    <constant name="bestiary_monster_fragment0Text">12</constant>
+    <constant name="bestiary_monster_fragment4">11</constant>
+    <constant name="bestiary_monster_fragment3">10</constant>
+    <constant name="bestiary_monster_fragment2">9</constant>
+    <constant name="bestiary_monster_fragment1">8</constant>
+    <constant name="bestiary_monster_fragment0">7</constant>
+    <constant name="bestiary_monster_research_level">6</constant>
     <constant name="bestiary_monster_killed">5</constant>
     <constant name="bestiary_monster_race">4</constant>
     <constant name="bestiary_monster_details">3</constant>

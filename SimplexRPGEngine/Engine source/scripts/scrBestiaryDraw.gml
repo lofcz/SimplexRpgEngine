@@ -84,18 +84,15 @@ for (i = (currentPage * entriesPerPage); i < (((currentPage * entriesPerPage)) +
         entryX[i] = nX;
         entryY[i] = ((y + 4) + (48 + (tempI * (66))) - shiftY);
  
-        if (textAlpha < 1) {textAlpha = lerp(textAlpha, 1.1, 0.1);}
-        else {mode = 3;}
-       
+        if (textAlpha < 1) {textAlpha = lerp(textAlpha, 1.2, 0.1);}
+        else {mode = 3;}       
         }
         
         // Animation WAIT FOR CLOSE
         if (mode == 3)
         {
         entryX[i] = nX;
-        entryY[i] = ((y + 4) + (48 + (tempI * (66))) - shiftY);
-        
-        
+        entryY[i] = ((y + 4) + (48 + (tempI * (66))) - shiftY);                
         }
         
         // Animation TEXT DISSAPEAR
@@ -136,12 +133,20 @@ for (i = (currentPage * entriesPerPage); i < (((currentPage * entriesPerPage)) +
         if (entryActive == 0) {entryAlpha[j] = 1;}
         }
               
-        if (shiftY > 0) {shiftY = lerp(shiftY, 0, 0.1);}
+        if (shiftY > 0) {shiftY = lerp(shiftY, -10, 0.1);}
         else
             {
              mode            = 0;
              entryActive     = -2;
+             shiftY = max(shiftY, 0);
+        for (j = 0; j < (((currentPage * entriesPerPage)) + entriesPerPage); j++)
+        {
+        if (j == entryActive) {continue;}
+        entryAlpha[j] = 1;
+        if (entryActive == 0) {entryAlpha[j] = 1;}
+        }
             }
+        shiftY = max(shiftY, 0);
         }             
         }
      // tempVars
@@ -161,27 +166,50 @@ for (i = (currentPage * entriesPerPage); i < (((currentPage * entriesPerPage)) +
         drawRace = monster[i, bestiary_monster_race];
         drawN    = "Poraženo: " + string(monster[i, bestiary_monster_killed]);
         
+        // Draw selected entry
         if (rectangleHeight != -1 && i == entryActive)
             {
              draw_sprite_part(sBestiar, 5, 0, 0, 256, rectangleHeight, entryX[i], entryY[i] + 64);
             
              alg();
              clr(c_white, textAlpha);
-             draw_set_font(fntPixelSmall);
+             fnt(fntPixelSmall);
              draw_text_colored(entryX[i] + 16, entryY[i] + 70, monster[i, bestiary_monster_text]);
              q = string_height(monster[i, bestiary_monster_text]);
-             draw_set_font(fntPixelTiny);
+             fnt(fntPixelTiny);
              draw_text_colored(entryX[i] + 16, entryY[i] + 78 + q, monster[i, bestiary_monster_details]);
+             dH = string_height(monster[i, bestiary_monster_details]);
+              
+             // Draw fragments
+             outputFragment = "";
+             for (var j = 0; j < 5; j++)
+                 {                  
+                  if (monster[i,bestiary_monster_fragment0 + j]) {clr(-1, min(textAlpha, 1)); outputFragment += monster[i, bestiary_monster_fragment0Text + j] + "#";} else {clr(-1, min(textAlpha, 0.3));}
+                  draw_sprite_stretched(sBestiaryKnowledgeFragment, j, entryX[i] + 150 + (j * 20), entryY[i] + 240, 16, 16);
+                 }    
+             clr(c_white, textAlpha);   
+             fnt(fntPixelExtraTiny);
+             if (outputFragment != "") {draw_text_colored(entryX[i] + 16, entryY[i] + 80 + q + dH, outputFragment);} 
              
+             // Draw exploration level
+             fnt(fntPixelExtraTiny);
+             if (monster[i, bestiary_monster_knowledge_current] >= monster[i, bestiary_monster_knowledge_lvl1 + (monster[i, bestiary_monster_knowledge_level] - 1)]) {monster[i, bestiary_monster_knowledge_level]++;} // Lvl up
+             
+             k   = monster[i, bestiary_monster_knowledge_lvl1 + (monster[i, bestiary_monster_knowledge_level] - 1)]; 
+             lvl = monster[i, bestiary_monster_knowledge_level];
+             if (lvl >= 5) {lvl = "prozkoumáno";} else {lvl = string(lvl) + " (" + string(monster[i, bestiary_monster_knowledge_current]) + "/" + string(k) + ")";}
+
+             draw_text(entryX[i] + 13, entryY[i] + 245, "Porozumění: " + string(lvl));
+                                 
              }
         }
      alg();
-     draw_set_font(fntPixel);
+     fnt();
      clr(c_white, entryAlpha[i]);
      draw_text(entryX[i] + 72, entryY[i] + 4, drawName);
      clr(c_ltgray, entryAlpha[i]);
      draw_text(entryX[i] + 72, entryY[i] + 20, drawRace);
-     draw_set_font(fntPixelSmall);
+     fnt(fntPixelSmall);
      clr(c_black, entryAlpha[i]);
      draw_text(entryX[i] + 72, entryY[i] + 40, drawN);
      

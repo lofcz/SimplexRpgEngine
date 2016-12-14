@@ -226,7 +226,9 @@ apiPlayerOtherActions();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>effectExplosion()
+            <string>//effectExplosion()
+
+oBestiar.monster[bestiaryEnemySlime2, bestiary_monster_knowledge_current] += 5;
 </string>
           </argument>
         </arguments>
