@@ -181,12 +181,6 @@ yy   = view_yview + 48;
 ti   = 0;
 hit  = false;
 
-// Lerp main alpha channel
-if (activated) {activatedAlpha = lerp(activatedAlpha, 1, 0.1); push = false; pushValue = 0;}
-else           {activatedAlpha = lerp(activatedAlpha, 0, 0.1);}
-
-if (push) {pushValue = lerp(pushValue, 800, 0.1);}
-
 if (keyboard_check_pressed(ord("T")))
    {
     if (scrGettActiveComponent())
@@ -196,6 +190,11 @@ if (keyboard_check_pressed(ord("T")))
        }
    } 
 
+// Lerp main alpha channel
+if (activated) {scrSetActiveComponent(true); activatedAlpha = lerp(activatedAlpha, 1, 0.1); push = false; pushValue = 0;}
+else           {activatedAlpha = lerp(activatedAlpha, 0, 0.1);}
+
+if (push) {pushValue = lerp(pushValue, 800, 0.1);}
 
 // Draw form
 if (activatedAlpha &gt; 0.05)

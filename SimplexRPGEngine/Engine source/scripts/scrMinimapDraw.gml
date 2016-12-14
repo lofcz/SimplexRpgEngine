@@ -1,9 +1,6 @@
 #define scrMinimapDraw
 /// scrMinimapDraw()
 
-/// Draw Surface to Screen
-
-// Check for surface before drawing, it could be dead already. Should not happen, but can.
 if (draw)
 {
 x = view_xview+(view_wview - width);
@@ -21,15 +18,12 @@ if (instance_number(oPlayer) > 0 && draw)
 {
 m_alpha = min(1, oHUD.hudAlpha);
 
-//shader_set(shdCircle);
 draw_set_circle_precision(64);
 draw_set_alpha(min(0.3, oHUD.hudAlpha))
 draw_set_color(c_black)
-//draw_circle(x + (width / 2),y + (width / 2), width, false);//
 draw_roundrect_ext(x,y,x+width-1,y+height-2,256, 256, false);
 draw_set_color(c_black)
 draw_set_alpha(min(1, oHUD.hudAlpha))
-//draw_circle(x + (width / 2),y + (width / 2), width, true);//
 draw_roundrect_ext(x,y,x+width-2,y+height-2,256,256,true)
 draw_set_circle_precision(24);
 clr(c_aqua, -1);
@@ -125,27 +119,13 @@ if (lastI != -1)
     
     }
 }
-/*
-//DEBUG
 
-if (mouse_check_button_pressed(mb_left) && mouse_in(view_xview+(800-width),view_yview+(600-height),view_xview+(800),y+height))
-{
-show_message("Minimap zoom");
-
- if (zoom_level < 3) 
- {
- zoom_level++;
- zoom_x -= 100;
- zoom_y -= 75;
-
- } else {zoom_level = 1; zoom_x = 800; zoom_y = 600;}
-
-}
-*/
 if (oInventory.draw_inventory) {iconAlpha[0] = lerp(iconAlpha[0], 0.5, 0.1);}
 else {iconAlpha[0] = lerp(iconAlpha[0], 0, 0.1);}
 if (oBestiar.activated) {iconAlpha[1] = lerp(iconAlpha[1], 0.5, 0.1);}
 else {iconAlpha[1] = lerp(iconAlpha[1], 0, 0.1);}
+if (oQuest.active) {iconAlpha[2] = lerp(iconAlpha[2], 0.5, 0.1);}
+else {iconAlpha[2] = lerp(iconAlpha[2], 0, 0.1);}
 
 // Hp  + shield bar
 draw_ring_part(x + 101, y + 100, 100, 5, 32, 32, -90, 90, -1, c_black, false, oHUD.hudAlpha);
@@ -171,16 +151,6 @@ scrMinimapDrawIcon(3, sStatus,    x + 45, y + 20, 20, 2);
 
 scrMinimapDrawTool(sZoomInIcon,  x + 155, y + 20, 0);
 scrMinimapDrawTool(sZoomOutIcon, x + 178, y + 40, 1);
-
-/*
-draw_set_alpha(min(1, oHUD.hudAlpha))      
-draw_set_color(c_gray)             
-draw_circle_colour(x + 100, y + 195, 14, c_gray, c_dkgray, false);
-draw_sprite_stretched(sInventory, 0, x + 100 - 11, y + 195 - 12, 26, 26); 
-draw_set_color(c_black)             
-draw_circle(x + 100, y + 195, 14, true);
-draw_set_alpha(min(1, oHUD.hudAlpha))*/
-
   }
  }
 }

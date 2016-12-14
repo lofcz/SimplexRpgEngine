@@ -434,8 +434,9 @@ for (z = 0; z &lt; 9; z++)
                         
      qx += 48;
     }
-qx      = 184 + view_xview + 4;
-qy      = 548 + view_yview - 36;
+    
+qx = 184 + view_xview + 4;
+qy = 548 + view_yview - 36;
     
 if (drawTip != -1) {if (mouse_check_button_released(mb_right)) {drawTip = -1;}}
 
@@ -676,7 +677,7 @@ alg("default", fntPixelHuge);
      //********************************************************************
      
      // Quest
-        if (keyboard_check_pressed(ord("Q")) &amp;&amp; iconActive[hudIcons.quest] &amp;&amp; !scrGettActiveComponent())
+        if (keyboard_check_pressed(ord("Q")) &amp;&amp; iconActive[hudIcons.quest] &amp;&amp; !scrGettActiveComponent() &amp;&amp; !scrGetTempComponent())
         {
         draw_quest = ! draw_quest;
         if (instance_number(oQuest) &gt; 0) {oQuest.active = !oQuest.active;}
