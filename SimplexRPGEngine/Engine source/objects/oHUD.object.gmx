@@ -429,6 +429,7 @@ for (z = 0; z &lt; 9; z++)
          if (hotslot[z, 2] &gt; 0 || hotslot[z, 1] == 2) 
             {
              if (hotslot[z, 1] == 2) {apiPlayerSpellCast(z);}  // Cast spell
+             if (hotslot[z, 1] == 1) {inventoryAction(hotslot[z, 0], 0);}  // Use item
             }
         }
                         
