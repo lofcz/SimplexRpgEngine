@@ -37,6 +37,7 @@ pointListSymbol = ds_list_create();
 pointListColor  = ds_list_create();
 pointListSprite = ds_list_create();
 pointListMap    = ds_list_create();
+pointListAuto   = ds_list_create();
 hoverAlpha      = 0;
 lastI           = -1;
 drawMode        = 0;

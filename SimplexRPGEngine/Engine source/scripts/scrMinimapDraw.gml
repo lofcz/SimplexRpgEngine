@@ -33,6 +33,9 @@ with (oPlayer)
 {
     dx = oMinimap.x+((x-oMinimap.x1)*oMinimap.sizex);
     dy = oMinimap.y+((y-oMinimap.y1)*oMinimap.sizey);
+    oMinimap.tempX = dx;
+    oMinimap.tempY = dy;
+    
     
     if (point_in_circle(dx, dy, oMinimap.x + 100, oMinimap.y + 100, 96)) {draw_circle(dx,dy,2,false);}
 }
@@ -82,7 +85,8 @@ for (i = 0; i < ds_list_size(pointList); i++)
      dx = oMinimap.x+(( pointListX[| i]-oMinimap.x1)*oMinimap.sizex);
      dy = oMinimap.y+((pointListY[| i]-oMinimap.y1)*oMinimap.sizey);
      
-     if (point_in_circle(dx, dy, oMinimap.x + 100, oMinimap.y + 100, 96)) {if (pointListSprite[| i] != -1) {draw_sprite_ext(sMinimapIcons, pointListSprite[| i], dx, dy, 0.5, 0.5, 0, c_white, min(1, oHUD.hudAlpha));}}
+     inCircle = false;
+     if (point_in_circle(dx, dy, oMinimap.x + 100, oMinimap.y + 100, 96)) {if (pointListSprite[| i] != -1) {inCircle = true; draw_sprite_ext(sMinimapIcons, pointListSprite[| i], dx, dy, 0.5, 0.5, 0, c_white, min(1, oHUD.hudAlpha));}}
      alg();
      
      if (mouse_in(oMinimap.x+(( pointListX[| i]-oMinimap.x1)*oMinimap.sizex) - 8, oMinimap.x+(( pointListX[| i]-oMinimap.x1)*oMinimap.sizex) + 2, oMinimap.y+((pointListY[| i]-oMinimap.y1)*oMinimap.sizey) - 5, oMinimap.y+((pointListY[| i]-oMinimap.y1)*oMinimap.sizey) + 5))
@@ -90,6 +94,18 @@ for (i = 0; i < ds_list_size(pointList); i++)
          decA = false;
          drawI = i;
         }
+        
+      // Auto navigation
+      if (pointListAuto[| i] && ! inCircle)
+         {
+          var dir = (point_direction(oPlayer.x, oPlayer.y, pointListX[| i] + 16, pointListY[| i] + 16));
+          draw_sprite_ext(sMinimapWaypoints, 0, 100 + oMinimap.x + lengthdir_x(90, dir), 100 + oMinimap.y + lengthdir_y(90, dir), 1, 1, dir, c_white, oHUD.hudAlpha);
+          alg("center", fntPixelTiny);
+          clr(c_white, -1);
+          ss = string(round(point_distance(oPlayer.x, oPlayer.y, pointListX[| i] + 16, pointListY[| i] + 16) / 16));
+          draw_text_transformed(100 + oMinimap.x + lengthdir_x(90 - string_width(ss) / 2, dir) - 4, 100 + oMinimap.y + lengthdir_y(90 - string_width(ss) / 2 - 4, dir), ss, 1, 1, dir); 
+          alg();
+         }
      }
     }
 
