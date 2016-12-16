@@ -37,6 +37,7 @@ alpha[2]        = 0;
 alpha[3]        = 0;
 die             = 0;
 die_alpha       = 0;
+cStep           = 0;
 effect_scale    = 1;
 draw_bestiary   = 0;
 temp_inv        = 0;
@@ -57,10 +58,12 @@ scale_equipment = 1;
 draw_status     = 0;
 scale_status    = 1;
 spellsxPlus     = 16;
+forceDB         = false;
 expxPlus        = 8;
 craftingHelper  = -1;
 craftingTitle   = "Výroba";
 craftingMenuAlpha    = 1;
+craftingPreview      = "";
 craftingMenuIndex[0] = "Předměty";
 craftingMenuIndex[1] = "Zdokonalení";
 craftingMenuIndex[2] = "Materiály";
@@ -138,6 +141,11 @@ enrichtingOutputSprite = 0;
 repairItemID = -1;
 repairItemSprite = 0;
 repairItemSlotID = -1;
+
+for(i = 0; i &lt; celkem_vlastnosti; i++)  
+      {
+       cp[i] = 0;
+      }
 
 // TEST - CRAFTING
 // *****************************************

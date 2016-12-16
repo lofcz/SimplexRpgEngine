@@ -76,7 +76,12 @@ else
          draw_roundrect(tempX, tempY, tempX + 256, tempY + 24 + craftingDetailsHeight, true);        
          clr(c_white, craftingDetailsAlpha);
          alg();
-         draw_text_colored(tempX + 2, tempY + 32, string(craftingTitleHelper2));
+         if (craftingPreview == "") {draw_text_colored(tempX + 2, tempY + 32, string(craftingTitleHelper2));}
+         else
+         {
+         cH = string_height(string(craftingTitleHelper2));
+         draw_text_colored(tempX + 2, tempY + 32, "Náhled předmětu:" + string(craftingPreview));
+         }
          clr(c_white);
          alg("center", fntPixel);
          if (craftingTitleHelper == "") 
@@ -102,7 +107,11 @@ else
             else 
                 {
                 alg("center", fntPixel);
-                draw_text(tempX + 128, tempY + 12, craftingTitleHelper);
+                zT = "";
+                if (craftingPreview != "") {zT = " [Náhled]";}
+                w = string_width(craftingTitleHelper + zT);
+                if (w > 230) {fnt(fntPixelSmall);}
+                draw_text(tempX + 128, tempY + 12, craftingTitleHelper + zT);                
                 alg();
                 
                 // Handle crafting details form
@@ -112,7 +121,6 @@ else
                     {
                     if (craftingDetailsHeight > 0) {craftingDetailsHeight = lerp(craftingDetailsHeight, -1, 0.1);}
                     if (craftingDetailsAlpha > 0) {craftingDetailsAlpha = lerp(craftingDetailsAlpha, -0.01, 0.1);}
-                    
                     tc = c_white;
                     
                      if (mouse_in(tempX + 230, tempX + 250, tempY, tempY + 20))
@@ -142,10 +150,6 @@ else
                         if (mouse_check_button_pressed(mb_left))
                             {
                              craftingDetails = false;
-                             for (var i = 0; i < min(array_height_2d(oInventory.slot), ((oInventory.currentPage*oInventory.slotsPerPage) + oInventory.slotsPerPage)); i++)
-                                {
-                                 oInventory.slot[i, inv_item_beingUsed] = false;
-                                }
                             }
                         }
                         
@@ -161,7 +165,7 @@ else
          tempX = xpos;
          tempY = ypos + 96;
              
-         // Creating item form 
+         // Crafting item form 
          if (craftingSelectedIndex == 0 && craftingHelper == -1 && !craftingDetails)
             {    
             j = 0;        
@@ -238,7 +242,7 @@ else
 
             }   
          
-       // Crafting details form (item to creaft is selected)
+       // Crafting details form (item to craft is selected)
        if (craftingSelectedIndex == 0 && craftingHelper == 0 && !craftingDetails)
           {
             tempX = xpos;
@@ -1056,3 +1060,4 @@ else
                 draw_text(tempX + 184, tempY + 180, "[Zrušit]");                                                       
         } 
 }
+

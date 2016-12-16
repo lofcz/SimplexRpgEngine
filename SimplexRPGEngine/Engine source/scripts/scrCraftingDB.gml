@@ -1,10 +1,11 @@
 #define scrCraftingDB
 /// scrCraftingDB(callMode, id)
 
-var callMode, index;
+var callMode, index, t;
 callMode = craftingEnum.craftInfo;
 index    = 0;
 craftingCompleted = true;
+t = false;
 
 tx = tempX;
 ty = tempY;
@@ -13,16 +14,30 @@ if (argument_count > 0) {callMode = argument[0];}
 if (argument_count > 1) {index    = argument[1];}
 
 
-if (index == 3) // Wooden sword
+dbID = index;
+if (index == 3 ) // Wooden sword
     {
-     if (callMode == craftingEnum.craftCraft)
-        {
-         scrCraftingDbDrawSlot(tx, ty, materialEnum.materialWood, 0, 3, 0);
-         scrCraftingDbDrawSlot(tx, ty + 40, materialEnum.materialMetal, 1, 1, 2);
-         scrCraftingDrawCraftingSeparator(tx + 3, ty + 80);
-         scrCraftingDbDrawSlot(tx, ty + 100, materialEnum.materialPearl, 2, 1, 1, true);
-        }
-    
+     scrCraftingDbDrawSlot(tx, ty, materialEnum.materialWood, 0, 3, 0);
+     scrCraftingDbDrawSlot(tx, ty + 40, materialEnum.materialMetal, 1, 1, 2);
+     scrCraftingDrawCraftingSeparator(tx + 3, ty + 80);
+     scrCraftingDbDrawSlot(tx, ty + 100, materialEnum.materialPearl, 2, 1, 1, true);
+     
+     if (cStep)
+     { 
+     if (craftingPreview != "") {for(i = 0; i < celkem_vlastnosti; i++) {cp[i] = 0;}}   
+     for (var i = 0; i < 3; i++)
+         {
+          if (slotArray[i] != -1)
+             {
+              t = true;
+              if (slotArray[i] == itemEnum.itemWood) {cp[vlastnost_poskozeni] += 2; cp[vlastnost_stamina_cost] = 4;}
+              if (slotArray[i] == itemEnum.itemSteel) {cp[vlastnost_poskozeni] += 4;}
+              if (slotArray[i] == itemEnum.itemPearlRed) {cp[vlastnost_stackSezehnuti] += 0.5;}
+             }   
+         }
+     if (t || forceDB) {craftingPreview = scrCraftingFinalizePreviewString(); forceDB = false;}
+     cStep = false;
+     }
     }
 
 // Navigation       
@@ -63,6 +78,9 @@ if (craftingCompleted) {textColor = c_lime;}
         scrCraftingCraft(index, false);
         craftingHelper = -1;
         craftingTitleHelper = "";
+        craftingPreview = "";
+        cStep = false;
+        for(i = 0; i < celkem_vlastnosti; i++) {cp[i] = 0;}
         }
         }
      
@@ -99,7 +117,7 @@ color = c_black;
 craftingSlotNumber[in] = nr;
 craftingSlotOptional[in] = o;
 
-if (oInventory.drag = 1 && oInventory.equip_sprite_s[3] = mr && oInventory.equip_sprite_s[5] >= nr)
+if (oInventory.drag && oInventory.equip_sprite_s[3] = mr && oInventory.equip_sprite_s[5] >= nr)
         { 
          color = c_lime;
         }
@@ -108,7 +126,7 @@ if (mouse_in(xx, xx + 32, yy, yy + 32))
     {
     color = c_yellow;
     
-        if (oInventory.drag = 1 && oInventory.equip_sprite_s[3] = mr && oInventory.equip_sprite_s[5] >= nr)
+        if (oInventory.drag && oInventory.equip_sprite_s[3] = mr && oInventory.equip_sprite_s[5] >= nr)
         { 
          color = c_lime;
         }
@@ -120,6 +138,7 @@ if (mouse_in(xx, xx + 32, yy, yy + 32))
     oInventory.slot[oInventory.h_c, inv_item_beingUsed] = true; 
     craftingSlotID[in] = oInventory.h_c;
     craftingSlotItemID[in] = oInventory.equip_sprite_s[6];
+    cStep = true;
 
     if (color == c_lime)
         {
@@ -134,6 +153,9 @@ if (mouse_in(xx, xx + 32, yy, yy + 32))
             oInventory.slot[craftingSlotID[in], inv_item_beingUsed] = false;
             craftingSlotSprite[in] = 0;
             craftingSlotID[in] = -1;
+            cStep = true;
+            forceDB = true;
+            scrCraftingDB(craftingEnum.craftInfo, dbID);
             }
         }
     }
@@ -147,9 +169,12 @@ clr(c_white, 1);
 fnt();
 draw_text(xx + 40, yy, "x" + string(nr));
 
+slotArray[in] = -1;
 if (craftingSlotSprite[in] != 0)
     {
      draw_sprite(sTestItem, craftingSlotSprite[in], xx + 16, yy + 16);
+     //craftingPreview += string(craftingSlotSprite[in]);
+     slotArray[in] = (craftingSlotSprite[in] + 1);
      
      if (mouse_in(xx, xx + 32, yy, yy + 32))
      {
@@ -1039,3 +1064,323 @@ for (q = 0; q < 10; q++)
       craftingSlotItemID[q] = -1;
     }
     }
+#define scrCraftingFinalizePreviewString
+/// scrCraftingFinalizePreviewString()
+
+var a, t_text;
+a      = 0;
+t_text = "";
+
+for(a = 0; a < celkem_vlastnosti; a++)
+      {  
+       if (cp[a] != 0)
+          {
+           switch(a)
+                    {
+                    case(vlastnost_bonusove_poskozeni_vuci_zviratum):
+                         {
+                           t_text += "#Poškození vůči zvířatům: "+scrColorText(string(cp[a]), c_lime) + "%";
+                           break;                                                                   
+                         }
+                    case(vlastnost_stackSezehnuti):
+                         {
+                           t_text += "#Šance na sežehnutí: "+scrColorText(scrColorText(string_format(cp[a], 3, 1), c_lime), c_lime) + "%";
+                           break;                                                                   
+                         }
+                     case(vlastnost_poskozeni):
+                         {
+                           t_text += "#Poškození: " +scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                     case(vlastnost_max_zivot):
+                         {
+                           t_text += "#Život: "+scrColorText(string(cp[a]), c_lime);                    
+                           break;                                                                   
+                         }
+                     case(vlastnost_stamina_cost):
+                         {
+                           t_text += "#Stamina za úder: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_max_mana):
+                         {
+                           t_text += "#Mana: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_sila):
+                         {
+                           t_text += "#Síla: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_obratnost):
+                         {
+                           t_text += "#Obratnost: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_kovarstvi):
+                         {
+                           t_text += "#Kovářství: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_tezarstvi):
+                         {
+                           t_text += "#Těžařství: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_odolnost):
+                         {
+                           t_text += "#Odolnost: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_vytrvalost):
+                         {
+                           t_text += "#Vytrvalost: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                     case(vlastnost_presnost):
+                         {
+                           t_text += "#Přesnost: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                     case(vlastnost_rychlost):
+                         {
+                           t_text += "#Rychlost: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_zrucnost):
+                         {
+                           t_text += "#Zručnost: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_svadeni):
+                         {
+                           t_text += "#Svádění: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_zastrasovani):
+                         {
+                           t_text += "#Zastrašování: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_dustojnost):
+                         {
+                           t_text += "#Důstojnost: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_vyrecnost):
+                         {
+                           t_text += "#Výřečnost: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_elegance):
+                         {
+                           t_text += "#Elegance: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_cest):
+                         {
+                           t_text += "#Čest: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                         
+                    case(vlastnost_kapsarstvi):
+                         {
+                           t_text += "#Kapsářství: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                     case(vlastnost_paceni_zanmku):
+                         {
+                           t_text += "#Páčení zámků: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                     case(vlastnost_vule):
+                         {
+                           t_text += "#Vůle: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_inteligence):
+                         {
+                           t_text += "#Inteligence: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_ritualy):
+                         {
+                           t_text += "#Rituály: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_tradicni_magie):
+                         {
+                           t_text += "#Tradiční magie: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_astralni_videni):
+                         {
+                           t_text += "#Astrální vidění: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_mece):
+                         {
+                           t_text += "#Meče: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_dyky):
+                         {
+                           t_text += "#Dýky: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_luky):
+                         {
+                           t_text += "#Lukostřelba: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                     case(vlastnost_kopi):
+                         {
+                           t_text += "#Kopí: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                     case(vlastnost_jednorucni):
+                         {
+                           t_text += "#Jednoruční zbraně: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_dvojrucni):
+                         {
+                           t_text += "#Dvojruční zbraně: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_stity):
+                         {
+                           t_text += "#Štíty: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_rezistence_vse):
+                         {
+                           t_text += "#Ochrana proti všem elementům: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_rezistence_zeme):
+                         {
+                           t_text += "#Ochrana proti zemi: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_rezistence_ohen):
+                         {
+                           t_text += "#Ochrana proti ohni: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_rezistence_voda):
+                         {
+                           t_text += "#Ochrana proti vodě: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_rezistence_temnota):
+                         {
+                           t_text += "#Ochrana proti temnotě: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                         
+                     case(vlastnost_rezistence_svetlo):
+                         {
+                           t_text += "#Ochrana proti světlu: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_rezistence_vitr):
+                         {
+                           t_text += "#Ochrana proti vodě: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_zivot):
+                         {
+                           t_text += "#Obnoví zdraví: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_mana):
+                         {
+                           t_text += "#Obnoví manu: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_stamina):
+                         {
+                           t_text += "#Obnoví výdrž: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                         
+                    case(vlastnost_max_stamina):
+                         {
+                           t_text += "#Výdrž: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_kriticka_sance):
+                         {
+                           t_text += "#Šance na kritický úder: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_kriticka_nasobic):
+                         {
+                           t_text += "#Násobič kritického úderu: "+scrColorText(string(cp[a]), c_lime) + "%";
+                           break;                                                                   
+                         }
+                    case(vlastnost_stit):
+                         {
+                           t_text += "#Obnoví štít: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_max_stit):
+                         {
+                           t_text += "#Štít: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_zkusenosti):
+                         {
+                           t_text += "#Přidá zkušenosti: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_max_zkusenosti):
+                         {
+                           t_text += "#Zvýší tkušenosti potřebné k dosažení další úravně: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_level):
+                         {
+                           t_text += "#Zváší úroveň: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_tick_stamina):
+                         {
+                           t_text += "#Zvýší rychlost obnovy výdrže: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_tick_stamina_add):
+                         {
+                           t_text += "#Zvýší množství obnovené výdrže: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_bonusoveZkusenosti):
+                         {
+                           t_text += "#Bonusové zkušenosti: "+scrColorText(string(cp[a]), c_lime) + "%";
+                           break;                                                                   
+                         }
+                    case(vlastnost_healHp):
+                         {
+                           t_text += "#Obnoví zdraví: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_healMp):
+                         {
+                           t_text += "#Obnoví manu: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_healStamina):
+                         {
+                           t_text += "#Obnoví výdrž: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }
+                    case(vlastnost_healShield):
+                         {
+                           t_text += "#Obnoví štít: "+scrColorText(string(cp[a]), c_lime);
+                           break;                                                                   
+                         }             
+  }
+ }
+}
+return (t_text);
