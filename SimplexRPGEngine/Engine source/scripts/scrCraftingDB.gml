@@ -151,8 +151,26 @@ if (craftingSlotSprite[in] != 0)
     {
      draw_sprite(sTestItem, craftingSlotSprite[in], xx + 16, yy + 16);
      
+     if (mouse_in(xx, xx + 32, yy, yy + 32))
+     {
      fnt(fntPixelTiny);
-     draw_text_colored(xx + 64, yy - 6, scrCraftingGetMaterialText(craftingSlotItemID[in], nr));
+     global.tP[0] = xx + 68;
+     global.tP[1] = yy - 6;
+     global.tP[2] = scrCraftingGetMaterialText(craftingSlotItemID[in], nr);
+     global.tP[3] = xx + 68 + string_width(global.tP[2]);
+     global.tP[4] = yy - 6 + string_height(global.tP[2]);
+      
+     with(oInventoryDepthHelper)
+     { 
+     clr(c_black, 0.3);    
+     draw_roundrect_ext(global.tP[0] - 6, global.tP[1] - 2, global.tP[3] + 4, global.tP[4] + 2, 24, 24, false);
+     clr(c_black, 1);    
+     draw_roundrect_ext(global.tP[0] - 6, global.tP[1] - 2, global.tP[3] + 4, global.tP[4] + 2, 24, 24, true);
+     clr(c_white);
+     draw_text_colored(global.tP[0], global.tP[1], global.tP[2]);
+     }
+      fnt();
+     }
     }
 else
     {
@@ -175,6 +193,10 @@ if (argument_count > 1) {c = argument[1];}
 if (m == itemEnum.itemWood)
     {
      str = scrWordwrap("Základní materiál, slouží zejména jako palivo.", 128, fntPixelTiny);
+    }
+if (m == itemEnum.itemSteel)
+    {
+     str = scrWordwrap("Kvalitní kus oceli, jeden z nejběžnějších kovů pro výrobu zbraní.", 128, fntPixelTiny);
     }
 if (m == itemEnum.itemStone)
     {

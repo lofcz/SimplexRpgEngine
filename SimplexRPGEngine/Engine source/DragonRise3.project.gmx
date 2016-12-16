@@ -1193,6 +1193,7 @@
           <object>objects\oMessagebox</object>
           <object>objects\oAnswer</object>
           <object>objects\oHintBox</object>
+          <object>objects\oHudDepthHelper</object>
           <object>objects\oHintBoxButton</object>
         </objects>
       </objects>

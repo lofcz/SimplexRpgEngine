@@ -78,6 +78,7 @@ instance_activate_object(oAchievement);
 instance_activate_object(oState);
 instance_activate_object(oDepthHelperAbovePlayer);
 instance_activate_object(oThrowableItem);
+instance_activate_object(oHudDepthHelper);
 
 // Further optimization of collision system
 instance_deactivate_object(oNonsolidCollision);

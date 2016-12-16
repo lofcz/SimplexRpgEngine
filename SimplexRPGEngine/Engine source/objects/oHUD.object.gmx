@@ -75,6 +75,7 @@ tempSpr              = 0;
 drawTip              = -1;
 drawTipAlpha         = 0;
 drawTipTempIndex     = -1;
+instance_create(x, y, oHudDepthHelper);
 
 drawCraftingMenu = 1;
 craftingSelectedIndex = -1;

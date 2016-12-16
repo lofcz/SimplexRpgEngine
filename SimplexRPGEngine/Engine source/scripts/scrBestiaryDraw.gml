@@ -177,7 +177,7 @@ for (i = (currentPage * entriesPerPage); i < (((currentPage * entriesPerPage)) +
              draw_text_colored(entryX[i] + 16, entryY[i] + 70, monster[i, bestiary_monster_text]);
              q = string_height(monster[i, bestiary_monster_text]);
              fnt(fntPixelTiny);
-             draw_text_colored(entryX[i] + 16, entryY[i] + 78 + q, monster[i, bestiary_monster_details]);
+             draw_text_colored(entryX[i] + 16, entryY[i] + 70 + q, monster[i, bestiary_monster_details]);
              dH = string_height(monster[i, bestiary_monster_details]);
               
              // Draw fragments
