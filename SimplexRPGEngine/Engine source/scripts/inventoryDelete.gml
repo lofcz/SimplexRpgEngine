@@ -83,16 +83,18 @@ with (oInventory)
       drag_controll   = 0;
       draw_item_mouse = false;
 
-      for (a = 0; a < inv_atributes_total; a++)
+            for (a = 0; a < inv_atributes_total; a++)
           {
-           if (scrInventoryParseString()) {slot[h_c, a] = 0;}
+          if (scrInventoryParseString()) {slot[h_c, a] = 0;}
            else {slot[h_c, a] = "";}  
                    
            if (a == inv_sprite) {slot[h_c, a] = sFreeSlot;}    
+           
           }     
                  
       for (b = 0; b < 10; b++)
           {
-           switch_option[0, b] = "";             
+           switch_option[0, b] = "";   
           }                       
+     inventoryResetSlot(h_c)
      }
