@@ -30,7 +30,7 @@ if (keyboard_check_pressed(vk_alt)) {chargeMode = !chargeMode;}
 
 if ((keyboard_check_released(vk_space) && chargeMode) || (keyboard_check_pressed(vk_space) && !chargeMode))
    {   
-    if (!attack && oPlayer.vlastnost[vlastnost_stamina] >= oPlayer.vlastnost[vlastnost_stamina_cost] && attackMode == "attack")
+    if (!attack && oPlayer.vlastnost[vlastnost_stamina] >= oPlayer.vlastnost[vlastnost_stamina_cost] && attackMode == "attack" && oPlayer.vlastnost[vlastnost_stamina_cost] > 0)
        {
         audio_play_sound(choose(sndSwing1, sndSwing2, sndSwing3), 0, 0);
         attack = 1;
