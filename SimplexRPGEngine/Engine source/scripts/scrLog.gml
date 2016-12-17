@@ -13,7 +13,7 @@ mode     = "normal";
 spd      = 0.02;
 
 if (argument_count > 0) {text     = string(argument[0]);}
-if (argument_count > 1) {if (argument[1] != -1) {color    = argument[1];}}
+if (argument_count > 1) {color    = argument[1];}
 if (argument_count > 2) {if (argument[2] != -1) {sprite   = argument[2];}}
 if (argument_count > 3) {if (argument[3] != -1) {override = argument[3];}}
 if (argument_count > 4) {if (argument[4] != -1) {ani      = argument[4];}}

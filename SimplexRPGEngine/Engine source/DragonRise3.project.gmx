@@ -1708,7 +1708,7 @@
     <constant name="rarity_set">make_color_rgb(176,250,157)</constant>
     <constant name="rarity_rare">c_lime</constant>
     <constant name="rarity_fine">c_aqua</constant>
-    <constant name="rarity_normal">c_black</constant>
+    <constant name="rarity_normal">c_white</constant>
     <constant name="rarity_junk">c_dkgray</constant>
     <constant name="inv_item_info_footer_color">17</constant>
     <constant name="inv_item_info_footer">16</constant>

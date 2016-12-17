@@ -138,6 +138,8 @@ number_min  = 5;
 number_max  = 10;
 chance      = 100;
 rep         = 1;
+sx          = x + 32;
+sy          = y;
 
 if (argument_count > 0) {item                             = argument[0];}
 if (argument_count > 1) {number_min                       = argument[1];}
@@ -148,8 +150,6 @@ if (argument_count > 5) {rep                              = argument[5];}
 
 repeat(rep)
 {
-randomize();
-
 if (chance >= random(100))
    {
    var ix, iy, ip;
@@ -163,6 +163,8 @@ if (chance >= random(100))
    }
    until(place_free(ix, iy) && ip < 40);
    
+   if (ip < 40) {sx = ix; sy = iy;}
+   else {ix = sx; iy = sy;}
    
    loot = instance_create(ix,iy,item);
    loot.itm_number = irandom_range(number_min,number_max);

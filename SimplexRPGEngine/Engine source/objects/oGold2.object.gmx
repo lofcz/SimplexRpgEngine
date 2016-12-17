@@ -77,7 +77,8 @@ sprite_index = sCoin2
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>   var ix, iy, ip;
+            <string>
+      var ix, iy, ip;
    ip = 0;
    do
    {
@@ -88,7 +89,7 @@ sprite_index = sCoin2
    until(place_free(ix, iy) &amp;&amp; ip &lt; 40);
    
    x = ix;
-   y = ip;
+   y = iy;
 </string>
           </argument>
         </arguments>
