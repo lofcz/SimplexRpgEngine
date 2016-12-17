@@ -348,15 +348,21 @@ return c
     dx = xx;
     dy = yy;
     dp = 1;
-    for (p = 1; p <= l; p += 1) {
+    
+    for (p = 1; p <= l; p++) 
+    {
         c = string_char_at(str, p);
-        if (c == chr(10) || p == l || (c == '#' && string_char_at(str, p - 1) != '\')) {
+        if (c == chr(10) || p == l || (c == '#' && string_char_at(str, p - 1) != '\')) 
+        {
             draw_text(dx, dy, string_copy(str, dp, p - dp + 1));
             dp = p + 1;
             dx = xx;
             dy += h;
-        } else if (c == string_char_at(st, 1) || c == string_char_at(ct, 1)) {
-            if (p + string_length(st) <= l && string_copy(str, p, string_length(st)) == st) {
+        } 
+        else if (c == string_char_at(st, 1) || c == string_char_at(ct, 1)) 
+        {
+            if (p + string_length(st) <= l && string_copy(str, p, string_length(st)) == st) 
+            {
                 ds = string_copy(str, dp, p - dp);
                 draw_text(dx, dy, ds);
                 dx += string_width(ds);
@@ -365,7 +371,9 @@ return c
                 if (i == '') i = pc;
                 draw_set_color(real(i));
                 dp = p + 1;
-            } else if (p + string_length(st) <= l && string_copy(str, p, string_length(ct)) == ct) {
+            } 
+            else if (p + string_length(st) <= l && string_copy(str, p, string_length(ct)) == ct) 
+            {
                 ds  = string_copy(str, dp, p - dp);
                 draw_text(dx, dy, ds);
                 draw_set_color(pc);
@@ -376,6 +384,7 @@ return c
         }
     }
     draw_set_color(pc);
+
 #define draw_item_loot
 /// draw_item_loot()
 

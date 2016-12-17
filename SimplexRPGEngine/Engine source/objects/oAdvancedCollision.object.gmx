@@ -354,6 +354,7 @@ if (mode == 0 &amp;&amp; alpha &gt; 0.05)
 {
 if (draw &amp;&amp; text[0] != "")
 {
+alg();
 fnt(fntPixel);
 clr(c_black, alpha / 2);
 draw_roundrect_colour_ext(xx-string_width(parsed_text[status])/2-10,yy-string_height(parsed_text[status])/2,xx+string_width(parsed_text[status])/2+10,yy+string_height(parsed_text[status])/2+4,20,20,c_black,c_black,0);
@@ -364,15 +365,13 @@ alg();
 }
 else if (text[0] != "")
 {
-draw_set_font(fntPixel);
-scrCenterText();
-draw_set_alpha(alpha/2);
+alg("center", fntPixel);
+clr(-1, alpha/2);
 draw_roundrect_colour_ext(xx-string_width("E")/2-10,yy-string_height("E")/2,xx+string_width("E")/2+10,yy+string_height("E")/2+4,20,20,c_black,c_black,0);
-draw_set_alpha(alpha);
-draw_set_color(c_white);
+clr(c_white, alpha);
 draw_text(xx,yy,"E");
-draw_set_alpha(1);
-scrCenterText(0);
+clr(-1, 1);
+alg();
 }
 }
 
