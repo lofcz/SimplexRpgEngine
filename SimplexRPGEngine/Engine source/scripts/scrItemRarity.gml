@@ -1,4 +1,4 @@
-/// inventoryRarity()
+/// scrItemRarity()
 
 value = itm_info_color;
 text  = itm_info_head;

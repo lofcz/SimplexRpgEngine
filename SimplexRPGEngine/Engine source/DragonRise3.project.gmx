@@ -540,6 +540,10 @@
               <sprite>sprites\sKeyEffect</sprite>
               <sprite>sprites\sInventoryExtensionEffect</sprite>
               <sprite>sprites\sWhetstoneEffect</sprite>
+              <sprite>sprites\sArcaneUpgradeLegendaryEffect</sprite>
+              <sprite>sprites\sArcaneUpgradeGreaterEffect</sprite>
+              <sprite>sprites\sArcaneUpgradeNormalEffect</sprite>
+              <sprite>sprites\sArcaneUpgradeLesserEffect</sprite>
               <sprite>sprites\sLockpickEffect</sprite>
             </sprites>
             <sprites name="Weapons">
@@ -846,6 +850,7 @@
         <script>scripts\scrItemSetOptions.gml</script>
         <script>scripts\scrItemSetUpFinalize.gml</script>
         <script>scripts\scrItemSetDataSockets.gml</script>
+        <script>scripts\scrItemSetReinforcementProperties.gml</script>
         <script>scripts\scrItemMarkAsUsable.gml</script>
         <script>scripts\scrItemRepair.gml</script>
         <script>scripts\scrItemBasic.gml</script>
@@ -853,6 +858,8 @@
         <script>scripts\scrItemSetBodyCanvas.gml</script>
         <script>scripts\scrItemSetRarityPointsBased.gml</script>
         <script>scripts\scrItemSetRarityDistributionBased.gml</script>
+        <script>scripts\scrItemUpdateReinforcementName.gml</script>
+        <script>scripts\scrItemUpdateReinforcementStats.gml</script>
         <script>scripts\scrItemGetRarity.gml</script>
         <script>scripts\itemDraw.gml</script>
         <script>scripts\itemDrawStats.gml</script>
@@ -1405,6 +1412,7 @@
           <object>objects\oWhetstone</object>
           <object>objects\oLofsGift</object>
           <object>objects\oLofsGift2</object>
+          <object>objects\oArcaneUpgradeLesser</object>
           <object>objects\oBasicLetter</object>
           <object>objects\oBasicItem</object>
           <object>objects\parItem</object>
@@ -1470,7 +1478,7 @@
       <room>rooms\mapSklep</room>
     </rooms>
   </rooms>
-  <constants number="247">
+  <constants number="252">
     <constant name="baArmor">1</constant>
     <constant name="baBase">0</constant>
     <constant name="cStaticInstance">"staticInstance"</constant>
@@ -1537,7 +1545,12 @@
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
     <constant name="upgradableProperties">58</constant>
-    <constant name="celkem_vlastnosti">104</constant>
+    <constant name="celkem_vlastnosti">109</constant>
+    <constant name="vlastnost_reinforcementIs">108</constant>
+    <constant name="vlastnost_reinforcementCostIncM">107</constant>
+    <constant name="vlastnost_reinforcementCostInc">106</constant>
+    <constant name="vlastnost_reinforcementCostBase">105</constant>
+    <constant name="vlastnost_reinforcementLevel">104</constant>
     <constant name="vlastnost_defense">103</constant>
     <constant name="vlastnost_repairCost">102</constant>
     <constant name="vlastnost_max_durability">101</constant>

@@ -502,6 +502,10 @@
     <instance objName="oKnowledgeFragmentDrop" x="912" y="1520" name="inst_6716A8B9" locked="0" code="fI = 0;&#xA;m  = bestiaryEnemySlime2;&#xA;mN = &quot;Slimák stínobrodý&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oKnowledgeFragmentDrop" x="912" y="1552" name="inst_97A902BD" locked="0" code="fI = 3;&#xA;m  = bestiaryEnemySlime2;&#xA;mN = &quot;Slimák stínobrodý&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oKnowledgeFragmentDrop" x="912" y="1584" name="inst_CF808903" locked="0" code="fI = 4;&#xA;m  = bestiaryEnemySlime2;&#xA;mN = &quot;Slimák stínobrodý&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oArcaneUpgradeLesser" x="640" y="816" name="inst_65246CCA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oArcaneUpgradeLesser" x="640" y="848" name="inst_243F7871" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oArcaneUpgradeLesser" x="672" y="816" name="inst_0CEB7402" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oArcaneUpgradeLesser" x="672" y="848" name="inst_395ADA6F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bcgShd1" x="1600" y="1712" w="32" h="32" xo="32" yo="0" id="10006696" name="inst_AC26E277" depth="1000001" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

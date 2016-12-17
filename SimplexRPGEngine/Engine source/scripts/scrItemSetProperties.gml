@@ -38,4 +38,4 @@ if (argument_count > 12) {vlastnost[vlastnost_repairCost]      = argument[12];}
 if (w) {itm_info_text   = scrWordwrap(string(itm_info_text), 196, fntPixelSmall);}
 if (w) {itm_info_footer = scrWordwrap(string(itm_info_footer), 196, fntPixelTiny);}
 
-vlastnost[vlastnost_originalniCena]          = vlastnost[vlastnost_cena];
+vlastnost[vlastnost_originalniCena] = vlastnost[vlastnost_cena];

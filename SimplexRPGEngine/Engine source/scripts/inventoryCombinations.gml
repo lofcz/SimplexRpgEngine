@@ -10,6 +10,8 @@ if (argument_count > 0) {idd = argument[0];}
 if (argument_count > 1) {s   = argument[1];}
 if (argument_count > 2) {S   = argument[2];}
 
+if (slot[S, inv_sprite] != sFreeSlot)
+{
 switch (idd)
            {
             case(itemEnum.itemWhetstone):
@@ -17,6 +19,11 @@ switch (idd)
                      if (slot[S, inv_item_equip_slot] == "zbraň") {return true;}    
                      break;                 
                     }
+            case(itemEnum.itemArcaneUpgrade1):
+                    {
+                     if (slot[S, inv_item_equip_slot] != "" && slot_vlastnosti[S, vlastnost_reinforcementLevel] < 3 && (slot[S, inv_item_effect] == rarity_normal || slot[S, inv_item_effect] == rarity_junk)) {return true;}    
+                     break;                 
+                    }                    
             case(itemEnum.itemRelicLeftPart):
                     {
                      if (s == itemEnum.itemRelicRightPart) {return true;}    
@@ -27,7 +34,8 @@ switch (idd)
                      if (s == itemEnum.itemRelicLeftPart) {return true;}    
                      break;                 
                     }        
-           }           
+           } 
+}          
 return false;
 
 #define inventoryCombine
@@ -44,6 +52,8 @@ if (argument_count > 1) {id2   = argument[1];}
 if (argument_count > 2) {slot1 = argument[2];}
 if (argument_count > 3) {slot2 = argument[3];}
 
+if (slot[slot2, inv_sprite] != sFreeSlot)
+{
 switch(id1)
            {
             case(itemEnum.itemWhetstone):
@@ -53,9 +63,22 @@ switch(id1)
                          slot_vlastnosti[slot2, vlastnost_durability] = min(slot_vlastnosti[slot2,vlastnost_durability] + 20, slot_vlastnosti[slot2,vlastnost_max_durability]); 
                          inventoryDelete(itemEnum.itemWhetstone, 1); 
                          stateAddEntry("Nabrousil jsi " + string_lower(slot[slot2, inv_item_info_head]) + ".");
+                         
                         }  
                      break;
                     }
+            case(itemEnum.itemArcaneUpgrade1):
+                    { 
+                     if (slot[slot2, inv_item_equip_slot] != "" && slot_vlastnosti[slot2, vlastnost_reinforcementLevel] < 3 && (slot[slot2, inv_item_effect] == rarity_junk || slot[slot2, inv_item_effect] == rarity_normal))
+                        {   
+                         slot_vlastnosti[slot2, vlastnost_reinforcementLevel]++;                                              
+                         inventoryDelete(itemEnum.itemArcaneUpgrade1, 1); 
+                         scrItemUpdateReinforcementName(slot2);
+                         scrItemUpdateReinforcementStats(slot2);
+                         stateAddEntry("Vylepšil jsi " + string_lower(slot[slot2, inv_item_info_head]) + ".");
+                        }  
+                     break;
+                    }                    
             case(itemEnum.itemRelicRightPart):
                     {
                      if (id2 == itemEnum.itemRelicLeftPart)
@@ -77,3 +100,4 @@ switch(id1)
                      break;
                     }      
            }
+}

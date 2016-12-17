@@ -81,6 +81,10 @@ itemArmorMetal,
 itemInventoryExtension,
 itemElixirStamina,
 itemWhetstone,
-itemGift2
+itemGift2,
+itemArcaneUpgrade1,
+itemArcaneUpgrade2,
+itemArcaneUpgrade3,
+itemArcaneUpgrade4
 
 };

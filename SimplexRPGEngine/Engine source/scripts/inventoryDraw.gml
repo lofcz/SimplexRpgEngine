@@ -466,7 +466,7 @@ if (mouse_in(hover_x, hover_x + 32, hover_y, hover_y + 32))
                {
                 if (drag)
                    {
-                    drag        = false;
+                    drag = false;
                     if (slot[switch_slot, inv_id] != 0) {switch_slot = inventoryGetFirstFreeSlot();}
 
                     for (a = 0; a<inv_atributes_total; a++)

@@ -1,4 +1,4 @@
-/// scrItemSetProperty(index, value, pointsValue)
+/// scrItemSetProperty(index, value, [pointsValue])
 
 var i, v, p;
 i = 0;
@@ -11,3 +11,5 @@ if (argument_count > 2) {p = argument[2];}
 
 vlastnost[i] = v;
 points += (v * p);
+
+if (i == vlastnost_reinforcementLevel) {scrItemUpdateReinforcementName(); scrItemUpdateReinforcementStats();}
