@@ -121,7 +121,7 @@
     <instance objName="oNonsolidCollision" x="912" y="256" name="inst_33026146" locked="0" code="scrNonsolidCollisionIni(x,y-32,&quot;mapTest_kytka1&quot;,1,&quot;breakableGrass&quot;,3,layerEnum.layer3,false);&#xA;&#xA;text[0] = &quot;Nějaká &quot;+scrColorflag(c_white)+&quot;bílá&quot;+scrEndColorflag()+&quot; kytka.&quot;&#xA;text[1] = &quot;Některé listy se dají využít.&quot;&#xA;text[2] = &quot;Použitelné jsem už otrhal.&quot;;&#xA;" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="656" y="144" name="inst_EE55A616" locked="0" code="scrNonsolidCollisionIni(x,y-32,&quot;kalokvet&quot;,1,&quot;breakableGrass&quot;,3,layerEnum.layer3,false);&#xA;text[0] = &quot;Krásný exemplář &quot; + scrColorflag(c_white) + &quot;kalokvětu&quot; + scrEndColorflag() + &quot;.&quot;&#xA;text[1] = &quot;Otrhám zachovalé listy.&quot;&#xA;text[2] = &quot;Použitelné jsem už otrhal.&quot;;&#xA;" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="1201" y="529" name="inst_E9D71FA5" locked="0" code="scrNonsolidCollisionIni(x,y-32,&quot;mapTest_kytka1&quot;,1,&quot;breakableGrass&quot;,3,layerEnum.layer2,false);&#xA;&#xA;text[0] = &quot;Obyčejná, &quot;+scrColorflag(c_lime)+&quot;zelená&quot;+scrEndColorflag()+&quot; kytka.&quot;&#xA;text[1] = &quot;Některé listy by se možná daly využít.&quot;&#xA;text[2] = &quot;Použitelné jsem už otrhal.&quot;;" scaleX="0.625" scaleY="0.469999998807907" colour="4294967295" rotation="0"/>
-    <instance objName="oManaPool" x="704" y="832" name="inst_B6F5656E" locked="0" code="pass = &quot;nbusr123&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oManaPool" x="736" y="848" name="inst_B6F5656E" locked="0" code="pass = &quot;nbusr123&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="1616" y="306" name="inst_FE2EE307" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer2, true);" scaleX="0.5625" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="oKozenaHelma" x="376" y="712" name="inst_36100E2E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oRoomTransition" x="1008" y="2008" name="inst_9D9DEF3A" locked="0" code="level = mapHolohlavy;&#xA;" scaleX="62.0645179748535" scaleY="0.8125" colour="4294967295" rotation="0"/>
@@ -504,8 +504,12 @@
     <instance objName="oKnowledgeFragmentDrop" x="912" y="1584" name="inst_CF808903" locked="0" code="fI = 4;&#xA;m  = bestiaryEnemySlime2;&#xA;mN = &quot;Slimák stínobrodý&quot;;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oArcaneUpgradeLesser" x="640" y="816" name="inst_65246CCA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oArcaneUpgradeLesser" x="640" y="848" name="inst_243F7871" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oArcaneUpgradeLesser" x="672" y="816" name="inst_0CEB7402" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oArcaneUpgradeLesser" x="672" y="848" name="inst_395ADA6F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oArcaneUpgradeNormal" x="672" y="816" name="inst_060EC010" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oArcaneUpgradeNormal" x="672" y="848" name="inst_1E1A4C36" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oArcaneUpgradeGreater" x="704" y="816" name="inst_7DB55C1A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oArcaneUpgradeGreater" x="704" y="848" name="inst_254086C5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oArcaneUpgradeLegendary" x="736" y="816" name="inst_26376909" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oArcaneUpgradeLegendary" x="736" y="848" name="inst_3B603525" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bcgShd1" x="1600" y="1712" w="32" h="32" xo="32" yo="0" id="10006696" name="inst_AC26E277" depth="1000001" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

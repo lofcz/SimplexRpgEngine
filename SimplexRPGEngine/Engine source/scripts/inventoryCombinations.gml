@@ -23,7 +23,22 @@ switch (idd)
                     {
                      if (slot[S, inv_item_equip_slot] != "" && slot_vlastnosti[S, vlastnost_reinforcementLevel] < 3 && (slot[S, inv_item_effect] == rarity_normal || slot[S, inv_item_effect] == rarity_junk)) {return true;}    
                      break;                 
-                    }                    
+                    }   
+            case(itemEnum.itemArcaneUpgrade2):
+                    {
+                     if (slot[S, inv_item_equip_slot] != "" && slot_vlastnosti[S, vlastnost_reinforcementLevel] < 5 && (slot[S, inv_item_effect] == rarity_normal || slot[S, inv_item_effect] == rarity_junk || slot[S, inv_item_effect] == rarity_fine || slot[S, inv_item_effect] == rarity_rare)) {return true;}    
+                     break;                 
+                    }   
+            case(itemEnum.itemArcaneUpgrade3):
+                    {
+                     if (slot[S, inv_item_equip_slot] != "" && slot_vlastnosti[S, vlastnost_reinforcementLevel] < 8 && (slot[S, inv_item_effect] == rarity_normal || slot[S, inv_item_effect] == rarity_junk || slot[S, inv_item_effect] == rarity_fine || slot[S, inv_item_effect] == rarity_rare) || slot[S, inv_item_effect] == rarity_mythic) {return true;}    
+                     break;                 
+                    }  
+            case(itemEnum.itemArcaneUpgrade4):
+                    {
+                     if (slot[S, inv_item_equip_slot] != "" && slot_vlastnosti[S, vlastnost_reinforcementLevel] < 10) {return true;}    
+                     break;                 
+                    }                                                                          
             case(itemEnum.itemRelicLeftPart):
                     {
                      if (s == itemEnum.itemRelicRightPart) {return true;}    
@@ -63,7 +78,7 @@ switch(id1)
                          slot_vlastnosti[slot2, vlastnost_durability] = min(slot_vlastnosti[slot2,vlastnost_durability] + 20, slot_vlastnosti[slot2,vlastnost_max_durability]); 
                          inventoryDelete(itemEnum.itemWhetstone, 1); 
                          stateAddEntry("Nabrousil jsi " + string_lower(slot[slot2, inv_item_info_head]) + ".");
-                         
+                         audio_play_sound(sndWhetstone1, 0, false);
                         }  
                      break;
                     }
@@ -76,9 +91,49 @@ switch(id1)
                          scrItemUpdateReinforcementName(slot2);
                          scrItemUpdateReinforcementStats(slot2);
                          stateAddEntry("Vylepšil jsi " + string_lower(slot[slot2, inv_item_info_head]) + ".");
+                         audio_play_sound(sndArcane1, 0, false);
                         }  
                      break;
-                    }                    
+                    }  
+            case(itemEnum.itemArcaneUpgrade2):
+                    { 
+                     if (slot[slot2, inv_item_equip_slot] != "" && slot_vlastnosti[slot2, vlastnost_reinforcementLevel] < 5 && (slot[slot2, inv_item_effect] == rarity_junk || slot[slot2, inv_item_effect] == rarity_normal || slot[slot2, inv_item_effect] == rarity_fine || slot[slot2, inv_item_effect] == rarity_rare))
+                        {   
+                         slot_vlastnosti[slot2, vlastnost_reinforcementLevel]++;                                              
+                         inventoryDelete(itemEnum.itemArcaneUpgrade2, 1); 
+                         scrItemUpdateReinforcementName(slot2);
+                         scrItemUpdateReinforcementStats(slot2);
+                         stateAddEntry("Vylepšil jsi " + string_lower(slot[slot2, inv_item_info_head]) + ".", c_lime);
+                         audio_play_sound(sndArcane2, 0, false);
+                        }  
+                     break;
+                    }
+            case(itemEnum.itemArcaneUpgrade3):
+                    { 
+                     if (slot[slot2, inv_item_equip_slot] != "" && slot_vlastnosti[slot2, vlastnost_reinforcementLevel] < 8 && (slot[slot2, inv_item_effect] == rarity_junk || slot[slot2, inv_item_effect] == rarity_normal || slot[slot2, inv_item_effect] == rarity_fine || slot[slot2, inv_item_effect] == rarity_rare || slot[slot2, inv_item_effect] == rarity_mythic))
+                        {   
+                         slot_vlastnosti[slot2, vlastnost_reinforcementLevel]++;                                              
+                         inventoryDelete(itemEnum.itemArcaneUpgrade3, 1); 
+                         scrItemUpdateReinforcementName(slot2);
+                         scrItemUpdateReinforcementStats(slot2);
+                         stateAddEntry("Vylepšil jsi " + string_lower(slot[slot2, inv_item_info_head]) + ".", rarity_fine);
+                         audio_play_sound(sndArcane3, 0, false);
+                        }  
+                     break;
+                    } 
+            case(itemEnum.itemArcaneUpgrade4):
+                    { 
+                     if (slot[slot2, inv_item_equip_slot] != "" && slot_vlastnosti[slot2, vlastnost_reinforcementLevel] < 10)
+                        {   
+                         slot_vlastnosti[slot2, vlastnost_reinforcementLevel]++;                                              
+                         inventoryDelete(itemEnum.itemArcaneUpgrade4, 1); 
+                         scrItemUpdateReinforcementName(slot2);
+                         scrItemUpdateReinforcementStats(slot2);
+                         stateAddEntry("Vylepšil jsi " + string_lower(slot[slot2, inv_item_info_head]) + ".", rarity_legendary);
+                         audio_play_sound(sndArcane4, 0, false);
+                        }  
+                     break;
+                    }                                                                               
             case(itemEnum.itemRelicRightPart):
                     {
                      if (id2 == itemEnum.itemRelicLeftPart)

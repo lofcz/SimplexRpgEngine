@@ -24,7 +24,7 @@ if (argument_count > 8) {if (argument[8] != -1) {mode     = argument[8];}}
 if (argument_count > 9) {if (argument[9] != -1) {spd      = argument[9];}}
 
 if (text   == "-1") {text   = "+ " + itm_info_head;}
-if (color  == -1)   {color  = itm_effect;}
+if (color  == -1)   {color  = itm_effect; if (color == c_black) {color = c_white;}}
 if (sprite == -1)   {sprite = tempSpr;}
 
 if (override) 
