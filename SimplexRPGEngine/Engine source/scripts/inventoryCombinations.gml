@@ -38,7 +38,12 @@ switch (idd)
                     {
                      if (slot[S, inv_item_equip_slot] != "" && slot_vlastnosti[S, vlastnost_reinforcementLevel] < 10) {return true;}    
                      break;                 
-                    }                                                                          
+                    } 
+            case(itemEnum.itemArcaneUpgrade5):
+                    {
+                     if (slot[S, inv_item_equip_slot] != "" && slot_vlastnosti[S, vlastnost_reinforcementLevel] == 10) {return true;}    
+                     break;                 
+                    }                                                                                             
             case(itemEnum.itemRelicLeftPart):
                     {
                      if (s == itemEnum.itemRelicRightPart) {return true;}    
@@ -133,7 +138,20 @@ switch(id1)
                          audio_play_sound(sndArcane4, 0, false);
                         }  
                      break;
-                    }                                                                               
+                    }  
+            case(itemEnum.itemArcaneUpgrade5):
+                    { 
+                     if (slot[slot2, inv_item_equip_slot] != "" && slot_vlastnosti[slot2, vlastnost_reinforcementLevel] == 10)
+                        {   
+                         slot_vlastnosti[slot2, vlastnost_reinforcementLevel]++;                                              
+                         inventoryDelete(itemEnum.itemArcaneUpgrade5, 1); 
+                         scrItemUpdateReinforcementName(slot2);
+                         scrItemUpdateReinforcementStats(slot2);
+                         stateAddEntry("Vylepšil jsi " + string_lower(slot[slot2, inv_item_info_head]) + " na nejvyšší stupeň!", rarity_legendary);
+                         audio_play_sound(sndArcane5, 0, false);
+                        }  
+                     break;
+                    }                                                                                                 
             case(itemEnum.itemRelicRightPart):
                     {
                      if (id2 == itemEnum.itemRelicLeftPart)

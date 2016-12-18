@@ -85,6 +85,6 @@ itemGift2,
 itemArcaneUpgrade1,
 itemArcaneUpgrade2,
 itemArcaneUpgrade3,
-itemArcaneUpgrade4
-
+itemArcaneUpgrade4,
+itemArcaneUpgrade5
 };

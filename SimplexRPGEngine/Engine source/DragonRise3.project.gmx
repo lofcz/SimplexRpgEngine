@@ -230,6 +230,7 @@
       <sound>sound\sndArcane2</sound>
       <sound>sound\sndArcane3</sound>
       <sound>sound\sndWhetstone1</sound>
+      <sound>sound\sndArcane5</sound>
       <sound>sound\sndArcane4</sound>
       <sound>sound\sndFragment5</sound>
     </sounds>
@@ -549,6 +550,7 @@
               <sprite>sprites\sArcaneUpgradeGreaterEffect</sprite>
               <sprite>sprites\sArcaneUpgradeNormalEffect</sprite>
               <sprite>sprites\sArcaneUpgradeLesserEffect</sprite>
+              <sprite>sprites\sArcaneUpgradeFinalEffect</sprite>
               <sprite>sprites\sLockpickEffect</sprite>
             </sprites>
             <sprites name="Weapons">
@@ -1421,6 +1423,7 @@
           <object>objects\oArcaneUpgradeNormal</object>
           <object>objects\oArcaneUpgradeGreater</object>
           <object>objects\oArcaneUpgradeLegendary</object>
+          <object>objects\oArcaneUpgradeFinal</object>
           <object>objects\oBasicLetter</object>
           <object>objects\oBasicItem</object>
           <object>objects\parItem</object>
