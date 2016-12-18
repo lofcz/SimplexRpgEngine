@@ -51,9 +51,9 @@ else
 
 if (p)
     {
-       p.drawDrop  = true;
-       p.direction = random(360);
-       p.speed     = random_range(2, 4);
-       p.friction  = 0.15;
+       b.drawDrop  = true;
+       b.direction = random(360);
+       b.speed     = random_range(2, 4);
+       b.friction  = 0.15;
     }
 }

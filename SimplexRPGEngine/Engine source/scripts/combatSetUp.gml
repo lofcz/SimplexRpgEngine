@@ -43,3 +43,4 @@ maxCharge          = 100;
 chargeMode         = 0;
 sprite_index       = sprite;
 image_speed        = 0;
+hitList            = ds_list_create();

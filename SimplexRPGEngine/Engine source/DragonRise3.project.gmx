@@ -912,6 +912,8 @@
         <script>scripts\combatHandle.gml</script>
         <script>scripts\combatSetUp.gml</script>
         <script>scripts\combatGetParry.gml</script>
+        <script>scripts\combatCanBeHit.gml</script>
+        <script>scripts\combatMarkAsHit.gml</script>
         <script>scripts\combatGetCriticalHit.gml</script>
       </scripts>
       <scripts name="MapIntro">

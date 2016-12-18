@@ -1,15 +1,14 @@
 /// combatHandle()
 
-x           = oPlayer.x;
-y           = oPlayer.y;
-image_speed = 0;
-
 if (instance_number(oPlayer) > 0)
 {     
 sprite_index = sWeaponCollision;
+image_index  = 0;
 
-//sprite = oPlayer.draw_equ[id_Mec,0];
-//index  = oPlayer.draw_equ[id_Mec,1];
+if (oPlayer.last_dir == "d") {x = oPlayer.x + 16; y = oPlayer.y - 16;}
+if (oPlayer.last_dir == "a") {x = oPlayer.x - 64; y = oPlayer.y - 16;}
+if (oPlayer.last_dir == "w") {x = oPlayer.x - 24; y = oPlayer.y - 64;}
+if (oPlayer.last_dir == "s") {x = oPlayer.x - 24; y = oPlayer.y + 32;}
       
 if (sprite != 0)
 {
@@ -41,7 +40,7 @@ if ((keyboard_check_released(vk_space) && chargeMode) || (keyboard_check_pressed
         k = 0;  
         can_damage = -1;
         oPlayer.vlastnost[vlastnost_stamina] -= oPlayer.vlastnost[vlastnost_stamina_cost];
-        ss = instance_create(x, y, oSwordSwing);
+        ss = instance_create(xx, yy, oSwordSwing);
         ss.dir = oPlayer.last_dir;
         attackMode = "attack";
         oPlayer.currentAnimation = animationEnum.slash;
@@ -74,7 +73,7 @@ if (tick > 0)
    {
     tick -= tick_rate;
    }   
-   else {if (untick = 1) {attack = 0; untick = 0;}}
+   else {if (untick = 1) {attack = 0; untick = 0; ds_list_clear(hitList);}}
 }
 }
 

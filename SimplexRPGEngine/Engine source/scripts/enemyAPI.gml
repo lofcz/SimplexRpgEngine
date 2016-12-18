@@ -238,13 +238,12 @@ return false;
 #define scrEnemyGetDamage
 /// scrEnemyGetDamage()
 
-
-if (other.attack && other.can_damage = -1) 
+if (other.attack && combatCanBeHit()) 
 {
 //forcedBaseX = 50;
 //forcedX = 50;
 
-
+combatMarkAsHit();
 text = choose("Ve jménu Demacie!", "Odporná zhoubo!", "Prolomím jejich řady!", "Nemějte slitování!", "Přímo do černého!", "Překvapení, jsem zpátky!", "Za krále a Demacii!", "Valore, na ně!");
 apiPlayerSay(text);
 apiPlayerSayNext();

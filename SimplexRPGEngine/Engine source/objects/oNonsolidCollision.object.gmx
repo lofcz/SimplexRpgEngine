@@ -200,15 +200,16 @@ if (hp &lt; 0.5 &amp;&amp; flag2) {flag2 = false; event_user(3);}
             <kind>1</kind>
             <string>/// Handle onHit event
 
+
 if (hitType == "breakableGrass")
 {
-if (other.attack &amp;&amp; other.can_damage = -1 &amp;&amp; mode == 0) 
+if (other.attack &amp;&amp; combatCanBeHit() &amp;&amp; mode == 0) 
 {
 dmg = 0;
 dmg += oPlayer.vlastnost[vlastnost_poskozeni];   
 
 hp -= dmg;
-other.can_damage = -2;
+combatMarkAsHit();
 global.tX = x;
 global.tY = y;
 with(oPlayer) {effectGrass(global.tX, global.tY, irandom_range(3,6));}

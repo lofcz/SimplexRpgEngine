@@ -172,14 +172,14 @@ if (tA == 1 &amp;&amp; hp != -1)
 
 if (string_count("breakable", hitType) &gt; 0)
 {
-if (other.attack &amp;&amp; other.can_damage = -1 &amp;&amp; mode == 0) 
+if (other.attack &amp;&amp; combatCanBeHit() &amp;&amp; mode == 0) 
 {
 dmg = 0;
 dmg += oPlayer.vlastnost[vlastnost_poskozeni];   
 if (hitType == "breakableStone") {dmg = round(dmg / 3);}
 
 hp -= dmg;
-other.can_damage = -2;
+combatMarkAsHit();
 global.tX = x;
 global.tY = y;
 with(oPlayer) {effectShardDrop(global.tX, global.tY, irandom_range(3,6));}
