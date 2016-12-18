@@ -232,6 +232,7 @@
       <sound>sound\sndWhetstone1</sound>
       <sound>sound\sndArcane5</sound>
       <sound>sound\sndArcane4</sound>
+      <sound>sound\sndUpgrade1</sound>
       <sound>sound\sndFragment5</sound>
     </sounds>
   </sounds>
@@ -1489,7 +1490,7 @@
       <room>rooms\mapSklep</room>
     </rooms>
   </rooms>
-  <constants number="252">
+  <constants number="254">
     <constant name="baArmor">1</constant>
     <constant name="baBase">0</constant>
     <constant name="cStaticInstance">"staticInstance"</constant>
@@ -1556,7 +1557,9 @@
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
     <constant name="upgradableProperties">58</constant>
-    <constant name="celkem_vlastnosti">109</constant>
+    <constant name="celkem_vlastnosti">111</constant>
+    <constant name="vlastnost_reinforcementUpgradeIncSkill">110</constant>
+    <constant name="vlastnost_reinforcementUpgradeBaseSkill">109</constant>
     <constant name="vlastnost_reinforcementIs">108</constant>
     <constant name="vlastnost_reinforcementCostIncM">107</constant>
     <constant name="vlastnost_reinforcementCostInc">106</constant>

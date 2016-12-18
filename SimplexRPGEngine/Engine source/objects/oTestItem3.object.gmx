@@ -56,7 +56,7 @@ vlastnost[vlastnost_bodyCanvasIndex] = 8;
 vlastnost[vlastnost_bodyCanvasSprite] = sBodyCanvasWeapon1;
 vlastnost[vlastnost_bodyCanvasSlashSprite] = sBodyCanvasAttackWeapon1;
 
-scrItemSetReinforcementProperties(irandom_range(0, 2), 2, 1, 0);
+scrItemSetReinforcementProperties(irandom_range(0, 2), 2, 5, 1, 2, 1);
 scrItemSetUpFinalize();
 </string>
           </argument>

@@ -64,6 +64,7 @@ craftingHelper  = -1;
 craftingTitle   = "Výroba";
 craftingMenuAlpha    = 1;
 craftingPreview      = "";
+craftingSelectedOpt  = 0;
 craftingMenuIndex[0] = "Předměty";
 craftingMenuIndex[1] = "Zdokonalení";
 craftingMenuIndex[2] = "Materiály";

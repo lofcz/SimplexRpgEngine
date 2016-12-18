@@ -272,6 +272,51 @@ else
              
              if (upgradingItemSprite > 0) 
                 {
+                 c1 = c_white;
+                 c2 = c_white;
+                 c3 = c_black;
+                 c4 = c_black;
+                 
+                 if (craftingSelectedOpt == 1) {c3 = c_white;}
+                 if (craftingSelectedOpt == 2) {c4 = c_white;}
+                               
+                 
+                 // Gems
+                 if (mouse_in(tempX + 22, tempX + 32 + string_width("Perly"), tempY + 4, tempY + 4 + string_height("Perly")))
+                    {
+                     c1 = c_lime;
+                     if (mouse_check_button_pressed(mb_left))
+                        {
+                         craftingSelectedOpt = 1;
+                        }
+                    }
+                    
+                 // Upgrades                
+                 if (mouse_in(tempX + 146, tempX + 156 + string_width("Vylepšení"), tempY + 4, tempY + 4 + string_height("Vylepšení")))
+                    {
+                     c2 = c_lime;
+                     if (mouse_check_button_pressed(mb_left))
+                        {
+                         craftingSelectedOpt = 2;
+                        }
+                    }
+
+
+                 clr(c3, 0.3);
+                 draw_roundrect(tempX + 22, tempY + 4, tempX + 32 + string_width("Perly"), tempY + 4 + string_height("Perly"), false);
+                 clr(c4, 0.3);
+                 draw_roundrect(tempX + 146, tempY + 4, tempX + 154 + string_width("Vylepšení"), tempY + 4 + string_height("Vylepšení"), false);
+
+                 clr(c_black, 1);
+                 draw_roundrect(tempX + 22, tempY + 4, tempX + 32 + string_width("Perly"), tempY + 4 + string_height("Perly"), true);
+                 draw_roundrect(tempX + 146, tempY + 4, tempX + 154 + string_width("Vylepšení"), tempY + 4 + string_height("Vylepšení"), true);
+
+                 clr(c1, 1);
+                 draw_text(tempX + 28, tempY + 4, "Perly");
+                 clr(c2, 1);                 
+                 draw_text(tempX + 150, tempY + 4, "Vylepšení");
+                 
+                 
                  clr(-1, 0.8);
                  draw_sprite(sRarityEffect, itemRarityEffect(oInventory.slot[upgradingItemSlotID, inv_item_effect]), tempX + 96 + 1, tempY + 1);  
                  
@@ -324,14 +369,18 @@ else
                      upgradingItemSprite = -1;  
                      upgradingItemID     = -1;      
                      oInventory.slot[upgradingItemSlotID, inv_item_beingUsed] = false;   
-                     upgradingItemSlotID = -1;                                                
+                     upgradingItemSlotID = -1;      
+                     craftingSelectedOpt = 0;                                          
                     }
                 }      
               
            
             // Slot for upgrade material
-            if (upgradingItemID != -1)
+
+            if (upgradingItemID != -1 && craftingSelectedOpt == 1)
                 {
+                 tempY += 16;
+                 
                  // Draw all upgrade slots
                  for (i = 0; i < oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_maxUpgrade]; i++)
                  {
@@ -409,8 +458,37 @@ else
                         }
                     }
                     }                 
-                 }             
+                 }
+                 tempY -= 16;             
                 } 
+                
+                 cR = c_red;
+                 cZ = c_red;
+
+                if (upgradingItemID != -1 && craftingSelectedOpt == 2)
+                {
+                 fnt(fntPixelSmall);
+                 clr(c_white, 1);
+                 tempY += 48;
+                 sU = oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementCostBase] + (oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementCostInc] * oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementLevel]) + (oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementLevel] * oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementLevel] * oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementCostIncM]);
+                 sR = "Stupeň vylepšení: " + string(oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementLevel]) + " / 10";
+                 sZ = oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementUpgradeBaseSkill] + (oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementLevel] * oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementUpgradeIncSkill]);
+                 
+                 if (oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementLevel] == 11) {sR = "Stupeň vylepšení: arkánsky vylepšeno"}
+                 if (oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementLevel] == 10) {sR = "Stupeň vylepšení: zcela vylepšeno"}
+                 if (apiPlayerGetPropertyValue(vlastnost_zrucnost) >= sZ) {cZ = c_lime;}
+                 if (inventoryNumber(itemEnum.itemAlchemyDust) >= sU)     {cR = c_lime;}
+                 
+                 draw_text(tempX + 4, tempY, sR);
+                 clr(cR, -1); 
+                 draw_text(tempX + 4, tempY + 20, "Cena za další vylepšení: " + string(sU) + "x");                
+                 draw_sprite(sTestItem, itemEnum.itemAlchemyDust - 1, tempX + 20 + string_width("Cena za další vylepšení: " + string(sU) + "x"), tempY + 30); 
+                 clr(cZ, -1);
+                 draw_text(tempX + 4, tempY + 40, "Potřebná zručnost: " + string(sZ));
+                 clr(c_white, -1);
+                 tempY -= 48;
+                 fnt();
+                }
                 
                              
                 // Draw navigation
@@ -430,6 +508,8 @@ else
                         }
                     }  
                 }
+                
+                if (craftingSelectedOpt == 2 && cR == c_lime && cZ == c_lime) {textColor = c_lime;}
                    
                 // Check for on-hover event
                 if (mouse_in(tempX + 16, tempX + 112, tempY + 170, tempY + 190))
@@ -438,6 +518,8 @@ else
                      
                      // Confirm crafting
                      if (mouse_check_button_pressed(mb_left) && textColor == c_lime)
+                        {
+                        if (craftingSelectedOpt == 1)
                         {
                         for (k = 0; k < 3; k++)
                             {
@@ -474,6 +556,16 @@ else
                         oInventory.slot[abs(upgradingItemSlotID), inv_item_beingUsed] = false;   
                         upgradingItemSlotID = -1;                                                    
                         }
+                        
+                        if (craftingSelectedOpt == 2)
+                        {
+                         inventoryDelete(itemEnum.itemAlchemyDust, sU);
+                         oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementLevel]++;
+                         scrItemUpdateReinforcementName(upgradingItemSlotID);
+                         scrItemUpdateReinforcementStats(upgradingItemSlotID);  
+                         audio_play_sound(sndUpgrade1, 0, false);                                               
+                        }                        
+                     }
                     }
                     
                 // Draw "upgrade button"
@@ -520,6 +612,7 @@ else
                         craftingTitleHelper = "";
                         craftingSelectedIndex = -1;
                         craftingMenuAlpha = 1;
+                        craftingSelectedOpt = 0;
                         }                     
                     }     
                     

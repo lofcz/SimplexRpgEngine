@@ -15,7 +15,7 @@ if (s == -1)
     if (vlastnost[vlastnost_reinforcementLevel] >= 1)
     {
     xx = vlastnost[vlastnost_reinforcementLevel];
-    m = ((((power(xx, 1.5)) + (log10(xx))) * 4) + 111.5); 
+    m = ((((power(xx, 1)) + (log10(xx))) * 1) + 111.5); 
     for (var i = 0; i < celkem_vlastnosti; i++)
         {
          if (i != vlastnost_reinforcementCostBase && i != vlastnost_reinforcementCostInc && i != vlastnost_reinforcementCostIncM && i != vlastnost_reinforcementIs && i != vlastnost_reinforcementLevel && i != vlastnost_bodyCanvasIndex && i != vlastnost_bodyCanvasSprite && i != vlastnost_bodyCanvasSlashSprite && i != vlastnost_stamina_cost)
@@ -30,7 +30,7 @@ else
     if (oInventory.slot_vlastnosti[s, vlastnost_reinforcementLevel] >= 1)
     {
     xx = oInventory.slot_vlastnosti[s, vlastnost_reinforcementLevel];
-    m = ((((power(xx, 1.5)) + (log10(xx))) * 4) + 111.5); 
+    m = ((((power(xx, 1)) + (log10(xx))) * 1) + 111.5); 
     for (var i = 0; i < celkem_vlastnosti; i++)
         {
          if (i != vlastnost_reinforcementCostBase && i != vlastnost_reinforcementCostInc && i != vlastnost_reinforcementCostIncM && i != vlastnost_reinforcementIs && i != vlastnost_reinforcementLevel && i != vlastnost_bodyCanvasIndex && i != vlastnost_bodyCanvasSprite && i != vlastnost_bodyCanvasSlashSprite && i != vlastnost_stamina_cost)

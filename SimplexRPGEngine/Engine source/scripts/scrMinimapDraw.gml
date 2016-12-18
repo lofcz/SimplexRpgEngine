@@ -86,7 +86,8 @@ for (i = 0; i < ds_list_size(pointList); i++)
      dy = oMinimap.y+((pointListY[| i]-oMinimap.y1)*oMinimap.sizey);
      
      inCircle = false;
-     if (point_in_circle(dx, dy, oMinimap.x + 100, oMinimap.y + 100, 96)) {if (pointListSprite[| i] != -1) {inCircle = true; draw_sprite_ext(sMinimapIcons, pointListSprite[| i], dx, dy, 0.5, 0.5, 0, c_white, min(1, oHUD.hudAlpha));}}
+     m_alpha  = (5 - (point_distance(oPlayer.x, oPlayer.y, pointListX[| i], pointListY[| i]) / 120));
+     if (point_in_circle(dx, dy, oMinimap.x + 100, oMinimap.y + 100, 96)) {if (pointListSprite[| i] != -1) {inCircle = true; draw_sprite_ext(sMinimapIcons, pointListSprite[| i], dx, dy, 1, 1, 0, c_white, min(m_alpha, oHUD.hudAlpha));}}
      alg();
      
      if (mouse_in(oMinimap.x+(( pointListX[| i]-oMinimap.x1)*oMinimap.sizex) - 8, oMinimap.x+(( pointListX[| i]-oMinimap.x1)*oMinimap.sizex) + 2, oMinimap.y+((pointListY[| i]-oMinimap.y1)*oMinimap.sizey) - 5, oMinimap.y+((pointListY[| i]-oMinimap.y1)*oMinimap.sizey) + 5))
