@@ -606,7 +606,9 @@ xoffset = 16;
 
 if (!oHUD.draw_equipment) {alpha = 0;}
 
-if (idd != -1 &&oInventory.equiped[oInventory.draw_equ_infobox_id]) 
+if (oInventory.draw_equipment)
+{
+if (idd != -1 && oInventory.equiped[oInventory.draw_equ_infobox_id]) 
 {
 fnt(fntPixel);
 h  = oInventory.equiped_stats[oInventory.draw_equ_infobox_id,inv_item_info_head];
@@ -694,7 +696,7 @@ draw_text(x + 4, oInventory.used_y + qq + hh, text);
 
         }        
     }
-
+}
 
 
 #define equipmentDrawAbilities

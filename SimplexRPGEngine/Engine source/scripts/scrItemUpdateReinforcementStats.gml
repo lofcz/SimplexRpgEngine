@@ -5,10 +5,6 @@ s  = -1;
 
 if (argument_count > 0) {s = argument[0];}
 
-/* Distribution: 
-((((xx * xx) + (10 * log10(xx))) * 4) + 111.5)
-*/ 
-
 // Item is not in the inventory
 if (s == -1)
    {
