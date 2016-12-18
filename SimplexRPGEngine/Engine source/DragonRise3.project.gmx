@@ -233,6 +233,7 @@
       <sound>sound\sndArcane5</sound>
       <sound>sound\sndArcane4</sound>
       <sound>sound\sndUpgrade1</sound>
+      <sound>sound\sndEnchanter</sound>
       <sound>sound\sndFragment5</sound>
     </sounds>
   </sounds>
@@ -552,6 +553,7 @@
               <sprite>sprites\sArcaneUpgradeNormalEffect</sprite>
               <sprite>sprites\sArcaneUpgradeLesserEffect</sprite>
               <sprite>sprites\sArcaneUpgradeFinalEffect</sprite>
+              <sprite>sprites\sEnchanterEffect</sprite>
               <sprite>sprites\sLockpickEffect</sprite>
             </sprites>
             <sprites name="Weapons">
@@ -1426,6 +1428,7 @@
           <object>objects\oArcaneUpgradeNormal</object>
           <object>objects\oArcaneUpgradeGreater</object>
           <object>objects\oArcaneUpgradeLegendary</object>
+          <object>objects\oEnchanter</object>
           <object>objects\oArcaneUpgradeFinal</object>
           <object>objects\oBasicLetter</object>
           <object>objects\oBasicItem</object>
