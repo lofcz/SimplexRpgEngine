@@ -3,8 +3,8 @@
   <caption></caption>
   <width>2016</width>
   <height>2016</height>
-  <vsnap>16</vsnap>
-  <hsnap>16</hsnap>
+  <vsnap>8</vsnap>
+  <hsnap>8</hsnap>
   <isometric>0</isometric>
   <speed>60</speed>
   <persistent>-1</persistent>
@@ -140,8 +140,8 @@
     <instance objName="oAdvancedCollision" x="1232" y="1328" name="inst_59258F38" locked="0" code="/// Initialise&#xA;&#xA;scrMinimapAddWaypoint(id, x, y, &quot;Poklad&quot;, &quot;&quot;, c_yellow, 0, mapTest, true);&#xA;scrAdvancedCollisionIni(x,y-32,&quot;skála1&quot;,1,&quot;stone&quot;,irandom(7)+5,layerEnum.layer3);&#xA;    scrAdvancedCollisionSetText(&quot;Kus kamene.&quot;);&#xA;    scrAdvancedCollisionSetText(&quot;Mohl by to být granit, ale přes mech to nejde určit přesně.&quot;);&#xA;    scrAdvancedCollisionSetText(&quot;Někdo si z něj udělal skrýš, je tam pár &quot; + scrColorflag(c_yellow) + &quot;zlatek&quot; + scrEndColorflag() + &quot;.&quot;);&#xA;    scrAdvancedCollisionSetText(&quot;Už tam nic není.&quot;);&#xA;" scaleX="-1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTeleport" x="1912" y="72" name="inst_63B8B140" locked="0" code="/// Initialise portal&#xA;&#xA;scrPortalIni(true, 1424, 296);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1736" y="0" name="inst_9A7EAA23" locked="0" code="" scaleX="8.75" scaleY="0.25" colour="4294967295" rotation="0"/>
-    <instance objName="oBasicCollision" x="2008" y="8" name="inst_92837E3C" locked="0" code="" scaleX="0.25" scaleY="3.61290311813354" colour="4294967295" rotation="0"/>
-    <instance objName="oBasicCollision" x="1920" y="120" name="inst_2A116290" locked="0" code="" scaleX="2.75" scaleY="0.25" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="2008" y="8" name="inst_92837E3C" locked="0" code="" scaleX="0.25" scaleY="3.25" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="1920" y="120" name="inst_2A116290" locked="0" code="" scaleX="1.5" scaleY="1.75" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1920" y="88" name="inst_168C3359" locked="0" code="" scaleX="0.25" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1888" y="88" name="inst_DDD24820" locked="0" code="" scaleX="1" scaleY="0.25" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1888" y="56" name="inst_987F6642" locked="0" code="" scaleX="0.25" scaleY="1" colour="4294967295" rotation="0"/>
@@ -151,9 +151,8 @@
     <instance objName="oBasicCollision" x="1800" y="184" name="inst_FF840AEC" locked="0" code="" scaleX="1.75" scaleY="0.25" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1856" y="184" name="inst_3E577EA2" locked="0" code="" scaleX="0.25" scaleY="2.25" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1864" y="248" name="inst_AE91EC80" locked="0" code="" scaleX="4.75" scaleY="0.25" colour="4294967295" rotation="0"/>
-    <instance objName="oBasicCollision" x="1856" y="64" name="inst_38DC7398" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
-    <instance objName="oBasicCollision" x="1888" y="96" name="inst_C17F16F3" locked="0" code="" scaleX="1" scaleY="2" colour="4294967295" rotation="0"/>
-    <instance objName="oBasicCollision" x="1920" y="128" name="inst_F6415962" locked="0" code="" scaleX="3" scaleY="2" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="1856" y="64" name="inst_38DC7398" locked="0" code="" scaleX="1" scaleY="1.5" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="1888" y="96" name="inst_C17F16F3" locked="0" code="" scaleX="1" scaleY="1.5" colour="4294967295" rotation="0"/>
     <instance objName="oTeleport" x="1432" y="256" name="inst_8479073F" locked="0" code="/// Initialise portal&#xA;&#xA;scrPortalIni(true, 1960, 80);" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oGold" x="1928" y="16" name="inst_790D65C2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oGold" x="1952" y="8" name="inst_8C2CCD5F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -245,7 +244,7 @@
     <instance objName="oNonsolidCollision" x="144" y="704" name="inst_7494CA2D" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3);" scaleX="0.84375" scaleY="0.84375" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="305" y="656" name="inst_6E1AB247" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer4);" scaleX="0.375" scaleY="0.375" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="369" y="672" name="inst_95E625BC" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3);" scaleX="0.9375" scaleY="0.90625" colour="4294967295" rotation="0"/>
-    <instance objName="oNonsolidCollision" x="352" y="576" name="inst_85C3D007" locked="0" code="scrNonsolidCollisionIni(x,y-32,&quot;mapTest_kytka1&quot;,1,&quot;breakableGrass&quot;,3,layerEnum.layer3,false);&#xA;&#xA;text[0] = &quot;Obyčejná, &quot;+scrColorflag(c_white)+&quot;bílá&quot;+scrEndColorflag()+&quot; kytka.&quot;&#xA;text[1] = &quot;Některé listy by se možná daly využít.&quot;&#xA;text[2] = &quot;Použitelné jsem už otrhal.&quot;;" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
+    <instance objName="oNonsolidCollision" x="352" y="576" name="inst_85C3D007" locked="0" code="scrNonsolidCollisionIni(x,y-32,&quot;mapTest_kytka1&quot;,1,&quot;breakableGrass&quot;,3,layerEnum.layer3,false, false, true, 2, 0, 32, 32, secToSteps(0.5), bcgAnimated1);&#xA;&#xA;text[0] = &quot;Obyčejná, &quot;+scrColorflag(c_white)+&quot;bílá&quot;+scrEndColorflag()+&quot; kytka.&quot;&#xA;text[1] = &quot;Některé listy by se možná daly využít.&quot;&#xA;text[2] = &quot;Použitelné jsem už otrhal.&quot;;&#xA;" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="544" y="608" name="inst_FBCEC1F3" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3, true);&#xA;" scaleX="0.75" scaleY="0.75" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="448" y="596" name="inst_0B9C0CCE" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3, true);" scaleX="0.709677398204803" scaleY="0.580645143985748" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="432" y="624" name="inst_F108B62D" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3);" scaleX="0.375" scaleY="0.375" colour="4294967295" rotation="0"/>
@@ -393,7 +392,7 @@
     <instance objName="oBasicCollision" x="68" y="192" name="inst_B93FA56C" locked="0" code="" scaleX="1.75" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="376" y="64" name="inst_B567E055" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="56" y="0" name="inst_3AB474E8" locked="0" code="" scaleX="3" scaleY="4.5" colour="4294967295" rotation="0"/>
-    <instance objName="oBasicCollision" x="240" y="0" name="inst_1CA0F86D" locked="0" code="" scaleX="3.25" scaleY="3.375" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="240" y="32" name="inst_1CA0F86D" locked="0" code="" scaleX="3.09677410125732" scaleY="2.02999997138977" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="280" y="108" name="inst_6280D476" locked="0" code="" scaleX="1.29032254219055" scaleY="0.25" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="152" y="0" name="inst_F0302652" locked="0" code="" scaleX="2.75" scaleY="3.5" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="152" y="112" name="inst_04CD13A8" locked="0" code="" scaleX="0.875" scaleY="1.875" colour="4294967295" rotation="0"/>
@@ -510,8 +509,12 @@
     <instance objName="oArcaneUpgradeGreater" x="704" y="848" name="inst_254086C5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oArcaneUpgradeLegendary" x="736" y="816" name="inst_26376909" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oArcaneUpgradeLegendary" x="736" y="848" name="inst_3B603525" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oArcaneUpgradeFinal" x="768" y="832" name="inst_C1D48DD9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oEnchanter" x="800" y="832" name="inst_1698254A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oArcaneUpgradeFinal" x="768" y="816" name="inst_C1D48DD9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oEnchanter" x="800" y="816" name="inst_1698254A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oEmendationLesser" x="768" y="848" name="inst_2B422596" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oBasicCollision" x="240" y="0" name="inst_E40A689A" locked="0" code="" scaleX="2.5" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oAdvancedCollision" x="336" y="16" name="inst_87FF9F44" locked="0" code="scrAdvancedCollisionIni(x, y-32, &quot;secret1&quot;, 1, &quot;&quot;, -1, layerEnum.layer3, true);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oAdvancedCollision" x="1992" y="152" name="inst_C5AF1951" locked="0" code="scrAdvancedCollisionIni(x, y-32, &quot;secret2&quot;, 1, &quot;&quot;, -1, layerEnum.layer3, true);&#xA;" scaleX="1.40625" scaleY="2.125" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bcgShd1" x="1600" y="1712" w="32" h="32" xo="32" yo="0" id="10006696" name="inst_AC26E277" depth="1000001" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -2622,7 +2625,6 @@
     <tile bgName="bcgExObj2" x="304" y="1728" w="32" h="32" xo="192" yo="32" id="10006091" name="inst_4A4FC62C" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgExObj2" x="624" y="1136" w="32" h="32" xo="192" yo="32" id="10006092" name="inst_58259B46" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgExObj2" x="464" y="896" w="32" h="32" xo="192" yo="32" id="10006093" name="inst_67C4C537" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bcgExObj2" x="336" y="560" w="32" h="32" xo="64" yo="32" id="10006094" name="inst_9F036D4B" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgExObj2" x="896" y="240" w="32" h="32" xo="64" yo="32" id="10006096" name="inst_0F984632" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgExObj2" x="640" y="128" w="32" h="32" xo="64" yo="32" id="10006097" name="inst_3E37887C" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgExObj7" x="80" y="1584" w="8" h="8" xo="40" yo="0" id="10006098" name="inst_17ADF025" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -2878,6 +2880,7 @@
     <tile bgName="bcgExObj16" x="1776" y="1744" w="32" h="32" xo="224" yo="64" id="10020696" name="inst_CA6F74D8" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgExObj16" x="1648" y="1072" w="32" h="32" xo="224" yo="32" id="10020697" name="inst_CCF0DEC4" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgExObj16" x="1520" y="1072" w="32" h="32" xo="224" yo="32" id="10020699" name="inst_CEFF12CB" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgAnimated1" x="336" y="560" w="32" h="32" xo="0" yo="32" id="10025146" name="inst_E2B3E3A4" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgExBui8" x="800" y="568" w="8" h="64" xo="216" yo="424" id="10019443" name="inst_0295E061" depth="10002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgExBui8" x="952" y="568" w="8" h="64" xo="216" yo="424" id="10019444" name="inst_D54196FA" depth="10002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgExBui8" x="864" y="580" w="32" h="56" xo="360" yo="160" id="10019449" name="inst_59DBC1DB" depth="10002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

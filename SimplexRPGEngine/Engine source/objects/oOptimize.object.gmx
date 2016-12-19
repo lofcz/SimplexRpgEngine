@@ -30,7 +30,8 @@
 alarm[0] = 2;
 colID = 0;
 
-activeList = ds_list_create();
+activeList  = ds_list_create();
+activeList2 = ds_list_create();
 </string>
           </argument>
         </arguments>
@@ -136,6 +137,16 @@ for (i = 0; i &lt; ds_list_size(activeList); i++)
         {
          if ((activeList[| i]).alpha &lt; 0.05) {ds_list_delete(activeList, i);}
         }
+    }
+    
+for (i = 0; i &lt; ds_list_size(activeList2); i++)
+    {
+     instance_activate_object(activeList2[| i]);
+     
+     if (!point_in_rectangle((activeList2[| i]).x, (activeList2[| i]).y, view_xview - 200, view_yview - 200, view_xview + view_wview + 200, view_yview + view_hview + 200))
+        {
+         instance_deactivate_object(((activeList2[| i]).id));
+        } 
     }
 </string>
           </argument>

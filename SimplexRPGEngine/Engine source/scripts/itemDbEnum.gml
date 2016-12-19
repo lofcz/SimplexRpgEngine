@@ -87,5 +87,6 @@ itemArcaneUpgrade2,
 itemArcaneUpgrade3,
 itemArcaneUpgrade4,
 itemArcaneUpgrade5,
-itemEnchanter
+itemEnchanter,
+itemEmendation1
 };

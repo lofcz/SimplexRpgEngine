@@ -48,7 +48,12 @@ switch (idd)
                     {
                      if (slot[S, inv_item_equip_slot] != "" && (slot[S, inv_item_effect] == rarity_normal || slot[S, inv_item_effect] == rarity_junk)) {return true;}    
                      break;                 
-                    }                                                                                                             
+                    }  
+            case(itemEnum.itemEmendation1):
+                    {
+                     if (slot[S, inv_item_equip_slot] != "" && (slot[S, inv_item_effect] == rarity_normal || slot[S, inv_item_effect] == rarity_junk)) {return true;}    
+                     break;                 
+                    }                                                                                                                                
             case(itemEnum.itemRelicLeftPart):
                     {
                      if (s == itemEnum.itemRelicRightPart) {return true;}    
@@ -167,7 +172,20 @@ switch(id1)
                          audio_play_sound(sndEnchanter, 0, false);
                         }  
                      break;
-                    }                                                                                                                   
+                    }  
+            case(itemEnum.itemEmendation1):
+                    { 
+                     if (slot[slot2, inv_item_equip_slot] != "" && (slot[slot2, inv_item_effect] == rarity_junk || slot[slot2, inv_item_effect] == rarity_normal))
+                        {   
+                         if (slot[slot2, inv_item_effect]      == rarity_junk)   {scrItemUpdateRarity(rarity_normal, true, slot2);}
+                         else if (slot[slot2, inv_item_effect] == rarity_normal) {scrItemUpdateRarity(rarity_rare, true, slot2);}
+                                            
+                         inventoryDelete(itemEnum.itemEmendation1, 1); 
+                         stateAddEntry("Zvýšil jsi vzácnost " + string_lower(slot[slot2, inv_item_info_head]) + ".");
+                         audio_play_sound(sndEmendation1, 0, false);
+                        }  
+                     break;
+                    }                                                                                                                                      
             case(itemEnum.itemRelicRightPart):
                     {
                      if (id2 == itemEnum.itemRelicLeftPart)

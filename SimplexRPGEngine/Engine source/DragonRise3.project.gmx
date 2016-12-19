@@ -234,6 +234,8 @@
       <sound>sound\sndArcane4</sound>
       <sound>sound\sndUpgrade1</sound>
       <sound>sound\sndEnchanter</sound>
+      <sound>sound\sndEmendation1</sound>
+      <sound>sound\sndSecret</sound>
       <sound>sound\sndFragment5</sound>
     </sounds>
   </sounds>
@@ -553,6 +555,7 @@
               <sprite>sprites\sArcaneUpgradeNormalEffect</sprite>
               <sprite>sprites\sArcaneUpgradeLesserEffect</sprite>
               <sprite>sprites\sArcaneUpgradeFinalEffect</sprite>
+              <sprite>sprites\sEmendationEffect</sprite>
               <sprite>sprites\sEnchanterEffect</sprite>
               <sprite>sprites\sLockpickEffect</sprite>
             </sprites>
@@ -726,6 +729,8 @@
       <background>background\bcgCaves4</background>
     </backgrounds>
     <background>background\AIN_Secrets3_zpsa22760a3</background>
+    <background>background\shitbcgfuckoffm8</background>
+    <background>background\bcgAnimated1</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\pthCutsceneObet1</path>
@@ -870,6 +875,7 @@
         <script>scripts\scrItemSetRarityDistributionBased.gml</script>
         <script>scripts\scrItemUpdateReinforcementName.gml</script>
         <script>scripts\scrItemUpdateReinforcementStats.gml</script>
+        <script>scripts\scrItemUpdateRarity.gml</script>
         <script>scripts\scrItemGetRarity.gml</script>
         <script>scripts\itemDraw.gml</script>
         <script>scripts\itemDrawStats.gml</script>
@@ -1429,6 +1435,7 @@
           <object>objects\oArcaneUpgradeGreater</object>
           <object>objects\oArcaneUpgradeLegendary</object>
           <object>objects\oEnchanter</object>
+          <object>objects\oEmendationLesser</object>
           <object>objects\oArcaneUpgradeFinal</object>
           <object>objects\oBasicLetter</object>
           <object>objects\oBasicItem</object>

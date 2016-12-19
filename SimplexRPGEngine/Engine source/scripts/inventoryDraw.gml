@@ -1064,8 +1064,4 @@ else if (e == "medal")          {r = "Odznak";}
 else if (e == "trophy")         {r = "Trofej";}
 else if (e == "card")           {r = "Karta";}
 
-                        
-
-
-
 return r;

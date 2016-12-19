@@ -42,6 +42,7 @@ hitStacks = 2;
 particleSystem = false;
 flag2          = true;
 tempSpr = 0;
+currentFrame = 0;
 </string>
           </argument>
         </arguments>
@@ -73,6 +74,47 @@ if (ds_list_find_index(oOptimize.activeList, id) != -1)
      var index = ds_list_find_index(oOptimize.activeList, id);
      ds_list_delete(oOptimize.activeList, index);
     }
+    
+
+if (ds_list_find_index(oOptimize.activeList2, id) != -1)
+    {
+     var index = ds_list_find_index(oOptimize.activeList2, id);
+     ds_list_delete(oOptimize.activeList2, index);
+    }
+    
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Animate next frame
+
+alarm[1] = animSpd;
+
+if (currentFrame &lt; animFrames) 
+   {
+    currentFrame++;
+   }
+else {currentFrame = 0;}
+
+tile_set_region(tile, animXOf + (currentFrame * animSize), animYOf, animSize, animSize);
 </string>
           </argument>
         </arguments>
@@ -104,6 +146,8 @@ parsed_text[i] = dialogueParse(text[i]);
 }
 
 tile     = tile_layer_find(tL, x, y);
+
+if (isAnim) {alarm[1] = animSpd;}
 </string>
           </argument>
         </arguments>
