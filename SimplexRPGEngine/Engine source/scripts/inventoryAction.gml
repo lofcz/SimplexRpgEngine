@@ -179,10 +179,258 @@ switch (idd)
                     {
                      inventoryDelete(itemEnum.itemGem1, 1);
                      inventoryAdd(oAlchemyDust, 2);
+                     audio_play_sound(sndDisenchant, 0, false);
                     }
             }
          break;
         } 
+    case (itemEnum.itemGem2):
+        {
+         if (number == 0)
+            {
+             if (global.QuestionResult == -1)
+                {
+                 global.arg[5] = idd;
+                 global.arg[6] = number;
+                 scrQuestionShow("Upozornění", "Opravdu chceš drahokam rozložit na " + scrColorflag(c_yellow) + "5 esencí" + scrEndColorflag() + "?", "Ano", "Ne");
+                }
+            else if (global.QuestionResult == 1)
+                    {
+                     inventoryDelete(itemEnum.itemGem2, 1);
+                     inventoryAdd(oAlchemyDust, 5);
+                     audio_play_sound(sndDisenchant, 0, false);
+                    }
+            }
+         break;
+        }   
+    case (itemEnum.itemGem3):
+        {
+         if (number == 0)
+            {
+             if (global.QuestionResult == -1)
+                {
+                 global.arg[5] = idd;
+                 global.arg[6] = number;
+                 scrQuestionShow("Upozornění", "Opravdu chceš drahokam rozložit na " + scrColorflag(c_yellow) + "5 esencí" + scrEndColorflag() + "?", "Ano", "Ne");
+                }
+            else if (global.QuestionResult == 1)
+                    {
+                     inventoryDelete(itemEnum.itemGem3, 1);
+                     inventoryAdd(oAlchemyDust, 5);
+                     audio_play_sound(sndDisenchant, 0, false);
+                    }
+            }
+         break;
+        }  
+    case (itemEnum.itemGem4):
+        {
+         if (number == 0)
+            {
+             if (global.QuestionResult == -1)
+                {
+                 global.arg[5] = idd;
+                 global.arg[6] = number;
+                 scrQuestionShow("Upozornění", "Opravdu chceš drahokam rozložit na " + scrColorflag(c_yellow) + "5 esencí" + scrEndColorflag() + "?", "Ano", "Ne");
+                }
+            else if (global.QuestionResult == 1)
+                    {
+                     inventoryDelete(itemEnum.itemGem4, 1);
+                     inventoryAdd(oAlchemyDust, 5);
+                     audio_play_sound(sndDisenchant, 0, false);
+                    }
+            }
+         break;
+        } 
+    case (itemEnum.itemGem5):
+        {
+         if (number == 0)
+            {
+             if (global.QuestionResult == -1)
+                {
+                 global.arg[5] = idd;
+                 global.arg[6] = number;
+                 scrQuestionShow("Upozornění", "Opravdu chceš drahokam rozložit na " + scrColorflag(c_yellow) + "5 esencí" + scrEndColorflag() + "?", "Ano", "Ne");
+                }
+            else if (global.QuestionResult == 1)
+                    {
+                     inventoryDelete(itemEnum.itemGem5, 1);
+                     inventoryAdd(oAlchemyDust, 5);
+                     audio_play_sound(sndDisenchant, 0, false);
+                    }
+            }
+         break;
+        }
+    case (itemEnum.itemGem6):
+        {
+         if (number == 0)
+            {
+             if (global.QuestionResult == -1)
+                {
+                 global.arg[5] = idd;
+                 global.arg[6] = number;
+                 scrQuestionShow("Upozornění", "Opravdu chceš drahokam rozložit na " + scrColorflag(c_yellow) + "10 esencí" + scrEndColorflag() + "?", "Ano", "Ne");
+                }
+            else if (global.QuestionResult == 1)
+                    {
+                     inventoryDelete(itemEnum.itemGem6, 1);
+                     inventoryAdd(oAlchemyDust, 10);
+                     audio_play_sound(sndDisenchant, 0, false);
+                    }
+            }
+         break;
+        } 
+    case (itemEnum.itemGem7):
+        {
+         if (number == 0)
+            {
+             if (global.QuestionResult == -1)
+                {
+                 global.arg[5] = idd;
+                 global.arg[6] = number;
+                 scrQuestionShow("Upozornění", "Opravdu chceš drahokam rozložit na " + scrColorflag(c_yellow) + "10 esencí" + scrEndColorflag() + "?", "Ano", "Ne");
+                }
+            else if (global.QuestionResult == 1)
+                    {
+                     inventoryDelete(itemEnum.itemGem7, 1);
+                     inventoryAdd(oAlchemyDust, 10);
+                     audio_play_sound(sndDisenchant, 0, false);
+                    }
+            }
+         break;
+        }
+    case (itemEnum.itemGem8):
+        {
+         if (number == 0)
+            {
+             if (global.QuestionResult == -1)
+                {
+                 global.arg[5] = idd;
+                 global.arg[6] = number;
+                 scrQuestionShow("Upozornění", "Opravdu chceš drahokam rozložit na " + scrColorflag(c_yellow) + "10 esencí" + scrEndColorflag() + "?", "Ano", "Ne");
+                }
+            else if (global.QuestionResult == 1)
+                    {
+                     inventoryDelete(itemEnum.itemGem8, 1);
+                     inventoryAdd(oAlchemyDust, 10);
+                     audio_play_sound(sndDisenchant, 0, false);
+                    }
+            }
+         break;
+        }
+    case (itemEnum.itemGem9):
+        {
+         if (number == 0)
+            {
+             if (global.QuestionResult == -1)
+                {
+                 global.arg[5] = idd;
+                 global.arg[6] = number;
+                 scrQuestionShow("Upozornění", "Opravdu chceš drahokam rozložit na " + scrColorflag(c_yellow) + "10 esencí" + scrEndColorflag() + "?", "Ano", "Ne");
+                }
+            else if (global.QuestionResult == 1)
+                    {
+                     inventoryDelete(itemEnum.itemGem9, 1);
+                     inventoryAdd(oAlchemyDust, 10);
+                     audio_play_sound(sndDisenchant, 0, false);
+                    }
+            }
+         break;
+        }   
+    case (itemEnum.itemGem10):
+        {
+         if (number == 0)
+            {
+             if (global.QuestionResult == -1)
+                {
+                 global.arg[5] = idd;
+                 global.arg[6] = number;
+                 scrQuestionShow("Upozornění", "Opravdu chceš drahokam rozložit na " + scrColorflag(c_yellow) + "20 esencí" + scrEndColorflag() + "?", "Ano", "Ne");
+                }
+            else if (global.QuestionResult == 1)
+                    {
+                     inventoryDelete(itemEnum.itemGem10, 1);
+                     inventoryAdd(oAlchemyDust, 20);
+                     audio_play_sound(sndDisenchant, 0, false);
+                    }
+            }
+         break;
+        }  
+    case (itemEnum.itemGem11):
+        {
+         if (number == 0)
+            {
+             if (global.QuestionResult == -1)
+                {
+                 global.arg[5] = idd;
+                 global.arg[6] = number;
+                 scrQuestionShow("Upozornění", "Opravdu chceš drahokam rozložit na " + scrColorflag(c_yellow) + "20 esencí" + scrEndColorflag() + "?", "Ano", "Ne");
+                }
+            else if (global.QuestionResult == 1)
+                    {
+                     inventoryDelete(itemEnum.itemGem11, 1);
+                     inventoryAdd(oAlchemyDust, 20);
+                     audio_play_sound(sndDisenchant, 0, false);
+                    }
+            }
+         break;
+        } 
+    case (itemEnum.itemGem12):
+        {
+         if (number == 0)
+            {
+             if (global.QuestionResult == -1)
+                {
+                 global.arg[5] = idd;
+                 global.arg[6] = number;
+                 scrQuestionShow("Upozornění", "Opravdu chceš drahokam rozložit na " + scrColorflag(c_yellow) + "20 esencí" + scrEndColorflag() + "?", "Ano", "Ne");
+                }
+            else if (global.QuestionResult == 1)
+                    {
+                     inventoryDelete(itemEnum.itemGem12, 1);
+                     inventoryAdd(oAlchemyDust, 20);
+                     audio_play_sound(sndDisenchant, 0, false);
+                    }
+            }
+         break;
+        } 
+    case (itemEnum.itemGem13):
+        {
+         if (number == 0)
+            {
+             if (global.QuestionResult == -1)
+                {
+                 global.arg[5] = idd;
+                 global.arg[6] = number;
+                 scrQuestionShow("Upozornění", "Opravdu chceš drahokam rozložit na " + scrColorflag(c_yellow) + "20 esencí" + scrEndColorflag() + "?", "Ano", "Ne");
+                }
+            else if (global.QuestionResult == 1)
+                    {
+                     inventoryDelete(itemEnum.itemGem13, 1);
+                     inventoryAdd(oAlchemyDust, 20);
+                     audio_play_sound(sndDisenchant, 0, false);
+                    }
+            }
+         break;
+        }   
+    case (itemEnum.itemGem14):
+        {
+         if (number == 0)
+            {
+             if (global.QuestionResult == -1)
+                {
+                 global.arg[5] = idd;
+                 global.arg[6] = number;
+                 scrQuestionShow("Upozornění", "Opravdu chceš drahokam rozložit na " + scrColorflag(c_yellow) + "50 esencí" + scrEndColorflag() + "?", "Ano", "Ne");
+                }
+            else if (global.QuestionResult == 1)
+                    {
+                     inventoryDelete(itemEnum.itemGem14, 1);
+                     inventoryAdd(oAlchemyDust, 50);
+                     audio_play_sound(sndDisenchant, 0, false);
+                    }
+            }
+         break;
+        }                                                                                           
     case (itemEnum.itemShuriken):
         {
          if (number == 0)

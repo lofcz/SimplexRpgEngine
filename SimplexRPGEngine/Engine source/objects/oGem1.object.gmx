@@ -60,7 +60,7 @@ if (loot = 0)
 if (inventoryPickUp())
 {
 audio_play_sound(sndRindPickup,0,0);
-scrLog("+ Skřivec",c_gray,sGemEffect1,0,0.5);
+scrLog(-1,-1,-1,0,0.5);
 }
 }
 </string>

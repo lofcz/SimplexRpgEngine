@@ -236,6 +236,7 @@
       <sound>sound\sndEnchanter</sound>
       <sound>sound\sndEmendation1</sound>
       <sound>sound\sndSecret</sound>
+      <sound>sound\sndDisenchant</sound>
       <sound>sound\sndFragment5</sound>
     </sounds>
   </sounds>

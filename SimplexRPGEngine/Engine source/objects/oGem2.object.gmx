@@ -29,7 +29,7 @@
 
 scrItemSetUp(0, 0, itemEnum.itemGem2);
 scrItemSetProperties(true, "Valatit", "Mýty opředený, magií nasáklý minerál, uchvacující svojí krásou. Snem každého kozelníka je vlastnit takový šperk.", -1, "", 50);
-scrItemSetOptions("Option n1");
+scrItemSetOptions("Rozložit");
 scrItemSetUpFinalize();
 </string>
           </argument>

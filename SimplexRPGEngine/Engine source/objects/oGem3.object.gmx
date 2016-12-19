@@ -29,7 +29,7 @@
 
 scrItemSetUp(0, 0, itemEnum.itemGem3);
 scrItemSetProperties(true, "Jiskřivec", "Průzrčné krystalky Jiskřivce upoustají zrak každého obchodníka či zloděje. Jiskřivec patří do pokladu každého pořádného draka, mnoho dobrodruhů zaplatilo životem za touhu po tomto krásném minerálu.", -1, "", 50);
-scrItemSetOptions("Option n1");
+scrItemSetOptions("Rozložit");
 scrItemSetUpFinalize();
 </string>
           </argument>
