@@ -222,7 +222,8 @@ for (i = 0; i &lt; 10; i++)
     {
     spellAlpha[i] = 0;
     }
-
+    
+lang = "cz";
 </string>
           </argument>
         </arguments>
@@ -248,6 +249,59 @@ for (i = 0; i &lt; 10; i++)
             <string>/// Destroy PSystem
 
 part_system_destroy(Sname);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="10">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Set localization
+
+var tempText, tempArray;
+
+if (lang == "en")
+   {
+    file = file_text_open_read("loc_en.simplex");
+   }    
+else if (lang == "cz")
+   {
+    file = file_text_open_read("loc_cz.simplex");
+   }
+   
+while (!file_text_eof(file))
+      {
+       line = file_text_read_string(file)
+       file_text_readln(file);
+
+       if (string_starts(line, "//") || line == "") {continue;}
+       
+       if (string_starts(line, "invTitle"))      {oInventory.inventory_title = string_equation_parse(line, "invTitle");}      
+       else if (string_starts(line, "invPage"))  {oInventory.pageText        = string_equation_parse(line, "invPage");} 
+       
+       // Items
+       else if (string_starts(line, "itemSwordWoodenHeadStandard"))  {tempText = string_equation_parse(line, "itemSwordWoodenHeadStandard"); inventoryIterateSetAtribute(itemEnum.itemSwordWooden, inv_item_info_head, tempText, "Dřevěný meč");} 
+       else if (string_starts(line, "itemSwordWoodenBody"))  {tempText = string_equation_parse(line, "itemSwordWoodenBody"); inventoryIterateSetAtribute(itemEnum.itemSwordWooden, inv_item_info_text, tempText, "", 196, fntPixelSmall);} 
+     
+       } 
+       
+file_text_close(file);
+
 </string>
           </argument>
         </arguments>

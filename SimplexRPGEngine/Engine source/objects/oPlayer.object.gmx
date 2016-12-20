@@ -228,7 +228,11 @@ apiPlayerOtherActions();
             <kind>1</kind>
             <string>//effectExplosion()
 
-oBestiar.monster[bestiaryEnemySlime2, bestiary_monster_knowledge_current] += 5;
+//oBestiar.monster[bestiaryEnemySlime2, bestiary_monster_knowledge_current] += 5;
+if (oHUD.lang == "cz") {oHUD.lang = "en";}
+else {oHUD.lang = "cz";}
+
+with(oHUD) {event_user(0);}
 </string>
           </argument>
         </arguments>

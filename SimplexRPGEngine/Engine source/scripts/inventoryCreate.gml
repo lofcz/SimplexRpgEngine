@@ -38,6 +38,7 @@ details[1]           = "Vyhodit odpad";
 currentFilter        = 0;
 filterAlpha          = 1;
 fAlpha               = 1;
+pageText             = "Strana";
 
 global.QuestionResult = -1;
 
