@@ -104,7 +104,8 @@ for (i = 0; i < ds_list_size(pointList); i++)
           alg("center", fntPixelTiny);
           clr(c_white, -1);
           ss = string(round(point_distance(oPlayer.x, oPlayer.y, pointListX[| i] + 16, pointListY[| i] + 16) / 16));
-          draw_text_transformed(100 + oMinimap.x + lengthdir_x(90 - string_width(ss) / 2, dir) - 4, 100 + oMinimap.y + lengthdir_y(90 - string_width(ss) / 2 - 4, dir), ss, 1, 1, dir); 
+          if (dir > 90 && dir < 270) {draw_text_transformed(100 + oMinimap.x + lengthdir_x(94 - string_width(ss) / 2, dir), 100 + oMinimap.y + lengthdir_y(90 - string_width(ss) / 2 - 4, dir), ss, 1, 1, dir + 180);} // Fix wrong rotation
+          else {draw_text_transformed(100 + oMinimap.x + lengthdir_x(86 - string_width(ss) / 2, dir), 100 + oMinimap.y + lengthdir_y(90 - string_width(ss) / 2 - 4, dir), ss, 1, 1, dir);}
           alg();
          }
      }

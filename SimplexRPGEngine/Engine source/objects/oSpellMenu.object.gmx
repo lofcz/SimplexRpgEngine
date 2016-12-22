@@ -38,26 +38,44 @@ scrSpellCreate(SpellEnum.spellFlash, 0, true, sSpellFlash);
     scrSpellCreateDetails("Záblesk", "Posílený záblesk", "Mocný záblesk", "Záblesk", "Posílený záblesk", "Mocný záblesk", 0);
     scrSpellCreatePointDetails("Přemístí sesilatele na krátkou vzdálenost ve směru jeho pohybu.", "Přemístí sesílatele na krátkou vzdálenost ve směru jeho pohybu a umístí na něj " + scrColorText("znak přesunu", c_aqua) + ".", "Přemístí sesílatele na krátkou vzdálenost ve směru jeho pohybu a umístí na něj " + scrColorText("znak přesunu", c_aqua) + ". Pokud je kouzlo zdárné a projde nepřátelskou bytostí, způsobí jí záblesk přímé poškození v závisloti na procentu chybějícího zdraví.");
     scrSpellCreatePointProperties("detail1", "detail2", "detail3", "detail4", "detail5", "detail6", "detail7", "detail8", "detail9", "detail10", "detail11", "detail12", "Potřebná mana: " + scrColorText("27", c_lime) + "#Přebíjecí doba: " + scrColorText("3,4s", c_lime) + "#Nejvyšší počet znaků přesunu: " + scrColorText("12", c_lime) + "#Poškození při průchodu: " + scrColorText("8%", c_lime) + " chybějícího zdraví.");
-    
+    scrSpellCreateRequirements(spellReqEnum.reqInt, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
+    scrSpellCreateRequirements(spellReqEnum.reqSouls, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
+        
+        
 scrSpellCreate(SpellEnum.spellFireball, 0, true, sSpellFireball);
     scrSpellCreateDetails("Ohnivá koule", "Ohnivá bouře", "Inferno", "text1", "text2", "text3", 3);
     scrSpellCreatePointDetails("detail1", "detail2", "detail3", "detail4", "detail5", "detail6", "detail7", "detail8", "detail9", "detail10", "detail11", "detail12", "detail13");
+    scrSpellCreatePointProperties("detail1", "detail2", "detail3", "detail4", "detail5", "detail6", "detail7", "detail8", "detail9", "detail10", "detail11", "detail12", "Potřebná mana: " + scrColorText("27", c_lime) + "#Přebíjecí doba: " + scrColorText("3,4s", c_lime) + "#Nejvyšší počet znaků přesunu: " + scrColorText("12", c_lime) + "#Poškození při průchodu: " + scrColorText("8%", c_lime) + " chybějícího zdraví.");
+    scrSpellCreateRequirements(spellReqEnum.reqInt, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
+    scrSpellCreateRequirements(spellReqEnum.reqSouls, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
     
 scrSpellCreate(SpellEnum.spellVines, 0, true, sSpellVines);
     scrSpellCreateDetails("Zákeřné ostny", "Smrtící spoutání", "Divoká pomsta", "text1", "text2", "text3", 6);
     scrSpellCreatePointDetails("detail1", "detail2", "detail3", "detail4", "detail5", "detail6", "detail7", "detail8", "detail9", "detail10", "detail11", "detail12", "detail13");
+    scrSpellCreatePointProperties("detail1", "detail2", "detail3", "detail4", "detail5", "detail6", "detail7", "detail8", "detail9", "detail10", "detail11", "detail12", "Potřebná mana: " + scrColorText("27", c_lime) + "#Přebíjecí doba: " + scrColorText("3,4s", c_lime) + "#Nejvyšší počet znaků přesunu: " + scrColorText("12", c_lime) + "#Poškození při průchodu: " + scrColorText("8%", c_lime) + " chybějícího zdraví.");
+    scrSpellCreateRequirements(spellReqEnum.reqInt, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
+    scrSpellCreateRequirements(spellReqEnum.reqSouls, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
 
 scrSpellCreate(SpellEnum.spellFrozenBolts, 0, true, sSpellFrozenBolts);
     scrSpellCreateDetails("Krystalický chlad", "Smrtící spoutání", "Divoká pomsta", "text1", "text2", "text3", 9);
     scrSpellCreatePointDetails("detail1", "detail2", "detail3", "detail4", "detail5", "detail6", "detail7", "detail8", "detail9", "detail10", "detail11", "detail12", "detail13");
+    scrSpellCreatePointProperties("detail1", "detail2", "detail3", "detail4", "detail5", "detail6", "detail7", "detail8", "detail9", "detail10", "detail11", "detail12", "Potřebná mana: " + scrColorText("27", c_lime) + "#Přebíjecí doba: " + scrColorText("3,4s", c_lime) + "#Nejvyšší počet znaků přesunu: " + scrColorText("12", c_lime) + "#Poškození při průchodu: " + scrColorText("8%", c_lime) + " chybějícího zdraví.");
+    scrSpellCreateRequirements(spellReqEnum.reqInt, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
+    scrSpellCreateRequirements(spellReqEnum.reqSouls, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
 
 scrSpellCreate(SpellEnum.spellFireBeam, 0, true, sSpellFireBeam);
     scrSpellCreateDetails("Proud ohně", "Smrtící spoutání", "Divoká pomsta", "text1", "text2", "text3", 12);
     scrSpellCreatePointDetails("detail1", "detail2", "detail3", "detail4", "detail5", "detail6", "detail7", "detail8", "detail9", "detail10", "detail11", "detail12", "detail13");
+    scrSpellCreatePointProperties("detail1", "detail2", "detail3", "detail4", "detail5", "detail6", "detail7", "detail8", "detail9", "detail10", "detail11", "detail12", "Potřebná mana: " + scrColorText("27", c_lime) + "#Přebíjecí doba: " + scrColorText("3,4s", c_lime) + "#Nejvyšší počet znaků přesunu: " + scrColorText("12", c_lime) + "#Poškození při průchodu: " + scrColorText("8%", c_lime) + " chybějícího zdraví.");
+    scrSpellCreateRequirements(spellReqEnum.reqInt, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
+    scrSpellCreateRequirements(spellReqEnum.reqSouls, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
 
 scrSpellCreate(SpellEnum.spellHeal, 0, true, sSpellHeal);
     scrSpellCreateDetails("Požehnání přírody", "Smrtící spoutání", "Divoká pomsta", "text1", "text2", "text3", 15);
     scrSpellCreatePointDetails("detail1", "detail2", "detail3", "detail4", "detail5", "detail6", "detail7", "detail8", "detail9", "detail10", "detail11", "detail12", "detail13");
+    scrSpellCreatePointProperties("detail1", "detail2", "detail3", "detail4", "detail5", "detail6", "detail7", "detail8", "detail9", "detail10", "detail11", "detail12", "Potřebná mana: " + scrColorText("27", c_lime) + "#Přebíjecí doba: " + scrColorText("3,4s", c_lime) + "#Nejvyšší počet znaků přesunu: " + scrColorText("12", c_lime) + "#Poškození při průchodu: " + scrColorText("8%", c_lime) + " chybějícího zdraví.");
+    scrSpellCreateRequirements(spellReqEnum.reqInt, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
+    scrSpellCreateRequirements(spellReqEnum.reqSouls, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13);
     
 </string>
           </argument>
@@ -108,8 +126,10 @@ ds_list_destroy(spellListAlpha);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>        mode                 = "out";
-        bacAlpha             = 0;
+            <string>/// Fade out
+
+mode                 = "out";
+bacAlpha             = 0;
 
 </string>
           </argument>
@@ -181,70 +201,6 @@ if (levelUpSpell == SpellEnum.spellFlash)
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="10">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Bind spell
-var i;
-         // Spell binding
-         if (oPlayer.spell_cd[0] &lt;= 0 &amp;&amp; oPlayer.spell_cd[1] &lt;= 0 &amp;&amp; oPlayer.spell_cd[2] &lt;= 0)
-            {
-              // Protection against multiple binding of same spell
-              scrSpellConvertEnumToString(spell);
-              tempSpell  = oPlayer.spell[fromSpell];
-              tempSprite = oPlayer.spell_sprite[fromSpell];
-              tempI      = -1;
-              choosenSpell = -1;
-              
-              for (i = 0; i &lt; 3; i++)
-                  {
-                   if (oPlayer.spell[i] == returnArray[0])
-                       {
-                        tempI = i;
-                        break;
-                       }
-                  } 
-              
-             if (tempI != -1)
-                {
-                 oPlayer.spell[tempI]        = tempSpell;
-                 oPlayer.spell_sprite[tempI] = tempSprite;
-                }         
-                                                         
-              oPlayer.spell[fromSpell]        = returnArray[0];
-              oPlayer.spell_sprite[fromSpell] = returnArray[1];
-              mode = "out";
-              fromSpell     = -1;
-drawType      = "spells";
-setSpell      = 0;
-upgradeMode   = -1;
-upgradeSpell  = -1;
-upgradeAlpha  = 0;
-hoverAlpha    = 0;
-choosenSpell  = -1;
-choosenSpellScale = 1;
-flip_angle = 0;
-scrSetActiveComponent(false);
-            } 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -262,7 +218,9 @@ scrSetActiveComponent(false);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (draw)
+            <string>/// Draw
+
+if (draw)
 {
 x = view_xview;
 y = view_yview;
@@ -304,9 +262,9 @@ alg("center", fntPixelHuge);
 draw_text(x + 480, y + 24, "Magie");
 alg("center", fntPixel);
 
-bs = "Nemáš žádné body magie";
+bs = "Nemáš žádné spoustané duše";
 fnt(fntPixelSmall);
-if (oPlayer.spellPoints &gt; 0) {bs = "Máš " + string(oPlayer.spellPoints) + " " + scrInflect("bod", oPlayer.talentPoints) + " bodů čarodějnictví.";}
+if (oPlayer.spellPoints &gt; 0) {bs = "Máš " + string(oPlayer.spellPoints) + " " + scrInflect("duše", oPlayer.talentPoints) + ".";}
 draw_text(x + 480, y + 48, bs);
 alg();
 fnt(fntPixelTiny);

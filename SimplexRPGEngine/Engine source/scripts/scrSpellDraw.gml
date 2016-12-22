@@ -10,10 +10,12 @@ if (argument_count > 0) {spell = argument[0];}
 if (argument_count > 1) {xx    = argument[1];}
 if (argument_count > 1) {yy    = argument[2];}
 
+reqI = spellReqInt[spell, 1 + (spellLevel[spell, 0] + spellLevel[spell, 1] * 5)];
+reqS = spellReqSouls[spell, 1 + (spellLevel[spell, 0] + spellLevel[spell, 1] * 5)];
+
 scrSpellDrawSurface();
 fnt();
 clr(c_white, -1);
-//draw_text(view_xview + xx, view_yview + yy - 24, spellDetails[spell, 0]); // Spell name
 
 if (surface_exists(front_surface) && surface_exists(back_surface)) 
 {
@@ -101,12 +103,12 @@ if (mouse_in(xx + view_xview - 128, xx + 128 + view_xview, yy + view_yview - 64,
      draw_roundrect(view_xview + 10, view_yview + 400, view_xview + view_wview - 10, view_yview + 600 - 10, false);
      clr(c_white, draw_get_alpha());
     
-     if (mouse_check_button_pressed(mb_left) && mode == "in")
+     if (mouse_check_button_pressed(mb_left) && mode == "in" && (apiPlayerGetPropertyValue(vlastnost_inteligence) >= reqI) && oPlayer.spellPoints >= reqS)
         {
-         if (oPlayer.spellPoints > 0 && spellLevel[spell, 1] < 2 && spellLevel[spell, 0] < 5)
+         if (oPlayer.spellPoints >= reqS && spellLevel[spell, 1] < 2 && spellLevel[spell, 0] < 5)
             {
              spellLevel[spell, 0]++;
-             oPlayer.spellPoints--;
+             oPlayer.spellPoints -= reqS;
              audio_play_sound(sndSpellUpgrade, 0, false);
              levelUpSpell = spell;
              level  = spellLevel[spell, 1];
@@ -114,26 +116,36 @@ if (mouse_in(xx + view_xview - 128, xx + 128 + view_xview, yy + view_yview - 64,
              event_user(2);
             }
         }
-     if (mouse_check_button_pressed(mb_right) && mode == "in")
-        {
-         if (oPlayer.spellPoints > 0 && spellLevel[spell, 1] < 2 && spellLevel[spell, 0] < 5)
-            {
-             spellLevel[spell, 0]++;
-             oPlayer.spellPoints--;
-             audio_play_sound(sndSpellUpgrade, 0, false);
-             levelUpSpell = spell;
-             level  = spellLevel[spell, 1];
-             points = spellLevel[spell, 0];
-             event_user(2);
-            }      
-        } 
+
+        
+     hoverAlpha = lerp(hoverAlpha, 1, 0.1);
     }
 else
     {
      hoverAlpha = lerp(hoverAlpha, 0, 0.1);
      choosenSpellScale = lerp(choosenSpellScale, 1, 0.1);
     }
-clr(c_black, draw_get_alpha());
+ 
+fnt();       
+clr(c_white, hoverAlpha);
+draw_text(660, 100, "Vylepšení ");
+clr(c_white, hoverAlpha / 2);
+draw_line(660, 120, 780, 120);
+clr(c_white, hoverAlpha);
+
+fnt(fntPixelSmall);
+if (apiPlayerGetPropertyValue(vlastnost_inteligence) >= reqI) {clr(c_lime, -1);} else {clr(c_red, -1);}
+draw_text(660, 130, "Inteligence: " + string(reqI));
+if (oPlayer.spellPoints >= reqS) {clr(c_lime, -1);} else {clr(c_red, -1);}
+draw_text(660, 150, "Spoutané duše: " + string(reqS));
+
+if (apiPlayerGetPropertyValue(vlastnost_inteligence) >= reqI && oPlayer.spellPoints >= reqS)
+   {
+    draw_text(660, 180, "[Vylepši kliknutím]");
+   }
+clr();
+
+
 
 
 #define scrSpellConvertEnumToString
@@ -220,9 +232,17 @@ for (i = 0; i < ds_list_size(spellList); i++)
       else {spellListAlpha[| i] = lerp(spellListAlpha[| i], 0, 0.1);}
       color = c_white;
       if (spellLevel[i, 1] == 2) {color = c_yellow;}
-        
+      fnt();
+       
       clr(color, bacAlpha * 2);
+      
+      // Adjust font size
+      var str1 = spellDetails[i,0];
+      if (spellLevel[i, 0] > 0) {str1 += " (" + string(spellLevel[i, 0]) + " / 5)";}         
+      if (string_width(str1) >= 196) {fnt(fntPixelSmall);}
+      
       draw_text(xx, yy, spellDetails[i,0]);
+      if (spellLevel[i, 0] > 0) {draw_text(xx + string_width(spellDetails[i, 0]), yy, " (" + string(spellLevel[i, 0]) + " / 5)");}
       yy += 32;
     }
 

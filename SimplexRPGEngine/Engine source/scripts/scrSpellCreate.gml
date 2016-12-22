@@ -75,9 +75,34 @@ for (i = 0; i < 16; i++)
     }              
 
 #define scrSpellCreatePointProperties
-/// scrSpellCreatePointProperties(detail1Level0.. detail1Level3)
+/// scrSpellCreatePointProperties(detail0...detail12)
 
 for (i = 0; i < 16; i++)
     {
     if (argument_count > i) {spellProperties[tempSpell, (9 + i)] = argument[i];} 
     }
+
+#define scrSpellCreateRequirements
+/// scrSpellCreateRequirements(reqType, req0..req12)
+
+enum spellReqEnum
+{
+ reqInt, reqSouls
+}
+
+if (argument[0] == spellReqEnum.reqInt)
+{
+for (i = 1; i < 16; i++)
+    {
+     if (argument_count > i) {spellReqInt[tempSpell, i] = argument[i];} 
+    }             
+}
+
+if (argument[0] == spellReqEnum.reqSouls)
+{
+for (i = 1; i < 16; i++)
+    {
+     if (argument_count > i) {spellReqSouls[tempSpell, i] = argument[i];} 
+    }             
+}
+

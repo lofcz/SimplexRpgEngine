@@ -22,6 +22,13 @@ if (word == "bod")
      else if (n < 5) {return "body";}
      else {return "bodů";}
     }
+if (word == "duše")
+    {
+     if (n <= 0) {return "duše";}
+     else if (n < 2) {return "spoutanou duši";}
+     else if (n < 5) {return "spoutané duše";}
+     else {return "spoutaných duší";}
+    }    
 if (word == "zlatka")
     {
      if (n <= 0) {return "zlatek";}
@@ -29,3 +36,8 @@ if (word == "zlatka")
      else if (n < 5) {return "zlatky";}
      else {return "zlatek";}
     }    
+if (word == "esence")
+    {
+     if (n < 5) {return "esence";}
+     else {return "esencí";}
+    }      

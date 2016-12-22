@@ -23,7 +23,7 @@ if (argument_count > 7) {if (argument[7] != -1) {font     = argument[7];}}
 if (argument_count > 8) {if (argument[8] != -1) {mode     = argument[8];}}
 if (argument_count > 9) {if (argument[9] != -1) {spd      = argument[9];}}
 
-if (text   == "-1") {text   = "+ " + itm_info_head;}
+if (text   == "-1") {text   = "+ " + itm_info_head; if (itm_stackable && itm_number > 1) {text += " x" + string(itm_number);}}
 if (color  == -1)   {color  = itm_effect; if (color == c_black) {color = c_white;}}
 if (sprite == -1)   {sprite = tempSpr;}
 

@@ -88,5 +88,6 @@ itemArcaneUpgrade3,
 itemArcaneUpgrade4,
 itemArcaneUpgrade5,
 itemEnchanter,
-itemEmendation1
+itemEmendation1,
+itemSoulShard
 };

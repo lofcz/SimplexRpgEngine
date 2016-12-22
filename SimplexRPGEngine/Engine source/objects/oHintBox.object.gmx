@@ -49,7 +49,15 @@ txtalph = 0;
 txtalpha = 0;
 incerase=0
 bacAlpha = 0;
+currentN = 1;
 global.result = false;
+scl1 = 1;
+scl2 = 1;
+a1   = 1;
+a2   = 1;
+txt  = "";
+
+if (global.arg[8] == "esence") {txt = "Rozložit: ";}
 </string>
           </argument>
         </arguments>
@@ -233,8 +241,7 @@ draw_text_ext(x-230,y-170,string(currentTitle),-1,460);
 draw_set_alpha(txtalpha);
 fnt();
 draw_text_colored(x-230,y-130,string(currentText));
-draw_set_color(c_black);
-draw_set_alpha(1);
+clr();
 }
 else if (mode == "question")
 {
@@ -248,9 +255,35 @@ fnt(fntPixelHuge);
 draw_text_ext(x-230,y-170,string(global.arg[3]),-1,460);
 draw_set_alpha(txtalpha);
 fnt();
-draw_text_colored(x-230,y-130,string(global.arg[0]));
-draw_set_color(c_black);
-draw_set_alpha(1);
+if (global.arg[8] == "esence") {draw_text_colored(x-230,y-130,string(global.arg[0]) + scrColorText(string(global.arg[7] * currentN) + " " + scrInflect("esence", global.arg[7] * currentN), c_yellow) + "?");}
+else {draw_text_colored(x-230,y-130,string(global.arg[0]));}
+
+if (instance_number(oHintBoxButton) &gt; 0 &amp;&amp; txt != "")
+{
+clr(-1, btn.image_alpha);
+draw_text(x + 110, y + 80, txt + string(currentN) + "x ");
+draw_sprite_ext(sEvaluateIcons, 0, x + 230, y + 90, scl1, scl1, 0, c_white, min(a1, btn.image_alpha));
+draw_sprite_ext(sEvaluateIcons, 1, x + 250, y + 90, scl2, scl2, 0, c_white, min(a2, btn.image_alpha));
+
+if (mouse_in(x + 230 - 7, x + 230 + 7, y + 90 - 9, y + 90 + 9))
+   {
+    scl1 = lerp(scl1, 1.3,0.1);
+    if (mouse_check_button_pressed(mb_left) &amp;&amp; currentN &lt; inventoryNumber(global.arg[5])) {currentN++; audio_play_sound(sndClick, 0, false);}
+   }
+else {scl1 = lerp(scl1, 1, 0.1);}
+
+if (mouse_in(x + 250 - 7, x + 250 + 7, y + 90 - 9, y + 90 + 9) &amp;&amp; a2 &gt; 0.9)
+   {
+    scl2 = lerp(scl2, 1.3,0.1);
+    if (mouse_check_button_pressed(mb_left &amp;&amp; currentN &gt; 0)) {currentN--; audio_play_sound(sndClick, 0, false);}
+   }
+else {scl2 = lerp(scl2, 1, 0.1);}
+
+if (currentN == 1) {a2 = lerp(a2, 0.3, 0.1);} else {a2 = lerp(a2, 1, 0.1);}
+if (currentN == inventoryNumber(global.arg[5])) {a1 = lerp(a1, 0.3, 0.1);} else {a1 = lerp(a1, 1, 0.1);}
+
+}
+clr();
 }
 </string>
           </argument>
