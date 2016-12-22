@@ -272,6 +272,7 @@
       <sound>sound\sndSecret</sound>
       <sound>sound\sndDisenchant</sound>
       <sound>sound\sndClick</sound>
+      <sound>sound\sndSoul</sound>
       <sound>sound\sndFragment5</sound>
     </sounds>
   </sounds>
@@ -910,6 +911,7 @@
         <script>scripts\scrItemMarkAsUsable.gml</script>
         <script>scripts\scrItemRepair.gml</script>
         <script>scripts\scrItemBasic.gml</script>
+        <script>scripts\scrItemPickUpFromGround.gml</script>
         <script>scripts\scrItemSetProperty.gml</script>
         <script>scripts\scrItemSetBodyCanvas.gml</script>
         <script>scripts\scrItemSetRarityPointsBased.gml</script>

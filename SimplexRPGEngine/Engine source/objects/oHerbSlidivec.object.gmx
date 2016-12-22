@@ -26,10 +26,12 @@
           <argument>
             <kind>1</kind>
             <string>/// Initialize item
+
 scrItemSetUp(0, 0, itemEnum.itemHerbSlidivec);
-scrItemSetProperties(true, "Slídivec", "Krásně vonící Slídivec skalní, navozuje euforii. Ve velkých dávkách způsobuje ztrátu sebeovládání, přátel a života. Načerno vyráběná pálenka ze Slídivce patří mezi nejoblíbenější pití mladých.", -1, "");
-scrItemSetOptions("Option n1");
+scrItemSetProperties(true, "Slídivec", "Krásně vonící Slídivec skalní, navozuje euforii. Ve velkých dávkách způsobuje ztrátu sebeovládání, přátel a života. Načerno vyráběná pálenka ze Slídivce patří mezi nejoblíbenější pití mladých.", -1, "", 6);
+scrItemSetOptions();
 scrItemSetUpFinalize();
+
 
 
 </string>
@@ -56,14 +58,8 @@ scrItemSetUpFinalize();
             <kind>1</kind>
             <string>/// Loot
 
-if (loot == 0)
-{
-if (inventoryPickUp())
-{ 
-audio_play_sound(sndRindPickup,0,0);
-scrLog("+ Slídivec",c_flower,sEffectHerb6);
-}
-}
+scrItemPickUpFromGround();
+
 </string>
           </argument>
         </arguments>

@@ -169,7 +169,30 @@ switch (idd)
             }
          break;
         } 
-    case (itemEnum.itemGem1):
+    case (itemEnum.itemSoulShard):
+        {
+         if (number == 0)
+            {
+             if (global.QuestionResult == -1)
+                {
+                 global.arg[5] = idd;
+                 global.arg[6] = number;
+                 global.arg[7] = 9;
+                 global.arg[8] = "duše";
+                 global.arg[9] = 9;
+
+                 scrQuestionShow("Upozornění", "", "Ano", "Ne");
+                }
+            else if (global.QuestionResult == 1)
+                    {
+                     inventoryDelete(itemEnum.itemSoulShard, 9);
+                     oPlayer.spellPoints++;
+                     audio_play_sound(sndSoul, 0, false);
+                    }
+            }
+         break;
+        }    
+        case (itemEnum.itemGem1):
         {
          if (number == 0)
             {
@@ -179,6 +202,7 @@ switch (idd)
                  global.arg[6] = number;
                  global.arg[7] = 2;
                  global.arg[8] = "esence";
+                 global.arg[9] = 1;
 
                  scrQuestionShow("Upozornění", "Opravdu chceš drahokam rozložit na ", "Ano", "Ne");
                 }
@@ -201,6 +225,7 @@ switch (idd)
                  global.arg[6] = number;
                  global.arg[7] = 5;
                  global.arg[8] = "esence";
+                 global.arg[9] = 1;
                  scrQuestionShow("Upozornění", "Opravdu chceš drahokam rozložit na ", "Ano", "Ne");
                 }
             else if (global.QuestionResult == 1)
@@ -222,6 +247,7 @@ switch (idd)
                  global.arg[6] = number;
                  global.arg[7] = 5;
                  global.arg[8] = "esence";
+                 global.arg[9] = 1;
                  scrQuestionShow("Upozornění", "Opravdu chceš drahokam rozložit na ", "Ano", "Ne");
                 }
             else if (global.QuestionResult == 1)
@@ -243,6 +269,7 @@ switch (idd)
                  global.arg[6] = number;
                  global.arg[7] = 5;
                  global.arg[8] = "esence";
+                 global.arg[9] = 1;
                  scrQuestionShow("Upozornění", "Opravdu chceš drahokam rozložit na ", "Ano", "Ne");
                 }
             else if (global.QuestionResult == 1)
@@ -264,6 +291,7 @@ switch (idd)
                  global.arg[6] = number;
                  global.arg[7] = 5;
                  global.arg[8] = "esence";
+                 global.arg[9] = 1;
                  scrQuestionShow("Upozornění", "Opravdu chceš drahokam rozložit na ", "Ano", "Ne");
                 }
             else if (global.QuestionResult == 1)
@@ -285,6 +313,7 @@ switch (idd)
                  global.arg[6] = number;
                  global.arg[7] = 10;
                  global.arg[8] = "esence";
+                 global.arg[9] = 1;
                  scrQuestionShow("Upozornění", "Opravdu chceš drahokam rozložit na ", "Ano", "Ne");
                 }
             else if (global.QuestionResult == 1)
@@ -306,6 +335,7 @@ switch (idd)
                  global.arg[6] = number;
                  global.arg[7] = 10;
                  global.arg[8] = "esence";
+                 global.arg[9] = 1;
                  scrQuestionShow("Upozornění", "Opravdu chceš drahokam rozložit na ", "Ano", "Ne");
                 }
             else if (global.QuestionResult == 1)
@@ -327,6 +357,7 @@ switch (idd)
                  global.arg[6] = number;
                  global.arg[7] = 10;
                  global.arg[8] = "esence";
+                 global.arg[9] = 1;
                  scrQuestionShow("Upozornění", "Opravdu chceš drahokam rozložit na ", "Ano", "Ne");
                 }
             else if (global.QuestionResult == 1)
@@ -348,6 +379,7 @@ switch (idd)
                  global.arg[6] = number;
                  global.arg[7] = 10;
                  global.arg[8] = "esence";
+                 global.arg[9] = 1;
                  scrQuestionShow("Upozornění", "Opravdu chceš drahokam rozložit na ", "Ano", "Ne");
                 }
             else if (global.QuestionResult == 1)
@@ -369,6 +401,7 @@ switch (idd)
                  global.arg[6] = number;
                  global.arg[7] = 20;
                  global.arg[8] = "esence";
+                 global.arg[9] = 1;
                  scrQuestionShow("Upozornění", "Opravdu chceš drahokam rozložit na ", "Ano", "Ne");
                 }
             else if (global.QuestionResult == 1)
@@ -390,6 +423,7 @@ switch (idd)
                  global.arg[6] = number;
                  global.arg[7] = 20;
                  global.arg[8] = "esence";
+                 global.arg[9] = 1;
                  scrQuestionShow("Upozornění", "Opravdu chceš drahokam rozložit na ", "Ano", "Ne");
                 }
             else if (global.QuestionResult == 1)
@@ -411,6 +445,7 @@ switch (idd)
                  global.arg[6] = number;
                  global.arg[7] = 20;
                  global.arg[8] = "esence";
+                 global.arg[9] = 1;
                  scrQuestionShow("Upozornění", "Opravdu chceš drahokam rozložit na ", "Ano", "Ne");
                 }
             else if (global.QuestionResult == 1)
@@ -432,6 +467,7 @@ switch (idd)
                  global.arg[6] = number;
                  global.arg[7] = 20;
                  global.arg[8] = "esence";
+                 global.arg[9] = 1;
                  scrQuestionShow("Upozornění", "Opravdu chceš drahokam rozložit na ", "Ano", "Ne");
                 }
             else if (global.QuestionResult == 1)
@@ -453,6 +489,7 @@ switch (idd)
                  global.arg[6] = number;
                  global.arg[7] = 50;
                  global.arg[8] = "esence";
+                 global.arg[9] = 1;
                  scrQuestionShow("Upozornění", "Opravdu chceš drahokam rozložit na ", "Ano", "Ne");
                 }
             else if (global.QuestionResult == 1)

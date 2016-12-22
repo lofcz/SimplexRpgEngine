@@ -29,12 +29,7 @@
 
 scrMinimapIni(200, 200, "M");
 
-zoomFactor = 800;
 
-iconAlpha[0] = 0;
-iconAlpha[1] = 0;
-iconAlpha[2] = 0;
-iconAlpha[3] = 0;
 
 </string>
           </argument>

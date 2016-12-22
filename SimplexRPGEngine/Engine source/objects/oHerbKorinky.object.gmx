@@ -26,9 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>/// Initialize item
+
 scrItemSetUp(0, 0, itemEnum.itemHerbKorinky);
-scrItemSetProperties(true, "Kořínky Měnavky", "Požití kořínků Měnavky roztodivné způsobuje extázi a halucinace. Uživatel může slyšet hlasy, obzvláště často dochází k navázání kontaktu s archandělem Xandalfonem.", -1, "");
-scrItemSetOptions("Option n1");
+scrItemSetProperties(true, "Kořínky Měnavky", "Požití kořínků Měnavky roztodivné způsobuje extázi a halucinace. Uživatel může slyšet hlasy, obzvláště často dochází k navázání kontaktu s archandělem Xandalfonem.", -1, "", 7);
+scrItemSetOptions();
 scrItemSetUpFinalize();
 
 
@@ -56,14 +57,7 @@ scrItemSetUpFinalize();
             <kind>1</kind>
             <string>/// Loot
 
-if (loot == 0)
-{
-if (inventoryPickUp())
-{ 
-audio_play_sound(sndRindPickup,0,0);
-scrLog("+ Kořínky Měnavky",c_flower,sEffectHerb3);
-}
-}
+scrItemPickUpFromGround();
 </string>
           </argument>
         </arguments>

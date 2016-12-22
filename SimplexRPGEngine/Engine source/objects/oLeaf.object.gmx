@@ -29,7 +29,7 @@
 
 scrItemSetUp(0, 0, itemEnum.itemLeaf);
 scrItemSetProperties(true, "List Blahočetu", "Jemně vonící list Blahočetu prašného. Drcený se využívá jako vonná přísada do směsí.", -1, "", 2);
-scrItemSetOptions("Rozložit");
+scrItemSetOptions();
 scrItemSetUpFinalize();
 </string>
           </argument>
@@ -55,14 +55,7 @@ scrItemSetUpFinalize();
             <kind>1</kind>
             <string>/// Loot
 
-if (loot == 0)
-{
-if (inventoryPickUp())
-{
-audio_play_sound(sndRindPickup,0,0);
-scrLog("+ List Blahočetu",c_white,sLeafEffect,0,0.5);
-}
-}
+scrItemPickUpFromGround();
 </string>
           </argument>
         </arguments>

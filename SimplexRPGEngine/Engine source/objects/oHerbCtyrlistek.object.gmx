@@ -26,9 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>/// Initialize item
+
 scrItemSetUp(0, 0, itemEnum.itemHerbCtyrlistek);
-scrItemSetProperties(true, "Čtyřlístek", "Symbol štěstí, vzácný Čtyřlístek. S oblibou roste na těžko dostupných místech, takže fortuny chtivý dobrodruh na cestě za ním často spadne ze srázu.", -1, "");
-scrItemSetOptions("Option n1");
+scrItemSetProperties(true, "Čtyřlístek", "Symbol štěstí, vzácný Čtyřlístek. S oblibou roste na těžko dostupných místech, takže fortuny chtivý dobrodruh na cestě za ním často spadne ze srázu.", -1, "", 12);
+scrItemSetOptions();
 scrItemSetUpFinalize();
 
 
@@ -56,14 +57,8 @@ scrItemSetUpFinalize();
             <kind>1</kind>
             <string>/// Loot
 
-if (loot == 0)
-{
-if (inventoryPickUp())
-{ 
-audio_play_sound(sndRindPickup,0,0);
-scrLog("+ Čtyřlístek",c_flower,sEffectHerb1);
-}
-}
+scrItemPickUpFromGround();
+
 </string>
           </argument>
         </arguments>

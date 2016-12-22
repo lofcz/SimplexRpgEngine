@@ -58,6 +58,7 @@ a2   = 1;
 txt  = "";
 
 if (global.arg[8] == "esence") {txt = "Rozložit: ";}
+if (global.arg[8] == "duše") {txt = "Duše: ";}
 </string>
           </argument>
         </arguments>
@@ -256,6 +257,7 @@ draw_text_ext(x-230,y-170,string(global.arg[3]),-1,460);
 draw_set_alpha(txtalpha);
 fnt();
 if (global.arg[8] == "esence") {draw_text_colored(x-230,y-130,string(global.arg[0]) + scrColorText(string(global.arg[7] * currentN) + " " + scrInflect("esence", global.arg[7] * currentN), c_yellow) + "?");}
+else if (global.arg[8] == "duše") {draw_text_colored(x-230,y-130,"Opravdu chceš složit " + scrColorText(string(9 * currentN), c_yellow) + " " + scrInflect("kus", 9 * currentN) + " duší, abys vytvořil#" + scrColorText(string(currentN), c_yellow) + " " + scrInflect("duše", currentN) + "?");}
 else {draw_text_colored(x-230,y-130,string(global.arg[0]));}
 
 if (instance_number(oHintBoxButton) &gt; 0 &amp;&amp; txt != "")
@@ -268,7 +270,7 @@ draw_sprite_ext(sEvaluateIcons, 1, x + 250, y + 90, scl2, scl2, 0, c_white, min(
 if (mouse_in(x + 230 - 7, x + 230 + 7, y + 90 - 9, y + 90 + 9))
    {
     scl1 = lerp(scl1, 1.3,0.1);
-    if (mouse_check_button_pressed(mb_left) &amp;&amp; currentN &lt; inventoryNumber(global.arg[5])) {currentN++; audio_play_sound(sndClick, 0, false);}
+    if (mouse_check_button_pressed(mb_left) &amp;&amp; ((currentN + 1) * global.arg[9]) &lt;= inventoryNumber(global.arg[5])) {currentN++; audio_play_sound(sndClick, 0, false);}
    }
 else {scl1 = lerp(scl1, 1, 0.1);}
 
@@ -280,7 +282,7 @@ if (mouse_in(x + 250 - 7, x + 250 + 7, y + 90 - 9, y + 90 + 9) &amp;&amp; a2 &gt
 else {scl2 = lerp(scl2, 1, 0.1);}
 
 if (currentN == 1) {a2 = lerp(a2, 0.3, 0.1);} else {a2 = lerp(a2, 1, 0.1);}
-if (currentN == inventoryNumber(global.arg[5])) {a1 = lerp(a1, 0.3, 0.1);} else {a1 = lerp(a1, 1, 0.1);}
+if (((currentN + 1)  * global.arg[9]) &gt;= inventoryNumber(global.arg[5])) {a1 = lerp(a1, 0.3, 0.1);} else {a1 = lerp(a1, 1, 0.1);}
 
 }
 clr();

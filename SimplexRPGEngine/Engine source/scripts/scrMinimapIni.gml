@@ -42,5 +42,11 @@ hoverAlpha      = 0;
 lastI           = -1;
 drawMode        = 0;
 r               = 100;
+zoomFactor      = 800;
+iconAlpha[0]    = 0;
+iconAlpha[1]    = 0;
+iconAlpha[2]    = 0;
+iconAlpha[3]    = 0;
+sA              = 0.1;
 
 alarm[0]       = 1;

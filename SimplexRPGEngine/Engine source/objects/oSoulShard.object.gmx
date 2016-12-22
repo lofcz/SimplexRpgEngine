@@ -29,7 +29,7 @@
 
 scrItemSetUp(0, 0, itemEnum.itemSoulShard);
 scrItemSetProperties(true, "Úlomek duše", "Část podstaty dávno mrtvé bytosti, zachycená mocnou magií do krystalu. Krystaly se dají rituálně spojit a vytvoří kompletní spoutanou duši.", materialEnum.materialNone, "", 8, rarity_normal, true);
-scrItemSetOptions("Zkompletovat");
+scrItemSetOptions("Složit");
 scrItemSetUpFinalize();
 
 

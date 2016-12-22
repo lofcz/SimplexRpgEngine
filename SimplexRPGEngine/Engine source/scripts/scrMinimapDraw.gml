@@ -160,7 +160,8 @@ draw_ring_part(x + 102, y + 100, 100, 4, 32, 32, -180, 90, -1, c_red, false, oHU
 draw_ring_part(x + 102, y + 100, 100, 4, 32, 32, -180, 90 * (oPlayer.last_mana / apiPlayerGetPropertyValue(vlastnost_max_mana)), -1, c_blue, false, oHUD.hudAlpha);
 
 // Stamina bar
-draw_ring_part(x + 100, y + 100, 95, 2, 32, 32, -90, 180 * min((oPlayer.last_stamina / apiPlayerGetPropertyValue(vlastnost_max_stamina)), 1), 1, make_color_rgb(255,255,0), false, min(oHUD.hudAlpha, 0.3));
+if (oPlayer.last_stamina >= apiPlayerGetPropertyValue(vlastnost_max_stamina)) {sA = lerp(sA, 0.1, 0.1);} else {sA = lerp(sA, 0.9, 0.1);}
+draw_ring_part(x + 100, y + 100, 95, 2, 32, 32, -90, 180 * min((oPlayer.last_stamina / apiPlayerGetPropertyValue(vlastnost_max_stamina)), 1), 1, make_color_rgb(255,255,0), false, min(oHUD.hudAlpha, sA));
 
 scrMinimapDrawIcon(0, sInventory, x + 100, y + 195, 20, 3);
 scrMinimapDrawIcon(1, sBestiary,  x + 152, y + 180, 20, 2);
@@ -236,13 +237,12 @@ if (mouse_check_button_pressed(mb_left))
         if (i == 0) {oMinimap.minimapZoom -= 100;}
         if (i == 1) {oMinimap.minimapZoom += 100;}  
         x1              = 0 - minimapZoom;
-y1              = 0 - minimapZoom;
-x2              = 0 + view_wview + minimapZoom;
-y2              = 0 + view_hview + minimapZoom;
-lenx            = x2-x1;
-leny            = y2-y1;
-sizex           = width/lenx;
-sizey           = height/leny;
-      
+        y1              = 0 - minimapZoom;
+        x2              = 0 + view_wview + minimapZoom;
+        y2              = 0 + view_hview + minimapZoom;
+        lenx            = x2-x1;
+        leny            = y2-y1;
+        sizex           = width/lenx;
+        sizey           = height/leny;      
        }
    }

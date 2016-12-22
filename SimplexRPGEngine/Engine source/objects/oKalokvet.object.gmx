@@ -26,26 +26,12 @@
           <argument>
             <kind>1</kind>
             <string>/// Initialize item
-scrItemSetUp(0,0)
-scrItemBasic(itemEnum.itemHerbKalokvet);
 
-//****** Object settings **********
-image_index = 4;
+scrItemSetUp(0, 0, itemEnum.itemHerbKalokvet);
+scrItemSetProperties(true, "Kalokvět", "Nevýrazná rostlinka s hustým, bílým mlékem, které působí analgeticky, ale zároveň je toxické a vyvolává sklerózu. Odvar z Kalokvětu je navíc návykový.", -1, "", 9);
+scrItemSetOptions();
+scrItemSetUpFinalize();
 
-
-
-//*********************************
-
-//****** Item settings ************
-itm_stackable           = 1;
-itm_info_head           = "Kalokvět";
-itm_options[0]          = "Sníst";
-itm_sprite_number       = 4;
-
-
-//*********************************
-
-scrItemSetUpFinalize()
 
 </string>
           </argument>
@@ -71,14 +57,7 @@ scrItemSetUpFinalize()
             <kind>1</kind>
             <string>/// Loot
 
-if (loot = 0)
-{
-if (inventoryPickUp())
-{ 
-audio_play_sound(sndRindPickup,0,0);
-scrLog("+ Kalokvět",c_flower,sEffectHerb9);
-}
-}
+scrItemPickUpFromGround();
 </string>
           </argument>
         </arguments>

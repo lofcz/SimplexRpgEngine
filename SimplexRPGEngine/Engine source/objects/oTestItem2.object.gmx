@@ -28,8 +28,8 @@
             <string>/// Initialize item
 
 scrItemSetUp(0, 0, itemEnum.itemPearlRed);
-scrItemSetProperties(true, "Červená perla", "Lesklá perla, symbolizující sílu a vytrvalost. Perly jsou základním materiálem pro vylepšování předmětů.", materialEnum.materialPearl, "", 15, rarity_normal, true, "Poskytuje šanci na sežehnutí při zásahu.");
-scrItemSetOptions("Option n1", "Option n2", "Option n3");
+scrItemSetProperties(true, "Červená perla", "Lesklá perla, symbolizující sílu a vytrvalost. Perly jsou základním materiálem pro vylepšování předmětů.", materialEnum.materialPearl, "", 35, rarity_normal, true, "Poskytuje šanci na sežehnutí při zásahu.");
+scrItemSetOptions();
 scrItemSetUpFinalize();
 
 </string>
@@ -56,14 +56,7 @@ scrItemSetUpFinalize();
             <kind>1</kind>
             <string>/// Loot
 
-if (loot == 0)
-{
-if (inventoryPickUp())
-{ 
-audio_play_sound(sndRindPickup,0,0);
-scrLog("+ Červená perla",c_orange,sPearlRedEffect,0,0.5);
-}
-}
+scrItemPickUpFromGround();
 </string>
           </argument>
         </arguments>

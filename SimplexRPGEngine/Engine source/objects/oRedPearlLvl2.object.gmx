@@ -28,8 +28,8 @@
             <string>/// Initialize item
 
 scrItemSetUp(0, 0, itemEnum.itemPearlRedLvl2);
-scrItemSetProperties(true, "Red pearl level 2", "Nice, red pearl", materialEnum.materialPearl, "");
-scrItemSetOptions("Option n1", "Option n2", "Option n3");
+scrItemSetProperties(true, "Červená perla druhé úrovně", "Energií nabitá perla, schopná přidat vyšší účinky předmětům. Perly jsou základním materiálem pro vylepšování předmětů.", materialEnum.materialPearl, "", 120, rarity_normal, true, "Poskytuje vyšší šanci na sežehnutí při zásahu a v noci poskytuje magické světlo.");
+scrItemSetOptions();
 scrItemSetUpFinalize();
 
 
@@ -57,14 +57,7 @@ scrItemSetUpFinalize();
             <kind>1</kind>
             <string>/// Loot
 
-if (loot = 0)
-{
-if (inventoryPickUp())
-{
-audio_play_sound(sndRindPickup,0,0);
-scrLog("+ Červená perla",c_orange,sPearlRedEffect,0,0.5);
-}
-}
+scrItemPickUpFromGround();
 </string>
           </argument>
         </arguments>

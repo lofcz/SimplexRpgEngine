@@ -26,9 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>/// Initialize item
+
 scrItemSetUp(0, 0, itemEnum.itemHerbPraznik);
-scrItemSetProperties(true, "Pražník", "Pražník divoký působí jako silné afrodisiakum a extrakt z jeho šťávy se přidává do vonných svíček. Možnosti využití jsou nekonečné.", -1, "");
-scrItemSetOptions("Option n1");
+scrItemSetProperties(true, "Pražník", "Pražník divoký působí jako silné afrodisiakum a extrakt z jeho šťávy se přidává do vonných svíček. Možnosti využití jsou nekonečné.", -1, "", 8);
+scrItemSetOptions();
 scrItemSetUpFinalize();
 
 
@@ -56,14 +57,8 @@ scrItemSetUpFinalize();
             <kind>1</kind>
             <string>/// Loot
 
-if (loot == 0)
-{
-if (inventoryPickUp())
-{ 
-audio_play_sound(sndRindPickup,0,0);
-scrLog("+ Pražník",c_flower,sEffectHerb8);
-}
-}
+scrItemPickUpFromGround();
+
 </string>
           </argument>
         </arguments>

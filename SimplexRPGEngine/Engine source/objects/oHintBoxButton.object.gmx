@@ -68,7 +68,7 @@ if (over == 1)
      if (mouse_check_button_pressed(mb_left)) 
         {
          with(oHintBox) {event_user(0);} 
-         if (oHintBox.mode == "question") {if (text == global.arg[1]) {global.QuestionResult = 1;} else {global.QuestionResult = 0;} inventoryAction(global.arg[5], global.arg[6], oHintBox.currentN);} 
+         if (oHintBox.mode == "question") {if (text == global.arg[1]) {global.QuestionResult = 1;} else {global.QuestionResult = 0;} inventoryAction(global.arg[5], global.arg[6], oHintBox.currentN); if (global.arg[8] == "duše") {stateAddEntry(scrInflect("vytvořena", oHintBox.currentN) + " " + string(oHintBox.currentN) + " " + scrInflect("duše", oHintBox.currentN));}} 
         }
     } 
 else 

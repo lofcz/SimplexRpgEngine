@@ -1,8 +1,12 @@
 /// scrInflect(word, count)
 
 var word, n;
-word = argument[0];
-n    = argument[1];
+word = "";
+n    = 1;         
+
+if (argument_count > 0) {word = argument[0];}
+if (argument_count > 1) {n    = argument[1];}
+
 
 if (word == "úkol")
     {
@@ -24,7 +28,7 @@ if (word == "bod")
     }
 if (word == "duše")
     {
-     if (n <= 0) {return "duše";}
+     if (n == 1) {return "spoutaná duše";}
      else if (n < 2) {return "spoutanou duši";}
      else if (n < 5) {return "spoutané duše";}
      else {return "spoutaných duší";}
@@ -40,4 +44,15 @@ if (word == "esence")
     {
      if (n < 5) {return "esence";}
      else {return "esencí";}
-    }      
+    }
+if (word == "kus")
+    {
+     if (n <= 1) {return "kus";}
+     else if (n < 5) {return "kusy";}
+     else {return "kusů";}
+    }  
+if (word == "vytvořena")
+    {
+     if (n <= 1) {return "Vytvořena";}
+     else {return "Vytvořeny";}
+    }    

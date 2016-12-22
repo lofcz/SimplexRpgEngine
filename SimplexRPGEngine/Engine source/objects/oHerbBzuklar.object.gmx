@@ -26,9 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>/// Initialize item
+
 scrItemSetUp(0, 0, itemEnum.itemHerbBzuklar);
-scrItemSetProperties(true, "Bžuklár", "Jedovatý Bžuklár hnědý roste všude, kde se dá. Bžuklár využívají goblini ke zkoušce dospělosti. Kmenový šaman připraví pastu z Bžukláru, kterou mladý goblin sní. Po několika dní halucinací a v případě, že přežije je přijat do kmene.", -1, "");
-scrItemSetOptions("Option n1");
+scrItemSetProperties(true, "Bžuklár", "Jedovatý Bžuklár hnědý roste všude, kde se dá. Bžuklár využívají goblini ke zkoušce dospělosti. Kmenový šaman připraví pastu z Bžukláru, kterou mladý goblin sní. Po několika dní halucinací a v případě, že přežije je přijat do kmene.", -1, "", 5);
+scrItemSetOptions();
 scrItemSetUpFinalize();
 
 
@@ -56,14 +57,7 @@ scrItemSetUpFinalize();
             <kind>1</kind>
             <string>/// Loot
 
-if (loot == 0)
-{
-if (inventoryPickUp())
-{ 
-audio_play_sound(sndRindPickup,0,0);
-scrLog("+ Bžuklár",c_flower,sEffectHerb2);
-}
-}
+scrItemPickUpFromGround();
 </string>
           </argument>
         </arguments>

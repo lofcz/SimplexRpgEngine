@@ -26,9 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>/// Initialize item
+
 scrItemSetUp(0, 0, itemEnum.itemHerbSkucivka);
-scrItemSetProperties(true, "Skučivka", "Své jméno dostala podle tvaru listů, které při silném větru vydávají daleko slyšitelné skučivé zvuky. Odvar ze Skučivky malé léčí migrény a deprese, nicméně je odporně hořký.", -1, "");
-scrItemSetOptions("Option n1");
+scrItemSetProperties(true, "Skučivka", "Své jméno dostala podle tvaru listů, které při silném větru vydávají daleko slyšitelné skučivé zvuky. Odvar ze Skučivky malé léčí migrény a deprese, nicméně je odporně hořký.", -1, "", 8);
+scrItemSetOptions();
 scrItemSetUpFinalize();
 
 
@@ -56,14 +57,8 @@ scrItemSetUpFinalize();
             <kind>1</kind>
             <string>/// Loot
 
-if (loot == 0)
-{
-if (inventoryPickUp())
-{ 
-audio_play_sound(sndRindPickup,0,0);
-scrLog("+ Skučivka",c_flower,sEffectHerb7);
-}
-}
+scrItemPickUpFromGround();
+
 </string>
           </argument>
         </arguments>

@@ -26,9 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>/// Initialize item
+
 scrItemSetUp(0, 0, itemEnum.itemHerbBazinatka);
-scrItemSetProperties(true, "Bažinatka", "Bažinatku zlovolnou používají porodní báby odnepaměti k tlumení porodních bolestí. Nenápadná bylinka v sobě skrývá silné narkotické účinky.", -1, "");
-scrItemSetOptions("Option n1");
+scrItemSetProperties(true, "Bažinatka", "Bažinatku zlovolnou používají porodní báby odnepaměti k tlumení porodních bolestí. Nenápadná bylinka v sobě skrývá silné narkotické účinky.", -1, "", 9);
+scrItemSetOptions();
 scrItemSetUpFinalize();
 
 
@@ -56,14 +57,8 @@ scrItemSetUpFinalize();
             <kind>1</kind>
             <string>/// Loot
 
-if (loot == 0)
-{
-if (inventoryPickUp())
-{ 
-audio_play_sound(sndRindPickup,0,0);
-scrLog("+ Bažinatka",c_flower,sEffectHerb5);
-}
-}
+scrItemPickUpFromGround();
+
 </string>
           </argument>
         </arguments>
