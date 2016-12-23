@@ -166,7 +166,8 @@ switch(id1)
                     { 
                      if (slot[slot2, inv_item_equip_slot] != "" && (slot[slot2, inv_item_effect] == rarity_junk || slot[slot2, inv_item_effect] == rarity_normal) && slot_vlastnosti[slot2, vlastnost_upgradeSloty] < 3)
                         {   
-                         slot_vlastnosti[slot2, vlastnost_upgradeSloty]++;                                              
+                         slot_vlastnosti[slot2, vlastnost_upgradeSloty]++;  
+                         slot_vlastnosti[slot2, vlastnost_maxUpgrade]++;                                            
                          inventoryDelete(itemEnum.itemEnchanter, 1); 
                          stateAddEntry("Přidal jsi nový perlový slot do " + string_lower(slot[slot2, inv_item_info_head]) + ".");
                          audio_play_sound(sndEnchanter, 0, false);

@@ -39,7 +39,7 @@ itm_info_footer_color     = c_gray;
 for(a = 0; a < 10; a++)                  {itm_options[a] = "";}
 for(a = 0; a < celkem_vlastnosti; a++)   {vlastnost[a]   = 0;}
 
-if (argument_count > 0) {itm_id = argument[0]}
+if (argument_count > 0) {itm_id = argument[0];}
 
-scrItemImageIndex(itm_id - 1)
+scrItemImageIndex(itm_id - 1);
 realIndex = image_index;

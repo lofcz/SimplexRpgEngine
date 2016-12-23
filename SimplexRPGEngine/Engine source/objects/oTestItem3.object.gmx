@@ -31,7 +31,8 @@ scrItemSetUp(0, 0, itemEnum.itemSwordWooden);
 scrItemSetProperties(false, "Dřevěný meč", "Jednoduchá, poměrně neškodná zbraň. Pořádný úder je nicméně schopný napáchat určité škody, popřípadě omráčit protivníka.", materialEnum.materialNone, "zbraň", 6, rarity_normal, true, "", c_white, 16, 30, 4);
 scrItemSetOptions();
 
-vlastnost[vlastnost_upgradeSloty] = 1;
+scrItemSetProperty(vlastnost_upgradeSloty, 1);
+scrItemSetProperty(vlastnost_upgradeMaterial1, materialEnum.materialPearl, -1, vlastnost_upgradeMaterial2, materialEnum.materialPearl, -1);  
 vlastnost[vlastnost_upgradeMaterial1] = materialEnum.materialPearl;
 vlastnost[vlastnost_upgradeMaterial2] = materialEnum.materialPearl;
 

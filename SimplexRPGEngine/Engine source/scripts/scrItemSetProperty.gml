@@ -1,15 +1,14 @@
-/// scrItemSetProperty(index, value, [pointsValue])
+/// scrItemSetProperty(index, value, [pointsValue]... [index5, value5, [pointsValue5]])
 
-var i, v, p;
-i = 0;
-v = 1;
-p = 1;
+var i;
 
-if (argument_count > 0) {i = argument[0];}
-if (argument_count > 1) {v = argument[1];}
-if (argument_count > 2) {p = argument[2];}
+for (i = 0; i < argument_count; i+=3)
+    {
+     if (argument_count > (i + 1))
+        {
+         vlastnost[argument[i]] = argument[i + 1];
+         if (argument_count > (i + 2)) {if (argument[i + 2] != -1) {points += (argument[i + 1] * argument[i + 2]);}}
 
-vlastnost[i] = v;
-points += (v * p);
-
-if (i == vlastnost_reinforcementLevel) {scrItemUpdateReinforcementName(); scrItemUpdateReinforcementStats();}
+         if (argument[i] == vlastnost_reinforcementLevel) {scrItemUpdateReinforcementName(); scrItemUpdateReinforcementStats();}        
+        }
+    }
