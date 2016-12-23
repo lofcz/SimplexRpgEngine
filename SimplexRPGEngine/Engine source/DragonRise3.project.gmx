@@ -1356,11 +1356,11 @@
               <object>objects\oRedPearlLvl2</object>
             </objects>
             <objects name="Ores">
-              <object>objects\oGoldLvl1</object>
               <object>objects\oStoneLvl1</object>
             </objects>
             <objects name="Ingots">
               <object>objects\oMetalSteel</object>
+              <object>objects\oGoldLvl1</object>
             </objects>
             <objects name="Wood">
               <object>objects\oWoodLvl1</object>

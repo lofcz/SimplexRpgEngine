@@ -56,14 +56,8 @@ scrItemSetUpFinalize();
             <kind>1</kind>
             <string>/// Loot
 
-if (loot = 0)
-{
-if (inventoryPickUp())
-{
-audio_play_sound(sndWoodGet1,0,0);
-scrLog("+ Liána",c_white,sLianaEffect,0,0.5);
-}
-}
+scrItemPickUpFromGround();
+
 </string>
           </argument>
         </arguments>

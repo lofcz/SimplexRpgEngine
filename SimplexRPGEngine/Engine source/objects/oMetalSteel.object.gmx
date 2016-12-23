@@ -28,8 +28,8 @@
             <string>/// Initialize item
 
 scrItemSetUp(0, 0, itemEnum.itemSteel);
-scrItemSetProperties(true, "Ocel", "Content", materialEnum.materialMetal, "");
-scrItemSetOptions("Option n1");
+scrItemSetProperties(true, "Ocel", "Ocelový ingot slušné kvality. Ocel je nejběžněji používaný materiál k výrobě zbraní i náčiní všeho druhu.", materialEnum.materialMetal, "", 25);
+scrItemSetOptions();
 scrItemSetUpFinalize();
 
 </string>
@@ -56,14 +56,7 @@ scrItemSetUpFinalize();
             <kind>1</kind>
             <string>/// Loot
 
-if (loot = 0)
-{
-if (inventoryPickUp())
-{ 
-audio_play_sound(sndRindPickup,0,0);
-scrLog("+ Ocel",c_dkgray,sMetalEffect,0,0.5);
-}
-}
+scrItemPickUpFromGround();
 </string>
           </argument>
         </arguments>

@@ -55,14 +55,7 @@ scrItemSetUpFinalize();
             <kind>1</kind>
             <string>/// Loot
 
-if (loot = 0)
-{
-if (inventoryPickUp())
-{
-audio_play_sound(sndRindPickup,0,0);
-scrLog("+Modřenec",c_blue,sGemEffect12,0,0.5);
-}
-}
+scrItemPickUpFromGround();
 </string>
           </argument>
         </arguments>

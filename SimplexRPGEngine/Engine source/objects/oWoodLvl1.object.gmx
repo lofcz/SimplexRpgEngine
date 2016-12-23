@@ -56,14 +56,7 @@ scrItemSetUpFinalize();
             <kind>1</kind>
             <string>/// Loot
 
-if (loot = 0)
-{
-if (inventoryPickUp())
-{
-audio_play_sound(sndWoodGet1,0,0);
-scrLog("+ Dřevěná kláda",c_white,sWoodEffect,0,0.5);
-}
-}
+scrItemPickUpFromGround();
 </string>
           </argument>
         </arguments>

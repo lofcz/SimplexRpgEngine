@@ -28,8 +28,8 @@
             <string>/// Initialize item
 
 scrItemSetUp(0, 0, itemEnum.itemGolde);
-scrItemSetProperties(true, "Gold lvl 1", "Content", materialEnum.materialGolde, "");
-scrItemSetOptions("Option n1", "Option n2", "Option n3");
+scrItemSetProperties(true, "Zlatý ingot", "Cihlička zlata, která má slušnou cenu. Dá se použít k výrobě šperků, ale i jemných nástrojů. Zlato dobře vede magii.", materialEnum.materialGolde, "", 40);
+scrItemSetOptions();
 scrItemSetUpFinalize();
 
 </string>
@@ -56,14 +56,7 @@ scrItemSetUpFinalize();
             <kind>1</kind>
             <string>/// Loot
 
-if (loot == 0)
-{
-if (inventoryPickUp())
-{
-audio_play_sound(sndRindPickup,0,0);
-scrLog("+ Zlato",c_yellow,sGoldEffect,0,0.5);
-}
-}
+scrItemPickUpFromGround();
 </string>
           </argument>
         </arguments>
