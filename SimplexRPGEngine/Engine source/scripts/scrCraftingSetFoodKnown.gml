@@ -1,4 +1,4 @@
-/// scrCraftingSetAlchemyKnown(id, recipeName, recipeText)
+/// scrCraftingSetFoodKnown(id, recipeName, recipeText)
 
 var index, page, normalizedIndex, rn, rt;
 index = 0;

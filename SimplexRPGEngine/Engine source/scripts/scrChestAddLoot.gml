@@ -1,4 +1,4 @@
-/// scrLoot(slot, object, number)
+/// scrChestAddLoot(slot, object, number)
 
 var idd, name, number;
 idd    = 0;

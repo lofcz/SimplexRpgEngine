@@ -538,6 +538,11 @@ for(a = 0; a < celkem_vlastnosti; a++)
                            t_text += "#Poškození vůči zvířatům: "+string(slot_vlastnosti[f, a]) + "%";
                            break;                                                                   
                          }
+                    case(vlastnost_vampStamina):
+                         {
+                           t_text += "#Vysátá výdrž při úderu: "+string(slot_vlastnosti[f, a]);
+                           break;                                                                   
+                         }                         
                     case(vlastnost_stackSezehnuti):
                          {
                            t_text += "#Šance na sežehnutí při zásahu: "+string(slot_vlastnosti[f, a]) + "%";
@@ -772,7 +777,7 @@ for(a = 0; a < celkem_vlastnosti; a++)
                          }
                     case(vlastnost_kriticka_sance):
                          {
-                           t_text += "#Šance na kritický úder: "+string(slot_vlastnosti[f, a]);
+                           t_text += "#Šance na kritický úder: "+string(slot_vlastnosti[f, a]) + "%";
                            break;                                                                   
                          }
                     case(vlastnost_kriticka_nasobic):

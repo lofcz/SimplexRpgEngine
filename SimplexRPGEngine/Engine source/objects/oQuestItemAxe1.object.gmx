@@ -28,103 +28,12 @@
             <string>/// Initialize item
 
 scrItemSetUp(0, 0, itemEnum.itemQuestAxe1);
-scrItemSetProperties(false, "Roztínač", "Sekera, sebraná před domkem bylinkářky Alice.", materialEnum.materialNone, "zbraň");
-scrItemSetOptions("Option n1");
-itm_info_color = rarity_quest;
-itm_effect = rarity_quest;
-vlastnost[vlastnost_poskozeni] = 4;
-vlastnost[vlastnost_vykresli_sprit] = sShortWeapons;
-vlastnost[vlastnost_vykresli_index] = 0;
-vlastnost[vlastnost_stamina_cost] = choose(4,5);
-vlastnost[vlastnost_bodyCanvasIndex] = 8;
-vlastnost[vlastnost_bodyCanvasSprite] = sBodyCanvasWeapon2;
-vlastnost[vlastnost_bodyCanvasSlashSprite] = sBodyCanvasAttackWeapon2;
-
+scrItemSetProperties(false, "Roztínač", "Sekera, sebraná před domkem bylinkářky Alice.", materialEnum.materialNone, "zbraň", 17, rarity_quest);
+scrItemSetOptions();
+scrItemSetProperty(vlastnost_poskozeni, 4, -1, vlastnost_stamina_cost, 5, -1);
+scrItemSetProperty(vlastnost_bodyCanvasSprite, sBodyCanvasWeapon2, -1, vlastnost_bodyCanvasSlashSprite, sBodyCanvasAttackWeapon2, -1, vlastnost_parry_cost, 2, -1, vlastnost_bodyCanvasIndex, 8, -1);
 scrItemSetUpFinalize();
 
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="oPlayer">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Loot
-
-if (loot = 0)
-{
-if (inventoryPickUp())
-{
-scrLog("+ Roztínač",c_white,sAxeEffect,1,0.5);
-audio_play_sound(sndWeaponPickup,0,0);
-}
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="10">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// After pick up
-
-instance_destroy();   
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Draw self
-
-itemDraw()
 </string>
           </argument>
         </arguments>

@@ -1,4 +1,4 @@
-/// scrvalueIndex(value)
+/// scrValueIndex(value)
 
 var value;
 value = 1;

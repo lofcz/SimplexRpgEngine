@@ -722,6 +722,11 @@ for(a = 0; a < celkem_vlastnosti; a++)
                            t_text += "#Poškození: "+string(oInventory.equiped_vlastnost[idd,a]);
                            break;                                                                   
                          }
+                     case(vlastnost_vampStamina):
+                         {
+                           t_text += "#Výdrž vysátá výdrž při úderu: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           break;                                                                   
+                         }                     
                      case(vlastnost_max_zivot):
                          {
                            t_text += "#Život: "+string(oInventory.equiped_vlastnost[idd,a]);
@@ -942,7 +947,7 @@ for(a = 0; a < celkem_vlastnosti; a++)
                          }
                     case(vlastnost_kriticka_sance):
                          {
-                           t_text += "#Šance na kritický úder: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += "#Šance na kritický úder: "+string(oInventory.equiped_vlastnost[idd,a])+ "%";
                            break;                                                                   
                          }
                     case(vlastnost_kriticka_nasobic):

@@ -6,6 +6,7 @@ edh = false;
 
 if (argument_count > 0) {edh = argument[0];}
 
+if (secure_pickup > 0) {secure_pickup--;}
 clr();
 fnt(fntText);
 

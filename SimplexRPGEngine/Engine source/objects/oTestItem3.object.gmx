@@ -31,117 +31,105 @@ scrItemSetUp(0, 0, itemEnum.itemSwordWooden);
 scrItemSetProperties(false, "Dřevěný meč", "Jednoduchá, poměrně neškodná zbraň. Pořádný úder je nicméně schopný napáchat určité škody, popřípadě omráčit protivníka.", materialEnum.materialNone, "zbraň", 6, rarity_normal, true, "", c_white, 16, 30, 4);
 scrItemSetOptions();
 
-scrItemSetProperty(vlastnost_upgradeSloty, 1);
-scrItemSetProperty(vlastnost_upgradeMaterial1, materialEnum.materialPearl, -1, vlastnost_upgradeMaterial2, materialEnum.materialPearl, -1);  
-vlastnost[vlastnost_upgradeMaterial1] = materialEnum.materialPearl;
-vlastnost[vlastnost_upgradeMaterial2] = materialEnum.materialPearl;
-
-
-pre = irandom_range(0,100);
-
-if      (pre &gt;= 0 &amp;&amp; pre &lt; 20)   {vlastnost[vlastnost_poskozeni] = 4; points += 1;}
-else if (pre &gt;= 20 &amp;&amp; pre &lt; 40)   {vlastnost[vlastnost_poskozeni] = 6; points += 2; vlastnost[vlastnost_max_zivot] = irandom_range(6,10); points += round(vlastnost[vlastnost_max_zivot] / 2); itm_info_head += " života";}
-else if (pre &gt;= 40 &amp;&amp; pre &lt; 70)   {vlastnost[vlastnost_poskozeni] = 6; points += 2;}
-else if (pre &gt;= 70 &amp;&amp; pre &lt; 90)   {vlastnost[vlastnost_poskozeni] = 7; points += 4;}
-else                             {vlastnost[vlastnost_poskozeni] = 8; points += 5;}
-
-if      (points &lt; 2)  {itm_info_color = rarity_junk; itm_effect = rarity_junk;}
-else if (points &lt; 4)  {itm_info_color = rarity_normal; itm_effect = rarity_normal;}
-else if (points &lt; 6)  {itm_info_color = rarity_fine; itm_effect = rarity_fine;}
-else                  {itm_info_color = rarity_rare; vlastnost[vlastnost_max_mana] = irandom_range(5,10); itm_effect = rarity_rare;}
-
-vlastnost[vlastnost_stamina_cost] = choose(4,5);
-vlastnost[vlastnost_parry_cost] = choose(2,3);
-vlastnost[vlastnost_bodyCanvasIndex] = 8;
-vlastnost[vlastnost_bodyCanvasSprite] = sBodyCanvasWeapon1;
-vlastnost[vlastnost_bodyCanvasSlashSprite] = sBodyCanvasAttackWeapon1;
-
-scrItemSetReinforcementProperties(irandom_range(0, 2), 2, 5, 1, 2, 1);
+// Rarity distribution
+scrItemSetRarityDistributionBased(50, 30, 15, 5, 0, 0, 5, 6, 8, 10);
+      
+// Junk
+if (scrItemGetRarity() == rarity_junk)
+   {
+    scrItemSetProperty(vlastnost_upgradeSloty, 1);
+    scrItemSetProperty(vlastnost_poskozeni, irandom_range(4, 6), 5);
+    scrItemSetProperty(vlastnost_stamina_cost, irandom_range(3, 5), -3);
+    
+    // If item stats are very high
+    if (scrItemGetPoints() &gt; 10) 
+       {
+        scrItemSetProperty(vlastnost_kriticka_sance, irandom_range(2, 6));   
+        scrItemAppendName("příležitosti");  
+        scrItemIncProperty(vlastnost_cena, round(scrItemGetProperty(vlastnost_kriticka_sance) / 2));  
+       }    
+   }
+   
+// Normal
+if (scrItemGetRarity() == rarity_normal)
+   {
+    scrItemSetProperty(vlastnost_upgradeSloty, 1);
+    scrItemSetProperty(vlastnost_poskozeni, irandom_range(5, 8), 5);
+    scrItemSetProperty(vlastnost_stamina_cost, irandom_range(3, 5), -3);
+    
+    if (scrItemGetPoints() &gt; 20) 
+       {
+        scrItemSetProperty(vlastnost_kriticka_sance, irandom_range(3, 8));   
+        scrItemSetProperty(vlastnost_max_zivot, irandom_range(2, 5));   
+        scrItemAppendName("naděje");      
+        scrItemIncProperty(vlastnost_cena, round(scrItemGetProperty(vlastnost_kriticka_sance) / 2) + round(scrItemGetProperty(vlastnost_max_zivot) / 2));     
+       }    
+   }
+   
+// Rare
+if (scrItemGetRarity() == rarity_rare)
+   {
+    // We use this to choose one of the predefined bonus patterns
+    scrItemRandomizeTempValue(0, 1);
+    
+    scrItemSetProperty(vlastnost_upgradeSloty, choose(1, 1, 2));
+    scrItemSetProperty(vlastnost_poskozeni, irandom_range(6, 11), 5);
+    scrItemSetProperty(vlastnost_stamina_cost, irandom_range(3, 5), -3);
+    
+    // Critic set
+    if (scrItemGetTempValue() == 0) 
+       {
+        scrItemSetProperty(vlastnost_kriticka_sance, irandom_range(4, 9));   
+        scrItemSetProperty(vlastnost_kriticka_nasobic, irandom_range(5, 10));   
+        scrItemAppendName("odvahy");        
+        scrItemIncProperty(vlastnost_cena, round(scrItemGetProperty(vlastnost_kriticka_sance) / 2) + round(scrItemGetProperty(vlastnost_kriticka_nasobic) / 3));  
+       }  
+       
+    // Raw damage set   
+    if (scrItemGetTempValue() == 1) 
+       {
+        scrItemIncProperty(vlastnost_poskozeni, irandom_range(2, 4));   
+        scrItemIncProperty(vlastnost_cena, scrItemGetRefValue());           
+        scrItemSetProperty(vlastnost_vampStamina, 1);   
+        scrItemIncProperty(vlastnost_cena, scrItemGetRefValue() * 4);
+        scrItemAppendName("stínu");          
+       }         
+   }
+   
+// Fine
+if (scrItemGetRarity() == rarity_fine)
+   {
+    // We use this to choose one of the predefined bonus patterns
+    scrItemRandomizeTempValue(0, 1);
+    
+    scrItemSetProperty(vlastnost_upgradeSloty, choose(1, 1, 1, 2, 2, 3));
+    scrItemSetProperty(vlastnost_poskozeni, irandom_range(8, 13), 5);
+    scrItemSetProperty(vlastnost_stamina_cost, irandom_range(3, 5), -3);
+    
+    // Magic set
+    if (scrItemGetTempValue() == 0) 
+       {
+        scrItemSetProperty(vlastnost_max_mana, irandom_range(8, 15));   
+        scrItemSetProperty(vlastnost_astralni_videni, irandom_range(1, 2));   
+        scrItemAppendName("snů");        
+        scrItemIncProperty(vlastnost_cena, round(scrItemGetProperty(vlastnost_max_mana) / 2) + round(scrItemGetProperty(vlastnost_astralni_videni) * 3));  
+       }  
+       
+    // Defense set   
+    if (scrItemGetTempValue() == 1) 
+       {
+        scrItemIncProperty(vlastnost_rezistence_vse, irandom_range(2, 4));   
+        scrItemIncProperty(vlastnost_cena, scrItemGetRefValue() * 3);           
+        scrItemSetProperty(vlastnost_odolnost, irandom_range(1, 3));   
+        scrItemIncProperty(vlastnost_cena, scrItemGetRefValue() * 4);
+        scrItemAppendName("ochránce");          
+       }         
+   }
+   
+scrItemIncProperty(vlastnost_cena, scrItemGetProperty(vlastnost_poskozeni) - scrItemGetProperty(vlastnost_stamina_cost) + scrItemGetProperty(vlastnost_upgradeSloty) * 4);
+scrItemSetProperty(vlastnost_bodyCanvasSprite, sBodyCanvasWeapon1, -1, vlastnost_bodyCanvasSlashSprite, sBodyCanvasAttackWeapon1, -1, vlastnost_parry_cost, 2, -1, vlastnost_bodyCanvasIndex, 8, -1);
+scrItemSetReinforcementProperties(choose(0, 0, 0, 0, 1, 1, 2), 2, 5, 0.5, 2, 1);
 scrItemSetUpFinalize();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="oPlayer">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Loot
-
-if (loot = 0)
-{
-if (inventoryPickUp())
-{
-scrLog("+ Dřevěný meč",c_white,sSwordEffect2,1);
-audio_play_sound(sndWeaponPickup,0,0);
-}
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="10">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// After pick up
-
-instance_destroy();   
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Draw self
-
-itemDraw()
-
 </string>
           </argument>
         </arguments>

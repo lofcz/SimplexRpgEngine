@@ -1182,6 +1182,7 @@
       <shader type="GLSLES">shaders\shdLightmap.shader</shader>
     </shaders>
     <shader type="GLSLES">shaders\shdCircle.shader</shader>
+    <shader type="GLSLES">shaders\shader24.shader</shader>
   </shaders>
   <fonts name="fonts">
     <fonts name="Standard game fonts">
@@ -1546,7 +1547,7 @@
       <room>rooms\mapSklep</room>
     </rooms>
   </rooms>
-  <constants number="254">
+  <constants number="255">
     <constant name="baArmor">1</constant>
     <constant name="baBase">0</constant>
     <constant name="cStaticInstance">"staticInstance"</constant>
@@ -1613,7 +1614,8 @@
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
     <constant name="upgradableProperties">58</constant>
-    <constant name="celkem_vlastnosti">111</constant>
+    <constant name="celkem_vlastnosti">112</constant>
+    <constant name="vlastnost_vampStamina">111</constant>
     <constant name="vlastnost_reinforcementUpgradeIncSkill">110</constant>
     <constant name="vlastnost_reinforcementUpgradeBaseSkill">109</constant>
     <constant name="vlastnost_reinforcementIs">108</constant>
