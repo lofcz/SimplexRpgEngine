@@ -229,10 +229,11 @@ apiPlayerOtherActions();
             <string>//effectExplosion()
 
 //oBestiar.monster[bestiaryEnemySlime2, bestiary_monster_knowledge_current] += 5;
-if (oHUD.lang == "cz") {oHUD.lang = "en";}
-else {oHUD.lang = "cz";}
+//if (oHUD.lang == "cz") {oHUD.lang = "en";}
+//else {oHUD.lang = "cz";}
+//with(oHUD) {event_user(0);}
 
-with(oHUD) {event_user(0);}
+scrGameWorldSpawnerSpawn("exampleSpawner");
 </string>
           </argument>
         </arguments>

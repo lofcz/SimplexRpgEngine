@@ -80,6 +80,8 @@ instance_activate_object(oState);
 instance_activate_object(oDepthHelperAbovePlayer);
 instance_activate_object(oThrowableItem);
 instance_activate_object(oHudDepthHelper);
+instance_activate_object(oEnemySpawner);
+
 
 // Further optimization of collision system
 instance_deactivate_object(oNonsolidCollision);
@@ -147,7 +149,8 @@ for (i = 0; i &lt; ds_list_size(activeList2); i++)
         {
          instance_deactivate_object(((activeList2[| i]).id));
         } 
-    }
+    }                                        
+
 </string>
           </argument>
         </arguments>

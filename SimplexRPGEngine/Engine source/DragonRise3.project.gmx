@@ -705,6 +705,7 @@
     <sprite>sprites\sEmoticons</sprite>
     <sprite>sprites\sprite270</sprite>
     <sprite>sprites\sprite272</sprite>
+    <sprite>sprites\sSpawner</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name=" Single tile backgrounds">
@@ -857,6 +858,7 @@
           <script>scripts\effectFragmentGreen.gml</script>
           <script>scripts\effectFragmentRed.gml</script>
           <script>scripts\effectFragmentBrown.gml</script>
+          <script>scripts\effectSpawnEnemy.gml</script>
           <script>scripts\effectFragmentYellow.gml</script>
         </scripts>
         <scripts name="Other">
@@ -1151,6 +1153,10 @@
       <scripts name="Notifications">
         <script>scripts\scrNotificationSplash.gml</script>
       </scripts>
+      <scripts name="Game world">
+        <script>scripts\scrGameWorldSpawnerSpawn.gml</script>
+        <script>scripts\scrGameWorldSpawnersSpawnAll.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -1182,7 +1188,6 @@
       <shader type="GLSLES">shaders\shdLightmap.shader</shader>
     </shaders>
     <shader type="GLSLES">shaders\shdCircle.shader</shader>
-    <shader type="GLSLES">shaders\shader24.shader</shader>
   </shaders>
   <fonts name="fonts">
     <fonts name="Standard game fonts">
@@ -1218,6 +1223,7 @@
           <object>objects\oSlimePart</object>
         </objects>
         <object>objects\parEnemy</object>
+        <object>objects\oEnemySpawner</object>
       </objects>
       <objects name="NPCs">
         <object>objects\oTestNPC</object>
