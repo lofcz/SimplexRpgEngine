@@ -1,3 +1,4 @@
+#define scrScreenFlash
 /// scrScreenFlash(text, duration, color)
 
 var t, d, c, i;
@@ -13,3 +14,15 @@ i = instance_create(x, y, oScreenFlash);
 i.text = t;
 i.d    = d;
 i.c    = c;
+
+#define scrScreenBlink
+/// scrScreenBlink(color)
+
+var c, i;
+c = c_white;
+
+if (argument_count > 0) {c = argument[0];}
+
+i = instance_create(x, y, oScreenBlink);
+i.c    = c;
+

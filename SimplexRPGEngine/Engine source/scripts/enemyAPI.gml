@@ -82,6 +82,7 @@ forcedHelp   = 0;
 can_move     = true;
 followMouse  = false;
 enemyType    = t_t;
+isHunter     = false;
 
 #define scrEnemyGetPosition
 /// scrEnemyGetPosition()

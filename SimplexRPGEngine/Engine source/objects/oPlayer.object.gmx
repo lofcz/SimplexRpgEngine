@@ -233,7 +233,7 @@ apiPlayerOtherActions();
 //else {oHUD.lang = "cz";}
 //with(oHUD) {event_user(0);}
 
-scrGameWorldSpawnerSpawn("exampleSpawner");
+scrGameWorldSpawnerSpawnCutscene("exampleSpawner", oEnemySlime, 1, "Tvoje prdel zažije středověk!");
 </string>
           </argument>
         </arguments>

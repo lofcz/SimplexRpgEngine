@@ -236,6 +236,8 @@ forcedHelper = 0;
 
 if (can_move)
 {
+if (isHunter &amp;&amp; mood != "dying") {mood = "attack";}
+
 if (mood = "idle")
 {
 if (force_aggresive) {if (mood = "idle") {mood = "attack"; in_fight = 1;} if (force_timer &gt; 0) {force_timer--;} else {force_aggresive = 0; force_timer = 400;}}
@@ -395,7 +397,7 @@ if (mood != "dying" &amp;&amp; mood != "slime")
    {
    if (p &lt; 10) {p += 0.2;} else {p = 0;}
   
-   draw_self();   
+   draw_self(); 
    draw_sprite_ext(sXpPoint,p,x,y,1,1,0,c_aqua,0.6);
    }
 

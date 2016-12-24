@@ -39,6 +39,11 @@ lockedPosX    = -1;
 lockedPosY    = -1;
 selectedTool  = 0;
 subtool       = 0;
+flashOnTarget = false;
+backTarget    = -1;
+updateTarget  = false;
+unPlayer      = false;
+playerQuote   = "";
 
 tool[0] = "camera";
 tool[1] = "cutsceneMaker";
@@ -144,6 +149,13 @@ if (instance_number(oPlayer) &gt; 0)
             <kind>1</kind>
             <string>/// Flow if motion is enabled, else call jump
 
+if (updateTarget)
+   {
+    updateTarget = false;
+    target = backTarget;
+    unPlayer = true;
+   }
+
 if (!debug)
 {
 scrScreenShakeUpdate();
@@ -160,6 +172,7 @@ if (motion == 1)
          move_towards_point(target.x+lengthdir_x(32,direction),target.y+lengthdir_y(32,direction),spd);
         }
         else {speed = 0;}
+       if (flashOnTarget || unPlayer) {if (distance_to_object(target) &lt; 16) {if (flashOnTarget) {scrScreenBlink(c_red); flashOnTarget = false;} if (unPlayer) {target.can_move2 = true; unPlayer = false; if (playerQuote != "") {apiPlayerSay(playerQuote); playerQuote = "";}}}}
        }
 
    }

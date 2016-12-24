@@ -1155,6 +1155,7 @@
       </scripts>
       <scripts name="Game world">
         <script>scripts\scrGameWorldSpawnerSpawn.gml</script>
+        <script>scripts\scrGameWorldSpawnerSpawnCutscene.gml</script>
         <script>scripts\scrGameWorldSpawnersSpawnAll.gml</script>
       </scripts>
     </scripts>
@@ -1257,6 +1258,7 @@
           <object>objects\oQuest</object>
           <object>objects\oLockpickingScreen</object>
           <object>objects\oScreenFlash</object>
+          <object>objects\oScreenBlink</object>
           <object>objects\oDayNight</object>
           <object>objects\oMapIntro</object>
           <object>objects\oAchievement</object>
