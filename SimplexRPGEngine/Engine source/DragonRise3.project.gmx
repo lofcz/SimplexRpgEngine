@@ -289,6 +289,7 @@
         <sprite>sprites\sBunny</sprite>
       </sprites>
       <sprites name="Foes">
+        <sprite>sprites\sEnemyImp</sprite>
         <sprite>sprites\sEnemySlime</sprite>
         <sprite>sprites\sJump</sprite>
       </sprites>
@@ -706,6 +707,7 @@
     <sprite>sprites\sprite270</sprite>
     <sprite>sprites\sprite272</sprite>
     <sprite>sprites\sSpawner</sprite>
+    <sprite>sprites\sMask8x8</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name=" Single tile backgrounds">
@@ -859,6 +861,7 @@
           <script>scripts\effectFragmentRed.gml</script>
           <script>scripts\effectFragmentBrown.gml</script>
           <script>scripts\effectSpawnEnemy.gml</script>
+          <script>scripts\effectImpFireball.gml</script>
           <script>scripts\effectFragmentYellow.gml</script>
         </scripts>
         <scripts name="Other">
@@ -1220,6 +1223,7 @@
       <object>objects\oPlayer</object>
       <objects name="Enemies">
         <objects name="Slime">
+          <object>objects\oEnemyImp</object>
           <object>objects\oEnemySlime</object>
           <object>objects\oSlimePart</object>
         </objects>
@@ -1276,6 +1280,7 @@
       </objects>
       <objects name="Prefabs">
         <object>objects\oBasicSpell</object>
+        <object>objects\oEnemySpell</object>
         <object>objects\oLenghtdirSpellhelper</object>
         <object>objects\oLenghdirSpell</object>
         <object>objects\oThrowableItem</object>

@@ -334,3 +334,21 @@ if (chance / random(100) > 0.5 && (can_damage = -1 || !aOOH))
      return true;
     }
 return false;
+#define scrEnemySay
+/// scrEnemySay(enemyID, text, [onlyOnEmptyFront])
+
+var t, o, i;
+t = "Sample text";
+o = false;
+i = -1;
+
+if (argument_count > 0) {i = argument[0];}
+if (argument_count > 1) {t = argument[1];}
+if (argument_count > 2) {o = argument[2];}
+
+if (!instance_exists(i)) {return false;}
+if (o) {if (ds_queue_size((i).speechQueue) > 0 || (i).speechAlpha > 0.02) {return false;}}
+
+ds_queue_enqueue((i).speechQueue, t);
+return true;
+
