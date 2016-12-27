@@ -35,6 +35,8 @@ with(oInventory)
              {
               slot_vlastnosti[a, d]   = 0;
               equiped_vlastnost[a, d] = 0;
+              slot_vlastnosti_static[a, d]   = 0;
+              equiped_vlastnost_static[a, d] = 0;              
              }
         }
 

@@ -341,7 +341,7 @@ if ((hover || hover_alpha > 0))
        if (string(slot[f, inv_item_info_footer]) != "0")
           {
            clr(slot[f, inv_item_info_footer_color], hover_alpha);
-           draw_text(x + 4, used_y + 56 + string_height(string(slot[f, inv_item_info_text])) + string_height(inventoryDrawStats()) + 16, string(slot[f, inv_item_info_footer]));
+           draw_text_colored(x + 4, used_y + 56 + string_height(string(slot[f, inv_item_info_text])) + string_height(inventoryDrawStats()) + 16, string(slot[f, inv_item_info_footer]));
           }
        clr(); 
       }                                                                  
@@ -529,7 +529,7 @@ for(a = 0; a < celkem_vlastnosti; a++)
 
        if (oHUD.lang == "cz")
        {
-       if (slot_vlastnosti[f, a] != 0)
+       if (slot_vlastnosti[f, a] != 0 || slot_vlastnosti_static[f, a] != 0)
           {
            switch(a)
                     {
@@ -544,13 +544,15 @@ for(a = 0; a < celkem_vlastnosti; a++)
                            break;                                                                   
                          }                         
                     case(vlastnost_stackSezehnuti):
-                         {
-                           t_text += "#Šance na sežehnutí při zásahu: "+string(slot_vlastnosti[f, a]) + "%";
+                         {    
+                           t_text += inventoryDrawStat(f, a, "#Šance na sežehnutí: ", "%"); 
+                           inventoryDrawStatsCompare(vlastnost_stackSezehnuti);                     
                            break;                                                                   
                          }
                      case(vlastnost_poskozeni):
                          {
-                           t_text += "#Poškození: " +string(slot_vlastnosti[f, a]);
+                           t_text += "#Poškození: " + string(slot_vlastnosti[f, a]);
+                           if (slot_vlastnosti_static[f, a] != 0) {t_text += " (+ " + string(slot_vlastnosti_static[f, a]) +")";}
                            inventoryDrawStatsCompare(vlastnost_poskozeni);
                            break;                                                                   
                          }
@@ -1245,21 +1247,21 @@ if (argument_count > 1) {m  = argument[1];}
 
 if (tempBool) 
     {
-     b      = equiped_vlastnost[0, p];
-     deltaB = (slot_vlastnosti[f, a] - b);
+     b      = (equiped_vlastnost[0, p] + equiped_vlastnost_static[0, p]);
+     deltaB = ((slot_vlastnosti[f, a] + slot_vlastnosti_static[f, a]) - b);
 
      if (m == 0)
         {                              
-         if (deltaB > 0) {t_text += " " + scrColorflag(c_lime) + " (+" + string(deltaB) + ")"  + scrEndColorflag() + " ";}
-         else if (deltaB < 0) {t_text += " " + scrColorflag(c_red) + " (" + string(deltaB) + ")" + scrEndColorflag() + " ";}
-         else {t_text += " " + scrColorflag(c_yellow) + " (" + string(deltaB) + ")" + scrEndColorflag() + " ";}                                                          
+         if (deltaB > 0) {t_text += " " + " [+" + scrColorflag(c_lime)  + string(deltaB) + scrEndColorflag() + "]"  +  " ";}
+         else if (deltaB < 0) {t_text += " " + " [" + scrColorflag(c_red)  + string(deltaB) + scrEndColorflag()+ "]"  + " ";}
+         else {t_text += " " + " [" +scrColorflag(c_yellow)  + string(deltaB) + scrEndColorflag()+ "]"  + " ";}                                                          
         }
 
     if (m == 1)
        {
-        if (deltaB > 0) {t_text += " " + scrColorflag(c_red) + " (+" + string(deltaB) + ")"  + scrEndColorflag() + " ";}
-        else if (deltaB < 0) {t_text += " " + scrColorflag(c_lime) + " (" + string(deltaB) + ")" + scrEndColorflag() + " ";}
-        else {t_text += " " + scrColorflag(c_yellow) + " (" + string(deltaB) + ")" + scrEndColorflag() + " ";}                                                          
+        if (deltaB > 0) {t_text += " "+ " [+" + scrColorflag(c_red) + string(deltaB)  + scrEndColorflag()  + "]"+ " ";}
+        else if (deltaB < 0) {t_text += " "+ " [+" + scrColorflag(c_lime) + string(deltaB) + scrEndColorflag() + "]" + " ";}
+        else {t_text += " "+ " [+" + scrColorflag(c_yellow) + string(deltaB) + scrEndColorflag() + "]" + " ";}                                                          
        }
     }
 
@@ -1414,3 +1416,24 @@ else if (e == "card")           {r = "Karta";}
 
 
 return r;
+#define inventoryDrawStat
+/// inventoryDrawStat(slot, index, text, [suffix])
+
+var T, i, t, s, p;
+T = "";
+i = vlastnost_vampStamina;
+t = "";
+s = 0;
+p = "";
+
+if (argument_count > 0) {s = argument[0];}
+if (argument_count > 1) {i = argument[1];}
+if (argument_count > 2) {t = argument[2];}
+if (argument_count > 3) {p = argument[3];}
+
+T += t;
+if (slot_vlastnosti[s, i] != 0) {T += string(slot_vlastnosti[s, i]); if (slot_vlastnosti_static[s, i] != 0) {T += " ";}}
+if (slot_vlastnosti_static[s, i] != 0) {T += scrColorText("+" + string_format(slot_vlastnosti_static[s, i], 2, 1), c_lime) + "";}                            
+T += p;      
+
+return T;

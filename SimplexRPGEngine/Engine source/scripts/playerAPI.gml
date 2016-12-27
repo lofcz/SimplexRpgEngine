@@ -314,7 +314,7 @@ if (argument_count > 0) {index = argument[0];}
                     
                     case(vlastnost_stackSezehnuti):
                          {
-                           text = "Šance na sežehnutí při zásahu";
+                           text = "Šance na sežehnutí";
                            cbu  = false;
                            ut   = 1000;
                            break;                                                                   

@@ -46,10 +46,11 @@ for(a = 0; a < oInventory.slots; a++)
             for (a = 0; a < celkem_vlastnosti; a++)
                   {                          
                    slot_vlastnosti[free_slot,a] = equiped_vlastnost[e_slot,a];                 
+                   slot_vlastnosti_static[free_slot,a] = equiped_vlastnost_static[e_slot,a];                 
                               
                    if (a != vlastnost_bodyCanvasIndex && a != vlastnost_bodyCanvasSprite && a!= vlastnost_bodyCanvasSlashSprite)
                       {
-                       oPlayer.vlastnost[a] -= equiped_vlastnost[e_slot,a];
+                       oPlayer.vlastnost[a] -= (equiped_vlastnost[e_slot,a] + equiped_vlastnost_static[e_slot,a]);
                       }
                    else if (equiped_vlastnost[e_slot,vlastnost_bodyCanvasIndex] != 0)
                         {
@@ -66,13 +67,17 @@ else
  for(a = 0; a < inv_atributes_total; a++)
     {
      tempEqipStats[a] = equiped_stats[e_slot,a];
+
      equiped_stats[e_slot] = "";
     }
  for (a = 0; a < celkem_vlastnosti; a++)
     {                          
-     oPlayer.vlastnost[a]        -= equiped_vlastnost[e_slot,a];
+     oPlayer.vlastnost[a]        -= (equiped_vlastnost[e_slot,a] + equiped_vlastnost_static[e_slot,a]);
      tempSlotVlastnosti[a]        = equiped_vlastnost[e_slot,a];
+     tempSlotVlastnostiStatic[a]        = equiped_vlastnost_static[e_slot,a];
+    
      equiped_vlastnost[e_slot,a]  = 0;
+     equiped_vlastnost_static[e_slot,a]  = 0;
     }            
  for(a=0; a<10; a++)  {tempOption[a] = equiped_option[e_slot,a];}
  
@@ -99,6 +104,7 @@ else
  for (a = 0; a < celkem_vlastnosti; a++)
     {                          
      slot_vlastnosti[h_c, a] = tempSlotVlastnosti[a];
+     slot_vlastnosti_static[h_c, a] = tempSlotVlastnostiStatic[a];
     }            
  for(a=0; a<10; a++)  {oInventory.slot_option[h_c, a] = tempOption[a];}
 }

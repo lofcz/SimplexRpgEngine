@@ -692,7 +692,7 @@ clr(c_black, alpha);
 fnt(fntPixelSmall);
 draw_text(x + 4, oInventory.used_y + 32 + hh, q);
 fnt(fntPixelTiny);
-draw_text(x + 4, oInventory.used_y + qq + hh, text);
+draw_text_colored(x + 4, oInventory.used_y + qq + hh, text);
 
         }        
     }
@@ -722,6 +722,11 @@ for(a = 0; a < celkem_vlastnosti; a++)
                            t_text += "#Poškození: "+string(oInventory.equiped_vlastnost[idd,a]);
                            break;                                                                   
                          }
+                    case(vlastnost_stackSezehnuti):
+                         {    
+                           t_text += equipmentDrawStat(idd, a, "#Šance na sežehnutí: ", "%");                      
+                           break;                                                                   
+                         }                         
                      case(vlastnost_vampStamina):
                          {
                            t_text += "#Výdrž vysátá výdrž při úderu: "+string(oInventory.equiped_vlastnost[idd,a]);
@@ -1027,3 +1032,25 @@ for (j = 0; j < i; j++)
          draw_circle(ox + (j * 14), oInventory.used_y + 44, 6, true);
         }    
     }
+#define equipmentDrawStat
+/// equipmentDrawStat(slot, index, text, [suffix])
+
+var T, i, t, s, p;
+T = "";
+i = vlastnost_vampStamina;
+t = "";
+s = 0;
+p = "";
+
+if (argument_count > 0) {s = argument[0];}
+if (argument_count > 1) {i = argument[1];}
+if (argument_count > 2) {t = argument[2];}
+if (argument_count > 3) {p = argument[3];}
+
+T += t;
+if (oInventory.equiped_vlastnost[s, i] != 0) {T += string(oInventory.equiped_vlastnost[s, i]); if (oInventory.equiped_vlastnost_static[s, i] != 0) {T += " ";}}
+if (oInventory.equiped_vlastnost_static[s, i] != 0) {T += scrColorText("+" + string_format(oInventory.equiped_vlastnost_static[s, i], 2, 1), c_lime) + "";}                            
+T += p;      
+
+return T;
+

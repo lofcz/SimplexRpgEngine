@@ -38,10 +38,11 @@ if ((oInventory.drag && mouse_check_button_released(mb_left) && equiped[equip_sl
                          for (a = 0; a < celkem_vlastnosti; a++)
                              {
                               equiped_vlastnost[equip_slot,a] = slot_vlastnosti[h_c, a];
+                              equiped_vlastnost_static[equip_slot,a] = slot_vlastnosti_static[h_c, a];
                               
                               if (a != vlastnost_bodyCanvasIndex && a != vlastnost_bodyCanvasSprite && a!= vlastnost_bodyCanvasSlashSprite)
                               {
-                              oPlayer.vlastnost[a] += slot_vlastnosti[h_c, a];
+                              oPlayer.vlastnost[a] += (slot_vlastnosti[h_c, a] + slot_vlastnosti_static[h_c, a]);
                               }
                               else if (slot_vlastnosti[h_c,vlastnost_bodyCanvasIndex] != 0)
                                 {
@@ -80,7 +81,8 @@ if ((oInventory.drag && mouse_check_button_released(mb_left) && equiped[equip_sl
                                                
                         for (a = 0; a < celkem_vlastnosti; a++)
                             {
-                             slot_vlastnosti[h_c,a] = 0;                                                      
+                             slot_vlastnosti[h_c,a] = 0;      
+                             slot_vlastnosti_static[h_c,a] = 0;                                                                              
                             }
                         }
                 
