@@ -151,6 +151,13 @@ for (i = 0; i &lt; ds_list_size(activeList2); i++)
         } 
     }                                        
 
+if (instance_number(oEnemySpell) &gt; 0)
+   {
+    with(oEnemySpell)
+        {
+         instance_activate_region(x - 64, y - 64, 128, 128, true);
+        }
+   }
 </string>
           </argument>
         </arguments>

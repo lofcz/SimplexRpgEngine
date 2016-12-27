@@ -351,4 +351,3 @@ if (o) {if (ds_queue_size((i).speechQueue) > 0 || (i).speechAlpha > 0.02) {retur
 
 ds_queue_enqueue((i).speechQueue, t);
 return true;
-

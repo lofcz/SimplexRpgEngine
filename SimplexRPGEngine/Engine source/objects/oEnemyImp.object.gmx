@@ -43,9 +43,15 @@ speechIn              = false;
 speechCurrentText     = "";
 speechMode            = 0;
 recursion             = 0;
+tarX                  = -1;
+tarY                  = -1;
+lastDir               = "s";
+mana                  = 100;
+maxMana               = 100;
+last_mp               = mana;
 
 
-
+scrShaderPrepareColor();
 
 alarm[0] = room_speed;
 
@@ -62,6 +68,32 @@ path_start(path, 3, path_action_stop, true);
 
 
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Free memory
+
+path_delete(path);
+ds_queue_destroy(speechQueue);
 </string>
           </argument>
         </arguments>
@@ -93,6 +125,39 @@ event_user(1);
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="oPlayer">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>scrEnemyCollision(other.id);
+
+path_end();
+x = xprevious;
+y = yprevious;
+
+if (place_free(x + 4, y))      {actionToDo = "runFast"; tarX = x + 8; tarY = y;}
+else if (place_free(x - 4, y)) {actionToDo = "runFast"; tarX = x - 8; tarY = y;}
+else if (place_free(x, y + 4)) {actionToDo = "runFast"; tarX = x; tarY = y + 8;}
+else if (place_free(x, y - 4)) {actionToDo = "runFast"; tarX = x; tarY = y - 8;}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="7" enumb="13">
       <action>
         <libid>1</libid>
@@ -118,7 +183,7 @@ if (mp_grid_path(grid, path, x, y, x + cos(degtorad(angle)) * actionRadius, y + 
    continueAction = true;
    recursion = 0;
    }
-else {event_user(3);}
+else {recursion++; if (recursion &gt; 10) {actionToDo = "runFast"; tarX = x + 8; tarY = y;} else {event_user(3);}}
 
 </string>
           </argument>
@@ -144,7 +209,7 @@ else {event_user(3);}
             <kind>1</kind>
             <string>/// Cast spell
 
-spellToCast = choose(0, 1, 2);
+spellToCast = choose(0);
 
 if (spellToCast == 0)
 {
@@ -156,6 +221,7 @@ i.casterID  = id;
 
 delayTimer = secToSteps(0.5);
 scrEnemySay(id, "[Casting spell 1]");
+mana -= 20;
 }
 
 if (spellToCast == 1)
@@ -184,7 +250,7 @@ i.casterID  = id;
 i.navigated = true;
 
 delayTimer = secToSteps(0.5);
-scrEnemySay(id, "[Casting spell 2]");
+scrEnemySay(id, "[Casting spell 3]");
 }
 
 </string>
@@ -211,7 +277,7 @@ scrEnemySay(id, "[Casting spell 2]");
             <kind>1</kind>
             <string>randomize();
 
-if (choose(0, 0, 0, 1) == 1 &amp;&amp; canFire)
+if (choose(0, 0, 0, 1) == 1 &amp;&amp; canFire &amp;&amp; mana &gt;= 20)
    {
    // continueAction = false;
     castTimer = secToSteps(0.5);
@@ -228,6 +294,7 @@ if (mp_grid_path(grid, path, x, y, oPlayer.x + cos(degtorad(angle)) * actionRadi
    if (continueAction) {path_start(path, 3, path_action_stop, true); canFire = true;}
    continueAction = true;
    recursion = 0;
+   mana += 4;
    }
 else {recursion++; if (recursion &lt; 10) {event_user(1);} else {event_user(3);}}
 }
@@ -253,7 +320,23 @@ else {recursion++; if (recursion &lt; 10) {event_user(1);} else {event_user(3);}
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Choose action
+            <string>/// Loot
+
+if (drop)
+{
+scrEnemyLoot(oHealthDrop, 1,  5,  true, 40, 2);
+scrEnemyLoot(oXpDrop,     10, 12, true, 70, 2);
+scrEnemyLoot(oManaDrop,   5,  15, true, 50, 1);
+scrEnemyLoot(oArmorDrop,  2,  4,  true, 50, 1);
+scrEnemyLoot(oGold2,      1,  4,  true, 30, 4);
+scrEnemyLoot(oGem1,       1,  1,  true, 10, 2);
+scrEnemyLoot(oGem2,       1,  1,  true, 10, 2);
+scrEnemyLoot(oGem3,       1,  1,  true, 10, 2);
+scrEnemyLoot(oGem4,       1,  1,  true, 10, 2);
+scrEnemyLoot(oGem5,       1,  1,  true, 10, 2);
+scrEnemyDie(true);
+}
+
 </string>
           </argument>
         </arguments>
@@ -320,16 +403,41 @@ clr(c_white, 0.5);
 //mp_grid_draw(grid);
 clr();
 
+mana = clamp(mana, 0, maxMana);
+last_mp = lerp(last_mp, mana, 0.1);
+
+if (mood == "dying")
+   {
+    path_end();
+    speed = 0;
+    image_speed = 0;
+    image_index = 0;
+   }
+
+if (actionToDo == "runFast") {move_towards_point(tarX, tarY, 4); if (distance_to_point(tarX, tarY) &lt; 1) {actionToDo = ""; event_user(1);}}
+
 dir = direction div 90 * 90;
 image_speed = 0;
-if (dir == 0) {image_index = clamp(image_index, 8, 11.9) if (image_index == 11.9) {image_index = 8;} image_speed = 0.3;}
-if (dir == 270) {image_index = clamp(image_index, 0, 3.9) if (image_index == 3.9) {image_index = 0;} image_speed = 0.3;}
-if (dir == 90) {image_index = clamp(image_index, 12, 15.9) if (image_index == 15.9) {image_index = 0;} image_speed = 0.3;}
-if (dir == 180) {image_index = clamp(image_index, 4, 7.9) if (image_index == 7.9) {image_index = 4;} image_speed = 0.3;}
+if (dir == 0) {lastDir = "d"; image_index = clamp(image_index, 8, 11.9) if (image_index == 11.9) {image_index = 8;} image_speed = 0.3;}
+if (dir == 270) {lastDir = "s"; image_index = clamp(image_index, 0, 3.9) if (image_index == 3.9) {image_index = 0;} image_speed = 0.3;}
+if (dir == 90) {lastDir = "w"; image_index = clamp(image_index, 12, 15.9) if (image_index == 15.9) {image_index = 0;} image_speed = 0.3;}
+if (dir == 180) {lastDir = "a"; image_index = clamp(image_index, 4, 7.9) if (image_index == 7.9) {image_index = 4;} image_speed = 0.3;}
 
-if (delayTimer &gt; 0 || castTimer &gt; 0) {image_index = 0;}
+if (delayTimer &gt; 0 || castTimer &gt; 0) 
+   {
+    if (lastDir == "w") {image_index = 12;}
+    if (lastDir == "s") {image_index = 0;}
+    if (lastDir == "a") {image_index = 4;}
+    if (lastDir == "d") {image_index = 8;}
+    s_b = lerp(s_b, 0.3, 0.2);
+    s_g = lerp(s_g, 0.3, 0.2);
+   }
+else {s_b = lerp(s_b, 1, 0.1); s_g = lerp(s_g, 1, 0.1);}
 
-draw_self();
+if (mood != "dying") 
+   {
+    scrShaderDrawColor();
+   }
 //draw_path(path, 0, 0, true);
 //draw_circle(x, y, actionRadius, true);
 //draw_circle(oPlayer.x, oPlayer.y, actionRadius, true);
@@ -337,6 +445,23 @@ draw_self();
 if (castTimer  &gt; 0) {castTimer--;  if (castTimer  == 0) {event_user(2); castTimer  = -1;}}
 if (delayTimer &gt; 0) {delayTimer--; if (delayTimer == 0) {event_user(1); delayTimer = -1;}}
 
+    
+    
+   draw_set_font(fntPixelSmall);
+   
+    draw_sprite_general(sHealthBar,1,0,0,40,8,x-42,y-32,1,1,0,c_white,c_white,c_white,c_white,1);
+   draw_sprite_part_ext(sHealthBar,0,0,0,((last_hp/max_hp)*40),8,x-42,y-32,1,1,c_white,1);
+     draw_sprite_general(sHealthBar,1,0,0,40,8,x+2,y-32,1,1,0,c_white,c_white,c_white,c_white,1);
+   draw_sprite_part_ext(sHealthBar,2,0,0,((last_mp/maxMana)*40),8,x+2,y-32,1,1,c_white,1);
+  
+   scrCenterText();
+   draw_text_colour(x,y-40,name,c_black,c_black,c_black,c_black,1);
+   scrCenterText(0);
+
+      draw_text(x,y,string(hp)+string("#")+string(last_hp)+string("#")+string(max_hp)+string("#")+string(last_hp/max_hp));
+
+if (mood != "dying")
+{      
 // Handle speech queue
 if (ds_queue_size(speechQueue) &gt; 0)
     {
@@ -345,20 +470,7 @@ if (ds_queue_size(speechQueue) &gt; 0)
          speechCurrentText = ds_queue_dequeue(speechQueue);
          speechIn = true;         
         }
-    }
-    
-    
-   draw_set_font(fntPixelSmall);
-   
-    draw_sprite_general(sHealthBar,1,0,0,40,8,x-18,y-20,1,1,0,c_white,c_white,c_white,c_white,1);
-   draw_sprite_part_ext(sHealthBar,0,0,0,((last_hp/max_hp)*40),8,x-18,y-20,1,1,c_white,1);
-   
-   scrCenterText();
-   draw_text_colour(x,y-30,name,c_black,c_black,c_black,c_black,1);
-   scrCenterText(0);
-
-      draw_text(x,y,string(hp)+string("#")+string(last_hp)+string("#")+string(max_hp)+string("#")+string(last_hp/max_hp));
-    
+    }          
     
 if (speechIn)
     {
@@ -373,7 +485,7 @@ if (speechIn)
      draw_text(x - string_width(speechCurrentText) / 2, y - 48, speechCurrentText);
      clr();
     }
-    
+}    
     
 
 

@@ -29,12 +29,40 @@
 
 m_alpha = 0;
 m_color = make_colour_rgb(0,100+random(100),0);
+affect  = "";
+pSystem = false;
+lAlpha  = false;
 
 image_speed = 0;
 value = random_range(-45,45);
 mode = 0;
 
 event_inherited();
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Free memory
+
+if (pSystem) {part_system_destroy(Sname);}
 </string>
           </argument>
         </arguments>
@@ -94,7 +122,6 @@ equipmentDamage(0, 1);
 
 if (scrDice(80, 2, 20)) {scrEnemyLoot(oWoodLvl1, 1, 1, true, 100); scrEnemyLoot(oLeaf, 1, 1, true, 50, 5);}
 hp--;
-if (hp &lt;= 0) {scrBasicTransformScale(0.1,0.0,0.0,1.00,1.00); alarm[0] = 40;}
 }
 
 </string>
@@ -119,10 +146,20 @@ if (hp &lt;= 0) {scrBasicTransformScale(0.1,0.0,0.0,1.00,1.00); alarm[0] = 40;}
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (mode = 0) {if (value &lt; 45) {value++;} else {mode = 1;}}
-if (mode = 1) {if (value &gt; -45) {value--;} else {mode = 0;}}
+            <string>if (mode == 0) {if (value &lt; 45) {value++;} else {mode = 1;}}
+if (mode == 1) {if (value &gt; -45) {value--;} else {mode = 0;}}
 
 draw_sprite_ext(sprite_index,0,x,y,image_xscale,image_yscale,image_angle+2*sin(degtorad(value)),c_white,image_alpha);
+
+if (affect == "burning")
+   {
+    effectFire();
+    hp -= 0.05;
+   }
+
+if (lAlpha) {image_alpha = lerp(image_alpha, 0, 0.1);}      
+if (hp &lt;= 0 &amp;&amp; alarm[0] == -1) {lAlpha = true; alarm[0] = 40; affect = ""; scrGoreExplode(8, 8);}
+
 </string>
           </argument>
         </arguments>

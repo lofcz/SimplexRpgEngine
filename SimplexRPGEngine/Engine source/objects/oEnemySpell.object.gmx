@@ -147,6 +147,39 @@ alarm[0] = 100;
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="oNonsolidCollision">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>     if ((other).hitType == "breakableGrass")
+     {   
+     other.affect = "burning"; 
+     
+     if (other.particleSystem == false)
+     { 
+     with(other) {Sname = part_system_create(); particleSystem = true;}
+     ds_list_add(oOptimize.activeList, (other.id));
+     }
+     }
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="oBasicCollision">
       <action>
         <libid>1</libid>
@@ -170,6 +203,40 @@ effectExplosion();
 draw = false;
 alarm[0] = 100;
 }
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="parTree">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>
+if (draw)
+{
+effectExplosion();
+draw = false;
+alarm[0] = 100;
+if (!other.pSystem) {with(other) {Sname = part_system_create();}}
+other.affect = "burning"; 
+}
+
+
 
 </string>
           </argument>
@@ -229,8 +296,8 @@ alarm[0] = 100;
 
 if (draw)
 {
-
-var q = scrMathBresLine(min(prevX, x), min(prevY, y), max(prevX, x), max(prevY, y));
+draw_self();
+var q = scrMathBresLineDerived(min(xprevious, x), min(yprevious, y), max(xprevious, x), max(yprevious, y));
 
 while(!ds_queue_empty(q))
      {

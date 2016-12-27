@@ -117,3 +117,38 @@ return q;
 
 
 
+
+#define scrMathBresLineDerived
+/// scrMathBresLineDerived(x1, y1, x2, y2)
+
+var q, x1, x2, y1, y2, dx, dy, dr, yy, i;
+q    = ds_queue_create();
+x1   = 0;
+x2   = 1;
+y1   = 0;
+y2   = 1;
+
+if (argument_count > 0) {x1 = argument[0];}
+if (argument_count > 1) {y1 = argument[1];}
+if (argument_count > 2) {x2 = argument[2];}
+if (argument_count > 3) {y2 = argument[3];}
+
+dx = x2 - x1;
+dy = y2 - y1;
+dr = 2 * (dy - dx);
+yy = y1;
+
+for (i = x1; i < x2; i++)
+    {
+     ds_queue_enqueue(q, i);
+     ds_queue_enqueue(q, yy);
+
+     if (dr > 0)
+        {
+         yy++;
+         dr -= dx;
+        }    
+     dr += dy;
+    }
+    
+return q;

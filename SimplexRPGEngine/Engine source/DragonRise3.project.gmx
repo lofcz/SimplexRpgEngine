@@ -862,6 +862,7 @@
           <script>scripts\effectFragmentBrown.gml</script>
           <script>scripts\effectSpawnEnemy.gml</script>
           <script>scripts\effectImpFireball.gml</script>
+          <script>scripts\effectFire.gml</script>
           <script>scripts\effectFragmentYellow.gml</script>
         </scripts>
         <scripts name="Other">
@@ -1223,10 +1224,10 @@
       <object>objects\oPlayer</object>
       <objects name="Enemies">
         <objects name="Slime">
-          <object>objects\oEnemyImp</object>
           <object>objects\oEnemySlime</object>
           <object>objects\oSlimePart</object>
         </objects>
+        <object>objects\oEnemyImp</object>
         <object>objects\parEnemy</object>
         <object>objects\oEnemySpawner</object>
       </objects>

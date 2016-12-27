@@ -25,4 +25,3 @@ if (argument_count > 0) {c = argument[0];}
 
 i = instance_create(x, y, oScreenBlink);
 i.c    = c;
-

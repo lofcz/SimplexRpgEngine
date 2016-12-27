@@ -105,4 +105,3 @@ for (i = 1; i < 16; i++)
      if (argument_count > i) {spellReqSouls[tempSpell, i] = argument[i];} 
     }             
 }
-
