@@ -535,12 +535,14 @@ for(a = 0; a < celkem_vlastnosti; a++)
                     {
                     case(vlastnost_bonusove_poskozeni_vuci_zviratum):
                          {
-                           t_text += "#Poškození vůči zvířatům: "+string(slot_vlastnosti[f, a]) + "%";
+                           t_text += inventoryDrawStat(f, a, "#Poškození vůči zvířatům: ", "%"); 
+                           inventoryDrawStatsCompare(vlastnost_bonusove_poskozeni_vuci_zviratum);
                            break;                                                                   
                          }
                     case(vlastnost_vampStamina):
                          {
-                           t_text += "#Vysátá výdrž při úderu: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Vysátá výdrž při úderu: ", ""); 
+                           inventoryDrawStatsCompare(vlastnost_vampStamina);
                            break;                                                                   
                          }                         
                     case(vlastnost_stackSezehnuti):
@@ -551,300 +553,353 @@ for(a = 0; a < celkem_vlastnosti; a++)
                          }
                      case(vlastnost_poskozeni):
                          {
-                           t_text += "#Poškození: " + string(slot_vlastnosti[f, a]);
-                           if (slot_vlastnosti_static[f, a] != 0) {t_text += " (+ " + string(slot_vlastnosti_static[f, a]) +")";}
-                           inventoryDrawStatsCompare(vlastnost_poskozeni);
+                           t_text += inventoryDrawStat(f, a, "#Poškození: ", ""); 
+                           inventoryDrawStatsCompare(vlastnost_poskozeni);    
                            break;                                                                   
                          }
                      case(vlastnost_max_zivot):
                          {
-                           t_text += "#Život: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Život: ", "");
                            inventoryDrawStatsCompare(vlastnost_max_zivot);
                            break;                                                                   
                          }
                      case(vlastnost_stamina_cost):
                          {
-                           t_text += "#Stamina za úder: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Stamina za úder: ", "");
                            inventoryDrawStatsCompare(vlastnost_stamina_cost, 1);
                            break;                                                                   
                          }
                     case(vlastnost_max_mana):
                          {
-                           t_text += "#Mana: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Mana: ", "");
                            inventoryDrawStatsCompare(vlastnost_max_mana);
                            break;                                                                   
                          }
                     case(vlastnost_sila):
                          {
-                           t_text += "#Síla: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Síla: ", "");
+                           inventoryDrawStatsCompare(vlastnost_sila);
                            break;                                                                   
                          }
                     case(vlastnost_obratnost):
                          {
-                           t_text += "#Obratnost: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Obratnost: ", "");
+                           inventoryDrawStatsCompare(vlastnost_obratnost);
                            break;                                                                   
                          }
                     case(vlastnost_kovarstvi):
                          {
-                           t_text += "#Kovářství: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Kovářství: ", "");
+                           inventoryDrawStatsCompare(vlastnost_kovarstvi);                           
                            break;                                                                   
                          }
                     case(vlastnost_tezarstvi):
                          {
-                           t_text += "#Těžařství: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Těžařství: ", "");
+                           inventoryDrawStatsCompare(vlastnost_tezarstvi);
                            break;                                                                   
                          }
                     case(vlastnost_odolnost):
                          {
-                           t_text += "#Odolnost: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Odolnost: ", "");
+                           inventoryDrawStatsCompare(vlastnost_odolnost);
                            break;                                                                   
                          }
                     case(vlastnost_vytrvalost):
                          {
-                           t_text += "#Vytrvalost: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Vytrvalost: ", "");
+                           inventoryDrawStatsCompare(vlastnost_vytrvalost);
                            break;                                                                   
                          }
                      case(vlastnost_presnost):
                          {
-                           t_text += "#Přesnost: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Přesnost: ", "");
+                           inventoryDrawStatsCompare(vlastnost_presnost);
                            break;                                                                   
                          }
                      case(vlastnost_rychlost):
                          {
-                           t_text += "#Rychlost: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Rychlost pohybu: ", "");
+                           inventoryDrawStatsCompare(vlastnost_rychlost);
                            break;                                                                   
                          }
                     case(vlastnost_zrucnost):
                          {
-                           t_text += "#Zručnost: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Zručnost: ", "");
+                           inventoryDrawStatsCompare(vlastnost_zrucnost);
                            break;                                                                   
                          }
                     case(vlastnost_svadeni):
                          {
-                           t_text += "#Svádění: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Svádění: ", "");
+                           inventoryDrawStatsCompare(vlastnost_svadeni);
                            break;                                                                   
                          }
                     case(vlastnost_zastrasovani):
                          {
-                           t_text += "#Zastrašování: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Zastrašování: ", "");
+                           inventoryDrawStatsCompare(vlastnost_zastrasovani);
                            break;                                                                   
                          }
                     case(vlastnost_dustojnost):
                          {
-                           t_text += "#Důstojnost: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Důstojnost: ", "");
+                           inventoryDrawStatsCompare(vlastnost_dustojnost);
                            break;                                                                   
                          }
                     case(vlastnost_vyrecnost):
                          {
-                           t_text += "#Výřečnost: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Výřečnost: ", "");
+                           inventoryDrawStatsCompare(vlastnost_vyrecnost);
                            break;                                                                   
                          }
                     case(vlastnost_elegance):
                          {
-                           t_text += "#Elegance: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Elegance: ", "");
+                           inventoryDrawStatsCompare(vlastnost_elegance);
                            break;                                                                   
                          }
                     case(vlastnost_cest):
                          {
-                           t_text += "#Čest: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Čest: ", "");
+                           inventoryDrawStatsCompare(vlastnost_cest);
                            break;                                                                   
                          }
                          
                     case(vlastnost_kapsarstvi):
                          {
-                           t_text += "#Kapsářství: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Kapsářství: ", "");
+                           inventoryDrawStatsCompare(vlastnost_kapsarstvi);
                            break;                                                                   
                          }
                      case(vlastnost_paceni_zanmku):
                          {
-                           t_text += "#Páčení zámků: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Háčkování zámků: ", "");
+                           inventoryDrawStatsCompare(vlastnost_paceni_zanmku);
                            break;                                                                   
                          }
                      case(vlastnost_vule):
                          {
-                           t_text += "#Vůle: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Vůle: ", "");
+                           inventoryDrawStatsCompare(vlastnost_vule);
                            break;                                                                   
                          }
                     case(vlastnost_inteligence):
                          {
-                           t_text += "#Inteligence: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Inteligence: ", "");
+                           inventoryDrawStatsCompare(vlastnost_inteligence);
                            break;                                                                   
                          }
                     case(vlastnost_ritualy):
                          {
-                           t_text += "#Rituály: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Rituály: ", "");
+                           inventoryDrawStatsCompare(vlastnost_ritualy);
                            break;                                                                   
                          }
                     case(vlastnost_tradicni_magie):
                          {
-                           t_text += "#Tradiční magie: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Tradiční magie: ", "");
+                           inventoryDrawStatsCompare(vlastnost_tradicni_magie);
                            break;                                                                   
                          }
                     case(vlastnost_astralni_videni):
                          {
-                           t_text += "#Astrální vidění: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Astrální vidění: ", "");
+                           inventoryDrawStatsCompare(vlastnost_astralni_videni);
                            break;                                                                   
                          }
                     case(vlastnost_mece):
                          {
-                           t_text += "#Meče: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Meče: ", "");
+                           inventoryDrawStatsCompare(vlastnost_mece);
                            break;                                                                   
                          }
                     case(vlastnost_dyky):
                          {
-                           t_text += "#Dýky: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Dýky: ", "");
+                           inventoryDrawStatsCompare(vlastnost_dyky);
                            break;                                                                   
                          }
                     case(vlastnost_luky):
                          {
-                           t_text += "#Lukostřelba: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Luky: ", "");
+                           inventoryDrawStatsCompare(vlastnost_luky);
                            break;                                                                   
                          }
                      case(vlastnost_kopi):
                          {
-                           t_text += "#Kopí: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Kopí: ", "");
+                           inventoryDrawStatsCompare(vlastnost_kopi);
                            break;                                                                   
                          }
                      case(vlastnost_jednorucni):
                          {
-                           t_text += "#Jednoruční zbraně: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Jednoruční zbraně: ", "");
+                           inventoryDrawStatsCompare(vlastnost_jednorucni);
                            break;                                                                   
                          }
                     case(vlastnost_dvojrucni):
                          {
-                           t_text += "#Dvojruční zbraně: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Dvojruční zbraně: ", "");
+                           inventoryDrawStatsCompare(vlastnost_dvojrucni);
                            break;                                                                   
                          }
                     case(vlastnost_stity):
                          {
-                           t_text += "#Štíty: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Štíty: ", "");
+                           inventoryDrawStatsCompare(vlastnost_stity);
                            break;                                                                   
                          }
                     case(vlastnost_rezistence_vse):
                          {
-                           t_text += "#Ochrana proti všem elementům: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Elementární ochrana: ", "");
+                           inventoryDrawStatsCompare(vlastnost_rezistence_vse);
                            break;                                                                   
                          }
                     case(vlastnost_rezistence_zeme):
                          {
-                           t_text += "#Ochrana proti zemi: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Ochrana vůči zemi: ", "");
+                           inventoryDrawStatsCompare(vlastnost_rezistence_zeme);
                            break;                                                                   
                          }
                     case(vlastnost_rezistence_ohen):
                          {
-                           t_text += "#Ochrana proti ohni: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Ochrana vůči ohni: ", "");
+                           inventoryDrawStatsCompare(vlastnost_rezistence_ohen);
                            break;                                                                   
                          }
                     case(vlastnost_rezistence_voda):
                          {
-                           t_text += "#Ochrana proti vodě: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Ochrana vůči vodě: ", "");
+                           inventoryDrawStatsCompare(vlastnost_rezistence_voda);
                            break;                                                                   
                          }
                     case(vlastnost_rezistence_temnota):
                          {
-                           t_text += "#Ochrana proti temnotě: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Ochrana vůči temnotě: ", "");
+                           inventoryDrawStatsCompare(vlastnost_rezistence_temnota);
                            break;                                                                   
                          }
                          
                      case(vlastnost_rezistence_svetlo):
                          {
-                           t_text += "#Ochrana proti světlu: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Ochrana vůči světlu: ", "");
+                           inventoryDrawStatsCompare(vlastnost_rezistence_svetlo);
                            break;                                                                   
                          }
                     case(vlastnost_rezistence_vitr):
                          {
-                           t_text += "#Ochrana proti vodě: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Ochrana vůči větru: ", "");
+                           inventoryDrawStatsCompare(vlastnost_rezistence_vitr);
                            break;                                                                   
                          }
                     case(vlastnost_zivot):
                          {
-                           t_text += "#Obnoví zdraví: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Obnoví život: ", "");
+                           inventoryDrawStatsCompare(vlastnost_zivot);
                            break;                                                                   
                          }
                     case(vlastnost_mana):
                          {
-                           t_text += "#Obnoví manu: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Obnoví manu: ", "");
+                           inventoryDrawStatsCompare(vlastnost_mana);
                            break;                                                                   
                          }
                     case(vlastnost_stamina):
                          {
-                           t_text += "#Obnoví výdrž: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Obnoví výdrž: ", "");
+                           inventoryDrawStatsCompare(vlastnost_stamina);
                            break;                                                                   
                          }
                          
                     case(vlastnost_max_stamina):
                          {
-                           t_text += "#Výdrž: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Výdrž: ", "");
+                           inventoryDrawStatsCompare(vlastnost_max_stamina);
                            break;                                                                   
                          }
                     case(vlastnost_kriticka_sance):
                          {
-                           t_text += "#Šance na kritický úder: "+string(slot_vlastnosti[f, a]) + "%";
+                           t_text += inventoryDrawStat(f, a, "#Šance na kritický úder: ", "%");
+                           inventoryDrawStatsCompare(vlastnost_kriticka_sance);
                            break;                                                                   
                          }
                     case(vlastnost_kriticka_nasobic):
                          {
-                           t_text += "#Násobič kritického úderu: "+string(slot_vlastnosti[f, a]) + "%";
+                           t_text += inventoryDrawStat(f, a, "#Násobič kritického úderu: ", "%");
+                           inventoryDrawStatsCompare(vlastnost_kriticka_nasobic);
                            break;                                                                   
                          }
                     case(vlastnost_stit):
                          {
-                           t_text += "#Obnoví štít: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Obnoví štít: ", "");
+                           inventoryDrawStatsCompare(vlastnost_stit);
                            break;                                                                   
                          }
                     case(vlastnost_max_stit):
                          {
-                           t_text += "#Štít: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Štít: ", "");
+                           inventoryDrawStatsCompare(vlastnost_max_stit);
                            break;                                                                   
                          }
                     case(vlastnost_zkusenosti):
                          {
-                           t_text += "#Přidá zkušenosti: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Přidá zkušenosti: ", "");
+                           inventoryDrawStatsCompare(vlastnost_zkusenosti);
                            break;                                                                   
                          }
                     case(vlastnost_max_zkusenosti):
                          {
-                           t_text += "#Zvýší tkušenosti potřebné k dosažení další úravně: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Zkušenosti do další úrovně: ", "");
+                           inventoryDrawStatsCompare(vlastnost_max_zkusenosti);
                            break;                                                                   
                          }
                     case(vlastnost_level):
                          {
-                           t_text += "#Zváší úroveň: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Zvýší úroveň: ", "");
+                           inventoryDrawStatsCompare(vlastnost_level);
                            break;                                                                   
                          }
                     case(vlastnost_tick_stamina):
                          {
-                           t_text += "#Zvýší rychlost obnovy výdrže: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Rychlost obnovy výdrže: ", "");
+                           inventoryDrawStatsCompare(vlastnost_tick_stamina);
                            break;                                                                   
                          }
                     case(vlastnost_tick_stamina_add):
                          {
-                           t_text += "#Zvýší množství obnovené výdrže: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Množství obnovené výdrže: ", "");
+                           inventoryDrawStatsCompare(vlastnost_tick_stamina_add);
                            break;                                                                   
                          }
                     case(vlastnost_bonusoveZkusenosti):
                          {
-                           t_text += "#Bonusové zkušenosti: "+string(slot_vlastnosti[f, a]) + "%";
+                           t_text += inventoryDrawStat(f, a, "#Bonusové zkušenosti: ", "%");
+                           inventoryDrawStatsCompare(vlastnost_bonusoveZkusenosti);
                            break;                                                                   
                          }
                     case(vlastnost_healHp):
                          {
-                           t_text += "#Obnoví zdraví: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Obnoví zdraví: ", "");
+                           inventoryDrawStatsCompare(vlastnost_healHp);
                            break;                                                                   
                          }
                     case(vlastnost_healMp):
                          {
-                           t_text += "#Obnoví manu: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Obnoví manu: ", "");
+                           inventoryDrawStatsCompare(vlastnost_healMp);
                            break;                                                                   
                          }
                     case(vlastnost_healStamina):
                          {
-                           t_text += "#Obnoví výdrž: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Obnoví výdrž: ", "");
+                           inventoryDrawStatsCompare(vlastnost_healStamina);
                            break;                                                                   
                          }
                     case(vlastnost_healShield):
                          {
-                           t_text += "#Obnoví štít: "+string(slot_vlastnosti[f, a]);
+                           t_text += inventoryDrawStat(f, a, "#Obnoví štít: ", "");
+                           inventoryDrawStatsCompare(vlastnost_healShield);
                            break;                                                                   
                          }                                                                                     
                }
@@ -1433,7 +1488,7 @@ if (argument_count > 3) {p = argument[3];}
 
 T += t;
 if (slot_vlastnosti[s, i] != 0) {T += string(slot_vlastnosti[s, i]); if (slot_vlastnosti_static[s, i] != 0) {T += " ";}}
-if (slot_vlastnosti_static[s, i] != 0) {T += scrColorText("+" + string_format(slot_vlastnosti_static[s, i], 2, 1), c_lime) + "";}                            
+if (slot_vlastnosti_static[s, i] != 0) {T += scrColorText("+" + string(slot_vlastnosti_static[s, i]), c_lime) + "";}                            
 T += p;      
 
 return T;

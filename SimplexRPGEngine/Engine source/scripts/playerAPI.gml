@@ -1059,6 +1059,7 @@ speechCurrentText     = "";
 speechMode            = 0;
 speechSkip            = false;
 last_mp               = 0;
+inFight               = false;
 
 set_sprite(sprite_index, 0);
 

@@ -53,7 +53,12 @@ switch (idd)
                     {
                      if (slot[S, inv_item_equip_slot] != "" && (slot[S, inv_item_effect] == rarity_normal || slot[S, inv_item_effect] == rarity_junk)) {return true;}    
                      break;                 
-                    }                                                                                                                                
+                    } 
+            case(itemEnum.itemPowerWord1):
+                    {
+                     if (slot[S, inv_item_equip_slot] != "") {return true;}    
+                     break;                 
+                    }                                                                                                                                                    
             case(itemEnum.itemRelicLeftPart):
                     {
                      if (s == itemEnum.itemRelicRightPart) {return true;}    
@@ -186,7 +191,19 @@ switch(id1)
                          audio_play_sound(sndEmendation1, 0, false);
                         }  
                      break;
-                    }                                                                                                                                      
+                    }
+            case(itemEnum.itemPowerWord1):
+                    { 
+                     if (slot[slot2, inv_item_equip_slot] != "")
+                        {       
+                         if (slot[slot2, inv_item_equip_slot] == "zbraň") {slot_vlastnosti_static[slot2, vlastnost_poskozeni] += 3;}
+                         else {slot_vlastnosti_static[slot2, vlastnost_max_zivot] += 15;}                                       
+                         inventoryDelete(itemEnum.itemPowerWord1, 1); 
+                         stateAddEntry("Požehnal jsi " + string_lower(slot[slot2, inv_item_info_head]) + " slovem moci.");
+                         audio_play_sound(sndEmendation1, 0, false);
+                        }  
+                     break;
+                    }                                                                                                                                                          
             case(itemEnum.itemRelicRightPart):
                     {
                      if (id2 == itemEnum.itemRelicLeftPart)

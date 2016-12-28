@@ -1049,7 +1049,7 @@ if (argument_count > 3) {p = argument[3];}
 
 T += t;
 if (oInventory.equiped_vlastnost[s, i] != 0) {T += string(oInventory.equiped_vlastnost[s, i]); if (oInventory.equiped_vlastnost_static[s, i] != 0) {T += " ";}}
-if (oInventory.equiped_vlastnost_static[s, i] != 0) {T += scrColorText("+" + string_format(oInventory.equiped_vlastnost_static[s, i], 2, 1), c_lime) + "";}                            
+if (oInventory.equiped_vlastnost_static[s, i] != 0) {T += scrColorText("+" + string(oInventory.equiped_vlastnost_static[s, i]), c_lime) + "";}                            
 T += p;      
 
 return T;

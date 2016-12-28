@@ -597,6 +597,7 @@
               <sprite>sprites\sEmendationEffect</sprite>
               <sprite>sprites\sSoulEffect</sprite>
               <sprite>sprites\sEnchanterEffect</sprite>
+              <sprite>sprites\sPowerWordLesserEffect</sprite>
               <sprite>sprites\sLockpickEffect</sprite>
             </sprites>
             <sprites name="Weapons">
@@ -1495,6 +1496,7 @@
           <object>objects\oArcaneUpgradeLegendary</object>
           <object>objects\oEnchanter</object>
           <object>objects\oEmendationLesser</object>
+          <object>objects\oPowerWordBalance</object>
           <object>objects\oArcaneUpgradeFinal</object>
           <object>objects\oBasicLetter</object>
           <object>objects\oBasicItem</object>

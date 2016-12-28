@@ -107,7 +107,17 @@ switch (idd)
              combine_default_slot = hover_idd;                  
             }     
          break;
-        }                                                              
+        }  
+     case (itemEnum.itemPowerWord1):
+        {
+         if (number == 0)
+            {
+             combine              = 1;
+             combine_id           = itemEnum.itemSwordWooden;
+             combine_default_slot = hover_idd;                  
+            }     
+         break;
+        }                                                                    
      case (itemEnum.itemElixirHP):
         {
          if (number == 0)
