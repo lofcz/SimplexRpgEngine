@@ -181,7 +181,18 @@ if (oPlayer.equ_draw_left_hand)
 draw_sprite(sSlotTexture,1,xx+equ_axis_left_hand_x,yy+equ_axis_left_hand_y);
 if (oInventory.equiped[5]) { draw_sprite(sRarityEffect,itemRarityEffect(equiped_image[5,2]),xx+equ_axis_left_hand_x,yy+equ_axis_left_hand_y); }
 else {draw_sprite(sEquipmentIcons,5,xx+equ_axis_left_hand_x,yy+equ_axis_left_hand_y);}
-draw_sprite(equiped_image[5,0],equiped_image[5,1],xx+equ_axis_left_hand_x+16,yy+equ_axis_left_hand_y+16)
+draw_sprite(equiped_image[5,0],equiped_image[5,1],xx+equ_axis_left_hand_x+16,yy+equ_axis_left_hand_y+16);
+
+if (equiped_image[5,0] != sFreeSlot)
+   {
+    alg();
+    fnt(fntPixelSmall);
+    clr(c_white, 0.5);
+    draw_roundrect_ext(xx+equ_axis_left_hand_x+17-(string_width(string(oInventory.equiped_stats[5, inv_number]))/2),yy+equ_axis_left_hand_y+16,xx+equ_axis_left_hand_x+22+(string_width(string(oInventory.equiped_stats[5, inv_number]))/2),yy+equ_axis_left_hand_y+30,10,10,0);
+    clr();
+    draw_text_colour(xx+equ_axis_left_hand_x+22-(string_width(string(ret))/2),yy+equ_axis_left_hand_y+14,oInventory.equiped_stats[5, inv_number],c_dkgray,c_dkgray,c_dkgray,c_dkgray,1);
+    draw_text_colour(xx+equ_axis_left_hand_x+21-(string_width(string(ret))/2),yy+equ_axis_left_hand_y+14,oInventory.equiped_stats[5, inv_number],c_black,c_black,c_black,c_black,1);
+   }
 
 if (mouse_in(xx+equ_axis_left_hand_x,xx+equ_axis_left_hand_x+32,yy+equ_axis_left_hand_y,yy+equ_axis_left_hand_y+32))
    {
@@ -194,7 +205,7 @@ if (mouse_in(xx+equ_axis_left_hand_x,xx+equ_axis_left_hand_x+32,yy+equ_axis_left
       }  
    }
 
-if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] = "shield" )
+if (oInventory.drag && oInventory.slot[oInventory.h_c,inv_item_equip_slot] = "shield" )
    { 
    if (oInventory.equiped[5] = 0) {draw_hover_block(xx+equ_axis_left_hand_x,xx+equ_axis_left_hand_x+32,yy+equ_axis_left_hand_y,yy+equ_axis_left_hand_y+32,c_lime,0.5);}
    equipmentHoldEquip(5,xx+equ_axis_left_hand_x,xx+equ_axis_left_hand_x+32,yy+equ_axis_left_hand_y,yy+equ_axis_left_hand_y+32);
@@ -653,10 +664,14 @@ if (idd != -1 && oInventory.draw_equipment)
             
          fnt(fntPixelExtraTiny);
          alg();
+         if (oInventory.equiped_vlastnost[oInventory.draw_equ_infobox_id, vlastnost_dataSocket1] == 1 && oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_equip_slot] == "shield") {typeStr = "[Šíp]";}
+         else
+         {         
          if (oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_equip_slot] != "") {typeStr = "[" + inventoryDrawEquipSlotToString(oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_equip_slot]) + ",";}
          else if (oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_materialType] != materialEnum.materialNone && oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_materialType] != -1) {if (oInventory.equiped_stats[oInventory.draw_equ_infobox_id, inv_item_materialType] == materialEnum.materialFood) {typeStr = "[Jídlo]";} else {typeStr = "[Materiál]";}}
          else if (oInventory.equiped_vlastnost[oInventory.draw_equ_infobox_id, vlastnost_canBeFastEquiped]) {typeStr = "[Spotřební]";}
          else {typeStr = "";}
+         }
          clr(c_black, alpha);
          draw_text(x + 4, oInventory.used_y + (max(196, height) + 9), typeStr); 
          fnt(); 

@@ -33,7 +33,7 @@ scrItemSetOptions();
 
 scrItemSetProperty(vlastnost_max_zivot, 26);
 scrItemSetProperty(vlastnost_odolnost, 4);
-scrItemSetBodyCanvas(2, sBodyCanvasArmor2, sBodyCanvasAttackArmor2);
+scrItemSetBodyCanvas(2, sBodyCanvasArmor2, sBodyCanvasAttackArmor2, sBodyCanvasFireArmor2);
 
 scrItemSetUpFinalize();
 

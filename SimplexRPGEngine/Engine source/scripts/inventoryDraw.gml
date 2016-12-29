@@ -293,11 +293,14 @@ if ((hover || hover_alpha > 0))
        // Draw item type
        fnt(fntPixelExtraTiny);
        alg();
+       if (slot_vlastnosti[f, vlastnost_dataSocket1] == 1 && slot[f, inv_item_equip_slot] == "shield") {typeStr = "[Šíp]";}
+       else
+       {
        if (slot[f, inv_item_equip_slot] != "") {typeStr = "[" + inventoryDrawEquipSlotToString(slot[f, inv_item_equip_slot]) + ",";}
        else if (slot[f, inv_item_materialType] != materialEnum.materialNone && slot[f, inv_item_materialType] != -1) {if (slot[f, inv_item_materialType] == materialEnum.materialFood) {typeStr = "[Jídlo]";} else {typeStr = "[Materiál]";}}
        else if (slot_vlastnosti[f, vlastnost_canBeFastEquiped]) {typeStr = "[Spotřební]";}
        else {typeStr = "";}
-       
+       }
        draw_text(x + 4, used_y + (max(196, currentHeight) + 9), typeStr);  
        
        // Draw durability

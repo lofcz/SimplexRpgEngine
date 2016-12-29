@@ -158,6 +158,15 @@ if (instance_number(oEnemySpell) &gt; 0)
          instance_activate_region(x - 64, y - 64, 128, 128, true);
         }
    }
+   
+if (instance_number(oProjectile) &gt; 0)
+   {
+    with(oProjectile)
+        {
+         instance_activate_region(x - 64, y - 64, 128, 128, true);
+        }
+   }
+   
 </string>
           </argument>
         </arguments>

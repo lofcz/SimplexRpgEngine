@@ -311,6 +311,7 @@
             <sprite>sprites\sBodyCanvasAttackLegs1</sprite>
           </sprites>
           <sprites name="Walk">
+            <sprite>sprites\sBodyCanvasQuiver1</sprite>
             <sprite>sprites\sBodyCanvasHumanWalk1</sprite>
             <sprite>sprites\sBodyCanvasWeapon2</sprite>
             <sprite>sprites\sBodyCanvasWeapon1</sprite>
@@ -324,6 +325,21 @@
             <sprite>sprites\sBodyCanvasArmor2</sprite>
             <sprite>sprites\sBodyCanvasArmor3</sprite>
             <sprite>sprites\sBodyCanvasArmor1</sprite>
+          </sprites>
+          <sprites name="Fire">
+            <sprite>sprites\sBodyCanvasFireArmor3</sprite>
+            <sprite>sprites\sBodyCanvasFireArmor2</sprite>
+            <sprite>sprites\sBodyCanvasFireLegs1</sprite>
+            <sprite>sprites\sBodyCanvasFireHair1</sprite>
+            <sprite>sprites\sBodyCanvasFireBelt1</sprite>
+            <sprite>sprites\sBodyCanvasFireHood1</sprite>
+            <sprite>sprites\sBodyCanvasFireHead2</sprite>
+            <sprite>sprites\sBodyCanvasFireBow1</sprite>
+            <sprite>sprites\sBodyCanvasFireArmor1</sprite>
+            <sprite>sprites\sBodyCanvasFireHands1</sprite>
+            <sprite>sprites\sBodyCanvasFireShoes1</sprite>
+            <sprite>sprites\sBodyCanvasFireArrow1</sprite>
+            <sprite>sprites\sBodyCanvasFire1</sprite>
           </sprites>
         </sprites>
         <sprites name="Goblin">
@@ -604,6 +620,8 @@
               <sprite>sprites\sSwordEffect2</sprite>
               <sprite>sprites\sSwordEffect</sprite>
               <sprite>sprites\sShurikenEffect</sprite>
+              <sprite>sprites\sBowEffect</sprite>
+              <sprite>sprites\sArrowEffect</sprite>
               <sprite>sprites\sAxeEffect</sprite>
             </sprites>
             <sprites name="Helmets">
@@ -708,6 +726,7 @@
     <sprite>sprites\sprite270</sprite>
     <sprite>sprites\sprite272</sprite>
     <sprite>sprites\sSpawner</sprite>
+    <sprite>sprites\sArrow</sprite>
     <sprite>sprites\sMask8x8</sprite>
   </sprites>
   <backgrounds name="background">
@@ -864,6 +883,7 @@
           <script>scripts\effectSpawnEnemy.gml</script>
           <script>scripts\effectImpFireball.gml</script>
           <script>scripts\effectFire.gml</script>
+          <script>scripts\effectArrow.gml</script>
           <script>scripts\effectFragmentYellow.gml</script>
         </scripts>
         <scripts name="Other">
@@ -1288,6 +1308,7 @@
         <object>objects\oThrowableItem</object>
         <object>objects\oCollisionMask</object>
         <object>objects\oItemText</object>
+        <object>objects\oProjectile</object>
         <object>objects\oBuilding</object>
       </objects>
       <objects name="Optimization">
@@ -1425,6 +1446,8 @@
         </objects>
         <objects name="Weapons">
           <object>objects\oTestItem3</object>
+          <object>objects\oBow</object>
+          <object>objects\oArrow1</object>
         </objects>
         <objects name="Helmets">
           <object>objects\oKozenaHelma</object>
@@ -1563,7 +1586,7 @@
       <room>rooms\mapSklep</room>
     </rooms>
   </rooms>
-  <constants number="255">
+  <constants number="256">
     <constant name="baArmor">1</constant>
     <constant name="baBase">0</constant>
     <constant name="cStaticInstance">"staticInstance"</constant>
@@ -1630,7 +1653,7 @@
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
     <constant name="upgradableProperties">58</constant>
-    <constant name="celkem_vlastnosti">112</constant>
+    <constant name="celkem_vlastnosti">113</constant>
     <constant name="vlastnost_vampStamina">111</constant>
     <constant name="vlastnost_reinforcementUpgradeIncSkill">110</constant>
     <constant name="vlastnost_reinforcementUpgradeBaseSkill">109</constant>
@@ -1659,6 +1682,7 @@
     <constant name="vlastnost_dataSocket3">86</constant>
     <constant name="vlastnost_dataSocket2">85</constant>
     <constant name="vlastnost_dataSocket1">84</constant>
+    <constant name="vlastnost_bodyCanvasFireSprite">112</constant>
     <constant name="vlastnost_bodyCanvasSlashSprite">83</constant>
     <constant name="vlastnost_bodyCanvasSprite">82</constant>
     <constant name="vlastnost_bodyCanvasIndex">81</constant>

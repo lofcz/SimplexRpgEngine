@@ -83,6 +83,7 @@ can_move     = true;
 followMouse  = false;
 enemyType    = t_t;
 isHunter     = false;
+maxHp        = hp;
 
 #define scrEnemyGetPosition
 /// scrEnemyGetPosition()

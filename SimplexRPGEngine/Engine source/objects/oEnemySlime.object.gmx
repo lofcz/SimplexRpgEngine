@@ -369,7 +369,7 @@ if (instance_number(oPlayer) &gt; 0)
 
    }
    
-if (in_fight)
+if (in_fight || hp &lt; maxHp)
    {
     if (health_alpha &lt; 1) {health_alpha += 0.05;}
    }

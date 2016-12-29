@@ -26,11 +26,11 @@ if ((oInventory.drag && mouse_check_button_released(mb_left) && equiped[equip_sl
                          oInventory.pre_switch = 1;
                          equiped[equip_slot]   = 1;
                          
-                         equiped_image[equip_slot, 0] =  equip_sprite_s[0];
-                         equiped_image[equip_slot, 1] =  equip_sprite_s[1];
-                         equiped_image[equip_slot, 2] =  equip_sprite_s[2];
-                         equiped_image[equip_slot, 3] =  equip_sprite_s[3];                                                                                                                                                        
-                         equiped_image[equip_slot, 4] =  equip_sprite_s[4];      
+                         equiped_image[equip_slot, 0] = equip_sprite_s[0];
+                         equiped_image[equip_slot, 1] = equip_sprite_s[1];
+                         equiped_image[equip_slot, 2] = equip_sprite_s[2];
+                         equiped_image[equip_slot, 3] = equip_sprite_s[3];                                                                                                                                                        
+                         equiped_image[equip_slot, 4] = equip_sprite_s[4];      
                                          
                          drag = 0;
                          drag_controll = 0;
@@ -40,7 +40,7 @@ if ((oInventory.drag && mouse_check_button_released(mb_left) && equiped[equip_sl
                               equiped_vlastnost[equip_slot,a] = slot_vlastnosti[h_c, a];
                               equiped_vlastnost_static[equip_slot,a] = slot_vlastnosti_static[h_c, a];
                               
-                              if (a != vlastnost_bodyCanvasIndex && a != vlastnost_bodyCanvasSprite && a!= vlastnost_bodyCanvasSlashSprite)
+                              if (a != vlastnost_bodyCanvasIndex && a != vlastnost_bodyCanvasSprite && a != vlastnost_bodyCanvasSlashSprite && a != vlastnost_bodyCanvasFireSprite)
                               {
                               oPlayer.vlastnost[a] += (slot_vlastnosti[h_c, a] + slot_vlastnosti_static[h_c, a]);
                               }
@@ -48,6 +48,7 @@ if ((oInventory.drag && mouse_check_button_released(mb_left) && equiped[equip_sl
                                 {
                                  if (a == vlastnost_bodyCanvasSprite) {oPlayer.bci[0, slot_vlastnosti[h_c,vlastnost_bodyCanvasIndex]] = slot_vlastnosti[h_c,a];}
                                  if (a == vlastnost_bodyCanvasSlashSprite) {oPlayer.bci[animationEnum.slash, slot_vlastnosti[h_c,vlastnost_bodyCanvasIndex]] = slot_vlastnosti[h_c,a]; }                                
+                                 if (a == vlastnost_bodyCanvasFireSprite) {oPlayer.bci[animationEnum.fire, slot_vlastnosti[h_c,vlastnost_bodyCanvasIndex]] = slot_vlastnosti[h_c,a]; }                                
                                 }                                                    
                              }
                              
@@ -69,6 +70,8 @@ if ((oInventory.drag && mouse_check_button_released(mb_left) && equiped[equip_sl
                             {
                              oPlayerCombat.draw   = true;
                              oPlayerCombat.sprite = true;
+                             if (equiped_vlastnost[equip_slot, vlastnost_dataSocket1] == 0) {oPlayer.weaponType = "melee";}
+                             if (equiped_vlastnost[equip_slot, vlastnost_dataSocket1] == 1) {oPlayer.weaponType = "bow";}                             
                             }
 
                           draw_item_mouse = 0;

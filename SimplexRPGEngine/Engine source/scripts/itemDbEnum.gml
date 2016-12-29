@@ -90,5 +90,7 @@ itemArcaneUpgrade5,
 itemEnchanter,
 itemEmendation1,
 itemSoulShard,
-itemPowerWord1
+itemPowerWord1,
+itemBow1,
+itemArrow1
 };

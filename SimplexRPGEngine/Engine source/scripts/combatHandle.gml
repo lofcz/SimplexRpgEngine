@@ -29,10 +29,8 @@ if (keyboard_check_pressed(vk_alt)) {chargeMode = !chargeMode;}
 
 if ((keyboard_check_released(vk_space) && chargeMode) || (keyboard_check_pressed(vk_space) && !chargeMode))
    {   
-    if (!attack && oPlayer.vlastnost[vlastnost_stamina] >= oPlayer.vlastnost[vlastnost_stamina_cost] && attackMode == "attack" && oPlayer.vlastnost[vlastnost_stamina_cost] > 0)
+    if (!attack && oPlayer.vlastnost[vlastnost_stamina] >= oPlayer.vlastnost[vlastnost_stamina_cost] && attackMode == "attack" && oPlayer.vlastnost[vlastnost_stamina_cost] > 0 && !animating)
        {
-        audio_play_sound(choose(sndSwing1, sndSwing2, sndSwing3), 0, 0);
-        attack = 1;
         tick   = oPlayer.attack_interval;
         mode   = 1;
         sharp  = 1;
@@ -40,11 +38,34 @@ if ((keyboard_check_released(vk_space) && chargeMode) || (keyboard_check_pressed
         k = 0;  
         can_damage = -1;
         oPlayer.vlastnost[vlastnost_stamina] -= oPlayer.vlastnost[vlastnost_stamina_cost];
-        ss = instance_create(xx, yy, oSwordSwing);
-        ss.dir = oPlayer.last_dir;
+        animating = true;
+
         attackMode = "attack";
-        oPlayer.currentAnimation = animationEnum.slash;
-        oPlayer.sprite_index = oPlayer.bci[1, 0];
+        if (oPlayer.weaponType == "melee") 
+           {
+            oPlayer.currentAnimation = animationEnum.slash;
+            ss = instance_create(xx, yy, oSwordSwing);
+            ss.dir = oPlayer.last_dir;    
+            audio_play_sound(choose(sndSwing1, sndSwing2, sndSwing3), 0, 0);  
+            attack = true;
+            oPlayer.sprite_index = oPlayer.bci[1, 0];                             
+           }
+        if (oPlayer.weaponType == "bow" && oInventory.equiped[5])   
+           {
+            if (oInventory.equiped_stats[5, inv_number] > 0)
+               {
+                oPlayer.currentAnimation = animationEnum.fire; 
+                oPlayer.sprite_index     = oPlayer.bci[2, 0];                
+               }
+            if (oInventory.equiped_stats[5, inv_number] == 1)
+               {
+                oInventory.equiped_image[5,0] = sFreeSlot;
+                oInventory.equiped_image[5,1] = 0;
+                oInventory.equiped[5]         = false; 
+                apiPlayerSay("Můj poslední šíp");
+               }
+           }
+        
         
          if (oPlayer.last_dir == "s" || oPlayer.last_dir == "")
             {
@@ -60,7 +81,7 @@ if ((keyboard_check_released(vk_space) && chargeMode) || (keyboard_check_pressed
             }   
          if (oPlayer.last_dir == "a")
             {
-             oPlayer.image_index = 18;
+             oPlayer.image_index = 6;
             }                         
          }
         oPlayer.speed = 0;
@@ -73,7 +94,7 @@ if (tick > 0)
    {
     tick -= tick_rate;
    }   
-   else {if (untick = 1) {attack = 0; untick = 0; ds_list_clear(hitList);}}
+   else {if (untick) {animating = false attack = false; untick = false; ds_list_clear(hitList);}}
 }
 }
 

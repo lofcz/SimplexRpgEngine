@@ -59,6 +59,7 @@ timeToPerform                 = 0;
 tempSpd                       = spd;
 safeDying                     = true;
 cced                          = false;
+maxHp                         = hp;
 
 
 </string>
@@ -154,9 +155,8 @@ if (x &gt; room_width - 32 || y &gt; room_height - 32 || x &lt; 32 || y &lt; 32)
    state = "turn";
    scrEnemyGetPosition();
    mood = "idle";
-   }
-
-
+   }  
+   
 // Cutscenes
 if (timeline_running &amp;&amp; (timeline_position &gt; (timeline_max_moment(timeline_index) + global.cutsceneTime)))
     {

@@ -37,7 +37,7 @@ for(a = 0; a < oInventory.slots; a++)
             for(a = 0; a < inv_atributes_total; a++)
                   {
                    oInventory.slot[free_slot,a] = equiped_stats[e_slot,a];
-                   equiped_stats[e_slot] = "";
+                   equiped_stats[e_slot] = 0;
                   }
             equiped_image[e_slot,0] = sFreeSlot; 
             equiped_image[e_slot,1] = 0;

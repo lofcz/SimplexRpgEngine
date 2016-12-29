@@ -152,17 +152,41 @@ for (i = 0; i < 15; i++)
 // In case of attack, spell cast or other special action flow the animation    
 if (currentAnimation != animationEnum.walk)
     {
-     image_speed = 0.4;
+     animationEnd  = false;
+     lastAnimation = currentAnimation;
+     image_speed   = animationSpeed[currentAnimation];
  
      if (currentAnimation == animationEnum.slash)
         {
          draw_sprite(sBodyCanvasAttackWeapon2, image_index, x, y);         
         }
+     if (currentAnimation == animationEnum.fire)
+        {
+         draw_sprite(sBodyCanvasFireBow1, image_index, x, y);  
+         draw_sprite(sBodyCanvasFireArrow1, image_index, x, y);       
+        }
   
-     if (last_dir == "s" || last_dir == "") {if (image_index > 17) {sprite_index  = bci[0, 0]; currentAnimation = animationEnum.walk; image_index = 12; image_speed = 0;}}
-     if (last_dir == "d")                   {if (image_index >= 23) {sprite_index = bci[0, 0]; currentAnimation = animationEnum.walk; image_index = 18; image_speed = 0;}}
-     if (last_dir == "a")                   {if (image_index >= 11) {sprite_index = bci[0, 0]; currentAnimation = animationEnum.walk; image_index = 6;  image_speed = 0;}}
-     if (last_dir == "w")                   {if (image_index >= 5) {sprite_index  = bci[0, 0]; currentAnimation = animationEnum.walk; image_index = 0;  image_speed = 0;}}
+     if (last_dir == "s" || last_dir == "") {if (image_index > 17)  {animationEnd = true; sprite_index  = bci[0, 0]; currentAnimation = animationEnum.walk; image_index = 12; image_speed = 0;}}
+     if (last_dir == "d")                   {if (image_index >= 23) {animationEnd = true; sprite_index  = bci[0, 0]; currentAnimation = animationEnum.walk; image_index = 18; image_speed = 0;}}
+     if (last_dir == "a")                   {if (image_index >= 11) {animationEnd = true; sprite_index  = bci[0, 0]; currentAnimation = animationEnum.walk; image_index = 6;  image_speed = 0;}}
+     if (last_dir == "w")                   {if (image_index >= 5)  {animationEnd = true; sprite_index  = bci[0, 0]; currentAnimation = animationEnum.walk; image_index = 0;  image_speed = 0;}}
+    
+     if (animationEnd)
+        {         
+         if (lastAnimation == animationEnum.fire)
+            {
+             var i = instance_create(oPlayerCombat.x + 24, oPlayerCombat.y + 24, oProjectile); 
+               i.speed = 7; 
+               i.dmg = 10; 
+               i.maxSpd = 20; 
+               if (oPlayer.last_dir == "d") {i.direction = 0;}
+               if (oPlayer.last_dir == "a") {i.direction = 180;}
+               if (oPlayer.last_dir == "w") {i.direction = 90;}
+               if (oPlayer.last_dir == "s") {i.direction = 270;}
+               i.image_angle = i.direction;    
+               oInventory.equiped_stats[5, inv_number]--;                    
+            }
+        }
     }
 
 // Update vars - lineary interpolate to real values
@@ -1060,6 +1084,7 @@ speechMode            = 0;
 speechSkip            = false;
 last_mp               = 0;
 inFight               = false;
+weaponType            = "melee";
 
 set_sprite(sprite_index, 0);
 
