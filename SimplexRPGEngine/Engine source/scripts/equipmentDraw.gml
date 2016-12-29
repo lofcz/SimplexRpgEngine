@@ -728,7 +728,7 @@ xoffset  = argument5;
 
 for(a = 0; a < celkem_vlastnosti; a++)
       {  
-       if (oInventory.equiped_vlastnost[idd,a] != 0)
+       if (oInventory.equiped_vlastnost[idd,a] != 0 || oInventory.equiped_vlastnost_static[idd,a] != 0)
           {
             switch(a)
                     {
