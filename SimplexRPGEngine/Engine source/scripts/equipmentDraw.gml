@@ -734,285 +734,275 @@ for(a = 0; a < celkem_vlastnosti; a++)
                     {
                      case(vlastnost_poskozeni):
                          {
-                           t_text += "#Poškození: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Poškození: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_stackSezehnuti):
                          {    
                            t_text += equipmentDrawStat(idd, a, "#Šance na sežehnutí: ", "%");                      
                            break;                                                                   
-                         }                         
+                         }    
+                    case(vlastnost_bonusove_poskozeni_vuci_zviratum):
+                         {
+                           t_text += equipmentDrawStat(idd, a, "#Poškození vůči zvířatům: ", "%"); 
+                           break;                                                                   
+                         }                                              
                      case(vlastnost_vampStamina):
                          {
-                           t_text += "#Výdrž vysátá výdrž při úderu: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Vysátá výdrž: ", "")
                            break;                                                                   
                          }                     
                      case(vlastnost_max_zivot):
                          {
-                           t_text += "#Život: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Život: ", "")
                            break;                                                                   
                          }
                      case(vlastnost_stamina_cost):
                          {
-                           t_text += "#Stamina za úder: -"+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Stamina za úder: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_max_mana):
                          {
-                           t_text += "#Mana: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Mana: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_sila):
                          {
-                           t_text += "#Síla: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Síla: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_obratnost):
                          {
-                           t_text += "#Obratnost: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Obratnost: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_kovarstvi):
                          {
-                           t_text += "#Kovářství: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Kovářství: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_tezarstvi):
                          {
-                           t_text += "#Těžařství: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Těžařství: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_odolnost):
                          {
-                           t_text += "#Odolnost: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Odolnost: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_vytrvalost):
                          {
-                           t_text += "#Vytrvalost: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Vytrvalost: ", "")
                            break;                                                                   
                          }
                      case(vlastnost_presnost):
                          {
-                           t_text += "#Přesnost: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Přesnost: ", "")
                            break;                                                                   
                          }
                      case(vlastnost_rychlost):
                          {
-                           t_text += "#Rychlost: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Rychlost: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_zrucnost):
                          {
-                           t_text += "#Zručnost: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Zručnost: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_svadeni):
                          {
-                           t_text += "#Svádění: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Svádění: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_zastrasovani):
                          {
-                           t_text += "#Zastrašování: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Zastrašování: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_dustojnost):
                          {
-                           t_text += "#Důstojnost: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Důstojnost: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_vyrecnost):
                          {
-                           t_text += "#Výřečnost: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Výřečnost: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_elegance):
                          {
-                           t_text += "#Elegance: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Elegance: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_cest):
                          {
-                           t_text += "#Čest: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Čest: ", "")
                            break;                                                                   
                          }
                          
                     case(vlastnost_kapsarstvi):
                          {
-                           t_text += "#Kapsářství: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Kapsářství: ", "")
                            break;                                                                   
                          }
                      case(vlastnost_paceni_zanmku):
                          {
-                           t_text += "#Páčení zámků: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Háčkování zámků: ", "")
                            break;                                                                   
                          }
                      case(vlastnost_vule):
                          {
-                           t_text += "#Vůle: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Vůle: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_inteligence):
                          {
-                           t_text += "#Inteligence: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Inteligence: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_ritualy):
                          {
-                           t_text += "#Rituály: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Rituály: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_tradicni_magie):
                          {
-                           t_text += "#Tradiční magie: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Tradiční magie: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_astralni_videni):
                          {
-                           t_text += "#Astrální vidění: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Astrální vidění: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_mece):
                          {
-                           t_text += "#Meče: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Meče: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_dyky):
                          {
-                           t_text += "#Dýky: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Dýky: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_luky):
                          {
-                           t_text += "#Lukostřelba: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Lukostřelba: ", "")
                            break;                                                                   
                          }
                      case(vlastnost_kopi):
                          {
-                           t_text += "#Kopí: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Kopí: ", "")
                            break;                                                                   
                          }
                      case(vlastnost_jednorucni):
                          {
-                           t_text += "#Jednoruční zbraně: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Jednoruční zbraně: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_dvojrucni):
                          {
-                           t_text += "#Dvojruční zbraně: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Dvojruční zbraně: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_stity):
                          {
-                           t_text += "#Štíty: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Štíty: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_rezistence_vse):
                          {
-                           t_text += "#Ochrana proti všem elementům: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Elementární ochrana: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_rezistence_zeme):
                          {
-                           t_text += "#Ochrana proti zemi: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Ochrana vůči zemi: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_rezistence_ohen):
                          {
-                           t_text += "#Ochrana proti ohni: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Ochrana vůči ohni: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_rezistence_voda):
                          {
-                           t_text += "#Ochrana proti vodě: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Ochrana vůči vodě: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_rezistence_temnota):
                          {
-                           t_text += "#Ochrana proti temnotě: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Ochrana vůči temnotě: ", "")
                            break;                                                                   
                          }
                          
                      case(vlastnost_rezistence_svetlo):
                          {
-                           t_text += "#Ochrana proti světlu: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Ochrana vůči světlu: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_rezistence_vitr):
                          {
-                           t_text += "#Ochrana proti vodě: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Ochrana vůči vodě: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_zivot):
                          {
-                           t_text += "#Obnoví zdraví: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Obnoví zdraví: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_mana):
                          {
-                           t_text += "#Obnoví manu: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Obnoví manu: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_stamina):
                          {
-                           t_text += "#Obnoví výdrž: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Obnoví výdrž: ", "")
                            break;                                                                   
                          }
                          
                     case(vlastnost_max_stamina):
                          {
-                           t_text += "#Výdrž: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Výdrž: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_kriticka_sance):
                          {
-                           t_text += "#Šance na kritický úder: "+string(oInventory.equiped_vlastnost[idd,a])+ "%";
+                           t_text += equipmentDrawStat(idd, a, "#Šance na kritický úder: ", "%")
                            break;                                                                   
                          }
                     case(vlastnost_kriticka_nasobic):
                          {
-                           t_text += "#Násobič kritického úderu: "+string(oInventory.equiped_vlastnost[idd,a])+"%";
+                           t_text += equipmentDrawStat(idd, a, "#Násobič kritického úderu: ", "%")
                            break;                                                                   
                          }
                     case(vlastnost_stit):
                          {
-                           t_text += "#Obnoví štít: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Obnoví štít: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_max_stit):
                          {
-                           t_text += "#Štít: "+string(oInventory.equiped_vlastnost[idd,a]);
-                           break;                                                                   
-                         }
-                    case(vlastnost_zkusenosti):
-                         {
-                           t_text += "#Přidá zkušenosti: "+string(oInventory.equiped_vlastnost[idd,a]);
-                           break;                                                                   
-                         }
-                    case(vlastnost_max_zkusenosti):
-                         {
-                           t_text += "#Zvýší zkušenosti potřebné k dosažení další úravně: "+string(oInventory.equiped_vlastnost[idd,a]);
-                           break;                                                                   
-                         }
-                    case(vlastnost_level):
-                         {
-                           t_text += "#Zváší úroveň: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Štít: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_tick_stamina):
                          {
-                           t_text += "#Zvýší rychlost obnovy výdrže: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Zvýší rychlost obnovy výdrže: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_tick_stamina_add):
                          {
-                           t_text += "#Zvýší množství obnovené výdrže: "+string(oInventory.equiped_vlastnost[idd,a]);
+                           t_text += equipmentDrawStat(idd, a, "#Zvýší množství obnovené výdrže: ", "")
                            break;                                                                   
                          }
                     case(vlastnost_bonusoveZkusenosti):
                          {
-                           t_text += "#Bonusové zkušenosti: "+string(oInventory.equiped_vlastnost[idd,a]) + "%";
+                           t_text += equipmentDrawStat(idd, a, "#Bonusové zkušenosti: ", "%")
                            break;                                                                   
                          }
                     }               
