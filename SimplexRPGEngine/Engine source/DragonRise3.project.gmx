@@ -631,6 +631,7 @@
               <sprite>sprites\sEnchanterEffect</sprite>
               <sprite>sprites\sPowerWordLesserEffect</sprite>
               <sprite>sprites\sFortunaEffect</sprite>
+              <sprite>sprites\sRelic1</sprite>
               <sprite>sprites\sLockpickEffect</sprite>
             </sprites>
             <sprites name="Weapons">
@@ -809,6 +810,7 @@
     </backgrounds>
     <background>background\AIN_Secrets3_zpsa22760a3</background>
     <background>background\shitbcgfuckoffm8</background>
+    <background>background\background47</background>
     <background>background\bcgAnimated1</background>
   </backgrounds>
   <paths name="paths">
@@ -1545,6 +1547,9 @@
           <object>objects\oBasicItem</object>
           <object>objects\parItem</object>
         </objects>
+      </objects>
+      <objects name="Collectibles">
+        <object>objects\oCollectible1Kvejk</object>
       </objects>
     </objects>
     <objects name="Environment">
