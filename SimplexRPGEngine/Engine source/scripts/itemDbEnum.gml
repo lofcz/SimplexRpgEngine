@@ -92,5 +92,6 @@ itemEmendation1,
 itemSoulShard,
 itemPowerWord1,
 itemBow1,
-itemArrow1
+itemArrow1,
+itemFortuneStatuette
 };

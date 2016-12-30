@@ -9,5 +9,5 @@ if (argument_count > i) {bci[argument[0], i-1] = argument[i];}
 
 enum animationEnum
 {
-walk, slash, fire
+walk, slash, fire, die
 };

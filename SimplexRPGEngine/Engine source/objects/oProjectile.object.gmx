@@ -105,31 +105,12 @@ instance_destroy();
             <string>/// Collide
 
 event_user(0);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="4" ename="oBasicCollision">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Collide
+if (draw)
+{
+randomize();
+audio_play_sound(choose(sndArrowHit2, sndArrowHit), 0, false);
+}
 
-//event_user(0);
 </string>
           </argument>
         </arguments>
@@ -161,6 +142,7 @@ if (draw)
     draw = false;
     scrGoreExplode(4, 4);
     alarm[0] = 30;
+    audio_play_sound(sndArrowFlesh, 0, false);
    }
 </string>
           </argument>

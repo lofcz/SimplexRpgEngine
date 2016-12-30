@@ -48,7 +48,11 @@ if ((keyboard_check_released(vk_space) && chargeMode) || (keyboard_check_pressed
             ss.dir = oPlayer.last_dir;    
             audio_play_sound(choose(sndSwing1, sndSwing2, sndSwing3), 0, 0);  
             attack = true;
-            oPlayer.sprite_index = oPlayer.bci[1, 0];                             
+            oPlayer.sprite_index = oPlayer.bci[1, 0];       
+            if (oPlayer.bci[0, 8] != 0)
+            {
+             if (oInventory.equiped_vlastnost[0, vlastnost_reinforcementLevel] >= 3) {with(oPlayer) {effectWearP3(oPlayerCombat.x + 24, oPlayerCombat.y + 24, 10);}}
+            }                                   
            }
         if (oPlayer.weaponType == "bow" && oInventory.equiped[5])   
            {

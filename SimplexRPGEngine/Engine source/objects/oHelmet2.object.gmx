@@ -34,7 +34,7 @@ scrItemSetOptions();
 scrItemSetProperty(vlastnost_max_zivot, 2);
 scrItemSetProperty(vlastnost_max_stamina, 3);
 scrItemSetProperty(vlastnost_elegance, 1);
-scrItemSetBodyCanvas(3, sBodyCanvasHead1, sBodyCanvasAttackHead2, sBodyCanvasFireHead2);
+scrItemSetBodyCanvas(3, sBodyCanvasHead1, sBodyCanvasAttackHead2, sBodyCanvasFireHead2, sBodyCanvasDieHead2);
 
 scrItemSetUpFinalize();
 

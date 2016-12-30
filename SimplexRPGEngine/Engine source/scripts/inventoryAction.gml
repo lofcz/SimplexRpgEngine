@@ -144,7 +144,16 @@ switch (idd)
              inventoryDelete(itemEnum.itemElixirStamina, 1);
             }
         break;
-        }               
+        }   
+    case (itemEnum.itemFortuneStatuette):
+        {
+         if (number == 0)
+            {
+             instance_create(view_xview, view_yview, oFortunaMenu);
+             inventoryDelete(itemEnum.itemFortuneStatuette, 1);
+            }
+        break;
+        }                    
     case (itemEnum.itemGiftLof):
         {
          if (number == 0)

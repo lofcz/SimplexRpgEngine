@@ -274,6 +274,10 @@
       <sound>sound\sndClick</sound>
       <sound>sound\sndSoul</sound>
       <sound>sound\sndFragment5</sound>
+      <sound>sound\sndArrowFlesh</sound>
+      <sound>sound\sndArrowHit2</sound>
+      <sound>sound\sndArrowHit</sound>
+      <sound>sound\sndArrow</sound>
     </sounds>
   </sounds>
   <sprites name="sprites">
@@ -326,7 +330,7 @@
             <sprite>sprites\sBodyCanvasArmor3</sprite>
             <sprite>sprites\sBodyCanvasArmor1</sprite>
           </sprites>
-          <sprites name="Fire">
+          <sprites name="Shoot">
             <sprite>sprites\sBodyCanvasFireArmor3</sprite>
             <sprite>sprites\sBodyCanvasFireArmor2</sprite>
             <sprite>sprites\sBodyCanvasFireLegs1</sprite>
@@ -340,6 +344,18 @@
             <sprite>sprites\sBodyCanvasFireShoes1</sprite>
             <sprite>sprites\sBodyCanvasFireArrow1</sprite>
             <sprite>sprites\sBodyCanvasFire1</sprite>
+          </sprites>
+          <sprites name="Die">
+            <sprite>sprites\sBodyCanvasDieHands1</sprite>
+            <sprite>sprites\sBodyCanvasDieShoes1</sprite>
+            <sprite>sprites\sBodyCanvasDieLegs1</sprite>
+            <sprite>sprites\sBodyCanvasDieBelt1</sprite>
+            <sprite>sprites\sBodyCanvasDieHood1</sprite>
+            <sprite>sprites\sBodyCanvasDieArmor1</sprite>
+            <sprite>sprites\sBodyCanvasDieHair1</sprite>
+            <sprite>sprites\sBodyCanvasDieArmor2</sprite>
+            <sprite>sprites\sBodyCanvasDieHead2</sprite>
+            <sprite>sprites\sBodyCanvasDie1</sprite>
           </sprites>
         </sprites>
         <sprites name="Goblin">
@@ -614,6 +630,7 @@
               <sprite>sprites\sSoulEffect</sprite>
               <sprite>sprites\sEnchanterEffect</sprite>
               <sprite>sprites\sPowerWordLesserEffect</sprite>
+              <sprite>sprites\sFortunaEffect</sprite>
               <sprite>sprites\sLockpickEffect</sprite>
             </sprites>
             <sprites name="Weapons">
@@ -884,6 +901,7 @@
           <script>scripts\effectImpFireball.gml</script>
           <script>scripts\effectFire.gml</script>
           <script>scripts\effectArrow.gml</script>
+          <script>scripts\effectWearP3.gml</script>
           <script>scripts\effectFragmentYellow.gml</script>
         </scripts>
         <scripts name="Other">
@@ -1287,6 +1305,7 @@
           <object>objects\oScreenBlink</object>
           <object>objects\oDayNight</object>
           <object>objects\oMapIntro</object>
+          <object>objects\oFortunaMenu</object>
           <object>objects\oAchievement</object>
         </objects>
         <objects name="Overall">
@@ -1521,6 +1540,7 @@
           <object>objects\oEmendationLesser</object>
           <object>objects\oPowerWordBalance</object>
           <object>objects\oArcaneUpgradeFinal</object>
+          <object>objects\oFortuneStatuette</object>
           <object>objects\oBasicLetter</object>
           <object>objects\oBasicItem</object>
           <object>objects\parItem</object>
@@ -1586,7 +1606,7 @@
       <room>rooms\mapSklep</room>
     </rooms>
   </rooms>
-  <constants number="256">
+  <constants number="257">
     <constant name="baArmor">1</constant>
     <constant name="baBase">0</constant>
     <constant name="cStaticInstance">"staticInstance"</constant>
@@ -1653,7 +1673,7 @@
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
     <constant name="upgradableProperties">58</constant>
-    <constant name="celkem_vlastnosti">113</constant>
+    <constant name="celkem_vlastnosti">114</constant>
     <constant name="vlastnost_vampStamina">111</constant>
     <constant name="vlastnost_reinforcementUpgradeIncSkill">110</constant>
     <constant name="vlastnost_reinforcementUpgradeBaseSkill">109</constant>
@@ -1682,6 +1702,7 @@
     <constant name="vlastnost_dataSocket3">86</constant>
     <constant name="vlastnost_dataSocket2">85</constant>
     <constant name="vlastnost_dataSocket1">84</constant>
+    <constant name="vlastnost_bodyCanvasDieSprite">113</constant>
     <constant name="vlastnost_bodyCanvasFireSprite">112</constant>
     <constant name="vlastnost_bodyCanvasSlashSprite">83</constant>
     <constant name="vlastnost_bodyCanvasSprite">82</constant>

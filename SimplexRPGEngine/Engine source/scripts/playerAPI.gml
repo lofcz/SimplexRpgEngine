@@ -150,7 +150,7 @@ for (i = 0; i < 15; i++)
     }
 
 // In case of attack, spell cast or other special action flow the animation    
-if (currentAnimation != animationEnum.walk)
+if (currentAnimation != animationEnum.walk && currentAnimation != animationEnum.die)
     {
      animationEnd  = false;
      lastAnimation = currentAnimation;
@@ -184,14 +184,21 @@ if (currentAnimation != animationEnum.walk)
                if (oPlayer.last_dir == "w") {i.direction = 90;}
                if (oPlayer.last_dir == "s") {i.direction = 270;}
                i.image_angle = i.direction;    
-               oInventory.equiped_stats[5, inv_number]--;                    
+               oInventory.equiped_stats[5, inv_number]--;    
+               audio_play_sound(sndArrow, 0, false);                
             }
         }
     }
+    
+if (currentAnimation == animationEnum.die)
+   {
+    image_speed = animationSpeed[currentAnimation];    
+    if (image_index >= 5) {image_index = 5;}           
+   }    
 
 // Update vars - lineary interpolate to real values
 stamina_dif = abs(last_stamina - vlastnost[vlastnost_stamina]);
-health_dif  = abs(last_hp - vlastnost[vlastnost_zivot]);
+health_dif  = abs(last_hp      - vlastnost[vlastnost_zivot]);
 
 if (stamina_dif <= 5) {stamina_bar = 0.1;}
 if (health_dif  <= 5) {health_bar = 0.1;}
@@ -203,8 +210,6 @@ last_mana    = lerp(last_mana,     vlastnost[vlastnost_mana],       0.1);
 last_mana    = lerp(last_mana,     vlastnost[vlastnost_mana],       0.1);
 last_stamina = lerp(last_stamina,  vlastnost[vlastnost_stamina],    0.1);
 last_xp      = round(lerp(last_xp, vlastnost[vlastnost_zkusenosti], 0.1));
-
-if (last_hp <= 0.4) {last_hp = 0; scrGoreExplode(10,10);}
 
 // Handle speech queue
 if (ds_queue_size(speechQueue) > 0)
@@ -240,7 +245,10 @@ if (speechIn)
 for (a = 0; a < spell_total; a++)
     {
      if (spell_cd[a] > 0) {spell_cd[a]--;}
-    }            
+    }                
+
+
+
 
 #define apiPlayerUnstuck
 /// apiPlayerUnstuck()
@@ -941,14 +949,6 @@ audio_play_sound(sndSoundLevelUp, 1, false);
 if (keyboard_check_pressed(vk_numpad7)) {scrGameSave();}
 if (keyboard_check_pressed(vk_numpad8)) {scrGameLoad();}
 
-// Spell casting
-if (can_move2) 
-    {   
-     if (keyboard_check(ord("J"))) {if (spell[0] != "") {spell_index = 0; apiPlayerSpellCast();}}
-     if (keyboard_check(ord("K"))) {if (spell[1] != "") {spell_index = 1; apiPlayerSpellCast();}}
-     if (keyboard_check(ord("L"))) {if (spell[2] != "") {spell_index = 2; apiPlayerSpellCast();}}
-    }
-
 // Pause game    
 if (keyboard_check_pressed(vk_escape)) {scrPauseGame();}
 
@@ -1007,7 +1007,7 @@ v = 0;
 if (argument_count > 0) {i = argument[0];}
 if (argument_count > 1) {v = argument[1];}
 
-magic[i] = v;
+oPlayer.magic[i] = v;
 
 #define apiPlayerCreate
 /// apiPlayerCreate()
@@ -1085,6 +1085,9 @@ speechSkip            = false;
 last_mp               = 0;
 inFight               = false;
 weaponType            = "melee";
+rarityTick            = 20;
+dead                  = false;
+dieTimer              = 0;
 
 set_sprite(sprite_index, 0);
 
@@ -1144,7 +1147,7 @@ v = 0;
 if (argument_count > 0) {i = argument[0];}
 if (argument_count > 1) {v = argument[1];}
 
-vlastnost[i] = v;
+oPlayer.vlastnost[i] = v;
 
 #define apiPlayerAssignSpell
 /// apiPlayerAssignSpell(index, name, sprite)
@@ -1217,3 +1220,15 @@ if (argument_count > 0) {v = argument[0];}
 oPlayer.vlastnost[vlastnost_zivot] +=  v;
 
 return(v);
+#define apiPlayerIncProperty
+/// apiPlayerIncProperty(index, value)
+
+var i, v;
+i = 0;
+v = 0;
+
+if (argument_count > 0) {i = argument[0];}
+if (argument_count > 1) {v = argument[1];}
+
+oPlayer.vlastnost[i] += v;
+

@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-205</depth>
+  <depth>-225</depth>
   <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -228,6 +228,11 @@ for (i = 0; i &lt; 10; i++)
     }
     
 lang = "cz";
+
+dieIndex = 0;
+dieMenu[0] = "Načíst hru";
+dieMenu[1] = "Restartovat hru";
+dieMenu[2] = "Ukončit hru";
 </string>
           </argument>
         </arguments>
@@ -591,16 +596,47 @@ if (draw_crafting) {scrCraftingDraw();}
 tempComponent = false;
 }
    
-if (oPlayer.last_hp &lt;= 0) {die = true; oPlayer.can_move2 = false;}  
+if (oPlayer.last_hp &lt;= 0 &amp;&amp; !oPlayer.dead) {oPlayer.can_move2 = false; oPlayer.speed = 0; oPlayer.dead = true; die = true; oPlayer.can_move2 = false; oPlayer.image_index = 0; oPlayer.currentAnimation = animationEnum.die;}  
    
-if (die)
+if (die &amp;&amp; oPlayer.image_index &gt;= 5)
     {
+     oPlayer.dieTimer++;
+     
+     if (oPlayer.dieTimer &gt; secToSteps(2))
+     {
      var_vsync = false;
-     die_alpha += 0.05;
-     draw_set_color(c_black);
-     draw_set_alpha(die_alpha);
+     die_alpha = lerp(die_alpha, 1.1, 0.1);
+     clr(c_black, die_alpha);
      draw_rectangle(view_xview,view_yview,view_xview+view_wview,view_yview+view_hview,0);        
-     if (die_alpha &gt;= 1) {display_reset(0,!var_vsync); display_reset(0,var_vsync); game_restart();}
+     if (die_alpha &gt;= 1) 
+        {
+         //game_restart();   
+         if (instance_number(parEnemy) &gt; 0) {with(parEnemy) {instance_destroy();}}
+         
+         clr(c_white, die_alpha); 
+         alg("center", fntPixelHuge);   
+         draw_text(view_xview + view_wview / 2, view_yview + 100, "Tvá cesta je u konce");
+         
+         for (var i = 0; i &lt; array_length_1d(dieMenu); i++)
+             {
+              var text  = dieMenu[i];
+              var color = c_white;
+              
+              if (i == dieIndex) {color = c_yellow; text = "&gt; " + dieMenu[i];}
+              clr(color, -1);
+              draw_text(view_xview + view_wview / 2, view_yview + 150 + (i * 48), text);
+             }  
+             
+         if (keyboard_check_pressed(ord("W"))) {if (dieIndex &gt; 0) {dieIndex--;} else {dieIndex = array_length_1d(dieMenu) - 1;}}
+         if (keyboard_check_pressed(ord("S"))) {if (dieIndex &lt; array_length_1d(dieMenu) - 1) {dieIndex++;} else {dieIndex = 0;}}
+         if (keyboard_check_pressed(vk_enter))
+            {
+             if (dieIndex == 0) {}                /* Load game */
+             if (dieIndex == 1) {game_restart();} /* Restart game */
+             if (dieIndex == 2) {game_end();}     /* End game */             
+            }       
+        }
+      }
     }
 
 /// Draw overlay

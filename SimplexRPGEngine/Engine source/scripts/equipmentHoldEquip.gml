@@ -40,7 +40,7 @@ if ((oInventory.drag && mouse_check_button_released(mb_left) && equiped[equip_sl
                               equiped_vlastnost[equip_slot,a] = slot_vlastnosti[h_c, a];
                               equiped_vlastnost_static[equip_slot,a] = slot_vlastnosti_static[h_c, a];
                               
-                              if (a != vlastnost_bodyCanvasIndex && a != vlastnost_bodyCanvasSprite && a != vlastnost_bodyCanvasSlashSprite && a != vlastnost_bodyCanvasFireSprite)
+                              if (a != vlastnost_bodyCanvasIndex && a != vlastnost_bodyCanvasSprite && a != vlastnost_bodyCanvasSlashSprite && a != vlastnost_bodyCanvasFireSprite && a != vlastnost_bodyCanvasDieSprite)
                               {
                               oPlayer.vlastnost[a] += (slot_vlastnosti[h_c, a] + slot_vlastnosti_static[h_c, a]);
                               }
@@ -49,6 +49,7 @@ if ((oInventory.drag && mouse_check_button_released(mb_left) && equiped[equip_sl
                                  if (a == vlastnost_bodyCanvasSprite) {oPlayer.bci[0, slot_vlastnosti[h_c,vlastnost_bodyCanvasIndex]] = slot_vlastnosti[h_c,a];}
                                  if (a == vlastnost_bodyCanvasSlashSprite) {oPlayer.bci[animationEnum.slash, slot_vlastnosti[h_c,vlastnost_bodyCanvasIndex]] = slot_vlastnosti[h_c,a]; }                                
                                  if (a == vlastnost_bodyCanvasFireSprite) {oPlayer.bci[animationEnum.fire, slot_vlastnosti[h_c,vlastnost_bodyCanvasIndex]] = slot_vlastnosti[h_c,a]; }                                
+                                 if (a == vlastnost_bodyCanvasDieSprite) {oPlayer.bci[animationEnum.die, slot_vlastnosti[h_c,vlastnost_bodyCanvasIndex]] = slot_vlastnosti[h_c,a]; }                                
                                 }                                                    
                              }
                              
