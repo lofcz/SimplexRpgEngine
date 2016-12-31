@@ -94,5 +94,6 @@ itemPowerWord1,
 itemBow1,
 itemArrow1,
 itemFortuneStatuette,
-itemCollectible1
+itemCollectible1,
+itemCollectible2
 };

@@ -634,7 +634,6 @@
               <sprite>sprites\sEnchanterEffect</sprite>
               <sprite>sprites\sPowerWordLesserEffect</sprite>
               <sprite>sprites\sFortunaEffect</sprite>
-              <sprite>sprites\sRelic1</sprite>
               <sprite>sprites\sLockpickEffect</sprite>
             </sprites>
             <sprites name="Weapons">
@@ -694,6 +693,10 @@
               <sprite>sprites\sMilkEffect</sprite>
               <sprite>sprites\sCheeseEffect</sprite>
             </sprites>
+          </sprites>
+          <sprites name="Collectibles">
+            <sprite>sprites\sRelic1</sprite>
+            <sprite>sprites\sRelic2</sprite>
           </sprites>
         </sprites>
         <sprites name="Misc">
@@ -1562,6 +1565,7 @@
       </objects>
       <objects name="Collectibles">
         <object>objects\oCollectibleItem1Kvejk</object>
+        <object>objects\oCollectibleItem2Unicorn</object>
         <object>objects\parCollectible</object>
       </objects>
     </objects>
