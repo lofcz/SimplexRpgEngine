@@ -17,7 +17,7 @@ else {c_a = 0;}
 // Draw header 
 clr();
 fnt(fntPixelHuge);
-draw_sprite(sInventoryTitle, 0, x, y);
+draw_sprite(sInventoryTitle, 4, x, y);
 alg("center");
 draw_text(x + 144, y + 14, inventory_title);
 fnt(fntPixelSmall);

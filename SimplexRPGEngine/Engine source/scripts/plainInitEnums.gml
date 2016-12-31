@@ -60,3 +60,8 @@ enum equipmentEnum
 {
 weapon
 };
+
+enum collectibleEnum
+{
+item, book, fragment, achievement   
+}

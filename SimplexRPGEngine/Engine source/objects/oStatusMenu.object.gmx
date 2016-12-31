@@ -42,14 +42,24 @@ prevHit             = 0;
 prevHit2            = 0;
 push                = 0;
 pushValue           = 0;
-
-
+lastIndexOver       = 0;
+indexAlpha          = 0;
+textAlpha           = 0;
+drawMode            = 0;
 
 skillIndexName[1] = "Řemesla";
 skillIndexName[2] = "Výřečnost";
 skillIndexName[3] = "Čarodějnictví";
 skillIndexName[4] = "Zlodějina";
 skillIndexName[5] = "Zbraně";
+
+cName[0] = "Předměty";
+cName[1] = "Knihy";
+cName[2] = "Fragmenty minulosti";
+cName[3] = "Ocenění";
+
+cNameSelected = 0;
+
 
 xoffset = 10;
 yoffset = 0;
@@ -63,7 +73,17 @@ for(i = 0; i &lt; celkem_vlastnosti; i++)
 incHealth = 5;
 incMana = 3;
 
-drawMode = 0;
+
+for (var j = 0; j &lt; 4; j++)
+    {
+     for (var i = 0; i &lt; 40; i++)
+         {
+          collectibleUnlocked[j, i] = false;
+          collectibleIndex[j, i]    = 86;
+          collectibleCaption[j, i]  = "";
+         }
+     }
+scrCollectibleDefine(collectibleEnum.item, 0, "Kvejkova soška", "Vzpomínka na všumělce, který stál u zrodu Simplexu. Kvejk je programátor, herní designer, hudební skladatel a bůh ví, co ještě.", "bonusové zlato +1%");
 </string>
           </argument>
         </arguments>
@@ -214,6 +234,9 @@ alg();
 
 c1 = c_white;
 c2 = c_white;
+c3 = c_white;
+t  = "[Sbírka]";
+if (drawMode == 1) {t = "[-&gt; Sbírka]";}
 
 if (mouse_in(view_xview + 400 - (sW / 2) - string_width("&lt; Magie") - 16, view_xview + 400 - (sW / 2) - 16, view_yview + 10, view_yview + 24))
    {
@@ -242,10 +265,24 @@ if (mouse_in(view_xview + 400 + (sW / 2) + 16, view_xview + 400 + (sW / 2) + 16 
        }
    }
    
+if (mouse_in(view_xview + 730, view_xview + 730 + string_width(t), view_yview + 10, view_yview + 24))
+   {
+    c3 = c_lime;
+    
+    if (mouse_check_button_pressed(mb_left))
+       {
+        if (drawMode == 0) {drawMode = 1;}
+        else {drawMode = 0;}
+       }
+   }   
 clr(c1, -1);
 draw_text(view_xview + 400 - (sW / 2) - string_width("&lt; Magie") - 16, view_yview + 4, "&lt; Magie");
 clr(c2, -1);
 draw_text(view_xview + 400 + (sW / 2) + 16, view_yview + 4, "Talenty &gt;");
+clr(c3, -1);
+alg("center", fntPixelSmall);
+draw_text(view_xview + 750, view_yview + 15, t);
+alg();
 clr(c_white, -1);
 
 fnt();
@@ -531,6 +568,87 @@ draw_text_colored(xx + xoffset, yy + yoffset + 96, "Šance na kritický úder: "
 fnt(fntPixelSmall); draw_text_colored(xx + xoffset + 16, yy + yoffset + 128, "- Kritické poškození: " + string(round(oPlayer.vlastnost[vlastnost_kriticka_nasobic] * 100)) + "%"); fnt();
 
  }
+if (drawMode == 1)
+   {
+    xx = view_xview + 160;
+    yy = view_yview + 128;
+    indexOver = -1;
+    
+    //  Navigation
+    for (var i = 0; i &lt; array_length_1d(cName); i++)
+        {
+         var text  = cName[i];
+         var color = c_white;
+         
+         if (cNameSelected == i) {text = "&gt; " + cName[i]; color = c_yellow;}
+         
+         clr(color, -1);
+         draw_text(view_xview + 10, view_yview + 30 + (i * 20), text);
+        }
+
+    if (keyboard_check_pressed(vk_down)) {if (cNameSelected &lt; array_length_1d(cName) - 1) {cNameSelected++;} else {cNameSelected = 0;} indexAlpha = 0; textAlpha = 0;}    
+    if (keyboard_check_pressed(vk_up)) {if (cNameSelected &gt; 0) {cNameSelected--;} else {cNameSelected = array_length_1d(cName) - 1;} indexAlpha = 0; textAlpha = 0;}    
+    
+    
+    // Collectibles
+    for (var i = 0; i &lt; 4; i++)
+        {
+         for (var j = 0; j &lt; 10; j++)    
+             {              
+              var index = scrArray2DTo1D(j, i, 10);
+              var color = c_yellow;
+              
+              if (mouse_in(xx, xx + 32, yy, yy + 32) &amp;&amp; collectibleUnlocked[cNameSelected, index])
+                 {
+                  color = c_lime;
+                  lastIndexOver = index;
+                  indexOver = index;
+                 }
+              
+              if (!collectibleUnlocked[cNameSelected, index])
+                 {
+                  clr(c_gray, activatedAlpha / 3);
+                  draw_roundrect(xx, yy, xx + 32, yy + 32, false);
+                  clr(c_gray, activatedAlpha / 2);
+                  draw_roundrect(xx, yy, xx + 32, yy + 32, true);
+                 
+                  clr(c_white, activatedAlpha / 4 * 3); 
+                  draw_text(xx + 13, yy + 5, "?");                 
+                 }
+              else
+                  {
+                   clr(color, activatedAlpha / 3);
+                   draw_roundrect(xx, yy, xx + 32, yy + 32, false);
+                   clr(color, activatedAlpha / 2);
+                   draw_roundrect(xx, yy, xx + 32, yy + 32, true);
+
+                   clr(c_white, activatedAlpha); 
+                   draw_sprite(sTestItem, collectibleIndex[cNameSelected, index], xx + 18, yy + 16);
+                  }
+              
+              xx += 48;
+             }
+         xx = view_xview + 160;
+         yy += 48;
+        }
+
+    if (indexOver != -1) {indexAlpha = lerp(indexAlpha, 1, 0.1); if (indexAlpha &gt; 0.2) {textAlpha = lin(textAlpha, 1, 0.05);}}
+    else {indexAlpha = lerp(indexAlpha, 0, 0.1); textAlpha = lerp(indexAlpha, 0, 0.1);}
+        
+    if (indexAlpha &gt; 0.02 || textAlpha &gt; 0.02)
+       {
+        alg("center", fntPixelHuge);
+        clr(c_white, min(activatedAlpha, indexAlpha));
+        draw_text(view_xview + 400, view_yview + 330, collectibleCaption[cNameSelected, lastIndexOver]);
+        alg();
+        fnt(fntPixel);
+        clr(c_white, min(activatedAlpha, textAlpha));        
+        draw_text_colored(view_xview + 20, view_yview + 360, collectibleText[cNameSelected, lastIndexOver]);
+        h = string_height(collectibleText[cNameSelected, lastIndexOver]);
+        fnt(fntPixelSmall);
+        draw_text_colour(view_xview + 20, view_yview + 360 + h, "Odkaz: " + collectibleFooter[cNameSelected, lastIndexOver], c_yellow, c_yellow, c_yellow, c_yellow, min(activatedAlpha, textAlpha)); 
+       }
+   }
 }
 </string>
           </argument>

@@ -435,7 +435,7 @@
     <option_showprogress>1</option_showprogress>
     <option_sizeable>True</option_sizeable>
     <option_stayontop>false</option_stayontop>
-    <option_sync_vertex>2147483648</option_sync_vertex>
+    <option_sync_vertex>0</option_sync_vertex>
     <option_textureGroup0_border>2</option_textureGroup0_border>
     <option_textureGroup0_nocropping>0</option_textureGroup0_nocropping>
     <option_textureGroup0_parent>&lt;none&gt;</option_textureGroup0_parent>
@@ -485,7 +485,7 @@
     <option_use_new_audio>True</option_use_new_audio>
     <option_variableerrors>False</option_variableerrors>
     <option_version>100</option_version>
-    <option_version_build>1</option_version_build>
+    <option_version_build>6</option_version_build>
     <option_version_company>SimplexTeam</option_version_company>
     <option_version_copyright>2015 Matěj Štágl</option_version_copyright>
     <option_version_description></option_version_description>
@@ -561,7 +561,7 @@
     <option_winUAP_wide_logo>Configs\Default\WindowsUAP\logos\WideLogo.scale-100.png</option_winUAP_wide_logo>
     <option_windowcolor>clBlack</option_windowcolor>
     <option_windows_alternate_sync_method>False</option_windows_alternate_sync_method>
-    <option_windows_build_version>1</option_windows_build_version>
+    <option_windows_build_version>6</option_windows_build_version>
     <option_windows_company_info>SimplexTeam</option_windows_company_info>
     <option_windows_copyright_info>2015 Matěj Štágl</option_windows_copyright_info>
     <option_windows_create_textures_on_demand>True</option_windows_create_textures_on_demand>

@@ -366,6 +366,9 @@
         <sprite>sprites\sButterfly</sprite>
         <sprite>sprites\sRat</sprite>
       </sprites>
+      <sprites name=" Misc">
+        <sprite>sprites\sCombatDummy</sprite>
+      </sprites>
     </sprites>
     <sprites name="Environment">
       <sprites name="Trees">
@@ -741,7 +744,6 @@
     <sprite>sprites\sBarrel</sprite>
     <sprite>sprites\sprite244</sprite>
     <sprite>sprites\sEmoticons</sprite>
-    <sprite>sprites\sprite270</sprite>
     <sprite>sprites\sprite272</sprite>
     <sprite>sprites\sSpawner</sprite>
     <sprite>sprites\sArrow</sprite>
@@ -855,6 +857,7 @@
           </scripts>
           <scripts name="Misc">
             <script>scripts\scrWordwrap.gml</script>
+            <script>scripts\scrArray2DTo1D.gml</script>
             <script>scripts\scrSetParamsArray.gml</script>
             <script>scripts\scrChooseFromArray.gml</script>
             <script>scripts\secToSteps.gml</script>
@@ -974,6 +977,7 @@
         <script>scripts\itemAddSlotDescription.gml</script>
         <script>scripts\scrCreateItem.gml</script>
         <script>scripts\scrItemInstantiate.gml</script>
+        <script>scripts\scrItemCollectibleSetUp.gml</script>
         <script>scripts\scrValueIndex.gml</script>
       </scripts>
       <scripts name="Equipment">
@@ -1203,6 +1207,10 @@
         <script>scripts\scrGameWorldSpawnerSpawnCutscene.gml</script>
         <script>scripts\scrGameWorldSpawnersSpawnAll.gml</script>
       </scripts>
+      <scripts name="Collectibles">
+        <script>scripts\scrCollectibleDefine.gml</script>
+        <script>scripts\scrCollectibleUnlock.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -1268,9 +1276,13 @@
           <object>objects\oEnemySlime</object>
           <object>objects\oSlimePart</object>
         </objects>
-        <object>objects\oEnemyImp</object>
+        <objects name="Imp">
+          <object>objects\oEnemyImp</object>
+        </objects>
+        <objects name="Dummy">
+          <object>objects\oCombatDummy</object>
+        </objects>
         <object>objects\parEnemy</object>
-        <object>objects\oEnemySpawner</object>
       </objects>
       <objects name="NPCs">
         <object>objects\oTestNPC</object>
@@ -1549,7 +1561,8 @@
         </objects>
       </objects>
       <objects name="Collectibles">
-        <object>objects\oCollectible1Kvejk</object>
+        <object>objects\oCollectibleItem1Kvejk</object>
+        <object>objects\parCollectible</object>
       </objects>
     </objects>
     <objects name="Environment">
@@ -1568,6 +1581,7 @@
         <object>objects\oTeleport</object>
         <object>objects\oFence</object>
         <object>objects\oAltar</object>
+        <object>objects\oEnemySpawner</object>
       </objects>
       <objects name="Containers">
         <object>objects\oChest</object>
