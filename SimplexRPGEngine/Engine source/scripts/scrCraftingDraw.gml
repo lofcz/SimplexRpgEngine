@@ -476,9 +476,9 @@ else
                  fnt(fntPixelSmall);
                  clr(c_white, 1);
                  tempY += 48;
-                 sU = oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementCostBase] + (oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementCostInc] * oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementLevel]) + (oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementLevel] * oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementLevel] * oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementCostIncM]);
+                 sU = round(oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementCostBase] + (oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementCostInc] * oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementLevel]) + (oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementLevel] * oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementLevel] * oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementCostIncM]));
                  sR = "Stupeň vylepšení: " + string(oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementLevel]) + " / 10";
-                 sZ = oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementUpgradeBaseSkill] + (oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementLevel] * oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementUpgradeIncSkill]);
+                 sZ = round(oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementUpgradeBaseSkill] + (oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementLevel] * oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementUpgradeIncSkill]));
                  
                  if (oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementLevel] == 11) {sR = "Stupeň vylepšení: arkánsky vylepšeno"}
                  if (oInventory.slot_vlastnosti[upgradingItemSlotID, vlastnost_reinforcementLevel] == 10) {sR = "Stupeň vylepšení: zcela vylepšeno"}
