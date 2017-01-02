@@ -1,0 +1,9 @@
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexRoomToPng\SimplexRoomToPng\bin\Debug\SimplexRoomToPng.exe.config
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexRoomToPng\SimplexRoomToPng\bin\Debug\SimplexRoomToPng.exe
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexRoomToPng\SimplexRoomToPng\bin\Debug\SimplexRoomToPng.pdb
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexRoomToPng\SimplexRoomToPng\obj\Debug\SimplexRoomToPng.csprojResolveAssemblyReference.cache
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexRoomToPng\SimplexRoomToPng\obj\Debug\SimplexRoomToPng.Form1.resources
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexRoomToPng\SimplexRoomToPng\obj\Debug\SimplexRoomToPng.Properties.Resources.resources
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexRoomToPng\SimplexRoomToPng\obj\Debug\SimplexRoomToPng.csproj.GenerateResource.Cache
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexRoomToPng\SimplexRoomToPng\obj\Debug\SimplexRoomToPng.exe
+c:\users\matěj\documents\visual studio 2015\Projects\SimplexRoomToPng\SimplexRoomToPng\obj\Debug\SimplexRoomToPng.pdb

@@ -84,7 +84,7 @@ for (var j = 0; j &lt; 4; j++)
          }
      }
 scrCollectibleDefine(collectibleEnum.item, 0, "Kvejkova soška", "Vzpomínka na všumělce, který stál u zrodu Simplexu. Kvejk je programátor, herní designer, hudební skladatel a bůh ví, co ještě.", "bonusové zlato +1%");
-scrCollectibleDefine(collectibleEnum.item, 1, "Prinznovská korunka Poslední jednorožky", "Věnováno Poslední jednorožce a jejímu nezbednému nosíku. Nejkrásnější věci bývají nejdál.", "bonusové zlato +1%", 87);
+scrCollectibleDefine(collectibleEnum.item, 1, "Princeznovská korunka Poslední jednorožky", "Věnováno Poslední jednorožce a jejímu nezbednému nosíku. Nejkrásnější věci bývají nejdál.", "bonusové zlato +1%", 87);
 
 
 </string>

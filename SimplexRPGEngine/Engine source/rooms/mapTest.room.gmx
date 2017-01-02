@@ -42,7 +42,7 @@
     <background visible="0" foreground="0" name="" x="0" y="0" htiled="-1" vtiled="-1" hspeed="0" vspeed="0" stretch="0"/>
   </backgrounds>
   <views>
-    <view visible="-1" objName="oCamera" xview="0" yview="0" wview="800" hview="600" xport="0" yport="0" wport="800" hport="600" hborder="400" vborder="300" hspeed="-1" vspeed="-1"/>
+    <view visible="-1" objName="oCamera" xview="0" yview="0" wview="800" hview="600" xport="0" yport="0" wport="800" hport="600" hborder="800" vborder="600" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="oPlayer" xview="0" yview="0" wview="2016" hview="2016" xport="200" yport="100" wport="402" hport="402" hborder="320" vborder="320" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
@@ -392,9 +392,9 @@
     <instance objName="oBasicCollision" x="792" y="584" name="inst_8305C11F" locked="0" code="" scaleX="2.25" scaleY="1.03225803375244" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="896" y="584" name="inst_C6A2171C" locked="0" code="" scaleX="1.80645155906677" scaleY="1.03225803375244" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="956" y="532" name="inst_33355A77" locked="0" code="" scaleX="3.125" scaleY="3" colour="4294967295" rotation="0"/>
-    <instance objName="oAdvancedCollision" x="1108" y="500" name="inst_3C75215F" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;" scaleX="2" scaleY="1.67741930484772" colour="4294967295" rotation="0"/>
-    <instance objName="oAdvancedCollision" x="1112" y="784" name="inst_3D9789B8" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;    scrAdvancedCollisionSetText(&quot;.&quot;);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oAdvancedCollision" x="1100" y="660" name="inst_62EB381A" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oAdvancedCollision" x="1108" y="500" name="inst_3C75215F" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);" scaleX="2" scaleY="1.67741930484772" colour="4294967295" rotation="0"/>
+    <instance objName="oAdvancedCollision" x="1112" y="784" name="inst_3D9789B8" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;    scrAdvancedCollisionSetText(&quot;.&quot;);" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oAdvancedCollision" x="1100" y="660" name="inst_62EB381A" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBasicCollision" x="1084" y="612" name="inst_53C269BC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oAdvancedCollision" x="708" y="496" name="inst_27A6E5C6" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;    scrAdvancedCollisionSetText(&quot;Pověšené oblečení.&quot;);&#xA;    scrAdvancedCollisionSetText(&quot;Nevypadá, že patří Alici.&quot;);&#xA;    scrAdvancedCollisionSetText(&quot;Zajímalo by mě, pro koho pere.&quot;);&#xA;    scrAdvancedCollisionSetText(&quot;Oblečení je bezcenné, nebudu ho krást.&quot;);" scaleX="2" scaleY="1.5" colour="4294967295" rotation="0"/>
     <instance objName="oAdvancedCollision" x="728" y="592" name="inst_CCAE796F" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;    scrAdvancedCollisionSetText(&quot;Starý zápřežný vozík.&quot;);&#xA;    scrAdvancedCollisionSetText(&quot;Není ničím zajímavý.&quot;);" scaleX="1.75" scaleY="1.5" colour="4294967295" rotation="0"/>
@@ -525,6 +525,7 @@
     <instance objName="oCollectibleItem1Kvejk" x="672" y="1184" name="inst_41A83C5C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oCombatDummy" x="496" y="1632" name="inst_1D775695" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oCollectibleItem2Unicorn" x="696" y="1184" name="inst_8EF9CD28" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oRoomTransition" x="16" y="1048" name="inst_A02A6E1E" locked="0" code="level = mapE1M2;&#xA;" scaleX="0.810000002384186" scaleY="58.21875" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bcgShd1" x="1728" y="1552" w="32" h="32" xo="32" yo="0" id="10006704" name="inst_505B20DA" depth="1000001" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

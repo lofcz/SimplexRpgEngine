@@ -817,6 +817,7 @@
     <background>background\shitbcgfuckoffm8</background>
     <background>background\background47</background>
     <background>background\bcgAnimated1</background>
+    <background>background\PandaMaru_MV_nature1</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\pthCutsceneObet1</path>
@@ -1621,6 +1622,7 @@
     <room>rooms\mapCopyright</room>
     <room>rooms\mapDefault</room>
     <rooms name="Game world">
+      <room>rooms\mapE1M2</room>
       <room>rooms\mapHouse1</room>
       <room>rooms\mapKrysiSklipek</room>
       <room>rooms\mapHouseAlice</room>

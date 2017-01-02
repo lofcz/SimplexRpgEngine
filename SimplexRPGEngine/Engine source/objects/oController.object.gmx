@@ -112,6 +112,10 @@ if (room == mapKrysiSklipek)
 {
  oPlayer.x = 1024; oPlayer.y = 928;
 }
+if (room == mapE1M2)
+{
+ oPlayer.x = 1984; oPlayer.y = 1088;
+}
 alarm[0] = 1;
 </string>
           </argument>

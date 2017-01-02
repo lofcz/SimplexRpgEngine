@@ -44,6 +44,13 @@ backTarget    = -1;
 updateTarget  = false;
 unPlayer      = false;
 playerQuote   = "";
+exportMap     = false;
+exportMapI    = 0;
+exportXFrames = ((room_width div view_wview) + 1);
+exportMapTI   = 0;
+exportCRow    = 0;
+exportRow     = 0;
+exportTRows   = ((room_height div view_hview) + 1);
 
 tool[0] = "camera";
 tool[1] = "cutsceneMaker";
@@ -149,6 +156,8 @@ if (instance_number(oPlayer) &gt; 0)
             <kind>1</kind>
             <string>/// Flow if motion is enabled, else call jump
 
+if (!exportMap)
+{
 if (updateTarget)
    {
     updateTarget = false;
@@ -198,7 +207,7 @@ else
        }
    }
    else
-    {
+   {
        spd = ((distance_to_point(mouse_x, mouse_y)/koe));
        if (spd &lt; 0) {spd = 0;}
        
@@ -207,10 +216,50 @@ else
         move_towards_point(mouse_x+lengthdir_x(32,direction),mouse_y+lengthdir_y(32,direction),spd);
        }
        else {speed = 0;}
-    }
    }
-
+  }
+ }
 }
+else
+    {
+    /*
+     if (x + 800 &lt;= room_width + 400)
+        {
+         x += 800;
+        }
+     else {x = 0; y += 600;}    */
+     if (exportMapI == 0) {x = 0; y = 0; exportMapTI++;}
+     else
+         {
+           if (exportRow == 0) 
+              {
+              if (exportMapTI &lt; exportXFrames) {x += (view_wview / 2) * 3; exportMapTI++;}
+              else 
+                   {
+                    y += (view_hview / 2) * 3; x = 0; exportMapTI = 0; exportRow++;
+                   }           
+               }
+           else
+               {
+              if (exportMapTI &lt; exportXFrames - 1) {x += (view_wview / 2) * 3; exportMapTI++;}
+              else 
+                   {
+                    y += (view_hview / 2) * 2; x = 0; exportMapTI = 0; exportRow++;
+                   }                
+               }
+          
+                    
+          if (exportRow == 0) {if (exportMapTI == exportXFrames) {exportCRow = true;}}
+          else {if (exportMapTI == exportXFrames - 1) {exportCRow = true;}}
+
+          }
+         
+   /*  
+     if (exportMapI == 0) {x = 0; y = 0;}
+     if (exportMapI == 1) {x = 1200; y = 0;}
+     if (exportMapI == 2) {x = 2000; y = 0;}  */  
+     exportMapI++;
+    }
 </string>
           </argument>
         </arguments>
@@ -235,6 +284,34 @@ else
             <kind>1</kind>
             <string>/// Draw in-game editor
 
+if (exportMap) 
+   {
+    yy = 0;
+    yyy = view_hview;
+    if (exportRow == exportTRows - 1) {yy = 400 - 16 yyy = 2016 - 1600;}
+    if (!exportCRow) {surface_save_part(application_surface, "parralax" + string(exportMapI) + ".png", 0, yy, view_wview, yyy);}
+    else {surface_save_part(application_surface, "parralax" + string(exportMapI) + ".png", 400 - 16, yy, 2016 - 1600, yyy); exportCRow = false;}
+
+    if (exportMapI == (exportXFrames * exportTRows)) 
+       {
+        exportMap = false; 
+        x = oPlayer.x; 
+        y = oPlayer.y;
+        
+        f = file_text_open_write("roomExporterData.simplexd");
+          file_text_write_string(f, string(exportXFrames));
+          file_text_writeln(f);
+          file_text_write_string(f, string(exportMapI));
+          file_text_writeln(f);
+          file_text_write_string(f, string(room_width));
+          file_text_writeln(f);
+          file_text_write_string(f, string(room_height));
+          file_text_writeln(f);
+         
+        file_text_close(f);
+       }
+   }
+   
 if (keyboard_check_pressed(ord("H")))
     {
      debug = !debug;

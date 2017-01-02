@@ -54,6 +54,9 @@ event_inherited();
             <string>/// Return player to previous position
 
 oController.player_pos = player_pos;
+ds_list_clear(oOptimize.activeList);
+ds_list_clear(oOptimize.activeList2);
+
 room_goto(level);
 </string>
           </argument>

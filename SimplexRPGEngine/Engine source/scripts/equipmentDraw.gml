@@ -1058,4 +1058,3 @@ if (oInventory.equiped_vlastnost_static[s, i] != 0) {T += scrColorText("+" + str
 T += p;      
 
 return T;
-

@@ -112,4 +112,3 @@ for (i = 0; i < argument_count; i+=3)
          refVal = argument[i + 1];
         }
     }
-

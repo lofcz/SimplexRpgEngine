@@ -1231,4 +1231,3 @@ if (argument_count > 0) {i = argument[0];}
 if (argument_count > 1) {v = argument[1];}
 
 oPlayer.vlastnost[i] += v;
-

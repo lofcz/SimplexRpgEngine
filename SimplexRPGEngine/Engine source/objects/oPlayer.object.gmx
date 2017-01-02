@@ -240,6 +240,7 @@ apiPlayerOtherActions();
 //else {oHUD.lang = "cz";}
 //with(oHUD) {event_user(0);}
 
+/*
 var q = scrMathBresLine(x, y, x + 100, y + 30);
 
 while(!ds_queue_empty(q))
@@ -248,7 +249,11 @@ while(!ds_queue_empty(q))
       var yy = ds_queue_dequeue(q); 
       effectFiretrail(xx, yy);     
      }
-
+*/
+instance_activate_all();
+oCamera.x = 0;
+oCamera.y = 0;
+oCamera.exportMap = true;
 //scrGameWorldSpawnerSpawnCutscene("exampleSpawner", oEnemySlime, 1, "Tvoje prdel zažije středověk!");
 </string>
           </argument>
@@ -325,7 +330,7 @@ if (instance_number(oFence) &gt; 0)
 
 apiPlayerDraw();
 
-
+                              draw_text(x, y - 60, fps);
 </string>
           </argument>
         </arguments>
