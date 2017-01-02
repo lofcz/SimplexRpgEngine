@@ -751,6 +751,7 @@
     <sprite>sprites\sSpawner</sprite>
     <sprite>sprites\sArrow</sprite>
     <sprite>sprites\sMask8x8</sprite>
+    <sprite>sprites\sParallaxE1M1</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name=" Single tile backgrounds">
@@ -1327,6 +1328,7 @@
           <object>objects\oAchievement</object>
         </objects>
         <objects name="Overall">
+          <object>objects\oParallaxMap</object>
           <object>objects\oScreenShader</object>
         </objects>
         <objects name="Pop-up">

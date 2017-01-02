@@ -7,3 +7,6 @@ c:\users\matěj\documents\visual studio 2015\Projects\SimplexRoomToPng\SimplexRo
 c:\users\matěj\documents\visual studio 2015\Projects\SimplexRoomToPng\SimplexRoomToPng\obj\Debug\SimplexRoomToPng.csproj.GenerateResource.Cache
 c:\users\matěj\documents\visual studio 2015\Projects\SimplexRoomToPng\SimplexRoomToPng\obj\Debug\SimplexRoomToPng.exe
 c:\users\matěj\documents\visual studio 2015\Projects\SimplexRoomToPng\SimplexRoomToPng\obj\Debug\SimplexRoomToPng.pdb
+C:\Users\Matěj\Documents\SimplexRpgEngine\SimplexRPGEngine\IDE source\SimplexRoomToPng\SimplexRoomToPng\bin\Debug\SimplexRoomToPng.exe.config
+C:\Users\Matěj\Documents\SimplexRpgEngine\SimplexRPGEngine\IDE source\SimplexRoomToPng\SimplexRoomToPng\obj\Debug\SimplexRoomToPng.exe
+C:\Users\Matěj\Documents\SimplexRpgEngine\SimplexRPGEngine\IDE source\SimplexRoomToPng\SimplexRoomToPng\obj\Debug\SimplexRoomToPng.pdb

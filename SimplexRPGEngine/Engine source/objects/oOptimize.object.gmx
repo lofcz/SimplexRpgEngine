@@ -85,6 +85,7 @@ instance_activate_object(oThrowableItem);
 instance_activate_object(oHudDepthHelper);
 instance_activate_object(oEnemySpawner);
 instance_activate_object(oCamera);
+instance_activate_object(oParallaxMap);
 
 
 // Further optimization of collision system

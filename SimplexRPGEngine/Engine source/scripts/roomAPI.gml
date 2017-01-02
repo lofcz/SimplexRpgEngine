@@ -28,6 +28,7 @@ if (instance_number(oTalentMenu)             == 0) {instance_create(0, 0, oTalen
 if (instance_number(oSpellMenu)              == 0) {instance_create(0, 0, oSpellMenu);}
 if (instance_number(oStatusMenu)             == 0) {instance_create(0, 0, oStatusMenu);}
 if (instance_number(oDepthHelperAbovePlayer) == 0) {instance_create(0, 0, oDepthHelperAbovePlayer);}
+if (instance_number(oParallaxMap)            == 0) {instance_create(0, 0, oParallaxMap);}
       
 global.shaders_enabled = true;
 

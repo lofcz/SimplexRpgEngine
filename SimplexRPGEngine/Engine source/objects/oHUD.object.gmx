@@ -233,6 +233,8 @@ dieIndex = 0;
 dieMenu[0] = "Načíst hru";
 dieMenu[1] = "Restartovat hru";
 dieMenu[2] = "Ukončit hru";
+
+paralaxMap = sParallaxE1M1;
 </string>
           </argument>
         </arguments>
