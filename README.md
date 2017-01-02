@@ -12,6 +12,8 @@
 * GLSL / HLSL shaders, 2D physics, particles and other effects computed in real time. 
 * Can be integrated into already created projects. 
 * Responsive UI layot allows for any resolution of the game window.
+* Extends GML with local methods.
+* Able to export map to .png file on fly.
 * Defeats RPG Maker and YOYO RPG in every way.
 * Free for non-commercial projects, open-source, GPL3 licensed.
 * HTML5 and Android ready.
