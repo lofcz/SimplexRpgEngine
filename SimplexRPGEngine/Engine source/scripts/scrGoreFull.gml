@@ -1,11 +1,11 @@
-///scrGoreFull(x, y, sideNum, color, solid)
+/// scrGoreFull(x, y, sideNum, color, solid)
 
 var xx,yy,num,red,blue,green,i,j,k,s;
-num = 3;
-xx  = x;
-yy  = y;
-color = c_white;
-s = true;
+num   = 3;
+xx    = x;
+yy    = y;
+color = c_red;
+s     = true;
 
 if (argument_count > 0) {xx    = argument[0];}
 if (argument_count > 1) {yy    = argument[1];}

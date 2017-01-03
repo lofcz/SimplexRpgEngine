@@ -109,8 +109,6 @@ alarm[1] = 3; //Reset alarm for another trail.
             <string>image_angle += speed/2; //Spin according to speed.
 if fade=true{image_alpha -= 0.02;} //Fade out if relevant.
 if image_alpha &lt;0.1{instance_destroy();} //If completely faded, destroy.
-s_a = image_alpha;
-
 </string>
           </argument>
         </arguments>
@@ -159,8 +157,8 @@ move_bounce_all(1);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//scrShaderDrawColor()
-draw_self();
+            <string>scrShaderDrawColor()
+//draw_self();
 //image_blend = c_lime//make_colour_rgb(s_r*255,s_g*255,s_b*255)
 </string>
           </argument>

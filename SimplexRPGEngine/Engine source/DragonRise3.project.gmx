@@ -873,10 +873,6 @@
               <script>scripts\scrCenterText.gml</script>
             </scripts>
           </scripts>
-          <scripts name="Active component">
-            <script>scripts\scrSetActiveComponent.gml</script>
-            <script>scripts\scrGettActiveComponent.gml</script>
-          </scripts>
         </scripts>
       </scripts>
       <scripts name="Effects">
@@ -1215,6 +1211,10 @@
       <scripts name="Collectibles">
         <script>scripts\scrCollectibleDefine.gml</script>
         <script>scripts\scrCollectibleUnlock.gml</script>
+      </scripts>
+      <scripts name="Active component">
+        <script>scripts\scrSetActiveComponent.gml</script>
+        <script>scripts\scrGettActiveComponent.gml</script>
       </scripts>
     </scripts>
   </scripts>

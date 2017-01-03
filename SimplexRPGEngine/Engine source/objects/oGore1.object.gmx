@@ -80,7 +80,6 @@ scrShaderPrepareColor();
             <kind>1</kind>
             <string>if fade=true{image_alpha -= 0.005;} //Fade out if relevant.
 if image_alpha &lt;0.1{instance_destroy();} //If completely faded, destroy.
-s_a = image_alpha;
 </string>
           </argument>
         </arguments>
@@ -103,8 +102,8 @@ s_a = image_alpha;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//scrShaderDrawColor()
-draw_self()
+            <string>scrShaderDrawColor()
+//draw_self()
 //image_blend = make_colour_hsv(255, 255, random(255)); 
 </string>
           </argument>

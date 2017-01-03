@@ -240,6 +240,8 @@ return false;
 #define scrEnemyGetDamage
 /// scrEnemyGetDamage()
 
+var dmg, text;
+
 if (other.attack && combatCanBeHit()) 
 {
 //forcedBaseX = 50;
@@ -254,30 +256,25 @@ apiPlayerSayNext();
 dmg = 0;
 if (scrAffectsGetStacks("flash") != -1) {dmg += (scrAffectsGetStacks("flash") * scrAffectsGetStacks("flash")); scrAffectsRemove("flash", -1);}
 
-if (combatGetCriticalHit( oPlayer.vlastnost[vlastnost_kriticka_sance]))
-   {
-    dmg += (oPlayer.vlastnost[vlastnost_poskozeni] * oPlayer.vlastnost[vlastnost_kriticka_nasobic]);   
-   }
-else
-    {
-     dmg += oPlayer.vlastnost[vlastnost_poskozeni];   
-    }
+if (combatGetCriticalHit()) {dmg += (apiPlayerGetPropertyValue(vlastnost_poskozeni) * (apiPlayerGetPropertyValue(vlastnost_kriticka_nasobic) / 100));}
+else {dmg += apiPlayerGetPropertyValue(vlastnost_poskozeni);}
+
 dmg += (oPlayer.vlastnost[vlastnost_sila] / 2);
 dmg += random_range(-2, 2);
 dmg += (random_range(-(oPlayer.vlastnost[vlastnost_obratnost] / 2), oPlayer.vlastnost[vlastnost_obratnost]) / 2);
-dmg = round(equipmentNormalizeValue(0, dmg));
-hp -= dmg;
-scrLog(dmg,c_white,-1,0,0.2,x,y-32,oController.fontDamage,"combat");
+dmg  = round(equipmentNormalizeValue(0, dmg));
+if (dmg < 1) {dmg = 1;}
+hp  -= dmg;
+
+scrLog(dmg,c_white,sFreeSlot,0,0.2,x,y-32,oController.fontDamage,"combat");
 
 scale = 1.4;
 scrGoreFull(x,y,3,c_aqua);
 audio_play_sound(sndSlime1,0,0);
 other.can_damage = -2;
 apiPlayerSetProperty(vlastnost_stamina, apiPlayerGetPropertyValue(vlastnost_stamina) + oPlayer.vlastnost[vlastnost_vampStamina]);
-repeat(oPlayer.vlastnost[vlastnost_vampStamina])
-{
- scrBasicEffect(1, sStaminaEffect, oPlayer.x, oPlayer.y);
-}
+scrBasicEffect(oPlayer.vlastnost[vlastnost_vampStamina], sStaminaEffect, oPlayer.x, oPlayer.y);
+
 }
 
 

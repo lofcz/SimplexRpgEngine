@@ -386,10 +386,6 @@ if (health_alpha &gt; 0)
    scrCenterText();
    draw_text_colour(x,y-30,name,c_black,c_black,c_black,c_black,health_alpha);
    scrCenterText(0);
-
-      draw_text(x,y,string(hp)+string("#")+string(last_hp)+string("#")+string(max_hp)+string("#")+string(last_hp/max_hp));
-  
-
    }
 }   
 

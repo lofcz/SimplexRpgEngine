@@ -51,7 +51,7 @@ scrShaderPrepareColor();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>s_a = image_alpha;
+            <string>//s_a = image_alpha;
 
 </string>
           </argument>
@@ -78,18 +78,10 @@ scrShaderPrepareColor();
             <string>if (sprite_index = sBlood4)
    {
      sprite_index = sBlood1;
+     image_speed = 0;
+     image_index = 0;
    }
-else 
-     {
-     if image_alpha &gt; 0
-     {
-     image_alpha -= 0.02
-     }
-     else
-     {
-     instance_destroy()
-     }
-     }
+
 </string>
           </argument>
         </arguments>
@@ -112,9 +104,25 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//scrShaderDrawColor()
+            <string>
+
+
+scrShaderDrawColor()
 //draw_sprite_ext(sprite_index,-1,x,y,image_xscale,image_yscale,0,c_green,image_alpha)
-draw_self();
+//draw_self();
+
+if (sprite_index == sBlood1)
+{
+     if image_alpha &gt; 0
+     {
+     image_alpha -= 0.02
+     }
+     else
+     {
+     instance_destroy()
+     }
+     
+}
 </string>
           </argument>
         </arguments>

@@ -329,8 +329,6 @@ if (instance_number(oFence) &gt; 0)
             <string>/// Draw player
 
 apiPlayerDraw();
-
-                              draw_text(x, y - 60, fps);
 </string>
           </argument>
         </arguments>
