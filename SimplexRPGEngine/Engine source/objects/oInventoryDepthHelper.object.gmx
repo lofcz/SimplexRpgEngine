@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-211</depth>
+  <depth>-227</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -57,10 +57,7 @@ if (instance_number(oInventory) &gt; 0)
     if (oInventory.draw_equ_infobox_id != -1) {if (oInventory.equiped[oInventory.draw_equ_infobox_id]) { alpha = lerp(alpha, 1, 0.1);}}
     if (oInventory.draw_equ_infobox_id == -1 || !oInventory.equiped[oInventory.draw_equ_infobox_id]) {alpha = lerp(alpha, 0, 0.1);}
    
-    if (alpha &gt; 0.05)
-       {
-       equipmentDrawInfobox(0, 0, oInventory.draw_equ_infobox_id);  
-       }
+    if (alpha &gt; 0.05) {equipmentDrawInfobox(0, 0, oInventory.draw_equ_infobox_id);}
    }
 </string>
           </argument>

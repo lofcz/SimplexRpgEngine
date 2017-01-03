@@ -25,10 +25,12 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_index = choose(0,1);
-direction = random(359);
-speed = random_range(0.2,1.5);
-friction = 0.01;
+            <string>/// Set up
+
+image_index = choose(0, 1);
+direction   = random(359);
+speed       = random_range(0.2, 1.5);
+friction    = 0.01;
 image_speed = 0;
 </string>
           </argument>
@@ -52,8 +54,11 @@ image_speed = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_alpha -= 0.02;
+            <string>/// Fade out
+
+image_alpha = lin(image_alpha, 0, -0.02);
 if (image_alpha &lt;= 0) {instance_destroy();}
+
 </string>
           </argument>
         </arguments>

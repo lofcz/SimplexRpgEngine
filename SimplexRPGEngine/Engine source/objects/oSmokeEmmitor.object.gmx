@@ -54,10 +54,10 @@ timeMax = 8;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Emmit particles
+            <string>/// Emit particles
 
-alarm[0] = random_range(timeMin,timeMax);
-effectSmoke(x,y,1);
+alarm[0] = random_range(timeMin, timeMax);
+effectSmoke(x, y, 1);
 </string>
           </argument>
         </arguments>

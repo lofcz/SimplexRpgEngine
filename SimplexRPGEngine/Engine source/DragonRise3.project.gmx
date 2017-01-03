@@ -1373,23 +1373,28 @@
         <object>objects\oRoomConroller</object>
       </objects>
       <objects name="Effects">
-        <objects name="Gore">
-          <object>objects\oGore1</object>
-          <object>objects\oGore2</object>
-          <object>objects\oGore3</object>
-          <object>objects\oGore4</object>
-          <object>objects\oShard</object>
+        <objects name="Object particles">
+          <objects name="Gore">
+            <object>objects\oGore1</object>
+            <object>objects\oGore2</object>
+            <object>objects\oGore3</object>
+            <object>objects\oGore4</object>
+            <object>objects\oShard</object>
+          </objects>
+          <objects name="Basic effect">
+            <object>objects\oBasicEffect</object>
+          </objects>
+          <objects name="Rain">
+            <object>objects\oRain</object>
+            <object>objects\oRainSplash</object>
+          </objects>
+          <objects name="Misc">
+            <object>objects\oBlob</object>
+            <object>objects\oSwordSwing</object>
+            <object>objects\oDissolveParticle</object>
+          </objects>
         </objects>
-        <objects name="NonParticle">
-          <object>objects\oBasicEffect</object>
-          <object>objects\oBlob</object>
-          <object>objects\oAchievmentOld</object>
-          <object>objects\oRain</object>
-          <object>objects\oRainSplash</object>
-          <object>objects\oSwordSwing</object>
-          <object>objects\oDissolveParticle</object>
-        </objects>
-        <objects name="Particles">
+        <objects name="Virtual particles">
           <object>objects\oSmokeEmmitor</object>
         </objects>
       </objects>

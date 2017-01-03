@@ -25,12 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_speed = 0
-image_index= random(3)
-direction = random(360)
-speed = random(6)+5
-friction = 0.3
-alarm[0] = 300
+            <string>/// Set up
+
+image_speed = 0;
+image_index = random(3);
+direction   = random(360);
+speed       = random(6) + 5;
+friction    = 0.3;
+alarm[0]    = 300;
+fade        = false;
 scrShaderPrepareColor();
 
 </string>
@@ -55,40 +58,9 @@ scrShaderPrepareColor();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if image_alpha &gt; 0
-{
-image_alpha -= 0.1
-alarm[0] = 1
-}
-else
-{
-instance_destroy()
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>image_angle = direction
-s_a = image_alpha;
+            <string>/// Fade
 
+fade = true;
 </string>
           </argument>
         </arguments>
@@ -111,11 +83,9 @@ s_a = image_alpha;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>
-if (isSolid)
-{
-move_bounce_all(1);
-}
+            <string>/// Collide
+
+if (isSolid){move_bounce_all(true);}
 </string>
           </argument>
         </arguments>
@@ -138,7 +108,17 @@ move_bounce_all(1);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scrShaderDrawColor()
+            <string>/// Draw self
+
+image_angle = direction;
+
+if (fade)
+   {
+    if (image_alpha &gt; 0){image_alpha = lin(image_alpha, 0, -0.1);}
+    else {instance_destroy()}   
+   }
+
+scrShaderDrawColor()
 
 </string>
           </argument>

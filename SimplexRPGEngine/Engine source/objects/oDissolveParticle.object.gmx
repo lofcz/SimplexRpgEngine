@@ -25,28 +25,18 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Shrink
-scale = 1;
+            <string>/// Set up
 
-// Make particle float up
-grav = 1;
+scale       = 1;
+grav        = 1;
+alpha       = 1;
+rotation    = 0;
+rotatespeed = random_range(-5, 5);
+a           = 0;
+inc         = random_range(0, 0.3);
+dirQ        = choose(0, 1);
 
-// Fade patticle
-alpha = 1;
-
-// Rotation
-rotation = 0;
-rotatespeed = random_range(-5,5);
-
-a = 0;
-
-inc = random_range(0, 0.3);
-dirQ = choose(0, 1);
-
-if (dirQ == 0)
-{
-direction = random_range(2, 45);
-}
+if (dirQ == 0) {direction = random_range(2, 45);}
 else {direction = random_range(317, 359);}
 </string>
           </argument>
@@ -70,62 +60,36 @@ else {direction = random_range(317, 359);}
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Dissolve the particle
-if (timer1 &lt;= 0) {
+            <string>/// Update
 
-// Life
-if (life &lt;= 0) {
-    instance_destroy();
-} else {
-    life--;
-}
+if (timer1 &lt;= 0) 
+   {
+    if (life &lt;= 0) {instance_destroy();} 
+    else {life--;}
+    
+    speed = lerp(speed, 10, inc);
 
-speed = lerp(speed, 10, inc);
+    if (dir == 0) {y -= grav; depth = -y;}
+    if (dir == 1) {y += grav; depth = y;}
+    if (dir == 2) {x += grav; depth = x;}
+    if (dir == 3) {x -= grav; depth = -x;}
 
+    rotation -= random(rotate_speed);
 
-// Move the particle
-//direction = random(360);
-//speed = random_range(0, 10);
+    if (fadeon) 
+       {
+        alpha -= random_range(0.01, fade_amt);
+        if (alpha &lt;= 0) {instance_destroy();}
+       }
 
-//motion_set(direction,speed);
-//speed = lerp(speed, 10, 0.1);
-// Make the partice move in the proper direction
-if (dir == 0) {
-    y -= grav;
-    depth = -y;
-}
-if (dir == 1) {
-    y += grav;
-    depth = y;
-}
-if (dir == 2) {
-    x += grav;
-    depth = x;
-}
-if (dir == 3) {
-    x -= grav;
-    depth = -x;
-}
-
-// Rotate the particle
-rotation -= random(rotate_speed);
-
-// Fade the particle
-if (fadeon == 1) {
-    alpha -= random_range(0.01, fade_amt);
-    if (alpha &lt;= 0) instance_destroy();
-}
-
-// Shrink
-if (shrinkon == 1) {
-    var shrinkamt = random_range(0.01,shrink_amt);
-    scale -= shrinkamt;
-    if (scale &lt;= 0) instance_destroy();
-}
-
-} else {
-    timer1--;
-}
+    if (shrinkon) 
+       {
+        var shrinkamt = random_range(0.01, shrink_amt);
+        scale -= shrinkamt;
+        if (scale &lt;= 0) {instance_destroy();}
+       }
+   } 
+else {timer1--;}
 </string>
           </argument>
         </arguments>
@@ -148,7 +112,9 @@ if (shrinkon == 1) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>instance_destroy();
+            <string>/// Destroy
+
+instance_destroy();
 </string>
           </argument>
         </arguments>
@@ -171,7 +137,7 @@ if (shrinkon == 1) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Draw the sprite
+            <string>/// Draw self
 
 draw_sprite_general(spr, -1, xx, yy, size, size, x, y, scale, scale, rotation, c_white, c_white, c_white, c_white, alpha);
 

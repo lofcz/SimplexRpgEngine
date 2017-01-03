@@ -25,12 +25,14 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_angle=random(360); //Random angle.
-image_index=random(image_number-1); //Random subimage
+            <string>/// Set up
+
+image_angle = random(360);
+image_index = random(image_number - 1); 
 image_alpha = 0.9; 
-image_speed = 0
-alarm[0] = random(50)+10; //Alarm for fading.
-fade=false; //Not yet fading.
+image_speed = 0;
+alarm[0]    = random(50) + 10; 
+fade        = false;
 scrShaderPrepareColor();
 
 </string>
@@ -55,31 +57,9 @@ scrShaderPrepareColor();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>fade = 1;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if fade=true{image_alpha -= 0.005;} //Fade out if relevant.
-if image_alpha &lt;0.1{instance_destroy();} //If completely faded, destroy.
+            <string>/// Fade
+
+fade = true;
 </string>
           </argument>
         </arguments>
@@ -102,9 +82,12 @@ if image_alpha &lt;0.1{instance_destroy();} //If completely faded, destroy.
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scrShaderDrawColor()
-//draw_self()
-//image_blend = make_colour_hsv(255, 255, random(255)); 
+            <string>/// Draw self
+
+if (fade) {image_alpha = lin(image_alpha, 0, -0.005);}
+if (image_alpha &lt; 0) {instance_destroy();}
+
+scrShaderDrawColor()
 </string>
           </argument>
         </arguments>

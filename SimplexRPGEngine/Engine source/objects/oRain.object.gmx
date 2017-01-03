@@ -54,11 +54,11 @@ scrWeatherRainIni();
 
 height--;
 
-if(height &lt;= 0)
-{
-    instance_destroy();
-    instance_create(x,y,oRainSplash);
-}
+if (height &lt;= 0)
+   {
+    instance_create(x, y, oRainSplash);
+    instance_destroy();    
+   }
 </string>
           </argument>
         </arguments>
