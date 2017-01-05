@@ -26,6 +26,8 @@
           <argument>
             <kind>1</kind>
             <string>image_angle = direction;
+
+draw_self();
 </string>
           </argument>
         </arguments>

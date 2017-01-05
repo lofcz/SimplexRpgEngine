@@ -277,6 +277,8 @@
       <sound>sound\sndArrowFlesh</sound>
       <sound>sound\sndArrowHit2</sound>
       <sound>sound\sndArrowHit</sound>
+      <sound>sound\sndMenuNavigate</sound>
+      <sound>sound\sndMenuConfirm</sound>
       <sound>sound\sndArrow</sound>
     </sounds>
   </sounds>
@@ -752,6 +754,7 @@
     <sprite>sprites\sArrow</sprite>
     <sprite>sprites\sMask8x8</sprite>
     <sprite>sprites\sParallaxE1M1</sprite>
+    <sprite>sprites\sSymbols</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name=" Single tile backgrounds">
@@ -850,6 +853,7 @@
           <script>scripts\alg.gml</script>
           <script>scripts\fnt.gml</script>
           <script>scripts\scl.gml</script>
+          <script>scripts\sfx.gml</script>
         </scripts>
         <scripts name="SimplexCore">
           <scripts name="SimplexString">
@@ -1216,6 +1220,12 @@
         <script>scripts\scrSetActiveComponent.gml</script>
         <script>scripts\scrGettActiveComponent.gml</script>
       </scripts>
+      <scripts name="Character creation">
+        <script>scripts\scrCharacterPsychologicalEvaluation.gml</script>
+      </scripts>
+      <scripts name="Map to png">
+        <script>scripts\scrMapToPng.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -1325,6 +1335,7 @@
           <object>objects\oDayNight</object>
           <object>objects\oMapIntro</object>
           <object>objects\oFortunaMenu</object>
+          <object>objects\oCharacterCreationManu</object>
           <object>objects\oAchievement</object>
         </objects>
         <objects name="Overall">

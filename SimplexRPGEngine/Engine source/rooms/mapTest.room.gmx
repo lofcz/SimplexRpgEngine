@@ -157,10 +157,7 @@
     <instance objName="oLight" x="640" y="224" name="inst_D3C836BF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oLight" x="248" y="536" name="inst_472B112F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oLight" x="624" y="536" name="inst_89698E5E" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oFirefly" x="544" y="408" name="inst_D195796B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oFirefly" x="368" y="408" name="inst_A74F03F7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oFirefly" x="456" y="544" name="inst_5F4EF061" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oFirefly" x="496" y="328" name="inst_F54D4BE0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oFence" x="128" y="608" name="inst_9FE1185A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
     <instance objName="oFence" x="128" y="640" name="inst_F37CFA2F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
     <instance objName="oFence" x="128" y="672" name="inst_6FC91673" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
@@ -402,7 +399,6 @@
     <instance objName="oTransitionCollision" x="880" y="600" name="inst_010B346B" locked="0" code="level = mapHouseAlice;&#xA;text = &quot;Vstoupit do &quot; + scrColorflag(c_yellow) + &quot;Domku bylinkářky Alice&quot; + scrEndColorflag() + &quot;.&quot;;&#xA;xx = x;&#xA;yy = y-64;&#xA;text_lenght = 0;&#xA;player_pos = 1;" scaleX="0.75" scaleY="0.625" colour="4294967295" rotation="0"/>
     <instance objName="oAdvancedCollision" x="952" y="608" name="inst_C0E640BB" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;" scaleX="1.125" scaleY="0.4375" colour="4294967295" rotation="0"/>
     <instance objName="oEnemySlime" x="368" y="1728" name="inst_A9D84AF3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oBasicVivid" x="556" y="176" name="inst_DD9DA905" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oLofsGift" x="456" y="524" name="inst_A290ECF1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oElixirHP" x="416" y="288" name="inst_D9AB41F7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oElixirHP" x="448" y="288" name="inst_42135183" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>

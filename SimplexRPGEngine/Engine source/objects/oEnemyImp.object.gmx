@@ -175,7 +175,9 @@ else if (place_free(x, y - 4)) {actionToDo = "runFast"; tarX = x; tarY = y - 8;}
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>angle = random(360);
+            <string>/// Pathfanding safepoint
+
+angle = random(360);
 mp_grid_clear_rectangle(grid, x - 32, y - 32, x + 32, y + 32)
 if (mp_grid_path(grid, path, x, y, x + cos(degtorad(angle)) * actionRadius, y + sin(degtorad(angle)) * actionRadius, false)) 
    {
@@ -275,7 +277,9 @@ scrEnemySay(id, "[Casting spell 3]");
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>randomize();
+            <string>/// Pathfinding
+
+randomize();
 
 if (choose(0, 0, 0, 1) == 1 &amp;&amp; canFire &amp;&amp; mana &gt;= 20)
    {
