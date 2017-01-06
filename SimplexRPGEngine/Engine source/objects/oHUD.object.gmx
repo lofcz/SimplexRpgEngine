@@ -381,9 +381,9 @@ stopBattle = true;
 with (parEnemy)
      {
       if (health_alpha &gt; 0.1) {if (!oHUD.inBattle) {oHUD.DAudioBattle = audio_play_sound(musicBattle1, 0, false); oHUD.inBattle = true;} oHUD.stopBattle = false;}
-     }
-     
-if (stopBattle) {inBattle = false; draw_text(oPlayer.x + 100, oPlayer.y, "STOP");}     
+     }     
+if (stopBattle) {inBattle = false;}     
+
 if (inBattle) {battleVolume = lerp(battleVolume, 1, 0.1); overallGain = lerp(overallGain, 0, 0.1);}
 else {battleVolume = lerp(battleVolume, 0, 0.1); overallGain = lerp(overallGain, 1, 0.1);}  
 

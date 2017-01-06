@@ -138,7 +138,7 @@ audio_play_sound(choose(sndArrowHit2, sndArrowHit), 0, false);
 if (draw)
    {
     other.hp -= dmg + round(distance_to_point(xstart, ystart) / 100);
-    scrGoreFull(other.x, other.y, 6, c_white, false);
+    scrGoreFull(other.x, other.y, 6, c_red, false);
     draw = false;
     scrGoreExplode(4, 4);
     alarm[0] = 30;
