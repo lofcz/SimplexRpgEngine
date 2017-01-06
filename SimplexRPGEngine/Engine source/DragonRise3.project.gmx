@@ -281,6 +281,11 @@
       <sound>sound\sndMenuConfirm</sound>
       <sound>sound\sndArrow</sound>
     </sounds>
+    <sounds name="Music">
+      <sound>sound\musicTest1</sound>
+      <sound>sound\musicMain1</sound>
+      <sound>sound\musicBattle1</sound>
+    </sounds>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\sCatchError</sprite>
@@ -1225,6 +1230,9 @@
       </scripts>
       <scripts name="Map to png">
         <script>scripts\scrMapToPng.gml</script>
+      </scripts>
+      <scripts name="Dynamic audio">
+        <script>scripts\scrDAudioHook.gml</script>
       </scripts>
     </scripts>
   </scripts>

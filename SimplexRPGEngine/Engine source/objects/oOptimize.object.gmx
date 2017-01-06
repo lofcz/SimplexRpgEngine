@@ -32,6 +32,7 @@ colID = 0;
 
 activeList  = ds_list_create();
 activeList2 = ds_list_create();
+DAudioList  = ds_list_create();
 </string>
           </argument>
         </arguments>
@@ -161,6 +162,15 @@ for (i = 0; i &lt; ds_list_size(activeList2); i++)
         } 
     }                                        
 }
+
+if (ds_list_size(DAudioList) &gt; 0)
+{    
+for (i = 0; i &lt; ds_list_size(DAudioList); i++)
+    {
+     instance_activate_object(DAudioList[| i]);
+    }                                        
+}
+
 
 if (instance_number(oEnemySpell) &gt; 0)
    {

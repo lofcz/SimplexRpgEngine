@@ -83,6 +83,11 @@ tempSpr              = 0;
 drawTip              = -1;
 drawTipAlpha         = 0;
 drawTipTempIndex     = -1;
+overallGain          = 0;
+inBattle             = false; 
+battleVolume         = 0;
+DAudioBattle         = -1;
+
 instance_create(x, y, oHudDepthHelper);
 
 drawCraftingMenu = 1;
@@ -235,6 +240,10 @@ dieMenu[1] = "Restartovat hru";
 dieMenu[2] = "Ukončit hru";
 
 paralaxMap = sParallaxE1M1;
+dAudioIndex = audio_play_sound(musicMain1, 0, true);
+DAudioMainPlaying = true;
+DAudioBattlePlaying = true;
+
 </string>
           </argument>
         </arguments>
@@ -367,6 +376,26 @@ if (view_current == 0)
 {
 x = view_xview;
 y = view_yview;
+
+stopBattle = true;
+with (parEnemy)
+     {
+      if (health_alpha &gt; 0.1) {if (!oHUD.inBattle) {oHUD.DAudioBattle = audio_play_sound(musicBattle1, 0, false); oHUD.inBattle = true;} oHUD.stopBattle = false;}
+     }
+     
+if (stopBattle) {inBattle = false; draw_text(oPlayer.x + 100, oPlayer.y, "STOP");}     
+if (inBattle) {battleVolume = lerp(battleVolume, 1, 0.1); overallGain = lerp(overallGain, 0, 0.1);}
+else {battleVolume = lerp(battleVolume, 0, 0.1); overallGain = lerp(overallGain, 1, 0.1);}  
+
+audio_sound_gain(DAudioBattle, battleVolume, 0);
+audio_sound_gain(dAudioIndex, overallGain, 0);
+
+if (overallGain &lt; 0.05 &amp;&amp; DAudioMainPlaying)  {DAudioMainPos = audio_sound_get_track_position(dAudioIndex); audio_stop_sound(dAudioIndex); DAudioMainPlaying = false;}
+if (overallGain &gt; 0.05 &amp;&amp; !DAudioMainPlaying) {dAudioIndex = audio_play_sound(musicMain1, 0, true);  audio_sound_set_track_position(dAudioIndex, DAudioMainPos); DAudioMainPlaying = true;}
+
+if (battleVolume &lt; 0.05 &amp;&amp; DAudioBattlePlaying)  {DAudioBattlePos = audio_sound_get_track_position(DAudioBattle); audio_stop_sound(DAudioBattle); DAudioBattlePlaying = false;}
+if (battleVolume &gt; 0.05 &amp;&amp; !DAudioBattlePlaying) {DAudioBattle = audio_play_sound(musicBattle1, 0, true);  audio_sound_set_track_position(DAudioBattle, DAudioBattlePos); DAudioBattlePlaying = true;}
+
 
 if (room == mapHouseAlice) {draw = false;}
 

@@ -39,6 +39,7 @@ flag     = 1;
 tempSpr  = 0;
 isSectet = false;
 secretD  = false;
+usesDAudio = false;
 
 alarm[0] = 1;
 
@@ -100,6 +101,8 @@ tile = tile_layer_find(tL, x, y);
 
 if (instance_number(oPlayer) &gt; 0)
 {
+if (usesDAudio) {var v = (distance_to_object(oPlayer) / 300); audio_sound_gain(dAudioIndex, 1 - v, 0); oHUD.overallGain = v;}
+
 if (distance_to_object(oPlayer) &lt; 16 &amp;&amp; (id == oOptimize.colID))
    {
     if (alpha &lt; 1) {alpha += 0.05;}
