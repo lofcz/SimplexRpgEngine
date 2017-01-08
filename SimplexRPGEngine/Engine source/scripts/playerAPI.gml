@@ -85,7 +85,10 @@ if (can_move && can_move2 && can_move3 && can_move4 && can_move5 && can_move6 &&
 // Compute temp speed
 temp_rychlost = ((rychlost / 100) * parrySlowdown) * (1 - slowdown);    
 time         += 0.02;;    
-cyber_r++;
+
+// Update pulse speed of FOV
+heartBeat = (0.004 - ((oPlayer.last_hp / apiPlayerGetPropertyValue(vlastnost_max_zivot)) / 250));
+scrSimpleLightUpdate(-1, -1, -1, -1, -1, -1, -1, heartBeat);
 
 
 #define apiPlayerMoveStand
@@ -1088,6 +1091,7 @@ weaponType            = "melee";
 rarityTick            = 20;
 dead                  = false;
 dieTimer              = 0;
+heartBeat             = 0.001;
 
 set_sprite(sprite_index, 0);
 

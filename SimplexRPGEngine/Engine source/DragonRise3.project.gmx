@@ -279,6 +279,7 @@
       <sound>sound\sndArrowHit</sound>
       <sound>sound\sndMenuNavigate</sound>
       <sound>sound\sndMenuConfirm</sound>
+      <sound>sound\sndCampfire</sound>
       <sound>sound\sndArrow</sound>
     </sounds>
     <sounds name="Music">
@@ -534,6 +535,7 @@
     <sprites name="Effects, items &amp; particles">
       <sprites name="Items">
         <sprite>sprites\sTestItem</sprite>
+        <sprite>sprites\sStructures</sprite>
         <sprite>sprites\sStackableItem1</sprite>
       </sprites>
       <sprites name="Effects">
@@ -759,6 +761,7 @@
     <sprite>sprites\sArrow</sprite>
     <sprite>sprites\sMask8x8</sprite>
     <sprite>sprites\sParallaxE1M1</sprite>
+    <sprite>sprites\sFireplace</sprite>
     <sprite>sprites\sSymbols</sprite>
   </sprites>
   <backgrounds name="background">
@@ -834,6 +837,7 @@
   </paths>
   <scripts name="scripts">
     <scripts name="Functions">
+      <script>scripts\plainInitEnums.gml</script>
       <scripts name="APIs">
         <script>scripts\playerAPI.gml</script>
         <script>scripts\drawAPI.gml</script>
@@ -871,13 +875,14 @@
           </scripts>
           <scripts name="Misc">
             <script>scripts\scrWordwrap.gml</script>
+            <script>scripts\scrParticleSystemCreate.gml</script>
+            <script>scripts\scrParticleSystemFree.gml</script>
             <script>scripts\scrArray2DTo1D.gml</script>
             <script>scripts\scrSetParamsArray.gml</script>
             <script>scripts\scrChooseFromArray.gml</script>
             <script>scripts\secToSteps.gml</script>
             <script>scripts\scrDice.gml</script>
             <script>scripts\scrInflect.gml</script>
-            <script>scripts\plainInitEnums.gml</script>
             <scripts name="Deprecated">
               <script>scripts\scrCenterText.gml</script>
             </scripts>
@@ -898,6 +903,7 @@
           <script>scripts\effectShodowPort.gml</script>
           <script>scripts\effectShardDrop.gml</script>
           <script>scripts\effectRealFire.gml</script>
+          <script>scripts\effectCampfireFire.gml</script>
           <script>scripts\effectAchievement.gml</script>
           <script>scripts\effectSpellLevelUp.gml</script>
           <script>scripts\effectGrass.gml</script>
@@ -917,6 +923,7 @@
           <script>scripts\effectFire.gml</script>
           <script>scripts\effectArrow.gml</script>
           <script>scripts\effectWearP3.gml</script>
+          <script>scripts\effectCampfireFlares.gml</script>
           <script>scripts\effectFragmentYellow.gml</script>
         </scripts>
         <scripts name="Other">
@@ -1124,6 +1131,7 @@
       </scripts>
       <scripts name="Crafting">
         <script>scripts\scrCraftingSetItemKnown.gml</script>
+        <script>scripts\scrCraftingSetStructureKnown.gml</script>
         <script>scripts\scrCraftingSetMaterialKnown.gml</script>
         <script>scripts\scrCraftingSetAlchemyKnown.gml</script>
         <script>scripts\scrCraftingSetFoodKnown.gml</script>
@@ -1147,6 +1155,7 @@
       </scripts>
       <scripts name="Simple lighting">
         <script>scripts\scrSimpleLightIni.gml</script>
+        <script>scripts\scrSimpleLightUpdate.gml</script>
       </scripts>
       <scripts name="Real time building">
         <script>scripts\scrBuiltSctructureCompleted.gml</script>
@@ -1233,6 +1242,8 @@
       </scripts>
       <scripts name="Dynamic audio">
         <script>scripts\scrDAudioHook.gml</script>
+        <script>scripts\scrDAudioHookUpdate.gml</script>
+        <script>scripts\scrDAudioSwitchSong.gml</script>
       </scripts>
     </scripts>
   </scripts>
@@ -1612,6 +1623,7 @@
         <object>objects\oTeleport</object>
         <object>objects\oFence</object>
         <object>objects\oAltar</object>
+        <object>objects\oFireplace</object>
         <object>objects\oEnemySpawner</object>
       </objects>
       <objects name="Containers">
@@ -1632,6 +1644,7 @@
         <object>objects\parSolid</object>
       </objects>
     </objects>
+    <object>objects\oBuildHelper</object>
   </objects>
   <timelines name="timelines">
     <timelines name="Cutscenes">

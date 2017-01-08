@@ -522,6 +522,7 @@
     <instance objName="oCombatDummy" x="496" y="1632" name="inst_1D775695" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oCollectibleItem2Unicorn" x="696" y="1184" name="inst_8EF9CD28" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oRoomTransition" x="16" y="1048" name="inst_A02A6E1E" locked="0" code="level = mapE1M2;&#xA;" scaleX="0.810000002384186" scaleY="58.21875" colour="4294967295" rotation="0"/>
+    <instance objName="oFireplace" x="1128" y="1192" name="inst_B4A58E89" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bcgShd1" x="1728" y="1552" w="32" h="32" xo="32" yo="0" id="10006704" name="inst_505B20DA" depth="1000001" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

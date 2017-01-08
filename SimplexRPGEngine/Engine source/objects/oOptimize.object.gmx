@@ -90,6 +90,8 @@ instance_activate_object(oParallaxMap);
 
 
 // Further optimization of collision system
+if (instance_number(oBuildHelper) == 0)
+{
 instance_deactivate_object(oNonsolidCollision);
 instance_deactivate_object(oAdvancedCollision);
 instance_deactivate_object(oBasicCollision);
@@ -128,6 +130,7 @@ with(oPlayer)
     
 if (nearestCol == 0){colID = collisionNearest[0];}
 else {colID = collisionNearest[1];}
+}
 
 if (instance_number(oBunny &gt; 0))
     {

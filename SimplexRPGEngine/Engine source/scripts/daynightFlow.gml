@@ -5,96 +5,28 @@ secPerStep = 10;
 
 if (argument_count > 0) {secPerStep = argument[0];}
 
-if (secPerStep > 60) {secPerStep = secPerStep / 60; minu += secPerStep}
-else
-    {
-    sec += secPerStep;
-    }
+if (secPerStep > 60) {secPerStep = (secPerStep / 60); oDayNight.minu += secPerStep}
+else {oDayNight.sec += secPerStep;}
 
-if (sec > 60)
- {
-  sec = 0;
-  minu += 1;
- }
- 
-if (minu > 59)
- {
-  minu = 0;
-  hour += 1;
- }
- 
-if (hour > 23)
-  {
-  hour = 0;
-  day++;
-  event_user(0);
-  }
+if (oDayNight.sec   > 60) {oDayNight.sec  = 0;  oDayNight.minu++;} 
+if (oDayNight.minu  > 59) {oDayNight.minu = 0;  oDayNight.hour++;} 
+if (oDayNight.hour  > 23) {oDayNight.hour = 0;  oDayNight.day++;   with(oDayNight) {event_user(0);}}
+if (oDayNight.day   >= 7) {oDayNight.day  = 0;  oDayNight.week++;  with(oDayNight) {event_user(1);}}
+if (oDayNight.week  > 3)  {oDayNight.week = 0;  oDayNight.month++; with(oDayNight) {event_user(2);}}
+if (oDayNight.month > 11) {oDayNight.month = 0; oDayNight.year++;  with(oDayNight) {event_user(3);}}
 
-if (day >= 7)
-  {
-   day = 0; 
-   week++;
-   event_user(1);
-  }
+oDayNight.hh = (oDayNight.hour + (oDayNight.minu / 60));
+oDayNight.to = -1;
+oDayNight.fase = (12-oDayNight.hh)/12;
 
-if (week > 3)
-    {
-     month++;
-     week = 0;
-     event_user(2);
-    }
-if (month > 11)
-    {
-     month = 0;
-     year++;
-     event_user(3);
-    }
+if (oDayNight.hour  > 12)   {oDayNight.hh    = (oDayNight.hour - 12) + (oDayNight.minu / 60); oDayNight.to = 1;}
+if (oDayNight.to   == 1)    {oDayNight.fase  = (1 - ((12 - oDayNight.hh) / 12));}
+if (oDayNight.to   == -1)   {oDayNight.fase *= 1.3;}
+if (oDayNight.hour == 18)   {oDayNight.red   = ((oDayNight.minu) / 60) * 255;} 
+if (oDayNight.hour == 19)   {oDayNight.red   = (255 - (((oDayNight.minu) / 60) * 255));}
 
-hh = hour+minu/60;
-to = -1;
+oDayNight.night = false;
 
-if (hour > 12)
- {
-  hh = (hour-12)+(minu/60);
-  to = 1;
- }
-
-fase = (12-hh)/12;
-
-if (to = 1)
-   {
-   fase = 1-((12-hh)/12);
-   }
-
-if (to = -1)
-   {
-   fase*=1.3;
-   }
-
-
-if (hour = 18)
- {
-  red = ((minu)/60)*255;
- }
- 
-if (hour = 19)
- {
-  red = 255-(((minu)/60)*255);
- }
-
-
-night = 0;
-
-if (hour > 20 || hour < 5)
-   {
-    night = 1;
-   }
-   
-if (night)
-    {
-     if (alpha < 0.9) {alpha += 0.01;}
-    }
-else
-    {
-     if (alpha > 0) {alpha -= 0.01;}
-    }
+if (oDayNight.hour > 20 || oDayNight.hour < 5){night = true;}   
+if (oDayNight.night) {if (oDayNight.alpha < 0.9) {oDayNight.alpha += 0.01;}}
+else {if (oDayNight.alpha > 0) {oDayNight.alpha -= 0.01;}}

@@ -14,7 +14,7 @@ xx       = x;
 yy       = y;
 tempDraw = false;
 
-draw_set_font(fntPixelTiny);
+fnt(fntPixelTiny);
 
 for (a = 0; a < min(ds_list_size(list), e); a++)
     {
@@ -42,19 +42,16 @@ for (a = 0; a < min(ds_list_size(list), e); a++)
     }
 
 if (tempDraw)
-    {
+{
 for (a = 0; a < min(ds_list_size(list), e); a++)
     {
-    draw_set_alpha(ds_list_find_value(list_alpha,a))
-    clr(c_black, max(ds_list_find_value(list_alpha,a), 0));
-    draw_text_colored(xx, yy, list[| a]);
-    clr();
-
+     clr(c_black, max(ds_list_find_value(list_alpha,a), 0));
+     draw_text_colored(xx, yy, list[| a]);     
+     clr();
     
      if (list_alpha[| a] < 1) {yy += (16 * list_alpha[| a]);}
      else {yy += 16;}  
-    }     
-       
-    }
+    }            
+}
 
 

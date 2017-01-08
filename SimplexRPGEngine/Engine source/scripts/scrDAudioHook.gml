@@ -1,5 +1,13 @@
-/// scrDAudioHook(sound)
+/// scrDAudioHook(sound, fadeDistance)
 
-dAudioIndex = audio_play_sound_at(musicTest1, x, y, 0, 100, 300, 1, true, 1);
-usesDAudio = true;
+var snd, fd;
+snd = musicTest1;
+fd  = -1;
+
+if (argument_count > 0) {snd = argument[0];}
+if (argument_count > 1) {fd  = argument[1];}
+
+dAudioIndex  = audio_play_sound(snd, 0, false);
+usesDAudio   = true;
+fadeDistance = fd;
 ds_list_add(oOptimize.DAudioList, id);

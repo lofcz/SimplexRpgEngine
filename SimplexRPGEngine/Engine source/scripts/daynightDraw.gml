@@ -4,15 +4,8 @@ if (global.mapType != mapEnum.mapInterier)
 {
 image_alpha = fase-0.1;
 
-if (to = 1)
-   {
-   image_alpha = fase-0.3;
-   } 
-
-if (image_alpha > 0.7)
-   {
-  image_alpha = 0.7;
-   }
+if (to == 1) {image_alpha = fase-0.3;} 
+if (image_alpha > 0.7) {image_alpha = 0.7;}
    
 redr = ((red/255))*239;
 redg = ((red/255))*92;
@@ -42,15 +35,27 @@ if (instance_number(oLight) > 0)
 {
 with(oLight)
     {
-     draw_sprite_ext(sprite, index, x - view_xview, y - view_yview, scale, scale, rot, color, alpha);
-    }
+     if (pMaxSize > 0) {if (pMode == 0) {pSize = lin(pSize, pMaxSize, pSpd); if (pSize >= pMaxSize) {pMode = 1;}} if (pMode == 1) {pSize = lin(pSize, 1, -pSpd); if (pSize <= 1) {pMode = 0;}}}
+     draw_sprite_ext(sprite, index, x - view_xview, y - view_yview, scale * (pSize), scale * (pSize), rot, color, alpha);
+     draw_text(x, y, pSize);
+    }    
+}
+
+if (instance_number(oFireplace) > 0)
+{
+with(oFireplace)
+    {
+     if (pMaxSize > 0) {if (pMode == 0) {pSize = lin(pSize, pMaxSize, pSpd); if (pSize >= pMaxSize) {pMode = 1;}} if (pMode == 1) {pSize = lin(pSize, 1, -pSpd); if (pSize <= 1) {pMode = 0;}}}        
+     draw_sprite_ext(sprite, index, x - view_xview, y - view_yview, scale * pSize, scale * pSize, rot, color, alpha);
+    }    
 }
 
     
 with(oPlayer)
     {
-     draw_sprite_ext(sprLight, sprLightIndex, x - view_xview, y - view_yview, scale2, scale2, rot, color, sprAlpha);    
-     draw_sprite_ext(sprite, index, x - view_xview, y - view_yview, scale, scale, rot, color, alpha);
+     if (pMaxSize > 0) {if (pMode == 0) {pSize = lin(pSize, pMaxSize, pSpd); if (pSize >= pMaxSize) {pMode = 1;}} if (pMode == 1) {pSize = lin(pSize, 1, -pSpd); if (pSize <= 1) {pMode = 0;}}}    
+     draw_sprite_ext(sprLight, sprLightIndex, x - view_xview, y - view_yview, scale2 * pSize, scale2 * pSize, rot, color, sprAlpha);    
+     draw_sprite_ext(sprite, index, x - view_xview, y - view_yview, scale * pSize, scale * pSize, rot, color, alpha);
      if (lightMode == 0) {scale = lerp(scale, 3.2, 0.05); if (scale >= 3.19) {lightMode = 1;}}
      if (lightMode == 1) {scale = lerp(scale, 2.8, 0.05); if (scale <= 2.79) {lightMode = 0;}}
      

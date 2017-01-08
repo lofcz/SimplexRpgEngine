@@ -65,3 +65,8 @@ enum collectibleEnum
 {
 item, book, fragment, achievement   
 }
+
+enum DAudioEnum
+{
+ channelBackground, channelBattle
+}

@@ -24,7 +24,7 @@ scrCenterText(0);
 if (craftingMenuAlpha > 0)
     {
      tempX = xpos;
-     tempY = ypos + 48;
+     tempY = ypos + 49;
      
      // Draw array craftingMenuIndex
      for (i = 0; i < array_length_1d(craftingMenuIndex); i++)
@@ -1159,5 +1159,98 @@ else
                 clr(c_white, 1);
                 draw_text(tempX + 184, tempY + 180, "[Zrušit]");                                                       
         } 
+        
+         // Draw structures form    
+         // ************************************************
+         tempX = xpos;
+         tempY = ypos + 96;
+             
+         // Crafting item form 
+         if (craftingSelectedIndex == 7 && craftingHelper == -1 && !craftingDetails)
+            {    
+            j = 0;        
+            
+            // Draw frames
+            for (i = 0; i < craftingEntriesPerPage; i++)
+                {
+                 clr(c_black, 1);
+                 draw_rectangle(tempX, tempY, tempX + 32, tempY + 32, true);
+                 clr(c_white, 0.1);
+                 draw_rectangle(tempX, tempY, tempX + 32, tempY + 32, false);
+                 
+                 if (mouse_in(tempX, tempX + 32, tempY, tempY + 32))
+                    {
+                     clr(c_yellow, 0.3);
+                     draw_rectangle(tempX, tempY, tempX + 32, tempY + 32, false);                     
+                    }
+
+                 tempX += 32;
+                 j++;
+                 if (j == craftingEntriesPerRow) {j = 0; tempX = xpos; tempY += 32;}
+                 clr();
+                }
+                
+            // Draw known items
+            tempX = xpos;
+            tempY = ypos + 96;   
+            j = 0;
+            fnt(fntPixel);
+            var z = apiPlayerGetPropertyValue(vlastnost_zrucnost);
+            
+            for (i = 0; i < ds_list_size(craftingKnownStructures); i++)
+                {
+                 var v = ds_list_find_value(craftingKnownStructures, i);
+                 
+                 draw_sprite(sStructures, craftingStructuresSprite[craftingPageSelected, v], tempX+16, tempY+16);
+                 if (craftingStructuresNewFlag[craftingPageSelected, v]) {draw_text_colour(tempX + 25, tempY, "!", c_yellow, c_yellow, c_yellow, c_yellow, 1);}
+                 if (z >= craftingStructuresLevelReq[craftingPageSelected, v]) {u = true;} else {u = false;} 
+                 if (!u) {clr(c_black, 0.5); draw_rectangle(tempX, tempY, tempX + 32, tempY + 32, false); clr();}
+                 
+                 // On-Hover
+                 if (mouse_in(tempX, tempX + 32, tempY, tempY + 32))
+                 {               
+                 fnt();
+                 text  = craftingStructuresName[craftingPageSelected, v];
+                 color = c_white;
+                 
+                 if (!u) {color = c_red; text = "Vyžaduje zručnost na úrovni " + string(craftingStructuresLevelReq[craftingPageSelected, v]) + ".";}
+                 
+                 clr(c_black, 0.4);
+                 draw_roundrect(tempX + 16, tempY + 16, tempX + 32 + string_width(text), tempY + 42, false);
+                 clr(c_black, 1);
+                 draw_roundrect(tempX + 16, tempY + 16, tempX + 32 + string_width(text), tempY + 42, true);
+                 clr(color, 1);
+                 draw_text(tempX + 24, tempY + 16, text);
+                 clr();
+                 
+                 if (mouse_check_button_pressed(mb_left) && ds_list_find_index(craftingKnownStructures, v) != -1 && u)
+                    {
+                     craftingHelper = 0;
+                     if (craftingStructuresNewFlag[craftingPageSelected, v]) {craftingStructuresNewFlag[craftingPageSelected, v] = false;}   
+                                           
+                     craftingSelectedItem = v;
+                     craftingTitleHelper = craftingStructuresName[craftingPageSelected, v];
+                     craftingTitleHelper2 = craftingStructuresDetailsText[craftingPageSelected, v];                  
+                    } 
+                 }
+                 
+                 tempX += 32;
+                 j++;
+                 if (j == craftingEntriesPerRow) {j = 0; tempX = xpos; tempY += 32;}
+                 clr();                
+                }
+
+            }   
+         
+       // Crafting details form (item to craft is selected)
+       if (craftingSelectedIndex == 7 && craftingHelper == 0 && !craftingDetails)
+          {
+            tempX = xpos;
+            tempY = ypos + 96;   
+            
+            scrCraftingStructuresDB(craftingEnum.craftCraft, craftingSelectedItem);            
+          }
+          
+
 }
 
