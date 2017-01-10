@@ -280,7 +280,9 @@
       <sound>sound\sndMenuNavigate</sound>
       <sound>sound\sndMenuConfirm</sound>
       <sound>sound\sndCampfire</sound>
+      <sound>sound\sndSuccess</sound>
       <sound>sound\sndArrow</sound>
+      <sound>sound\sndBuildingCompleted</sound>
     </sounds>
     <sounds name="Music">
       <sound>sound\musicTest1</sound>

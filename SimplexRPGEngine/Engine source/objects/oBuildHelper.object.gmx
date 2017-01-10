@@ -53,23 +53,55 @@
 instance_set_position(mouse_x, mouse_y);
 
 var xx, yy;
-xx = view_xview;
-yy = view_yview;
-for (var i = 0; i &lt; 20; i++)
+xx = view_xview div 32 * 32 - 32;
+yy = view_yview div 32 * 32;
+for (var i = 0; i &lt; view_hview / 16 + 1; i++)
     {
-     for (var j = 0; j &lt; 30; j++)
+     for (var j = 0; j &lt; view_wview / 16 + 4; j++)
          {
+           xx += 16;         
            var color = c_red;
-           if (place_empty(xx + 16, yy + 16)) {color = c_lime;}
+           if (!place_meeting(xx, yy, parSolid)) {color = c_lime;}
            
            clr(color, 0.2);
-           draw_rectangle(xx, yy, xx + 32, yy + 32, false);
-           xx += 32;
+           draw_rectangle(xx, yy, xx + 16, yy + 16, false);
          }
-     xx = view_xview;
-     yy += 32;
+     xx = view_xview div 32 * 32 - 32;
+     yy += 16;
     }
+    
+mx = mouse_x div 16 * 16;
+my = mouse_y div 16 * 16;
+
+
+var xxx = mx - 32;
+var yyy = my - 16;
+
+for (var i = 0; i &lt; 3; i++)
+    {
+     for (var j = 0; j &lt; 3; j++)
+         {
+           xxx += 16;                                        
+           var color = c_red;
+           if (!place_meeting(xxx, yyy, parSolid)) {color = c_lime;}
+           
+           clr(color, 0.4);
+           draw_rectangle(xxx, yyy, xxx + 16, yyy + 16, false);
+         }
+     xxx = mx - 32;
+     yyy += 16;
+    }
+    
+clr(-1, 0.5);
+draw_sprite(sFireplace, 0, mouse_x, mouse_y);    
 clr();
+
+if (mouse_check_button_pressed(mb_left))
+   {
+    sfx(sndBuildingCompleted);
+    instance_create(mouse_x, mouse_y, oFireplace);
+    instance_destroy();
+   }
 
 </string>
           </argument>

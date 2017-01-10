@@ -352,8 +352,7 @@ if (debug)
         {
          for(j = 0; j &lt; (800 / 32); j++)
             {
-             xx += 32;
-             draw_set_alpha(0.2);
+             clr(-1, 0.2);
              draw_line(X, Y + yy, X + 832, Y + yy); 
              draw_line(X + xx, Y, X + xx, Y + 632);            
              
@@ -361,7 +360,9 @@ if (debug)
                 {
                  draw_rectangle_colour(X + xx, Y + yy, X + xx + 32, Y + yy + 32, c_yellow, c_yellow, c_yellow, c_yellow, false);
                 }
-             draw_set_alpha(1);
+             clr(-1, 1);
+             xx += 32;
+             
             }
          xx = 0;
          yy += 32;
