@@ -31,17 +31,10 @@ apiPlayerCreate();
 event_inherited();
 
 name = "Lof";
-testBool = true;
+testBool = false;
 
-//scrSimpleLightIni() // &lt;-- TODO
-sprLight      = sBasicLight;
-sprLightIndex = 0;
-scale2         = 2;
-color         = c_white;
-sprAlpha      = 0.5;
-rot           = 0;
-lightMode     = 0;
-scrSimpleLightIni(sBasicLight, 0, 3, c_white, 0.2, 0, 1.1, heartBeat);
+scrSimpleLightIni(0, sBasicLight, 0, 2, c_white, 0.2, 0, 1.1, heartBeat);
+scrSimpleLightIni(1, sBasicLight, 0, 1, c_white, 0.4, 0, 1.1, heartBeat);
 
 
 apiPlayerIni();

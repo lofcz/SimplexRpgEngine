@@ -35,9 +35,11 @@ if (instance_number(oLight) > 0)
 {
 with(oLight)
     {
-     if (pMaxSize > 0) {if (pMode == 0) {pSize = lin(pSize, pMaxSize, pSpd); if (pSize >= pMaxSize) {pMode = 1;}} if (pMode == 1) {pSize = lin(pSize, 1, -pSpd); if (pSize <= 1) {pMode = 0;}}}
-     draw_sprite_ext(sprite, index, x - view_xview, y - view_yview, scale * (pSize), scale * (pSize), rot, color, alpha);
-     draw_text(x, y, pSize);
+     for (var i = 0; i < array_length_1d(slSprite); i++)
+         {         
+          if (slPMaxSize[i] > 0) {if (slPMode[i] == 0) {slPSize[i] = lin(slPSize[i], slPMaxSize[i], slPSpd[i]); if (slPSize[i] >= slPMaxSize[i]) {slPMode[i] = 1;}} if (slPMode[i] == 1) {slPSize[i] = lin(slPSize[i], 1, -slPSpd[i]); if (slPSize[i] <= 1) {slPMode[i] = 0;}}}
+          draw_sprite_ext(slSprite[i], slIndex[i], x - view_xview, y - view_yview, slScale[i] * (slPSize[i]), slScale[i] * (slPSize[i]), slRot[i], slColor[i], slAlpha[i]);
+         }
     }    
 }
 
@@ -45,24 +47,26 @@ if (instance_number(oFireplace) > 0)
 {
 with(oFireplace)
     {
-     if (pMaxSize > 0) {if (pMode == 0) {pSize = lin(pSize, pMaxSize, pSpd); if (pSize >= pMaxSize) {pMode = 1;}} if (pMode == 1) {pSize = lin(pSize, 1, -pSpd); if (pSize <= 1) {pMode = 0;}}}        
-     draw_sprite_ext(sprite, index, x - view_xview, y - view_yview, scale * pSize, scale * pSize, rot, color, alpha);
-    }    
+     for (var i = 0; i < array_length_1d(slSprite); i++)
+         {    
+          if (slPMaxSize[i] > 0) {if (slPMode[i] == 0) {slPSize[i] = lin(slPSize[i], slPMaxSize[i], slPSpd[i]); if (slPSize[i] >= slPMaxSize[i]) {slPMode[i] = 1;}} if (slPMode[i] == 1) {slPSize[i] = lin(slPSize[i], 1, -slPSpd[i]); if (slPSize[i] <= 1) {slPMode[i] = 0;}}}
+          draw_sprite_ext(slSprite[i], slIndex[i], x - view_xview, y - view_yview, slScale[i] * (slPSize[i]), slScale[i] * (slPSize[i]), slRot[i], slColor[i], slAlpha[i]);
+         }
+     }    
 }
 
     
 with(oPlayer)
     {
-     if (pMaxSize > 0) {if (pMode == 0) {pSize = lin(pSize, pMaxSize, pSpd); if (pSize >= pMaxSize) {pMode = 1;}} if (pMode == 1) {pSize = lin(pSize, 1, -pSpd); if (pSize <= 1) {pMode = 0;}}}    
-     draw_sprite_ext(sprLight, sprLightIndex, x - view_xview, y - view_yview, scale2 * pSize, scale2 * pSize, rot, color, sprAlpha);    
-     draw_sprite_ext(sprite, index, x - view_xview, y - view_yview, scale * pSize, scale * pSize, rot, color, alpha);
-     if (lightMode == 0) {scale = lerp(scale, 3.2, 0.05); if (scale >= 3.19) {lightMode = 1;}}
-     if (lightMode == 1) {scale = lerp(scale, 2.8, 0.05); if (scale <= 2.79) {lightMode = 0;}}
-     
+     for (var i = 0; i < array_length_1d(slSprite); i++)
+         {    
+          if (slPMaxSize[i] > 0) {if (slPMode[i] == 0) {slPSize[i] = lin(slPSize[i], slPMaxSize[i], slPSpd[i]); if (slPSize[i] >= slPMaxSize[i]) {slPMode[i] = 1;}} if (slPMode[i] == 1) {slPSize[i] = lin(slPSize[i], 1, -slPSpd[i]); if (slPSize[i] <= 1) {slPMode[i] = 0;}}}
+          draw_sprite_ext(slSprite[i], slIndex[i], x - view_xview, y - view_yview, slScale[i] * (slPSize[i]), slScale[i] * (slPSize[i]), slRot[i], slColor[i], slAlpha[i]);
+      }     
     }
 draw_set_blend_mode(bm_normal);
 surface_reset_target();
 
 draw_surface_ext(surf, view_xview, view_yview, 1, 1, 0, c_white, alpha);
-}
+ }
 }

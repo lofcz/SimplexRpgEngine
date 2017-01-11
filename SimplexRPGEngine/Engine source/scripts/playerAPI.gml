@@ -88,7 +88,7 @@ time         += 0.02;;
 
 // Update pulse speed of FOV
 heartBeat = (0.004 - ((oPlayer.last_hp / apiPlayerGetPropertyValue(vlastnost_max_zivot)) / 250));
-scrSimpleLightUpdate(-1, -1, -1, -1, -1, -1, -1, heartBeat);
+scrSimpleLightUpdate(0, -1, -1, -1, -1, -1, -1, -1, heartBeat);
 
 
 #define apiPlayerMoveStand

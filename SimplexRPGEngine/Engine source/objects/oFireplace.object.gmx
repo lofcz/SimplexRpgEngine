@@ -29,7 +29,8 @@
 
 event_inherited();
 image_speed = 0;
-scrSimpleLightIni(sBasicLight, 0, 3, c_white, 0.8, 0, 1.1, 0.002);
+scrSimpleLightIni(0, sBasicLight, 0, 3, c_white, 0.8, 0, 1.1, 0.002);
+scrSimpleLightIni(1, sBasicLight, 0, 6, c_white, 0.2, 0, 1.1, 0.002);
 scrDAudioHook(sndCampfire, 300);
 scrParticleSystemCreate();
 </string>

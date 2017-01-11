@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scrSimpleLightIni(sBasicLight, -1, 1 + random_range(0, 1.5), c_white, 1, 0, 1.1, 0.002);
+            <string>/// Set up
+
+scrSimpleLightIni(0, sBasicLight, -1, 1 + random_range(0, 1.5), c_white, 1, 0, 1.1, 0.002);
 </string>
           </argument>
         </arguments>
