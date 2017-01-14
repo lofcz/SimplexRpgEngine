@@ -38,6 +38,16 @@ switch (idd)
             }     
          break;
         }
+     case (itemEnum.itemRename):
+        {
+         if (number == 0)
+            {
+             combine              = 1;
+             combine_id           = itemEnum.itemSwordWooden;
+             combine_default_slot = hover_idd;                  
+            }     
+         break;
+        }        
      case (itemEnum.itemArcaneUpgrade1):
         {
          if (number == 0)

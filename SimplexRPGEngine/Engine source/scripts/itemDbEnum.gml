@@ -95,5 +95,6 @@ itemBow1,
 itemArrow1,
 itemFortuneStatuette,
 itemCollectible1,
-itemCollectible2
+itemCollectible2,
+itemRename
 };

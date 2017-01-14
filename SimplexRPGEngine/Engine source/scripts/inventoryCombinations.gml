@@ -19,6 +19,11 @@ switch (idd)
                      if (slot[S, inv_item_equip_slot] == "zbraň") {return true;}    
                      break;                 
                     }
+            case(itemEnum.itemRename):
+                    {
+                     if (!slot[S, inv_stackable]) {return true;}    
+                     break;                 
+                    }                    
             case(itemEnum.itemArcaneUpgrade1):
                     {
                      if (slot[S, inv_item_equip_slot] != "" && slot_vlastnosti[S, vlastnost_reinforcementLevel] < 3 && (slot[S, inv_item_effect] == rarity_normal || slot[S, inv_item_effect] == rarity_junk)) {return true;}    
@@ -102,6 +107,20 @@ switch(id1)
                         }  
                      break;
                     }
+            case(itemEnum.itemRename):
+                    { 
+                     if (!slot[slot2, inv_stackable])
+                        {    
+                         inventoryDelete(itemEnum.itemRename, 1); 
+                         var i = scrGetString();
+                         i.data[0] = slot2;
+                         i.data[1] = slot_vlastnosti[slot2, vlastnost_reinforcementLevel];
+                         i.mode    = "rename";
+                         
+                       //  stateAddEntry("Přejmenoval jsi " + oldName + " na " + string_lower(slot[slot2, inv_item_info_head]) + ".");
+                        }  
+                     break;
+                    }                    
             case(itemEnum.itemArcaneUpgrade1):
                     { 
                      if (slot[slot2, inv_item_equip_slot] != "" && slot_vlastnosti[slot2, vlastnost_reinforcementLevel] < 3 && (slot[slot2, inv_item_effect] == rarity_junk || slot[slot2, inv_item_effect] == rarity_normal))

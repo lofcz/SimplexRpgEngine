@@ -531,6 +531,7 @@
       <sprites name="Pop-up">
         <sprite>sprites\sHintButton</sprite>
         <sprite>sprites\sHintForm</sprite>
+        <sprite>sprites\sGetStringForm</sprite>
       </sprites>
       <sprites name="Overlays">
         <sprite>sprites\sOverlayLight</sprite>
@@ -656,6 +657,7 @@
               <sprite>sprites\sEnchanterEffect</sprite>
               <sprite>sprites\sPowerWordLesserEffect</sprite>
               <sprite>sprites\sFortunaEffect</sprite>
+              <sprite>sprites\sRenameEffect</sprite>
               <sprite>sprites\sLockpickEffect</sprite>
             </sprites>
             <sprites name="Weapons">
@@ -1209,6 +1211,7 @@
       <scripts name="Pop up">
         <script>scripts\scrHintShow.gml</script>
         <script>scripts\scrQuestionShow.gml</script>
+        <script>scripts\scrGetString.gml</script>
       </scripts>
       <scripts name="Area scripts">
         <script>scripts\scrAreaScriptIni.gml</script>
@@ -1374,6 +1377,7 @@
           <object>objects\oHintBox</object>
           <object>objects\oHudDepthHelper</object>
           <object>objects\oHintBoxButton</object>
+          <object>objects\oGetString</object>
         </objects>
       </objects>
       <objects name="Prefabs">
@@ -1600,6 +1604,7 @@
           <object>objects\oArcaneUpgradeGreater</object>
           <object>objects\oArcaneUpgradeLegendary</object>
           <object>objects\oEnchanter</object>
+          <object>objects\oRename</object>
           <object>objects\oEmendationLesser</object>
           <object>objects\oPowerWordBalance</object>
           <object>objects\oArcaneUpgradeFinal</object>

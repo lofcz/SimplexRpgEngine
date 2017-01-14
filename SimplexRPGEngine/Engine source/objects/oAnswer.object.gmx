@@ -3,7 +3,7 @@
   <spriteName>sAnswerWheel</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-215</depth>
+  <depth>-230</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>

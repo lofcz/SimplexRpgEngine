@@ -204,7 +204,7 @@ yy   = view_yview + 48;
 ti   = 0;
 hit  = false;
 
-if (keyboard_check_pressed(ord("T")))
+if (keyboard_check_pressed(ord("T")) &amp;&amp; instance_number(oGetString) == 0 &amp;&amp; instance_number(oHintBox) == 0)
    {
     if (scrGettActiveComponent())
        {

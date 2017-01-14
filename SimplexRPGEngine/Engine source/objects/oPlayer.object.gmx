@@ -253,7 +253,8 @@ oCamera.exportMap = true;    */
 //oHUD.DAudioTempSwitch = !oHUD.DAudioTempSwitch;
 //if (testBool) {scrDAudioSwitchSong(DAudioEnum.channelBackground, musicTest1);}
 //else {scrDAudioSwitchSong(DAudioEnum.channelBackground, musicMain1);}
-testBool = !testBool;
+//testBool = !testBool;
+//scrGetString();
 //scrGameWorldSpawnerSpawnCutscene("exampleSpawner", oEnemySlime, 1, "Tvoje prdel zažije středověk!");
 </string>
           </argument>
