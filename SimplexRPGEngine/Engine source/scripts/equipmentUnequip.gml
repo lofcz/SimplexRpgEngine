@@ -50,7 +50,7 @@ for(a = 0; a < oInventory.slots; a++)
                               
                    if (a != vlastnost_bodyCanvasIndex && a != vlastnost_bodyCanvasSprite && a!= vlastnost_bodyCanvasSlashSprite)
                       {
-                       oPlayer.vlastnost[a] -= (equiped_vlastnost[e_slot,a] + equiped_vlastnost_static[e_slot,a]);
+                       oPlayer.vlastnostStatic[a] -= (equiped_vlastnost[e_slot,a] + equiped_vlastnost_static[e_slot,a]);
                       }
                    else if (equiped_vlastnost[e_slot,vlastnost_bodyCanvasIndex] != 0)
                         {

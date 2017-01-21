@@ -138,8 +138,8 @@ else
     {
     if (!sprinting)
         {
-         stamina_tick                  = vlastnost[vlastnost_tick_stamina];
-         vlastnost[vlastnost_stamina] += vlastnost[vlastnost_tick_stamina_add];
+         stamina_tick                  = apiPlayerGetPropertyValue(vlastnost_tick_stamina, false, true);
+         vlastnost[vlastnost_stamina] += apiPlayerGetPropertyValue(vlastnost_tick_stamina_add, false, true);
         }
     }
 
@@ -207,12 +207,11 @@ if (stamina_dif <= 5) {stamina_bar = 0.1;}
 if (health_dif  <= 5) {health_bar = 0.1;}
 else {health_bar = 1;} 
      
-last_hp      = lerp(last_hp,       vlastnost[vlastnost_zivot],      0.1);
-last_stit    = lerp(last_stit,     vlastnost[vlastnost_stit],       0.1);
-last_mana    = lerp(last_mana,     vlastnost[vlastnost_mana],       0.1);
-last_mana    = lerp(last_mana,     vlastnost[vlastnost_mana],       0.1);
-last_stamina = lerp(last_stamina,  vlastnost[vlastnost_stamina],    0.1);
-last_xp      = round(lerp(last_xp, vlastnost[vlastnost_zkusenosti], 0.1));
+last_hp      = lerp(last_hp,       apiPlayerGetPropertyValue(vlastnost_zivot, false, true),      0.1);
+last_stit    = lerp(last_stit,     apiPlayerGetPropertyValue(vlastnost_stit, false, true),       0.1);
+last_mana    = lerp(last_mana,     apiPlayerGetPropertyValue(vlastnost_mana, false, true),       0.1);
+last_stamina = lerp(last_stamina,  apiPlayerGetPropertyValue(vlastnost_stamina, false, true),    0.1);
+last_xp      = round(lerp(last_xp, apiPlayerGetPropertyValue(vlastnost_zkusenosti, false, true), 0.1));
 
 // Handle speech queue
 if (ds_queue_size(speechQueue) > 0)
@@ -711,14 +710,14 @@ if (returnedArray[0] != "") {return true;} else {return false;}
 /// apiPlayerUpdateProperties()
 
 // Atributes
-oPlayer.maxHp = (oPlayer.vlastnost[vlastnost_max_zivot] + oPlayer.vlastnost[vlastnost_odolnost] * oStatusMenu.incHealth);  
-oPlayer.maxMp = (oPlayer.vlastnost[vlastnost_max_mana] + oPlayer.vlastnost[vlastnost_inteligence] * oStatusMenu.incMana);  
+oPlayer.maxHp = (apiPlayerGetPropertyValue(vlastnost_max_zivot, false, true) + apiPlayerGetPropertyValue(vlastnost_odolnost, false, true) * oStatusMenu.incHealth);  
+oPlayer.maxMp = (apiPlayerGetPropertyValue(vlastnost_max_mana, false, true)  + apiPlayerGetPropertyValue(vlastnost_inteligence, false, true) * oStatusMenu.incMana);  
 
 // Clamp vars to bounds
-oPlayer.vlastnost[vlastnost_zivot]   = clamp(oPlayer.vlastnost[vlastnost_zivot],   0, oPlayer.maxHp);
-oPlayer.vlastnost[vlastnost_mana]    = clamp(oPlayer.vlastnost[vlastnost_mana],    0, oPlayer.maxMp);
-oPlayer.vlastnost[vlastnost_stamina] = clamp(oPlayer.vlastnost[vlastnost_stamina], 0, oPlayer.vlastnost[vlastnost_max_stamina]);
-oPlayer.vlastnost[vlastnost_stit]    = clamp(oPlayer.vlastnost[vlastnost_stit],    0, oPlayer.vlastnost[vlastnost_max_stit]);
+oPlayer.vlastnost[vlastnost_zivot]   = clamp(apiPlayerGetPropertyValue(vlastnost_zivot, false, true),   0, oPlayer.maxHp);
+oPlayer.vlastnost[vlastnost_mana]    = clamp(apiPlayerGetPropertyValue(vlastnost_mana, false, true),    0, oPlayer.maxMp);
+oPlayer.vlastnost[vlastnost_stamina] = clamp(apiPlayerGetPropertyValue(vlastnost_stamina, false, true), 0, apiPlayerGetPropertyValue(vlastnost_max_stamina, false, true));
+oPlayer.vlastnost[vlastnost_stit]    = clamp(apiPlayerGetPropertyValue(vlastnost_stit, false, true),    0, apiPlayerGetPropertyValue(vlastnost_max_stit, false, true));
 
 // Check for lvl-up / death
 if (oPlayer.last_hp < 0) {oPlayer.last_hp = 0;}
@@ -1097,7 +1096,8 @@ set_sprite(sprite_index, 0);
 
 for(a = 0; a < celkem_vlastnosti; a++)
 {
- vlastnost[a]   = 0;
+ vlastnost[a]       = 0;
+ vlastnostStatic[a] = 0;
 }
 
 for(a = 0; a < spell_total; a++)
@@ -1188,16 +1188,20 @@ else
      if (r) {oPlayer.gold += (a + (a * oPlayer.vlastnost[vlastnost_bonusGold]));} else {oPlayer.gold = (a + (a * oPlayer.vlastnost[vlastnost_bonusGold]));}
     }
 #define apiPlayerGetPropertyValue
-/// apiPlayerGetPropertyValue(index, [returnAsString])
+/// apiPlayerGetPropertyValue(index, [returnAsString], [sumWithStatic])
 
-var i,r;
+var i, r, s;
 i = vlastnost_zivot;
 r = false;
+s = false;
 
 if (argument_count > 0) {i = argument[0];}
 if (argument_count > 1) {r = argument[1];}
+if (argument_count > 2) {s = argument[2];}
 
-if (r) {return string(oPlayer.vlastnost[i]);}
+
+if (r) {if (s) {return string(oPlayer.vlastnost[i] + oPlayer.vlastnostStatic[i]);} else {return string(oPlayer.vlastnost[i])}}
+if (s) {return (oPlayer.vlastnost[i] + oPlayer.vlastnostStatic[i]);}
 return (oPlayer.vlastnost[i]);
 
 #define apiPlayerSplashEmoticon
@@ -1235,3 +1239,15 @@ if (argument_count > 0) {i = argument[0];}
 if (argument_count > 1) {v = argument[1];}
 
 oPlayer.vlastnost[i] += v;
+#define apiPlayerGetPropertyStaticValue
+/// apiPlayerGetPropertyStaticValue(index, [returnAsString])
+
+var i,r;
+i = vlastnost_zivot;
+r = false;
+
+if (argument_count > 0) {i = argument[0];}
+if (argument_count > 1) {r = argument[1];}
+
+if (r) {return string(oPlayer.vlastnostStatic[i]);}
+return (oPlayer.vlastnostStatic[i]);

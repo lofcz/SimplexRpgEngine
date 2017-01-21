@@ -195,7 +195,7 @@ else
             tempY = ypos + 96;   
             j = 0;
             fnt(fntPixel);
-            var z = apiPlayerGetPropertyValue(vlastnost_zrucnost);
+            var z = apiPlayerGetPropertyValue(vlastnost_zrucnost, false, true);
             
             for (i = 0; i < ds_list_size(craftingKnownItems); i++)
                 {

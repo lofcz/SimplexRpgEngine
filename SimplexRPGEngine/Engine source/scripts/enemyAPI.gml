@@ -256,8 +256,8 @@ apiPlayerSayNext();
 dmg = 0;
 if (scrAffectsGetStacks("flash") != -1) {dmg += (scrAffectsGetStacks("flash") * scrAffectsGetStacks("flash")); scrAffectsRemove("flash", -1);}
 
-if (combatGetCriticalHit()) {dmg += (apiPlayerGetPropertyValue(vlastnost_poskozeni) * (apiPlayerGetPropertyValue(vlastnost_kriticka_nasobic) / 100));}
-else {dmg += apiPlayerGetPropertyValue(vlastnost_poskozeni);}
+if (combatGetCriticalHit()) {dmg += (apiPlayerGetPropertyValue(vlastnost_poskozeni, false, true) * (apiPlayerGetPropertyValue(vlastnost_kriticka_nasobic) / 100));}
+else {dmg += apiPlayerGetPropertyValue(vlastnost_poskozeni, false, true);}
 
 dmg += (oPlayer.vlastnost[vlastnost_sila] / 2);
 dmg += random_range(-2, 2);

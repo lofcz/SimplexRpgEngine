@@ -7,7 +7,7 @@ f     = 0;
 
 if (argument_count > 0) {input = argument[0];}
 
-str   = input;
+str = input;
 
 for(a = 1; a < string_length(str); a++)
     {

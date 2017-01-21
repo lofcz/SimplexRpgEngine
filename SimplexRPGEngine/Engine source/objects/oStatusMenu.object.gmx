@@ -308,7 +308,10 @@ for (i = 0; i &lt; celkem_vlastnosti; i++)
         {
          if (returnedArray[2] == 0 &amp;&amp; returnedArray[1])
          {
-          draw_text_colored(xx + xoffset, yy + yoffset + tempY, returnedArray[0] + ": " + scrColorText(apiPlayerGetPropertyValue(i, true), propertyColor[i]));
+          var txt = returnedArray[0] + ": " + scrColorText(apiPlayerGetPropertyValue(i, true), propertyColor[i]);
+
+          draw_text_colored(xx + xoffset, yy + yoffset + tempY, txt);
+          if (apiPlayerGetPropertyStaticValue(i) &gt; 0) {draw_text_colored(xx + xoffset + string_width(dialogueParse(txt)), yy + yoffset + tempY, scrColorText(" ", c_white) + scrColorText("+" + apiPlayerGetPropertyStaticValue(i, true), c_aqua) + scrColorText("", c_white));}
           
           // If player have some points to spend
           if (oPlayer.skillPoints &gt; 0) 
@@ -426,7 +429,10 @@ for (i = 0; i &lt; celkem_vlastnosti; i++)
         {
          if (returnedArray[2] == selectedSkillsIndex &amp;&amp; returnedArray[1])
          {
-          draw_text_colored(xx + xoffset, yy + yoffset + tempY, returnedArray[0] + ": " + scrColorText(apiPlayerGetPropertyValue(i, true), propertyColor[i]));
+          var txt = returnedArray[0] + ": " + scrColorText(apiPlayerGetPropertyValue(i, true), propertyColor[i]);
+
+          draw_text_colored(xx + xoffset, yy + yoffset + tempY, txt);
+          if (apiPlayerGetPropertyStaticValue(i) &gt; 0) {draw_text_colored(xx + xoffset + string_width(dialogueParse(txt)), yy + yoffset + tempY, scrColorText("+" + apiPlayerGetPropertyStaticValue(i, true), c_aqua));}
           
           // If player have some points to spend
           if (oPlayer.propertyPoints &gt; 0) 
@@ -491,10 +497,10 @@ draw_line(xx + xoffset, yy + yoffset + 24, xx + xoffset + 220, yy + yoffset + 24
 clr(c_white, activatedAlpha)
 fnt();
 
-draw_text_colored(xx + xoffset, yy + yoffset + 32, "Zdraví: " + string(round(oPlayer.vlastnost[vlastnost_zivot])) + " / " + string(oPlayer.maxHp));
-draw_text_colored(xx + xoffset, yy + yoffset + 64, "Mana: " + string(round(oPlayer.vlastnost[vlastnost_mana])) + " / " + string(oPlayer.maxMp));
-draw_text_colored(xx + xoffset, yy + yoffset + 96, "Štít: " + string(round(oPlayer.vlastnost[vlastnost_stit])) + " / " + string(oPlayer.vlastnost[vlastnost_max_stit]));
-draw_text_colored(xx + xoffset, yy + yoffset + 128, "Stamina: " + string(round(oPlayer.vlastnost[vlastnost_stamina])) + " / " + string(oPlayer.vlastnost[vlastnost_max_stamina]));
+draw_text_colored(xx + xoffset, yy + yoffset + 32, "Zdraví: " + string(round(apiPlayerGetPropertyValue(vlastnost_zivot, false, true))) + " / " + string(oPlayer.maxHp));
+draw_text_colored(xx + xoffset, yy + yoffset + 64, "Mana: " + string(round(apiPlayerGetPropertyValue(vlastnost_mana, false, true))) + " / " + string(oPlayer.maxMp));
+draw_text_colored(xx + xoffset, yy + yoffset + 96, "Štít: " + string(round(apiPlayerGetPropertyValue(vlastnost_stit, false, true))) + " / " + string(oPlayer.vlastnost[vlastnost_max_stit]));
+draw_text_colored(xx + xoffset, yy + yoffset + 128, "Stamina: " + string(round(apiPlayerGetPropertyValue(vlastnost_stamina, false, true))) + " / " + string(apiPlayerGetPropertyValue(vlastnost_stamina, false, true)));
 
 // Lastly player's resistances
 fnt();
@@ -516,7 +522,11 @@ for (i = 0; i &lt; celkem_vlastnosti; i++)
         {
          if (returnedArray[2] == 666 &amp;&amp; !returnedArray[1])
          {
-          draw_text_colored(xx + xoffset, yy + yoffset + tempY, returnedArray[0] + ": " + scrColorflag(propertyColor[i]) + string(oPlayer.vlastnost[i]) + scrEndColorflag() + " ");
+          var txt = returnedArray[0] + ": " + scrColorText(apiPlayerGetPropertyValue(i, true), propertyColor[i]);
+
+          draw_text_colored(xx + xoffset, yy + yoffset + tempY, txt);
+          if (apiPlayerGetPropertyStaticValue(i) &gt; 0) {draw_text_colored(xx + xoffset + string_width(dialogueParse(txt)), yy + yoffset + tempY, scrColorText(" ", c_white) + scrColorText("+" + apiPlayerGetPropertyStaticValue(i, true), c_aqua) + scrColorText("", c_white));}
+         
           tempY += 22;
          }
         }
@@ -542,9 +552,20 @@ for (i = 0; i &lt; celkem_vlastnosti; i++)
      // If searched property is defined in player's properties and it's a bonus, unupgradable property
      if (apiPlayerGetProperty(i)) 
         {
-         if (returnedArray[2] == 1000 &amp;&amp; !returnedArray[1] &amp;&amp; oPlayer.vlastnost[i] &gt; 0)
+         if (returnedArray[2] == 1000 &amp;&amp; !returnedArray[1] &amp;&amp; apiPlayerGetPropertyValue(i, false, true) &gt; 0)
          {
-          draw_text_colored(xx + xoffset, yy + yoffset + tempY, returnedArray[0] + ": " + string(oPlayer.vlastnost[i]) + "%");
+          var txt = returnedArray[0] + ": " + scrColorText(apiPlayerGetPropertyValue(i, true), propertyColor[i]);
+
+          if (apiPlayerGetPropertyValue(i) != 0)
+             {
+              draw_text_colored(xx + xoffset, yy + yoffset + tempY, txt);
+              if (apiPlayerGetPropertyStaticValue(i) &gt; 0) {draw_text_colored(xx + xoffset + string_width(dialogueParse(txt)), yy + yoffset + tempY, scrColorText(" +" + apiPlayerGetPropertyStaticValue(i, true), c_aqua) + scrColorText("%", c_white));}
+             }
+          else
+             {
+              draw_text_colored(xx + xoffset, yy + yoffset + tempY, returnedArray[0] + ": " + scrColorText("+" + apiPlayerGetPropertyStaticValue(i, true), c_aqua) + scrColorText("%", c_white));             
+             }
+             
           tempY += 22;
          }
         }
@@ -565,10 +586,10 @@ clr(c_white, activatedAlpha / 2);
 draw_line(xx + xoffset, yy + yoffset + 24, xx + xoffset + 220, yy + yoffset + 24);
 clr(c_white, activatedAlpha);
 
-draw_text_colored(xx + xoffset, yy + yoffset + 32, "Poškození: " + string(round(oPlayer.vlastnost[vlastnost_poskozeni])));
-draw_text_colored(xx + xoffset, yy + yoffset + 64, "Obrana: " + string(round(oPlayer.vlastnost[vlastnost_defense])));
-draw_text_colored(xx + xoffset, yy + yoffset + 96, "Šance na kritický úder: " + string(round(oPlayer.vlastnost[vlastnost_kriticka_sance])) + "%");
-fnt(fntPixelSmall); draw_text_colored(xx + xoffset + 16, yy + yoffset + 128, "- Kritické poškození: " + string(round(oPlayer.vlastnost[vlastnost_kriticka_nasobic] * 100)) + "%"); fnt();
+draw_text_colored(xx + xoffset, yy + yoffset + 32, "Poškození: " + string(round(apiPlayerGetPropertyValue(vlastnost_poskozeni, false, true))));
+draw_text_colored(xx + xoffset, yy + yoffset + 64, "Obrana: " + string(round(apiPlayerGetPropertyValue(vlastnost_defense, false, true))));
+draw_text_colored(xx + xoffset, yy + yoffset + 96, "Šance na kritický úder: " + string(round(apiPlayerGetPropertyValue(vlastnost_kriticka_sance, false, true))) + "%");
+fnt(fntPixelSmall); draw_text_colored(xx + xoffset + 16, yy + yoffset + 128, "- Kritické poškození: " + string(round(100 + apiPlayerGetPropertyValue(vlastnost_kriticka_nasobic, false, true))) + "%"); fnt();
 
  }
 if (drawMode == 1)

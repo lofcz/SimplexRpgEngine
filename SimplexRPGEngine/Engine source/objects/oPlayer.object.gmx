@@ -52,9 +52,6 @@ apiPlayerAssignSpell(0, "flash",        sSpellFlash);
 apiPlayerAssignSpell(1, "frozen_bolts", sSpellFrozenBolts);
 apiPlayerAssignSpell(2, "fire_trail",   sSpellFireBeam);
 
-
-
-
 magic[spell_fireball_cost]     = 20;
 magic[spell_fireball_damage]   = 15;
 magic[spell_fireball_cooldown] = 80;

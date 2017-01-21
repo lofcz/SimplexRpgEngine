@@ -42,7 +42,7 @@ if ((oInventory.drag && mouse_check_button_released(mb_left) && equiped[equip_sl
                               
                               if (a != vlastnost_bodyCanvasIndex && a != vlastnost_bodyCanvasSprite && a != vlastnost_bodyCanvasSlashSprite && a != vlastnost_bodyCanvasFireSprite && a != vlastnost_bodyCanvasDieSprite)
                               {
-                              oPlayer.vlastnost[a] += (slot_vlastnosti[h_c, a] + slot_vlastnosti_static[h_c, a]);
+                              oPlayer.vlastnostStatic[a] += (slot_vlastnosti[h_c, a] + slot_vlastnosti_static[h_c, a]);
                               }
                               else if (slot_vlastnosti[h_c,vlastnost_bodyCanvasIndex] != 0)
                                 {

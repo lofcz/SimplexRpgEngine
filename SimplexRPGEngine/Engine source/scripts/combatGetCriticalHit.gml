@@ -3,7 +3,7 @@
 randomize();
 
 var chance;
-chance = oPlayer.vlastnost[vlastnost_kriticka_sance];
+chance = apiPlayerGetPropertyValue(vlastnost_kriticka_sance, false, true);
 
 if (argument_count > 0) {chance = real(argument[0]);}
 

@@ -464,10 +464,10 @@
     <instance objName="oKalokvet" x="192" y="224" name="inst_68080964" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oFurRabbit" x="544" y="752" name="inst_729286C0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oGem1" x="128" y="368" name="inst_0D35BCB6" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oGem2" x="16" y="352" name="inst_51031D76" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oGem3" x="16" y="384" name="inst_063FE3AD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oGem4" x="16" y="432" name="inst_15CD1C45" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oGem5" x="16" y="464" name="inst_C3C35126" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oGem2" x="160" y="328" name="inst_51031D76" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oGem3" x="192" y="328" name="inst_063FE3AD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oGem4" x="192" y="368" name="inst_15CD1C45" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oGem5" x="192" y="400" name="inst_C3C35126" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oArmorLeather" x="560" y="656" name="inst_99A3C249" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBone" x="576" y="752" name="inst_76964AAF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oRelic" x="656" y="320" name="inst_CCA71F93" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -520,7 +520,7 @@
     <instance objName="oCollectibleItem1Kvejk" x="672" y="1184" name="inst_41A83C5C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oCombatDummy" x="496" y="1632" name="inst_1D775695" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oCollectibleItem2Unicorn" x="696" y="1184" name="inst_8EF9CD28" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oRoomTransition" x="16" y="1048" name="inst_A02A6E1E" locked="0" code="level = mapE1M2;&#xA;" scaleX="0.810000002384186" scaleY="58.21875" colour="4294967295" rotation="0"/>
+    <instance objName="oRoomTransition" x="16" y="1024" name="inst_A02A6E1E" locked="0" code="level = mapE1M2;&#xA;" scaleX="0.810000002384186" scaleY="58.21875" colour="4294967295" rotation="0"/>
     <instance objName="oFireplace" x="1128" y="1192" name="inst_B4A58E89" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oRename" x="824" y="816" name="inst_D1B376AF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>

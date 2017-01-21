@@ -1310,16 +1310,16 @@ if (tempBool)
 
      if (m == 0)
         {                              
-         if (deltaB > 0) {t_text += " " + " [+" + scrColorflag(c_lime)  + string(deltaB) + scrEndColorflag() + "]"  +  " ";}
+         if (deltaB > 0) {t_text += " " + " [" + scrColorflag(c_lime)  + "+" +string(deltaB) + scrEndColorflag() + "]"  +  " ";}
          else if (deltaB < 0) {t_text += " " + " [" + scrColorflag(c_red)  + string(deltaB) + scrEndColorflag()+ "]"  + " ";}
          else {t_text += " " + " [" +scrColorflag(c_yellow)  + string(deltaB) + scrEndColorflag()+ "]"  + " ";}                                                          
         }
 
     if (m == 1)
        {
-        if (deltaB > 0) {t_text += " "+ " [+" + scrColorflag(c_red) + string(deltaB)  + scrEndColorflag()  + "]"+ " ";}
-        else if (deltaB < 0) {t_text += " "+ " [+" + scrColorflag(c_lime) + string(deltaB) + scrEndColorflag() + "]" + " ";}
-        else {t_text += " "+ " [+" + scrColorflag(c_yellow) + string(deltaB) + scrEndColorflag() + "]" + " ";}                                                          
+        if (deltaB > 0) {t_text += " "+ " [" + scrColorflag(c_red) + "+" + string(deltaB)  + scrEndColorflag()  + "]"+ " ";}
+        else if (deltaB < 0) {t_text += " "+ " [" + scrColorflag(c_lime) + "+" + string(deltaB) + scrEndColorflag() + "]" + " ";}
+        else {t_text += " "+ " [" + scrColorflag(c_yellow) + "+" + string(deltaB) + scrEndColorflag() + "]" + " ";}                                                          
        }
     }
 

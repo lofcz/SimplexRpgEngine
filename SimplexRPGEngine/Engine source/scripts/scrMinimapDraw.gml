@@ -148,8 +148,8 @@ else {iconAlpha[2] = lerp(iconAlpha[2], 0, 0.1);}
 // Hp  + shield bar
 draw_ring_part(x + 101, y + 100, 100, 5, 32, 32, -90, 90, -1, c_black, false, oHUD.hudAlpha);
 draw_ring_part(x + 102, y + 100, 100, 4, 32, 32, -90, 90, -1, c_red, false, oHUD.hudAlpha);
-draw_ring_part(x + 102, y + 100, 100, 4, 32, 32, -90, 90 * (oPlayer.last_hp / apiPlayerGetPropertyValue(vlastnost_max_zivot)), -1, c_lime, false, oHUD.hudAlpha);
-draw_ring_part(x + 102, y + 100, 100, 4, 32, 32, -90, 90 * (oPlayer.last_stit / apiPlayerGetPropertyValue(vlastnost_max_stit)), -1, c_yellow, false, min(oHUD.hudAlpha, 0.5));
+draw_ring_part(x + 102, y + 100, 100, 4, 32, 32, -90, 90 * (oPlayer.last_hp / apiPlayerGetPropertyValue(vlastnost_max_zivot, false, true)), -1, c_lime, false, oHUD.hudAlpha);
+draw_ring_part(x + 102, y + 100, 100, 4, 32, 32, -90, 90 * (oPlayer.last_stit / apiPlayerGetPropertyValue(vlastnost_max_stit, false, true)), -1, c_yellow, false, min(oHUD.hudAlpha, 0.5));
                                                
 clr(c_black, -1);
 draw_line(x - 5, y + 100, x, y + 100);
@@ -157,11 +157,11 @@ draw_line(x - 5, y + 100, x, y + 100);
 // Mp bar
 draw_ring_part(x + 101, y + 100, 100, 5, 32, 32, -180, 90, -1, c_black, false, oHUD.hudAlpha);
 draw_ring_part(x + 102, y + 100, 100, 4, 32, 32, -180, 90, -1, c_red, false, oHUD.hudAlpha);
-draw_ring_part(x + 102, y + 100, 100, 4, 32, 32, -180, 90 * (oPlayer.last_mana / apiPlayerGetPropertyValue(vlastnost_max_mana)), -1, c_blue, false, oHUD.hudAlpha);
+draw_ring_part(x + 102, y + 100, 100, 4, 32, 32, -180, 90 * (oPlayer.last_mana / apiPlayerGetPropertyValue(vlastnost_max_mana, false, true)), -1, c_blue, false, oHUD.hudAlpha);
 
 // Stamina bar
 if (oPlayer.last_stamina >= apiPlayerGetPropertyValue(vlastnost_max_stamina)) {sA = lerp(sA, 0.1, 0.1);} else {sA = lerp(sA, 0.9, 0.1);}
-draw_ring_part(x + 100, y + 100, 95, 2, 32, 32, -90, 180 * min((oPlayer.last_stamina / apiPlayerGetPropertyValue(vlastnost_max_stamina)), 1), 1, make_color_rgb(255,255,0), false, min(oHUD.hudAlpha, sA));
+draw_ring_part(x + 100, y + 100, 95, 2, 32, 32, -90, 180 * min((oPlayer.last_stamina / apiPlayerGetPropertyValue(vlastnost_max_stamina, false, true)), 1), 1, make_color_rgb(255,255,0), false, min(oHUD.hudAlpha, sA));
 
 scrMinimapDrawIcon(0, sInventory, x + 100, y + 195, 20, 3);
 scrMinimapDrawIcon(1, sBestiary,  x + 152, y + 180, 20, 2);

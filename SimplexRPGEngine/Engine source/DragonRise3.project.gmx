@@ -1311,6 +1311,7 @@
         <font>fonts\fntRingbearer</font>
       </fonts>
     </fonts>
+    <font>fonts\font13</font>
   </fonts>
   <objects name="objects">
     <objects name="Actors">
