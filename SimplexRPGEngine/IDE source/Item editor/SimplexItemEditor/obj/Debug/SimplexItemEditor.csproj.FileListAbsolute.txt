@@ -8,3 +8,13 @@ c:\users\asus rog g751jl\documents\visual studio 2015\Projects\SimplexItemEditor
 c:\users\asus rog g751jl\documents\visual studio 2015\Projects\SimplexItemEditor\SimplexItemEditor\obj\Debug\SimplexItemEditor.exe
 c:\users\asus rog g751jl\documents\visual studio 2015\Projects\SimplexItemEditor\SimplexItemEditor\obj\Debug\SimplexItemEditor.pdb
 c:\users\asus rog g751jl\documents\visual studio 2015\Projects\SimplexItemEditor\SimplexItemEditor\obj\Debug\SimplexItemEditor.EditForm.resources
+C:\Users\ASUS ROG G751JL\Desktop\SimplexRpgEngine\SimplexRPGEngine\IDE source\Item editor\SimplexItemEditor\bin\Debug\SimplexItemEditor.exe.config
+C:\Users\ASUS ROG G751JL\Desktop\SimplexRpgEngine\SimplexRPGEngine\IDE source\Item editor\SimplexItemEditor\obj\Debug\SimplexItemEditor.exe
+C:\Users\ASUS ROG G751JL\Desktop\SimplexRpgEngine\SimplexRPGEngine\IDE source\Item editor\SimplexItemEditor\obj\Debug\SimplexItemEditor.pdb
+C:\Users\ASUS ROG G751JL\Desktop\SimplexRpgEngine\SimplexRPGEngine\IDE source\Item editor\SimplexItemEditor\obj\Debug\SimplexItemEditor.csprojResolveAssemblyReference.cache
+C:\Users\ASUS ROG G751JL\Desktop\SimplexRpgEngine\SimplexRPGEngine\IDE source\Item editor\SimplexItemEditor\obj\Debug\SimplexItemEditor.EditForm.resources
+C:\Users\ASUS ROG G751JL\Desktop\SimplexRpgEngine\SimplexRPGEngine\IDE source\Item editor\SimplexItemEditor\obj\Debug\SimplexItemEditor.Form1.resources
+C:\Users\ASUS ROG G751JL\Desktop\SimplexRpgEngine\SimplexRPGEngine\IDE source\Item editor\SimplexItemEditor\obj\Debug\SimplexItemEditor.Properties.Resources.resources
+C:\Users\ASUS ROG G751JL\Desktop\SimplexRpgEngine\SimplexRPGEngine\IDE source\Item editor\SimplexItemEditor\obj\Debug\SimplexItemEditor.csproj.GenerateResource.Cache
+C:\Users\ASUS ROG G751JL\Desktop\SimplexRpgEngine\SimplexRPGEngine\IDE source\Item editor\SimplexItemEditor\bin\Debug\SimplexItemEditor.exe
+C:\Users\ASUS ROG G751JL\Desktop\SimplexRpgEngine\SimplexRPGEngine\IDE source\Item editor\SimplexItemEditor\bin\Debug\SimplexItemEditor.pdb

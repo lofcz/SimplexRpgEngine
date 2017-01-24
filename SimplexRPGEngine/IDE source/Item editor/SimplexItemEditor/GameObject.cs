@@ -27,6 +27,8 @@ namespace SimplexItemEditor
         public List<string> options;
         public List<string> optionsCode;
         public string customCode;
+        public string idleImagePath = "";
+        public string pickImagePath = "";
 
 
 

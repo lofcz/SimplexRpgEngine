@@ -14,13 +14,17 @@ namespace SimplexItemEditor
     {
         string formName = "Form";
         GameObject editObject;
+        Form1 parentForm;
+        string tempPath = "";
+        string[] imagePath = new string[2];
 
-        public EditForm(string formName, GameObject editObject)
+        public EditForm(string formName, GameObject editObject, Form1 parentForm)
         {
             InitializeComponent();
             this.formName = formName;
             Text = formName;
             this.editObject = editObject;
+            this.parentForm = parentForm;
 
             textBox1.Text = formName;
             textBox2.Text = editObject.name;
@@ -49,6 +53,14 @@ namespace SimplexItemEditor
 
         private void button1_Click(object sender, EventArgs e)
         {
+            GameObject saveObject = null;
+            foreach(GameObject go in parentForm.objects)
+            {
+                if (go == editObject) { saveObject = go; }
+            }
+
+            int index = parentForm.objects.FindIndex(a => a.name == saveObject.name);
+
             // Save entire shit
             editObject.name = formName;
             editObject.ID = textBox3.Text;
@@ -62,6 +74,29 @@ namespace SimplexItemEditor
             editObject.idleImage = pictureBox1.Image;
             editObject.pickImage = pictureBox2.Image;
             editObject.rarityDefault = comboBox1.SelectedIndex;
+            editObject.idleImagePath = imagePath[0];
+
+            parentForm.objects[index] = editObject;
+            this.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.ShowDialog();
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+            tempPath = openFileDialog1.FileName;
+            Image tempImage = Image.FromFile(tempPath);
+            pictureBox1.Image = tempImage;
+            imagePath[0] = tempPath;
+
         }
     }
 }
