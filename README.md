@@ -6,13 +6,13 @@
 ## Modern RPG Engine that redifines the JRPG genre.
 * Suitable for anyone from individuals to large game studios. 
 * A system of components, solving both basic and advanced RPG problems.
-* An external C# toolkit for maximizing work efficiency. 
+* An external C# toolkit (IDE + dialogue editor, items editor, cutscenes manager and generator..) for maximizing work efficiency. 
 * A Unique in-game development system allows for seamless development while the game is running. 
 * Extreme performance, high optimization. 
 * GLSL / HLSL shaders, 2D physics, particles and other effects computed in real time. 
 * Can be integrated into already created projects. 
 * Responsive UI layot allows for any resolution of the game window.
-* Extends GML with local methods.
+* Extends GML with local methods, advanced math (vec2-vec4, interpolations and much more).
 * Able to export map to .png file on the fly.
 * Defeats RPG Maker and YOYO RPG in every way.
 * Free for non-commercial projects, open-source, GPL3 licensed.
