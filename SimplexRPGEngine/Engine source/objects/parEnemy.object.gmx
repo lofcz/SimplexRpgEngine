@@ -60,6 +60,7 @@ tempSpd                       = spd;
 safeDying                     = true;
 cced                          = false;
 maxHp                         = hp;
+bloodColor                    = c_red;
 
 
 </string>

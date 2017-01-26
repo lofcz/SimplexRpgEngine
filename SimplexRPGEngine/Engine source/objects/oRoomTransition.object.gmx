@@ -54,6 +54,8 @@ event_inherited();
             <string>/// Return player to previous position
 
 oController.player_pos = player_pos;
+oController.realPos    = vec2(oPlayer.x, oPlayer.y);
+
 ds_list_clear(oOptimize.activeList);
 ds_list_clear(oOptimize.activeList2);
 

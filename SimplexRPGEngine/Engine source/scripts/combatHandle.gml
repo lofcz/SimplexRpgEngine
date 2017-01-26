@@ -29,7 +29,7 @@ if (keyboard_check_pressed(vk_alt)) {chargeMode = !chargeMode;}
 
 if ((keyboard_check_released(vk_space) && chargeMode) || (keyboard_check_pressed(vk_space) && !chargeMode))
    {   
-    if (!attack && oPlayer.vlastnost[vlastnost_stamina] >= oPlayer.vlastnost[vlastnost_stamina_cost] && attackMode == "attack" && oPlayer.vlastnost[vlastnost_stamina_cost] > 0 && !animating)
+    if (!attack && apiPlayerGetPropertyValue(vlastnost_stamina, false, true) >= apiPlayerGetPropertyValue(vlastnost_stamina_cost, false, true) && attackMode == "attack" && apiPlayerGetPropertyValue(vlastnost_stamina_cost, false, true) > 0 && !animating)
        {
         tick   = oPlayer.attack_interval;
         mode   = 1;
@@ -37,7 +37,7 @@ if ((keyboard_check_released(vk_space) && chargeMode) || (keyboard_check_pressed
         untick = 1;
         k = 0;  
         can_damage = -1;
-        oPlayer.vlastnost[vlastnost_stamina] -= oPlayer.vlastnost[vlastnost_stamina_cost];
+        oPlayer.vlastnost[vlastnost_stamina] -= apiPlayerGetPropertyValue(vlastnost_stamina_cost, false, true);
         animating = true;
 
         attackMode = "attack";

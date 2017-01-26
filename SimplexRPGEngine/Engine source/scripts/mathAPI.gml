@@ -152,3 +152,79 @@ for (i = x1; i < x2; i++)
     }
     
 return q;
+#define vec2
+/// vec2(x, y)
+
+var array, xval, yval;
+xval = -1;
+yval = -1;
+
+if (argument_count == 0)
+   {
+    array[0] = xval;
+    array[1] = yval;
+   
+    return array;
+   }
+
+if (argument_count > 1)
+   {
+    xval = argument[0];
+    yval = argument[1];
+
+    array[0] = xval;
+    array[1] = yval;
+
+    return array;
+   }
+
+
+
+#define vec2GetX
+/// vec2GetX(vec2)
+
+var array;
+array = argument[0];
+
+return array[0];
+
+
+#define vec2GetY
+/// vec2GetY(vec2)
+
+var array;
+array = argument[0];
+
+return array[1];
+
+
+
+#define vec2SetX
+/// vec2SetX(vec2, value)
+
+var v;
+v = argument1;
+
+argument0[@ 0] = v;
+
+
+
+#define vec2SetY
+/// vec2SetY(vec2, value)
+
+var v;
+v = argument1;
+
+argument0[@ 1] = v;
+
+
+#define vec2SetXY
+/// vec2SetXY(vec2, valueX, valueY)
+
+var v, w;
+v = argument1;
+w = argument2;
+
+argument0[@ 0] = v;
+argument0[@ 1] = w;
+

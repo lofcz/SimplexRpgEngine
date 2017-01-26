@@ -355,6 +355,7 @@
     <instance objName="oAdvancedCollision" x="592" y="1184" name="inst_B7F7FB50" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;    scrAdvancedCollisionSetText(&quot;Pahýl sloupu.&quot;);&#xA;    scrAdvancedCollisionSetText(&quot;Zbytek odvál čas.&quot;);&#xA;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oAdvancedCollision" x="48" y="1712" name="inst_629116E5" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;    scrAdvancedCollisionSetText(&quot;Pahýl sloupu.&quot;);&#xA;    scrAdvancedCollisionSetText(&quot;Zbytek odvál čas.&quot;);&#xA;&#xA;" scaleX="2" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oAdvancedCollision" x="1024" y="800" name="inst_6AFF3307" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;    scrAdvancedCollisionSetText(&quot;Pahýl sloupu.&quot;);&#xA;    scrAdvancedCollisionSetText(&quot;Zbytek odvál čas.&quot;);&#xA;&#xA;" scaleX="1" scaleY="1.6875" colour="4294967295" rotation="0"/>
+    <instance objName="oRoomTransition" x="2000" y="1088" name="inst_5E51E4F9" locked="0" code="level = mapTest;&#xA;&#xA;" scaleX="0.5" scaleY="13.5" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bcgEx3" x="1984" y="1088" w="32" h="32" xo="224" yo="0" id="10025172" name="inst_7CE0DD1C" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

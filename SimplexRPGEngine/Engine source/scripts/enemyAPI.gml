@@ -44,7 +44,7 @@
 
 
 #define scrEnemyIni
-/// scrEnemyIni(health, damage, defense, level,name, bestiary_name, coloredName, enemyType)
+/// scrEnemyIni(health, damage, defense, level, name, bestiaryName, coloredName, enemyType, bloodColor)
 
 var t_hp,t_damage,t_defense,t_level,t_name,t_bestiary,t_cName,t_t;
 t_hp         = 10;
@@ -64,6 +64,7 @@ if (argument_count > 4) {t_name     = argument[4];}
 if (argument_count > 5) {t_bestiary = argument[5];}
 if (argument_count > 6) {t_cName    = argument[6];}
 if (argument_count > 7) {t_t        = argument[7];}
+if (argument_count > 8) {bloodColor = argument[8];}
 
 hp           = t_hp;
 damage       = t_damage;
@@ -256,12 +257,11 @@ apiPlayerSayNext();
 dmg = 0;
 if (scrAffectsGetStacks("flash") != -1) {dmg += (scrAffectsGetStacks("flash") * scrAffectsGetStacks("flash")); scrAffectsRemove("flash", -1);}
 
-if (combatGetCriticalHit()) {dmg += (apiPlayerGetPropertyValue(vlastnost_poskozeni, false, true) * (apiPlayerGetPropertyValue(vlastnost_kriticka_nasobic) / 100));}
-else {dmg += apiPlayerGetPropertyValue(vlastnost_poskozeni, false, true);}
-
-dmg += (oPlayer.vlastnost[vlastnost_sila] / 2);
+//if (combatGetCriticalHit()) {dmg += (apiPlayerGetPropertyValue(vlastnost_poskozeni, false, true) * (apiPlayerGetPropertyValue(vlastnost_kriticka_nasobic) / 100));}
+//else {dmg += apiPlayerGetPropertyValue(vlastnost_poskozeni, false, true);}
+dmg += apiPlayerGetPropertyValue(vlastnost_poskozeni, false, true);
+dmg += (apiPlayerGetPropertyValue(vlastnost_sila, false, true) / 2);
 dmg += random_range(-2, 2);
-dmg += (random_range(-(oPlayer.vlastnost[vlastnost_obratnost] / 2), oPlayer.vlastnost[vlastnost_obratnost]) / 2);
 dmg  = round(equipmentNormalizeValue(0, dmg));
 if (dmg < 1) {dmg = 1;}
 hp  -= dmg;
@@ -269,7 +269,7 @@ hp  -= dmg;
 scrLog(dmg,c_white,sFreeSlot,0,0.2,x,y-32,oController.fontDamage,"combat");
 
 scale = 1.4;
-scrGoreFull(x,y,3,c_aqua);
+scrGoreFull(x,y,3,bloodColor);
 audio_play_sound(sndSlime1,0,0);
 other.can_damage = -2;
 apiPlayerSetProperty(vlastnost_stamina, apiPlayerGetPropertyValue(vlastnost_stamina) + oPlayer.vlastnost[vlastnost_vampStamina]);

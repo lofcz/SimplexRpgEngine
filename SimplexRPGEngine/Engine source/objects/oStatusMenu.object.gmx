@@ -563,7 +563,7 @@ for (i = 0; i &lt; celkem_vlastnosti; i++)
              }
           else
              {
-              draw_text_colored(xx + xoffset, yy + yoffset + tempY, returnedArray[0] + ": " + scrColorText("+" + apiPlayerGetPropertyStaticValue(i, true), c_aqua) + scrColorText("%", c_white));             
+              draw_text_colored(xx + xoffset, yy + yoffset + tempY, returnedArray[0] + ": " + scrColorText("" + apiPlayerGetPropertyStaticValue(i, true), c_aqua) + scrColorText("%", c_white));             
              }
              
           tempY += 22;
