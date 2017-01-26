@@ -61,6 +61,7 @@ safeDying                     = true;
 cced                          = false;
 maxHp                         = hp;
 bloodColor                    = c_red;
+staggerTimer                  = 0;
 
 
 </string>

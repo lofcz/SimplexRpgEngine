@@ -2,7 +2,6 @@
 
 // Base setup
 scrTimerUpdate();
-
 scrTimerEndStep();
 
 // Set vars for this step
@@ -21,7 +20,7 @@ if (behaviour == "peace" && behaviourType == "aggressive")
 if (behaviour == "attack")
     {
      // If wounded from previous step reduce aggression and focus on survival
-     if (hp < lastHp) {currentStepAggression--; survivalCurve--;}
+     if (hp < lastHp) {currentStepAggression--;}
      
      // Decide action based on aggression value and only if queue is free
      if (!performingAction)

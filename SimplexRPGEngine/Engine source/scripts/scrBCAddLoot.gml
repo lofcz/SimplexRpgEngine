@@ -1,10 +1,11 @@
 /// scrBCAddLoot(item, numberMin, numberMax, times)
 
-var item, numberMin, numberMax, times, actualNumber;
+var item, numberMin, numberMax, times, actualNumber, number;
 item      = oGold;
 numberMin = 1;
 numberMax = 1;
 times     = 1;
+number    = 1;
 
 if (argument_count > 0) {item      = argument[0];}
 if (argument_count > 1) {numberMin = argument[1];}
