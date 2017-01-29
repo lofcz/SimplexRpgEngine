@@ -322,6 +322,7 @@
             <sprite>sprites\sBodyCanvasAttackHair1</sprite>
             <sprite>sprites\sBodyCanvasAttackArmor2</sprite>
             <sprite>sprites\sBodyCanvasAttackArmor3</sprite>
+            <sprite>sprites\sBodyCanvasAttackShield1</sprite>
             <sprite>sprites\sBodyCanvasAttackLegs1</sprite>
           </sprites>
           <sprites name="Walk">
@@ -338,6 +339,8 @@
             <sprite>sprites\sBodyCanvasHair1</sprite>
             <sprite>sprites\sBodyCanvasArmor2</sprite>
             <sprite>sprites\sBodyCanvasArmor3</sprite>
+            <sprite>sprites\sBodyCanvasShield1</sprite>
+            <sprite>sprites\sBodyCanvasWeapon3</sprite>
             <sprite>sprites\sBodyCanvasArmor1</sprite>
           </sprites>
           <sprites name="Shoot">
@@ -366,6 +369,24 @@
             <sprite>sprites\sBodyCanvasDieArmor2</sprite>
             <sprite>sprites\sBodyCanvasDieHead2</sprite>
             <sprite>sprites\sBodyCanvasDie1</sprite>
+          </sprites>
+          <sprites name="Bash">
+            <sprite>sprites\sBodyCanvasBashShield1</sprite>
+            <sprite>sprites\sBodyCanvasBash1</sprite>
+          </sprites>
+          <sprites name="Thrust">
+            <sprite>sprites\sBodyCanvasThrust1</sprite>
+            <sprite>sprites\sBodyCanvasThrustBelt1</sprite>
+            <sprite>sprites\sBodyCanvasThrustArmor1</sprite>
+            <sprite>sprites\sBodyCanvasThrustArmor2</sprite>
+            <sprite>sprites\sBodyCanvasThrustArmor3</sprite>
+            <sprite>sprites\sBodyCanvasThrustLegs1</sprite>
+            <sprite>sprites\sBodyCanvasThrustHead1</sprite>
+            <sprite>sprites\sBodyCanvasThrustShoes1</sprite>
+            <sprite>sprites\sBodyCanvasThrustHead2</sprite>
+            <sprite>sprites\sBodyCanvasThrustHair1</sprite>
+            <sprite>sprites\sBodyCanvasThrustHands1</sprite>
+            <sprite>sprites\sBodyCanvasThrustWeapon1</sprite>
           </sprites>
         </sprites>
         <sprites name="Goblin">
@@ -661,6 +682,7 @@
               <sprite>sprites\sLockpickEffect</sprite>
             </sprites>
             <sprites name="Weapons">
+              <sprite>sprites\sSpearEffect1</sprite>
               <sprite>sprites\sSwordEffect2</sprite>
               <sprite>sprites\sSwordEffect</sprite>
               <sprite>sprites\sShurikenEffect</sprite>
@@ -715,7 +737,11 @@
             </sprites>
             <sprites name="Food">
               <sprite>sprites\sMilkEffect</sprite>
+              <sprite>sprites\sPotatoesEffect</sprite>
               <sprite>sprites\sCheeseEffect</sprite>
+            </sprites>
+            <sprites name="Shields">
+              <sprite>sprites\sShieldEffect1</sprite>
             </sprites>
           </sprites>
           <sprites name="Collectibles">
@@ -1528,11 +1554,13 @@
           </objects>
           <objects name="Food">
             <object>objects\oCheese</object>
+            <object>objects\oPotatoes</object>
             <object>objects\oMilk</object>
           </objects>
         </objects>
         <objects name="Weapons">
           <object>objects\oTestItem3</object>
+          <object>objects\oSpear1</object>
           <object>objects\oBow</object>
           <object>objects\oArrow1</object>
         </objects>
@@ -1614,6 +1642,9 @@
           <object>objects\oBasicItem</object>
           <object>objects\parItem</object>
         </objects>
+        <objects name="Shields">
+          <object>objects\oShield1</object>
+        </objects>
       </objects>
       <objects name="Collectibles">
         <object>objects\oCollectibleItem1Kvejk</object>
@@ -1683,7 +1714,7 @@
       <room>rooms\mapSklep</room>
     </rooms>
   </rooms>
-  <constants number="257">
+  <constants number="259">
     <constant name="baArmor">1</constant>
     <constant name="baBase">0</constant>
     <constant name="cStaticInstance">"staticInstance"</constant>
@@ -1750,7 +1781,9 @@
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
     <constant name="upgradableProperties">58</constant>
-    <constant name="celkem_vlastnosti">114</constant>
+    <constant name="celkem_vlastnosti">116</constant>
+    <constant name="vlastnost_bodyCanvasThrustSprite">115</constant>
+    <constant name="vlastnost_bodyCanvasBashSprite">114</constant>
     <constant name="vlastnost_vampStamina">111</constant>
     <constant name="vlastnost_reinforcementUpgradeIncSkill">110</constant>
     <constant name="vlastnost_reinforcementUpgradeBaseSkill">109</constant>

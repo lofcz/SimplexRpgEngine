@@ -40,7 +40,7 @@ if ((oInventory.drag && mouse_check_button_released(mb_left) && equiped[equip_sl
                               equiped_vlastnost[equip_slot,a] = slot_vlastnosti[h_c, a];
                               equiped_vlastnost_static[equip_slot,a] = slot_vlastnosti_static[h_c, a];
                               
-                              if (a != vlastnost_bodyCanvasIndex && a != vlastnost_bodyCanvasSprite && a != vlastnost_bodyCanvasSlashSprite && a != vlastnost_bodyCanvasFireSprite && a != vlastnost_bodyCanvasDieSprite)
+                              if (a != vlastnost_bodyCanvasIndex && a != vlastnost_bodyCanvasSprite && a != vlastnost_bodyCanvasSlashSprite && a != vlastnost_bodyCanvasFireSprite && a != vlastnost_bodyCanvasDieSprite && a != vlastnost_bodyCanvasBashSprite)
                               {
                               oPlayer.vlastnostStatic[a] += (slot_vlastnosti[h_c, a] + slot_vlastnosti_static[h_c, a]);
                               }
@@ -50,6 +50,7 @@ if ((oInventory.drag && mouse_check_button_released(mb_left) && equiped[equip_sl
                                  if (a == vlastnost_bodyCanvasSlashSprite) {oPlayer.bci[animationEnum.slash, slot_vlastnosti[h_c,vlastnost_bodyCanvasIndex]] = slot_vlastnosti[h_c,a]; }                                
                                  if (a == vlastnost_bodyCanvasFireSprite) {oPlayer.bci[animationEnum.fire, slot_vlastnosti[h_c,vlastnost_bodyCanvasIndex]] = slot_vlastnosti[h_c,a]; }                                
                                  if (a == vlastnost_bodyCanvasDieSprite) {oPlayer.bci[animationEnum.die, slot_vlastnosti[h_c,vlastnost_bodyCanvasIndex]] = slot_vlastnosti[h_c,a]; }                                
+                                 if (a == vlastnost_bodyCanvasBashSprite) {oPlayer.bci[animationEnum.bash, slot_vlastnosti[h_c,vlastnost_bodyCanvasIndex]] = slot_vlastnosti[h_c,a]; }                                
                                 }                                                    
                              }
                              
@@ -73,6 +74,15 @@ if ((oInventory.drag && mouse_check_button_released(mb_left) && equiped[equip_sl
                              oPlayerCombat.sprite = true;
                              if (equiped_vlastnost[equip_slot, vlastnost_dataSocket1] == 0) {oPlayer.weaponType = "melee";}
                              if (equiped_vlastnost[equip_slot, vlastnost_dataSocket1] == 1) {oPlayer.weaponType = "bow";}                             
+                             if (equiped_vlastnost[equip_slot, vlastnost_dataSocket1] == 2) {oPlayer.weaponType = "spear";}                             
+                            }
+                            
+                          // NEW
+                          if (equiped_stats[equip_slot,inv_item_equip_slot] == "shield")
+                            {
+                             oPlayerCombat.draw   = true;
+                             oPlayerCombat.sprite = true;
+                             if (equiped_vlastnost[equip_slot, vlastnost_dataSocket1] == 2) {oPlayer.weaponType2 = "shield";}                          
                             }
 
                           draw_item_mouse = 0;

@@ -250,7 +250,7 @@ if (hitType == "breakableGrass")
 if (other.attack &amp;&amp; combatCanBeHit() &amp;&amp; mode == 0) 
 {
 dmg = 0;
-dmg += oPlayer.vlastnost[vlastnost_poskozeni];   
+dmg += apiPlayerGetPropertyValue(vlastnost_poskozeni, false, true);   
 
 hp -= dmg;
 combatMarkAsHit();

@@ -80,18 +80,22 @@ spellPoints    = 20;
 testStatus       = 0;
 time             = 0;
 currentAnimation = animationEnum.walk;
-bci[5, 16]       = 0;
+bci[6, 16]       = 0;
 
-animationSpeed[animationEnum.walk]  = 0.4;
-animationSpeed[animationEnum.slash] = 0.4;
-animationSpeed[animationEnum.fire]  = 0.2;
-animationSpeed[animationEnum.die]   = 0.2;
+animationSpeed[animationEnum.walk]   = 0.4;
+animationSpeed[animationEnum.slash]  = 0.4;
+animationSpeed[animationEnum.bash]   = 0.4;
+animationSpeed[animationEnum.fire]   = 0.2;
+animationSpeed[animationEnum.die]    = 0.2;
+animationSpeed[animationEnum.thrust] = 0.2;
 
 scrBodyCanvasDB();
 scrBodyCanvasIni(animationEnum.walk, sBodyCanvasHumanWalk1, sBodyCanvasHair1, sBodyCanvasArmor1, sBodyCanvasHood1, sBodyCanvasBelt1, sBodyCanvasLegs1, sBodyCanvasShoes1, sBodyCanvasHands1, 0);
 scrBodyCanvasIni(animationEnum.slash, sBodyCanvasAttack1, sBodyCanvasAttackHair1, sBodyCanvasAttackArmor1, sBodyCanvasAttackHead1, sBodyCanvasAttackBelt1, sBodyCanvasAttackLegs1, sBodyCanvasAttackShoes1, sBodyCanvasAttackHands1, 0);
 scrBodyCanvasIni(animationEnum.fire, sBodyCanvasFire1, sBodyCanvasFireHair1, sBodyCanvasFireArmor1, sBodyCanvasFireHood1, sBodyCanvasFireBelt1, sBodyCanvasFireLegs1, sBodyCanvasFireShoes1, sBodyCanvasFireHands1, 0);
 scrBodyCanvasIni(animationEnum.die, sBodyCanvasDie1, sBodyCanvasDieHair1, sBodyCanvasDieArmor1, sBodyCanvasDieHood1, sBodyCanvasDieBelt1, sBodyCanvasDieLegs1, sBodyCanvasDieShoes1, sBodyCanvasDieHands1, 0);
+scrBodyCanvasIni(animationEnum.bash, sBodyCanvasBash1, sBodyCanvasBashShield1, sCatchError, sCatchError, sCatchError, sCatchError, sCatchError, sCatchError, sCatchError, sBodyCanvasBashShield1);
+scrBodyCanvasIni(animationEnum.thrust, sBodyCanvasThrust1, sBodyCanvasThrustHair1, sBodyCanvasThrustArmor1, sBodyCanvasThrustHead1, sBodyCanvasThrustBelt1, sBodyCanvasThrustLegs1, sBodyCanvasThrustShoes1, sBodyCanvasThrustHands1, 0);
 
 </string>
           </argument>

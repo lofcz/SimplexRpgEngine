@@ -9,8 +9,8 @@
   <bboxmode>0</bboxmode>
   <bbox_left>0</bbox_left>
   <bbox_right>63</bbox_right>
-  <bbox_top>21</bbox_top>
-  <bbox_bottom>56</bbox_bottom>
+  <bbox_top>13</bbox_top>
+  <bbox_bottom>63</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
@@ -44,7 +44,5 @@
     <frame index="21">images\sBodyCanvasAttackWeapon2_21.png</frame>
     <frame index="22">images\sBodyCanvasAttackWeapon2_22.png</frame>
     <frame index="23">images\sBodyCanvasAttackWeapon2_23.png</frame>
-    <frame index="24">images\sBodyCanvasAttackWeapon2_24.png</frame>
-    <frame index="25">images\sBodyCanvasAttackWeapon2_25.png</frame>
   </frames>
 </sprite>

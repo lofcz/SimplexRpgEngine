@@ -17,7 +17,7 @@ yy = oPlayer.y;
 
 if (charging && chargeTimer < maxCharge) {chargeTimer++;}
 
-if (keyboard_check_pressed(vk_space))
+if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(ord("N")))
     {
      charging      = true;
      oPlayer.speed = 0;
@@ -54,6 +54,15 @@ if ((keyboard_check_released(vk_space) && chargeMode) || (keyboard_check_pressed
              if (oInventory.equiped_vlastnost[0, vlastnost_reinforcementLevel] >= 3) {with(oPlayer) {effectWearP3(oPlayerCombat.x + 24, oPlayerCombat.y + 24, 10);}}
             }                                   
            }
+        if (oPlayer.weaponType == "spear") 
+           {
+            oPlayer.currentAnimation = animationEnum.thrust;
+            ss = instance_create(xx, yy, oSwordSwing);
+            ss.dir = oPlayer.last_dir;    
+            audio_play_sound(choose(sndSwing1, sndSwing2, sndSwing3), 0, 0);  
+            attack = true;
+            oPlayer.sprite_index = oPlayer.bci[animationEnum.thrust, 0];                                       
+           }           
         if (oPlayer.weaponType == "bow" && oInventory.equiped[5])   
            {
             if (oInventory.equiped_stats[5, inv_number] > 0)
@@ -90,6 +99,35 @@ if ((keyboard_check_released(vk_space) && chargeMode) || (keyboard_check_pressed
          }
         oPlayer.speed = 0;
         oPlayer.image_speed = 0;
+        charging    = false;
+        chargeTimer = 0;
+   }
+
+if (keyboard_check_released(ord("N")))
+   {   
+    if (!attack && !animating)
+       {
+        tick   = oPlayer.attack_interval;
+        mode   = 1;
+        sharp  = 1;
+        untick = 1;
+        k = 0;  
+        can_damage = -1;
+        oPlayer.vlastnost[vlastnost_stamina] -= apiPlayerGetPropertyValue(vlastnost_stamina_cost, false, true);
+        animating = true;
+        attackMode = "attack";
+        if (oPlayer.weaponType2 == "shield") 
+           {
+            oPlayer.currentAnimation = animationEnum.bash;  
+            audio_play_sound(choose(sndSwing1, sndSwing2, sndSwing3), 0, 0);  
+            attack = true;
+            oPlayer.sprite_index = oPlayer.bci[animationEnum.bash, 0];                                        
+           }
+                              
+         }
+        oPlayer.speed = 0;
+        oPlayer.image_speed = 0;
+        oPlayer.image_index = 0;
         charging    = false;
         chargeTimer = 0;
    }

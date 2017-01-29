@@ -153,7 +153,7 @@ for (i = 0; i < 15; i++)
     }
 
 // In case of attack, spell cast or other special action flow the animation    
-if (currentAnimation != animationEnum.walk && currentAnimation != animationEnum.die)
+if (currentAnimation != animationEnum.walk && currentAnimation != animationEnum.die && currentAnimation != animationEnum.bash)
     {
      animationEnd  = false;
      lastAnimation = currentAnimation;
@@ -163,12 +163,17 @@ if (currentAnimation != animationEnum.walk && currentAnimation != animationEnum.
         {
          draw_sprite(sBodyCanvasAttackWeapon2, image_index, x, y);         
         }
+     if (currentAnimation == animationEnum.thrust)
+        {
+         draw_sprite(sBodyCanvasThrustWeapon1, image_index, x, y);         
+        }
+        
      if (currentAnimation == animationEnum.fire)
         {
          draw_sprite(sBodyCanvasFireBow1, image_index, x, y);  
          draw_sprite(sBodyCanvasFireArrow1, image_index, x, y);       
         }
-  
+
      if (last_dir == "s" || last_dir == "") {if (image_index > 17)  {animationEnd = true; sprite_index  = bci[0, 0]; currentAnimation = animationEnum.walk; image_index = 12; image_speed = 0;}}
      if (last_dir == "d")                   {if (image_index >= 23) {animationEnd = true; sprite_index  = bci[0, 0]; currentAnimation = animationEnum.walk; image_index = 18; image_speed = 0;}}
      if (last_dir == "a")                   {if (image_index >= 11) {animationEnd = true; sprite_index  = bci[0, 0]; currentAnimation = animationEnum.walk; image_index = 6;  image_speed = 0;}}
@@ -197,7 +202,13 @@ if (currentAnimation == animationEnum.die)
    {
     image_speed = animationSpeed[currentAnimation];    
     if (image_index >= 5) {image_index = 5;}           
-   }    
+   }  
+   
+if (currentAnimation == animationEnum.bash)
+   {
+    image_speed = animationSpeed[currentAnimation];    
+    if (image_index >= 7) {sprite_index = bci[0, 0]; currentAnimation = animationEnum.walk; image_index = 0;  image_speed = 0;}           
+   }      
 
 // Update vars - lineary interpolate to real values
 stamina_dif = abs(last_stamina - vlastnost[vlastnost_stamina]);
@@ -1091,6 +1102,7 @@ rarityTick            = 20;
 dead                  = false;
 dieTimer              = 0;
 heartBeat             = 0.001;
+weaponType2           = "";
 
 set_sprite(sprite_index, 0);
 
