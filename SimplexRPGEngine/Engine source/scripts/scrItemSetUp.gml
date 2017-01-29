@@ -18,9 +18,13 @@ if (argument_count > 3) {canBeQuickUsed   = argument[3];}
 image_speed                           = animate;
 sprite_index                          = sTestItem;
 scrItemBasic(in);
+
 vlastnost[vlastnost_canBeFastEquiped] = canBeQuickUsed;
 vlastnost[vlastnost_upgradeMaterial1] = materialEnum.materialPearl;
 vlastnost[vlastnost_upgradeMaterial2] = materialEnum.materialPearl;
 vlastnost[vlastnost_upgradeMaterial3] = materialEnum.materialPearl;
+vlastnost[vlastnost_identified]       = true;
+vlastnost[vlastnost_cursed]           = false;
+
 
 

@@ -7,10 +7,10 @@
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
-  <bbox_left>12</bbox_left>
-  <bbox_right>51</bbox_right>
-  <bbox_top>20</bbox_top>
-  <bbox_bottom>59</bbox_bottom>
+  <bbox_left>0</bbox_left>
+  <bbox_right>63</bbox_right>
+  <bbox_top>23</bbox_top>
+  <bbox_bottom>56</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
@@ -44,7 +44,5 @@
     <frame index="21">images\sBodyCanvasWeapon2_21.png</frame>
     <frame index="22">images\sBodyCanvasWeapon2_22.png</frame>
     <frame index="23">images\sBodyCanvasWeapon2_23.png</frame>
-    <frame index="24">images\sBodyCanvasWeapon2_24.png</frame>
-    <frame index="25">images\sBodyCanvasWeapon2_25.png</frame>
   </frames>
 </sprite>

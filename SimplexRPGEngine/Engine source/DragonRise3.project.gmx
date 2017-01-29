@@ -282,6 +282,7 @@
       <sound>sound\sndCampfire</sound>
       <sound>sound\sndSuccess</sound>
       <sound>sound\sndArrow</sound>
+      <sound>sound\sndBash</sound>
       <sound>sound\sndBuildingCompleted</sound>
     </sounds>
     <sounds name="Music">
@@ -341,6 +342,7 @@
             <sprite>sprites\sBodyCanvasArmor3</sprite>
             <sprite>sprites\sBodyCanvasShield1</sprite>
             <sprite>sprites\sBodyCanvasWeapon3</sprite>
+            <sprite>sprites\sBodyCanvasWeapon4</sprite>
             <sprite>sprites\sBodyCanvasArmor1</sprite>
           </sprites>
           <sprites name="Shoot">
@@ -371,6 +373,13 @@
             <sprite>sprites\sBodyCanvasDie1</sprite>
           </sprites>
           <sprites name="Bash">
+            <sprite>sprites\sBodyCanvasBashHands1</sprite>
+            <sprite>sprites\sBodyCanvasBashBelt1</sprite>
+            <sprite>sprites\sBodyCanvasBashHead1</sprite>
+            <sprite>sprites\sBodyCanvasBashArmor2</sprite>
+            <sprite>sprites\sBodyCanvasBashLegs1</sprite>
+            <sprite>sprites\sBodyCanvasBashShoes1</sprite>
+            <sprite>sprites\sBodyCanvasBashArmor1</sprite>
             <sprite>sprites\sBodyCanvasBashShield1</sprite>
             <sprite>sprites\sBodyCanvasBash1</sprite>
           </sprites>
@@ -1714,7 +1723,7 @@
       <room>rooms\mapSklep</room>
     </rooms>
   </rooms>
-  <constants number="259">
+  <constants number="261">
     <constant name="baArmor">1</constant>
     <constant name="baBase">0</constant>
     <constant name="cStaticInstance">"staticInstance"</constant>
@@ -1781,7 +1790,9 @@
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
     <constant name="upgradableProperties">58</constant>
-    <constant name="celkem_vlastnosti">116</constant>
+    <constant name="celkem_vlastnosti">118</constant>
+    <constant name="vlastnost_cursed">117</constant>
+    <constant name="vlastnost_identified">116</constant>
     <constant name="vlastnost_bodyCanvasThrustSprite">115</constant>
     <constant name="vlastnost_bodyCanvasBashSprite">114</constant>
     <constant name="vlastnost_vampStamina">111</constant>

@@ -426,8 +426,6 @@ if (DAudioSongSwitch[DAudioEnum.channelBackground])
 audio_sound_gain(DAudioBattle, battleVolume, 0);
 audio_sound_gain(dAudioIndex, overallGain, 0);
 
-
-
 /*
 if (overallGain &lt; 0.05 &amp;&amp; DAudioMainPlaying)  {DAudioMainPos = audio_sound_get_track_position(dAudioIndex); audio_stop_sound(dAudioIndex); DAudioMainPlaying = false;}
 if (overallGain &gt; 0.05 &amp;&amp; !DAudioMainPlaying) {dAudioIndex = audio_play_sound(DAudioSongID[DAudioEnum.channelBackground], 0, true);  audio_sound_set_track_position(dAudioIndex, DAudioMainPos); DAudioMainPlaying = true;}

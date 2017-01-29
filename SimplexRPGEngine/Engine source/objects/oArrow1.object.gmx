@@ -30,7 +30,8 @@
 scrItemSetUp(0, false, itemEnum.itemArrow1, true);
 scrItemSetProperties(true, "Jasanový šíp", "Nejběžněji používaný šíp v Království, kvůli jednoduché výrobě a nízké ceně. Jasanové dřevo dobře nese hrot z kalené oceli.", -1, "shield", 4);
 scrItemSetDataSockets(1, "leftHandType");
-scrItemSetOptions();
+scrItemSetBodyCanvas(10, 0, 0, sBodyCanvasFireArrow1);
+scrItemSetOptions();                      
 scrItemSetUpFinalize();
 </string>
           </argument>

@@ -81,6 +81,7 @@ for (a = (currentPage*slotsPerPage); a < min(array_height_2d(slot), ((currentPag
      clr(c_black, fAlpha);                                                                             
      draw_sprite(sRarityEffect, itemRarityEffect(slot[a, inv_item_effect]), xx, yy); 
      draw_sprite(slot[a, inv_sprite], slot[a, inv_sprite_number], xx + 16, yy + 16);
+     if (!slot_vlastnosti[a, vlastnost_identified] && slot[a, inv_sprite] != sFreeSlot) {draw_sprite(sRarityEffect, 16, xx, yy);}
      
      if (slot_vlastnosti[a, vlastnost_durability] > 0)
         {
@@ -266,6 +267,7 @@ if ((hover || hover_alpha > 0))
    if (hover)
       {
        alg("center");
+       var sealed = slot_vlastnosti[f, vlastnost_identified];
       
        if (!proceed) {f = hover_id;} else {f = hover_idd;}      
        if (proceed) {hover_alpha = 1;}
@@ -337,8 +339,11 @@ if ((hover || hover_alpha > 0))
            draw_text_colour(x + 264, used_y + 49, "x" + string(slot[f, inv_number]), c_black, c_black, c_black, c_black, 1);
           }
  
-       alg();        
-       draw_text_colored(x + 4, used_y + 56, string(slot[f, inv_item_info_text])); 
+       alg();   
+         
+       if (!sealed) {draw_text_colored(x + 4, used_y + 56, string(slot[f, inv_item_info_text]));}
+       else {draw_text_colored(x + 4, used_y + 56, "Locked shite");} 
+       
        fnt(fntPixelTiny);      
        draw_text_colored(x + 4, used_y + tf + 16, tText);
        if (string(slot[f, inv_item_info_footer]) != "0")

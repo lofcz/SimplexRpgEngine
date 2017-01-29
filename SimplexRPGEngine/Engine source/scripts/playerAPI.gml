@@ -27,6 +27,7 @@ if (can_move && can_move2 && can_move3 && can_move4 && can_move5 && can_move6 &&
          if (keyboard_check(ord("A"))) {dir = "a"; direction = 180;}          
          if (keyboard_check(testKey))  {dir = "d"; direction = 360;}  
         
+         /*
          // Parry / block ability
          if (keyboard_check_pressed(ord("N")))
             {
@@ -45,6 +46,7 @@ if (can_move && can_move2 && can_move3 && can_move4 && can_move5 && can_move6 &&
              oPlayerCombat.parryTimer--;
              if (oPlayerCombat.parryTimer <= 0) {oPlayerCombat.attackMode = "attack"; oPlayer.parrySlowdown = 100;}
             }   
+        */
          
         // In case of movement do the common stuff   
         if (keyboard_check(ord("W")) || keyboard_check(ord("S")) || keyboard_check(ord("A")) || keyboard_check(ord("D")))
@@ -75,11 +77,14 @@ if (can_move && can_move2 && can_move3 && can_move4 && can_move5 && can_move6 &&
          image_index = 12;
         }
      
-    // Adjust animation phase cycle       
-    if (dir == "w") {if (image_index < 0  || image_index > 5.9)  {image_index = 0;}}
-    if (dir == "s") {if (image_index < 12 || image_index > 17.9) {image_index = 12;}}    
-    if (dir == "a") {if (image_index < 6  || image_index > 11.9) {image_index = 6;}}    
-    if (dir == "d") {if (image_index < 18 || image_index > 23.9) {image_index = 18;}}            
+    // Adjust animation phase cycle     
+    if (currentAnimation != animationEnum.bash)
+       {  
+        if (dir == "w") {if (image_index < 0  || image_index > 5.9)  {image_index = 0;}}
+        if (dir == "s") {if (image_index < 12 || image_index > 17.9) {image_index = 12;}}    
+        if (dir == "a") {if (image_index < 6  || image_index > 11.9) {image_index = 6;}}    
+        if (dir == "d") {if (image_index < 18 || image_index > 23.9) {image_index = 18;}}        
+       }    
     }    
     
 // Compute temp speed
@@ -149,7 +154,7 @@ else
 // Draw body canvas
 for (i = 0; i < 15; i++)
     {
-     if (bci[i] != 0) {draw_sprite(bci[currentAnimation, i], image_index, x, y);} 
+     if (bci[currentAnimation, i] != 0 && bci[currentAnimation, i] != sCatchError) {draw_sprite(bci[currentAnimation, i], image_index, x, y);} 
     }
 
 // In case of attack, spell cast or other special action flow the animation    
@@ -158,22 +163,7 @@ if (currentAnimation != animationEnum.walk && currentAnimation != animationEnum.
      animationEnd  = false;
      lastAnimation = currentAnimation;
      image_speed   = animationSpeed[currentAnimation];
- 
-     if (currentAnimation == animationEnum.slash)
-        {
-         draw_sprite(sBodyCanvasAttackWeapon2, image_index, x, y);         
-        }
-     if (currentAnimation == animationEnum.thrust)
-        {
-         draw_sprite(sBodyCanvasThrustWeapon1, image_index, x, y);         
-        }
         
-     if (currentAnimation == animationEnum.fire)
-        {
-         draw_sprite(sBodyCanvasFireBow1, image_index, x, y);  
-         draw_sprite(sBodyCanvasFireArrow1, image_index, x, y);       
-        }
-
      if (last_dir == "s" || last_dir == "") {if (image_index > 17)  {animationEnd = true; sprite_index  = bci[0, 0]; currentAnimation = animationEnum.walk; image_index = 12; image_speed = 0;}}
      if (last_dir == "d")                   {if (image_index >= 23) {animationEnd = true; sprite_index  = bci[0, 0]; currentAnimation = animationEnum.walk; image_index = 18; image_speed = 0;}}
      if (last_dir == "a")                   {if (image_index >= 11) {animationEnd = true; sprite_index  = bci[0, 0]; currentAnimation = animationEnum.walk; image_index = 6;  image_speed = 0;}}
@@ -192,7 +182,7 @@ if (currentAnimation != animationEnum.walk && currentAnimation != animationEnum.
                if (oPlayer.last_dir == "w") {i.direction = 90;}
                if (oPlayer.last_dir == "s") {i.direction = 270;}
                i.image_angle = i.direction;    
-               oInventory.equiped_stats[5, inv_number]--;    
+               //oInventory.equiped_stats[5, inv_number]--;    
                audio_play_sound(sndArrow, 0, false);                
             }
         }
@@ -207,7 +197,7 @@ if (currentAnimation == animationEnum.die)
 if (currentAnimation == animationEnum.bash)
    {
     image_speed = animationSpeed[currentAnimation];    
-    if (image_index >= 7) {sprite_index = bci[0, 0]; currentAnimation = animationEnum.walk; image_index = 0;  image_speed = 0;}           
+    if (image_index >= 8) {sprite_index = bci[0, 0]; currentAnimation = animationEnum.walk; image_index = 0;  image_speed = 0;}           
    }      
 
 // Update vars - lineary interpolate to real values

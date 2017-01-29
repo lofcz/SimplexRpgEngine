@@ -29,7 +29,7 @@ if (keyboard_check_pressed(vk_alt)) {chargeMode = !chargeMode;}
 
 if ((keyboard_check_released(vk_space) && chargeMode) || (keyboard_check_pressed(vk_space) && !chargeMode))
    {   
-    if (!attack && apiPlayerGetPropertyValue(vlastnost_stamina, false, true) >= apiPlayerGetPropertyValue(vlastnost_stamina_cost, false, true) && attackMode == "attack" && apiPlayerGetPropertyValue(vlastnost_stamina_cost, false, true) > 0 && !animating)
+    if (!attack && apiPlayerGetPropertyValue(vlastnost_stamina, false, true) >= apiPlayerGetPropertyValue(vlastnost_stamina_cost, false, true) && !animating)
        {
         tick   = oPlayer.attack_interval;
         mode   = 1;
@@ -63,8 +63,11 @@ if ((keyboard_check_released(vk_space) && chargeMode) || (keyboard_check_pressed
             attack = true;
             oPlayer.sprite_index = oPlayer.bci[animationEnum.thrust, 0];                                       
            }           
-        if (oPlayer.weaponType == "bow" && oInventory.equiped[5])   
+        if (oPlayer.weaponType == "bow")      //  && oInventory.equiped[5]
            {
+                            oPlayer.currentAnimation = animationEnum.fire; 
+                oPlayer.sprite_index     = oPlayer.bci[2, 0]; 
+                /*
             if (oInventory.equiped_stats[5, inv_number] > 0)
                {
                 oPlayer.currentAnimation = animationEnum.fire; 
@@ -76,7 +79,7 @@ if ((keyboard_check_released(vk_space) && chargeMode) || (keyboard_check_pressed
                 oInventory.equiped_image[5,1] = 0;
                 oInventory.equiped[5]         = false; 
                 apiPlayerSay("Můj poslední šíp");
-               }
+               }  */
            }
         
         
@@ -115,12 +118,10 @@ if (keyboard_check_released(ord("N")))
         can_damage = -1;
         oPlayer.vlastnost[vlastnost_stamina] -= apiPlayerGetPropertyValue(vlastnost_stamina_cost, false, true);
         animating = true;
-        attackMode = "attack";
         if (oPlayer.weaponType2 == "shield") 
            {
             oPlayer.currentAnimation = animationEnum.bash;  
-            audio_play_sound(choose(sndSwing1, sndSwing2, sndSwing3), 0, 0);  
-            attack = true;
+            sfx(sndBash);  
             oPlayer.sprite_index = oPlayer.bci[animationEnum.bash, 0];                                        
            }
                               

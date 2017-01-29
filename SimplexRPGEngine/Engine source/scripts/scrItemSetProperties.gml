@@ -1,4 +1,4 @@
-/// scrItemSetProperties(stackable, infoHeadText, infoBodyText, materialType, equipSlot, price, rarity, wordwrapText, infoFooterText, infoFooterColor, durability, maxDurability, repairCost)
+/// scrItemSetProperties(stackable, infoHeadText, infoBodyText, materialType, equipSlot, price, rarity, wordwrapText, infoFooterText, infoFooterColor, durability, maxDurability, repairCost, isIdentified, isCursed)
 
 var w;
 w = true;
@@ -31,9 +31,11 @@ if (argument_count > 6) {itm_info_color = argument[6]; itm_effect = argument[6];
 if (argument_count > 7) {w                          = argument[7];}
 if (argument_count > 8) {itm_info_footer            = argument[8];}
 if (argument_count > 9) {itm_info_footer_color      = argument[9];}
-if (argument_count > 10) {vlastnost[vlastnost_durability]          = argument[10];}
-if (argument_count > 11) {vlastnost[vlastnost_max_durability]      = argument[11];}
+if (argument_count > 10) {vlastnost[vlastnost_durability]      = argument[10];}
+if (argument_count > 11) {vlastnost[vlastnost_max_durability]  = argument[11];}
 if (argument_count > 12) {vlastnost[vlastnost_repairCost]      = argument[12];}
+if (argument_count > 13) {vlastnost[vlastnost_identified]      = argument[13];}
+if (argument_count > 14) {vlastnost[vlastnost_cursed]          = argument[14];}
 
 if (w) {itm_info_text   = scrWordwrap(string(itm_info_text), 196, fntPixelSmall);}
 if (w) {itm_info_footer = scrWordwrap(string(itm_info_footer), 196, fntPixelTiny);}

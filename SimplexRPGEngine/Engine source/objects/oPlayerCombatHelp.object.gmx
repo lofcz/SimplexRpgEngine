@@ -77,7 +77,7 @@ if (oPlayer.last_dir = "s") {rot = -90;  yy+= 12; xx += 10;}
 if (oPlayer.last_dir = "a") {rot = 180;  xx -= 6; yy += 8;}
 
 
-draw_sprite_ext(sprite,image,xx,yy,scale,scale,rot,color,alpha);
+//draw_sprite_ext(sprite,image,xx,yy,scale,scale,rot,color,alpha);
 
 }
 

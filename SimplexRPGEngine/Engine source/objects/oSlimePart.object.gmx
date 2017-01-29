@@ -32,6 +32,8 @@ image_yscale = image_xscale;
 speed        = random_range(4,6);
 secure       = 6;
 tempSpr      = 0;
+damageParent = false;
+
 </string>
           </argument>
         </arguments>
@@ -95,6 +97,36 @@ if (secure &lt;= 0)
         </arguments>
       </action>
     </event>
+    <event eventtype="4" ename="parEnemy">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// If bashed damage enemy
+
+if (damageParent)
+   {
+    scrGoreFull(x, y, 4, other.bloodColor);
+    other.hp -= 6;
+    instance_destroy();
+   }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="4" ename="oPlayer">
       <action>
         <libid>1</libid>
@@ -115,15 +147,27 @@ if (secure &lt;= 0)
             <string>/// Handle collision
 
 if (!combatGetParry())
-{
-dmg = 3 + choose(-1,0,1);
-apiPlayerGetDamage(dmg, damageEnum.damagePhysical, 0, sndPoo, true, true, "Zásah kusem slizu ti způsobil " + scrColorflag(c_red) + string(dmg) + scrEndColorflag() + " " + scrInflect("bod", dmg) + " poškození.");
-}
+   {
+    if (!combatGetBash())
+       {
+        dmg = 3 + choose(-1,0,1);
+        apiPlayerGetDamage(dmg, damageEnum.damagePhysical, 0, sndPoo, true, true, "Zásah kusem slizu ti způsobil " + scrColorflag(c_red) + string(dmg) + scrEndColorflag() + " " + scrInflect("bod", dmg) + " poškození.");
+       }
+    else 
+       {
+        if (!damageParent)
+           {
+            var i = instance_nearest(x, y, oEnemySlime); 
+            direction = point_direction(x, y, i.x, i. y);
+            damageParent = true;            
+           }
+       }
+   }
 else
-{
-repeat(3) {scrGoreExplode(4,4);}
-instance_destroy();
-}
+    {
+     repeat(3) {scrGoreExplode(4,4);}
+     instance_destroy();
+    }
 </string>
           </argument>
         </arguments>
