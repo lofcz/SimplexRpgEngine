@@ -182,7 +182,7 @@ if (currentAnimation != animationEnum.walk && currentAnimation != animationEnum.
                if (oPlayer.last_dir == "w") {i.direction = 90;}
                if (oPlayer.last_dir == "s") {i.direction = 270;}
                i.image_angle = i.direction;    
-               //oInventory.equiped_stats[5, inv_number]--;    
+               oInventory.equiped_stats[5, inv_number]--;    
                audio_play_sound(sndArrow, 0, false);                
             }
         }

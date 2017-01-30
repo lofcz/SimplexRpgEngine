@@ -63,24 +63,27 @@ if ((keyboard_check_released(vk_space) && chargeMode) || (keyboard_check_pressed
             attack = true;
             oPlayer.sprite_index = oPlayer.bci[animationEnum.thrust, 0];                                       
            }           
-        if (oPlayer.weaponType == "bow")      //  && oInventory.equiped[5]
-           {
-                            oPlayer.currentAnimation = animationEnum.fire; 
-                oPlayer.sprite_index     = oPlayer.bci[2, 0]; 
-                /*
+        if (oPlayer.weaponType == "bow" && oInventory.equiped[5])      
+           {     
             if (oInventory.equiped_stats[5, inv_number] > 0)
                {
                 oPlayer.currentAnimation = animationEnum.fire; 
                 oPlayer.sprite_index     = oPlayer.bci[2, 0];                
                }
+            else {apiPlayerSay("Nemám šípy!");}
+            
             if (oInventory.equiped_stats[5, inv_number] == 1)
                {
                 oInventory.equiped_image[5,0] = sFreeSlot;
                 oInventory.equiped_image[5,1] = 0;
                 oInventory.equiped[5]         = false; 
                 apiPlayerSay("Můj poslední šíp");
-               }  */
+               }  
            }
+        else if (oPlayer.weaponType == "bow")
+            {
+             apiPlayerSay("Nemám šípy");
+            }
         
         
          if (oPlayer.last_dir == "s" || oPlayer.last_dir == "")

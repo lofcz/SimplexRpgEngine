@@ -72,6 +72,8 @@ for (a = 0; a < slots; a++)
          slot_vlastnosti_static[a, d]   = 0;
          equiped_vlastnost[a,d]         = 0;
          equiped_vlastnost_static[a, d] = 0;
+         eguiped_stats[a, d]            = 0;
+         equiped_image[a, d]            = 0;
         }
     }
 

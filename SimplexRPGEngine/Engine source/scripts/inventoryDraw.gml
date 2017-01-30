@@ -267,7 +267,7 @@ if ((hover || hover_alpha > 0))
    if (hover)
       {
        alg("center");
-       var sealed = slot_vlastnosti[f, vlastnost_identified];
+       var sealed = !slot_vlastnosti[f, vlastnost_identified];
       
        if (!proceed) {f = hover_id;} else {f = hover_idd;}      
        if (proceed) {hover_alpha = 1;}
@@ -276,10 +276,11 @@ if ((hover || hover_alpha > 0))
        alg("center", fntPixel);
       
        if (string_width(string(string(slot[f,inv_item_info_head]))) >= 250) {fnt(fntPixelSmall);}      
-       draw_text(x + 128, used_y + 44, slot[f, inv_item_info_head]);      
+       if (!sealed) {draw_text(x + 128, used_y + 44, slot[f, inv_item_info_head]);}
+       else {draw_text(x + 128, used_y + 44, "Neidentifikovaná " + string_lower(inventoryDrawEquipSlotToString(slot[f, inv_item_equip_slot])));}      
    
        // Draw attached pearls
-       if (slot_vlastnosti[f, vlastnost_upgradeSloty] > 0 && slot[f, inv_id] != 0) {inventoryDrawPearls(f);}       
+       if (slot_vlastnosti[f, vlastnost_upgradeSloty] > 0 && slot[f, inv_id] != 0 && !sealed) {inventoryDrawPearls(f);}       
    
        // Draw price info
        clr(c_black, hover_alpha);
@@ -289,7 +290,8 @@ if ((hover || hover_alpha > 0))
            fnt(fntPixelTiny);
            alg();
            priceStr = (string(slot_vlastnosti[f,vlastnost_cena]) + "G");
-           draw_text(x + (283 - string_width(priceStr)), used_y + (max(196, currentHeight) + 5), priceStr);      
+           if (!sealed) {draw_text(x + (283 - string_width(priceStr)), used_y + (max(196, currentHeight) + 5), priceStr);}
+           else {draw_text(x + (283 - string_width(priceStr)), used_y + (max(196, currentHeight) + 5), "?G");}      
           }
           
        // Draw item type
@@ -308,6 +310,8 @@ if ((hover || hover_alpha > 0))
        // Draw durability
        if (slot_vlastnosti[f, vlastnost_durability] > 0)
           {
+           if (!sealed)
+           {
            alg();
            fnt(fntPixelExtraTiny);
            color = c_black;
@@ -328,6 +332,11 @@ if ((hover || hover_alpha > 0))
            clr(cd, hover_alpha);
            draw_text(x + string_width("]") + 8 + string_width(typeStr) + string_width("" + string(slot_vlastnosti[f, vlastnost_durability]) + " / " + string(slot_vlastnosti[f, vlastnost_max_durability])), used_y + (max(196, currentHeight) + 9), td);
            clr(c_black, hover_alpha);
+           }
+           else
+           {
+            draw_text(x + 8 + string_width(typeStr), used_y + (max(196, currentHeight) + 9), "??? / ???]");
+           }
           }
 
        
@@ -342,8 +351,10 @@ if ((hover || hover_alpha > 0))
        alg();   
          
        if (!sealed) {draw_text_colored(x + 4, used_y + 56, string(slot[f, inv_item_info_text]));}
-       else {draw_text_colored(x + 4, used_y + 56, "Locked shite");} 
+       else {draw_text_colored(x + 4, used_y + 56, scrColorText("Tento předmět je neidentifikovaný,#jeho vlastnosti jsou zahalené#tajemstvím.", c_red));} 
        
+       if (!sealed)
+       {
        fnt(fntPixelTiny);      
        draw_text_colored(x + 4, used_y + tf + 16, tText);
        if (string(slot[f, inv_item_info_footer]) != "0")
@@ -352,6 +363,7 @@ if ((hover || hover_alpha > 0))
            draw_text_colored(x + 4, used_y + 56 + string_height(string(slot[f, inv_item_info_text])) + string_height(inventoryDrawStats()) + 16, string(slot[f, inv_item_info_footer]));
           }
        clr(); 
+       }
       }                                                                  
   }
   

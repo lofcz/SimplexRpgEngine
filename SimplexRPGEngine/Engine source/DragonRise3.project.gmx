@@ -687,6 +687,7 @@
               <sprite>sprites\sEnchanterEffect</sprite>
               <sprite>sprites\sPowerWordLesserEffect</sprite>
               <sprite>sprites\sFortunaEffect</sprite>
+              <sprite>sprites\sIdentificationEffect</sprite>
               <sprite>sprites\sRenameEffect</sprite>
               <sprite>sprites\sLockpickEffect</sprite>
             </sprites>
@@ -1347,6 +1348,10 @@
       </fonts>
     </fonts>
     <font>fonts\font13</font>
+    <font>fonts\font14</font>
+    <font>fonts\font15</font>
+    <font>fonts\font16</font>
+    <font>fonts\font17</font>
   </fonts>
   <objects name="objects">
     <objects name="Actors">
@@ -1643,6 +1648,7 @@
           <object>objects\oArcaneUpgradeLegendary</object>
           <object>objects\oEnchanter</object>
           <object>objects\oRename</object>
+          <object>objects\oIdentify</object>
           <object>objects\oEmendationLesser</object>
           <object>objects\oPowerWordBalance</object>
           <object>objects\oArcaneUpgradeFinal</object>

@@ -99,5 +99,6 @@ itemCollectible2,
 itemRename,
 itemPotatoes,
 itemShield1,
-itemSpear1
+itemSpear1,
+itemIdentification
 };
