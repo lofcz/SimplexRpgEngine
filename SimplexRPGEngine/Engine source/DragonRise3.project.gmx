@@ -373,6 +373,11 @@
             <sprite>sprites\sBodyCanvasDie1</sprite>
           </sprites>
           <sprites name="Bash">
+            <sprite>sprites\sBodyCanvasBashArmor3</sprite>
+            <sprite>sprites\sBodyCanvasBashHair1</sprite>
+            <sprite>sprites\sBodyCanvasBashRing1</sprite>
+            <sprite>sprites\sBodyCanvasBashHead2</sprite>
+            <sprite>sprites\sBodyCanvasBashWeapon</sprite>
             <sprite>sprites\sBodyCanvasBashHands1</sprite>
             <sprite>sprites\sBodyCanvasBashBelt1</sprite>
             <sprite>sprites\sBodyCanvasBashHead1</sprite>

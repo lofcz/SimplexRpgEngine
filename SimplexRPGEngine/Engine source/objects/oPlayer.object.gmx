@@ -94,7 +94,7 @@ scrBodyCanvasIni(animationEnum.walk, sBodyCanvasHumanWalk1, sBodyCanvasHair1, sB
 scrBodyCanvasIni(animationEnum.slash, sBodyCanvasAttack1, sBodyCanvasAttackHair1, sBodyCanvasAttackArmor1, sBodyCanvasAttackHead1, sBodyCanvasAttackBelt1, sBodyCanvasAttackLegs1, sBodyCanvasAttackShoes1, sBodyCanvasAttackHands1, 0);
 scrBodyCanvasIni(animationEnum.fire, sBodyCanvasFire1, sBodyCanvasFireHair1, sBodyCanvasFireArmor1, sBodyCanvasFireHood1, sBodyCanvasFireBelt1, sBodyCanvasFireLegs1, sBodyCanvasFireShoes1, sBodyCanvasFireHands1, 0);
 scrBodyCanvasIni(animationEnum.die, sBodyCanvasDie1, sBodyCanvasDieHair1, sBodyCanvasDieArmor1, sBodyCanvasDieHood1, sBodyCanvasDieBelt1, sBodyCanvasDieLegs1, sBodyCanvasDieShoes1, sBodyCanvasDieHands1, 0);
-scrBodyCanvasIni(animationEnum.bash, sBodyCanvasBash1, sBodyCanvasBashShield1, sBodyCanvasBashArmor1, sBodyCanvasBashHead1, sBodyCanvasBashBelt1, sBodyCanvasBashLegs1, sBodyCanvasBashShoes1, sBodyCanvasBashHands1, sCatchError, sBodyCanvasBashShield1);
+scrBodyCanvasIni(animationEnum.bash, sBodyCanvasBash1, sBodyCanvasBashShield1, sBodyCanvasBashArmor1, sBodyCanvasBashHead1, sBodyCanvasBashBelt1, sBodyCanvasBashLegs1, sBodyCanvasBashShoes1, sBodyCanvasBashHands1, sBodyCanvasBashWeapon, sBodyCanvasBashShield1);
 scrBodyCanvasIni(animationEnum.thrust, sBodyCanvasThrust1, sBodyCanvasThrustHair1, sBodyCanvasThrustArmor1, sBodyCanvasThrustHead1, sBodyCanvasThrustBelt1, sBodyCanvasThrustLegs1, sBodyCanvasThrustShoes1, sBodyCanvasThrustHands1, 0);
 
 </string>
