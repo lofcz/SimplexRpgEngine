@@ -327,6 +327,7 @@
             <sprite>sprites\sBodyCanvasAttackLegs1</sprite>
           </sprites>
           <sprites name="Walk">
+            <sprite>sprites\sBodyCanvasNecklace</sprite>
             <sprite>sprites\sBodyCanvasQuiver1</sprite>
             <sprite>sprites\sBodyCanvasHumanWalk1</sprite>
             <sprite>sprites\sBodyCanvasWeapon2</sprite>
