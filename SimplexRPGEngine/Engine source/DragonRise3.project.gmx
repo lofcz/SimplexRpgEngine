@@ -327,6 +327,7 @@
             <sprite>sprites\sBodyCanvasAttackLegs1</sprite>
           </sprites>
           <sprites name="Walk">
+            <sprite>sprites\sBodyCanvasRing1</sprite>
             <sprite>sprites\sBodyCanvasQuiver1</sprite>
             <sprite>sprites\sBodyCanvasHumanWalk1</sprite>
             <sprite>sprites\sBodyCanvasWeapon2</sprite>
@@ -1357,6 +1358,7 @@
     <font>fonts\font15</font>
     <font>fonts\font16</font>
     <font>fonts\font17</font>
+    <font>fonts\font18</font>
   </fonts>
   <objects name="objects">
     <objects name="Actors">

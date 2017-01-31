@@ -51,7 +51,9 @@ if (scrItemGetRarity() == rarity_legendary)
     scrItemSetProperty(vlastnost_dustojnost, irandom_range(2, 4));
     scrItemSetProperty(vlastnost_inteligence, irandom_range(3, 5));  
     scrItemSetProperty(vlastnost_stesti, irandom_range(1, 5));       
-   }   
+   } 
+     
+scrItemSetBodyCanvas(animationSlotsEnum.ring, sBodyCanvasRing1);
 scrItemSetUpFinalize();
 </string>
           </argument>

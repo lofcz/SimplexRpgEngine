@@ -21,7 +21,7 @@ if ((oInventory.drag && mouse_check_button_released(mb_left) && equiped[equip_sl
                     {
                      equipmentUnequip(equip_slot, true);
                     }     
-                     else if ((oInventory.drag && mouse_check_button_released(mb_left) && !equiped[equip_slot]) || f)
+                     else if ((oInventory.drag && mouse_check_button_released(mb_left) && !equiped[equip_slot] && slot_vlastnosti[h_c, vlastnost_identified]) || f)
                         {                       
                          oInventory.pre_switch = 1;
                          equiped[equip_slot]   = 1;

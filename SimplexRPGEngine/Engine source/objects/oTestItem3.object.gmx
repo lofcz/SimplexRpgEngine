@@ -127,7 +127,7 @@ if (scrItemGetRarity() == rarity_fine)
    }
 scrItemSetProperty(vlastnost_stackSezehnuti, 5);   
 scrItemIncProperty(vlastnost_cena, scrItemGetProperty(vlastnost_poskozeni) - scrItemGetProperty(vlastnost_stamina_cost) + scrItemGetProperty(vlastnost_upgradeSloty) * 4);
-scrItemSetProperty(vlastnost_bodyCanvasSprite, sBodyCanvasWeapon1, -1, vlastnost_bodyCanvasSlashSprite, sBodyCanvasAttackWeapon1, -1, vlastnost_parry_cost, 2, -1, vlastnost_bodyCanvasIndex, 8, -1, vlastnost_bodyCanvasBashSprite, sBodyCanvasBashWeapon, -1);
+scrItemSetBodyCanvas(animationSlotsEnum.weapon1, sBodyCanvasWeapon1, sBodyCanvasAttackWeapon1, sCatchError, sCatchError, sBodyCanvasBashWeapon, sCatchError);
 scrItemSetReinforcementProperties(choose(0, 0, 0, 0, 1, 1, 2), 2, 5, 0.5, 2, 1);
 scrItemSetUpFinalize();
 </string>

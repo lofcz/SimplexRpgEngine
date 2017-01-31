@@ -37,7 +37,7 @@ isDrop                    = false;
 itm_info_footer_color     = c_gray;
 
 for(a = 0; a < 10; a++)                  {itm_options[a] = "";}
-for(a = 0; a < celkem_vlastnosti; a++)   {vlastnost[a]   = 0; vlastnostStatic[a] = 0;}
+for(a = 0; a < celkem_vlastnosti; a++)   {vlastnost[a]   = 0; vlastnostStatic[a] = 0; if (a == vlastnost_identified) {vlastnost[a] = true;}}
 
 if (argument_count > 0) {itm_id = argument[0];}
 
