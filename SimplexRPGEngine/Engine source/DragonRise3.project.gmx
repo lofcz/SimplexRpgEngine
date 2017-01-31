@@ -312,6 +312,7 @@
       <sprites name="Body Canvas ">
         <sprites name="Human">
           <sprites name="Attack">
+            <sprite>sprites\sBodyCanvasAttackNecklace1</sprite>
             <sprite>sprites\sBodyCanvasAttackArmor1</sprite>
             <sprite>sprites\sBodyCanvasAttack1</sprite>
             <sprite>sprites\sBodyCanvasAttackHead1</sprite>
@@ -328,6 +329,7 @@
             <sprite>sprites\sBodyCanvasAttackLegs1</sprite>
           </sprites>
           <sprites name="Walk">
+            <sprite>sprites\sBodyCanvasNecklace1</sprite>
             <sprite>sprites\sBodyCanvasRing1</sprite>
             <sprite>sprites\sBodyCanvasQuiver1</sprite>
             <sprite>sprites\sBodyCanvasHumanWalk1</sprite>
@@ -375,6 +377,7 @@
             <sprite>sprites\sBodyCanvasDie1</sprite>
           </sprites>
           <sprites name="Bash">
+            <sprite>sprites\sBodyCanvasBashNecklace1</sprite>
             <sprite>sprites\sBodyCanvasBashArmor3</sprite>
             <sprite>sprites\sBodyCanvasBashHair1</sprite>
             <sprite>sprites\sBodyCanvasBashRing1</sprite>
