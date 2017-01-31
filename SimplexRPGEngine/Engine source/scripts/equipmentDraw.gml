@@ -167,8 +167,7 @@ draw_sprite(sSlotOutline,0,xx+equ_axis_right_hand_x-2,yy+equ_axis_right_hand_y-2
 
 if (oInventory.equiped_vlastnost[0, vlastnost_durability] > 0)
    {
-    percent = ((oInventory.equiped_vlastnost[0, vlastnost_durability] / oInventory.equiped_vlastnost[0, vlastnost_max_durability]) * 100);
-       
+    percent = ((oInventory.equiped_vlastnost[0, vlastnost_durability] / oInventory.equiped_vlastnost[0, vlastnost_max_durability]) * 100);       
     if (oInventory.equiped_vlastnost[0, vlastnost_durability] == 1) {draw_sprite(sRarityEffect, 15, xx+equ_axis_right_hand_x, yy+equ_axis_right_hand_y);}         
     else if (percent < 25) {draw_sprite(sRarityEffect, 14, xx+equ_axis_right_hand_x, yy+equ_axis_right_hand_y);}         
     else if (percent < 50) {draw_sprite(sRarityEffect, 13, xx+equ_axis_right_hand_x, yy+equ_axis_right_hand_y);}
@@ -205,9 +204,9 @@ if (mouse_in(xx+equ_axis_left_hand_x,xx+equ_axis_left_hand_x+32,yy+equ_axis_left
       }  
    }
 
-if (oInventory.drag && oInventory.slot[oInventory.h_c,inv_item_equip_slot] = "shield" )
+if (oInventory.drag && oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "shield" )
    { 
-   if (oInventory.equiped[5] = 0) {draw_hover_block(xx+equ_axis_left_hand_x,xx+equ_axis_left_hand_x+32,yy+equ_axis_left_hand_y,yy+equ_axis_left_hand_y+32,c_lime,0.5);}
+   if (oInventory.equiped[5] == 0) {draw_hover_block(xx+equ_axis_left_hand_x,xx+equ_axis_left_hand_x+32,yy+equ_axis_left_hand_y,yy+equ_axis_left_hand_y+32,c_lime,0.5);}
    equipmentHoldEquip(5,xx+equ_axis_left_hand_x,xx+equ_axis_left_hand_x+32,yy+equ_axis_left_hand_y,yy+equ_axis_left_hand_y+32);
    }
    

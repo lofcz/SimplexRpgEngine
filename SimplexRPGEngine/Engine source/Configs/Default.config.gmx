@@ -587,7 +587,7 @@
     <option_windows_splash_background_colour>#000000</option_windows_splash_background_colour>
     <option_windows_splash_screen>Configs\Default\windows\splash.png</option_windows_splash_screen>
     <option_windows_steam_app_id>0</option_windows_steam_app_id>
-    <option_windows_texture_page>2048</option_windows_texture_page>
+    <option_windows_texture_page>4096</option_windows_texture_page>
     <option_windows_use_splash>0</option_windows_use_splash>
     <option_windows_vertex_buffer_method2>1</option_windows_vertex_buffer_method2>
     <option_winphone_480_splash_image>Configs\Default\WinPhone\SplashScreenImage480.jpg</option_winphone_480_splash_image>

@@ -126,7 +126,7 @@ if (scrItemGetRarity() == rarity_fine)
        }         
    }
 scrItemIncProperty(vlastnost_cena, scrItemGetProperty(vlastnost_poskozeni) - scrItemGetProperty(vlastnost_stamina_cost) + scrItemGetProperty(vlastnost_upgradeSloty) * 4);
-scrItemSetBodyCanvas(8, sBodyCanvasWeapon3, sCatchError, sCatchError, sCatchError, sCatchError, sBodyCanvasThrustWeapon1);
+scrItemSetBodyCanvas(animationSlotsEnum.weapon1, sBodyCanvasWeapon3, sCatchError, sCatchError, sCatchError, sCatchError, sBodyCanvasThrustWeapon1);
 scrItemSetDataSockets(2, "attackMode");
 scrItemSetReinforcementProperties(choose(0, 0, 0, 0, 1, 1, 2), 2, 5, 0.5, 2, 1);
 scrItemSetUpFinalize();

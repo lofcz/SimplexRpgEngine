@@ -1,6 +1,6 @@
 /// equipmentUnequip(slot, forceSlot)
 
-var e_slot, fSlot, tul;
+var e_slot, fSlot, tul, free_slot;
 e_slot    = argument0;
 fSlot     = argument1;
 tul       = true;
@@ -36,7 +36,8 @@ for(a = 0; a < oInventory.slots; a++)
                                                                                                                                                                                                                                           
             for(a = 0; a < inv_atributes_total; a++)
                   {
-                   oInventory.slot[free_slot,a] = equiped_stats[e_slot,a];
+                   if (a == inv_sprite_number) {equiped_stats[0,a] = equiped_image[0,1];}
+                   slot[free_slot,a] = equiped_stats[e_slot,a];
                    equiped_stats[e_slot] = 0;
                   }
             equiped_image[e_slot,0] = sFreeSlot; 
