@@ -43,7 +43,7 @@ if (scrItemGetRarity() == rarity_junk)
    }
 
 scrItemIncProperty(vlastnost_cena, scrItemGetProperty(vlastnost_poskozeni) - scrItemGetProperty(vlastnost_stamina_cost) + scrItemGetProperty(vlastnost_upgradeSloty) * 4);
-scrItemSetBodyCanvas(10, sBodyCanvasShield1, sBodyCanvasAttackShield1);
+scrItemSetBodyCanvas(animationSlotsEnum.weapon2, sBodyCanvasShield1, sBodyCanvasAttackShield1);
 scrItemSetReinforcementProperties(choose(0, 0, 0, 0, 1, 1, 2), 2, 5, 0.5, 2, 1);
 scrItemSetDataSockets(2, "attackMode");
 scrItemSetUpFinalize();
