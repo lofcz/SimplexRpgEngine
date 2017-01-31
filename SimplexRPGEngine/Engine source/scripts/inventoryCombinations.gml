@@ -130,8 +130,6 @@ switch(id1)
                         {    
                          inventoryDelete(itemEnum.itemIdentification, 1); 
                          slot_vlastnosti[slot2, vlastnost_identified] = true;
-                         stateAddEntry("Identifikoval jsi " + slot[slot2, inv_item_info_head]);
-                         sfx(sndIdentify);
                         }  
                      break;
                     }                       

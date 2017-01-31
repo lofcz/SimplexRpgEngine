@@ -283,7 +283,6 @@
       <sound>sound\sndSuccess</sound>
       <sound>sound\sndArrow</sound>
       <sound>sound\sndBash</sound>
-      <sound>sound\sndIdentify</sound>
       <sound>sound\sndBuildingCompleted</sound>
     </sounds>
     <sounds name="Music">
