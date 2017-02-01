@@ -386,11 +386,10 @@
             <sprite>sprites\sBodyCanvasBashHands1</sprite>
             <sprite>sprites\sBodyCanvasBashBelt1</sprite>
             <sprite>sprites\sBodyCanvasBashHead1</sprite>
-            <sprite>sprites\sBodyCanvasBashArmor2</sprite>
-            <sprite>sprites\sBodyCanvasBashLegs1</sprite>
-            <sprite>sprites\sBodyCanvasBashShoes1</sprite>
             <sprite>sprites\sBodyCanvasBashArmor1</sprite>
             <sprite>sprites\sBodyCanvasBashShield1</sprite>
+            <sprite>sprites\sBodyCanvasBashShoes1</sprite>
+            <sprite>sprites\sBodyCanvasBashLegs1</sprite>
             <sprite>sprites\sBodyCanvasBash1</sprite>
           </sprites>
           <sprites name="Thrust">

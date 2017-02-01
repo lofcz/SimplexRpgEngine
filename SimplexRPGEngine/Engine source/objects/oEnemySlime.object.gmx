@@ -236,6 +236,12 @@ forcedHelper = 0;
 
 if (can_move)
 {
+//if (dir == dir_right) {image_index = clamp(image_index, }
+if (dir == dir_left) {x -= spd*(1-slowdown); count += spd*(1-slowdown); if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPosition();}}
+if (dir == dir_up) {y -= spd*(1-slowdown); count += spd*(1-slowdown); if (count &gt; 32) {count = 0; event_user(2); scrEnemyGetPosition();}}
+if (dir == dir_down) {y += spd*(1-slowdown); count += spd*(1-slowdown); if (count &gt; 32) {count = 0; event_user(2); scrEnemyGetPosition();}}
+
+
 if (isHunter &amp;&amp; mood != "dying") {mood = "attack";}
 
 if (mood = "idle")
