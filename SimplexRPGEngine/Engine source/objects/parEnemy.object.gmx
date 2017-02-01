@@ -62,7 +62,9 @@ cced                          = false;
 maxHp                         = hp;
 bloodColor                    = c_red;
 staggerTimer                  = 0;
-
+notForced                     = true;
+finalSlowdown                 = 0;
+moveLenght                    = 32;
 
 </string>
           </argument>
@@ -150,6 +152,16 @@ scrEnemyGetDamage();
           <argument>
             <kind>1</kind>
             <string>/// Draw self
+
+notForced     = false;
+finalSlowdown = (1 - slowdown);
+if (forcedX &lt; 1 &amp;&amp; forcedY &lt; 1) {notForced = true; forcedX = 0; forcedY = 0; forcedHelper = 0;}
+
+if (followMouse)
+    {
+     x = mouse_x;
+     y = mouse_y;
+    }
 
 if (x &gt; room_width - 32 || y &gt; room_height - 32 || x &lt; 32 || y &lt; 32)
    {

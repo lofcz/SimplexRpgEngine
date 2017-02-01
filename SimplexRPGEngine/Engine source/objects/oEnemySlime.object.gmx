@@ -212,12 +212,6 @@ scrEnemyDie(true);
 
 event_inherited();
 
-if (followMouse)
-    {
-     x = mouse_x;
-     y = mouse_y;
-    }
-
 if (z_mood == 2) 
 {
  zspeed       = 0;
@@ -227,252 +221,234 @@ if (z_mood == 2)
 }
  
 
-if (forcedX &lt; 1 &amp;&amp; forcedY &lt; 1)
-{    
-forcedX = 0;
-forcedY = 0;
-forcedHelper = 0;
-
-
-if (can_move)
-{
-//if (dir == dir_right) {image_index = clamp(image_index, }
-if (dir == dir_left) {x -= spd*(1-slowdown); count += spd*(1-slowdown); if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPosition();}}
-if (dir == dir_up) {y -= spd*(1-slowdown); count += spd*(1-slowdown); if (count &gt; 32) {count = 0; event_user(2); scrEnemyGetPosition();}}
-if (dir == dir_down) {y += spd*(1-slowdown); count += spd*(1-slowdown); if (count &gt; 32) {count = 0; event_user(2); scrEnemyGetPosition();}}
-
-
-if (isHunter &amp;&amp; mood != "dying") {mood = "attack";}
-
-if (mood = "idle")
-{
-if (force_aggresive) {if (mood = "idle") {mood = "attack"; in_fight = 1;} if (force_timer &gt; 0) {force_timer--;} else {force_aggresive = 0; force_timer = 400;}}
-
-if (dir == dir_right) {x += spd*(1-slowdown); count += spd*(1-slowdown); if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPosition();}}
-if (dir == dir_left) {x -= spd*(1-slowdown); count += spd*(1-slowdown); if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPosition();}}
-if (dir == dir_up) {y -= spd*(1-slowdown); count += spd*(1-slowdown); if (count &gt; 32) {count = 0; event_user(2); scrEnemyGetPosition();}}
-if (dir == dir_down) {y += spd*(1-slowdown); count += spd*(1-slowdown); if (count &gt; 32) {count = 0; event_user(2); scrEnemyGetPosition();}}
-
-}
-if (mood == "attack")
-{
-in_fight = 1;
-px = oPlayer.x;
-py = oPlayer.y;
-
-
-if (dir == dir_right) {if (can_damage = -1) {x += spd*(1-slowdown); count += spd*(1-slowdown)+0.2;} if (count &gt; 32) {count = 0; event_user(2); scrEnemyGetPositionAttack();}}
-if (dir == dir_left) {if (can_damage = -1) {x -= spd*(1-slowdown); count += spd*(1-slowdown)+0.2;} if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPositionAttack();}}
-if (dir == dir_up) {if (can_damage = -1) {y -= spd*(1-slowdown); count += spd*(1-slowdown)+0.2;} if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPositionAttack();}}
-if (dir == dir_down) {if (can_damage = -1) {y += spd*(1-slowdown); count += spd*(1-slowdown)+0.2;} if (count &gt; 32) {count = 0;  event_user(2);scrEnemyGetPositionAttack();}}
-
-}
-
-if (mood == "jump")
-   {
-   
-   if (dir == dir_up)
-   {
-    if (z_mood == 0) {y -= z; z += 0.1; image_alpha -= 0.01 if (z &gt; 3) {z_mood = 1;}}
-    if (z_mood == 1) {y -= z; z -= 0.1; image_alpha += 0.01 if (z &lt;= 0) {randomize(); z_mood = 2; repeat(5) {instance_create(x-random(10)+random(10),y+random(10)-random(10),oBlob);} mood = "idle";}}
-   
-   
-    if (z_mood == 0 &amp;&amp; z &gt; 0)
-     {
-    draw_set_alpha(z/3);
-    draw_sprite(sJump,0,x,y+z*4);
-    draw_set_alpha(1);
-    }
-    if (z_mood == 1)
-     {
-    draw_set_alpha(abs(3-z)-0.2);
-    draw_sprite(sJump,0,x,y+z*8);
-    draw_set_alpha(1);
-    }
-
-   
-   }
-  else if (dir == dir_down)
-   {
-    if (z_mood = 0) {y += z; z += 0.1; image_alpha -= 0.01 if (z &gt; 3) {z_mood = 1;}}
-    if (z_mood = 1) {y += z; z -= 0.1; image_alpha += 0.01 if (z &lt;= 0) {randomize(); z_mood = 2; repeat(5) {instance_create(x-random(10)+random(10),y+random(10)-random(10),oBlob);} mood = "idle";}}
-   
-   
-    if (z_mood == 0)
-     {
-    draw_set_alpha(z/3);
-    draw_sprite(sJump,0,x,y+z*8);
-    draw_set_alpha(1);
-    }
-    if (z_mood == 1)
-     {
-    draw_set_alpha(z-2);
-    draw_sprite(sJump,0,x,y+z*8);
-    draw_set_alpha(1);
-    }
-
-   }
-else if (dir == dir_right)
-   {
-    if (z_mood = 0) {x += z; z += 0.1; image_alpha -= 0.01 if (z &gt; 3) {z_mood = 1;}}
-    if (z_mood = 1) {x += z; z -= 0.1; image_alpha += 0.01 if (z &lt;= 0) {randomize(); z_mood = 2; repeat(5) {instance_create(x-random(10)+random(10),y+random(10)-random(10),oBlob);} mood = "idle";}}
-   
-   
-    if (z_mood == 0)
-     {
-    draw_set_alpha(z/3);
-    draw_sprite(sJump,0,x,y+z*(8-z));
-    draw_set_alpha(1);
-    }
-    if (z_mood == 1)
-     {
-    draw_set_alpha(z-2);
-    draw_sprite(sJump,0,x,y+z*(8-z));
-    draw_set_alpha(1);
-    }
-
-   }
-  else if (dir == dir_left)
-   {
-    if (z_mood = 0) {x -= z; z += 0.1; image_alpha -= 0.01 if (z &gt; 3) {z_mood = 1;}}
-    if (z_mood = 1) {x -= z; z -= 0.1; image_alpha += 0.01 if (z &lt;= 0) {randomize(); z_mood = 2; repeat(5) {instance_create(x-random(10)+random(10),y+random(10)-random(10),oBlob);} mood = "idle";}}
-   
-   
-    if (z_mood == 0)
-     {
-    draw_set_alpha(z/3);
-    draw_sprite(sJump,0,x,y+z*8);
-    draw_set_alpha(1);
-    }
-    if (z_mood == 1)
-     {
-    draw_set_alpha(z-2);
-    draw_sprite(sJump,0,x,y+z*8);
-    draw_set_alpha(1);
-    }
-
-   }
-
-
-    
-    
-
-   }
-
-if (mood != "dying")
-{
-if (instance_number(oPlayer) &gt; 0)
-   {
-    if (distance_to_object(oPlayer) &lt; 64 &amp;&amp; mood = "idle")
+if (notForced)
+   {    
+    if (can_move)
        {
-        mood = "attack";
-       }
-    if (distance_to_object(oPlayer) &gt; 196 &amp;&amp; mood != "idle" &amp;&amp; !force_aggresive)
-       {
-        in_fight = 0;
-        mood = "idle";
-       }
+        image_speed = 0;
 
-   }
-   
-if (in_fight || hp &lt; maxHp)
-   {
-    if (health_alpha &lt; 1) {health_alpha += 0.05;}
-   }
-else {if (health_alpha &gt; 0) {health_alpha -= 0.05;}} 
-  
-if (health_alpha &gt; 0) 
-   {
-   draw_set_font(fntPixelSmall);
-   
-   if (scale &gt; 1) {scale -= 0.02;}
-    draw_sprite_general(sHealthBar,1,0,0,40,8,x-18,y-20,1,1,0,c_white,c_white,c_white,c_white,health_alpha);
-   draw_sprite_part_ext(sHealthBar,0,0,0,((last_hp/max_hp)*40),8,x-18,y-20,1,1,c_white,health_alpha);
-   
-   scrCenterText();
-   draw_text_colour(x,y-30,name,c_black,c_black,c_black,c_black,health_alpha);
-   scrCenterText(0);
-   }
-}   
+        if (isHunter &amp;&amp; mood != "dying") {mood = "attack";}
 
-if (mood != "dying" &amp;&amp; mood != "slime") 
-   {
-   if (p &lt; 10) {p += 0.2;} else {p = 0;}
-  
-   draw_self(); 
-   draw_sprite_ext(sXpPoint,p,x,y,1,1,0,c_aqua,0.6);
-   }
+        // Idle AI
+        if (mood = "idle")
+           {
+            image_speed = 0.1;
+            if (force_aggresive) {if (mood = "idle") {mood = "attack"; in_fight = 1;} if (force_timer &gt; 0) {force_timer--;} else {force_aggresive = 0; force_timer = 400;}}
 
-if (mood == "slime")
-   {
-   if( shader_is_compiled(shdLerp) )
-    {              
-        shader_set(shdLerp);        
-    
-
-    var s = sin( degtorad(lerp_value) );
-        lerp_value+=5;
-        if( lerp_value&gt;180 ) 
-            {            
-            lerp_value=0;
+            if (dir == dir_right) {x += spd * finalSlowdown;}
+            if (dir == dir_left)  {x -= spd * finalSlowdown;}
+            if (dir == dir_up)    {y -= spd * finalSlowdown;}
+            if (dir == dir_down)  {y += spd * finalSlowdown;}
             
-                for(i = 0; i &lt; 360; i += 90)        
+            count += spd * finalSlowdown; 
+            if (count &gt;= moveLenght) {count = 0; event_user(2); scrEnemyGetPosition();}
+           }
+          
+        // Attack AI  
+        if (mood == "attack")
+           {
+            image_speed = 0.15;
+            in_fight    = true;
+            px = oPlayer.x;
+            py = oPlayer.y;
+
+            if (can_damage == -1)
+               {
+                if (dir == dir_right) {x += spd * finalSlowdown;}
+                if (dir == dir_left)  {x -= spd * finalSlowdown;}
+                if (dir == dir_up)    {y -= spd * finalSlowdown;}
+                if (dir == dir_down)  {y += spd * finalSlowdown;}          
+                if (can_damage == -1) {count += spd * finalSlowdown + 0.2;} 
+               }
+            if (count &gt;= moveLenght) {count = 0; event_user(2); scrEnemyGetPositionAttack();}
+           }
+           
+        // Jump AI
+        if (mood == "jump")
+           {
+            image_speed = 0;
+               
+            if (dir == dir_up)
+               {
+                if (z_mood == 0) {y -= z; z += 0.1; image_alpha -= 0.01 if (z &gt; 3) {z_mood = 1;}}
+                if (z_mood == 1) {y -= z; z -= 0.1; image_alpha += 0.01 if (z &lt;= 0) {randomize(); z_mood = 2; repeat(5) {instance_create(x-random(10)+random(10),y+random(10)-random(10),oBlob);} mood = "idle";}}
+      
+                if (z_mood == 0 &amp;&amp; z &gt; 0)
+                   {
+                    clr(-1, z / 3);
+                    draw_sprite(sJump,0,x,y+z*4);
+                    clr(-1);
+                   }
+                   
+                if (z_mood == 1)
+                   {
+                    clr(-1, abs(3 - z) - 0.2);
+                    draw_sprite(sJump, 0, x, y + (z * 8));
+                    clr(-1);
+                   }   
+               }               
+      else if (dir == dir_down)
+           {
+            if (z_mood == 0) {y += z; z += 0.1; image_alpha -= 0.01 if (z &gt; 3) {z_mood = 1;}}
+            if (z_mood == 1) {y += z; z -= 0.1; image_alpha += 0.01 if (z &lt;= 0) {randomize(); z_mood = 2; repeat(5) {instance_create(x-random(10)+random(10),y+random(10)-random(10),oBlob);} mood = "idle";}}
+      
+            if (z_mood == 0)
+               {
+                clr(-1, z / 3);
+                draw_sprite(sJump,0,x,y+z*8);
+                clr(-1);
+               }
+               
+           if (z_mood == 1)
+              {
+               draw_set_alpha(z-2);
+               draw_sprite(sJump,0,x,y+z*8);
+               draw_set_alpha(1);
+              }
+          }
+      else if (dir == dir_right)
+           {
+            if (z_mood == 0) {x += z; z += 0.1; image_alpha -= 0.01 if (z &gt; 3) {z_mood = 1;}}
+            if (z_mood == 1) {x += z; z -= 0.1; image_alpha += 0.01 if (z &lt;= 0) {randomize(); z_mood = 2; repeat(5) {instance_create(x-random(10)+random(10),y+random(10)-random(10),oBlob);} mood = "idle";}}
+      
+            if (z_mood == 0)
+               {
+                draw_set_alpha(z/3);
+                draw_sprite(sJump,0,x,y+z*(8-z));
+                draw_set_alpha(1);
+               }
+               
+            if (z_mood == 1)
+               {
+                draw_set_alpha(z-2);
+                draw_sprite(sJump,0,x,y+z*(8-z));
+                draw_set_alpha(1);
+               }
+           }
+      else if (dir == dir_left)
+           {
+            if (z_mood == 0) {x -= z; z += 0.1; image_alpha -= 0.01 if (z &gt; 3) {z_mood = 1;}}
+            if (z_mood == 1) {x -= z; z -= 0.1; image_alpha += 0.01 if (z &lt;= 0) {randomize(); z_mood = 2; repeat(5) {instance_create(x-random(10)+random(10),y+random(10)-random(10),oBlob);} mood = "idle";}}
+      
+            if (z_mood == 0)
+               {
+                draw_set_alpha(z/3);
+                draw_sprite(sJump,0,x,y+z*8);
+                draw_set_alpha(1);
+               }
+               
+            if (z_mood == 1)
+               {
+                draw_set_alpha(z-2);
+                draw_sprite(sJump,0,x,y+z*8);
+                draw_set_alpha(1);
+               }
+           }
+      }
+
+    // Switch between idle &amp;&amp; attack mode
+    if (mood != "dying" &amp;&amp; mood != "jump")
+       {
+        if (instance_number(oPlayer) &gt; 0)
+           {
+            if (distance_to_object(oPlayer) &lt; 64 &amp;&amp; mood = "idle") {mood = "attack";}
+            if (distance_to_object(oPlayer) &gt; 196 &amp;&amp; mood != "idle" &amp;&amp; !force_aggresive) {in_fight = 0; mood = "idle";}
+           }
+   
+       if (in_fight || hp &lt; maxHp) {health_alpha = lin(health_alpha, 1, 0.05);}
+       else {health_alpha = lin(health_alpha, 0, -0.05);} 
+  
+       if (health_alpha &gt; 0) 
+          {
+           fnt(fntPixelSmall);
+   
+           if (scale &gt; 1) {scale -= 0.02;}
+           draw_sprite_general(sHealthBar,1,0,0,40,8,x-18,y-20,1,1,0,c_white,c_white,c_white,c_white,health_alpha);
+           draw_sprite_part_ext(sHealthBar,0,0,0,((last_hp/max_hp)*40),8,x-18,y-20,1,1,c_white,health_alpha);
+   
+           alg("center");
+           draw_text_colour(x,y-30,name,c_black,c_black,c_black,c_black,health_alpha);
+           alg();
+         }
+     }   
+
+    // Draw base sprite
+    if (mood != "dying" &amp;&amp; mood != "slime") 
+       {
+        if (p &lt; 10) {p += 0.2;} else {p = 0;}
+  
+        draw_self(); 
+        draw_sprite_ext(sXpPoint,p,x,y,1,1,0,c_aqua,0.6);
+       }
+
+    // Shoot AI
+    if (mood == "slime")
+       {
+        image_speed = 0;            
+        shader_set(shdLerp);            
+
+        var s = sind(lerp_value);
+        lerp_value += 5;
+        
+        if (lerp_value&gt;180) 
+            {            
+             lerp_value = 0;
+            
+             for (var i = 0; i &lt; 360; i += 90)        
                   {
                    inst = instance_create(x,y,oSlimePart);
                    inst.direction = i;
                   }
-                  mood = "idle";
-
+             mood = "idle";
             }
-        // lerp to WHITE (1,1,1)
-        shader_set_uniform_f(colour_to_find, 1,1,1, s );       
-        draw_sprite(sprite_index,image_index,x, y);          
-         shader_reset();
-     }
- 
-      
-   }   
-if (mood == "heal")
-   {
-   if( shader_is_compiled(shdLerp) )
-    {              
-        shader_set(shdLerp);        
+            
+        shader_set_uniform_f(colour_to_find, 1, 1, 1, s);       
+        draw_self();        
+        shader_reset();
+       } 
     
-
-    var s = sin( degtorad(lerp_value) );
-        lerp_value+=5;
-        if( lerp_value&gt;180 ) 
+    // Heal AI     
+    if (mood == "heal")
+       {
+        image_speed = 0;             
+        shader_set(shdLerp);  
+                  
+        var s = sind(lerp_value);
+        lerp_value += 5;
+        
+        if (lerp_value &gt; 180) 
             {            
-            lerp_value=0;
-            hp += irandom_range(3,5);
-            scrBasicEffect();
-                  mood = "idle";
-
+             lerp_value=0;
+             hp += irandom_range(3, 5);
+             scrBasicEffect();
+             mood = "idle";
             }
-        // lerp to GREEN (0,1,0)
-        shader_set_uniform_f(colour_to_find, 0,1,0, s );       
-        draw_sprite(sprite_index,image_index,x, y);          
-         shader_reset();
-     }
- 
-      
-   }   
- }
- else
- {
-  sprite_index = sEnemySlime;
-  if (hp &lt;= 0) {image_alpha = 0;}
-  draw_self();
- }
-}
-else
-{
-sprite_index = sEnemySlime;
-if (hp &lt;= 0) {image_alpha = 0;}
-draw_self();
-if (forcedX &gt; 0) {forcedHelp = lerp(forcedHelp, forcedBaseX, 0.01); x += forcedHelp; forcedX -= forcedHelp; }
-motion_blur(max(forcedBaseX - forcedX, 50), 180);
-}
+        shader_set_uniform_f(colour_to_find, 0, 1, 0, s);       
+        draw_self()      
+        shader_reset();      
+       }      
+  }
+  else
+      {
+       sprite_index = sEnemySlime;
+       if (hp &lt;= 0) {image_alpha = 0;}
+       draw_self();
+      }
+  }
+  else
+      {
+       sprite_index = sEnemySlime;
+       if (hp &lt;= 0) {image_alpha = 0;}
+       draw_self();
+       if (forcedX &gt; 0) {forcedHelp = lerp(forcedHelp, forcedBaseX, 0.01); x += forcedHelp; forcedX -= forcedHelp; }
+       motion_blur(max(forcedBaseX - forcedX, 50), 180);
+      }
+
+if (dir == dir_right) {image_index = clamp(image_index, 3, 5.9); if (image_index == 5.9) {image_index = 3;}}
+if (dir == dir_left) {image_index = clamp(image_index, 0, 2.9); if (image_index == 2.9) {image_index = 0;}}
+if (dir == dir_up) {image_index = clamp(image_index, 6, 8.9); if (image_index == 8.9) {image_index = 6;}}
+if (dir == dir_down) {image_index = clamp(image_index, 9, 11.9); if (image_index == 11.9) {image_index = 9;}}
+
 </string>
           </argument>
         </arguments>
