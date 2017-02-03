@@ -65,6 +65,8 @@ staggerTimer                  = 0;
 notForced                     = true;
 finalSlowdown                 = 0;
 moveLenght                    = 32;
+isDying                       = false;
+isCasting                     = false;
 
 </string>
           </argument>

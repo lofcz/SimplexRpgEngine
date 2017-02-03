@@ -242,4 +242,3 @@ return cos(degtorad(argument0));
 /// tand(deg)
 
 return tan(degtorad(argument0));
-

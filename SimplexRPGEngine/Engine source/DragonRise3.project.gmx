@@ -1252,6 +1252,11 @@
         <scripts name="Simple AI">
           <script>scripts\scrSimpleAiStep.gml</script>
         </scripts>
+        <scripts name="Advanced AI">
+          <script>scripts\scrAdvancedAiIni.gml</script>
+          <script>scripts\scrAdvancedAiRegisterAction.gml</script>
+          <script>scripts\scrAdvancedAiCanPlayAction.gml</script>
+        </scripts>
       </scripts>
       <scripts name="Pop up">
         <script>scripts\scrHintShow.gml</script>
