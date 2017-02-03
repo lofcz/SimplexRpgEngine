@@ -25,6 +25,7 @@ vlastnost[vlastnost_upgradeMaterial2] = materialEnum.materialPearl;
 vlastnost[vlastnost_upgradeMaterial3] = materialEnum.materialPearl;
 vlastnost[vlastnost_identified]       = true;
 vlastnost[vlastnost_cursed]           = false;
+vlastnost[vlastnost_pickSpr]          = tempSpr;
 
 
 

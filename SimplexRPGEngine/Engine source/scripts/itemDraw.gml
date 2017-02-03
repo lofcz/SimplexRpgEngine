@@ -134,4 +134,4 @@ n = 1;
 
 if (argument_count > 0) {n = argument[0];}
 
-image_index = (n);
+image_index = n;

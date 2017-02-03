@@ -27,35 +27,33 @@ yy = yy + 36;
 
 draw_sprite_stretched(sUnknownBestiary, 0, xx, yy, 256, 256);
 draw_equ_infobox_id = -1;
+draw_sprite(sEquipmentBase, 0, xx + 32, yy + 32);
+draw_sprite_ext(sEquipmentBaseIcons, 0, xx + 32, yy + 32, 1, 1, 0, c_white, 0.5);
 
 // Draw head slot --------------------------------------------------------------------------------------------------------------------------
 if (oPlayer.equ_draw_head)
 {
-draw_sprite(sSlotTexture,1,xx+equ_axis_head_x,yy+equ_axis_head_y);
-if (oInventory.equiped[1]) { draw_sprite(sRarityEffect,itemRarityEffect(equiped_image[1,2]),xx+equ_axis_head_x,yy+equ_axis_head_y); }
-else {draw_sprite(sEquipmentIcons,1,xx+equ_axis_head_x,yy+equ_axis_head_y);}
-draw_sprite(equiped_image[1,0],equiped_image[1,1],xx+equ_axis_head_x+16,yy+equ_axis_head_y+16)
+if (oInventory.equiped[1]) {draw_sprite(sRarityEffect,itemRarityEffect(equiped_image[1,2]),xx+equ_axis_head_x,yy+equ_axis_head_y);}
+else {draw_sprite(sEquipmentIcons,0,xx+equ_axis_head_x + 4,yy+equ_axis_head_y + 2);}
+
+draw_sprite(equiped_image[1,0],equiped_image[1,1],xx+equ_axis_head_x+18,yy+equ_axis_head_y+14)
 
 
 if (mouse_in(xx+equ_axis_head_x,xx+equ_axis_head_x+32,yy+equ_axis_head_y,yy+equ_axis_head_y+32))
    {
-   draw_hover_block(xx+equ_axis_head_x,xx+equ_axis_head_x+32,yy+equ_axis_head_y,yy+equ_axis_head_y+32);
+   draw_hover_block(xx+equ_axis_head_x+2,xx+equ_axis_head_x+34,yy+equ_axis_head_y-1,yy+equ_axis_head_y+32);
    draw_equ_infobox_id = 1;
-
-      if (mouse_check_button_pressed(mb_left))
-      {
-       if (oInventory.equiped[1]) {equipmentUnequip(1, false);}
-      }
+   if (mouse_check_button_pressed(mb_left)) {if (oInventory.equiped[1]) {equipmentUnequip(1, false);}}
    }
-draw_sprite(sSlotOutline,0,xx+equ_axis_head_x-2,yy+equ_axis_head_y-2);  
    
-if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] = "helma" )
+if (oInventory.drag && oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "helma")
    { 
-   if (oInventory.equiped[1] = 0) {draw_hover_block(xx+equ_axis_head_x,xx+equ_axis_head_x+32,yy+equ_axis_head_y,yy+equ_axis_head_y+32,c_lime,0.5);}
+   if (!oInventory.equiped[1]) {draw_hover_block(xx+equ_axis_head_x+2,xx+equ_axis_head_x+34,yy+equ_axis_head_y-1,yy+equ_axis_head_y+32,c_lime);}
    equipmentHoldEquip(1,xx+equ_axis_head_x,xx+equ_axis_head_x+32,yy+equ_axis_head_y,yy+equ_axis_head_y+32);
    }    
 }
-// Draw left plate slot  -
+
+// Draw left plate slot  -----------------------------------------------------------------------------------------------------
 if (oPlayer.equ_draw_left_plate)
 {
 draw_sprite(sSlotTexture,1,xx+equ_axis_left_plate_x,yy+equ_axis_left_plate_y);

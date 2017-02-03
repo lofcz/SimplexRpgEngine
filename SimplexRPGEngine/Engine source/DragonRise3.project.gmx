@@ -488,6 +488,8 @@
         <sprite>sprites\sQuestIcon</sprite>
         <sprite>sprites\sStatus</sprite>
         <sprite>sprites\sCrafting</sprite>
+        <sprite>sprites\sEquipmentBase</sprite>
+        <sprite>sprites\sEquipmentBaseIcons</sprite>
         <sprite>sprites\sLockIcon</sprite>
         <sprite>sprites\sSpellsUI</sprite>
         <sprite>sprites\sSpellsUI48</sprite>
@@ -1744,7 +1746,7 @@
       <room>rooms\mapSklep</room>
     </rooms>
   </rooms>
-  <constants number="261">
+  <constants number="262">
     <constant name="baArmor">1</constant>
     <constant name="baBase">0</constant>
     <constant name="cStaticInstance">"staticInstance"</constant>
@@ -1811,7 +1813,8 @@
     <constant name="quest_ready">1</constant>
     <constant name="quest_noone">0</constant>
     <constant name="upgradableProperties">58</constant>
-    <constant name="celkem_vlastnosti">118</constant>
+    <constant name="celkem_vlastnosti">119</constant>
+    <constant name="vlastnost_pickSpr">118</constant>
     <constant name="vlastnost_cursed">117</constant>
     <constant name="vlastnost_identified">116</constant>
     <constant name="vlastnost_bodyCanvasThrustSprite">115</constant>
@@ -1967,7 +1970,7 @@
     <constant name="equ_axis_left_plate_x">32</constant>
     <constant name="equ_axis_right_plate_y">32</constant>
     <constant name="equ_axis_right_plate_x">160</constant>
-    <constant name="equ_axis_head_y">2</constant>
+    <constant name="equ_axis_head_y">36</constant>
     <constant name="equ_axis_head_x">96</constant>
     <constant name="dir_left">0</constant>
     <constant name="dir_right">1</constant>

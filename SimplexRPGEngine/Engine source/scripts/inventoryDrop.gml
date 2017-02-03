@@ -61,9 +61,10 @@ if (xx != -1 && yy != -1)
            show_number               = 0;
            image_index               = itm_sprite_number;
            sprite_index              = itm_sprite;
+           tempSpr                   = oInventory.slot_vlastnosti[oInventory.ar_slot, vlastnost_pickSpr];
 
            for(a = 0; a < 10; a++)                {itm_options[a] = oInventory.drop_options[a];}
-           for(d = 0; d < celkem_vlastnosti; d++) {vlastnost[d]   = oInventory.slot_vlastnosti[oInventory.ar_slot, d]; oInventory.slot_vlastnosti[oInventory.ar_slot, d] = 0;}              
+           for(d = 0; d < celkem_vlastnosti; d++) {vlastnost[d]   = oInventory.slot_vlastnosti[oInventory.ar_slot, d]; vlastnostStatic[d] = oInventory.slot_vlastnosti_static[oInventory.ar_slot, d]; oInventory.slot_vlastnosti[oInventory.ar_slot, d] = 0; oInventory.slot_vlastnosti_static[oInventory.ar_slot, d] = 0;}              
           } 
           
      if (force_pickup) {with(instance) {inventoryPickUp();} } 
