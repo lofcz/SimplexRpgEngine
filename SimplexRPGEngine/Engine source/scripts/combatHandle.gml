@@ -29,7 +29,7 @@ if (keyboard_check_pressed(vk_alt)) {chargeMode = !chargeMode;}
 
 if ((keyboard_check_released(vk_space) && chargeMode) || (keyboard_check_pressed(vk_space) && !chargeMode))
    {   
-    if (!attack && apiPlayerGetPropertyValue(vlastnost_stamina, false, true) >= apiPlayerGetPropertyValue(vlastnost_stamina_cost, false, true) && !animating)
+    if (!attack && apiPlayerGetPropertyValue(vlastnost_stamina, false, true) >= apiPlayerGetPropertyValue(vlastnost_stamina_cost, false, true) && !animating && oPlayer.weapon_type != "")
        {
         tick   = oPlayer.attack_interval;
         mode   = 1;

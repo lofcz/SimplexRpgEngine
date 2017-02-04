@@ -30,8 +30,8 @@ for(a = 0; a < oInventory.slots; a++)
                  oPlayer.draw_equ[id_Mec,0] = 0;
                  oPlayer.draw_equ[id_Mec,1] = 0;
                  oPlayerCombat.draw         = 0;
-                 oPlayerCombat.sprite         = 0;
-                // oPlayer.bci[0, 7]          = 0;                  
+                 oPlayerCombat.sprite       = 0;
+                 oPlayer.weaponType         = "";                
                  }
                                                                                                                                                                                                                                           
             for(a = 0; a < inv_atributes_total; a++)

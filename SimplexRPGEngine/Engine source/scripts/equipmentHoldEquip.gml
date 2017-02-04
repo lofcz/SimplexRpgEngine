@@ -25,6 +25,7 @@ if ((oInventory.drag && mouse_check_button_released(mb_left) && equiped[equip_sl
                         {                       
                          oInventory.pre_switch = 1;
                          equiped[equip_slot]   = 1;
+                         hover_alpha           = 0;
                          
                          equiped_image[equip_slot, 0] = equip_sprite_s[0];
                          equiped_image[equip_slot, 1] = equip_sprite_s[1];
