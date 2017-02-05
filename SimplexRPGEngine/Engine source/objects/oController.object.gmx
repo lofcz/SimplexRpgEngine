@@ -40,7 +40,7 @@ player_pos = 0;
 fontDamage = font_add_sprite(sFntDamage, ord("0"), true, 0);
 
 persistenceQueue = ds_queue_create();
-realPos = vec2();
+realPos = vec3();
 </string>
           </argument>
         </arguments>
@@ -96,7 +96,7 @@ while(ds_queue_size(persistenceQueue) &gt; 0)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Move player to startpoints
+            <string>/// Move player to startpoint
 
 if (room == mapTest)
 {
@@ -116,6 +116,9 @@ if (room == mapE1M2)
 {
  oPlayer.x = 1984; oPlayer.y = 1088;
 }
+
+if (vec3GetZ(realPos) == roomTransitionEnum.left)       {instance_set_position(room_width - 64, vec3GetY(realPos), oPlayer);}
+else if (vec3GetZ(realPos) == roomTransitionEnum.right) {instance_set_position(64, vec3GetY(realPos), oPlayer);}
 alarm[0] = 1;
 </string>
           </argument>

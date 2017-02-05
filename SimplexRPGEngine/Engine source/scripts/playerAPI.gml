@@ -1109,12 +1109,13 @@ for(a = 0; a < spell_total; a++)
 }
 
 // Create needed objects
-instance_create(x, y, oPlayerCombat);
-instance_create(x, y, oState);
-instance_create(x, y, oHUD);
-instance_create(x, y, oOptimize);
-instance_create(x, y, oMinimap);
-instance_create(x, y, oDayNight);
+instantiate(oPlayerCombat);
+instantiate(oState);
+instantiate(oHUD);
+instantiate(oOptimize);
+instantiate(oMinimap);
+instantiate(oDayNight);
+instantiate(oInventory);
 
 scrAffectsIni();
 apiPlayerUpdateKeysFromConfig();

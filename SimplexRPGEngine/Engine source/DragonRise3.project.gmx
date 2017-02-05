@@ -909,6 +909,7 @@
           <script>scripts\set_sprite.gml</script>
           <script>scripts\string_starts.gml</script>
           <script>scripts\string_equation_parse.gml</script>
+          <script>scripts\instantiate.gml</script>
           <script>scripts\instance_set_position.gml</script>
         </scripts>
         <scripts name="AsmCore">

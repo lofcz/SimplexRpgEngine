@@ -678,8 +678,9 @@ if (die &amp;&amp; oPlayer.image_index &gt;= 5)
      draw_rectangle(view_xview,view_yview,view_xview+view_wview,view_yview+view_hview,0);        
      if (die_alpha &gt;= 1) 
         {
-         //game_restart();   
          if (instance_number(parEnemy) &gt; 0) {with(parEnemy) {instance_destroy();}}
+         ds_list_clear(oState.list);
+         scrSetActiveComponent();
          
          clr(c_white, die_alpha); 
          alg("center", fntPixelHuge);   

@@ -70,3 +70,8 @@ enum DAudioEnum
 {
  channelBackground, channelBattle
 }
+
+enum roomTransitionEnum
+{
+ up, down, right, left, absolute
+}

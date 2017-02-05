@@ -50,3 +50,18 @@ I = room_instance_add(r, xx, yy, i);
 ds_queue_enqueue(oController.persistenceQueue, I);
 ds_queue_enqueue(oController.persistenceQueue, i.status);
 ds_queue_enqueue(oController.persistenceQueue, i.substatus);
+#define roomPrepareTransition
+/// roomPrepareTransition()
+
+ds_list_clear(oOptimize.activeList);
+ds_list_clear(oOptimize.activeList2);
+
+
+#define roomGoto
+/// roomGoto(room)
+
+oController.player_pos = player_pos;
+oController.realPos    = vec3(oPlayer.x, oPlayer.y, mode);
+
+roomPrepareTransition();
+room_goto(level);
