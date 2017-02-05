@@ -37,7 +37,7 @@ ini_close();
 player_pos = 0;
 
 // Convert sprites to fonts
-fontDamage = font_add_sprite(sFntDamage,ord("0"),1,2);
+fontDamage = font_add_sprite(sFntDamage, ord("0"), true, 0);
 
 persistenceQueue = ds_queue_create();
 realPos = vec2();

@@ -158,6 +158,7 @@ scrEnemyGetDamage();
 notForced     = false;
 finalSlowdown = (1 - slowdown);
 if (forcedX &lt; 1 &amp;&amp; forcedY &lt; 1) {notForced = true; forcedX = 0; forcedY = 0; forcedHelper = 0;}
+if (hp &lt;= 0) {isDying = true;}
 
 if (followMouse)
     {

@@ -8,4 +8,3 @@ return false;
 
 #define script282
 /// scrAdvancedAiGetActionType(actionDump)
-
