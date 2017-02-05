@@ -268,6 +268,7 @@ if ((hover || hover_alpha > 0))
       {
        alg("center");
        var sealed = !slot_vlastnosti[f, vlastnost_identified];
+       if (slot[f, inv_sprite] == sFreeSlot) {sealed = false;}
       
        if (!proceed) {f = hover_id;} else {f = hover_idd;}      
        if (proceed) {hover_alpha = 1;}

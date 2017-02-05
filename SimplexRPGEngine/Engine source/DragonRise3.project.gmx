@@ -1081,6 +1081,7 @@
         <script>scripts\scrAdvancedCollisionSetText.gml</script>
         <script>scripts\scrAdvancedCollisionIni.gml</script>
         <script>scripts\scrNonsolidCollisionIni.gml</script>
+        <script>scripts\scrTransitionIni.gml</script>
       </scripts>
       <scripts name="Combat">
         <script>scripts\combatHandle.gml</script>
