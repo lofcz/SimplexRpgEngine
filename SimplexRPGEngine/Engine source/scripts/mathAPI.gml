@@ -242,3 +242,85 @@ return cos(degtorad(argument0));
 /// tand(deg)
 
 return tan(degtorad(argument0));
+#define vec3
+/// vec3(x, y, z)
+
+var array, xval, yval, zval;
+xval = -1;
+yval = -1;
+zval = -1;
+
+if (argument_count == 0)
+   {
+    array[0] = xval;
+    array[1] = yval;
+    array[2] = zval;
+   
+    return array;
+   }
+
+if (argument_count > 1)
+   {
+    xval = argument[0];
+    yval = argument[1];
+    zval = argument[2];
+
+    array[0] = xval;
+    array[1] = yval;
+    array[2] = zval;
+
+    return array;
+   }
+
+
+#define vec3GetX
+/// vec3GetX(vec3)
+
+var array;
+array = argument[0];
+
+return array[0];
+
+
+
+#define vec3GetY
+/// vec3GetY(vec3)
+
+var array;
+array = argument[0];
+
+return array[1];
+
+
+#define vec3GetZ
+/// vec3GetZ(vec3)
+
+var array;
+array = argument[0];
+
+return array[2];
+
+
+#define vec3SetX
+/// vec3SetX(vec3, value)
+
+var v;
+v = argument1;
+
+argument0[@ 0] = v;
+
+#define vec3SetY
+/// vec3SetY(vec3, value)
+
+var v;
+v = argument1;
+
+argument0[@ 1] = v;
+
+#define vec3SetZ
+/// vec3SetZ(vec3, value)
+
+var v;
+v = argument1;
+
+argument0[@ 2] = v;
