@@ -23,21 +23,12 @@ namespace SimplexMainForm
 
         IDictionary<string, int> dict = new Dictionary<string, int>();
         public List<AchievementClass> achList = new List<AchievementClass>();
+        public List<GameObject> objects = new List<GameObject>();
+        string pathCore = "";
 
         private void loadProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TreeNode r = new TreeNode("Objects", 1, 1);
-            TreeNode spr = new TreeNode("Sprites", 1, 1);
-
-            var xDoc = XDocument.Load(@"C:\Users\Matěj\Documents\SimplexRpgEngine\DragonRise3\Engine source\DragonRise3.project.gmx");
-            LoadTree(xDoc.Root.Element("sprites"), spr, "sprite", @"sprites\", "sprite");
-            tempLoad(xDoc.Root.Element("sprites"), spr, "sprite", @"sprites\");
-         //   assignSprites();
-            treeView1.Nodes.Add(spr);
-
-            LoadTree(xDoc.Root.Element("objects"), r, "object", @"objects\", "object");
-            treeView1.Nodes.Add(r);
-          
+            openFileDialog1.ShowDialog();
         }
 
 
@@ -94,22 +85,89 @@ namespace SimplexMainForm
                     {
                         try
                         {
+                            GameObject go = new GameObject();
+                            go.name = n;
+
                             string file = getFilePath(n, "object");
-                            XmlReader xr = XmlReader.Create(file);
-                            while (xr.Read())
+                            XmlReader reader = XmlReader.Create(file);
+
+                            while (reader.Read())
                             {
-                                if (xr.NodeType == XmlNodeType.Element && xr.Name == "spriteName")
+                                if (reader.NodeType == XmlNodeType.Element && reader.Name == "object")
                                 {
-                                    xr.Read();
-                                    string spriteName = xr.Value;
-                                    int index = dict.FirstOrDefault(x => x.Key == spriteName).Value;
+                                    while (reader.Read())
+                                    {
+                                        if (reader.NodeType == XmlNodeType.Element && reader.Name == "spriteName")
+                                        {
+                                            string spriteName = reader.ReadString();
+                                            go.sprite = spriteName;
+
+                                            int index = dict.FirstOrDefault(x => x.Key == spriteName).Value;
 
 
-                                    node2.ImageIndex = index;
-                                    node2.SelectedImageIndex = node2.ImageIndex;
-                                    break;
+                                            node2.ImageIndex = index;
+                                            node2.SelectedImageIndex = node2.ImageIndex;
+                                            break;
+                                        }
+                                    }
+                                    while (reader.Read())
+                                    {
+                                        if (reader.NodeType == XmlNodeType.Element && reader.Name == "solid")
+                                        {
+                                            bool solid = false;
+                                            string str = reader.ReadString();
+                                            if (str == "-1") { solid = true; }
+                                            go.solid = solid;
+                                            break;
+                                        }
+                                    }
+                                    while (reader.Read())
+                                    {
+                                        if (reader.NodeType == XmlNodeType.Element && reader.Name == "visible")
+                                        {
+                                            bool solid = false;
+                                            string str = reader.ReadString();
+                                            if (str == "-1") { solid = true; }
+                                            go.visible = solid;
+                                            break;
+                                        }
+                                    }
+                                    while (reader.Read())
+                                    {
+                                        if (reader.NodeType == XmlNodeType.Element && reader.Name == "depth")
+                                        {
+                                            int str = int.Parse(reader.ReadString());
+                                            go.depth = str;
+                                            break;
+                                        }
+                                    }
+                                    while (reader.Read())
+                                    {
+                                        if (reader.NodeType == XmlNodeType.Element && reader.Name == "parentName")
+                                        {
+                                            string str = reader.ReadString();
+                                            go.parent = str;
+                                            break;
+                                        }
+                                    }
+                                    while (reader.Read())
+                                    {
+                                        if (reader.NodeType == XmlNodeType.Element && reader.Name == "maskName")
+                                        {
+                                            string str = reader.ReadString();
+                                            if (str == "<undefined>") { str = "<same as sprite>"; }
+                                            go.mask = str;
+                                            break;
+                                        }
+                                    }
+                                }
+
+                                if (!objects.Contains(go))
+                                {
+                                    objects.Add(go);
                                 }
                             }
+                           
                         }
                         catch { }
                     }
@@ -119,6 +177,14 @@ namespace SimplexMainForm
                 }
 
                 LoadTree(e, node, datafile, datafileEnd, type);
+            }
+
+            foreach (GameObject go in objects)
+            {
+                foreach (GameObject temp in objects)
+                {
+                    if (temp.parent == go.name) { go.childrens.Add(temp.name); }
+                }
             }
         }
 
@@ -184,7 +250,7 @@ namespace SimplexMainForm
                 name = name.Replace("TreeNode: ", "");
                 string file = getFilePath(name, "object");
 
-                Object o = new Object(file);
+                Object o = new Object(file, objects.Where(i => i.name == name).FirstOrDefault());
                 o.Text = "Object - " + name;
                 o.Show();
             }
@@ -224,7 +290,7 @@ namespace SimplexMainForm
             string output = "";
             string[] filePaths = null;
 
-              filePaths = Directory.GetFiles(@"C:\Users\Matěj\Documents\SimplexRpgEngine\DragonRise3\Engine source\" + rName + "s");
+              filePaths = Directory.GetFiles(pathCore + rName + "s");
 
             for (int i = 0; i < filePaths.Length; i++)
             {
@@ -242,6 +308,24 @@ namespace SimplexMainForm
         {
             Achievements aForm = new Achievements(this);
             aForm.Show();
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+            TreeNode r = new TreeNode("Objects", 1, 1);
+            TreeNode spr = new TreeNode("Sprites", 1, 1);
+            pathCore = openFileDialog1.FileName;
+            pathCore = pathCore.Substring(0, pathCore.LastIndexOf("Engine source\\") + 14);
+
+            var xDoc = XDocument.Load(openFileDialog1.FileName);
+            LoadTree(xDoc.Root.Element("sprites"), spr, "sprite", @"sprites\", "sprite");
+            tempLoad(xDoc.Root.Element("sprites"), spr, "sprite", @"sprites\");
+            //   assignSprites();
+            treeView1.Nodes.Add(spr);
+
+            LoadTree(xDoc.Root.Element("objects"), r, "object", @"objects\", "object");
+            treeView1.Nodes.Add(r);
+
         }
     }
 }
