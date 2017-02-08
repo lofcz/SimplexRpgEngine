@@ -25,3 +25,12 @@ C:\Users\Matěj\Documents\SimplexRpgEngine\SimplexRPGEngine\IDE source\Dialogue 
 C:\Users\Matěj\Documents\SimplexRpgEngine\SimplexRPGEngine\IDE source\Dialogue editor\SimplexDialog\obj\Debug\SimplexDialog.Form1.resources
 C:\Users\Matěj\Documents\SimplexRpgEngine\SimplexRPGEngine\IDE source\Dialogue editor\SimplexDialog\obj\Debug\SimplexDialog.Properties.Resources.resources
 C:\Users\Matěj\Documents\SimplexRpgEngine\SimplexRPGEngine\IDE source\Dialogue editor\SimplexDialog\obj\Debug\SimplexDialog.csproj.GenerateResource.Cache
+C:\Users\Matěj\Documents\simplex\SimplexRPGEngine\IDE source\Dialogue editor\SimplexDialog\bin\Debug\SimplexDialog.exe.config
+C:\Users\Matěj\Documents\simplex\SimplexRPGEngine\IDE source\Dialogue editor\SimplexDialog\bin\Debug\SimplexDialog.exe
+C:\Users\Matěj\Documents\simplex\SimplexRPGEngine\IDE source\Dialogue editor\SimplexDialog\bin\Debug\SimplexDialog.pdb
+C:\Users\Matěj\Documents\simplex\SimplexRPGEngine\IDE source\Dialogue editor\SimplexDialog\obj\Debug\SimplexDialog.csprojResolveAssemblyReference.cache
+C:\Users\Matěj\Documents\simplex\SimplexRPGEngine\IDE source\Dialogue editor\SimplexDialog\obj\Debug\SimplexDialog.Form1.resources
+C:\Users\Matěj\Documents\simplex\SimplexRPGEngine\IDE source\Dialogue editor\SimplexDialog\obj\Debug\SimplexDialog.Properties.Resources.resources
+C:\Users\Matěj\Documents\simplex\SimplexRPGEngine\IDE source\Dialogue editor\SimplexDialog\obj\Debug\SimplexDialog.csproj.GenerateResource.Cache
+C:\Users\Matěj\Documents\simplex\SimplexRPGEngine\IDE source\Dialogue editor\SimplexDialog\obj\Debug\SimplexDialog.exe
+C:\Users\Matěj\Documents\simplex\SimplexRPGEngine\IDE source\Dialogue editor\SimplexDialog\obj\Debug\SimplexDialog.pdb

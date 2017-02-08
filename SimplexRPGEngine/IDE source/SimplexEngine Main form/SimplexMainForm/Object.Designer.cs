@@ -63,6 +63,9 @@
             this.listView1 = new System.Windows.Forms.ListView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.toolStripContainer2 = new System.Windows.Forms.ToolStripContainer();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button11 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -377,6 +380,9 @@
             this.imageList1.Images.SetKeyName(0, "create");
             this.imageList1.Images.SetKeyName(1, "draw");
             this.imageList1.Images.SetKeyName(2, "destroy");
+            this.imageList1.Images.SetKeyName(3, "alarm");
+            this.imageList1.Images.SetKeyName(4, "step");
+            this.imageList1.Images.SetKeyName(5, "mouse");
             // 
             // toolStripContainer2
             // 
@@ -384,6 +390,9 @@
             // toolStripContainer2.ContentPanel
             // 
             this.toolStripContainer2.ContentPanel.AutoScroll = true;
+            this.toolStripContainer2.ContentPanel.Controls.Add(this.button11);
+            this.toolStripContainer2.ContentPanel.Controls.Add(this.label1);
+            this.toolStripContainer2.ContentPanel.Controls.Add(this.button1);
             this.toolStripContainer2.ContentPanel.Controls.Add(this.button10);
             this.toolStripContainer2.ContentPanel.Controls.Add(this.button9);
             this.toolStripContainer2.ContentPanel.Controls.Add(this.button8);
@@ -415,12 +424,42 @@
             this.toolStripContainer2.TabIndex = 34;
             this.toolStripContainer2.Text = "toolStripContainer2";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(445, 28);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(91, 29);
+            this.button1.TabIndex = 32;
+            this.button1.Text = "Edit as item";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(442, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 13);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "Toolkit:";
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(542, 28);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(91, 29);
+            this.button11.TabIndex = 34;
+            this.button11.Text = "Dialogue editor";
+            this.button11.UseVisualStyleBackColor = true;
+            // 
             // Object
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(843, 343);
             this.Controls.Add(this.toolStripContainer2);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Object";
             this.Text = "Object";
             this.Load += new System.EventHandler(this.Object_Load);
@@ -473,5 +512,8 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -24,6 +24,7 @@ namespace SimplexMainForm
         IDictionary<string, int> dict = new Dictionary<string, int>();
         public List<AchievementClass> achList = new List<AchievementClass>();
         public List<GameObject> objects = new List<GameObject>();
+        public List<Object> formsOpen = new List<Object>();
         string pathCore = "";
 
         private void loadProjectToolStripMenuItem_Click(object sender, EventArgs e)
@@ -250,9 +251,18 @@ namespace SimplexMainForm
                 name = name.Replace("TreeNode: ", "");
                 string file = getFilePath(name, "object");
 
-                Object o = new Object(file, objects.Where(i => i.name == name).FirstOrDefault());
-                o.Text = "Object - " + name;
-                o.Show();
+                if (formsOpen.Where(i => i.Text == "Object - " + name).FirstOrDefault() == null)
+                {
+                    Object o = new Object(file, objects.Where(i => i.name == name).FirstOrDefault());
+                    o.Text = "Object - " + name;
+                    formsOpen.Add(o);
+                    o.Show();
+                }
+                else
+                {
+                    Object o = formsOpen.Where(i => i.Text == "Object - " + name).FirstOrDefault();
+                    o.Focus();
+                }
             }
         }
 
@@ -325,10 +335,16 @@ namespace SimplexMainForm
 
             LoadTree(xDoc.Root.Element("objects"), r, "object", @"objects\", "object");
             treeView1.Nodes.Add(r);
+            Text = "Simplex RPG Engine - " + openFileDialog1.FileName.Substring(openFileDialog1.FileName.LastIndexOf("\\") + 1);
 
         }
 
         private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gameSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
