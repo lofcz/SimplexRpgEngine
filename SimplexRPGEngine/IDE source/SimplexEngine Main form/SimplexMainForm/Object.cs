@@ -16,6 +16,7 @@ namespace SimplexMainForm
         public string file;
         List<SimplexEvent> codeList = new List<SimplexEvent>();
         public List<CodeEditor> openEventsList = new List<CodeEditor>();
+        public string[] eventNames = { "Create", "Destroy", "Draw" };
         
         public GameObject go;
 
@@ -129,32 +130,9 @@ namespace SimplexMainForm
                 ListViewItem lvItem = items[0];
                 string what = lvItem.Text;
 
-                if (what.StartsWith("Create"))
+                foreach (string s in eventNames)
                 {
-                    if (!formInList("Create"))
-                    {
-                        CodeEditor ce = new CodeEditor(codeList.Where(i => i.eventType == "Create").FirstOrDefault().code, this, "Create");
-                        openEventsList.Add(ce);
-                        ce.Show();
-                    }
-                    else
-                    {
-                        CodeEditor ce = openEventsList.Where(i => i.type == "Create").FirstOrDefault();
-                        ce.Focus();
-                    }
-
-                }
-
-                if (what.StartsWith("Draw"))
-                {
-                    CodeEditor ce = new CodeEditor(codeList.Where(i => i.eventType == "Draw").FirstOrDefault().code, this, "Draw");
-                    ce.Show();
-                }
-
-                if (what.StartsWith("Destroy"))
-                {
-                    CodeEditor ce = new CodeEditor(codeList.Where(i => i.eventType == "Destroy").FirstOrDefault().code, this, "Destroy");
-                    ce.Show();
+                    handleEvent(what, s);
                 }
             }
         }
@@ -167,6 +145,25 @@ namespace SimplexMainForm
             }
 
             return false;
+        }
+
+        public void handleEvent(string w, string eventName)
+        {
+            if (w.StartsWith(eventName))
+            {
+                if (!formInList(eventName))
+                {
+                    CodeEditor ce = new CodeEditor(codeList.Where(i => i.eventType == eventName).FirstOrDefault().code, this, eventName);
+                    openEventsList.Add(ce);
+                    ce.Show();
+                }
+                else
+                {
+                    CodeEditor ce = openEventsList.Where(i => i.type == eventName).FirstOrDefault();
+                    ce.Focus();
+                }
+
+            }
         }
     }
 }
