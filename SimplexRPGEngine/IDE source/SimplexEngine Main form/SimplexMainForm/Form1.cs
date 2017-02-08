@@ -327,5 +327,10 @@ namespace SimplexMainForm
             treeView1.Nodes.Add(r);
 
         }
+
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

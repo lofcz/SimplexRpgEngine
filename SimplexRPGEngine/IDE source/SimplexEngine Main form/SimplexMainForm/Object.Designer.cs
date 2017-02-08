@@ -244,7 +244,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(48, 13);
             this.label5.TabIndex = 20;
-            this.label5.Text = "Childern:";
+            this.label5.Text = "Children:";
             // 
             // button6
             // 
@@ -374,7 +374,9 @@
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "bulb");
+            this.imageList1.Images.SetKeyName(0, "create");
+            this.imageList1.Images.SetKeyName(1, "draw");
+            this.imageList1.Images.SetKeyName(2, "destroy");
             // 
             // toolStripContainer2
             // 

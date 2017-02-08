@@ -14,7 +14,9 @@ namespace SimplexMainForm
     public partial class Object : Form
     {
         public string file;
-        List<string> codeList = new List<string>();
+        List<SimplexEvent> codeList = new List<SimplexEvent>();
+        public List<CodeEditor> openEventsList = new List<CodeEditor>();
+        
         public GameObject go;
 
         public Object(string fileName, GameObject go)
@@ -22,6 +24,8 @@ namespace SimplexMainForm
             InitializeComponent();
             this.go = go;
             file = fileName;
+            string eventType = "";
+            ListViewItem lastItem = null;
 
             XmlReader xr = XmlReader.Create(file);
             while(xr.Read())
@@ -30,14 +34,39 @@ namespace SimplexMainForm
                 {
                     if (xr.GetAttribute(0) == "0" && xr.GetAttribute(1) == "0")
                     {
-                        listView1.Items.Add("Create", 0);
+                        lastItem = listView1.Items.Add("Create", 0);
+                        eventType = "Create";
+                    }
+                }
+
+                if (xr.NodeType == XmlNodeType.Element && xr.Name == "event")
+                {
+                    if (xr.GetAttribute(0) == "8" && xr.GetAttribute(1) == "0")
+                    {
+                        lastItem = listView1.Items.Add("Draw", 1);
+                        eventType = "Draw";
+                    }
+                }
+
+                if (xr.NodeType == XmlNodeType.Element && xr.Name == "event")
+                {
+                    if (xr.GetAttribute(0) == "1" && xr.GetAttribute(1) == "0")
+                    {
+                        lastItem = listView1.Items.Add("Destroy", 2);
+                        eventType = "Destroy";
                     }
                 }
 
                 if (xr.NodeType == XmlNodeType.Element && xr.Name == "string")
                 {
                     xr.Read();
-                    codeList.Add(xr.Value);                
+                    SimplexEvent  item = new SimplexEvent(eventType, xr.Value);
+                    codeList.Add(item);
+                    string firstLine = item.code.Split(new[] { '\r', '\n' }).FirstOrDefault();
+                    if (firstLine.StartsWith("///"))
+                    {
+                      //  lastItem.Text += " - (" + firstLine.Substring(4) + ")";
+                    }
                 }
             }
 
@@ -100,9 +129,44 @@ namespace SimplexMainForm
                 ListViewItem lvItem = items[0];
                 string what = lvItem.Text;
 
-                CodeEditor ce = new CodeEditor(codeList[0]);
-                ce.Show();
+                if (what.StartsWith("Create"))
+                {
+                    if (!formInList("Create"))
+                    {
+                        CodeEditor ce = new CodeEditor(codeList.Where(i => i.eventType == "Create").FirstOrDefault().code, this, "Create");
+                        openEventsList.Add(ce);
+                        ce.Show();
+                    }
+                    else
+                    {
+                        CodeEditor ce = openEventsList.Where(i => i.type == "Create").FirstOrDefault();
+                        ce.Focus();
+                    }
+
+                }
+
+                if (what.StartsWith("Draw"))
+                {
+                    CodeEditor ce = new CodeEditor(codeList.Where(i => i.eventType == "Draw").FirstOrDefault().code, this, "Draw");
+                    ce.Show();
+                }
+
+                if (what.StartsWith("Destroy"))
+                {
+                    CodeEditor ce = new CodeEditor(codeList.Where(i => i.eventType == "Destroy").FirstOrDefault().code, this, "Destroy");
+                    ce.Show();
+                }
             }
+        }
+
+        bool formInList(string formName)
+        {
+            if (openEventsList.Where(i => i.type == formName).FirstOrDefault() != null)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

@@ -77,6 +77,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimplexEvent.cs" />
     <EmbeddedResource Include="Achievements.resx">
       <DependentUpon>Achievements.cs</DependentUpon>
     </EmbeddedResource>

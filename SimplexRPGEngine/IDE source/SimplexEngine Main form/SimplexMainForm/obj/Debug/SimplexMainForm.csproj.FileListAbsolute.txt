@@ -37,3 +37,16 @@ C:\Users\ASUS ROG G751JL\Desktop\SimplexRpgEngine\SimplexRPGEngine\IDE source\Si
 C:\Users\ASUS ROG G751JL\Desktop\SimplexRpgEngine\SimplexRPGEngine\IDE source\SimplexEngine Main form\SimplexMainForm\obj\Debug\SimplexMainForm.Object.resources
 C:\Users\ASUS ROG G751JL\Desktop\SimplexRpgEngine\SimplexRPGEngine\IDE source\SimplexEngine Main form\SimplexMainForm\obj\Debug\SimplexMainForm.Properties.Resources.resources
 C:\Users\ASUS ROG G751JL\Desktop\SimplexRpgEngine\SimplexRPGEngine\IDE source\SimplexEngine Main form\SimplexMainForm\obj\Debug\SimplexMainForm.csproj.GenerateResource.Cache
+C:\Users\ASUS ROG G751JL\Documents\SimplexRpgEngine\SimplexRPGEngine\IDE source\SimplexEngine Main form\SimplexMainForm\bin\Debug\SimplexMainForm.exe.config
+C:\Users\ASUS ROG G751JL\Documents\SimplexRpgEngine\SimplexRPGEngine\IDE source\SimplexEngine Main form\SimplexMainForm\obj\Debug\SimplexMainForm.exe
+C:\Users\ASUS ROG G751JL\Documents\SimplexRpgEngine\SimplexRPGEngine\IDE source\SimplexEngine Main form\SimplexMainForm\obj\Debug\SimplexMainForm.pdb
+C:\Users\ASUS ROG G751JL\Documents\SimplexRpgEngine\SimplexRPGEngine\IDE source\SimplexEngine Main form\SimplexMainForm\bin\Debug\SimplexMainForm.exe
+C:\Users\ASUS ROG G751JL\Documents\SimplexRpgEngine\SimplexRPGEngine\IDE source\SimplexEngine Main form\SimplexMainForm\bin\Debug\SimplexMainForm.pdb
+C:\Users\ASUS ROG G751JL\Documents\SimplexRpgEngine\SimplexRPGEngine\IDE source\SimplexEngine Main form\SimplexMainForm\bin\Debug\ScintillaNET.xml
+C:\Users\ASUS ROG G751JL\Documents\SimplexRpgEngine\SimplexRPGEngine\IDE source\SimplexEngine Main form\SimplexMainForm\obj\Debug\SimplexMainForm.csprojResolveAssemblyReference.cache
+C:\Users\ASUS ROG G751JL\Documents\SimplexRpgEngine\SimplexRPGEngine\IDE source\SimplexEngine Main form\SimplexMainForm\obj\Debug\SimplexMainForm.Achievements.resources
+C:\Users\ASUS ROG G751JL\Documents\SimplexRpgEngine\SimplexRPGEngine\IDE source\SimplexEngine Main form\SimplexMainForm\obj\Debug\SimplexMainForm.CodeEditor.resources
+C:\Users\ASUS ROG G751JL\Documents\SimplexRpgEngine\SimplexRPGEngine\IDE source\SimplexEngine Main form\SimplexMainForm\obj\Debug\SimplexMainForm.Form1.resources
+C:\Users\ASUS ROG G751JL\Documents\SimplexRpgEngine\SimplexRPGEngine\IDE source\SimplexEngine Main form\SimplexMainForm\obj\Debug\SimplexMainForm.Object.resources
+C:\Users\ASUS ROG G751JL\Documents\SimplexRpgEngine\SimplexRPGEngine\IDE source\SimplexEngine Main form\SimplexMainForm\obj\Debug\SimplexMainForm.Properties.Resources.resources
+C:\Users\ASUS ROG G751JL\Documents\SimplexRpgEngine\SimplexRPGEngine\IDE source\SimplexEngine Main form\SimplexMainForm\obj\Debug\SimplexMainForm.csproj.GenerateResource.Cache

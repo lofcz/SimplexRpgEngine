@@ -13,10 +13,14 @@ namespace SimplexMainForm
 {
     public partial class CodeEditor : Form
     {
-        public CodeEditor(string code)
+        Object parentForm = null;
+        public string type;
+
+        public CodeEditor(string code, Object parentForm, string formName)
         {
             InitializeComponent();
-            TopMost = true;
+            this.parentForm = parentForm;
+            this.type = formName;
 
             // Configuring the default style with properties
             // we have common to every lexer style saves time.
@@ -54,6 +58,7 @@ namespace SimplexMainForm
 
         private void saveAndCloseToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            parentForm.openEventsList.Remove(this);
             this.Close();
         }
     }
