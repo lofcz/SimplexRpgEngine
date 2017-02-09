@@ -26,6 +26,7 @@ namespace SimplexMainForm
         public List<GameObject> objects = new List<GameObject>();
         public List<Object> formsOpen = new List<Object>();
         string pathCore = "";
+        Font commonFont = new Font(FontFamily.GenericSerif, 10f);
 
         private void loadProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -214,54 +215,57 @@ namespace SimplexMainForm
                 rootNode = rootNode.Parent;
             }
 
-            if (rootNode.ToString() == "TreeNode: Sprites")
+            if (menuItem.ImageIndex != 1)
             {
-                // Open image in paint
-                string file = getFilePath(menuItem.Name, "sprite");
-                int pos = 0;
-                int i = 0;
-                foreach (char znak in file)
+                if (rootNode.ToString() == "TreeNode: Sprites")
                 {
-                    if (znak == '\\') { pos = i; }
-                    i++;
-                }
-                string filePathCore = file.Substring(0, pos);
-
-                try
-                {
-                    XmlReader xr = XmlReader.Create(file);
-                    while (xr.Read())
+                    // Open image in paint
+                    string file = getFilePath(menuItem.Name, "sprite");
+                    int pos = 0;
+                    int i = 0;
+                    foreach (char znak in file)
                     {
-                        if (xr.NodeType == XmlNodeType.Element && xr.Name == "frame")
-                        {
-                            xr.Read();
-                            string imageFile = xr.Value;
+                        if (znak == '\\') { pos = i; }
+                        i++;
+                    }
+                    string filePathCore = file.Substring(0, pos);
 
-                            string final = filePathCore + @"\" + imageFile;
-                            Process.Start(final);
-                            break;
+                    try
+                    {
+                        XmlReader xr = XmlReader.Create(file);
+                        while (xr.Read())
+                        {
+                            if (xr.NodeType == XmlNodeType.Element && xr.Name == "frame")
+                            {
+                                xr.Read();
+                                string imageFile = xr.Value;
+
+                                string final = filePathCore + @"\" + imageFile;
+                                Process.Start(final);
+                                break;
+                            }
                         }
                     }
+                    catch { }
                 }
-                catch { }
-            }
-            else if (menuItem != null)
-            {
-                string name = menuItem.ToString();
-                name = name.Replace("TreeNode: ", "");
-                string file = getFilePath(name, "object");
+                else if (menuItem != null)
+                {
+                    string name = menuItem.ToString();
+                    name = name.Replace("TreeNode: ", "");
+                    string file = getFilePath(name, "object");
 
-                if (formsOpen.Where(i => i.Text == "Object - " + name).FirstOrDefault() == null)
-                {
-                    Object o = new Object(file, objects.Where(i => i.name == name).FirstOrDefault());
-                    o.Text = "Object - " + name;
-                    formsOpen.Add(o);
-                    o.Show();
-                }
-                else
-                {
-                    Object o = formsOpen.Where(i => i.Text == "Object - " + name).FirstOrDefault();
-                    o.Focus();
+                    if (formsOpen.Where(i => i.Text == "Object - " + name).FirstOrDefault() == null)
+                    {
+                        Object o = new Object(file, objects.Where(i => i.name == name).FirstOrDefault(), this);
+                        o.Text = "Object - " + name;
+                        formsOpen.Add(o);
+                        o.Show();
+                    }
+                    else
+                    {
+                        Object o = formsOpen.Where(i => i.Text == "Object - " + name).FirstOrDefault();
+                        o.Focus();
+                    }
                 }
             }
         }
@@ -347,6 +351,16 @@ namespace SimplexMainForm
         private void gameSettingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Invalidate();
+        }
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.DrawString("test", commonFont, Brushes.Black, new Point(this.Location.X, this.Location.Y + 200));
         }
     }
 }

@@ -20,12 +20,15 @@ namespace SimplexMainForm
         public GameObject go;
         string eventType = "";
         ListViewItem lastItem = null;
+        Form1 parentForm;
+        Font commonFont = new Font(FontFamily.GenericSerif, 10f);
 
-        public Object(string fileName, GameObject go)
+        public Object(string fileName, GameObject go, Form1 parentForm)
         {
             InitializeComponent();
             this.go = go;
             file = fileName;
+            this.parentForm = parentForm;
          
            
 
@@ -142,6 +145,7 @@ namespace SimplexMainForm
 
         private void button7_Click(object sender, EventArgs e)
         {
+            parentForm.formsOpen.Remove(this);
             this.Close();
         }
 
@@ -205,6 +209,16 @@ namespace SimplexMainForm
                 }
 
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Invalidate();
+        }
+
+        private void Object_Paint(object sender, PaintEventArgs e)
+        {
+           
         }
     }
 }

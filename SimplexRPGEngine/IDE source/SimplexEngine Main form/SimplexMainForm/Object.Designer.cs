@@ -63,9 +63,10 @@
             this.listView1 = new System.Windows.Forms.ListView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.toolStripContainer2 = new System.Windows.Forms.ToolStripContainer();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.button11 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -424,14 +425,14 @@
             this.toolStripContainer2.TabIndex = 34;
             this.toolStripContainer2.Text = "toolStripContainer2";
             // 
-            // button1
+            // button11
             // 
-            this.button1.Location = new System.Drawing.Point(445, 28);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(91, 29);
-            this.button1.TabIndex = 32;
-            this.button1.Text = "Edit as item";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button11.Location = new System.Drawing.Point(542, 28);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(91, 29);
+            this.button11.TabIndex = 34;
+            this.button11.Text = "Dialogue editor";
+            this.button11.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -442,14 +443,19 @@
             this.label1.TabIndex = 33;
             this.label1.Text = "Toolkit:";
             // 
-            // button11
+            // button1
             // 
-            this.button11.Location = new System.Drawing.Point(542, 28);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(91, 29);
-            this.button11.TabIndex = 34;
-            this.button11.Text = "Dialogue editor";
-            this.button11.UseVisualStyleBackColor = true;
+            this.button1.Location = new System.Drawing.Point(445, 28);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(91, 29);
+            this.button1.TabIndex = 32;
+            this.button1.Text = "Edit as item";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Object
             // 
@@ -461,8 +467,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Object";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Object";
             this.Load += new System.EventHandler(this.Object_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Object_Paint);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -515,5 +523,6 @@
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
