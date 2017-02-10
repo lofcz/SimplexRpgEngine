@@ -339,9 +339,27 @@ namespace SimplexMainForm
             //   assignSprites();
             treeView1.Nodes.Add(spr);
 
+            treeView1.Nodes.Add(new TreeNode("Sounds", 1, 1));
+            treeView1.Nodes.Add(new TreeNode("Backgrounds", 1, 1));
+            treeView1.Nodes.Add(new TreeNode("Paths", 1, 1));
+            treeView1.Nodes.Add(new TreeNode("Scripts", 1, 1));
+            treeView1.Nodes.Add(new TreeNode("Shaders", 1, 1));
+            treeView1.Nodes.Add(new TreeNode("Fonts", 1, 1));
+            treeView1.Nodes.Add(new TreeNode("Timelines", 1, 1));
+
             LoadTree(xDoc.Root.Element("objects"), r, "object", @"objects\", "object");
             treeView1.Nodes.Add(r);
             Text = "Simplex RPG Engine - " + openFileDialog1.FileName.Substring(openFileDialog1.FileName.LastIndexOf("\\") + 1);
+
+            treeView1.Nodes.Add(new TreeNode("Rooms", 1, 1));
+            treeView1.Nodes.Add(new TreeNode("Included files", 1, 1));
+            treeView1.Nodes.Add(new TreeNode("Extensions", 1, 1));
+            treeView1.Nodes.Add(new TreeNode("Macros", 1, 1));
+            treeView1.Nodes.Add(new TreeNode("Game information", 2, 2));
+            treeView1.Nodes.Add(new TreeNode("Game settings", 3, 3));
+
+
+
 
         }
 
@@ -364,6 +382,20 @@ namespace SimplexMainForm
         {
            
           //  e.Graphics.DrawString("test", commonFont, Brushes.Black, new Point(this.Location.X, this.Location.Y + 200));
+        }
+
+        private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                contextMenuStrip1.Show(treeView1, e.Location);
+            }
+        }
+
+        private void createObjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TreeNode node = new TreeNode("object" + treeView1.Nodes.Count.ToString());
+            treeView1.Nodes.Insert(treeView1.SelectedNode.Index, "test");
         }
     }
 }

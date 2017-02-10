@@ -384,6 +384,8 @@
             this.imageList1.Images.SetKeyName(3, "alarm");
             this.imageList1.Images.SetKeyName(4, "step");
             this.imageList1.Images.SetKeyName(5, "mouse");
+            this.imageList1.Images.SetKeyName(6, "coll.png");
+            this.imageList1.Images.SetKeyName(7, "script_badge.png");
             // 
             // toolStripContainer2
             // 

@@ -116,6 +116,27 @@
   <ItemGroup>
     <None Include="Resources\nj.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\duplicate-icon-md.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8580-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_delete_48px-128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Programming-Edit-Property-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rename-icon-61211.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\File-Explorer-icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

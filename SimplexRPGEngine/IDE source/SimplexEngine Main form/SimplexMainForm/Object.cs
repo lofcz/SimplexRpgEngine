@@ -18,7 +18,6 @@ namespace SimplexMainForm
         public string file;
         List<SimplexEvent> codeList = new List<SimplexEvent>();
         public List<CodeEditor> openEventsList = new List<CodeEditor>();
-        public List<string> eventNames = new List<string> { "Create", "Destroy", "Draw", "Step", "Left pressed", "Draw begin" };
         public GameObject go;
         string eventType = "";
         ListViewItem lastItem = null;
@@ -32,13 +31,8 @@ namespace SimplexMainForm
             this.go = go;
             file = fileName;
             this.parentForm = parentForm;
-         
-           
-
-            for (int i = 0; i < 15; i++)
-            {
-                eventNames.Add("Alarm " + i.ToString());
-            }
+            this.Owner = parentForm;
+        
 
 
             XmlReader xr = XmlReader.Create(file);
@@ -51,6 +45,8 @@ namespace SimplexMainForm
                 parseEvent(xr, "2", "-1", "Alarm", 3);
                 parseEvent(xr, "3", "0", "Step", 4);
                 parseEvent(xr, "6", "4", "Left pressed", 5);
+                parseEvent(xr, "4", "-2", "Collision", 6);
+                parseEvent(xr, "7", "-3", "Event user", 7);
 
                 #region Instantiate SimplexEvent from parsed event
                 if (xr.NodeType == XmlNodeType.Element && xr.Name == "string")
@@ -69,8 +65,9 @@ namespace SimplexMainForm
             xr.Close();
 
 
-            #region Swap order of Alarm events
+            #region Swap order of Alarm & User events
             List<ListViewItem> listToSwap = new List<ListViewItem>();
+            List<ListViewItem> listToSwap2 = new List<ListViewItem>();
 
             for (int i = 0; i < listView1.Items.Count; i++)
             {
@@ -81,6 +78,17 @@ namespace SimplexMainForm
                     listToSwap.Add(listView1.Items[i]);
                 }
             }
+
+            for (int i = 0; i < listView1.Items.Count; i++)
+            {
+                string str = listView1.Items[i].Text;
+
+                if (str.StartsWith("Event user"))
+                {
+                    listToSwap2.Add(listView1.Items[i]);
+                }
+            }
+
 
             for (int i = 0; i < listToSwap.Count - 1; i++)
             {
@@ -95,6 +103,22 @@ namespace SimplexMainForm
                     item2.Text = str2;
                     item.Text = str;
                     listToSwap.Remove(item);
+                }
+            }
+
+            for (int i = 0; i < listToSwap2.Count - 1; i++)
+            {
+                if (listToSwap2.Count > 1)
+                {
+                    // Swap name
+                    string str = listToSwap2[i].Text;
+                    string str2 = listToSwap2[listToSwap2.Count - 1].Text;
+                    ListViewItem item = listToSwap2[listToSwap2.Count - 1];
+                    ListViewItem item2 = listToSwap2[i];
+
+                    item2.Text = str2;
+                    item.Text = str;
+                    listToSwap2.Remove(item);
                 }
             }
             #endregion
@@ -116,20 +140,34 @@ namespace SimplexMainForm
         {
             if (xr.NodeType == XmlNodeType.Element && xr.Name == "event")
             {
-                if (xr.GetAttribute(0) == firstA && (xr.GetAttribute(1) == secondA || secondA == "-1"))
+                if (xr.GetAttribute(0) == firstA && (xr.GetAttribute(1) == secondA || int.Parse(secondA) < 0))
                 {
-                    if (secondA != "-1")
+                    a = firstA;
+                    b = secondA;
+
+                    if (int.Parse(secondA) >= 0)
                     {
                         lastItem = listView1.Items.Add(name, iconIndex);
                         eventType = name;
                     }
-                    else
+                    else if (int.Parse(secondA) == -1)
                     {
                         lastItem = listView1.Items.Add(name + " " + xr.GetAttribute(1), 3);
                         eventType = name + " " + xr.GetAttribute(1);
+                        b = xr.GetAttribute(1);
                     }
-                    a = firstA;
-                    b = secondA;
+                    else if (int.Parse(secondA) == -2)
+                    {
+                        lastItem = listView1.Items.Add(xr.GetAttribute(1), 6);
+                        eventType = xr.GetAttribute(1);
+                        b = xr.GetAttribute(1);
+                    }
+                    else if (int.Parse(secondA) == -3)
+                    {
+                        lastItem = listView1.Items.Add(name + " " + (int.Parse(xr.GetAttribute(1)) - 10).ToString(), 7);
+                        eventType = name + " " + (int.Parse(xr.GetAttribute(1)) - 10).ToString();
+                        b = (int.Parse(xr.GetAttribute(1))).ToString();
+                    }
                 }
             }
         }
@@ -165,7 +203,7 @@ namespace SimplexMainForm
 
                         foreach (XmlNode node in nl)
                         {
-                            if (node.ParentNode.ParentNode.ParentNode.ParentNode == element) { targetNode = node; break; }
+                            if (node.ParentNode.ParentNode.ParentNode.ParentNode == element) { targetNode = node; }
 
                         }
 
@@ -205,8 +243,9 @@ namespace SimplexMainForm
                 ListViewItem lvItem = items[0];
                 string what = lvItem.Text;
 
-                foreach (string s in eventNames)
+                foreach (SimplexEvent se in codeList)
                 {
+                    string s = se.eventType;
                     handleEvent(what, s);
                 }
             }
@@ -224,7 +263,8 @@ namespace SimplexMainForm
 
         public void handleEvent(string w, string eventName)
         {
-            if (w ==eventName)
+           // MessageBox.Show(eventName);
+            if (w == eventName)
             {
                 if (!formInList(eventName))
                 {

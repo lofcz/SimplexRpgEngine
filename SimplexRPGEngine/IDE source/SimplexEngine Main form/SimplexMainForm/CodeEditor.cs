@@ -24,6 +24,7 @@ namespace SimplexMainForm
             this.parentForm = parentForm;
             this.type = formName;
             this.se = se;
+            Owner = parentForm;
 
             // Configuring the default style with properties
             // we have common to every lexer style saves time.
