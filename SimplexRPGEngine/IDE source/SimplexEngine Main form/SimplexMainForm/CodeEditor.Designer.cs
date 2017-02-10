@@ -36,10 +36,11 @@
             // 
             // scintilla1
             // 
-            this.scintilla1.Location = new System.Drawing.Point(0, 27);
+            this.scintilla1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.scintilla1.Location = new System.Drawing.Point(0, 24);
             this.scintilla1.Name = "scintilla1";
             this.scintilla1.PhasesDraw = ScintillaNET.Phases.Multiple;
-            this.scintilla1.Size = new System.Drawing.Size(1044, 510);
+            this.scintilla1.Size = new System.Drawing.Size(1045, 513);
             this.scintilla1.TabIndex = 0;
             this.scintilla1.Text = "LoF\'s code editor";
             this.scintilla1.Click += new System.EventHandler(this.scintilla1_Click);

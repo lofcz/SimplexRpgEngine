@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace SimplexMainForm
 {
@@ -15,12 +16,14 @@ namespace SimplexMainForm
     {
         Object parentForm = null;
         public string type;
+        SimplexEvent se;
 
-        public CodeEditor(string code, Object parentForm, string formName)
+        public CodeEditor(string code, Object parentForm, string formName, SimplexEvent se)
         {
             InitializeComponent();
             this.parentForm = parentForm;
             this.type = formName;
+            this.se = se;
 
             // Configuring the default style with properties
             // we have common to every lexer style saves time.
@@ -58,6 +61,7 @@ namespace SimplexMainForm
 
         private void saveAndCloseToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            se.code = scintilla1.Text;
             parentForm.openEventsList.Remove(this);
             this.Close();
         }

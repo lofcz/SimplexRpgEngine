@@ -80,6 +80,7 @@ namespace SimplexMainForm
                                     break;
                                 }
                             }
+                            xr.Close();
                         }
                         catch { }
                     }
@@ -169,7 +170,8 @@ namespace SimplexMainForm
                                     objects.Add(go);
                                 }
                             }
-                           
+
+                            reader.Close();
                         }
                         catch { }
                     }
@@ -360,7 +362,8 @@ namespace SimplexMainForm
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.DrawString("test", commonFont, Brushes.Black, new Point(this.Location.X, this.Location.Y + 200));
+           
+          //  e.Graphics.DrawString("test", commonFont, Brushes.Black, new Point(this.Location.X, this.Location.Y + 200));
         }
     }
 }

@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace SimplexMainForm
 {
@@ -22,6 +24,7 @@ namespace SimplexMainForm
         ListViewItem lastItem = null;
         Form1 parentForm;
         Font commonFont = new Font(FontFamily.GenericSerif, 10f);
+        string a = "", b = "";
 
         public Object(string fileName, GameObject go, Form1 parentForm)
         {
@@ -53,7 +56,7 @@ namespace SimplexMainForm
                 if (xr.NodeType == XmlNodeType.Element && xr.Name == "string")
                 {
                     xr.Read();
-                    SimplexEvent  item = new SimplexEvent(eventType, xr.Value);
+                    SimplexEvent  item = new SimplexEvent(eventType, xr.Value, file,  @"<event eventtype=""0"" enumb=""0"">", a, b);
                     codeList.Add(item);
                     string firstLine = item.code.Split(new[] { '\r', '\n' }).FirstOrDefault();
                     if (firstLine.StartsWith("///"))
@@ -63,6 +66,7 @@ namespace SimplexMainForm
                 }
                 #endregion
             }
+            xr.Close();
 
 
             #region Swap order of Alarm events
@@ -124,6 +128,8 @@ namespace SimplexMainForm
                         lastItem = listView1.Items.Add(name + " " + xr.GetAttribute(1), 3);
                         eventType = name + " " + xr.GetAttribute(1);
                     }
+                    a = firstA;
+                    b = secondA;
                 }
             }
         }
@@ -145,6 +151,30 @@ namespace SimplexMainForm
 
         private void button7_Click(object sender, EventArgs e)
         {
+            foreach (SimplexEvent se in codeList)
+            {
+                XmlDocument xdoc = new XmlDocument();
+                xdoc.Load(se.filePath);
+
+                foreach (XmlElement element in xdoc.SelectNodes("object/events/event"))
+                {
+                    if (element.Attributes[0].Value == se.attribute0 && element.Attributes[1].Value == se.attribute1)
+                    {
+                        XmlNodeList nl = xdoc.SelectNodes("object/events/event/action/arguments/argument/string");
+                        XmlNode targetNode = null;
+
+                        foreach (XmlNode node in nl)
+                        {
+                            if (node.ParentNode.ParentNode.ParentNode.ParentNode == element) { targetNode = node; break; }
+
+                        }
+
+                        targetNode.InnerText = se.code;
+                    }
+                }
+                xdoc.Save(se.filePath);
+            }
+
             parentForm.formsOpen.Remove(this);
             this.Close();
         }
@@ -198,7 +228,8 @@ namespace SimplexMainForm
             {
                 if (!formInList(eventName))
                 {
-                    CodeEditor ce = new CodeEditor(codeList.Where(i => i.eventType == eventName).FirstOrDefault().code, this, eventName);
+                    CodeEditor ce = new CodeEditor(codeList.Where(i => i.eventType == eventName).FirstOrDefault().code, this, eventName, codeList.Where(i => i.eventType == eventName).FirstOrDefault());
+                    ce.Text = "Code editor - " + Text.Substring(Text.LastIndexOf(' ')) + ", " + eventName;
                     openEventsList.Add(ce);
                     ce.Show();
                 }
@@ -213,12 +244,20 @@ namespace SimplexMainForm
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Invalidate();
+            this.Invalidate();
+            timer1.Interval = 1;
         }
 
         private void Object_Paint(object sender, PaintEventArgs e)
-        {
-           
+        { 
+            /*
+            int j = 0;
+            foreach(ListViewItem i in listView1.Items)
+            {
+                e.Graphics.DrawString("test", commonFont, Brushes.Black, new Point(this.Location.X , this.Location.Y  + (j * 32)));
+                j++;
+                MessageBox.Show(j.ToString());
+            }*/
         }
     }
 }
