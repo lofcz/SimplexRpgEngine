@@ -7,10 +7,10 @@
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
-  <bbox_left>21</bbox_left>
-  <bbox_right>43</bbox_right>
-  <bbox_top>43</bbox_top>
-  <bbox_bottom>59</bbox_bottom>
+  <bbox_left>18</bbox_left>
+  <bbox_right>45</bbox_right>
+  <bbox_top>41</bbox_top>
+  <bbox_bottom>60</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
   <TextureGroups>
@@ -29,5 +29,23 @@
     <frame index="6">images\sBodyCanvasBashLegs1_6.png</frame>
     <frame index="7">images\sBodyCanvasBashLegs1_7.png</frame>
     <frame index="8">images\sBodyCanvasBashLegs1_8.png</frame>
+    <frame index="9">images\sBodyCanvasBashLegs1_9.png</frame>
+    <frame index="10">images\sBodyCanvasBashLegs1_10.png</frame>
+    <frame index="11">images\sBodyCanvasBashLegs1_11.png</frame>
+    <frame index="12">images\sBodyCanvasBashLegs1_12.png</frame>
+    <frame index="13">images\sBodyCanvasBashLegs1_13.png</frame>
+    <frame index="14">images\sBodyCanvasBashLegs1_14.png</frame>
+    <frame index="15">images\sBodyCanvasBashLegs1_15.png</frame>
+    <frame index="16">images\sBodyCanvasBashLegs1_16.png</frame>
+    <frame index="17">images\sBodyCanvasBashLegs1_17.png</frame>
+    <frame index="18">images\sBodyCanvasBashLegs1_18.png</frame>
+    <frame index="19">images\sBodyCanvasBashLegs1_19.png</frame>
+    <frame index="20">images\sBodyCanvasBashLegs1_20.png</frame>
+    <frame index="21">images\sBodyCanvasBashLegs1_21.png</frame>
+    <frame index="22">images\sBodyCanvasBashLegs1_22.png</frame>
+    <frame index="23">images\sBodyCanvasBashLegs1_23.png</frame>
+    <frame index="24">images\sBodyCanvasBashLegs1_24.png</frame>
+    <frame index="25">images\sBodyCanvasBashLegs1_25.png</frame>
+    <frame index="26">images\sBodyCanvasBashLegs1_26.png</frame>
   </frames>
 </sprite>
