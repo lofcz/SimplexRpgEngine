@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -396,6 +397,123 @@ namespace SimplexMainForm
         {
             TreeNode node = new TreeNode("object" + treeView1.Nodes.Count.ToString());
             treeView1.Nodes.Insert(treeView1.SelectedNode.Index, "test");
+        }
+
+        private const int WM_CLOSE = 16;
+        private const int BN_CLICKED = 245;
+        [DllImport("User32.dll")]
+        public static extern Int32 FindWindow(String lpClassName, String lpWindowName);
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        public static extern int SendMessage(int hWnd, int msg, int wParam, IntPtr lParam);
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern IntPtr FindWindowEx(IntPtr parentHandle, IntPtr childAfter, string className, string windowTitle);
+
+
+        private void compileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int hwnd = 0;
+            IntPtr hwndChild = IntPtr.Zero;
+            hwnd = FindWindow(null, "GameMaker-Studio");
+
+            //Get a handle for the "1" button
+            hwndChild = FindWindowEx((IntPtr)hwnd, IntPtr.Zero, "Button", "Play!");
+
+            //send BN_CLICKED message
+            SendMessage((int)hwndChild, BN_CLICKED, 0, IntPtr.Zero);
+
+            //Process[] processes = Process.GetProcessesByName("GameMaker-Studio");
+
+             //   ClickOnPoint(processes[0].Handle, new Point(125, 55));
+        }
+
+        [return: MarshalAs(UnmanagedType.Bool)]
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern bool GetWindowInfo(IntPtr hwnd, ref WINDOWINFO pwi);
+
+        [StructLayout(LayoutKind.Sequential)]
+        struct WINDOWINFO
+        {
+            public uint cbSize;
+            public RECT rcWindow;
+            public RECT rcClient;
+            public uint dwStyle;
+            public uint dwExStyle;
+            public uint dwWindowStatus;
+            public uint cxWindowBorders;
+            public uint cyWindowBorders;
+            public ushort atomWindowType;
+            public ushort wCreatorVersion;
+
+            public WINDOWINFO(Boolean? filler)
+                : this()   // Allows automatic initialization of "cbSize" with "new WINDOWINFO(null/true/false)".
+            {
+                cbSize = (UInt32)(Marshal.SizeOf(typeof(WINDOWINFO)));
+            }
+
+        }
+        [StructLayout(LayoutKind.Sequential)]
+        struct RECT
+        {
+            public int left, top, right, bottom;
+        }
+
+
+        [DllImport("user32.dll")]
+        static extern bool ClientToScreen(IntPtr hWnd, ref Point lpPoint);
+
+        [DllImport("user32.dll")]
+        internal static extern uint SendInput(uint nInputs, [MarshalAs(UnmanagedType.LPArray), In] INPUT[] pInputs, int cbSize);
+
+#pragma warning disable 649
+        internal struct INPUT
+        {
+            public UInt32 Type;
+            public MOUSEKEYBDHARDWAREINPUT Data;
+        }
+
+        [StructLayout(LayoutKind.Explicit)]
+        internal struct MOUSEKEYBDHARDWAREINPUT
+        {
+            [FieldOffset(0)]
+            public MOUSEINPUT Mouse;
+        }
+
+        internal struct MOUSEINPUT
+        {
+            public Int32 X;
+            public Int32 Y;
+            public UInt32 MouseData;
+            public UInt32 Flags;
+            public UInt32 Time;
+            public IntPtr ExtraInfo;
+        }
+
+#pragma warning restore 649
+
+
+        public static void ClickOnPoint(IntPtr wndHandle, Point clientPoint)
+        {
+            var oldPos = Cursor.Position;
+
+            /// get screen coordinates
+            ClientToScreen(wndHandle, ref clientPoint);
+
+            /// set cursor on coords, and press mouse
+            Cursor.Position = new Point(clientPoint.X, clientPoint.Y);
+
+            var inputMouseDown = new INPUT();
+            inputMouseDown.Type = 0; /// input type mouse
+            inputMouseDown.Data.Mouse.Flags = 0x0002; /// left button down
+
+            var inputMouseUp = new INPUT();
+            inputMouseUp.Type = 0; /// input type mouse
+            inputMouseUp.Data.Mouse.Flags = 0x0004; /// left button up
+
+            var inputs = new INPUT[] { inputMouseDown, inputMouseUp };
+            SendInput((uint)inputs.Length, inputs, Marshal.SizeOf(typeof(INPUT)));
+
+            /// return mouse 
+            Cursor.Position = oldPos;
         }
     }
 }

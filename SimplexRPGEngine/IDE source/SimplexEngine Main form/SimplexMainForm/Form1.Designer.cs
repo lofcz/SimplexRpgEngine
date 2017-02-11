@@ -46,23 +46,24 @@
             this.roomToPNGToolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.textManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.achievementsEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.invokeGMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.invokeGMSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.createObjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importObjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.duplicateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.createGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
-            this.createObjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.duplicateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.propertiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openInExplorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.compileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -78,7 +79,8 @@
             this.helpToolStripMenuItem,
             this.toolStripMenuItem1,
             this.simplexToolsToolStripMenuItem,
-            this.invokeGMSToolStripMenuItem});
+            this.invokeGMSToolStripMenuItem,
+            this.compileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1264, 24);
@@ -189,6 +191,12 @@
             this.achievementsEditorToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.achievementsEditorToolStripMenuItem.Text = "Achievements editor";
             // 
+            // invokeGMSToolStripMenuItem
+            // 
+            this.invokeGMSToolStripMenuItem.Name = "invokeGMSToolStripMenuItem";
+            this.invokeGMSToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
+            this.invokeGMSToolStripMenuItem.Text = "Invoke GMS";
+            // 
             // treeView1
             // 
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -222,12 +230,6 @@
             this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // invokeGMSToolStripMenuItem
-            // 
-            this.invokeGMSToolStripMenuItem.Name = "invokeGMSToolStripMenuItem";
-            this.invokeGMSToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
-            this.invokeGMSToolStripMenuItem.Text = "Invoke GMS";
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -245,11 +247,26 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(162, 198);
             // 
+            // createObjectToolStripMenuItem
+            // 
+            this.createObjectToolStripMenuItem.Image = global::SimplexMainForm.Properties.Resources.file_add;
+            this.createObjectToolStripMenuItem.Name = "createObjectToolStripMenuItem";
+            this.createObjectToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.createObjectToolStripMenuItem.Text = "Create object";
+            this.createObjectToolStripMenuItem.Click += new System.EventHandler(this.createObjectToolStripMenuItem_Click);
+            // 
             // importObjectToolStripMenuItem
             // 
             this.importObjectToolStripMenuItem.Name = "importObjectToolStripMenuItem";
             this.importObjectToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.importObjectToolStripMenuItem.Text = "Import object";
+            // 
+            // duplicateToolStripMenuItem
+            // 
+            this.duplicateToolStripMenuItem.Image = global::SimplexMainForm.Properties.Resources._8580_200;
+            this.duplicateToolStripMenuItem.Name = "duplicateToolStripMenuItem";
+            this.duplicateToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.duplicateToolStripMenuItem.Text = "Duplicate";
             // 
             // toolStripMenuItem2
             // 
@@ -267,26 +284,6 @@
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(158, 6);
             // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(158, 6);
-            // 
-            // createObjectToolStripMenuItem
-            // 
-            this.createObjectToolStripMenuItem.Image = global::SimplexMainForm.Properties.Resources.file_add;
-            this.createObjectToolStripMenuItem.Name = "createObjectToolStripMenuItem";
-            this.createObjectToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.createObjectToolStripMenuItem.Text = "Create object";
-            this.createObjectToolStripMenuItem.Click += new System.EventHandler(this.createObjectToolStripMenuItem_Click);
-            // 
-            // duplicateToolStripMenuItem
-            // 
-            this.duplicateToolStripMenuItem.Image = global::SimplexMainForm.Properties.Resources._8580_200;
-            this.duplicateToolStripMenuItem.Name = "duplicateToolStripMenuItem";
-            this.duplicateToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.duplicateToolStripMenuItem.Text = "Duplicate";
-            // 
             // renameToolStripMenuItem
             // 
             this.renameToolStripMenuItem.Image = global::SimplexMainForm.Properties.Resources.rename_icon_61211;
@@ -301,6 +298,11 @@
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(158, 6);
+            // 
             // propertiesToolStripMenuItem
             // 
             this.propertiesToolStripMenuItem.Image = global::SimplexMainForm.Properties.Resources.Programming_Edit_Property_icon;
@@ -314,6 +316,13 @@
             this.openInExplorerToolStripMenuItem.Name = "openInExplorerToolStripMenuItem";
             this.openInExplorerToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.openInExplorerToolStripMenuItem.Text = "Open in explorer";
+            // 
+            // compileToolStripMenuItem
+            // 
+            this.compileToolStripMenuItem.Name = "compileToolStripMenuItem";
+            this.compileToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.compileToolStripMenuItem.Text = "Compile";
+            this.compileToolStripMenuItem.Click += new System.EventHandler(this.compileToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -372,6 +381,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem propertiesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openInExplorerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem compileToolStripMenuItem;
     }
 }
 
