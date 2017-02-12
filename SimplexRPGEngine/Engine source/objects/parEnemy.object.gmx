@@ -136,6 +136,31 @@ scrEnemyGetDamage();
         </arguments>
       </action>
     </event>
+    <event eventtype="7" enumb="7">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Handle animation
+
+if (beingExecuted) {image_speed = 0; image_index = sprite_get_number(sprite_index) - 0.1; beingExecuted = -1;}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -166,7 +191,7 @@ if (followMouse)
      y = mouse_y;
     }
 
-if (x &gt; room_width - 32 || y &gt; room_height - 32 || x &lt; 32 || y &lt; 32)
+if ((x &gt; room_width - 32 || y &gt; room_height - 32 || x &lt; 32 || y &lt; 32) &amp;&amp; !isDying)
    {
    instance_set_position(xprevious, yprevious);
    state = "turn";
@@ -203,13 +228,13 @@ else if (mood == "cutscene" &amp;&amp; distance_to_point(cutsceneX, cutsceneY) =
 if (can_damage &gt; 0) {can_damage--;} else {can_damage = -1;}
 last_hp = lerp(last_hp, hp, 0.1);
 
-if (last_hp &lt;= 0.05) {if (mood != "dying") {event_user(0);} mood = "dying";}
+if (last_hp &lt;= 0.05) {if (mood != "dying") {event_user(0);} mood = "dying"; beingExecuted = true; if (executionArray[0] != -1) {image_speed = 0.5; sprite_index = irandom_range(executionArray[0], executionArray[array_length_1d(executionArray) - 1]);}}
 
 if (mood == "dying")
 {
 if (safeDying) {safeDying = false; scrGoreExplodeDropShards(32, 8, spr[0]);}
-draw_sprite_ext(spr[0],spr[1],x,y,1,1,0,c_white,image_alpha);
-if (image_alpha &gt; 0) {image_alpha -= 0.02;} else {instance_destroy();}   
+if (beingExecuted != -1) {image_speed = 0.2;} else {image_speed = 0; if (image_alpha &gt; 0) {image_alpha -= 0.02;} else {instance_destroy();} }
+if (sprite_index != noone) {draw_self();}  
 }
 
 if (cced)
@@ -218,6 +243,7 @@ if (cced)
      image_angle = direction;
      if (speed &lt; 0.1) {speed = 0; cced = false; direction = 0; image_angle = 0;}
     }
+
 
 </string>
           </argument>

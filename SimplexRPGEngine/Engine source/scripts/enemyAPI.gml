@@ -85,6 +85,7 @@ followMouse  = false;
 enemyType    = t_t;
 isHunter     = false;
 maxHp        = hp;
+executionArray[0] = -1;
 
 #define scrEnemyGetPosition
 /// scrEnemyGetPosition()
@@ -349,3 +350,11 @@ if (o) {if (ds_queue_size((i).speechQueue) > 0 || (i).speechAlpha > 0.02) {retur
 
 ds_queue_enqueue((i).speechQueue, t);
 return true;
+#define scrEnemyIniExecutions
+/// scrEnemyIniExecutions(sprite0.. sprite16)
+
+for (var i = 0; i < 16; i++)
+    {
+     if (argument_count > i) {executionArray[i] = argument[i];}
+    }
+

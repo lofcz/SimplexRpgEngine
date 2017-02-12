@@ -305,9 +305,14 @@
         <sprite>sprites\sBunny</sprite>
       </sprites>
       <sprites name="Foes">
-        <sprite>sprites\sEnemyImp</sprite>
-        <sprite>sprites\sEnemySlime</sprite>
-        <sprite>sprites\sJump</sprite>
+        <sprites name="Slime">
+          <sprite>sprites\sEnemySlime</sprite>
+          <sprite>sprites\sJump</sprite>
+          <sprite>sprites\sEnemySlimeDeath1</sprite>
+        </sprites>
+        <sprites name="Imp">
+          <sprite>sprites\sEnemyImp</sprite>
+        </sprites>
       </sprites>
       <sprites name="Body Canvas ">
         <sprites name="Human">

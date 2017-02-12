@@ -29,6 +29,7 @@
 
 event_inherited();
 scrEnemyIni(30, 5, 1, choose(1, 1, 2), "Slime", bestiaryEnemySlime, scrColorflag(c_blue) + "Slime" + scrEndColorflag(), "animal", c_aqua);
+scrEnemyIniExecutions(sEnemySlimeDeath1);
 
 scrAdvancedAiIni();
 scrAdvancedAiRegisterAction("idle", aiActionEnum.actionBasic);
@@ -97,6 +98,8 @@ if (mood == "jump") {randomize(); bonus_damage = 10; repeat(5) {instance_create(
             <string>/// Damage player
 
 // Fixed order: Collide -&gt; Apply affect(s) -&gt; Deal damage
+if (!isDying)
+{
 scrEnemyCollision(other);
 if (scrEnemyApplyAffect("poison", secToSteps(2), 0, c_red, 1, 20, true, 0, true))
     {
@@ -108,12 +111,9 @@ scrEnemyDamage(oPlayer,15, coloredName + " ti způsobil [flagDamage] [flagPoints
 
 if (mood == "jump")
    { 
-    //if (dir == dir_up) {dir = dir_down; y-= 4;}
-    //else if (dir == dir_down) {dir = dir_up; y += 4;}
-    //else if (dir == dir_right) {dir = dir_left; x -= 4;}
-    //else if (dir == dir_left) {dir = dir_right; x += 4;}
     mood = "idle";
    }
+}
 </string>
           </argument>
         </arguments>
@@ -433,7 +433,7 @@ if (z_mood == 2)
 
 if (notForced)
    {    
-    if (can_move)
+    if (can_move &amp;&amp; !isDying)
        {
         image_speed = 0;
 
@@ -482,27 +482,21 @@ if (notForced)
        }
 
  
+   }
   }
   else
       {
-       sprite_index = sEnemySlime;
-       if (hp &lt;= 0) {image_alpha = 0;}
-       draw_self();
-      }
-  }
-  else
-      {
-       sprite_index = sEnemySlime;
-       if (hp &lt;= 0) {image_alpha = 0;}
-       draw_self();
        if (forcedX &gt; 0) {forcedHelp = lerp(forcedHelp, forcedBaseX, 0.01); x += forcedHelp; forcedX -= forcedHelp; }
        motion_blur(max(forcedBaseX - forcedX, 50), 180);
       }
 
+if (!isDying)
+{      
 if (dir == dir_right) {image_index = clamp(image_index, 3, 5.9);  if (image_index == 5.9)  {image_index = 3;}}
 if (dir == dir_left)  {image_index = clamp(image_index, 0, 2.9);  if (image_index == 2.9)  {image_index = 0;}}
 if (dir == dir_up)    {image_index = clamp(image_index, 6, 8.9);  if (image_index == 8.9)  {image_index = 6;}}
 if (dir == dir_down)  {image_index = clamp(image_index, 9, 11.9); if (image_index == 11.9) {image_index = 9;}}
+}
 
 </string>
           </argument>
