@@ -716,7 +716,7 @@
     <instance objName="oTree3" x="1280" y="840" name="inst_B80F1E3F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTree3" x="1136" y="1096" name="inst_791BF30C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oTree3" x="112" y="824" name="inst_24CCAFF0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oAdvancedCollision" x="1056" y="2040" name="inst_0E0B17A9" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;unused&quot;,1);&#xA;&#xA;text[0] = &quot;Tenhle ještě stojí.&quot;&#xA;text[1] = &quot;Tohle bych si měl pořídit do obýváku.&quot;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oAdvancedCollision" x="1064" y="2048" name="inst_0E0B17A9" locked="0" code="scrAdvancedCollisionIni(x,y-32,&quot;klada&quot;,1, &quot;breakableWood&quot;,20, layerEnum.layer3,false,sEnvHelpTextures, 2);&#xA;&#xA;text[0] = &quot;Blbá kláda.&quot;&#xA;text[1] = &quot;Pořád tu zaclání.&quot;&#xA;" scaleX="1.67741930484772" scaleY="0.625" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="bcgShd1" x="1728" y="1552" w="32" h="32" xo="32" yo="0" id="10006704" name="inst_505B20DA" depth="1000001" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -3226,6 +3226,7 @@
     <tile bgName="bcgAnimated1" x="896" y="240" w="32" h="32" xo="0" yo="32" id="10025154" name="inst_54D89197" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgAnimated1" x="624" y="1744" w="32" h="32" xo="0" yo="32" id="10025155" name="inst_DD8386EA" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgAnimated1" x="1464" y="464" w="32" h="32" xo="0" yo="32" id="10025156" name="inst_7D06859E" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgExObj3" x="1032" y="2032" w="64" h="32" xo="448" yo="192" id="10028800" name="inst_2759B8DD" depth="10003" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgExBui8" x="800" y="568" w="8" h="64" xo="216" yo="424" id="10019443" name="inst_0295E061" depth="10002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgExBui8" x="952" y="568" w="8" h="64" xo="216" yo="424" id="10019444" name="inst_D54196FA" depth="10002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgExBui8" x="864" y="580" w="32" h="56" xo="360" yo="160" id="10019449" name="inst_59DBC1DB" depth="10002" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -3540,7 +3541,6 @@
     <tile bgName="bcgExObj1" x="496" y="2208" w="64" h="32" xo="32" yo="0" id="10028463" name="inst_5E85875B" depth="1000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgExObj1" x="608" y="2200" w="64" h="64" xo="128" yo="448" id="10028485" name="inst_AA8D9C89" depth="1000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgExBui3" x="1160" y="2168" w="160" h="160" xo="64" yo="224" id="10028488" name="inst_A7091B0F" depth="1000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bcgAnimated1" x="1040" y="2024" w="32" h="32" xo="0" yo="96" id="10028799" name="inst_0D130C13" depth="1000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="background49" x="832" y="2256" w="192" h="128" xo="128" yo="0" id="10028688" name="inst_C743994B" depth="999" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgExObj5" x="112" y="-48" w="96" h="128" xo="96" yo="0" id="10019649" name="inst_BDDC8EE9" depth="104" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgExObj5" x="144" y="80" w="16" h="16" xo="128" yo="80" id="10019651" name="inst_0DB7C12F" depth="104" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

@@ -1749,8 +1749,8 @@
     </timelines>
   </timelines>
   <rooms name="rooms">
-    <room>rooms\bigger_map_test</room>
     <room>rooms\mapTest</room>
+    <room>rooms\bigger_map_test</room>
     <room>rooms\mapCopyright</room>
     <room>rooms\mapDefault</room>
     <rooms name="Game world">

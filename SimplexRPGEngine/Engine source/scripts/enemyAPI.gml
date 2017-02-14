@@ -271,7 +271,7 @@ hp  -= dmg;
 scrLog(dmg,c_white,sFreeSlot,0,0.2,x,y-32,oController.fontDamage,"combat");
 
 scale = 1.4;
-scrGoreFull(x,y,3,bloodColor);
+scrGoreFull(x,y,1,bloodColor);
 audio_play_sound(sndSlime1,0,0);
 other.can_damage = -2;
 apiPlayerSetProperty(vlastnost_stamina, apiPlayerGetPropertyValue(vlastnost_stamina) + oPlayer.vlastnost[vlastnost_vampStamina]);

@@ -7,7 +7,7 @@
   <coltolerance>0</coltolerance>
   <sepmasks>0</sepmasks>
   <bboxmode>0</bboxmode>
-  <bbox_left>3</bbox_left>
+  <bbox_left>0</bbox_left>
   <bbox_right>29</bbox_right>
   <bbox_top>0</bbox_top>
   <bbox_bottom>31</bbox_bottom>
@@ -22,5 +22,6 @@
   <frames>
     <frame index="0">images\sEnvHelpTextures_0.png</frame>
     <frame index="1">images\sEnvHelpTextures_1.png</frame>
+    <frame index="2">images\sEnvHelpTextures_2.png</frame>
   </frames>
 </sprite>
