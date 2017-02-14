@@ -296,6 +296,7 @@
     <sprite>sprites\sCatchError</sprite>
     <sprites name="Actors">
       <sprites name="NPC">
+        <sprite>sprites\kocour_nebo_cincila</sprite>
         <sprite>sprites\sPlayerBasic</sprite>
         <sprite>sprites\sCombatAnimationUnfinished</sprite>
         <sprite>sprites\sVavrinec</sprite>
@@ -834,6 +835,7 @@
       <background>background\bcgStb3</background>
     </backgrounds>
     <backgrounds name=" Exterier">
+      <background>background\background49</background>
       <background>background\bcgEx1</background>
       <background>background\bcgEx2</background>
       <background>background\bcgEx3</background>
@@ -1747,6 +1749,7 @@
     </timelines>
   </timelines>
   <rooms name="rooms">
+    <room>rooms\bigger_map_test</room>
     <room>rooms\mapTest</room>
     <room>rooms\mapCopyright</room>
     <room>rooms\mapDefault</room>

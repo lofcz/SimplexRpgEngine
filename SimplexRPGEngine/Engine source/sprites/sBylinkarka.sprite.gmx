@@ -9,7 +9,7 @@
   <bboxmode>0</bboxmode>
   <bbox_left>1</bbox_left>
   <bbox_right>30</bbox_right>
-  <bbox_top>1</bbox_top>
+  <bbox_top>0</bbox_top>
   <bbox_bottom>45</bbox_bottom>
   <HTile>0</HTile>
   <VTile>0</VTile>
@@ -36,5 +36,27 @@
     <frame index="13">images\sBylinkarka_13.png</frame>
     <frame index="14">images\sBylinkarka_14.png</frame>
     <frame index="15">images\sBylinkarka_15.png</frame>
+    <frame index="16">images\sBylinkarka_16.png</frame>
+    <frame index="17">images\sBylinkarka_17.png</frame>
+    <frame index="18">images\sBylinkarka_18.png</frame>
+    <frame index="19">images\sBylinkarka_19.png</frame>
+    <frame index="20">images\sBylinkarka_20.png</frame>
+    <frame index="21">images\sBylinkarka_21.png</frame>
+    <frame index="22">images\sBylinkarka_22.png</frame>
+    <frame index="23">images\sBylinkarka_23.png</frame>
+    <frame index="24">images\sBylinkarka_24.png</frame>
+    <frame index="25">images\sBylinkarka_25.png</frame>
+    <frame index="26">images\sBylinkarka_26.png</frame>
+    <frame index="27">images\sBylinkarka_27.png</frame>
+    <frame index="28">images\sBylinkarka_28.png</frame>
+    <frame index="29">images\sBylinkarka_29.png</frame>
+    <frame index="30">images\sBylinkarka_30.png</frame>
+    <frame index="31">images\sBylinkarka_31.png</frame>
+    <frame index="32">images\sBylinkarka_32.png</frame>
+    <frame index="33">images\sBylinkarka_33.png</frame>
+    <frame index="34">images\sBylinkarka_34.png</frame>
+    <frame index="35">images\sBylinkarka_35.png</frame>
+    <frame index="36">images\sBylinkarka_36.png</frame>
+    <frame index="37">images\sBylinkarka_37.png</frame>
   </frames>
 </sprite>
