@@ -302,12 +302,13 @@
         <sprite>sprites\sObet</sprite>
         <sprite>sprites\sBylinkarka</sprite>
         <sprite>sprites\sTestNPC</sprite>
-        <sprite>sprites\sBunny</sprite>
       </sprites>
       <sprites name="Foes">
         <sprites name="Slime">
           <sprite>sprites\sEnemySlime</sprite>
           <sprite>sprites\sJump</sprite>
+          <sprite>sprites\sEnemySlimeDeath3</sprite>
+          <sprite>sprites\sEnemySlimeDeath2</sprite>
           <sprite>sprites\sEnemySlimeDeath1</sprite>
         </sprites>
         <sprites name="Imp">
@@ -418,6 +419,9 @@
       </sprites>
       <sprites name="Nature">
         <sprite>sprites\sButterfly</sprite>
+        <sprite>sprites\sBunnyDeath1</sprite>
+        <sprite>sprites\sBunnyMakingLove</sprite>
+        <sprite>sprites\sBunny</sprite>
         <sprite>sprites\sRat</sprite>
       </sprites>
       <sprites name=" Misc">
@@ -441,6 +445,7 @@
         <sprite>sprites\sTeleport</sprite>
         <sprite>sprites\sFence</sprite>
         <sprite>sprites\sFenceDesigner</sprite>
+        <sprite>sprites\sEnvHelpTextures</sprite>
         <sprite>sprites\sBarrel</sprite>
       </sprites>
       <sprites name="Containers">
@@ -562,6 +567,7 @@
         <sprite>sprites\sMask8x8</sprite>
         <sprite>sprites\sMaskExplosion</sprite>
         <sprite>sprites\sMaskSpawner</sprite>
+        <sprite>sprites\sMaskAI</sprite>
         <sprite>sprites\sCopyright2</sprite>
         <sprite>sprites\sCopyright</sprite>
       </sprites>
@@ -1728,6 +1734,7 @@
         <object>objects\parSolid</object>
       </objects>
     </objects>
+    <object>objects\oAiHelper</object>
   </objects>
   <timelines name="timelines">
     <timelines name="Cutscenes">

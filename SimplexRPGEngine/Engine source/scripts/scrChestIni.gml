@@ -17,7 +17,8 @@ for (a = 0; a < slots; a++)
     {
      loot[a, ext_name]   = -1;
      loot[a, ext_number] = 1;           
-     fill[a]             = 0;  
+     fill[a]             = 0; 
+     refID[a]            = -1; 
     } 
 
 coll = instance_create(x-16,y+16,oCollisionMask);

@@ -81,9 +81,7 @@ part_system_destroy(Sname);
             <string>
 if (other.attack &amp;&amp; other.can_damage = -1) 
 {
-dmg = 0;
-dmg += oPlayer.vlastnost[vlastnost_poskozeni];   
-
+dmg = apiPlayerGetPropertyValue(vlastnost_poskozeni, false, true);   
 hp -= dmg;
 other.can_damage = -2;
 scrGoreExplodeDropShards(irandom_range(3, 5), 8);

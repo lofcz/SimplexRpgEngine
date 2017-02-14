@@ -180,15 +180,15 @@ if (string_count("breakable", hitType) &gt; 0)
 {
 if (other.attack &amp;&amp; combatCanBeHit() &amp;&amp; mode == 0) 
 {
-dmg = 0;
-dmg += oPlayer.vlastnost[vlastnost_poskozeni];   
+dmg = apiPlayerGetPropertyValue(vlastnost_poskozeni, false, true);   
 if (hitType == "breakableStone") {dmg = round(dmg / 3);}
 
 hp -= dmg;
 combatMarkAsHit();
 global.tX = x;
 global.tY = y;
-with(oPlayer) {effectShardDrop(global.tX, global.tY, irandom_range(3,6));}
+//with(oPlayer) {effectShardDrop(global.tX, global.tY, irandom_range(3,6));}
+scrGoreExplodeDropShards(32, 8, dropSprite, dropIndex);
 scrLog(dmg,c_white,-1,0,0.2,x,y-32,oController.fontDamage,"combat");    
 
 audio_play_sound(choose(sndSwordHitCrate1, sndSwordHitCrate2), 1, 0);

@@ -29,7 +29,7 @@
 
 event_inherited();
 scrEnemyIni(30, 5, 1, choose(1, 1, 2), "Slime", bestiaryEnemySlime, scrColorflag(c_blue) + "Slime" + scrEndColorflag(), "animal", c_aqua);
-scrEnemyIniExecutions(sEnemySlimeDeath1);
+scrEnemyIniExecutions(sEnemySlimeDeath1, sEnemySlimeDeath2, sEnemySlimeDeath3);
 
 scrAdvancedAiIni();
 scrAdvancedAiRegisterAction("idle", aiActionEnum.actionBasic);

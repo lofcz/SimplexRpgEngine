@@ -308,7 +308,7 @@ if (type = "frozen_bolt")
             <kind>1</kind>
             <string>/// Hold impact
 
-if (mode == 0)
+if (mode == 0 &amp;&amp; !other.isDying)
 {
 // Fireball
 if (type == "fireball")

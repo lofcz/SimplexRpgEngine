@@ -232,9 +232,12 @@ if (speechIn)
      
      fnt();
      clr (c_black, speechAlpha / 2);
-     draw_roundrect_colour_ext(x - string_width(speechCurrentText) / 2 - 10,y - 48,x + string_width(speechCurrentText) / 2+10,y+string_height(speechCurrentText)+2-48,20,20,c_black,c_black,0);
+     var yDec = 0;
+     if (string_height(speechCurrentText) > 32) {yDec = 24;}
+     
+     draw_roundrect_colour_ext(x - string_width(speechCurrentText) / 2 - 10,y - 48 - yDec,x + string_width(speechCurrentText) / 2+10,y+string_height(speechCurrentText)+2-48-yDec,20,20,c_black,c_black,0);
      clr(c_white, speechAlpha);
-     draw_text(x - string_width(speechCurrentText) / 2, y - 48, speechCurrentText);
+     draw_text(x - string_width(speechCurrentText) / 2, y - 48 - yDec, speechCurrentText);
      clr();
      
      if (speechSkip)
@@ -750,19 +753,35 @@ if (oPlayer.last_dir == "w") {oPlayer.image_index = 0;}
 if (oPlayer.last_dir == "s") {oPlayer.image_index = 12;}
 
 #define apiPlayerSay
-/// apiPlayerSay(text, [onlyOnEmptyFront])
+/// apiPlayerSay(text, [onlyOnEmptyFront], mode, callID)
 
-var t, o;
+var t, o, m, d;
 t = "Sample text";
 o = false;
+m = "";
+d = -1;
 
 if (argument_count > 0) {t = argument[0];}
 if (argument_count > 1) {o = argument[1];}
+if (argument_count > 2) {m = argument[2];}
+if (argument_count > 3) {d = argument[3];}
 
-if (o) {if (ds_queue_size(oPlayer.speechQueue) > 0 || oPlayer.speechAlpha > 0.02) {return false;}}
+if (m == "")
+   {
+    if (o) {if (ds_queue_size(oPlayer.speechQueue) > 0 || oPlayer.speechAlpha > 0.02) {return false;}}
 
-ds_queue_enqueue(oPlayer.speechQueue, t);
-return true;
+    ds_queue_enqueue(oPlayer.speechQueue, t);
+    return true;
+   }
+
+if (m == "combat")
+   {
+    if (d == oEnemySlime) {text = choose("Seber nohy na ramena!#Ah, ty žádné nemáš.");}
+    else if (d == oBunny) {text = choose("Kralík na smetaně!");} 
+    else {text = "";}
+    
+    ds_queue_enqueue(oPlayer.speechQueue, text);
+   }
 
 #define apiPlayerSayNext
 /// apiPlayerSayNext()

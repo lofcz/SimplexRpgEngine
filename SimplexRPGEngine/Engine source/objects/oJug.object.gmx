@@ -84,8 +84,7 @@ scrGoreExplode(8, 8);
             <string>
 if (other.attack &amp;&amp; other.can_damage = -1) 
 {
-dmg = 0;
-dmg += oPlayer.vlastnost[vlastnost_poskozeni];   
+dmg = apiPlayerGetPropertyValue(vlastnost_poskozeni, false, true);   
 
 hp -= dmg;
 other.can_damage = -2;

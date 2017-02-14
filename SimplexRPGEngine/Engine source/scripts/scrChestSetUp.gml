@@ -12,6 +12,8 @@ s_r            = 1;
 s_g            = 1;
 s_b            = 1;
 s_a            = 1;
+hpP            = 10;
+isDying        = false;
 
 if (argument_count > 0) {slots           = argument[0];}
 if (argument_count > 1) {slots_row       = argument[1];}

@@ -24,6 +24,7 @@ for (a = 0; a < slots; a++)
       b.animateDropForce = 0;      
       loot[a,ext_name]   = -1;
       fill[a]            = 1;
+      refID[a]           = b;
      }
      
      xx += 32;

@@ -1,6 +1,8 @@
 /// scrChestDraw()
 
 scrShaderDrawColor();
+isDying = false;
+if (hpP <= 0) {isDying = true; image_alpha = lin(image_alpha, 0, -0.05); if (image_alpha <= 0) {instance_destroy();}}
 
 if (animate == 1)
    {

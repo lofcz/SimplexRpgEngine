@@ -183,7 +183,7 @@ if (beingExecuted) {image_speed = 0; image_index = sprite_get_number(sprite_inde
 notForced     = false;
 finalSlowdown = (1 - slowdown);
 if (forcedX &lt; 1 &amp;&amp; forcedY &lt; 1) {notForced = true; forcedX = 0; forcedY = 0; forcedHelper = 0;}
-if (hp &lt;= 0) {isDying = true;}
+if (last_hp &lt;= 0) {isDying = true; canColide = false;}
 
 if (followMouse)
     {
@@ -228,13 +228,12 @@ else if (mood == "cutscene" &amp;&amp; distance_to_point(cutsceneX, cutsceneY) =
 if (can_damage &gt; 0) {can_damage--;} else {can_damage = -1;}
 last_hp = lerp(last_hp, hp, 0.1);
 
-if (last_hp &lt;= 0.05) {if (mood != "dying") {event_user(0);} mood = "dying"; beingExecuted = true; if (executionArray[0] != -1) {image_speed = 0.5; sprite_index = irandom_range(executionArray[0], executionArray[array_length_1d(executionArray) - 1]);}}
+if (last_hp &lt;= 0.05) {if (mood != "dying") {event_user(0); mood = "dying"; if (beingExecuted == 0) {beingExecuted = 1; if (executionArray[0] != -1) {image_index = 0; image_speed = 0.1; sprite_index = irandom_range(executionArray[0], executionArray[array_length_1d(executionArray) - 1]);}}}}
 
 if (mood == "dying")
 {
 if (safeDying) {safeDying = false; scrGoreExplodeDropShards(32, 8, spr[0]);}
-if (beingExecuted != -1) {image_speed = 0.2;} else {image_speed = 0; if (image_alpha &gt; 0) {image_alpha -= 0.02;} else {instance_destroy();} }
-if (sprite_index != noone) {draw_self();}  
+if (beingExecuted != -1) {image_speed = 0.2;} else {image_speed = 0; if (image_alpha &gt; 0) {image_alpha -= 0.01;} else {instance_destroy();} }
 }
 
 if (cced)

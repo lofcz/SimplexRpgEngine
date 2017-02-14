@@ -86,6 +86,7 @@ enemyType    = t_t;
 isHunter     = false;
 maxHp        = hp;
 executionArray[0] = -1;
+beingExecuted = false;
 
 #define scrEnemyGetPosition
 /// scrEnemyGetPosition()
@@ -251,7 +252,7 @@ if (other.attack && combatCanBeHit())
 
 combatMarkAsHit();
 text = choose("Ve jménu Demacie!", "Odporná zhoubo!", "Prolomím jejich řady!", "Nemějte slitování!", "Přímo do černého!", "Překvapení, jsem zpátky!", "Za krále a Demacii!", "Valore, na ně!");
-apiPlayerSay(text);
+apiPlayerSay("", false, "combat", object_index);
 apiPlayerSayNext();
 
 
@@ -275,7 +276,6 @@ audio_play_sound(sndSlime1,0,0);
 other.can_damage = -2;
 apiPlayerSetProperty(vlastnost_stamina, apiPlayerGetPropertyValue(vlastnost_stamina) + oPlayer.vlastnost[vlastnost_vampStamina]);
 scrBasicEffect(oPlayer.vlastnost[vlastnost_vampStamina], sStaminaEffect, oPlayer.x, oPlayer.y);
-
 }
 
 
@@ -357,4 +357,3 @@ for (var i = 0; i < 16; i++)
     {
      if (argument_count > i) {executionArray[i] = argument[i];}
     }
-
