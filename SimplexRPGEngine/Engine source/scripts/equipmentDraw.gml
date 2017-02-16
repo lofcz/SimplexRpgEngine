@@ -35,9 +35,7 @@ if (oPlayer.equ_draw_head)
 {
 if (oInventory.equiped[1]) {draw_sprite(sRarityEffect,itemRarityEffect(equiped_image[1,2]),xx+equ_axis_head_x,yy+equ_axis_head_y);}
 else {draw_sprite(sEquipmentIcons,0,xx+equ_axis_head_x + 4,yy+equ_axis_head_y + 2);}
-
 draw_sprite(equiped_image[1,0],equiped_image[1,1],xx+equ_axis_head_x+18,yy+equ_axis_head_y+14)
-
 
 if (mouse_in(xx+equ_axis_head_x,xx+equ_axis_head_x+32,yy+equ_axis_head_y,yy+equ_axis_head_y+32))
    {
@@ -56,14 +54,13 @@ if (oInventory.drag && oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "h
 // Draw left plate slot  -----------------------------------------------------------------------------------------------------
 if (oPlayer.equ_draw_left_plate)
 {
-draw_sprite(sSlotTexture,1,xx+equ_axis_left_plate_x,yy+equ_axis_left_plate_y);
 if (oInventory.equiped[4]) { draw_sprite(sRarityEffect,itemRarityEffect(equiped_image[4,2]),xx+equ_axis_left_plate_x,yy+equ_axis_left_plate_y); }
 else {draw_sprite(sEquipmentIcons,4,xx+equ_axis_left_plate_x,yy+equ_axis_left_plate_y);}
 draw_sprite(equiped_image[4,0],equiped_image[4,1],xx+equ_axis_left_plate_x+16,yy+equ_axis_left_plate_y+16)
 
 if (mouse_in(xx+equ_axis_left_plate_x,xx+equ_axis_left_plate_x+32,yy+equ_axis_left_plate_y,yy+equ_axis_left_plate_y+32))
    {
-   draw_hover_block(xx+equ_axis_left_plate_x,xx+equ_axis_left_plate_x+32,yy+equ_axis_left_plate_y,yy+equ_axis_left_plate_y+32);
+   draw_hover_block(xx+equ_axis_left_plate_x,xx+equ_axis_left_plate_x+32,yy+equ_axis_left_plate_y+1,yy+equ_axis_left_plate_y+33);
    draw_equ_infobox_id = 4;
    
       if (mouse_check_button_pressed(mb_left))
@@ -74,17 +71,13 @@ if (mouse_in(xx+equ_axis_left_plate_x,xx+equ_axis_left_plate_x+32,yy+equ_axis_le
    
 if (oInventory.drag && oInventory.slot[oInventory.h_c,inv_item_equip_slot] = "leftPlate" )
    { 
-   if (!oInventory.equiped[4]) {draw_hover_block(xx+equ_axis_left_plate_x,xx+equ_axis_left_plate_x+32,yy+equ_axis_left_plate_y,yy+equ_axis_left_plate_y+32,c_lime,0.5);}
+   if (!oInventory.equiped[4]) {draw_hover_block(xx+equ_axis_left_plate_x,xx+equ_axis_left_plate_x+32,yy+equ_axis_left_plate_y+1,yy+equ_axis_left_plate_y+33,c_lime,0.5);}
    equipmentHoldEquip(4,xx+equ_axis_left_plate_x,xx+equ_axis_left_plate_x+32,yy+equ_axis_left_plate_y,yy+equ_axis_left_plate_y+32);
    }
-   
-draw_sprite(sSlotOutline,0,xx+equ_axis_left_plate_x-2,yy+equ_axis_left_plate_y-2);  
-
 }
 // Draw right plate slot 
 if (oPlayer.egu_draw_right_plate)
 {
-draw_sprite(sSlotTexture,1,xx+equ_axis_right_plate_x,yy+equ_axis_right_plate_y);
 if (oInventory.equiped[3]) { draw_sprite(sRarityEffect,itemRarityEffect(equiped_image[3,2]),xx+equ_axis_right_plate_x,yy+equ_axis_right_plate_y); }
 else {draw_sprite(sEquipmentIcons,3,xx+equ_axis_right_plate_x,yy+equ_axis_right_plate_y);}
 draw_sprite(equiped_image[3,0],equiped_image[3,1],xx+equ_axis_right_plate_x+16,yy+equ_axis_right_plate_y+16)
@@ -105,21 +98,18 @@ if (oInventory.drag && oInventory.slot[oInventory.h_c,inv_item_equip_slot] = "ri
    if (!oInventory.equiped[3]) {draw_hover_block(xx+equ_axis_right_plate_x,xx+equ_axis_right_plate_x+32,yy+equ_axis_right_plate_y,yy+equ_axis_right_plate_y+32,c_lime,0.5);}
    equipmentHoldEquip(3,xx+equ_axis_right_plate_x,xx+equ_axis_right_plate_x+32,yy+equ_axis_right_plate_y,yy+equ_axis_right_plate_y+32);
    }
-draw_sprite(sSlotOutline,0,xx+equ_axis_right_plate_x-2,yy+equ_axis_right_plate_y-2);  
-
 
 }
 // Draw body slot 
 if (oPlayer.equ_draw_body)
 {
-draw_sprite(sSlotTexture,1,xx+equ_axis_body_x,yy+equ_axis_body_y);
 if (oInventory.equiped[2]) { draw_sprite(sRarityEffect,itemRarityEffect(equiped_image[2,2]),xx+equ_axis_body_x,yy+equ_axis_body_y); }
 else {draw_sprite(sEquipmentIcons,2,xx+equ_axis_body_x,yy+equ_axis_body_y);}
 draw_sprite(equiped_image[2,0],equiped_image[2,1],xx+equ_axis_body_x+16,yy+equ_axis_body_y+16)
 
 if (mouse_in(xx+equ_axis_body_x,xx+equ_axis_body_x+32,yy+equ_axis_body_y,yy+equ_axis_body_y+32))
    {
-   draw_hover_block(xx+equ_axis_body_x,xx+equ_axis_body_x+32,yy+equ_axis_body_y,yy+equ_axis_body_y+32);
+   draw_hover_block(xx+equ_axis_body_x+1,xx+equ_axis_body_x+32,yy+equ_axis_body_y-2,yy+equ_axis_body_y+30);
    draw_equ_infobox_id = 2;
    
    if (mouse_check_button_pressed(mb_left))
@@ -132,17 +122,13 @@ if (oInventory.drag && oInventory.slot[oInventory.h_c,inv_item_equip_slot] = "ar
    { 
    if (!oInventory.equiped[2]) {draw_hover_block(xx+equ_axis_body_x,xx+equ_axis_body_x+32,yy+equ_axis_body_y,yy+equ_axis_body_y+32,c_lime,0.5);}
    equipmentHoldEquip(2,xx+equ_axis_body_x,xx+equ_axis_body_x+32,yy+equ_axis_body_y,yy+equ_axis_body_y+32);
-   }
-   
-draw_sprite(sSlotOutline,0,xx+equ_axis_body_x-2,yy+equ_axis_body_y-2);  
-
+   }   
 }
 // Draw right hand slot -------------------------------------------------------------------------------------------------------------------
 if (oPlayer.equ_draw_right_hand)
 {
-draw_sprite(sSlotTexture,1,xx+equ_axis_right_hand_x,yy+equ_axis_right_hand_y);
 if (oInventory.equiped[0]) { draw_sprite(sRarityEffect,itemRarityEffect(equiped_image[0,2]),xx+equ_axis_right_hand_x,yy+equ_axis_right_hand_y); }
-else {draw_sprite(sEquipmentIcons,0,xx+equ_axis_right_hand_x,yy+equ_axis_right_hand_y);}
+else {draw_sprite(sEquipmentIcons,1,xx+equ_axis_right_hand_x,yy+equ_axis_right_hand_y);}
 draw_sprite(equiped_image[0,0],equiped_image[0,1],xx+equ_axis_right_hand_x+16,yy+equ_axis_right_hand_y+16)
 
 if (mouse_in(xx+equ_axis_right_hand_x,xx+equ_axis_right_hand_x+32,yy+equ_axis_right_hand_y,yy+equ_axis_right_hand_y+32))
@@ -161,7 +147,6 @@ if (oInventory.drag && oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "z
    if (oInventory.equiped[0] = 0) {draw_hover_block(xx+equ_axis_right_hand_x,xx+equ_axis_right_hand_x+32,yy+equ_axis_right_hand_y,yy+equ_axis_right_hand_y+32,c_lime,0.5);}
    equipmentHoldEquip(0,xx+equ_axis_right_hand_x,xx+equ_axis_right_hand_x+32,yy+equ_axis_right_hand_y,yy+equ_axis_right_hand_y+32);
    }
-draw_sprite(sSlotOutline,0,xx+equ_axis_right_hand_x-2,yy+equ_axis_right_hand_y-2);  
 
 if (oInventory.equiped_vlastnost[0, vlastnost_durability] > 0)
    {
@@ -175,7 +160,6 @@ if (oInventory.equiped_vlastnost[0, vlastnost_durability] > 0)
 // Draw left hand slot 
 if (oPlayer.equ_draw_left_hand)
 {
-draw_sprite(sSlotTexture,1,xx+equ_axis_left_hand_x,yy+equ_axis_left_hand_y);
 if (oInventory.equiped[5]) { draw_sprite(sRarityEffect,itemRarityEffect(equiped_image[5,2]),xx+equ_axis_left_hand_x,yy+equ_axis_left_hand_y); }
 else {draw_sprite(sEquipmentIcons,5,xx+equ_axis_left_hand_x,yy+equ_axis_left_hand_y);}
 draw_sprite(equiped_image[5,0],equiped_image[5,1],xx+equ_axis_left_hand_x+16,yy+equ_axis_left_hand_y+16);
@@ -206,15 +190,12 @@ if (oInventory.drag && oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "s
    { 
    if (oInventory.equiped[5] == 0) {draw_hover_block(xx+equ_axis_left_hand_x,xx+equ_axis_left_hand_x+32,yy+equ_axis_left_hand_y,yy+equ_axis_left_hand_y+32,c_lime,0.5);}
    equipmentHoldEquip(5,xx+equ_axis_left_hand_x,xx+equ_axis_left_hand_x+32,yy+equ_axis_left_hand_y,yy+equ_axis_left_hand_y+32);
-   }
-   
-draw_sprite(sSlotOutline,0,xx+equ_axis_left_hand_x-2,yy+equ_axis_left_hand_y-2);  
+   }   
 }
 
 // Draw left ring1 slot 
 if (oPlayer.equ_draw_left_ring1)
 {
-draw_sprite(sSlotTexture,2,xx+equ_axis_left_ring1_x,yy+equ_axis_left_ring1_y);
 if (oInventory.equiped[6]) { draw_sprite(sRarityEffect,itemRarityEffect(equiped_image[6,2], true),xx+equ_axis_left_ring1_x,yy+equ_axis_left_ring1_y); }
 else {draw_sprite(sEquipmentIcons,6,xx+equ_axis_left_ring1_x,yy+equ_axis_left_ring1_y);}
 draw_sprite(equiped_image[6,0],equiped_image[6,1],xx+equ_axis_left_ring1_x-8+16,yy+equ_axis_left_ring1_y-8+16)
@@ -236,13 +217,11 @@ if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] =
    if (oInventory.equiped[6] = 0) {draw_hover_block(xx+equ_axis_left_ring1_x,xx+equ_axis_left_ring1_x+16,yy+equ_axis_left_ring1_y,yy+equ_axis_left_ring1_y+16,c_lime,0.5);}
    equipmentHoldEquip(6,xx+equ_axis_left_ring1_x,xx+equ_axis_left_ring1_x+32,yy+equ_axis_left_ring1_y,yy+equ_axis_left_ring1_y+32);
    }
-draw_sprite(sSlotTexture,7,xx+equ_axis_left_ring1_x-2,yy+equ_axis_left_ring1_y-2);  
 }
 
 // Draw left ring2 slot 
 if (oPlayer.equ_draw_left_ring2)
 {
-draw_sprite(sSlotTexture,2,xx+equ_axis_left_ring2_x,yy+equ_axis_left_ring2_y);
 if (oInventory.equiped[7]) { draw_sprite(sRarityEffect,itemRarityEffect(equiped_image[7,2], true),xx+equ_axis_left_ring2_x,yy+equ_axis_left_ring2_y); }
 else {draw_sprite(sEquipmentIcons,6,xx+equ_axis_left_ring2_x,yy+equ_axis_left_ring2_y);}
 draw_sprite(equiped_image[7,0],equiped_image[7,1],xx+equ_axis_left_ring2_x-8+16,yy+equ_axis_left_ring2_y-8+16)
@@ -263,10 +242,8 @@ if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] =
    if (oInventory.equiped[7] = 0) {draw_hover_block(xx+equ_axis_left_ring2_x,xx+equ_axis_left_ring2_x+16,yy+equ_axis_left_ring2_y,yy+equ_axis_left_ring2_y+16,c_lime,0.5);}
    equipmentHoldEquip(7,xx+equ_axis_left_ring2_x,xx+equ_axis_left_ring2_x+32,yy+equ_axis_left_ring2_y,yy+equ_axis_left_ring2_y+32);
    }
-   
-draw_sprite(sSlotTexture,7,xx+equ_axis_left_ring2_x-2,yy+equ_axis_left_ring2_y-2);  
 }
-
+/*
 // Draw right ring1 slot 
 if (oPlayer.equ_draw_right_ring1)
 {
@@ -322,11 +299,11 @@ if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] =
    }
 draw_sprite(sSlotTexture,7,xx+equ_axis_right_ring2_x-2,yy+equ_axis_right_ring2_y-2);  
 }
+*/
 
 // Draw crown slot 
 if (oPlayer.equ_draw_crown)
 {
-draw_sprite(sSlotTexture,1,xx+equ_axis_crown_x,yy+equ_axis_crown_y);
 if (oInventory.equiped[10]) { draw_sprite(sRarityEffect,itemRarityEffect(equiped_image[10,2]),xx+equ_axis_crown_x,yy+equ_axis_crown_y); }
 else {draw_sprite(sEquipmentIcons,7,xx+equ_axis_crown_x,yy+equ_axis_crown_y);}
 draw_sprite(equiped_image[10,0],equiped_image[10,1],xx+equ_axis_crown_x+16,yy+equ_axis_crown_y+16)
@@ -347,13 +324,11 @@ if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] =
    if (oInventory.equiped[10] = 0) {draw_hover_block(xx+equ_axis_crown_x,xx+equ_axis_crown_x+32,yy+equ_axis_crown_y,yy+equ_axis_crown_y+32,c_lime,0.5);}
    equipmentHoldEquip(10,xx+equ_axis_crown_x,xx+equ_axis_crown_x+32,yy+equ_axis_crown_y,yy+equ_axis_crown_y+32);
    }
-draw_sprite(sSlotOutline,0,xx+equ_axis_crown_x-2,yy+equ_axis_crown_y-2);  
 }
 
 // Draw trophy1 slot 
 if (oPlayer.equ_draw_trophy1)
 {
-draw_sprite(sSlotTexture,1,xx+equ_axis_trophy1_x,yy+equ_axis_trophy1_y);
 if (oInventory.equiped[11]) { draw_sprite(sRarityEffect,itemRarityEffect(equiped_image[11,2]),xx+equ_axis_trophy1_x,yy+equ_axis_trophy1_y); }
 else {draw_sprite(sEquipmentIcons,8,xx+equ_axis_trophy1_x,yy+equ_axis_trophy1_y);}
 draw_sprite(equiped_image[11,0],equiped_image[11,1],xx+equ_axis_trophy1_x+16,yy+equ_axis_trophy1_y+16)
@@ -375,13 +350,11 @@ if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] =
    if (oInventory.equiped[11] = 0) {draw_hover_block(xx+equ_axis_trophy1_x,xx+equ_axis_trophy1_x+32,yy+equ_axis_trophy1_y,yy+equ_axis_trophy1_y+32,c_lime,0.5);}
    equipmentHoldEquip(11,xx+equ_axis_trophy1_x,xx+equ_axis_trophy1_x+32,yy+equ_axis_trophy1_y,yy+equ_axis_trophy1_y+32);
    }
-draw_sprite(sSlotOutline,0,xx+equ_axis_trophy1_x-2,yy+equ_axis_trophy1_y-2);  
 }
 
 // Draw trophy2 slot 
 if (oPlayer.equ_draw_trophy2)
 {
-draw_sprite(sSlotTexture,1,xx+equ_axis_trophy2_x,yy+equ_axis_trophy2_y);
 if (oInventory.equiped[12]) { draw_sprite(sRarityEffect,itemRarityEffect(equiped_image[12,2]),xx+equ_axis_trophy2_x,yy+equ_axis_trophy2_y); }
 else {draw_sprite(sEquipmentIcons,9,xx+equ_axis_trophy2_x,yy+equ_axis_trophy2_y);}
 draw_sprite(equiped_image[12,0],equiped_image[12,1],xx+equ_axis_trophy2_x+16,yy+equ_axis_trophy2_y+16)
@@ -402,13 +375,11 @@ if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] =
    if (oInventory.equiped[12] = 0) {draw_hover_block(xx+equ_axis_trophy2_x,xx+equ_axis_trophy2_x+32,yy+equ_axis_trophy2_y,yy+equ_axis_trophy2_y+32,c_lime,0.5);}
    equipmentHoldEquip(12,xx+equ_axis_trophy2_x,xx+equ_axis_trophy2_x+32,yy+equ_axis_trophy2_y,yy+equ_axis_trophy2_y+32);
    }
-draw_sprite(sSlotOutline,0,xx+equ_axis_trophy2_x-2,yy+equ_axis_trophy2_y-2);  
 }
 
 // Draw trophy3 slot 
 if (oPlayer.equ_draw_trophy2)
 {
-draw_sprite(sSlotTexture,1,xx+equ_axis_trophy3_x,yy+equ_axis_trophy3_y);
 if (oInventory.equiped[13]) { draw_sprite(sRarityEffect,itemRarityEffect(equiped_image[13,2]),xx+equ_axis_trophy3_x,yy+equ_axis_trophy3_y); }
 else {draw_sprite(sEquipmentIcons,10,xx+equ_axis_trophy3_x,yy+equ_axis_trophy3_y);}
 draw_sprite(equiped_image[13,0],equiped_image[13,1],xx+equ_axis_trophy3_x+16,yy+equ_axis_trophy3_y+16)
@@ -429,13 +400,11 @@ if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] =
    if (oInventory.equiped[13] = 0) {draw_hover_block(xx+equ_axis_trophy3_x,xx+equ_axis_trophy3_x+32,yy+equ_axis_trophy3_y,yy+equ_axis_trophy3_y+32,c_lime,0.5);}
    equipmentHoldEquip(13,xx+equ_axis_trophy3_x,xx+equ_axis_trophy3_x+32,yy+equ_axis_trophy3_y,yy+equ_axis_trophy3_y+32);
    }
-draw_sprite(sSlotOutline,0,xx+equ_axis_trophy3_x-2,yy+equ_axis_trophy3_y-2);  
 }
 
 // Draw special1 slot 
 if (oPlayer.equ_draw_special1)
 {
-draw_sprite(sSlotTexture,1,xx+equ_axis_special1_x,yy+equ_axis_special1_y);
 if (oInventory.equiped[14]) { draw_sprite(sRarityEffect,itemRarityEffect(equiped_image[14,2]),xx+equ_axis_special1_x,yy+equ_axis_special1_y); }
 else {draw_sprite(sEquipmentIcons,11,xx+equ_axis_special1_x,yy+equ_axis_special1_y);}
 draw_sprite(equiped_image[14,0],equiped_image[14,1],xx+equ_axis_special1_x+16,yy+equ_axis_special1_y+16)
@@ -456,13 +425,11 @@ if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] =
    if (oInventory.equiped[14] = 0) {draw_hover_block(xx+equ_axis_special1_x,xx+equ_axis_special1_x+32,yy+equ_axis_special1_y,yy+equ_axis_special1_y+32,c_lime,0.5);}
    equipmentHoldEquip(14,xx+equ_axis_special1_x,xx+equ_axis_special1_x+32,yy+equ_axis_special1_y,yy+equ_axis_special1_y+32);
    }
-draw_sprite(sSlotOutline,0,xx+equ_axis_special1_x-2,yy+equ_axis_special1_y-2);  
 }
 
 // Draw special2 slot 
 if (oPlayer.equ_draw_special2)
 {
-draw_sprite(sSlotTexture,1,xx+equ_axis_special2_x,yy+equ_axis_special2_y);
 if (oInventory.equiped[15]) { draw_sprite(sRarityEffect,itemRarityEffect(equiped_image[15,2]),xx+equ_axis_special2_x,yy+equ_axis_special2_y); }
 else {draw_sprite(sEquipmentIcons,12,xx+equ_axis_special2_x,yy+equ_axis_special2_y);}
 draw_sprite(equiped_image[15,0],equiped_image[15,1],xx+equ_axis_special2_x+16,yy+equ_axis_special2_y+16)
@@ -484,13 +451,11 @@ if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] =
    if (oInventory.equiped[15] = 0) {draw_hover_block(xx+equ_axis_special2_x,xx+equ_axis_special2_x+32,yy+equ_axis_special2_y,yy+equ_axis_special2_y+32,c_lime,0.5);}
    equipmentHoldEquip(15,xx+equ_axis_special2_x,xx+equ_axis_special2_x+32,yy+equ_axis_special2_y,yy+equ_axis_special2_y+32);
    }
-draw_sprite(sSlotOutline,0,xx+equ_axis_special2_x-2,yy+equ_axis_special2_y-2);  
 }
 
 // Draw belt slot 
 if (oPlayer.equ_draw_belt)
 {
-draw_sprite(sSlotTexture,1,xx+equ_axis_belt_x,yy+equ_axis_belt_y);
 if (oInventory.equiped[16]) { draw_sprite(sRarityEffect,itemRarityEffect(equiped_image[16,2]),xx+equ_axis_belt_x,yy+equ_axis_belt_y); }
 else {draw_sprite(sEquipmentIcons,13,xx+equ_axis_belt_x,yy+equ_axis_belt_y);}
 draw_sprite(equiped_image[16,0],equiped_image[16,1],xx+equ_axis_belt_x+16,yy+equ_axis_belt_y+16)
@@ -511,13 +476,11 @@ if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] =
    if (oInventory.equiped[16] = 0) {draw_hover_block(xx+equ_axis_belt_x,xx+equ_axis_belt_x+32,yy+equ_axis_belt_y,yy+equ_axis_belt_y+32,c_lime,0.5);}
    equipmentHoldEquip(16,xx+equ_axis_belt_x,xx+equ_axis_belt_x+32,yy+equ_axis_belt_y,yy+equ_axis_belt_y+32);
    }
-draw_sprite(sSlotOutline,0,xx+equ_axis_belt_x-2,yy+equ_axis_belt_y-2);  
 }
 
 // Draw left boot slot 
 if (oPlayer.equ_draw_left_boot)
 {
-draw_sprite(sSlotTexture,1,xx+equ_axis_left_boot_x,yy+equ_axis_left_boot_y);
 if (oInventory.equiped[17]) { draw_sprite(sRarityEffect,itemRarityEffect(equiped_image[17,2]),xx+equ_axis_left_boot_x,yy+equ_axis_left_boot_y); }
 else {draw_sprite(sEquipmentIcons,14,xx+equ_axis_left_boot_x,yy+equ_axis_left_boot_y);}
 draw_sprite(equiped_image[17,0],equiped_image[17,1],xx+equ_axis_left_boot_x+16,yy+equ_axis_left_boot_y+16)
@@ -539,13 +502,11 @@ if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] =
    if (oInventory.equiped[17] = 0) {draw_hover_block(xx+equ_axis_left_boot_x,xx+equ_axis_left_boot_x+32,yy+equ_axis_left_boot_y,yy+equ_axis_left_boot_y+32,c_lime,0.5);}
    equipmentHoldEquip(17,xx+equ_axis_left_boot_x,xx+equ_axis_left_boot_x+32,yy+equ_axis_left_boot_y,yy+equ_axis_left_boot_y+32);
    }
-draw_sprite(sSlotOutline,0,xx+equ_axis_left_boot_x-2,yy+equ_axis_left_boot_y-2);  
 }
 
 // Draw right boot slot 
 if (oPlayer.equ_draw_left_boot)
 {
-draw_sprite(sSlotTexture,1,xx+equ_axis_right_boot_x,yy+equ_axis_right_boot_y);
 if (oInventory.equiped[18]) { draw_sprite(sRarityEffect,itemRarityEffect(equiped_image[18,2]),xx+equ_axis_right_boot_x,yy+equ_axis_right_boot_y); }
 else {draw_sprite(sEquipmentIcons,15,xx+equ_axis_right_boot_x,yy+equ_axis_right_boot_y);}
 draw_sprite(equiped_image[18,0],equiped_image[18,1],xx+equ_axis_right_boot_x+16,yy+equ_axis_right_boot_y+16)
@@ -567,7 +528,6 @@ if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] =
    if (oInventory.equiped[18] = 0) {draw_hover_block(xx+equ_axis_right_boot_x,xx+equ_axis_right_boot_x+32,yy+equ_axis_right_boot_y,yy+equ_axis_right_boot_y+32,c_lime,0.5);}
    equipmentHoldEquip(18,xx+equ_axis_right_boot_x,xx+equ_axis_right_boot_x+32,yy+equ_axis_right_boot_y,yy+equ_axis_right_boot_y+32);
    }
-draw_sprite(sSlotOutline,0,xx+equ_axis_right_boot_x-2,yy+equ_axis_right_boot_y-2);  
 }
 
 // Draw equipment infobox
