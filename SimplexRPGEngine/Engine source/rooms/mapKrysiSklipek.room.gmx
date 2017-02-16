@@ -8340,6 +8340,7 @@
     <tile bgName="bcgCaves2" x="2944" y="1104" w="16" h="16" xo="96" yo="176" id="10032630" name="inst_544B17FA" depth="200" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="400" y="3984" w="32" h="16" xo="96" yo="768" id="10035120" name="inst_911A43C2" depth="200" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="3664" y="1520" w="48" h="64" xo="224" yo="816" id="10035223" name="inst_C244C849" depth="200" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3184" y="3600" w="32" h="64" xo="192" yo="128" id="10038695" name="inst_FF728A11" depth="200" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="2816" y="1248" w="80" h="32" xo="16" yo="288" id="10029034" name="inst_28A50643" depth="150" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="2816" y="1232" w="80" h="16" xo="16" yo="240" id="10029036" name="inst_0F352D3C" depth="150" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="2704" y="2400" w="16" h="32" xo="0" yo="160" id="10030481" name="inst_56AE6CEA" depth="150" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -8617,12 +8618,13 @@
     <tile bgName="bcgCaves2" x="864" y="3792" w="32" h="32" xo="0" yo="768" id="10038593" name="inst_066B0137" depth="50" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="864" y="3760" w="32" h="32" xo="0" yo="720" id="10038594" name="inst_C2EBB165" depth="50" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="752" y="3832" w="96" h="32" xo="32" yo="704" id="10038595" name="inst_D3E5D6BF" depth="50" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="704" y="2960" w="64" h="64" xo="208" yo="128" id="10038668" name="inst_800DCF61" depth="50" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="736" y="3024" w="16" h="16" xo="144" yo="224" id="10038669" name="inst_6D3C0FB6" depth="50" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="2304" y="1792" w="16" h="32" xo="160" yo="160" id="10032424" name="inst_6207E3F7" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="2304" y="1760" w="16" h="32" xo="160" yo="160" id="10032425" name="inst_2DE708FD" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="2304" y="1744" w="16" h="32" xo="160" yo="160" id="10032426" name="inst_AFCE6A01" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="2301" y="1727" w="16" h="16" xo="128" yo="240" id="10032427" name="inst_FFF085B3" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="2288" y="1728" w="16" h="16" xo="112" yo="240" id="10032428" name="inst_C4902C00" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bcgCaves2" x="2329" y="1782" w="32" h="64" xo="160" yo="64" id="10032429" name="inst_398EA63A" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="2112" y="2896" w="16" h="32" xo="64" yo="768" id="10032461" name="inst_BE870919" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="2106" y="2894" w="16" h="32" xo="64" yo="768" id="10032470" name="inst_93A5377C" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="656" y="2320" w="32" h="32" xo="64" yo="768" id="10032540" name="inst_775073DA" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -8638,6 +8640,114 @@
     <tile bgName="bcgCaves2" x="3584" y="1600" w="16" h="16" xo="112" yo="272" id="10035338" name="inst_EB1EC3E4" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="3600" y="1600" w="16" h="16" xo="112" yo="272" id="10035339" name="inst_9AFBA06D" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="3568" y="1616" w="16" h="16" xo="112" yo="272" id="10035340" name="inst_3A94B609" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3040" y="1536" w="16" h="16" xo="176" yo="160" id="10038596" name="inst_5A846D31" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3072" y="1536" w="16" h="16" xo="176" yo="160" id="10038597" name="inst_4AC43980" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3072" y="1568" w="16" h="16" xo="176" yo="160" id="10038598" name="inst_EE01B4EA" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3040" y="1568" w="16" h="16" xo="176" yo="160" id="10038599" name="inst_C25AD627" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3056" y="1536" w="16" h="16" xo="176" yo="160" id="10038600" name="inst_C01DD71B" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3040" y="1552" w="16" h="16" xo="176" yo="160" id="10038601" name="inst_0AE07D7B" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3056" y="1552" w="16" h="16" xo="176" yo="160" id="10038602" name="inst_A137F135" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3072" y="1552" w="16" h="16" xo="176" yo="160" id="10038603" name="inst_B4ECA611" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3056" y="1568" w="16" h="16" xo="176" yo="160" id="10038604" name="inst_71532DC4" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="2560" y="1712" w="64" h="64" xo="192" yo="128" id="10038605" name="inst_510FF1BB" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="768" y="3056" w="80" h="32" xo="192" yo="160" id="10038616" name="inst_32319E81" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="768" y="3104" w="80" h="32" xo="192" yo="160" id="10038618" name="inst_047E6D39" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="768" y="3088" w="80" h="32" xo="192" yo="160" id="10038619" name="inst_54DB08A3" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="544" y="3168" w="48" h="32" xo="208" yo="128" id="10038621" name="inst_E3155DA1" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="576" y="3200" w="16" h="16" xo="144" yo="224" id="10038623" name="inst_74FA4858" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="592" y="3200" w="32" h="64" xo="192" yo="128" id="10038624" name="inst_6A45AD17" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="656" y="3264" w="32" h="32" xo="64" yo="768" id="10038625" name="inst_840E2CAB" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="688" y="3264" w="32" h="32" xo="64" yo="768" id="10038626" name="inst_D3128CCB" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="688" y="3328" w="32" h="32" xo="192" yo="128" id="10038627" name="inst_DA9C80E4" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="672" y="3328" w="32" h="32" xo="192" yo="128" id="10038628" name="inst_9B84AD72" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="976" y="3536" w="64" h="32" xo="176" yo="160" id="10038629" name="inst_B2F65561" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="928" y="3568" w="64" h="32" xo="176" yo="160" id="10038631" name="inst_534F36B4" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="928" y="3552" w="64" h="32" xo="176" yo="160" id="10038632" name="inst_E8F02F1A" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="992" y="3488" w="16" h="16" xo="192" yo="176" id="10038633" name="inst_BA21F0BA" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="1008" y="3504" w="16" h="16" xo="192" yo="176" id="10038634" name="inst_68F30501" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="1024" y="3504" w="16" h="16" xo="192" yo="176" id="10038635" name="inst_CC62264A" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="1040" y="3504" w="16" h="16" xo="192" yo="176" id="10038636" name="inst_55B4063F" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="992" y="3504" w="16" h="16" xo="192" yo="176" id="10038637" name="inst_17023B00" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="1008" y="3520" w="16" h="16" xo="192" yo="176" id="10038638" name="inst_7A7B3F51" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="1024" y="3520" w="16" h="16" xo="192" yo="176" id="10038639" name="inst_36B7BF8D" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="1040" y="3520" w="16" h="16" xo="192" yo="176" id="10038640" name="inst_C7ABD234" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="992" y="3568" w="16" h="16" xo="192" yo="176" id="10038641" name="inst_AD6DD625" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="1008" y="3568" w="16" h="16" xo="192" yo="176" id="10038642" name="inst_49EA849F" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="1024" y="3568" w="16" h="16" xo="192" yo="176" id="10038643" name="inst_480ABDE2" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="1040" y="3568" w="16" h="16" xo="192" yo="176" id="10038644" name="inst_F64260B4" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="1040" y="3552" w="16" h="16" xo="192" yo="176" id="10038645" name="inst_DBDA1FA7" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="1040" y="3536" w="16" h="16" xo="192" yo="176" id="10038646" name="inst_DB3E8754" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="1008" y="3488" w="16" h="16" xo="192" yo="176" id="10038647" name="inst_7FD4F640" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="976" y="3520" w="16" h="16" xo="192" yo="176" id="10038648" name="inst_AE5381FB" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="992" y="3520" w="16" h="16" xo="192" yo="176" id="10038649" name="inst_67E119E1" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="960" y="3520" w="16" h="16" xo="192" yo="176" id="10038650" name="inst_BDFDDF0B" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="960" y="3536" w="16" h="16" xo="192" yo="176" id="10038651" name="inst_32FDCC12" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="720" y="2960" w="32" h="64" xo="128" yo="992" id="10038670" name="inst_8F946439" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3792" y="1392" w="32" h="48" xo="160" yo="128" id="10038672" name="inst_2A76EF05" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3824" y="1392" w="64" h="64" xo="208" yo="128" id="10038673" name="inst_521601B0" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3824" y="1456" w="48" h="32" xo="208" yo="192" id="10038674" name="inst_A6CF2337" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3808" y="1440" w="16" h="16" xo="208" yo="176" id="10038676" name="inst_755FF258" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3808" y="1456" w="16" h="16" xo="208" yo="176" id="10038677" name="inst_D252141F" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3660" y="1312" w="112" h="64" xo="160" yo="128" id="10038678" name="inst_42000E51" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3776" y="736" w="48" h="48" xo="48" yo="128" id="10038679" name="inst_32FD85C1" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3776" y="832" w="48" h="48" xo="48" yo="128" id="10038680" name="inst_80DF822E" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3776" y="784" w="48" h="16" xo="48" yo="176" id="10038681" name="inst_58E236B3" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3776" y="880" w="48" h="16" xo="48" yo="176" id="10038682" name="inst_CD8721B1" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3760" y="832" w="16" h="32" xo="144" yo="192" id="10038683" name="inst_0A40203A" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3760" y="816" w="16" h="16" xo="112" yo="208" id="10038684" name="inst_91E387E5" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3760" y="912" w="16" h="16" xo="112" yo="208" id="10038685" name="inst_5A6F4711" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="4640" y="1968" w="96" h="96" xo="160" yo="128" id="10038686" name="inst_D4B21465" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3056" y="3552" w="64" h="48" xo="160" yo="128" id="10038687" name="inst_0E77F8FB" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3152" y="3552" w="32" h="48" xo="224" yo="128" id="10038688" name="inst_6BE94064" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3168" y="3600" w="16" h="16" xo="144" yo="224" id="10038689" name="inst_A3E351B7" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3216" y="3600" w="32" h="64" xo="192" yo="128" id="10038690" name="inst_FC964F61" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3152" y="3520" w="16" h="48" xo="80" yo="416" id="10038692" name="inst_DB9A2658" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3168" y="3520" w="16" h="48" xo="0" yo="416" id="10038693" name="inst_D216EB9D" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3120" y="3568" w="48" h="32" xo="176" yo="176" id="10038696" name="inst_32E9BC1C" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3136" y="3600" w="48" h="32" xo="176" yo="176" id="10038697" name="inst_D3BE434E" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3104" y="3600" w="48" h="32" xo="176" yo="176" id="10038699" name="inst_CBAC648F" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3152" y="3632" w="48" h="32" xo="176" yo="176" id="10038701" name="inst_1B291C57" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3200" y="3632" w="48" h="32" xo="176" yo="176" id="10038702" name="inst_92BE9689" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3104" y="3648" w="48" h="32" xo="176" yo="176" id="10038705" name="inst_CA1130A5" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3168" y="3664" w="48" h="32" xo="176" yo="176" id="10038709" name="inst_AB0A06AC" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3184" y="3696" w="48" h="32" xo="176" yo="176" id="10038710" name="inst_0F411B63" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3168" y="3712" w="48" h="32" xo="176" yo="176" id="10038711" name="inst_74D345D2" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3152" y="3712" w="48" h="32" xo="176" yo="176" id="10038712" name="inst_87AFC4DA" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3152" y="3696" w="48" h="32" xo="176" yo="176" id="10038713" name="inst_660E96B5" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3136" y="3712" w="48" h="32" xo="176" yo="176" id="10038714" name="inst_76FA965A" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3120" y="3696" w="48" h="32" xo="176" yo="176" id="10038715" name="inst_72C7F5F6" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3152" y="3680" w="48" h="32" xo="176" yo="176" id="10038718" name="inst_1CD4232F" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3136" y="3680" w="48" h="32" xo="176" yo="176" id="10038719" name="inst_C05C3C60" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3136" y="3664" w="48" h="32" xo="176" yo="176" id="10038720" name="inst_0E48ADB4" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3136" y="3648" w="48" h="32" xo="176" yo="176" id="10038721" name="inst_66F3F61B" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3136" y="3632" w="48" h="32" xo="176" yo="176" id="10038722" name="inst_FA48C8F4" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3120" y="3632" w="48" h="32" xo="176" yo="176" id="10038723" name="inst_BCA194C7" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3120" y="3664" w="48" h="32" xo="176" yo="176" id="10038724" name="inst_EC689FB0" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3104" y="3680" w="48" h="32" xo="176" yo="176" id="10038725" name="inst_90EE6E59" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3104" y="3712" w="48" h="32" xo="176" yo="176" id="10038726" name="inst_82318F31" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3104" y="3744" w="48" h="32" xo="176" yo="176" id="10038727" name="inst_B3A7D00C" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3152" y="3744" w="48" h="32" xo="176" yo="176" id="10038728" name="inst_AC52B925" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3200" y="3744" w="48" h="32" xo="176" yo="176" id="10038729" name="inst_1261EDA2" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3216" y="3728" w="48" h="32" xo="176" yo="176" id="10038730" name="inst_8552BC0A" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3104" y="3632" w="16" h="16" xo="128" yo="288" id="10038733" name="inst_297BFB12" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="832" y="3408" w="16" h="16" xo="176" yo="160" id="10038734" name="inst_13131B91" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="816" y="3408" w="16" h="16" xo="176" yo="160" id="10038735" name="inst_8611C99E" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="800" y="3408" w="16" h="16" xo="176" yo="160" id="10038736" name="inst_06949284" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="784" y="3408" w="16" h="16" xo="176" yo="160" id="10038737" name="inst_192B99D8" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="784" y="3424" w="16" h="16" xo="176" yo="160" id="10038738" name="inst_0071C7EB" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="800" y="3424" w="16" h="16" xo="176" yo="160" id="10038739" name="inst_11ABE57D" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="816" y="3424" w="16" h="16" xo="176" yo="160" id="10038740" name="inst_2D8C1DB8" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="784" y="3360" w="48" h="48" xo="48" yo="624" id="10038756" name="inst_1BC3A3CD" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3088" y="3600" w="16" h="16" xo="192" yo="160" id="10038757" name="inst_5CA9A93C" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3088" y="3616" w="16" h="16" xo="192" yo="160" id="10038758" name="inst_C65B4705" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3088" y="3648" w="16" h="16" xo="192" yo="160" id="10038760" name="inst_9AD589C9" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3088" y="3632" w="16" h="16" xo="192" yo="160" id="10038761" name="inst_90667B28" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3232" y="3664" w="16" h="16" xo="192" yo="160" id="10038762" name="inst_4CFB7A0D" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3216" y="3664" w="16" h="16" xo="192" yo="160" id="10038763" name="inst_5783A455" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3216" y="3680" w="16" h="16" xo="192" yo="160" id="10038764" name="inst_71E4089F" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3232" y="3680" w="16" h="16" xo="192" yo="160" id="10038765" name="inst_14E942DD" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3232" y="3696" w="16" h="16" xo="192" yo="160" id="10038766" name="inst_5325AB0E" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3232" y="3712" w="16" h="16" xo="192" yo="160" id="10038767" name="inst_10E3DA0F" depth="30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="4256" y="1168" w="96" h="64" xo="0" yo="128" id="10035518" name="inst_7BC7DF5D" depth="-30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="4096" y="1168" w="96" h="64" xo="0" yo="128" id="10035519" name="inst_51B30049" depth="-30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="3952" y="1152" w="96" h="64" xo="0" yo="128" id="10035520" name="inst_897116BB" depth="-30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -8890,6 +9000,14 @@
     <tile bgName="bcgCaves2" x="2560" y="4304" w="16" h="16" xo="128" yo="176" id="10038156" name="inst_63BA0F3A" depth="-30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="2544" y="4304" w="16" h="16" xo="128" yo="176" id="10038157" name="inst_C5DF39B1" depth="-30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="1776" y="4192" w="16" h="16" xo="0" yo="176" id="10038159" name="inst_C4E3FB8D" depth="-30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="2336" y="1776" w="32" h="64" xo="160" yo="64" id="10038607" name="inst_E7D3BBF0" depth="-30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="2240" y="2128" w="64" h="64" xo="0" yo="128" id="10038608" name="inst_E4E14F2D" depth="-30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="2352" y="2128" w="32" h="32" xo="96" yo="320" id="10038609" name="inst_E6928EE6" depth="-30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="2384" y="2128" w="32" h="32" xo="96" yo="320" id="10038610" name="inst_74B4DCC9" depth="-30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="2432" y="2128" w="32" h="32" xo="64" yo="128" id="10038611" name="inst_C3583BDE" depth="-30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="2416" y="2128" w="16" h="32" xo="48" yo="128" id="10038612" name="inst_275BD764" depth="-30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="2320" y="2128" w="32" h="48" xo="32" yo="128" id="10038614" name="inst_EB67EA8C" depth="-30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="2304" y="2128" w="32" h="48" xo="32" yo="128" id="10038615" name="inst_BCCD7723" depth="-30" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="752" y="1024" w="32" h="32" xo="32" yo="128" id="10023663" name="inst_76641360" depth="-31" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="784" y="1024" w="16" h="32" xo="32" yo="128" id="10023665" name="inst_864D9A88" depth="-31" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="800" y="1024" w="16" h="32" xo="32" yo="128" id="10023666" name="inst_7E877275" depth="-31" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -9535,10 +9653,7 @@
     <tile bgName="bcgCaves2" x="2672" y="1584" w="16" h="32" xo="144" yo="192" id="10025138" name="inst_A7683217" depth="-31" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="2688" y="1584" w="32" h="32" xo="32" yo="128" id="10025139" name="inst_E21CBA12" depth="-31" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="2096" y="960" w="32" h="32" xo="224" yo="0" id="10028952" name="inst_C6CC4F15" depth="-31" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bcgCaves2" x="2160" y="1344" w="32" h="32" xo="160" yo="0" id="10028953" name="inst_9B152B3B" depth="-31" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bcgCaves2" x="2544" y="1312" w="32" h="32" xo="160" yo="0" id="10028954" name="inst_3FB7A148" depth="-31" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="2848" y="1216" w="32" h="32" xo="160" yo="0" id="10028955" name="inst_C8D23024" depth="-31" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bcgCaves2" x="2464" y="1328" w="32" h="32" xo="96" yo="0" id="10028956" name="inst_E7F77427" depth="-31" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="1696" y="2288" w="32" h="80" xo="32" yo="208" id="10030113" name="inst_21E1707F" depth="-31" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="1664" y="2288" w="32" h="80" xo="32" yo="208" id="10030114" name="inst_41589B88" depth="-31" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="1632" y="2288" w="32" h="80" xo="32" yo="208" id="10030115" name="inst_141479D1" depth="-31" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -10220,7 +10335,6 @@
     <tile bgName="bcgCaves2" x="2864" y="4144" w="16" h="64" xo="0" yo="128" id="10037037" name="inst_57602AB6" depth="-31" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="2784" y="3856" w="16" h="64" xo="0" yo="128" id="10037038" name="inst_F494FAE0" depth="-31" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="3040" y="3856" w="16" h="64" xo="0" yo="128" id="10037039" name="inst_19421870" depth="-31" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bcgCaves2" x="3264" y="3856" w="16" h="64" xo="0" yo="128" id="10037040" name="inst_19AC1F7E" depth="-31" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="2720" y="3552" w="16" h="64" xo="0" yo="128" id="10037041" name="inst_C8197C94" depth="-31" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="2928" y="3552" w="16" h="64" xo="0" yo="128" id="10037042" name="inst_E170C5AB" depth="-31" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="3248" y="3552" w="16" h="64" xo="0" yo="128" id="10037043" name="inst_4DE20249" depth="-31" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -10323,7 +10437,12 @@
     <tile bgName="bcgCaves2" x="4336" y="3872" w="32" h="80" xo="32" yo="128" id="10037217" name="inst_DF28FEA9" depth="-31" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="4368" y="3872" w="32" h="80" xo="32" yo="128" id="10037218" name="inst_D64AA402" depth="-31" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="3136" y="3920" w="32" h="48" xo="64" yo="128" id="10037237" name="inst_734DCC47" depth="-31" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
-    <tile bgName="bcgCaves2" x="3120" y="3920" w="16" h="48" xo="144" yo="128" id="10037238" name="inst_59FE4375" depth="-31" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3712" y="3936" w="64" h="64" xo="0" yo="128" id="10038653" name="inst_CFAF3020" depth="-31" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3264" y="3856" w="64" h="64" xo="0" yo="128" id="10038654" name="inst_CF5928BB" depth="-31" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3264" y="3920" w="16" h="16" xo="0" yo="176" id="10038656" name="inst_1105D622" depth="-31" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3264" y="3936" w="16" h="16" xo="0" yo="192" id="10038657" name="inst_AFC64D3B" depth="-31" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3120" y="3952" w="48" h="32" xo="48" yo="160" id="10038658" name="inst_C1491398" depth="-31" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3120" y="3920" w="16" h="32" xo="144" yo="128" id="10038659" name="inst_2E0BBAD6" depth="-31" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="864" y="1392" w="32" h="32" xo="32" yo="160" id="10032681" name="inst_300B50BD" depth="-32" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="864" y="1440" w="32" h="32" xo="32" yo="160" id="10032684" name="inst_41F708DE" depth="-32" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="880" y="1424" w="32" h="32" xo="32" yo="160" id="10032685" name="inst_39BE8D24" depth="-32" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -10489,6 +10608,11 @@
     <tile bgName="bcgCaves2" x="3952" y="928" w="32" h="80" xo="32" yo="128" id="10035602" name="inst_23124B97" depth="-32" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="3920" y="928" w="32" h="64" xo="0" yo="128" id="10035603" name="inst_B1884214" depth="-32" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="bcgCaves2" x="4432" y="928" w="32" h="64" xo="64" yo="128" id="10035604" name="inst_D309301B" depth="-32" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3152" y="3968" w="16" h="16" xo="80" yo="176" id="10038660" name="inst_BB31615C" depth="-32" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3120" y="3968" w="16" h="16" xo="112" yo="160" id="10038661" name="inst_FC33F3EF" depth="-32" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3136" y="3968" w="16" h="16" xo="112" yo="160" id="10038662" name="inst_EEE7E202" depth="-32" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3136" y="3952" w="16" h="16" xo="112" yo="160" id="10038663" name="inst_1C2985FD" depth="-32" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="bcgCaves2" x="3120" y="3952" w="16" h="16" xo="112" yo="160" id="10038664" name="inst_A33C1CA7" depth="-32" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>0</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>
