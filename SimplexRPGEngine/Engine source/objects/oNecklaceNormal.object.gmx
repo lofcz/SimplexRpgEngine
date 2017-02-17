@@ -29,6 +29,7 @@
 
 scrItemSetUp(0,0);
 scrItemBasic(itemEnum.itemNecklaceNormal);
+scrItemSetBodyCanvas(animationSlotsEnum.necklace, sBodyCanvasNecklace1);
 
 //*********** Prefix **************
 image_index = 13;

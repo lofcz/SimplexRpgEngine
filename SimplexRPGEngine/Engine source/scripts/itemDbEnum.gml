@@ -100,5 +100,6 @@ itemRename,
 itemPotatoes,
 itemShield1,
 itemSpear1,
-itemIdentification
+itemIdentification,
+itemLegs1
 };

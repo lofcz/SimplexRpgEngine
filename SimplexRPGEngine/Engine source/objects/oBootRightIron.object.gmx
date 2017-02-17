@@ -29,6 +29,7 @@
 
 scrItemSetUp(0,0);
 scrItemBasic(itemEnum.itemBootRightIron);
+scrItemSetBodyCanvas(animationSlotsEnum.shoes, sBodyCanvasShoes2);
 
 //*********** Prefix **************
 image_index = 21;

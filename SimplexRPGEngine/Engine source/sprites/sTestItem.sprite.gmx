@@ -113,5 +113,6 @@
     <frame index="90">images\sTestItem_90.png</frame>
     <frame index="91">images\sTestItem_91.png</frame>
     <frame index="92">images\sTestItem_92.png</frame>
+    <frame index="93">images\sTestItem_93.png</frame>
   </frames>
 </sprite>

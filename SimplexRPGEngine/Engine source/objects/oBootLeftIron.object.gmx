@@ -29,6 +29,8 @@
 
 scrItemSetUp(0,0);
 scrItemBasic(itemEnum.itemBootLeftIron);
+scrItemSetBodyCanvas(animationSlotsEnum.hands, sBodyCanvasHands1);
+
 
 //*********** Prefix **************
 image_index = 20;

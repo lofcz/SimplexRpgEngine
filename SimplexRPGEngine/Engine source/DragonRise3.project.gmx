@@ -354,6 +354,10 @@
             <sprite>sprites\sBodyCanvasShield1</sprite>
             <sprite>sprites\sBodyCanvasWeapon3</sprite>
             <sprite>sprites\sBodyCanvasWeapon4</sprite>
+            <sprite>sprites\sBodyCanvasLegs2</sprite>
+            <sprite>sprites\sBodyCanvasShoes2</sprite>
+            <sprite>sprites\sBodyCanvasShoulders1</sprite>
+            <sprite>sprites\sBodyCanvasLegs3</sprite>
             <sprite>sprites\sBodyCanvasArmor1</sprite>
           </sprites>
           <sprites name="Shoot">
@@ -763,6 +767,7 @@
             </sprites>
             <sprites name="Boots">
               <sprite>sprites\sBootEffect</sprite>
+              <sprite>sprites\sLegsEffect1</sprite>
               <sprite>sprites\sBootEffect2</sprite>
             </sprites>
             <sprites name="Belts">
@@ -1654,6 +1659,7 @@
         <objects name="Boots">
           <object>objects\oBootLeftIron</object>
           <object>objects\oBootRightIron</object>
+          <object>objects\oLegs1</object>
         </objects>
         <objects name="Elixirs">
           <object>objects\oElixirHP</object>

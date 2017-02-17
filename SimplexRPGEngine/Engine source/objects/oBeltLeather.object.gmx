@@ -29,6 +29,8 @@
 
 scrItemSetUp(0,0);
 scrItemBasic(itemEnum.itemBeltLeather);
+scrItemSetBodyCanvas(animationSlotsEnum.belt, sBodyCanvasBelt1);
+
 
 //*********** Prefix **************
 image_index = 19;
