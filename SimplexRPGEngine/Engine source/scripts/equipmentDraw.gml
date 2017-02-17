@@ -93,7 +93,7 @@ if (mouse_in(xx+equ_axis_right_plate_x,xx+equ_axis_right_plate_x+32,yy+equ_axis_
       }
    }
 
-if (oInventory.drag && oInventory.slot[oInventory.h_c,inv_item_equip_slot] = "rightPlate" )
+if (oInventory.drag && oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "legs" )
    { 
    if (!oInventory.equiped[3]) {draw_hover_block(xx+equ_axis_right_plate_x,xx+equ_axis_right_plate_x+32,yy+equ_axis_right_plate_y,yy+equ_axis_right_plate_y+32,c_lime,0.5);}
    equipmentHoldEquip(3,xx+equ_axis_right_plate_x,xx+equ_axis_right_plate_x+32,yy+equ_axis_right_plate_y,yy+equ_axis_right_plate_y+32);

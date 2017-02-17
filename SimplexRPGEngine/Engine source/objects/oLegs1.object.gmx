@@ -27,33 +27,16 @@
             <kind>1</kind>
             <string>/// Initialize item
 
-scrItemSetUp(0,0);
-scrItemBasic(itemEnum.itemLegs1);
+scrItemSetUp(0, 0, itemEnum.itemLegs1);
+scrItemSetProperties(false, "Ocelové chrániče stehen", "Kvalitní chrániče z velmi čisté oceli jsou schopné zastavit takřka libovolný projektil.", materialEnum.materialNone, "legs", 45, rarity_normal, true, "", c_dkgray, 25, 25, 5);
+scrItemSetOptions();
+
+scrItemSetProperty(vlastnost_max_zivot, 2);
+scrItemSetProperty(vlastnost_max_stamina, 3);
+scrItemSetProperty(vlastnost_elegance, 1);
+
 scrItemSetBodyCanvas(animationSlotsEnum.legs, sBodyCanvasLegs3);
-
-//*********** Prefix **************
-randomize();
-
-//****** Item settings ************
-
-itm_stackable           = 0;
-itm_sprite_number       = image_index;
-itm_info_head           = "Pravá zpevněná bota";
-itm_info_text           = "Testing equipment";
-itm_options[0]          = "Nabídka 2";
-itm_sprite              = sprite_index;
-itm_equip_slot          = "rightPlate";
-
-
-vlastnost[vlastnost_max_stit] = irandom_range(1, 6);
-scr = vlastnost[vlastnost_max_stit];
-
-if (scr &lt; 3) {itm_info_color = rarity_normal;}
-else {itm_info_color = rarity_rare;}
-
-//*********** Suffix *****************
-scrItemSetUpFinalize(true);
-//************************************
+scrItemSetUpFinalize();
 </string>
           </argument>
         </arguments>
