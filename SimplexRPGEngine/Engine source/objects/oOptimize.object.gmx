@@ -87,6 +87,7 @@ instance_activate_object(oHudDepthHelper);
 instance_activate_object(oEnemySpawner);
 instance_activate_object(oCamera);
 instance_activate_object(oParallaxMap);
+instance_activate_object(oGameScript);
 
 
 // Further optimization of collision system
@@ -115,7 +116,11 @@ with(oBasicSpell)
 with(oLenghdirSpell)
     {
      instance_activate_region(x - 32, y - 32, 64, 64, true); 
-    }     
+    }   
+with(oEnemySlimeAI)
+    {
+     instance_activate_region(view_xview, view_yview, view_wview, view_hview, true); 
+    }  
 collisionNearest[0] = instance_nearest(oPlayer.x, oPlayer.y, oNonsolidCollision);
 collisionNearest[1] = instance_nearest(oPlayer.x, oPlayer.y, oAdvancedCollision);
 

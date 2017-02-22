@@ -55,12 +55,12 @@ for(a = 0; a < oInventory.slots; a++)
                       }
                    else if (equiped_vlastnost[e_slot,vlastnost_bodyCanvasIndex] != 0)
                         {
-                         if (a == vlastnost_bodyCanvasSprite) {oPlayer.bci[0, equiped_vlastnost[e_slot,vlastnost_bodyCanvasIndex]] = 0;}
-                         if (a == vlastnost_bodyCanvasSlashSprite) {oPlayer.bci[animationEnum.slash, equiped_vlastnost[e_slot,vlastnost_bodyCanvasIndex]] = 0;}    
-                         if (a == vlastnost_bodyCanvasFireSprite) {oPlayer.bci[animationEnum.fire, equiped_vlastnost[e_slot,vlastnost_bodyCanvasIndex]] = 0;}    
-                         if (a == vlastnost_bodyCanvasDieSprite) {oPlayer.bci[animationEnum.die, equiped_vlastnost[e_slot,vlastnost_bodyCanvasIndex]] = 0;}    
-                         if (a == vlastnost_bodyCanvasBashSprite) {oPlayer.bci[animationEnum.bash, equiped_vlastnost[e_slot,vlastnost_bodyCanvasIndex]] = 0;}    
-                         if (a == vlastnost_bodyCanvasThrustSprite) {oPlayer.bci[animationEnum.thrust, equiped_vlastnost[e_slot,vlastnost_bodyCanvasIndex]] = 0;}                                                                                                                                                               
+                         if (a == vlastnost_bodyCanvasSprite) {oPlayer.bci[0, equiped_vlastnost[e_slot,vlastnost_bodyCanvasIndex]] = oPlayer.defaultBci[0, equiped_vlastnost[e_slot,vlastnost_bodyCanvasIndex]];}
+                         if (a == vlastnost_bodyCanvasSlashSprite) {oPlayer.bci[animationEnum.slash, equiped_vlastnost[e_slot,vlastnost_bodyCanvasIndex]] = oPlayer.defaultBci[animationEnum.slash, equiped_vlastnost[e_slot,vlastnost_bodyCanvasIndex]];;}    
+                         if (a == vlastnost_bodyCanvasFireSprite) {oPlayer.bci[animationEnum.fire, equiped_vlastnost[e_slot,vlastnost_bodyCanvasIndex]] = oPlayer.defaultBci[animationEnum.fire, equiped_vlastnost[e_slot,vlastnost_bodyCanvasIndex]];;}    
+                         if (a == vlastnost_bodyCanvasDieSprite) {oPlayer.bci[animationEnum.die, equiped_vlastnost[e_slot,vlastnost_bodyCanvasIndex]] = oPlayer.defaultBci[animationEnum.die, equiped_vlastnost[e_slot,vlastnost_bodyCanvasIndex]];;}    
+                         if (a == vlastnost_bodyCanvasBashSprite) {oPlayer.bci[animationEnum.bash, equiped_vlastnost[e_slot,vlastnost_bodyCanvasIndex]] = oPlayer.defaultBci[animationEnum.bash, equiped_vlastnost[e_slot,vlastnost_bodyCanvasIndex]];;}    
+                         if (a == vlastnost_bodyCanvasThrustSprite) {oPlayer.bci[animationEnum.thrust, equiped_vlastnost[e_slot,vlastnost_bodyCanvasIndex]] = oPlayer.defaultBci[animationEnum.thrust, equiped_vlastnost[e_slot,vlastnost_bodyCanvasIndex]];;}                                                                                                                                                               
                         }                   
                   }            
             for(a=0; a<10; a++)  {oInventory.slot_option[free_slot,a] = equiped_option[e_slot,a];}

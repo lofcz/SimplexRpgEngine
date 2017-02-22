@@ -29,6 +29,7 @@
 event_inherited();
 alarm[1] = 1;
 a = 10;
+framesPerSide = 4;
 
 </string>
           </argument>
@@ -180,7 +181,8 @@ else if (status == 2)
    {
    if (index == 0)
       {
-        scrCutscenePlay(self, cutsceneAlice1, false, 1);
+        //scrCutscenePlay(self, cutsceneAlice1, false, 1);
+        getToPoint = vec2(880, 632);
         scrQuestEntryAdd(enumQuests.questKalokvetProAlici, "Opojné listy kalokvětu", "Bylinkářka Alice trpí bolestmi hlavy, požádala mě o nějaké listy kalokvětu. Na čaj by měly stačit tři lístky, víc jí toho nosit nebudu.", "??????", "[Hlavní úkol]"); 
         substatus = 1;     
         
@@ -189,6 +191,12 @@ else if (status == 2)
         inst.text      = "Kalokvět pro Alici";
         inst.index     = medalEnum.quest;
         inst.medalType = 0;  
+        
+        grid = mp_grid_create(view_xview, view_yview, view_wview / 32, view_hview / 32, 32, 32);
+        path = path_add();
+        mp_grid_add_instances(grid, parSolid, false);
+        mp_grid_path(grid, path, x, y, vec2GetX(getToPoint), vec2GetY(getToPoint), false);
+        path_start(path, 2,0, true);
       }
   if (index == 1)
       {

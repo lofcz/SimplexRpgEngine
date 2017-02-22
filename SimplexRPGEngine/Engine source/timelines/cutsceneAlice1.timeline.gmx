@@ -27,7 +27,7 @@
     </event>
   </entry>
   <entry>
-    <step>40</step>
+    <step>80</step>
     <event>
       <action>
         <libid>1</libid>
@@ -45,7 +45,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scrCutsceneMoveTowardsPoint(self, 800, 672, 2);
+            <string>scrCutsceneMoveTowardsPoint(self, x+32, y, 2);
 </string>
           </argument>
         </arguments>
@@ -53,7 +53,7 @@
     </event>
   </entry>
   <entry>
-    <step>56</step>
+    <step>120</step>
     <event>
       <action>
         <libid>1</libid>
@@ -71,7 +71,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scrCutsceneMoveTowardsPoint(self, 832,672,2);
+            <string>scrCutsceneMoveTowardsPoint(self, x+32,y,2);
 </string>
           </argument>
         </arguments>
@@ -79,7 +79,7 @@
     </event>
   </entry>
   <entry>
-    <step>72</step>
+    <step>150</step>
     <event>
       <action>
         <libid>1</libid>
@@ -97,7 +97,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scrCutsceneMoveTowardsPoint(self, 864,672,2);
+            <string>scrCutsceneMoveTowardsPoint(self, x+32,y,2);
 </string>
           </argument>
         </arguments>
@@ -105,7 +105,7 @@
     </event>
   </entry>
   <entry>
-    <step>88</step>
+    <step>180</step>
     <event>
       <action>
         <libid>1</libid>
@@ -123,7 +123,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scrCutsceneMoveTowardsPoint(self, 864,640,2);
+            <string>scrCutsceneMoveTowardsPoint(self, x+32,y,2);
 </string>
           </argument>
         </arguments>
@@ -131,7 +131,7 @@
     </event>
   </entry>
   <entry>
-    <step>104</step>
+    <step>210</step>
     <event>
       <action>
         <libid>1</libid>
@@ -149,7 +149,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scrCutsceneMoveTowardsPoint(self, 864,608,2);
+            <string>scrCutsceneMoveTowardsPoint(self, x,y-32,2);
 </string>
           </argument>
         </arguments>
@@ -157,7 +157,7 @@
     </event>
   </entry>
   <entry>
-    <step>136</step>
+    <step>240</step>
     <event>
       <action>
         <libid>1</libid>
@@ -184,7 +184,7 @@
     </event>
   </entry>
   <entry>
-    <step>137</step>
+    <step>270</step>
     <event>
       <action>
         <libid>1</libid>
@@ -211,7 +211,7 @@ instance_destroy();
     </event>
   </entry>
   <entry>
-    <step>138</step>
+    <step>271</step>
     <event>
       <action>
         <libid>1</libid>

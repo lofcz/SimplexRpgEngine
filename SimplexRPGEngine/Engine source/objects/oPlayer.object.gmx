@@ -90,7 +90,7 @@ animationSpeed[animationEnum.die]    = 0.2;
 animationSpeed[animationEnum.thrust] = 0.2;
 
 scrBodyCanvasDB();
-scrBodyCanvasIni(animationEnum.walk, sBodyCanvasHumanWalk1, sBodyCanvasHair1, sBodyCanvasArmor1, 0, 0, sBodyCanvasLegs2, 0, sBodyCanvasShoes1, 0, 0);
+scrBodyCanvasIni(animationEnum.walk, sBodyCanvasHumanWalk1, sBodyCanvasHair1, sBodyCanvasArmor5, 0, 0, sBodyCanvasLegs2, 0, sBodyCanvasShoes1, 0, 0);
 scrBodyCanvasIni(animationEnum.slash, sBodyCanvasAttack1, sBodyCanvasAttackHair1, sBodyCanvasAttackArmor1, 0, 0, 0, 0, sBodyCanvasAttackShoes1, 0, 0);
 scrBodyCanvasIni(animationEnum.fire, sBodyCanvasFire1, sBodyCanvasFireHair1, sBodyCanvasFireArmor1, 0, 0, 0, 0, sBodyCanvasFireShoes1, 0, 0);
 scrBodyCanvasIni(animationEnum.die, sBodyCanvasDie1, sBodyCanvasDieHair1, sBodyCanvasDieArmor1, 0, 0, 0, 0, sBodyCanvasDieShoes1, 0, 0);

@@ -16,3 +16,12 @@ C:\Users\Matěj\Documents\SimplexRpgEngine\SimplexRPGEngine\IDE source\Cutscenes
 C:\Users\Matěj\Documents\SimplexRpgEngine\SimplexRPGEngine\IDE source\Cutscenes generator\CutsceneGenerator\obj\Debug\CutsceneGenerator.Form1.resources
 C:\Users\Matěj\Documents\SimplexRpgEngine\SimplexRPGEngine\IDE source\Cutscenes generator\CutsceneGenerator\obj\Debug\CutsceneGenerator.Properties.Resources.resources
 C:\Users\Matěj\Documents\SimplexRpgEngine\SimplexRPGEngine\IDE source\Cutscenes generator\CutsceneGenerator\obj\Debug\CutsceneGenerator.csproj.GenerateResource.Cache
+C:\Users\Matěj\Documents\simplex\SimplexRPGEngine\IDE source\Cutscenes generator\CutsceneGenerator\bin\Debug\CutsceneGenerator.exe.config
+C:\Users\Matěj\Documents\simplex\SimplexRPGEngine\IDE source\Cutscenes generator\CutsceneGenerator\bin\Debug\CutsceneGenerator.exe
+C:\Users\Matěj\Documents\simplex\SimplexRPGEngine\IDE source\Cutscenes generator\CutsceneGenerator\bin\Debug\CutsceneGenerator.pdb
+C:\Users\Matěj\Documents\simplex\SimplexRPGEngine\IDE source\Cutscenes generator\CutsceneGenerator\obj\Debug\CutsceneGenerator.csprojResolveAssemblyReference.cache
+C:\Users\Matěj\Documents\simplex\SimplexRPGEngine\IDE source\Cutscenes generator\CutsceneGenerator\obj\Debug\CutsceneGenerator.Form1.resources
+C:\Users\Matěj\Documents\simplex\SimplexRPGEngine\IDE source\Cutscenes generator\CutsceneGenerator\obj\Debug\CutsceneGenerator.Properties.Resources.resources
+C:\Users\Matěj\Documents\simplex\SimplexRPGEngine\IDE source\Cutscenes generator\CutsceneGenerator\obj\Debug\CutsceneGenerator.csproj.GenerateResource.Cache
+C:\Users\Matěj\Documents\simplex\SimplexRPGEngine\IDE source\Cutscenes generator\CutsceneGenerator\obj\Debug\CutsceneGenerator.exe
+C:\Users\Matěj\Documents\simplex\SimplexRPGEngine\IDE source\Cutscenes generator\CutsceneGenerator\obj\Debug\CutsceneGenerator.pdb

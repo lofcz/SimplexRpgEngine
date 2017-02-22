@@ -39,8 +39,12 @@ player_pos = 0;
 // Convert sprites to fonts
 fontDamage = font_add_sprite(sFntDamage, ord("0"), true, 0);
 
+instance_create(x, y, oGameScript);
+
 persistenceQueue = ds_queue_create();
 realPos = vec3();
+
+
 </string>
           </argument>
         </arguments>

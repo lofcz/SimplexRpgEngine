@@ -1346,15 +1346,15 @@ return t_text;
 #define inventoryFastEquip
 /// inventoryFastEquip()
 
-if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "helma" && oInventory.slot_vlastnosti[oInventory.h_c, vlastnost_identified])
+if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "helmet" && oInventory.slot_vlastnosti[oInventory.h_c, vlastnost_identified])
     {
      equipmentHoldEquip(1, 0, 0, 0, 0, true);     
     }
-else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "leftPlate" && oInventory.slot_vlastnosti[oInventory.h_c, vlastnost_identified])
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "shoulders" && oInventory.slot_vlastnosti[oInventory.h_c, vlastnost_identified])
     {
      equipmentHoldEquip(4, 0, 0, 0, 0, true);    
     }
-else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "rightPlate" && oInventory.slot_vlastnosti[oInventory.h_c, vlastnost_identified])
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "legs" && oInventory.slot_vlastnosti[oInventory.h_c, vlastnost_identified])
     {
      equipmentHoldEquip(3, 0, 0, 0, 0, true);    
     }
@@ -1362,7 +1362,7 @@ else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "armor" && oInve
     {
      equipmentHoldEquip(2, 0, 0, 0, 0, true);    
     }
-else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "zbraň" && oInventory.slot_vlastnosti[oInventory.h_c, vlastnost_identified])
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "weapon" && oInventory.slot_vlastnosti[oInventory.h_c, vlastnost_identified])
     {
      equipmentHoldEquip(0, 0, 0, 0, 0, true);    
     }
@@ -1406,11 +1406,11 @@ else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "belt" && oInven
     {
      equipmentHoldEquip(16, 0, 0, 0, 0, true);    
     }
-else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "leftBoot" && oInventory.slot_vlastnosti[oInventory.h_c, vlastnost_identified])
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "hands" && oInventory.slot_vlastnosti[oInventory.h_c, vlastnost_identified])
     {
      equipmentHoldEquip(17, 0, 0, 0, 0, true);    
     }
-else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "rightBoot" && oInventory.slot_vlastnosti[oInventory.h_c, vlastnost_identified])
+else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "boots" && oInventory.slot_vlastnosti[oInventory.h_c, vlastnost_identified])
     {
      equipmentHoldEquip(18, 0, 0, 0, 0, true);    
     }

@@ -28,7 +28,7 @@
             <string>/// Initialize item
 
 scrItemSetUp(0, 0, itemEnum.itemHelmetLeather + 1);
-scrItemSetProperties(false, "Kožená helma", "Prošívaná helma normanského střihu. Ochrání nejen před úderem či šípem, ale i mrazem a větrem. Vzbuzuje pocit bezpečí.", materialEnum.materialNone, "helma", 65, rarity_normal, true, "", c_dkgray, 40, 40, 8);
+scrItemSetProperties(false, "Kožená helma", "Prošívaná helma normanského střihu. Ochrání nejen před úderem či šípem, ale i mrazem a větrem. Vzbuzuje pocit bezpečí.", materialEnum.materialNone, "helmet", 65, rarity_normal, true, "", c_dkgray, 40, 40, 8);
 scrItemSetOptions();
 
 scrItemSetProperty(vlastnost_max_zivot, 4);

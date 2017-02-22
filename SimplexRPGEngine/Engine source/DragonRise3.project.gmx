@@ -315,6 +315,10 @@
         <sprites name="Imp">
           <sprite>sprites\sEnemyImp</sprite>
         </sprites>
+        <sprites name="Golem">
+          <sprite>sprites\sGolemWalk</sprite>
+          <sprite>sprites\sGolemAttack</sprite>
+        </sprites>
       </sprites>
       <sprites name="Body Canvas ">
         <sprites name="Human">
@@ -336,29 +340,45 @@
             <sprite>sprites\sBodyCanvasAttackLegs1</sprite>
           </sprites>
           <sprites name="Walk">
-            <sprite>sprites\sBodyCanvasNecklace1</sprite>
-            <sprite>sprites\sBodyCanvasRing1</sprite>
+            <sprites name="Bodies">
+              <sprite>sprites\sBodyCanvasHumanWalk1</sprite>
+            </sprites>
+            <sprites name="Weapons">
+              <sprite>sprites\sBodyCanvasWeapon1</sprite>
+              <sprite>sprites\sBodyCanvasWeapon2</sprite>
+              <sprite>sprites\sBodyCanvasWeapon3</sprite>
+              <sprite>sprites\sBodyCanvasWeapon4</sprite>
+            </sprites>
+            <sprites name="Hair">
+              <sprite>sprites\sBodyCanvasHair1</sprite>
+            </sprites>
+            <sprites name="Necklaces">
+              <sprite>sprites\sBodyCanvasNecklace1</sprite>
+            </sprites>
+            <sprites name="Rings">
+              <sprite>sprites\sBodyCanvasRing1</sprite>
+            </sprites>
+            <sprites name="Helmets">
+              <sprite>sprites\sBodyCanvasHood1</sprite>
+              <sprite>sprites\sBodyCanvasHead1</sprite>
+            </sprites>
+            <sprites name="Armors">
+              <sprite>sprites\sBodyCanvasArmor1</sprite>
+              <sprite>sprites\sBodyCanvasArmor2</sprite>
+              <sprite>sprites\sBodyCanvasArmor3</sprite>
+              <sprite>sprites\sBodyCanvasArmor4</sprite>
+              <sprite>sprites\sBodyCanvasArmor5</sprite>
+            </sprites>
             <sprite>sprites\sBodyCanvasQuiver1</sprite>
-            <sprite>sprites\sBodyCanvasHumanWalk1</sprite>
-            <sprite>sprites\sBodyCanvasWeapon2</sprite>
-            <sprite>sprites\sBodyCanvasWeapon1</sprite>
-            <sprite>sprites\sBodyCanvasHood1</sprite>
-            <sprite>sprites\sBodyCanvasHead1</sprite>
             <sprite>sprites\sBodyCanvasBelt1</sprite>
             <sprite>sprites\sBodyCanvasLegs1</sprite>
             <sprite>sprites\sBodyCanvasShoes1</sprite>
             <sprite>sprites\sBodyCanvasHands1</sprite>
-            <sprite>sprites\sBodyCanvasHair1</sprite>
-            <sprite>sprites\sBodyCanvasArmor2</sprite>
-            <sprite>sprites\sBodyCanvasArmor3</sprite>
             <sprite>sprites\sBodyCanvasShield1</sprite>
-            <sprite>sprites\sBodyCanvasWeapon3</sprite>
-            <sprite>sprites\sBodyCanvasWeapon4</sprite>
             <sprite>sprites\sBodyCanvasLegs2</sprite>
             <sprite>sprites\sBodyCanvasShoes2</sprite>
             <sprite>sprites\sBodyCanvasShoulders1</sprite>
             <sprite>sprites\sBodyCanvasLegs3</sprite>
-            <sprite>sprites\sBodyCanvasArmor1</sprite>
           </sprites>
           <sprites name="Shoot">
             <sprite>sprites\sBodyCanvasFireArmor3</sprite>
@@ -461,6 +481,7 @@
     </sprites>
     <sprites name="Collisions">
       <sprite>sprites\sBasicCollision</sprite>
+      <sprite>sprites\sprite392</sprite>
       <sprite>sprites\sNonsolidCollision</sprite>
       <sprite>sprites\sAdvancedCollision</sprite>
       <sprite>sprites\sGotoRoom</sprite>
@@ -739,6 +760,8 @@
             <sprites name="Armors">
               <sprite>sprites\sArmorEffect</sprite>
               <sprite>sprites\sArmorEffect2</sprite>
+              <sprite>sprites\sArmorEffect3</sprite>
+              <sprite>sprites\sArmorEffect4</sprite>
             </sprites>
             <sprites name="Shoulders">
               <sprite>sprites\sShoulderEffect</sprite>
@@ -832,6 +855,7 @@
       <sprite>sprites\sTemp19</sprite>
       <sprite>sprites\sTemp20</sprite>
     </sprites>
+    <sprite>sprites\sComment</sprite>
   </sprites>
   <backgrounds name="background">
     <backgrounds name=" Single tile backgrounds">
@@ -1130,6 +1154,7 @@
       <scripts name="Day night cycle">
         <script>scripts\daynightInitialise.gml</script>
         <script>scripts\daynightDraw.gml</script>
+        <script>scripts\daynightSetHour.gml</script>
         <script>scripts\daynightFlow.gml</script>
       </scripts>
       <scripts name="Basic transformations">
@@ -1147,9 +1172,13 @@
       </scripts>
       <scripts name="Cutscene">
         <script>scripts\scrCutscenePlay.gml</script>
+        <script>scripts\scrCutsceneEnd.gml</script>
         <script>scripts\scrCutsceneToggle.gml</script>
+        <script>scripts\scrCutsceneRenderUI.gml</script>
         <script>scripts\scrCutsceneMoveTowardsPoint.gml</script>
+        <script>scripts\scrCutseneSetDirection.gml</script>
         <script>scripts\scrCutsceneSplashMessage.gml</script>
+        <script>scripts\scrCutsceneSplashEmoticon.gml</script>
       </scripts>
       <scripts name="Pause">
         <script>scripts\scrPauseIni.gml</script>
@@ -1396,6 +1425,7 @@
       <objects name="Enemies">
         <objects name="Slime">
           <object>objects\oEnemySlime</object>
+          <object>objects\oEnemySlimeAI</object>
           <object>objects\oSlimePart</object>
         </objects>
         <objects name="Imp">
@@ -1403,6 +1433,9 @@
         </objects>
         <objects name="Dummy">
           <object>objects\oCombatDummy</object>
+        </objects>
+        <objects name="Golem">
+          <object>objects\oGolem</object>
         </objects>
         <object>objects\parEnemy</object>
       </objects>
@@ -1491,6 +1524,7 @@
         <object>objects\oExplosion</object>
         <object>objects\oEmoticon</object>
         <object>objects\oRoomConroller</object>
+        <object>objects\oGameScript</object>
       </objects>
       <objects name="Effects">
         <objects name="Object particles">
@@ -1626,10 +1660,11 @@
         <objects name="Armors">
           <object>objects\oArmorLeather</object>
           <object>objects\oArmorMetal</object>
+          <object>objects\oArmorGolden</object>
+          <object>objects\oArmorLeather2</object>
         </objects>
         <objects name="Shoulders">
-          <object>objects\oShoulderRightLeather</object>
-          <object>objects\oShoulderLeftLeather</object>
+          <object>objects\oShoulders1</object>
         </objects>
         <objects name="Shields">
           <object>objects\oShieldWooden</object>
@@ -1657,9 +1692,7 @@
           <object>objects\oBeltLeather</object>
         </objects>
         <objects name="Boots">
-          <object>objects\oBootLeftIron</object>
-          <object>objects\oBootRightIron</object>
-          <object>objects\oLegs1</object>
+          <object>objects\oBootsIron</object>
         </objects>
         <objects name="Elixirs">
           <object>objects\oElixirHP</object>
@@ -1698,6 +1731,13 @@
         <objects name="Shields">
           <object>objects\oShield1</object>
         </objects>
+        <objects name="Legs">
+          <object>objects\oLegs1</object>
+          <object>objects\oLegs2</object>
+        </objects>
+        <objects name="Gloves">
+          <object>objects\oGloveIron</object>
+        </objects>
       </objects>
       <objects name="Collectibles">
         <object>objects\oCollectibleItem1Kvejk</object>
@@ -1721,6 +1761,7 @@
         <object>objects\oTeleport</object>
         <object>objects\oFence</object>
         <object>objects\oAltar</object>
+        <object>objects\oComment</object>
         <object>objects\oFireplace</object>
         <object>objects\oEnemySpawner</object>
       </objects>
@@ -1735,6 +1776,7 @@
       </objects>
       <objects name="Collisions">
         <object>objects\oBasicCollision</object>
+        <object>objects\oBasicCollision3D</object>
         <object>objects\oAdvancedCollision</object>
         <object>objects\oNonsolidCollision</object>
         <object>objects\oTransitionCollision</object>

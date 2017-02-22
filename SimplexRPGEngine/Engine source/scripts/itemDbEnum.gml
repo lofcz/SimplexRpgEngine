@@ -101,5 +101,7 @@ itemPotatoes,
 itemShield1,
 itemSpear1,
 itemIdentification,
-itemLegs1
+itemLegs1,
+itemArmorGolden,
+itemArmorLeather2
 };

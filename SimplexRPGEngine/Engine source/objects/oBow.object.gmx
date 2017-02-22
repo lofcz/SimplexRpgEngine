@@ -28,7 +28,7 @@
             <string>/// Initialize item
 
 scrItemSetUp(0, 0, itemEnum.itemBow1);
-scrItemSetProperties(false, "Tisový luk", "Prostá, leč efektivní lovecká zbraň, hojně využívaná lovci. Má menší dostřel a nátah, ale je rychlý a poměrně přesný.", materialEnum.materialNone, "zbraň", 35, rarity_normal, true, "", c_white, 16, 30, 4, false, true);
+scrItemSetProperties(false, "Tisový luk", "Prostá, leč efektivní lovecká zbraň, hojně využívaná lovci. Má menší dostřel a nátah, ale je rychlý a poměrně přesný.", materialEnum.materialNone, "weapon", 35, rarity_normal, true, "", c_white, 16, 30, 4, false, true);
 scrItemSetOptions();
 
 // Rarity distribution

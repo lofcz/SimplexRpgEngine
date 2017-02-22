@@ -45,7 +45,7 @@ hp       = -1;
 affect   = "";
 tempSpr  = 0;
 
-canColide = true;
+canCollide = true;
 particleSystem = false;
 </string>
           </argument>
@@ -105,14 +105,14 @@ if (basicTransform == Transformations.scale)
             <kind>1</kind>
             <string>/// Return player to previous position
 
-if (canColide)
+if (canCollide)
 {
 with(other)
            {
             x = xprevious;
-            y = yprevious;           
+            y = yprevious;       
            }
-}
+}                                
 </string>
           </argument>
         </arguments>
@@ -139,7 +139,7 @@ with(other)
 
 if (splashMessageTime != -1 || splashMessageAlpha &gt; 0)
     {
-    var xx,yy;
+    var xx,yy,parsedText;
     xx = x;
     yy = y - sprite_get_height(sprite_index);
     parsedText = dialogueParse(splashMessage);
@@ -147,7 +147,7 @@ if (splashMessageTime != -1 || splashMessageAlpha &gt; 0)
      if (splashMessageAlpha &lt; 1) {splashMessageAlpha = lerp(splashMessageAlpha, 1, splashMessageAlphaSpeed);}
      if (splashMessageTime &gt; 0) {splashMessageTime--;} else {splashMessageTime = -1; mood = "idle";}
      
-     
+fnt();     
 draw_set_alpha(splashMessageAlpha/2);
 draw_roundrect_colour_ext(xx - string_width(parsedText) / 2 - 10,yy - string_height(parsedText)/2,xx+string_width(parsedText)/2+10,yy+string_height(parsedText)/2+4,20,20,c_black,c_black,0);
 draw_set_alpha(splashMessageAlpha);

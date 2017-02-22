@@ -33,7 +33,7 @@ f = (drop_id).open
 
 if (p == 1)
 {
-if (loot) {draw_sprite(sRarityEffect,itemRarityEffect(itm_info_color),x,y);}
+if (loot) {draw_sprite(sRarityEffect,itemRarityEffect(itm_info_color),x-16,y-16);}
 if (loot != 2) {if (!drawDrop) {draw_self();} else {draw_item_loot();}}
 else {depth = -32; sprite_index = sMask26x26; draw_sprite_ext(sTestItem, realIndex, x + 12, y + 12, 0.75, 0.75, 0, c_white, 0.8);}
 

@@ -60,6 +60,7 @@ shopActive     = false;
 open           = false;
 action_id      = -1;
 substatus      = 0;
+isStanding     = false
 
 splashMessage           = false;
 splashMessageTime       = -1;    
@@ -72,6 +73,7 @@ speechIn          = false;
 speechCurrentText = "";
 speechMode        = 0;
 speechSkip        = false;
+getToPoint        = vec2();
 
 akce = ds_priority_create();
 </string>
@@ -139,10 +141,10 @@ if (turn_to_player)
       dir = last_dir;
       switch(dir) 
                   {
-                   case "w": {image_index = 0 dir="s"; break;};   //12
-                   case "s": {image_index = 12 dir="w"; break;};   //
-                   case "a": {image_index = 8 dir="d"; break;};
-                   case "d": {image_index = 4  dir="a"; break;};
+                   case "w": {image_index = 0; dir="s"; break;};   //12
+                   case "s": {image_index = framesPerSide * 3; dir="w"; break;};   //
+                   case "a": {image_index = framesPerSide * 2; dir="d"; break;};
+                   case "d": {image_index = framesPerSide; dir="a"; break;};
 
                   }
       turn_timer = -1;
@@ -167,7 +169,7 @@ if (instance_number(oPlayer) &gt; 0)
               if (oPlayer.x &gt; x - 16 &amp;&amp; oPlayer.x &lt; x+sprite_get_width(sprite_index)-16 &amp;&amp; oPlayer.y &gt; y-sprite_get_height(sprite_index)-24 &amp;&amp; oPlayer.y &lt; y-24)
                {
                dir = "w";
-               image_index = 12;
+               image_index = framesPerSide * 3;
                }
               else  if (oPlayer.x &gt; x-16 &amp;&amp; oPlayer.x &lt; x+sprite_get_width(sprite_index)-16 &amp;&amp; oPlayer.y &gt; y+sprite_get_height(sprite_index)-24 &amp;&amp; oPlayer.y &lt; y+sprite_get_height(sprite_index)+48-24)
                {
@@ -177,12 +179,12 @@ if (instance_number(oPlayer) &gt; 0)
                 else  if (oPlayer.x &gt; x-32-16 &amp;&amp; oPlayer.x &lt; x-16 &amp;&amp; oPlayer.y &gt;= y-24 &amp;&amp; oPlayer.y &lt;= y+48-24)
                {
                dir = "a";
-               image_index = 4;
+               image_index = framesPerSide;
                }
               else  if (oPlayer.x &gt; x+32-16 &amp;&amp; oPlayer.x &lt; x+64-16 &amp;&amp; oPlayer.y &gt;= y-24 &amp;&amp; oPlayer.y &lt;= y+48-24)
                {
                dir = "d";
-               image_index = 8;
+               image_index = framesPerSide * 2;
                }
 
               else               
@@ -190,10 +192,10 @@ if (instance_number(oPlayer) &gt; 0)
               dir = last_dir;
                  switch(dir) 
                   {
-                   case "w": {image_index = 12 dir="s"; break;};  
-                   case "s": {image_index = 0 dir="w";  break;}; 
-                   case "a": {image_index = 4 dir="a"; break;};
-                   case "d": {image_index = 8 dir="d"; break;};
+                   case "w": {image_index = framesPerSide * 3; dir="s"; break;};  
+                   case "s": {image_index = 0; dir="w";  break;}; 
+                   case "a": {image_index = framesPerSide; dir="a"; break;};
+                   case "d": {image_index = framesPerSide * 2; dir="d"; break;};
 
                   }
               }
@@ -265,13 +267,13 @@ draw_text(x + 48, y, dir);
 
 if (timeline_running &amp;&amp; (timeline_position &gt;= (timeline_max_moment(timeline_index))))
     {
-     timeline_running = false
+     timeline_running = false;
      spd = tempSpd;
      timeline_position = 0;
     }
 if (timeline_running)
     {
-     draw_text(x, y - 32, "Cutscene"); // Debug
+  //   draw_text(x, y - 32, "Cutscene"); // Debug
     }
 else 
     {
@@ -283,14 +285,15 @@ else
      speed            = 0;
     }
     
-if (mood == "cutscene" &amp;&amp; distance_to_point(real(cutsceneX), real(cutsceneY)) &gt; 1)
+if (mood == "cutscene" &amp;&amp; distance_to_point(real(cutsceneX), real(cutsceneY)) &gt; real(spd))
 {
 move_towards_point(real(cutsceneX), real(cutsceneY), real(spd));
 }
 else if (mood == "cutscene" &amp;&amp; distance_to_point(real(cutsceneX), real(cutsceneY)) &lt; real(spd))
     {
-    
+     speed = 0;
     }
+//draw_line(x, y, cutsceneX, cutsceneY);
 }
 
 // Handle speech queue
@@ -308,8 +311,8 @@ if (speechIn)
      if (speechMode == 0) {speechAlpha = lerp(speechAlpha, 1.1, 0.1); if (speechAlpha &gt;= 1) {speechMode = 1; speechTimer = 40;}}
      if (speechMode == 1) {speechTimer--; if (speechTimer &lt;= 0) {speechMode = 2;}}
      if (speechMode == 2) {speechAlpha = lerp(speechAlpha, -0.1, 0.1); if (speechAlpha &lt;= 0) {speechMode = 0; speechIn = false; speechTimer = 100;}}
-     
-     fnt();
+
+     fnt(fntPixel);          
      clr (c_black, speechAlpha / 2);
      draw_roundrect_colour_ext(x - string_width(speechCurrentText) / 2 - 10,y - 48,x + string_width(speechCurrentText) / 2+10,y+string_height(speechCurrentText)+2-48,20,20,c_black,c_black,0);
      clr(c_white, speechAlpha);

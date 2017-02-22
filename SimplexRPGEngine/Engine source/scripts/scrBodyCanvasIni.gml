@@ -3,7 +3,7 @@
 for (i = 1; i < 16; i++)
 {
 bci[argument[0], i-1] = sCatchError;
-if (argument_count > i) {bci[argument[0], i-1] = argument[i];}
+if (argument_count > i) {bci[argument[0], i-1] = argument[i]; defaultBci[argument[0], i-1] = argument[i];}
 }
 
 enum animationEnum

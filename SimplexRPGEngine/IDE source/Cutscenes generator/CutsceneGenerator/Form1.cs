@@ -41,7 +41,7 @@ namespace CutsceneGenerator
             tempName = tempName + ".timeline.gmx";
             tempName = tempName.Replace(" ", "");
 
-            xw = new XmlTextWriter("C:\\Users\\Matěj\\Documents\\DragonRise3\\DragonRise3\\Engine source\\timelines\\" + tempName, Encoding.UTF8);
+            xw = new XmlTextWriter(@"C:\Users\Matěj\Documents\simplex\SimplexRPGEngine\Engine source\timelines" + tempName, Encoding.UTF8);
             xw.Formatting = Formatting.Indented;
             xw.WriteStartElement("timeline");
             getOutput();
@@ -51,7 +51,7 @@ namespace CutsceneGenerator
             sr.Close();
             List<string> stringList = new List<string>();
 
-            StreamReader fr = new StreamReader(@"C:\Users\Matěj\Documents\DragonRise3\DragonRise3\Engine source\DragonRise3.project.gmx");
+            StreamReader fr = new StreamReader(@"C:\Users\Matěj\Documents\simplex\SimplexRPGEngine\Engine source\DragonRise3.project.gmx");
             while ((line = fr.ReadLine()) != null)
             {
                 textBox2.Text += line + "\r\n";
@@ -76,7 +76,7 @@ namespace CutsceneGenerator
             stringList.Insert(finalI, @"<timeline>timelines\" + noSuffix + "</timeline>");  
               
 
-            StreamWriter sf = new StreamWriter(@"C: \Users\Matěj\Documents\DragonRise3\DragonRise3\Engine source\DragonRise3.project.gmx");
+            StreamWriter sf = new StreamWriter(@"C:\Users\Matěj\Documents\simplex\SimplexRPGEngine\Engine source\DragonRise3.project.gmx");
             foreach(string l in stringList)
             {
                 sf.WriteLine(l);

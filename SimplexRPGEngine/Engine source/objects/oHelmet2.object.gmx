@@ -28,7 +28,7 @@
             <string>/// Initialize item
 
 scrItemSetUp(0, 0, itemEnum.itemHelmetHat);
-scrItemSetProperties(false, "Štramácký klobouk", "Nedbalá elegance, kterou vyzařuje spolu s úsměvy jeho předchozích majitelů už otevřelo cestu ke klínům mnoha dívek.", materialEnum.materialNone, "helma", 45, rarity_normal, true, "", c_dkgray, 25, 25, 5);
+scrItemSetProperties(false, "Štramácký klobouk", "Nedbalá elegance, kterou vyzařuje spolu s úsměvy jeho předchozích majitelů už otevřelo cestu ke klínům mnoha dívek.", materialEnum.materialNone, "helmet", 45, rarity_normal, true, "", c_dkgray, 25, 25, 5);
 scrItemSetOptions();
 
 scrItemSetProperty(vlastnost_max_zivot, 2);

@@ -37,6 +37,7 @@ scrShopSetDiscount();
 scrShopSetInfo("Nejlepší ceny!");
 
 scrShopSetPrice(0, 1);
+framesPerSide = 4;
 </string>
           </argument>
         </arguments>
@@ -218,7 +219,6 @@ dialogueNext()
             <string>/// Draw self
 
 event_inherited();
-
 </string>
           </argument>
         </arguments>

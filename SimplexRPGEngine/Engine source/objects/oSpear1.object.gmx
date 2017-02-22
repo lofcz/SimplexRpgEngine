@@ -28,7 +28,7 @@
             <string>/// Initialize item
 
 scrItemSetUp(0, 0, itemEnum.itemSpear1);
-scrItemSetProperties(false, "Dřevěný oštěp", "Jasanové ratiště je opatřené železnou špičkou. V rukou zručného bojovníka je oštěp velmi nebezpečná a pro soupeře nepředvídatelná zbraň.", materialEnum.materialNone, "zbraň", 15, rarity_normal, true, "", c_white, 16, 20, 5);
+scrItemSetProperties(false, "Dřevěný oštěp", "Jasanové ratiště je opatřené železnou špičkou. V rukou zručného bojovníka je oštěp velmi nebezpečná a pro soupeře nepředvídatelná zbraň.", materialEnum.materialNone, "weapon", 15, rarity_normal, true, "", c_white, 16, 20, 5);
 scrItemSetOptions();
 
 // Rarity distribution

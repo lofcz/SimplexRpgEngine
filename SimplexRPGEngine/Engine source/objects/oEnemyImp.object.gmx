@@ -365,6 +365,7 @@ scrEnemyDie(true);
             <kind>1</kind>
             <string>/// Current movement was finished
 
+
 path_delete(path);
 mp_grid_destroy(grid);
 grid = mp_grid_create(x - 400, y - 300, (view_wview) / 32, (view_hview) / 32, 32, 32);

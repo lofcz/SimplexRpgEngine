@@ -42,7 +42,7 @@ itm_info_head           = "Pravá zpevněná bota";
 itm_info_text           = "Testing equipment";
 itm_options[0]          = "Nabídka 2";
 itm_sprite              = sprite_index;
-itm_equip_slot          = "rightPlate";
+itm_equip_slot          = "legs";
 
 
 vlastnost[vlastnost_max_stit] = irandom_range(1, 6);

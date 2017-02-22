@@ -179,8 +179,8 @@
     <instance objName="oTransitionCollision" x="196" y="144" name="inst_03FF91B3" locked="0" code="level = mapHouse1;&#xA;text = &quot;Vstoupit do &quot; + scrColorflag(c_yellow) + &quot;Tajemné jeskyně&quot; + scrEndColorflag() + &quot;.&quot;;&#xA;xx = x;&#xA;yy = y-64;&#xA;text_lenght = 0;&#xA;player_pos = 0;" scaleX="1" scaleY="1.90625" colour="4294967295" rotation="0"/>
     <instance objName="oJug" x="1624" y="832" name="inst_1F5E4902" locked="0" code="scrBCAddLoot(oGold2, 2, 6, 10);&#xA;set_sprite(sBrokenJug, 0);&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oArmorLeather" x="96" y="664" name="inst_21A22A1B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oShoulderRightLeather" x="320" y="552" name="inst_4D7F0722" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oShoulderLeftLeather" x="384" y="600" name="inst_3AC4B236" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oLegs2" x="320" y="552" name="inst_4D7F0722" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oShoulders1" x="384" y="600" name="inst_3AC4B236" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oShieldWooden" x="80" y="536" name="inst_2200C3DC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oRingGolden" x="192" y="488" name="inst_74694EC3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oRingGolden" x="192" y="448" name="inst_DCF63D36" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -193,8 +193,8 @@
     <instance objName="oCrystallisatorFire" x="232" y="440" name="inst_C62192FA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBoosterXP" x="384" y="560" name="inst_4E471EFF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oBeltLeather" x="256" y="760" name="inst_1B4372D1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oBootLeftIron" x="192" y="512" name="inst_0698BA81" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="oBootRightIron" x="352" y="624" name="inst_AADAE359" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oGloveIron" x="192" y="512" name="inst_0698BA81" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="oBootsIron" x="352" y="624" name="inst_AADAE359" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="688" y="208" name="inst_A6283249" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3, true);" scaleX="0.375" scaleY="0.375" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="1120" y="52" name="inst_2D3C1245" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3);" scaleX="0.5625" scaleY="0.4375" colour="4294967295" rotation="0"/>
     <instance objName="oNonsolidCollision" x="336" y="144" name="inst_DC4BF107" locked="0" code="scrNonsolidCollisionIni(x, y-32, cStaticInstance, true, &quot;breakableGrass&quot;, 3, layerEnum.layer3, true);" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>

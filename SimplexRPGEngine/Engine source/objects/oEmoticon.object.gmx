@@ -28,6 +28,7 @@
             <string>/// Set up
 
 image_speed = 0;
+y -= 16;
 </string>
           </argument>
         </arguments>
@@ -52,8 +53,8 @@ image_speed = 0;
             <kind>1</kind>
             <string>/// Animate
 
-image_alpha = lerp(image_alpha, 0, spd);
-y = lerp(y, ystart - 40, spd * 2);
+image_alpha = lin(image_alpha, 0, -spd / 3);
+y = lin(y, ystart - 40, -spd * 3);
 
 if (image_alpha &lt; 0.02) {instance_destroy();}
 </string>

@@ -44,7 +44,7 @@ if (mouse_in(xx+equ_axis_head_x,xx+equ_axis_head_x+32,yy+equ_axis_head_y,yy+equ_
    if (mouse_check_button_pressed(mb_left)) {if (oInventory.equiped[1]) {equipmentUnequip(1, false);}}
    }
    
-if (oInventory.drag && oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "helma")
+if (oInventory.drag && oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "helmet")
    { 
    if (!oInventory.equiped[1]) {draw_hover_block(xx+equ_axis_head_x+2,xx+equ_axis_head_x+34,yy+equ_axis_head_y-1,yy+equ_axis_head_y+32,c_lime);}
    equipmentHoldEquip(1,xx+equ_axis_head_x,xx+equ_axis_head_x+32,yy+equ_axis_head_y,yy+equ_axis_head_y+32);
@@ -69,7 +69,7 @@ if (mouse_in(xx+equ_axis_left_plate_x,xx+equ_axis_left_plate_x+32,yy+equ_axis_le
       }
    }
    
-if (oInventory.drag && oInventory.slot[oInventory.h_c,inv_item_equip_slot] = "leftPlate" )
+if (oInventory.drag && oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "shoulders" )
    { 
    if (!oInventory.equiped[4]) {draw_hover_block(xx+equ_axis_left_plate_x,xx+equ_axis_left_plate_x+32,yy+equ_axis_left_plate_y+1,yy+equ_axis_left_plate_y+33,c_lime,0.5);}
    equipmentHoldEquip(4,xx+equ_axis_left_plate_x,xx+equ_axis_left_plate_x+32,yy+equ_axis_left_plate_y,yy+equ_axis_left_plate_y+32);
@@ -93,7 +93,7 @@ if (mouse_in(xx+equ_axis_right_plate_x,xx+equ_axis_right_plate_x+32,yy+equ_axis_
       }
    }
 
-if (oInventory.drag && oInventory.slot[oInventory.h_c,inv_item_equip_slot] = "rightPlate" )
+if (oInventory.drag && oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "legs" )
    { 
    if (!oInventory.equiped[3]) {draw_hover_block(xx+equ_axis_right_plate_x,xx+equ_axis_right_plate_x+32,yy+equ_axis_right_plate_y,yy+equ_axis_right_plate_y+32,c_lime,0.5);}
    equipmentHoldEquip(3,xx+equ_axis_right_plate_x,xx+equ_axis_right_plate_x+32,yy+equ_axis_right_plate_y,yy+equ_axis_right_plate_y+32);
@@ -142,7 +142,7 @@ if (mouse_in(xx+equ_axis_right_hand_x,xx+equ_axis_right_hand_x+32,yy+equ_axis_ri
       } 
    }
       
-if (oInventory.drag && oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "zbraň")
+if (oInventory.drag && oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "weapon")
    { 
    if (oInventory.equiped[0] = 0) {draw_hover_block(xx+equ_axis_right_hand_x,xx+equ_axis_right_hand_x+32,yy+equ_axis_right_hand_y,yy+equ_axis_right_hand_y+32,c_lime,0.5);}
    equipmentHoldEquip(0,xx+equ_axis_right_hand_x,xx+equ_axis_right_hand_x+32,yy+equ_axis_right_hand_y,yy+equ_axis_right_hand_y+32);
@@ -497,7 +497,7 @@ if (mouse_in(xx+equ_axis_left_boot_x,xx+equ_axis_left_boot_x+32,yy+equ_axis_left
       }
    }
    
-if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] = "leftBoot" )
+if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] = "hands" )
    { 
    if (oInventory.equiped[17] = 0) {draw_hover_block(xx+equ_axis_left_boot_x,xx+equ_axis_left_boot_x+32,yy+equ_axis_left_boot_y,yy+equ_axis_left_boot_y+32,c_lime,0.5);}
    equipmentHoldEquip(17,xx+equ_axis_left_boot_x,xx+equ_axis_left_boot_x+32,yy+equ_axis_left_boot_y,yy+equ_axis_left_boot_y+32);
@@ -523,7 +523,7 @@ if (mouse_in(xx+equ_axis_right_boot_x,xx+equ_axis_right_boot_x+32,yy+equ_axis_ri
       }
    }
    
-if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] = "rightBoot" )
+if (oInventory.drag = 1 && oInventory.slot[oInventory.h_c,inv_item_equip_slot] = "boots" )
    { 
    if (oInventory.equiped[18] = 0) {draw_hover_block(xx+equ_axis_right_boot_x,xx+equ_axis_right_boot_x+32,yy+equ_axis_right_boot_y,yy+equ_axis_right_boot_y+32,c_lime,0.5);}
    equipmentHoldEquip(18,xx+equ_axis_right_boot_x,xx+equ_axis_right_boot_x+32,yy+equ_axis_right_boot_y,yy+equ_axis_right_boot_y+32);

@@ -15,6 +15,7 @@ obj.mood      = "cutscene";
 obj.cutsceneX = xx;
 obj.cutsceneY = yy;
 obj.spd       = s;
+obj.isStanding  = false;
 
 if (floor(xx) > floor(x)) {dir = "d";}
 else if (floor(xx) < floor(x)) {dir = "a";}

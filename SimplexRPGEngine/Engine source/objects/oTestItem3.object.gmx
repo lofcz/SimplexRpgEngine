@@ -28,7 +28,7 @@
             <string>/// Initialize item
 
 scrItemSetUp(0, 0, itemEnum.itemSwordWooden);
-scrItemSetProperties(false, "Dřevěný meč", "Jednoduchá, poměrně neškodná zbraň. Pořádný úder je nicméně schopný napáchat určité škody, popřípadě omráčit protivníka.", materialEnum.materialNone, "zbraň", 6, rarity_normal, true, "", c_white, 16, 30, 4);
+scrItemSetProperties(false, "Dřevěný meč", "Jednoduchá, poměrně neškodná zbraň. Pořádný úder je nicméně schopný napáchat určité škody, popřípadě omráčit protivníka.", materialEnum.materialNone, "weapon", 6, rarity_normal, true, "", c_white, 16, 30, 4);
 scrItemSetOptions();
 
 // Rarity distribution
