@@ -1374,8 +1374,6 @@ else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "ring" && oInven
     {
      if (!equiped[6]) {equipmentHoldEquip(6, 0, 0, 0, 0, true);}
      else if (!equiped[7]) {equipmentHoldEquip(7, 0, 0, 0, 0, true);}  
-     else if (!equiped[8]) {equipmentHoldEquip(8, 0, 0, 0, 0, true);}  
-     else if (!equiped[9]) {equipmentHoldEquip(9, 0, 0, 0, 0, true);}  
      else {{equipmentHoldEquip(6, 0, 0, 0, 0, true);}}
     }
 else if (oInventory.slot[oInventory.h_c,inv_item_equip_slot] == "necklace" && oInventory.slot_vlastnosti[oInventory.h_c, vlastnost_identified])
@@ -1462,7 +1460,7 @@ else if (e == "rightBoot")      {r = "Pravá bota";}
 else if (e == "leftBoot")       {r = "Levá bota";}
 else if (e == "belt")           {r = "Opasek";}
 else if (e == "armor")          {r = "Brnění";}
-else if (e == "rightPlate")     {r = "Pravý chránič";}
+else if (e == "legs")           {r = "Kalhoty";}
 else if (e == "leftPlate")      {r = "Levý chránič";}
 else if (e == "helma")          {r = "Helma";}
 else if (e == "medal")          {r = "Odznak";}
@@ -1492,6 +1490,7 @@ else if (e == "card")           {r = "Karta";}
 
 
 return r;
+
 #define inventoryDrawStat
 /// inventoryDrawStat(slot, index, text, [suffix])
 

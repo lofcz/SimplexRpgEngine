@@ -28,7 +28,11 @@
             <string>/// Initialize item
 
 scrItemSetUp(0, 0, itemEnum.itemShoulderRightLeather);
+<<<<<<< HEAD:SimplexRPGEngine/Engine source/objects/oLegs2.object.gmx
 scrItemSetProperties(false, "Kožené kalhoty", "Čtyřdílný nárameník z kvalitního usně. Ochrání i proti šipce z kuše.", materialEnum.materialNone, "legs", 40, rarity_normal, true, "", c_dkgray, 35, 35, 4);
+=======
+scrItemSetProperties(false, "Kožený chránič pravého ramene", "Čtyřdílný nárameník z kvalitního usně. Ochrání i proti šipce z kuše.", materialEnum.materialNone, "legs", 40, rarity_normal, true, "", c_dkgray, 35, 35, 4);
+>>>>>>> b1abb0911e318d05801cac5fb3e33099d13f6b01:SimplexRPGEngine/Engine source/objects/oShoulderRightLeather.object.gmx
 scrItemSetOptions();
 scrItemSetBodyCanvas(animationSlotsEnum.legs, sBodyCanvasLegs1);
 
