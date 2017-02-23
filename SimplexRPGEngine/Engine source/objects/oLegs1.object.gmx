@@ -26,8 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>/// Initialize item
-
-<<<<<<< HEAD
 scrItemSetUp(0,0);
 scrItemBasic(itemEnum.itemLegs1);
 scrItemSetBodyCanvas(animationSlotsEnum.legs, sBodyCanvasLegs3);
@@ -44,11 +42,10 @@ itm_info_text           = "Testing equipment";
 itm_options[0]          = "Nabídka 2";
 itm_sprite              = sprite_index;
 itm_equip_slot          = "legs";
-=======
+
 scrItemSetUp(0, 0, itemEnum.itemLegs1);
 scrItemSetProperties(false, "Ocelové chrániče stehen", "Kvalitní chrániče z velmi čisté oceli jsou schopné zastavit takřka libovolný projektil.", materialEnum.materialNone, "legs", 45, rarity_normal, true, "", c_dkgray, 25, 25, 5);
 scrItemSetOptions();
->>>>>>> b1abb0911e318d05801cac5fb3e33099d13f6b01
 
 scrItemSetProperty(vlastnost_max_zivot, 2);
 scrItemSetProperty(vlastnost_max_stamina, 3);
