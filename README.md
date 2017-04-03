@@ -25,7 +25,7 @@
 ## A handful of commercially successful projects powered by the Simplex RPG Engine:
 **Fate of Hero** (Kedarsoft)  
 *A successful crowdfunding campaign on Startovac.cz, 10 000 CZK (370 EUR) raised.*   
-<a href="https://www.startovac.cz/projekty/fate-of-hero/">![](http://s13.postimg.org/u6dvlctif/5303_aaaa_png_200x113.png)</a>
+<a href="https://www.startovac.cz/projekty/fate-of-hero/">![](https://s27.postimg.org/u9agoid37/image.png)</a>
 
 **Shuups** (K&P Games)  
 *Published on the Google Play*   
