@@ -19,9 +19,7 @@
 * HTML5 and Android ready.
 
 ## Supported IDEs:
-<img align="middle" width="128" height="128" src="https://s21.postimg.org/vghqza03r/rounded_corners.png">
-<img align="middle" src="https://s10.postimg.org/tvc4uhp3t/Lateralgmlogo.png">
-<img align="middle" width="128" height="128" src="https://s15.postimg.org/jrlizdqor/rounded_corners.jpg">  <img align="middle" width="128" height="128" src="https://s21.postimg.org/pisaduls7/rounded_corners.png">  
+<img align="middle" width="128" height="128" src="https://s21.postimg.org/vghqza03r/rounded_corners.png"> <img align="middle" src="https://s10.postimg.org/tvc4uhp3t/Lateralgmlogo.png"> <img align="middle" width="128" height="128" src="https://s15.postimg.org/jrlizdqor/rounded_corners.jpg"> <img align="middle" width="128" height="128" src="https://s21.postimg.org/pisaduls7/rounded_corners.png">  
 
 
 ## A handful of commercially successful projects powered by the Simplex RPG Engine:
@@ -34,15 +32,9 @@
 <a href="https://play.google.com/store/apps/details?id=sk.KandPGames.Shuups">![](http://s21.postimg.org/wpxsja7o7/Noname.png)</a>
 
 ## Engine preview: 
-<img align="middle" width="256" height="196" src="https://s28.postimg.org/5wf0fchkt/image.png">
-<img align="middle" width="256" height="196" src="https://s23.postimg.org/v8wvav5vv/image.png">
-<img align="middle" width="256" height="196" src="https://s23.postimg.org/gmorl1uez/image.png">
-<img align="middle" width="256" height="196" src="https://s27.postimg.org/9bdyorsr7/image.png">
-<img align="middle" width="256" height="196" src="https://s27.postimg.org/m03kjchur/image.png">
-<img align="middle" width="256" height="196" src="https://s27.postimg.org/4jgle4ir7/image.png">
-<img align="middle" width="256" height="196" src="https://s23.postimg.org/m7jo1ymdn/image.png">
-<img align="middle" width="256" height="196" src="https://s30.postimg.org/lj5rlrzcx/image.png">
-<img align="middle" width="256" height="196" src="https://s23.postimg.org/itbvdjtsr/image.png">
+<img align="middle" width="256" height="196" src="https://s28.postimg.org/5wf0fchkt/image.png"> <img align="middle" width="256" height="196" src="https://s23.postimg.org/v8wvav5vv/image.png"> <img align="middle" width="256" height="196" src="https://s23.postimg.org/gmorl1uez/image.png">
+<img align="middle" width="256" height="196" src="https://s27.postimg.org/9bdyorsr7/image.png"> <img align="middle" width="256" height="196" src="https://s27.postimg.org/m03kjchur/image.png"> <img align="middle" width="256" height="196" src="https://s27.postimg.org/4jgle4ir7/image.png">
+<img align="middle" width="256" height="196" src="https://s23.postimg.org/m7jo1ymdn/image.png"> <img align="middle" width="256" height="196" src="https://s30.postimg.org/lj5rlrzcx/image.png"> <img align="middle" width="256" height="196" src="https://s23.postimg.org/itbvdjtsr/image.png">
 
 ## The future is within your grasp. Start [here](https://github.com/lofcz/SimplexRpgEngine/wiki).
 
