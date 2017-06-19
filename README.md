@@ -21,6 +21,12 @@
 ## Supported IDEs:
 <img align="middle" width="128" height="128" src="https://s21.postimg.org/vghqza03r/rounded_corners.png"> <img align="middle" src="https://s10.postimg.org/tvc4uhp3t/Lateralgmlogo.png"> <img align="middle" width="128" height="128" src="https://s15.postimg.org/jrlizdqor/rounded_corners.jpg"> <img align="middle" width="128" height="128" src="https://s21.postimg.org/pisaduls7/rounded_corners.png">  
 
+## Engine awards:
+<img align="middle" width="30%" height="30%" src="https://s15.postimg.org/w42yaw8rv/image.jpg"> <img align="middle" width="30%" height="30%" src="https://s15.postimg.org/xbwp07xez/image.jpg">
+
+**Winner of national and regional round of the SOČ competition.**  
+<a href="http://www.soc.cz/">Website</a>
+
 
 ## A handful of commercially successful projects powered by the Simplex RPG Engine:
 **Fate of Hero** (Kedarsoft)  
