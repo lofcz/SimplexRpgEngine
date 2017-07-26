@@ -1,0 +1,1 @@
+/// @description Initializes any GameObject

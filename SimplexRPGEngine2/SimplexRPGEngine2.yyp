@@ -1,0 +1,1103 @@
+{
+    "id": "465077a3-8f26-47e9-a943-5eca7ca2163e",
+    "modelName": "GMProject",
+    "mvc": "1.0",
+    "IsDnDProject": false,
+    "configs": [
+        
+    ],
+    "option_ecma": false,
+    "parentProject": {
+        "id": "cb7f9699-7466-470e-a370-b53c1ae6c522",
+        "modelName": "GMProjectParent",
+        "mvc": "1.0",
+        "alteredResources": [
+            {
+                "Key": "ed6a955d-5826-4f98-a450-10b414266c27",
+                "Value": {
+                    "configDeltas": [
+                        "inherited"
+                    ],
+                    "id": "b55bb962-930c-4cbb-814f-4e178755d586",
+                    "resourcePath": "options\\main\\options_main.yy",
+                    "resourceType": "GMMainOptions"
+                }
+            }
+        ],
+        "hiddenResources": [
+            
+        ],
+        "projectPath": "${base_project}"
+    },
+    "resources": [
+        {
+            "Key": "020be543-91ff-4e6b-a233-14b2945e698b",
+            "Value": {
+                "id": "f0f2e087-c860-4ed4-8909-2a180e2dbdd2",
+                "resourcePath": "sprites\\sBodyCanvasThrustHead1\\sBodyCanvasThrustHead1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "03d5bac8-a7da-46bf-85ab-fad08066a639",
+            "Value": {
+                "id": "4a30c0c8-6d8a-46df-b783-09969d57f579",
+                "resourcePath": "sprites\\sBodyCanvasDie1\\sBodyCanvasDie1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "047f3a7c-a894-45e6-b59a-ce0a4add1e76",
+            "Value": {
+                "id": "fbd3976d-7a3a-477e-88b9-bbfdc760d270",
+                "resourcePath": "sprites\\sBodyCanvasFireLegs1\\sBodyCanvasFireLegs1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "0771a96b-9300-4f89-9c0d-05758990c759",
+            "Value": {
+                "id": "100202d4-5e59-4b3b-961e-f386fae15155",
+                "resourcePath": "sprites\\sBodyCanvasFireHands1\\sBodyCanvasFireHands1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "07c0e386-fca2-44c6-83f1-8158f76ad141",
+            "Value": {
+                "id": "3a0ab448-6d0d-4ffc-9f59-27860295305b",
+                "resourcePath": "sprites\\sBodyCanvasBashHair1\\sBodyCanvasBashHair1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "08bd5ba2-793b-497a-aa43-af490e20937a",
+            "Value": {
+                "id": "8a5090b3-430d-4248-a4ca-e3df15d3d923",
+                "resourcePath": "sprites\\sBodyCanvasDieShoes1\\sBodyCanvasDieShoes1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "0a9e9792-eee5-4011-a31b-448be6832b7b",
+            "Value": {
+                "id": "d17cad8b-a847-4930-9ebc-949bfe4ec019",
+                "resourcePath": "views\\0a9e9792-eee5-4011-a31b-448be6832b7b.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "0f330c2e-8e46-402d-be99-32cef699a4fc",
+            "Value": {
+                "id": "5dd270af-a51c-418a-a1f7-5a61a7d77944",
+                "resourcePath": "sprites\\sBodyCanvasThrustHands1\\sBodyCanvasThrustHands1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "0f97347a-d3db-43d0-b02e-6e1cab629f4c",
+            "Value": {
+                "id": "b8838cdc-342b-4f24-8f46-5b3112b5cb1a",
+                "resourcePath": "views\\0f97347a-d3db-43d0-b02e-6e1cab629f4c.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "0fa3cd36-af9a-44dc-bdd4-a9d359244b49",
+            "Value": {
+                "id": "20fd9a11-8631-4104-a763-58f1b342d574",
+                "resourcePath": "sprites\\sBodyCanvasAttack1\\sBodyCanvasAttack1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "12040d52-1f44-4a08-90e6-27a9160f5be9",
+            "Value": {
+                "id": "4653ec36-cd5f-4254-a99e-1ee46b2988ab",
+                "resourcePath": "sprites\\sBodyCanvasThrustHead2\\sBodyCanvasThrustHead2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "152a203b-de21-413b-95ff-01eb07b1378e",
+            "Value": {
+                "id": "a657b725-c2ff-499d-932f-19a83eede824",
+                "resourcePath": "views\\152a203b-de21-413b-95ff-01eb07b1378e.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "16eb5412-a03a-4f10-ba7b-69fcaeefb096",
+            "Value": {
+                "id": "4cb456fc-544c-4efc-83c6-232aad3e748e",
+                "resourcePath": "sprites\\sBodyCanvasAttackArmor2\\sBodyCanvasAttackArmor2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "18858d71-95b6-4088-89c8-3b5318595827",
+            "Value": {
+                "id": "50c5878c-e9d5-4aab-8026-fffa0ad3779e",
+                "resourcePath": "views\\18858d71-95b6-4088-89c8-3b5318595827.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "1a20f05e-248e-4c7f-a88b-aa07148c3490",
+            "Value": {
+                "id": "a785bda3-bd1e-492a-9872-c821632331dd",
+                "resourcePath": "sprites\\sBodyCanvasDieArmor1\\sBodyCanvasDieArmor1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "1ce39e8d-8e19-47b8-9a7f-ce2e1f27742b",
+            "Value": {
+                "id": "152ddfd5-278f-4833-b33f-824dc031ca03",
+                "resourcePath": "sprites\\sBodyCanvasThrustArmor1\\sBodyCanvasThrustArmor1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "22503b9e-3ad6-4634-acd7-7c8db31c1fc4",
+            "Value": {
+                "id": "4989a5ca-f81b-4921-a00b-1f14515272e6",
+                "resourcePath": "sprites\\sBodyCanvasArmor5\\sBodyCanvasArmor5.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "2369f928-ab19-44cb-a7f8-d3fe9b45ea27",
+            "Value": {
+                "id": "bfcb67c5-f69f-443e-955e-1342375a9369",
+                "resourcePath": "sprites\\sBodyCanvasDieHood1\\sBodyCanvasDieHood1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "27d1ba4d-33fd-4bd9-9956-9b30b7e040bc",
+            "Value": {
+                "id": "d5a0e086-1e6f-483c-9872-693a951015d4",
+                "resourcePath": "sprites\\sBodyCanvasRing1\\sBodyCanvasRing1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "2809e40f-8dbb-4897-a1ad-f73836be2d01",
+            "Value": {
+                "id": "687a4971-a84d-4cc1-a5d9-07192ac74cf0",
+                "resourcePath": "views\\2809e40f-8dbb-4897-a1ad-f73836be2d01.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "287c86ce-9d43-40f2-98b9-ce2c78fe0e9c",
+            "Value": {
+                "id": "22311551-7a91-47ce-9cd3-053fb0053463",
+                "resourcePath": "sprites\\sBodyCanvasLegs1\\sBodyCanvasLegs1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "289d1830-b813-4f74-b1aa-7ddb3ec8ad1b",
+            "Value": {
+                "id": "ab92797a-a314-403c-9a97-821715eb94bf",
+                "resourcePath": "sprites\\sBodyCanvasAttackArmor3\\sBodyCanvasAttackArmor3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "2ea44b73-24a0-4309-8ec9-77a23a5e5e30",
+            "Value": {
+                "id": "b3ffcd6f-611d-4d35-8e77-a5a128741616",
+                "resourcePath": "views\\2ea44b73-24a0-4309-8ec9-77a23a5e5e30.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "3020b525-4038-469d-bbff-07e5fd11eb7a",
+            "Value": {
+                "id": "a3b60c1f-5677-4c80-86ea-e8e38379178c",
+                "resourcePath": "sprites\\sBodyCanvasBashNecklace1\\sBodyCanvasBashNecklace1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "378faf45-61c7-4660-82c4-d2219adef598",
+            "Value": {
+                "id": "cdc74682-6ccd-4e09-9952-8f8e12644115",
+                "resourcePath": "views\\378faf45-61c7-4660-82c4-d2219adef598.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "38b92d3b-54ed-4eef-84f8-121bafc367b5",
+            "Value": {
+                "id": "dc03d9f6-ef9b-4914-a276-e685f56fe95e",
+                "resourcePath": "sprites\\sBodyCanvasThrustArmor2\\sBodyCanvasThrustArmor2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "3970cca8-5a0e-4f5d-bc9d-a48d1549162c",
+            "Value": {
+                "id": "c7daf621-d67d-4060-b242-cb32a1ff932e",
+                "resourcePath": "views\\3970cca8-5a0e-4f5d-bc9d-a48d1549162c.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "3bfb478b-8f49-4950-bdb4-35eed480d2ff",
+            "Value": {
+                "id": "9d9a1c93-342b-4007-a6aa-ade05a1e2e24",
+                "resourcePath": "sprites\\sBodyCanvasFireArmor3\\sBodyCanvasFireArmor3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "3d5272ba-0494-469d-9f08-89205cab4ae0",
+            "Value": {
+                "id": "450b16c3-7072-40a3-9833-01ad861d0e9a",
+                "resourcePath": "sprites\\sBodyCanvasDieHair1\\sBodyCanvasDieHair1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "3dcca370-e034-468a-95c9-531a6aa3c678",
+            "Value": {
+                "id": "b649726e-c2ef-4c09-a415-146b51f91be2",
+                "resourcePath": "sprites\\sBodyCanvasAttackHead2\\sBodyCanvasAttackHead2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "464bc136-971a-4904-acbc-dae76a51e989",
+            "Value": {
+                "id": "38aec55f-de13-4c5e-a5a4-01fd540cadcb",
+                "resourcePath": "sprites\\sBodyCanvasDieLegs1\\sBodyCanvasDieLegs1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "46a6a1bc-e079-436f-b8c7-a522ed14fcf9",
+            "Value": {
+                "id": "bbb33f0d-c1ff-4450-825d-c68691e0163a",
+                "resourcePath": "sprites\\sBodyCanvasHumanWalk1\\sBodyCanvasHumanWalk1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "48fba817-f13d-4edf-a5e1-4f6d9bb1e761",
+            "Value": {
+                "id": "56e36bf8-1067-4722-98a3-e71c8ebfe3cf",
+                "resourcePath": "views\\48fba817-f13d-4edf-a5e1-4f6d9bb1e761.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "4a90ab74-49c6-42f2-905b-5e12360c27f8",
+            "Value": {
+                "id": "e0e64dcb-19b1-40ea-943c-f86052bc4d6b",
+                "resourcePath": "sprites\\sBodyCanvasAttackWeapon1\\sBodyCanvasAttackWeapon1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "4d723fff-e30c-405b-ae2b-cc548dccbcfd",
+            "Value": {
+                "id": "76e60321-9e8e-467b-b726-e91281239169",
+                "resourcePath": "sprites\\sBodyCanvasAttackShoes1\\sBodyCanvasAttackShoes1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "4e24927b-3e93-4ba1-bd8f-1049f12fbb25",
+            "Value": {
+                "id": "a89a2c00-f67f-4125-847e-31590ce295e1",
+                "resourcePath": "views\\4e24927b-3e93-4ba1-bd8f-1049f12fbb25.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "4e3b688e-5282-4fa2-af4c-81c4972a979a",
+            "Value": {
+                "id": "4cbaa54a-a03d-4f38-a85f-159296d05133",
+                "resourcePath": "sprites\\sBodyCanvasFireHair1\\sBodyCanvasFireHair1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "4ef93099-94a3-4214-b3b2-a12baa86f526",
+            "Value": {
+                "id": "aa9b3457-e999-4ed1-ba0c-baf022accb64",
+                "resourcePath": "sprites\\sBodyCanvasNecklace1\\sBodyCanvasNecklace1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "507d1d29-4650-47ab-a8c7-5263e110a4ec",
+            "Value": {
+                "id": "c79c8f02-f899-41d5-bbaa-c897a21a3f96",
+                "resourcePath": "sprites\\sBodyCanvasBashBelt1\\sBodyCanvasBashBelt1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "517470f1-7abb-49f4-b3bc-54175cded639",
+            "Value": {
+                "id": "7254c3bb-d887-44d9-8f3e-127cbb45e7bf",
+                "resourcePath": "sprites\\sBodyCanvasFireShoes1\\sBodyCanvasFireShoes1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "51f8e4d1-fca4-408e-9ff6-5df7fe0d3ff8",
+            "Value": {
+                "id": "20d2151e-2bde-4c31-b123-21b93db03135",
+                "resourcePath": "sprites\\sBodyCanvasFireArmor2\\sBodyCanvasFireArmor2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "52581653-1e71-454c-bb9d-c3787aed4f3d",
+            "Value": {
+                "id": "9610c679-f27b-4be4-98bb-9b6d94aa5211",
+                "resourcePath": "sprites\\sBodyCanvasThrustLegs1\\sBodyCanvasThrustLegs1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "5336ab6e-204d-49bd-b8f1-042c7d1e1f8f",
+            "Value": {
+                "id": "a26a52c4-81fd-4b25-bdb4-db5e1d31e21f",
+                "resourcePath": "sprites\\sBodyCanvasDieBelt1\\sBodyCanvasDieBelt1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "54b81d2b-02bc-437d-9383-c4e55c48398a",
+            "Value": {
+                "id": "e2519f5f-4412-42c0-adf3-2473dbb6180c",
+                "resourcePath": "sprites\\sBodyCanvasFireBow1\\sBodyCanvasFireBow1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "58c538f6-6702-4ce0-8652-ba0ace037ace",
+            "Value": {
+                "id": "c774e197-a7e6-422b-b427-42a9c2336ab7",
+                "resourcePath": "sprites\\sBodyCanvasShoes1\\sBodyCanvasShoes1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "592997d8-b5ee-4f90-9a6d-4eee27b96e11",
+            "Value": {
+                "id": "237ecece-73f3-4ead-9148-1e5efb7a519c",
+                "resourcePath": "sprites\\sBodyCanvasDieHands1\\sBodyCanvasDieHands1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "5a8e09cc-fe42-4117-9cd3-d09fa1e1ceab",
+            "Value": {
+                "id": "9fa4c1e9-1b83-4c85-8047-0c432fef837c",
+                "resourcePath": "views\\5a8e09cc-fe42-4117-9cd3-d09fa1e1ceab.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "5d31967b-d76f-4bfe-a5d3-815b36f98b63",
+            "Value": {
+                "id": "c52fdd62-efb8-4538-9fdb-b829ee03645c",
+                "resourcePath": "sprites\\sBodyCanvasBashHead2\\sBodyCanvasBashHead2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "5f653cd0-1028-49d5-8153-ae325acc8a5a",
+            "Value": {
+                "id": "dfe28b61-bfe7-4a54-9658-258195476921",
+                "resourcePath": "views\\5f653cd0-1028-49d5-8153-ae325acc8a5a.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "5fb737e6-2925-42f5-8bd4-b5f045775ae8",
+            "Value": {
+                "id": "2a8c2a54-df2f-4650-906d-d53050da98cf",
+                "resourcePath": "sprites\\sBodyCanvasBashArmor3\\sBodyCanvasBashArmor3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "60a27076-1373-4b8e-8ceb-8ff734dfd55b",
+            "Value": {
+                "id": "c98f828e-b8da-4dcb-85a2-aa7913725d7e",
+                "resourcePath": "sprites\\sBodyCanvasLegs3\\sBodyCanvasLegs3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "61455c50-2c14-4f72-8e62-4c09d3933f32",
+            "Value": {
+                "id": "8e1dc278-4ecb-4d0b-a172-5ed685fcfdda",
+                "resourcePath": "sprites\\sBodyCanvasAttackWeapon2\\sBodyCanvasAttackWeapon2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "636e2e7c-80fd-4129-97a4-f60cea2173ac",
+            "Value": {
+                "id": "a65494ba-96b3-47b5-8f40-69815aa76188",
+                "resourcePath": "sprites\\sBodyCanvasFireBelt1\\sBodyCanvasFireBelt1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "64445fcb-a370-4d1a-a174-01e9f19a020b",
+            "Value": {
+                "id": "ebadc793-176d-4296-9332-dba680ca6376",
+                "resourcePath": "sprites\\sBodyCanvasFire1\\sBodyCanvasFire1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "66888827-f2b8-4c1c-81b8-6b6ee37886ec",
+            "Value": {
+                "id": "3cfd210f-6ca2-4648-9bee-95e3269494e0",
+                "resourcePath": "sprites\\sBodyCanvasAttackNecklace1\\sBodyCanvasAttackNecklace1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "693d8df8-11a1-41fe-96d6-da0756cba2d8",
+            "Value": {
+                "id": "f0926a79-2954-4143-9ee7-d533bd9206f1",
+                "resourcePath": "sprites\\sBodyCanvasShoes2\\sBodyCanvasShoes2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "69f14129-204b-4cd7-a2df-5afe54a33d0c",
+            "Value": {
+                "id": "6b4ed9b7-4738-4cda-816b-2ade0f3cbc90",
+                "resourcePath": "views\\69f14129-204b-4cd7-a2df-5afe54a33d0c.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "7340657f-1093-458b-9489-9285e56d3f66",
+            "Value": {
+                "id": "c5be3481-7cce-4ac4-aa78-7fdc8fe7f5a3",
+                "resourcePath": "views\\7340657f-1093-458b-9489-9285e56d3f66.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "79a26243-f9ce-459f-9338-5f85e95f6ab7",
+            "Value": {
+                "id": "673d3300-f5f5-4792-a782-ddac890070f8",
+                "resourcePath": "sprites\\sBodyCanvasWeapon1\\sBodyCanvasWeapon1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "79d86940-4295-4724-9c39-a71893de7fd5",
+            "Value": {
+                "id": "394d9970-25ed-4198-ab8c-8067a4125f9b",
+                "resourcePath": "sprites\\sBodyCanvasArmor3\\sBodyCanvasArmor3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "80aa8237-cb07-4bcc-b3e4-8ca49d9c2a01",
+            "Value": {
+                "id": "a4b1dadc-a183-4f9b-9cec-494dafac30e0",
+                "resourcePath": "sprites\\sBodyCanvasThrustShoes1\\sBodyCanvasThrustShoes1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "82c7607b-489f-45bd-be1f-8ac508977114",
+            "Value": {
+                "id": "ca99d821-1576-4644-97da-a558364798e1",
+                "resourcePath": "sprites\\sBodyCanvasBashHands1\\sBodyCanvasBashHands1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "82ebac54-209a-42e8-a304-84c153b63bdd",
+            "Value": {
+                "id": "b141ea48-1176-4bea-9171-076418956770",
+                "resourcePath": "sprites\\sBodyCanvasFireHood1\\sBodyCanvasFireHood1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "831e0680-134b-4203-b3f3-c2afc5b641a6",
+            "Value": {
+                "id": "d4498988-d8d1-4b85-8bad-c4540933313a",
+                "resourcePath": "sprites\\sBodyCanvasAttackLegs1\\sBodyCanvasAttackLegs1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "86e76d5e-1e0e-4b32-9a8e-b66251ea9e62",
+            "Value": {
+                "id": "642d1bd6-9a39-4add-9486-d18bd49789a0",
+                "resourcePath": "views\\86e76d5e-1e0e-4b32-9a8e-b66251ea9e62.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "88741425-81ce-4631-b756-ecdb2bc6c5d4",
+            "Value": {
+                "id": "771a1850-56c1-41fe-b0b0-177d21a0b135",
+                "resourcePath": "sprites\\sBodyCanvasWeapon4\\sBodyCanvasWeapon4.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "8969d8a4-ee3f-45fc-8e29-fe2eaeb64b01",
+            "Value": {
+                "id": "6ec3de39-6e7a-422d-948a-170e1aad36a3",
+                "resourcePath": "sprites\\sBodyCanvasThrustHair1\\sBodyCanvasThrustHair1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "8b3b3e44-f98d-423c-b073-1595351a4448",
+            "Value": {
+                "id": "7b2d55ca-1b16-443b-9185-df3ba2aa7d02",
+                "resourcePath": "sprites\\sBodyCanvasBashShoes1\\sBodyCanvasBashShoes1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "8cee1650-82ad-4cf7-b7a9-a7925e2eb143",
+            "Value": {
+                "id": "1576fc1b-0893-4975-8ad3-4717d9d2a0b0",
+                "resourcePath": "views\\8cee1650-82ad-4cf7-b7a9-a7925e2eb143.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "8d781b5d-bc81-4250-a3e3-57331c07b569",
+            "Value": {
+                "id": "a5fcab5d-bc55-4088-9766-e22732d4b2ee",
+                "resourcePath": "views\\8d781b5d-bc81-4250-a3e3-57331c07b569.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "8ef96535-c76d-44dd-80d7-eddbfb23bf9f",
+            "Value": {
+                "id": "5062d7e6-00e5-48a2-91f7-9a929dbc6717",
+                "resourcePath": "sprites\\sBodyCanvasAttackShield1\\sBodyCanvasAttackShield1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "8f3a2dc5-f2b7-4ec6-b403-a9c082de7f8b",
+            "Value": {
+                "id": "f42d602f-841d-4e57-98eb-65f7c1e3fb5b",
+                "resourcePath": "sprites\\sBodyCanvasDieHead2\\sBodyCanvasDieHead2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "8fe60da8-b7d2-41fa-a7b0-6b6539b1af34",
+            "Value": {
+                "id": "c1350092-68dd-4e9e-913d-1f5791cb5c05",
+                "resourcePath": "sprites\\sBodyCanvasHair1\\sBodyCanvasHair1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "906ea9f6-8f71-4b4d-aa49-27e3a2158930",
+            "Value": {
+                "id": "84b79d25-79d6-4cc6-b7c1-979de330c13c",
+                "resourcePath": "objects\\parGameObject\\parGameObject.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "91546899-2de7-4866-ba0b-08de73007386",
+            "Value": {
+                "id": "6564f9ba-c856-4212-8a9f-b94a971d190e",
+                "resourcePath": "sprites\\sBodyCanvasArmor2\\sBodyCanvasArmor2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "947b022f-b11d-4731-bac8-c61195e026a1",
+            "Value": {
+                "id": "03c94c07-dd60-46af-b98f-775bcf1b002f",
+                "resourcePath": "sprites\\sBodyCanvasAttackHands1\\sBodyCanvasAttackHands1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "95bafad6-8eda-4153-b108-cc6707db127c",
+            "Value": {
+                "id": "58d1fb84-2768-4a22-bc3b-8fac5a92e6c9",
+                "resourcePath": "views\\95bafad6-8eda-4153-b108-cc6707db127c.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "9af541aa-d9eb-474d-9144-e222b825570c",
+            "Value": {
+                "id": "5e3cc447-f1b1-4d2a-96f5-ab97561c7736",
+                "resourcePath": "views\\9af541aa-d9eb-474d-9144-e222b825570c.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "9b70a90d-fbbe-4240-a38b-7d0265a281d9",
+            "Value": {
+                "id": "43b46cdd-3387-4417-85a6-13e8965a9f39",
+                "resourcePath": "sprites\\sBodyCanvasAttackArmor1\\sBodyCanvasAttackArmor1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "a184683c-fee1-4b6f-9a41-134556bbb9ee",
+            "Value": {
+                "id": "7caad6ee-0843-448e-83f4-494b250aa9e0",
+                "resourcePath": "sprites\\sBodyCanvasBash1\\sBodyCanvasBash1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "a443c9d8-2a4b-47ca-a5be-a08153824cf1",
+            "Value": {
+                "id": "35cb947f-a9eb-46b8-a9ca-ffc5fb8911d3",
+                "resourcePath": "sprites\\sBodyCanvasThrustBelt1\\sBodyCanvasThrustBelt1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "a490012f-a985-49b1-bb97-f0490871a47a",
+            "Value": {
+                "id": "a9486119-f52e-40e9-acda-872e4f4fde0b",
+                "resourcePath": "sprites\\sBodyCanvasHead1\\sBodyCanvasHead1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "a5b5495d-dc2b-4aec-b2e0-7475aba19f35",
+            "Value": {
+                "id": "14f00149-d865-4b01-aa70-3d387fcde620",
+                "resourcePath": "views\\a5b5495d-dc2b-4aec-b2e0-7475aba19f35.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "a633bcd1-db12-4861-9ab9-b4aa2cbbf2f4",
+            "Value": {
+                "id": "7eaea2b1-c9cc-49df-9886-54ddc0a8c6af",
+                "resourcePath": "views\\a633bcd1-db12-4861-9ab9-b4aa2cbbf2f4.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "a7f813ed-182e-4b4c-a58e-6a268449913b",
+            "Value": {
+                "id": "8f2ea5d6-98d3-460c-9c45-2b424b7b1cde",
+                "resourcePath": "views\\a7f813ed-182e-4b4c-a58e-6a268449913b.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "a9188620-a624-4a5a-83ae-a1b53faf038b",
+            "Value": {
+                "id": "5d585db9-d39f-432e-b122-dc71e7dcf5b0",
+                "resourcePath": "options\\linux\\options_linux.yy",
+                "resourceType": "GMLinuxOptions"
+            }
+        },
+        {
+            "Key": "a9d3d040-6738-416b-a1e3-ae1344a0e145",
+            "Value": {
+                "id": "6caa0bdd-974d-43c7-9255-b2b83cc03f65",
+                "resourcePath": "sprites\\sBodyCanvasArmor1\\sBodyCanvasArmor1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "ad283903-3046-4dd3-b70c-bb7308f6d86c",
+            "Value": {
+                "id": "bfa21524-8261-4263-b54a-4ca6f2d1d468",
+                "resourcePath": "sprites\\sBodyCanvasFireArrow1\\sBodyCanvasFireArrow1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "b0bcfe82-538c-4c02-9b7a-1bb7dfd40cee",
+            "Value": {
+                "id": "9af72930-a343-4a9c-9d9f-d202507d652e",
+                "resourcePath": "sprites\\sBodyCanvasBashRing1\\sBodyCanvasBashRing1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "b249ebf8-5018-4629-a5a3-27462a7bf424",
+            "Value": {
+                "id": "69a078c9-9e49-4cd8-88ff-c1e03eb52310",
+                "resourcePath": "sprites\\sBodyCanvasThrust1\\sBodyCanvasThrust1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "b2e10260-6254-495c-b22d-4ac98b7d4e20",
+            "Value": {
+                "id": "a3424cde-94dd-454b-a223-0b27b2e4c365",
+                "resourcePath": "views\\b2e10260-6254-495c-b22d-4ac98b7d4e20.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "b3b5f8cd-625b-4746-922e-cf377a717b66",
+            "Value": {
+                "id": "f0f025e1-49c4-4c31-8bbb-712d3f997560",
+                "resourcePath": "views\\b3b5f8cd-625b-4746-922e-cf377a717b66.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "b3bb40b9-e06a-42d4-9b65-c4abbcdd1a01",
+            "Value": {
+                "id": "b8aed18f-371f-4254-a278-1d7bff35d8c3",
+                "resourcePath": "sprites\\sBodyCanvasAttackBelt1\\sBodyCanvasAttackBelt1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "ba30a185-8783-4f04-881c-c18e633fbc3f",
+            "Value": {
+                "id": "a0ead470-309f-4e10-aa3f-b61ad8bc7600",
+                "resourcePath": "views\\ba30a185-8783-4f04-881c-c18e633fbc3f.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "bc3af9f9-419c-4ed7-a890-60a72baf5ad6",
+            "Value": {
+                "id": "7e5ebd6b-7c34-41f9-a4cc-aa5b61b73815",
+                "resourcePath": "views\\bc3af9f9-419c-4ed7-a890-60a72baf5ad6.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "bc3b5655-958a-48c7-ac3c-922677caea33",
+            "Value": {
+                "id": "b6c6e57a-fa97-47b1-8dc9-91bc119d8c54",
+                "resourcePath": "sprites\\sBodyCanvasShield1\\sBodyCanvasShield1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "c3b17662-5623-45db-b6b3-d1c00711aa5e",
+            "Value": {
+                "id": "7596e8e1-da6b-4c84-9a75-392c9529544b",
+                "resourcePath": "views\\c3b17662-5623-45db-b6b3-d1c00711aa5e.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "c994ae36-1fd5-4aef-900f-9f5996ff4027",
+            "Value": {
+                "id": "8157928c-1255-4eef-b9b7-3223f1fb3fd0",
+                "resourcePath": "sprites\\sBodyCanvasArmor4\\sBodyCanvasArmor4.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "ca7e3cf1-066c-4378-9cc9-a6b02499abe0",
+            "Value": {
+                "id": "e3538951-402a-4dc2-a7d0-433904d3fada",
+                "resourcePath": "views\\ca7e3cf1-066c-4378-9cc9-a6b02499abe0.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "cb03356f-3db1-420f-9b64-bd1d5085c0de",
+            "Value": {
+                "id": "10cb98b6-d091-4302-af95-0f8ca8b9d077",
+                "resourcePath": "sprites\\sBodyCanvasThrustWeapon1\\sBodyCanvasThrustWeapon1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "cb426b84-e4b6-484c-9496-f820b1f6a3a4",
+            "Value": {
+                "id": "4602d878-6ee6-4cbf-9bcc-9209d48e9604",
+                "resourcePath": "views\\cb426b84-e4b6-484c-9496-f820b1f6a3a4.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "cc98d028-7bdd-4680-85f3-c87a7baa481e",
+            "Value": {
+                "id": "88630980-5358-4aab-9dde-f8eafa9e0b88",
+                "resourcePath": "options\\windows\\options_windows.yy",
+                "resourceType": "GMWindowsOptions"
+            }
+        },
+        {
+            "Key": "cccb9e7c-8c19-4ec2-9496-75f2a9b20a55",
+            "Value": {
+                "id": "9fe6df41-3183-4eae-816d-374436582249",
+                "resourcePath": "sprites\\sBodyCanvasAttackHair1\\sBodyCanvasAttackHair1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "ce3ac43b-d0b8-4bcb-a8ea-c0517c79bdcf",
+            "Value": {
+                "id": "271bab83-b81b-455e-8a03-d21a792b07b0",
+                "resourcePath": "sprites\\sBodyCanvasFireHead2\\sBodyCanvasFireHead2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "d0b0f4c8-88c9-4193-b3d0-52db2ad745d0",
+            "Value": {
+                "id": "be2546d6-2f39-436c-82bc-2d33c3b29776",
+                "resourcePath": "views\\d0b0f4c8-88c9-4193-b3d0-52db2ad745d0.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "d0b290c8-229f-4838-ae6b-0ff06738595f",
+            "Value": {
+                "id": "c3a2c44d-e247-414f-945a-6cf757336a15",
+                "resourcePath": "views\\d0b290c8-229f-4838-ae6b-0ff06738595f.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "d20443c5-f165-4a0d-92c4-981cc905c47d",
+            "Value": {
+                "id": "0b0af8e8-99fc-4b31-9999-2c39dd967d28",
+                "resourcePath": "sprites\\sBodyCanvasDieArmor2\\sBodyCanvasDieArmor2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "d3110a95-8587-4836-a2b8-38df4f18351e",
+            "Value": {
+                "id": "947981a7-51d3-47ae-99db-dbeba311c2ee",
+                "resourcePath": "scripts\\asdsa\\asdsa.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "d6a40d9a-d06f-4288-a946-b0cadbd0ca80",
+            "Value": {
+                "id": "4603e1b5-0f8d-47a3-8507-faa90e4483dd",
+                "resourcePath": "sprites\\sBodyCanvasQuiver1\\sBodyCanvasQuiver1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "d9a53454-51be-4083-aae5-293a7ab17513",
+            "Value": {
+                "id": "974bbd55-1ae3-4eef-a07c-ca58d3a1b329",
+                "resourcePath": "sprites\\sBodyCanvasBashLegs1\\sBodyCanvasBashLegs1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "daa518bc-c982-4e24-b630-9de433e3516c",
+            "Value": {
+                "id": "c19881ae-7a28-4157-9efd-ef110f5594d7",
+                "resourcePath": "fonts\\font0\\font0.yy",
+                "resourceType": "GMFont"
+            }
+        },
+        {
+            "Key": "dc1fcc7b-5f42-4922-ba7c-3355bdb36bf0",
+            "Value": {
+                "id": "8306df80-e728-4304-a8ce-cae1f30904e3",
+                "resourcePath": "sprites\\sBodyCanvasFireArmor1\\sBodyCanvasFireArmor1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "de128937-3754-456f-975e-994bf6247638",
+            "Value": {
+                "id": "0e56805d-08a2-443f-b570-c0df3c8f307c",
+                "resourcePath": "sprites\\sBodyCanvasHands1\\sBodyCanvasHands1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "deb919ed-65ca-4b8d-abce-32be9a61574d",
+            "Value": {
+                "id": "759950ee-b5db-494f-b4e7-75e13a22193f",
+                "resourcePath": "sprites\\sBodyCanvasBashWeapon\\sBodyCanvasBashWeapon.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "df76d66b-cd5a-4b1b-9ace-ba7de79bdb99",
+            "Value": {
+                "id": "73a34095-fa81-4236-8c38-604b2dad96cf",
+                "resourcePath": "sprites\\sBodyCanvasAttackHead1\\sBodyCanvasAttackHead1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "e0abb451-eaf4-4076-aa3a-3da3a30eda06",
+            "Value": {
+                "id": "ef1ae012-37bd-4e3c-b48b-b1855cfe3d9b",
+                "resourcePath": "views\\e0abb451-eaf4-4076-aa3a-3da3a30eda06.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "e4f78e0d-6662-467e-a9fb-f72b54de0614",
+            "Value": {
+                "id": "f28d5041-9483-47df-ab27-6768f50b223d",
+                "resourcePath": "sprites\\sBodyCanvasHood1\\sBodyCanvasHood1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "e714bef0-05ee-42fc-bfaa-983e45f9e89b",
+            "Value": {
+                "id": "e491c7d3-652a-4b82-8503-6bd6b9fac70e",
+                "resourcePath": "sprites\\sBodyCanvasBashShield1\\sBodyCanvasBashShield1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "e858e928-365b-4109-8633-b73c64135b59",
+            "Value": {
+                "id": "ebc5cc68-24bb-4159-9b85-0ff37faef12b",
+                "resourcePath": "objects\\oPlayer\\oPlayer.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "ebd2c4fc-73e9-453f-ab2c-531abb350457",
+            "Value": {
+                "id": "28f0ca85-30e5-4b57-8b02-851be4ab2ec1",
+                "resourcePath": "views\\ebd2c4fc-73e9-453f-ab2c-531abb350457.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "edb125e1-7ee3-40c3-b8f4-1b00647f7972",
+            "Value": {
+                "id": "7196d417-6d84-4807-be26-f55017636787",
+                "resourcePath": "sprites\\sBodyCanvasShoulders1\\sBodyCanvasShoulders1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "f1b263cf-a5c3-4add-a572-dcd4221ee528",
+            "Value": {
+                "id": "28803fb7-1574-456c-83ae-e36dc308ef2a",
+                "resourcePath": "scripts\\entityIni\\entityIni.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "f418569b-3bdd-4706-a0e4-364317f54032",
+            "Value": {
+                "id": "a0b595bb-93fc-43a4-b565-244ef9f6db11",
+                "resourcePath": "options\\mac\\options_mac.yy",
+                "resourceType": "GMMacOptions"
+            }
+        },
+        {
+            "Key": "f4e96dd2-1e2e-4814-9f69-82a857c570a9",
+            "Value": {
+                "id": "7b184a7f-cbe5-4dc6-b316-deff8bbe8c63",
+                "resourcePath": "sprites\\sBodyCanvasBashArmor1\\sBodyCanvasBashArmor1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "f702855b-b739-4511-9136-393f1624728b",
+            "Value": {
+                "id": "829bed42-a622-438e-abbd-c5c2f2b3aa0b",
+                "resourcePath": "sprites\\sBodyCanvasBashHead1\\sBodyCanvasBashHead1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "f80aecea-8ca1-42aa-a7a6-718014fcb29c",
+            "Value": {
+                "id": "72688813-5bf2-48cc-879f-6248464cb08f",
+                "resourcePath": "sprites\\sBodyCanvasWeapon2\\sBodyCanvasWeapon2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "f859726e-c3a8-4fb3-b2dd-f71a029c9182",
+            "Value": {
+                "id": "0ffd6274-50a2-49fe-af42-237d061a29cc",
+                "resourcePath": "sprites\\sBodyCanvasThrustArmor3\\sBodyCanvasThrustArmor3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "f8761b40-7cd7-4af0-ad5f-72e7d6e70f4f",
+            "Value": {
+                "id": "9216307b-8e4d-4676-b56f-e0a1f18c9a27",
+                "resourcePath": "rooms\\room0\\room0.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
+            "Key": "f9f2ee69-37be-4344-8eee-511d1be5f876",
+            "Value": {
+                "id": "ac42539f-8224-4ab5-8621-0dc6954235b3",
+                "resourcePath": "sprites\\sBodyCanvasLegs2\\sBodyCanvasLegs2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "fb130353-585c-4b22-b605-ce8ccaae1765",
+            "Value": {
+                "id": "b7c588a9-5444-405b-b81d-b7d9a7545864",
+                "resourcePath": "sprites\\sBodyCanvasBelt1\\sBodyCanvasBelt1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "fb351c52-a260-4f22-9f48-8650bc9324a0",
+            "Value": {
+                "id": "aca120f8-3e49-4cde-b22b-ea6aaeaf5ca4",
+                "resourcePath": "sprites\\sBodyCanvasWeapon3\\sBodyCanvasWeapon3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "febb0792-cdfb-4723-bccf-f98ae2173f8f",
+            "Value": {
+                "id": "2efa6d10-65e4-4f16-a466-e57eecca7fd2",
+                "resourcePath": "extensions\\Extension1\\Extension1.yy",
+                "resourceType": "GMExtension"
+            }
+        },
+        {
+            "Key": "fffff2ed-1b6a-46cb-b022-b42704478e95",
+            "Value": {
+                "id": "3278c255-95bf-40a5-a777-07cd62f1c448",
+                "resourcePath": "views\\fffff2ed-1b6a-46cb-b022-b42704478e95.yy",
+                "resourceType": "GMFolder"
+            }
+        }
+    ],
+    "script_order": [
+        "f1b263cf-a5c3-4add-a572-dcd4221ee528",
+        "d3110a95-8587-4836-a2b8-38df4f18351e"
+    ],
+    "tutorial": ""
+}
