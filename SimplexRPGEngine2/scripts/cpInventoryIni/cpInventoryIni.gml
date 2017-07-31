@@ -165,6 +165,13 @@ v_filterButtons[1, 0] = false;
 v_filterButtons[2, 0] = false;
 
 v_slotBeingDragged = -1;
+v_itemMouse = -1;
+
+v_splitNumber = 0;
+v_splitRemainning = 0;
+v_hoverAlpha = 0;
+
+v_hoverAlphaFF = 3;
 
 for (var i = 0; i <= v_slots + 1; i++)
 {

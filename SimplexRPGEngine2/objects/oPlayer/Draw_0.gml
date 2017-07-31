@@ -2,3 +2,5 @@
 
 libPlayerHandleInput();
 libPlayerDraw();
+
+dtaw_text_colored2();
