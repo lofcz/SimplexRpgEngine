@@ -1,8 +1,8 @@
 {
-    "id": "6df0e25a-6cd5-4afa-bdc3-bef8d254263f",
+    "id": "002bedf0-1fd5-45b2-b58c-2fd1139a6f35",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "draw_text_colored",
+    "name": "libUtilityParseTextColored",
     "IsCompatibility": false,
     "IsDnD": false
 }

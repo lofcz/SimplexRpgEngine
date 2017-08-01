@@ -172,6 +172,7 @@ v_splitRemainning = 0;
 v_hoverAlpha = 0;
 
 v_hoverAlphaFF = 3;
+v_lastHover = -1;
 
 for (var i = 0; i <= v_slots + 1; i++)
 {

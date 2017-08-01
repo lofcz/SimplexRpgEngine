@@ -110,7 +110,7 @@ for (var i = 0; i < min(v_slots, v_slotsPerPage); i++)
 		tmp_hover = true;
 		tmp_offsetHelp = oHUD.v_hudSlotUseX;
 		tmp_lastHover = i;
-		if (v_slot[i, e_inventoryAtributes.valID] != e_items.valNONE) {tmp_hovered = true;}
+		if (v_slot[i, e_inventoryAtributes.valID] != e_items.valNONE) {tmp_hovered = true; v_lastHover = tmp_lastHover;}
 	}
 	
 	// We can drag item now
@@ -431,7 +431,17 @@ if (v_hoverAlpha > 0.05)
 	}
 	
 	// Draw info about item
+	tmp_drawX = (tmp_infoboxW * (v_slotSize + v_slotOffsetX) - v_slotOffsetX - v_frameBorder + 1) / 2 + v_drawStartX;
+	tmp_drawY = tmp_layoutHeight - tmp_infoboxH * (v_slotSize + v_slotOffsetY) + 28;
+	
+	fnt(fntPixelSmall);
 	alg("center");
-	//draw_text(
+	draw_text_color(tmp_drawX, tmp_drawY, v_slot[v_lastHover, e_inventoryAtributes.valInfoTextHead], c_black, c_black, c_black, c_black, v_hoverAlpha);
 	alg();
+	
+	tmp_drawX = v_drawStartX + 8;
+	tmp_drawY = tmp_layoutHeight - tmp_infoboxH * (v_slotSize + v_slotOffsetY) + 40;
+
+	clr(c_black, v_hoverAlpha);
+	draw_text_colored(tmp_drawX, tmp_drawY, v_slot[v_lastHover, e_inventoryAtributes.valInfoTextBody], tmp_layoutWidth - 80, fntPixelTiny);
 }

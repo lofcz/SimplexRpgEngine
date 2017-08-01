@@ -23,3 +23,5 @@ v_itemAtributes[e_inventoryAtributes.valImageIndex] = e_items.valAlchemyDust - 4
 v_itemAtributes[e_inventoryAtributes.valItemNumber] = 1;
 v_itemAtributes[e_inventoryAtributes.valStackable] = 1;
 v_itemAtributes[e_inventoryAtributes.valMaxStackSize] = 12;
+v_itemAtributes[e_inventoryAtributes.valInfoTextHead] = "Wooden sword";
+v_itemAtributes[e_inventoryAtributes.valInfoTextBody] = "Simple weapon for script kiddies like" + _sc("you") + _sc("you", c_green) + _sc("you", c_red) + _sc("you", c_lime) + _sc("you") + _sc("you");

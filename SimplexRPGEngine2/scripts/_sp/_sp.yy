@@ -1,8 +1,8 @@
 {
-    "id": "6df0e25a-6cd5-4afa-bdc3-bef8d254263f",
+    "id": "1889a1f2-5a25-4390-903d-3a87aabcd3d8",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "draw_text_colored",
+    "name": "_sp",
     "IsCompatibility": false,
     "IsDnD": false
 }

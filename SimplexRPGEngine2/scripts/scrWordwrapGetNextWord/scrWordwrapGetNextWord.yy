@@ -1,8 +1,8 @@
 {
-    "id": "6df0e25a-6cd5-4afa-bdc3-bef8d254263f",
+    "id": "3e24e474-3c0b-4fea-af98-56f70dc2f15d",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "draw_text_colored",
+    "name": "scrWordwrapGetNextWord",
     "IsCompatibility": false,
     "IsDnD": false
 }
