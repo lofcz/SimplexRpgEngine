@@ -1,16 +1,20 @@
-/// @function libUtilityParseTextColored(text)
+/// @function libUtilityParseTextColored(text, font)
 /// @desc Returns text from colorText withount flags
 /// @arg {string} text Text to parse
+/// @arg {font} font Help font
 
-var tmp_text, tmp_output, tmp_parsingFlag, tmp_char, tmp_flagString;
+var tmp_text, tmp_output, tmp_parsingFlag, tmp_char, tmp_flagString, tmp_font;
 tmp_text = "";
 tmp_output = "";
 tmp_parsingFlag = false;
 tmp_char = "";
 tmp_flagString = "";
+tmp_font = fntPixel;
 
 if (argument_count > 0) {tmp_text = argument[0];}
+if (argument_count > 1) {tmp_font = argument[1];}
 
+fnt(tmp_font);
 for (var i = 1; i <= string_length(tmp_text); i++)
 {
 	tmp_char = string_char_at(tmp_text, i);

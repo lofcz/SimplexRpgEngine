@@ -20,12 +20,14 @@ while (string_length(str) > 0)
      
      // In case of empty word delete one char and continue.
      if (nextWord == "") {str = string_delete(str, 1, 1); continue;}  
-	    
+	 if (nextWord == "#") {str = string_delete(str, 1, 1); out += outLine + "#"; outLine = ""; continue;}
+
      // Don't count SimplexString into the string width.
-     tempLine = libUtilityParseTextColored(outLine); 
+     tempLine = libUtilityParseTextColored(outLine, f); 
       
      // Add if sum of widths is lesser than max width.  
-     if (string_width(tempLine) + string_width(libUtilityParseTextColored(nextWord)) < width) 
+	 fnt(f);
+     if (string_width(tempLine) + string_width(libUtilityParseTextColored(nextWord, f)) < width) 
         {                        
          outLine += nextWord + " ";
          str = string_delete(str, 1, string_length(nextWord));
