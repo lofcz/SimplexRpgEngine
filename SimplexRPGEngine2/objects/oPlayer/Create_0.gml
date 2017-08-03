@@ -15,3 +15,7 @@ cpBodyCanvasRegAnim(e_animations.valThrust, sBodyCanvasThrust1,    sBodyCanvasTh
 instance_create_depth(x, y, 100, oCamera);
 instance_create_depth(x, y, -100, oInventory);
 instance_create_depth(x, y, -100, oHUD);
+instance_create_depth(x, y, -200, oDrawHelperAbove);
+
+v_collisionMain = [x, y, x, y];
+v_collisionLegs = [x, y, x, y];

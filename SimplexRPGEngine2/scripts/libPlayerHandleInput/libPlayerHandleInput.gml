@@ -51,3 +51,4 @@ if (v_currentAnimation != e_animations.valBash)
 	if (v_dir == e_dirs.valA) {if (image_index < 6  || image_index > 11.9) {image_index = 6;}}    
 	if (v_dir == e_dirs.valD) {if (image_index < 18 || image_index > 23.9) {image_index = 18;}}        
 }    
+

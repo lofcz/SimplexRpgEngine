@@ -1,7 +1,7 @@
 /// @function cpInventoryIni()
 /// @desc Sets up inventory variables
 
-#macro mcInvenotryAtributes 18
+#macro mcInvenotryAtributes 20
 #macro mcInventoryProperties 120
 
 enum e_inventoryAtributes
@@ -25,11 +25,21 @@ enum e_inventoryAtributes
 	valItemNumber,
 	valCurrentStackSize,
 	valMaxStackSize,
+	valPriceBase
 }
 
 enum e_inventoryProperties
 {
-	
+	valLevel,
+	valMaxHp,
+	valMaxMp,
+	valMaxSp,
+	valDamage,
+	valStrenght,
+	valDexterity,
+	valEndurance,
+	valAccuray,
+	valSwiftness
 }
 
 enum e_items
@@ -174,7 +184,10 @@ v_hoverAlpha = 0;
 v_hoverAlphaFF = 3;
 v_lastHover = -1;
 
-for (var i = 0; i <= v_slots + 1; i++)
+tmp_lastHover = -1;
+v_containerID = -1;
+
+for (var i = 0; i <= v_slots; i++)
 {
 	
 	for (var j = 0; j <= mcInvenotryAtributes; j++)
@@ -192,5 +205,6 @@ for (var i = 0; i <= v_slots + 1; i++)
 	for (var j = 0; j <= mcInventoryProperties; j++)
 	{
 		v_slotProperty[i, j] = 0;
+		v_slotReq[i, j] = 0;
 	}
 }

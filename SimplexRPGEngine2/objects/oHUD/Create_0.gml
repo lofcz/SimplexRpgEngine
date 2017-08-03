@@ -23,3 +23,11 @@ v_hudButtonY = 25;
 
 v_hudButtonPressedX = 770;
 v_hudButtonPressedY = 50;
+
+for (var i = 0; i < mcInventoryProperties; i++)
+{
+	v_playerProperty[i] = 0;
+}
+
+v_lang = "en";
+v_mouseFree = true;
