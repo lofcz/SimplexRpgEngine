@@ -30,3 +30,8 @@ else if (tmp_text == "close")
 	if (oHUD.v_lang == "cz") {return "zavřít";}
 	else {return tmp_text;}
 }
+else if (tmp_text == "Equipment")
+{
+	if (oHUD.v_lang == "cz") {return "Vybavení";}
+	else {return tmp_text;}
+}

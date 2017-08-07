@@ -27,6 +27,8 @@ v_itemAtributes[e_inventoryAtributes.valMaxStackSize] = 12;
 v_itemAtributes[e_inventoryAtributes.valInfoTextHead] = "Wooden sword";
 v_itemAtributes[e_inventoryAtributes.valInfoTextBody] = "Simple weapon for script kiddies like" + _sc("you") + _sc("you", c_green) + _sc("you", c_red) + _sc("you", c_lime) + _sc("you") + _sc("you");
 v_itemAtributes[e_inventoryAtributes.valPriceBase] = 20;
+v_itemAtributes[e_inventoryAtributes.valLerpColor] = choose(c_lime, c_red, c_white, c_yellow);
+v_itemAtributes[e_inventoryAtributes.valWeight] = 2;
 
 v_itemProperty[e_inventoryProperties.valDamage] = 4;
 v_itemProperty[e_inventoryProperties.valEndurance] = 2;

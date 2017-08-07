@@ -1,6 +1,8 @@
 /// @function libPlayerDraw()
 /// @desc Renders player to the canvas
 
+sprite_index = v_bci[v_currentAnimation, 0];
+
 for (var i = 0; i < 14; i++)
 {
 	if (v_bci[v_currentAnimation, i] != sCatchError && v_bci[v_currentAnimation, i] != 0) 

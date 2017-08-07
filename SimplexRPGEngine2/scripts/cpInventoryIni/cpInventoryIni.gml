@@ -1,7 +1,7 @@
 /// @function cpInventoryIni()
 /// @desc Sets up inventory variables
 
-#macro mcInvenotryAtributes 20
+#macro mcInvenotryAtributes 22
 #macro mcInventoryProperties 120
 
 enum e_inventoryAtributes
@@ -25,7 +25,9 @@ enum e_inventoryAtributes
 	valItemNumber,
 	valCurrentStackSize,
 	valMaxStackSize,
-	valPriceBase
+	valPriceBase,
+	valLerpColor,
+	valWeight
 }
 
 enum e_inventoryProperties
@@ -169,6 +171,8 @@ v_expandSlotsY = 2;
 
 t = 0;
 u = 0;
+hj = 0;
+yj = 0;
 
 v_filterButtons[0, 0] = false;
 v_filterButtons[1, 0] = false;
@@ -186,6 +190,24 @@ v_lastHover = -1;
 
 tmp_lastHover = -1;
 v_containerID = -1;
+
+v_formExtW = 48;
+v_formExtH = 12;
+
+v_formExtMode = "equipment";
+
+v_formBaseMaxX = 0;
+v_formBaseMaxY = 0;
+
+v_formExtAlpha = 0;
+
+v_formExt = [0, 0, 0];
+v_actualLerp = 0;
+v_lerpMode = 0;
+
+v_weight = 0;
+v_drawForm = true;
+
 
 for (var i = 0; i <= v_slots; i++)
 {
@@ -208,3 +230,5 @@ for (var i = 0; i <= v_slots; i++)
 		v_slotReq[i, j] = 0;
 	}
 }
+
+cpEquipmentIni();

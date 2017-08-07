@@ -127,7 +127,15 @@ if (v_actionAlpha > 0.05)
 				// Draw item
 				if (v_slot[i, e_inventoryAtributes.valID] != 0 && v_slotBeingDragged != i)
 				{		
+					if (v_slot[i, e_inventoryAtributes.valLerpColor] != 0)
+					{
+						shader_set(shdLerp);
+						var tmp_uID = shader_get_uniform(shdLerp, "f_Colour1");
+						shader_set_uniform_f(tmp_uID, color_get_red(v_slot[i, e_inventoryAtributes.valLerpColor]), color_get_green(v_slot[i, e_inventoryAtributes.valLerpColor]), color_get_blue(v_slot[i, e_inventoryAtributes.valLerpColor]), v_actualLerp);
+					}
 					draw_sprite_ext(v_slot[i, e_inventoryAtributes.valSprite], v_slot[i, e_inventoryAtributes.valImageIndex] + 2, tmp_drawX + 20, tmp_drawY + 20, 1, 1, 0, c_white, min(v_fadeAlpha, v_actionAlpha));		
+					shader_reset();
+					
 					var tmp_drawColor, tmp_drawOffsetX;
 					tmp_drawColor = c_white;
 					tmp_drawOffsetX = 0; 
@@ -347,3 +355,6 @@ else
 clr();
 libUtilityDrawRect(v_collisionMain);
 draw_self();
+
+if (v_lerpMode == 0) {v_actualLerp = lin(v_actualLerp, 0.01, 0.00005); if (v_actualLerp >= 0.003) {v_lerpMode = 1;}}
+if (v_lerpMode == 1) {v_actualLerp = lin(v_actualLerp, 0, 0.00005); if (v_actualLerp <= 0.0003) {v_lerpMode = 0;}}

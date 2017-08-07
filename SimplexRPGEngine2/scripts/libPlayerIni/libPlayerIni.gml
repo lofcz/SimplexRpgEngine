@@ -8,7 +8,7 @@ enum e_dirs
 
 enum e_animations
 {
-	valWalk, valSlash, valFire, valDie, valBash, valThrust
+	valWalk, valSlash, valFire, valDie, valBash, valThrust, valRun
 }
 
 enum e_animationSlots
@@ -22,8 +22,8 @@ v_dir = e_dirs.valS;
 v_lastDir = v_dir;
 v_speed = 5;
 v_canMove = [true, true, true, true, true, true, true];
-v_bci[5, 17] = 0;
+v_bci[6, 17] = 0;
 v_bci[0, 17] = 0;
-v_bciSpeed = [0.4, 0.4, 0.4, 0.2, 0.2, 0.2];
+v_bciSpeed = [0.4, 0.4, 0.4, 0.2, 0.2, 0.2, 0.4];
 v_currentAnimation = e_animations.valWalk;
 v_speedReal = 0;

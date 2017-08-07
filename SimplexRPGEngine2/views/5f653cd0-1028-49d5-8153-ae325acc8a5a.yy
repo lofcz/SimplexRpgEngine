@@ -9,7 +9,8 @@
         "8d781b5d-bc81-4250-a3e3-57331c07b569",
         "fffff2ed-1b6a-46cb-b022-b42704478e95",
         "3970cca8-5a0e-4f5d-bc9d-a48d1549162c",
-        "95bafad6-8eda-4153-b108-cc6707db127c"
+        "95bafad6-8eda-4153-b108-cc6707db127c",
+        "3649a83a-feba-44de-8b3c-279e84a9aae2"
     ],
     "filterType": "GMSprite",
     "folderName": "Human",

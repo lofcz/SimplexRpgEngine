@@ -223,6 +223,14 @@
             }
         },
         {
+            "Key": "10f06ac9-edd1-4c14-b14d-83bb18cf4ce1",
+            "Value": {
+                "id": "764aa8e6-5e3d-4a3b-a99a-b7adcb0b58b7",
+                "resourcePath": "sprites\\sEquipmentForm\\sEquipmentForm.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "114430f3-f240-4efd-b89d-6e3b1f35026d",
             "Value": {
                 "id": "74c8850f-9461-46ea-90f2-84a900106086",
@@ -615,6 +623,22 @@
             }
         },
         {
+            "Key": "2cc423fa-33f3-4bdf-a33d-885aa2ee608f",
+            "Value": {
+                "id": "159dc7a5-9b48-4478-bf29-e72d43dc3dbf",
+                "resourcePath": "sprites\\sBodyCanvasRun1\\sBodyCanvasRun1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "2cf7ba65-86d2-4fc4-a583-57abe71263c7",
+            "Value": {
+                "id": "f7ff58e3-d52f-4889-aeff-c8ed4e82138b",
+                "resourcePath": "shaders\\shdLerp\\shdLerp.yy",
+                "resourceType": "GMShader"
+            }
+        },
+        {
             "Key": "2d6262c6-1278-4c55-b5c1-8b331fcb0774",
             "Value": {
                 "id": "a0bd9d79-83d1-4ac7-83e0-ab02c3637f5e",
@@ -663,6 +687,14 @@
             }
         },
         {
+            "Key": "305c1a86-731e-40b1-9b89-0dc366af9724",
+            "Value": {
+                "id": "bf80732f-2261-42ab-a0db-48a8df2cf140",
+                "resourcePath": "scripts\\cpInventoryHelperGetTotalAtr\\cpInventoryHelperGetTotalAtr.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "324a1526-71a4-4d4b-bf10-18e65081696a",
             "Value": {
                 "id": "8e906549-427e-478a-9b76-e2d13ad70fed",
@@ -687,6 +719,14 @@
             }
         },
         {
+            "Key": "34857dbb-0e86-4058-af77-8fc898cd7d95",
+            "Value": {
+                "id": "77125417-0cef-416b-8fff-86c1fff99b20",
+                "resourcePath": "scripts\\cpEquipmentDraw\\cpEquipmentDraw.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "3486fb89-3ccf-45a6-a9a7-c3f64c834c49",
             "Value": {
                 "id": "2f2b6b59-775a-4bc4-9724-19ee085dda7a",
@@ -707,6 +747,14 @@
             "Value": {
                 "id": "b273607d-77b4-4032-a8e1-f745ea7e5512",
                 "resourcePath": "views\\3542113f-a69d-4bae-928d-da36251d4b4e.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "3649a83a-feba-44de-8b3c-279e84a9aae2",
+            "Value": {
+                "id": "a66e3f0f-a73b-49a6-8d2c-d371a9f78145",
+                "resourcePath": "views\\3649a83a-feba-44de-8b3c-279e84a9aae2.yy",
                 "resourceType": "GMFolder"
             }
         },
@@ -739,6 +787,14 @@
             "Value": {
                 "id": "dc03d9f6-ef9b-4914-a276-e685f56fe95e",
                 "resourcePath": "sprites\\sBodyCanvasThrustArmor2\\sBodyCanvasThrustArmor2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "390d3ce9-ae6f-45c8-949b-4ec7fdd42d31",
+            "Value": {
+                "id": "e881307f-36e8-4f6b-880b-de127c3f546f",
+                "resourcePath": "sprites\\sBodyCanvasRunHair1\\sBodyCanvasRunHair1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -924,6 +980,14 @@
                 "id": "5a273ecd-4500-488c-ae2f-0f2700c95686",
                 "resourcePath": "sprites\\sRelic2\\sRelic2.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "48e653e1-e490-45d5-9e90-179dd6f172b1",
+            "Value": {
+                "id": "5e4d826b-3ec0-419e-a88b-a63a769cf4e4",
+                "resourcePath": "scripts\\cpEquipmentIni\\cpEquipmentIni.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -1316,6 +1380,14 @@
                 "id": "8e1dc278-4ecb-4d0b-a172-5ed685fcfdda",
                 "resourcePath": "sprites\\sBodyCanvasAttackWeapon2\\sBodyCanvasAttackWeapon2.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "625ffba8-587d-4f61-a646-8b1c183b8c28",
+            "Value": {
+                "id": "539ba22c-b775-407b-bb3d-a38d1e30546c",
+                "resourcePath": "views\\625ffba8-587d-4f61-a646-8b1c183b8c28.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -1739,6 +1811,14 @@
             "Value": {
                 "id": "75e25b61-774e-4a0c-bb83-c5b4e4efd9a1",
                 "resourcePath": "sprites\\sManaEffect2\\sManaEffect2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "8aac40af-e968-4c43-8a89-6dc0d629a24e",
+            "Value": {
+                "id": "d3a3bf5e-e226-4631-918b-1e2753f786ba",
+                "resourcePath": "sprites\\sBodyCanvasRunHands1\\sBodyCanvasRunHands1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -2247,6 +2327,14 @@
             }
         },
         {
+            "Key": "b0a0f240-c707-45ed-8251-0e5295f51259",
+            "Value": {
+                "id": "79b9e7d0-db68-4007-b786-27715cc0d88b",
+                "resourcePath": "sprites\\sBodyCanvasRunArmor1\\sBodyCanvasRunArmor1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "b0bcfe82-538c-4c02-9b7a-1bb7dfd40cee",
             "Value": {
                 "id": "9af72930-a343-4a9c-9d9f-d202507d652e",
@@ -2751,14 +2839,6 @@
             }
         },
         {
-            "Key": "e29b4033-674f-4f59-ba8a-c81f32fe377e",
-            "Value": {
-                "id": "650c2cb9-6487-4890-a10a-c896a26861b9",
-                "resourcePath": "views\\e29b4033-674f-4f59-ba8a-c81f32fe377e.yy",
-                "resourceType": "GMFolder"
-            }
-        },
-        {
             "Key": "e2b20aca-de2d-45c9-b589-30d0434dd68a",
             "Value": {
                 "id": "11e070cd-bb2b-49e7-91b5-010d92e7c0f1",
@@ -3125,7 +3205,10 @@
         "240b82c6-8921-4620-b4b7-30851668cce1",
         "3a58ade8-3826-41e1-b366-32037bfe1fa3",
         "7e14ee9e-8a74-4d50-9533-ad8cc8873ca2",
+        "305c1a86-731e-40b1-9b89-0dc366af9724",
         "2547e3b9-bf3f-405b-8916-9bbe326ab661",
+        "48e653e1-e490-45d5-9e90-179dd6f172b1",
+        "34857dbb-0e86-4058-af77-8fc898cd7d95",
         "10571d20-91bd-4a3e-a494-4c641068dfe4",
         "2accf155-90db-489e-91b1-068bc7a459d6",
         "df757468-22df-440a-8ba7-795f7bdbefb8",

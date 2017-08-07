@@ -24,6 +24,22 @@ v_hudButtonY = 25;
 v_hudButtonPressedX = 770;
 v_hudButtonPressedY = 50;
 
+v_hudPortraitX = 446;
+v_hudPortraitY = 180;
+
+v_hudBarBaseX = 533;
+v_hudBarBaseY = 184;
+
+v_hudBaseBarEndX = 551;
+v_hudBaseBarEndY = 182;
+
+v_hudBaseBarFillX = 592;
+v_hudBaseBarFillY = 186;
+
+
+hp = 100;
+max_hp = 120;
+
 for (var i = 0; i < mcInventoryProperties; i++)
 {
 	v_playerProperty[i] = 0;
@@ -31,3 +47,6 @@ for (var i = 0; i < mcInventoryProperties; i++)
 
 v_lang = "en";
 v_mouseFree = true;
+v_hudSprite = sprite91;
+
+v_baseBarSlots = 20;
