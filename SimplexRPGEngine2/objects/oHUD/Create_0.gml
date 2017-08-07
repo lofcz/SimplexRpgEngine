@@ -36,6 +36,32 @@ v_hudBaseBarEndY = 182;
 v_hudBaseBarFillX = 592;
 v_hudBaseBarFillY = 186;
 
+v_hudBarXpX = 259;
+v_hudBarXpY = 40;
+
+v_hudBarSlotX = 30;
+v_hudBarSlotY = 288;
+
+v_hudBarConnectX = 70;
+v_hudBarConnectY = 288;
+
+v_hudBarStartX = 16;
+v_hudBarEndX = 160;
+
+v_hudMapX = 714;
+v_hudMapY = 289;
+
+v_hudBallX = 64;
+v_hudBallY = 105;
+
+v_hudMapModeX = 815;
+v_hudMapModeY = 308;
+
+v_hudMapZoomInX = 729;
+v_hudMapZoomInY = 378;
+
+v_hudMapZoomOutX = 745;
+v_hudMapZoomOutY = 394;
 
 hp = 100;
 max_hp = 120;
