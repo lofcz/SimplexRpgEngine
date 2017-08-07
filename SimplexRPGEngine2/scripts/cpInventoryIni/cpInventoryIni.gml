@@ -41,7 +41,12 @@ enum e_inventoryProperties
 	valDexterity,
 	valEndurance,
 	valAccuray,
-	valSwiftness
+	valSwiftness,
+	valHp,
+	valMp,
+	valSp,
+	valXp,
+	valMaxXp
 }
 
 enum e_items
@@ -162,10 +167,11 @@ v_frameBorder = 4;
 v_itemSize = 32;
 
 v_drawStartX = x;
-v_drawStartY = y;
+v_drawStartY = y + 64;
 v_slotSize   = 32;
 v_slotOffsetX = 4;
 v_slotOffsetY = 4;
+v_actualY = 64;
 
 v_expandSlotsY = 2;
 

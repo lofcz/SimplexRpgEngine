@@ -23,14 +23,14 @@ else {v_slotOffsetX = lerp(v_slotOffsetX, 6, 0.1); v_slotOffsetY = lerp(v_slotOf
 if (u) {v_slotSize = lerp(v_slotSize, 48, 0.1);}
 else {v_slotSize = lerp(v_slotSize, 32, 0.1);}
 
-if (!v_drawForm) {v_formAlpha = lerp(v_formAlpha, 0, 0.5);}
-else {v_formAlpha = lerp(v_formAlpha, 1, 0.5);}
+if (!v_drawForm) {v_formAlpha = lerp(v_formAlpha, 0, 0.1); v_actualY = lerp(v_actualY, 0, 0.1);}
+else {v_formAlpha = lerp(v_formAlpha, 1, 0.5); v_actualY = lerp(v_actualY, 69, 0.1);}
 
 
 // **** /DEBUG
 
-v_drawStartX = x;
-v_drawStartY = y;
+v_drawStartX = x + v_actualY - 68;
+v_drawStartY = y + 68;
 v_slotRows = ceil(min(v_slots, v_slotsPerPage) / v_slotsPerRow) + v_expandSlotsY;
 
 var tmp_drawX, tmp_drawY, tmp_slotsRenderedNow;

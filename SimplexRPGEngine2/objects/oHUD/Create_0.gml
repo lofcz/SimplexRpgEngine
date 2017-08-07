@@ -63,6 +63,8 @@ v_hudMapZoomInY = 378;
 v_hudMapZoomOutX = 745;
 v_hudMapZoomOutY = 394;
 
+v_realXP = 0;
+
 hp = 100;
 max_hp = 120;
 
@@ -76,3 +78,6 @@ v_mouseFree = true;
 v_hudSprite = sprite91;
 
 v_baseBarSlots = 20;
+
+v_playerProperty[e_inventoryProperties.valMaxXp] = 100;
+
