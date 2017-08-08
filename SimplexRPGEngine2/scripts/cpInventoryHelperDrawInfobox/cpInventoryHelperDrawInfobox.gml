@@ -2,12 +2,24 @@
 /// @desc Draws standard infobox
 /// @arg {object} containerID ID of owner
 
-var tmp_id;
+var tmp_id, tmp_slotID, tmp_hoverAlpha, tmp_hoverID, tmp_propertyArray, tmp_reqArray;
 tmp_id = oInventory;
 
 if (argument_count > 0) {tmp_id = argument[0];}
 
-if (tmp_id.v_hoverAlpha > 0.05)
+tmp_slotID = tmp_id.v_slot;
+tmp_hoverAlpha = tmp_id.v_hoverAlpha;
+tmp_hoverID = tmp_id.v_lastHover;
+tmp_propertyArray = tmp_id.v_slotProperty;
+tmp_reqArray = tmp_id.v_slotReq;
+
+if (argument_count > 1) {tmp_slotID = argument[1];}
+if (argument_count > 2) {tmp_hoverAlpha = argument[2];}
+if (argument_count > 3) {tmp_hoverID = argument[3];}
+if (argument_count > 4) {tmp_propertyArray = argument[4];}
+if (argument_count > 5) {tmp_reqArray = argument[5];}
+
+if (tmp_hoverAlpha > 0.05)
 {
 	// Draw base layout
 	var tmp_infoboxW, tmp_infoboxH, tmp_alpha, tmp_drawX, tmp_drawY, tmp_layoutWidth, tmp_layoutHeight, tmp_layoutSlotsX;
@@ -15,10 +27,8 @@ if (tmp_id.v_hoverAlpha > 0.05)
 	tmp_infoboxH = 4;
 	tmp_drawX = oInventory.v_formEndX;
 	tmp_drawY = oInventory.v_formEndY;
-	tmp_alpha = min(v_formAlpha, v_hoverAlpha);
-	tmp_layoutWidth = oInventory.v_drawStartX + tmp_infoboxW * (oInventory.v_slotSize + oInventory.v_slotOffsetX) - oInventory.v_slotOffsetX - oInventory.v_frameBorder + 1;
-	tmp_layoutHeight = (oInventory.v_slotRows * (oInventory.v_slotSize + oInventory.v_slotOffsetY)) + oInventory.v_drawStartY + tmp_infoboxH * (oInventory.v_slotSize + oInventory.v_slotOffsetY) - oInventory.v_slotOffsetY - oInventory.v_frameBorder - 6;
-	tmp_layoutSlotsX = tmp_infoboxW; //(min(oInventory.v_slots, oInventory.v_slotsPerRow) * (oInventory.v_slotSize + oInventory.v_slotOffsetX) div (oInventory.v_slotSize + oInventory.v_slotOffsetX)) + 1;
+	tmp_alpha = min(v_formAlpha, tmp_hoverAlpha);
+	tmp_layoutSlotsX = tmp_infoboxW;
 
 	clr(-1, tmp_alpha);
 	draw_sprite_tiled_area(oInventory.v_inventoryTexSprite, 0, 0, 0, tmp_drawX + oInventory.v_frameBorder, tmp_drawY + oInventory.v_frameBorder, oInventory.v_layoutEndX, tmp_drawY - 2 + tmp_infoboxH * oInventory.v_slotSize);
@@ -66,30 +76,30 @@ if (tmp_id.v_hoverAlpha > 0.05)
 	
 	fnt(fntPixelSmall);
 	alg("center");
-	draw_text_color(tmp_drawX, tmp_drawY, tmp_id.v_slot[tmp_id.v_lastHover, e_inventoryAtributes.valInfoTextHead], c_black, c_black, c_black, c_black, tmp_id.v_hoverAlpha);
+	draw_text_color(tmp_drawX, tmp_drawY, tmp_slotID[tmp_hoverID, e_inventoryAtributes.valInfoTextHead], c_black, c_black, c_black, c_black, tmp_hoverAlpha);
 	alg();
 	
 	tmp_drawX = oInventory.v_drawStartX + 8;
 	tmp_drawY += 8;
 
-	clr(c_black, tmp_id.v_hoverAlpha);
-	draw_text_colored(tmp_drawX, tmp_drawY, tmp_id.v_slot[tmp_id.v_lastHover, e_inventoryAtributes.valInfoTextBody], oInventory.v_layoutEndX - oInventory.v_drawStartX - 30, fntPixelTiny);
+	clr(c_black, tmp_hoverAlpha);
+	draw_text_colored(tmp_drawX, tmp_drawY, tmp_slotID[tmp_hoverID, e_inventoryAtributes.valInfoTextBody], oInventory.v_layoutEndX - oInventory.v_drawStartX - 30, fntPixelTiny);
 
 	var tmp_stringH;
-	tmp_stringH = string_height(tmp_id.v_slot[tmp_id.v_lastHover, e_inventoryAtributes.valInfoTextBody]);
+	tmp_stringH = string_height(tmp_slotID[tmp_hoverID, e_inventoryAtributes.valInfoTextBody]);
 	
-	if (tmp_id.v_slot[tmp_id.v_lastHover, e_inventoryAtributes.valPriceBase] > 0)
+	if (tmp_slotID[tmp_hoverID, e_inventoryAtributes.valPriceBase] > 0)
 	{
-		clr(c_black, tmp_id.v_hoverAlpha);
+		clr(c_black, tmp_hoverAlpha);
 		alg(fa_right, fa_top);
-		draw_text(oInventory.v_layoutEndX - 4, tmp_drawY - 2 + tmp_infoboxH * oInventory.v_slotSize - 52, string(tmp_id.v_slot[tmp_id.v_lastHover, e_inventoryAtributes.valPriceBase]) + "G");
+		draw_text(oInventory.v_layoutEndX - 4, tmp_drawY - 2 + tmp_infoboxH * oInventory.v_slotSize - 52, string(tmp_slotID[tmp_hoverID, e_inventoryAtributes.valPriceBase]) + "G");
 		alg();
 	}
 
 
-	clr(c_black, tmp_id.v_hoverAlpha);
+	clr(c_black, tmp_hoverAlpha);
 	alg(fa_right, fa_top);
-	draw_text(oInventory.v_layoutEndX - 4, tmp_drawY - 2 + tmp_infoboxH * oInventory.v_slotSize - 42, string(tmp_id.v_slot[tmp_id.v_lastHover, e_inventoryAtributes.valWeight]) + "W");
+	draw_text(oInventory.v_layoutEndX - 4, tmp_drawY - 2 + tmp_infoboxH * oInventory.v_slotSize - 42, string(tmp_slotID[tmp_hoverID, e_inventoryAtributes.valWeight]) + "W");
 	alg();
 
 	
@@ -100,13 +110,13 @@ if (tmp_id.v_hoverAlpha > 0.05)
 	// First we set up properties string
 	for (var i = 0; i < mcInventoryProperties; i++)
 	{
-		if (tmp_id.v_slotProperty[tmp_id.v_lastHover, i] > 0)
+		if (tmp_propertyArray[tmp_hoverID, i] > 0)
 		{
 			tmp_array = libUtilityPropertyToString(i);
 			
 			if (tmp_array[1] == 0)
 			{
-				tmp_string += " " + tmp_array[0] + ": " + string(tmp_id.v_slotProperty[tmp_id.v_lastHover, i]) + "#"
+				tmp_string += " " + tmp_array[0] + ": " + string(tmp_propertyArray[tmp_hoverID, i]) + "#"
 			}			
 		} 
 	}
@@ -114,22 +124,22 @@ if (tmp_id.v_hoverAlpha > 0.05)
 	// Then we add slot requirments to the bottom
 	for (var i = 0; i < mcInventoryProperties; i++)
 	{
-		if (tmp_id.v_slotReq[tmp_id.v_lastHover, i] > 0)
+		if (tmp_reqArray[tmp_hoverID, i] > 0)
 		{
 			var tmp_color;
 			tmp_color = c_red;
 			
-			if (oHUD.v_playerProperty[i] >= tmp_id.v_slotReq[tmp_id.v_lastHover, i]) {tmp_color = c_lime;}
+			if (oHUD.v_playerProperty[i] >= tmp_reqArray[tmp_hoverID, i]) {tmp_color = c_lime;}
 			
 			tmp_array = libUtilityPropertyToString(i);		
 			
 			if (tmp_color == c_red)
 			{	
-				tmp_string += _sc(tmp_array[0] + " required: " + string(tmp_id.v_slotReq[tmp_id.v_lastHover, i]) + " (now: " + string(oHUD.v_playerProperty[i]) + ")", tmp_color) + "#";		
+				tmp_string += _sc(tmp_array[0] + " required: " + string(tmp_reqArray[tmp_hoverID, i]) + " (now: " + string(oHUD.v_playerProperty[i]) + ")", tmp_color) + "#";		
 			}
 			else
 			{
-				tmp_string += _sc(tmp_array[0] + " required: " + string(tmp_id.v_slotReq[tmp_id.v_lastHover, i]), tmp_color) + "#";		
+				tmp_string += _sc(tmp_array[0] + " required: " + string(tmp_reqArray[tmp_hoverID, i]), tmp_color) + "#";		
 			}
 		} 
 	}	

@@ -214,6 +214,9 @@ v_lerpMode = 0;
 v_weight = 0;
 v_drawForm = true;
 
+v_hoverContainerForm = "";
+tmp_equipmentLastHover = 0;
+
 
 for (var i = 0; i <= v_slots; i++)
 {
@@ -234,6 +237,11 @@ for (var i = 0; i <= v_slots; i++)
 	{
 		v_slotProperty[i, j] = 0;
 		v_slotReq[i, j] = 0;
+	}
+	
+	for (var j = 0; j < mcAnimations; j++)
+	{
+		v_slotAnimations[i, j] = 0;
 	}
 }
 

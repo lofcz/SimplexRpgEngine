@@ -368,7 +368,7 @@ if (v_slotBeingDragged != -1)
 			
 			if (!tmp_switchDone && tmp_itemsSwitched == 0)
 			{
-				var tmp_atrb, tmp_prop, tmp_req;
+				var tmp_atrb, tmp_prop, tmp_req, tmp_anim;
 				for (var k = 0; k <= mcInvenotryAtributes; k++)
 				{
 					tmp_atrb[k] = v_slot[v_slotBeingDragged, k];			
@@ -379,6 +379,11 @@ if (v_slotBeingDragged != -1)
 					tmp_prop[k] = v_slotProperty[v_slotBeingDragged, k];	
 					tmp_req[k] = v_slotReq[v_slotBeingDragged, k];
 				}
+				
+				for (var k = 0; k < mcAnimations; k++)
+				{
+					tmp_anim[k] = v_slotAnimations[v_slotBeingDragged, k];	
+				}				
 				
 				for (var k = 0; k <= mcInvenotryAtributes; k++)
 				{
@@ -394,9 +399,22 @@ if (v_slotBeingDragged != -1)
 					v_slotReq[v_slotBeingDragged, k] = v_containerID.v_slotReq[v_containerID.tmp_lastHover, k];
 					v_containerID.v_slotReq[v_containerID.tmp_lastHover, k] = tmp_req[k];					
 				}
+				
+				for (var k = 0; k <= mcAnimations; k++)
+				{
+					v_slotAnimations[v_slotBeingDragged, k] = v_containerID.v_slotAnimations[v_containerID.tmp_lastHover, k];					
+					v_containerID.v_slotAnimations[v_containerID.tmp_lastHover, k] = tmp_anim[k];
+				}				
 			}	
 		}
-			
+		
+		if (v_hoverContainerForm == "equipment")
+		{
+			if (v_slot[v_slotBeingDragged, e_inventoryAtributes.valEquipSlot] == v_equipmentSlots[v_equipmentLastHover, 2])
+			{
+				cpEquipmentEquip();			
+			}
+		}
 		v_slotBeingDragged = -1;
 		oHUD.v_mouseFree = true;
 	}

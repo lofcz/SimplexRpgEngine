@@ -26,8 +26,25 @@ if (tmp_hover)
 			{
 				if (tmp_id.v_slot[tmp_i, e_inventoryAtributes.valID] != e_items.valNONE)
 				{
-					tmp_id.v_slotBeingDragged = tmp_i;
-					oHUD.v_mouseFree = false;
+					// Fast equip
+					if (keyboard_check_direct(vk_shift))
+					{
+						for (var i = 0; i < mcEquipmentSlots; i++)
+						{
+							if (v_equipmentSlots[i, 2] == v_slot[tmp_i, e_inventoryAtributes.valEquipSlot])
+							{
+								tmp_id.v_slotBeingDragged = tmp_i;
+								cpEquipmentEquip(i);
+								tmp_id.v_slotBeingDragged = -1;
+								break;
+							}
+						}
+					}
+					else
+					{
+						tmp_id.v_slotBeingDragged = tmp_i;
+						oHUD.v_mouseFree = false;
+					}
 				}
 			}
 		}

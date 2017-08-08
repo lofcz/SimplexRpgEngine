@@ -7,7 +7,8 @@
         "b0a0f240-c707-45ed-8251-0e5295f51259",
         "2cc423fa-33f3-4bdf-a33d-885aa2ee608f",
         "390d3ce9-ae6f-45c8-949b-4ec7fdd42d31",
-        "8aac40af-e968-4c43-8a89-6dc0d629a24e"
+        "8aac40af-e968-4c43-8a89-6dc0d629a24e",
+        "0d2ecdf3-b6d6-4a32-89f7-31a0707cc579"
     ],
     "filterType": "GMSprite",
     "folderName": "Run",

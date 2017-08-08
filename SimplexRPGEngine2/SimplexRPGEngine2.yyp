@@ -159,6 +159,14 @@
             }
         },
         {
+            "Key": "0d2ecdf3-b6d6-4a32-89f7-31a0707cc579",
+            "Value": {
+                "id": "4bbeb399-6e82-4b26-871a-ff2b0733792f",
+                "resourcePath": "sprites\\sBodyCanvasRunHood1\\sBodyCanvasRunHood1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "0d843f76-4c01-4a8d-a53c-c2108c2e4754",
             "Value": {
                 "id": "607e44aa-b25b-469c-9fd6-d15b84a070d0",
@@ -1431,6 +1439,14 @@
             }
         },
         {
+            "Key": "68263c7d-147c-42de-ac6f-ec4930fa8e08",
+            "Value": {
+                "id": "46f20e8d-def9-40ac-a580-b4a97e919f6d",
+                "resourcePath": "scripts\\cpEquipmentUnequip\\cpEquipmentUnequip.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "693d8df8-11a1-41fe-96d6-da0756cba2d8",
             "Value": {
                 "id": "f0926a79-2954-4143-9ee7-d533bd9206f1",
@@ -1692,6 +1708,14 @@
                 "id": "a4b1dadc-a183-4f9b-9cec-494dafac30e0",
                 "resourcePath": "sprites\\sBodyCanvasThrustShoes1\\sBodyCanvasThrustShoes1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "80e68a51-6e3d-447d-9970-b0c6363a7a17",
+            "Value": {
+                "id": "72f5ec08-eb89-4948-873e-fae40eb220a0",
+                "resourcePath": "scripts\\cpEquipmentEquip\\cpEquipmentEquip.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -2503,6 +2527,14 @@
             }
         },
         {
+            "Key": "c205fd91-0cb0-493a-9c28-0be5811ccc71",
+            "Value": {
+                "id": "49dc29f2-df84-4861-91f9-5a6e2ebfe93c",
+                "resourcePath": "objects\\oDropHealth\\oDropHealth.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "c3b17662-5623-45db-b6b3-d1c00711aa5e",
             "Value": {
                 "id": "7596e8e1-da6b-4c84-9a75-392c9529544b",
@@ -2991,6 +3023,14 @@
             }
         },
         {
+            "Key": "f0a441ad-d15c-4f51-b48b-177fee0236ee",
+            "Value": {
+                "id": "0ab92c6c-be32-4492-8b0d-d7c184494da8",
+                "resourcePath": "scripts\\cpInventoryHelperFindFreeSlot\\cpInventoryHelperFindFreeSlot.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "f0a4ddd6-5de8-4006-b6b3-accde0d3cc0e",
             "Value": {
                 "id": "7cb3455f-23d8-4b54-8097-573a8ef96c79",
@@ -3051,6 +3091,14 @@
             "Value": {
                 "id": "72b469f1-1d8d-4a1d-9f61-53ea32b303e8",
                 "resourcePath": "sprites\\sStoneEffect\\sStoneEffect.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "f6b334ea-8aec-46ae-8abb-dd8d3f47ab0d",
+            "Value": {
+                "id": "dc37e589-cfab-458a-bb40-1b5a8351a72b",
+                "resourcePath": "sprites\\sDropHealth\\sDropHealth.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -3206,9 +3254,12 @@
         "3a58ade8-3826-41e1-b366-32037bfe1fa3",
         "7e14ee9e-8a74-4d50-9533-ad8cc8873ca2",
         "305c1a86-731e-40b1-9b89-0dc366af9724",
+        "f0a441ad-d15c-4f51-b48b-177fee0236ee",
         "2547e3b9-bf3f-405b-8916-9bbe326ab661",
         "48e653e1-e490-45d5-9e90-179dd6f172b1",
         "34857dbb-0e86-4058-af77-8fc898cd7d95",
+        "80e68a51-6e3d-447d-9970-b0c6363a7a17",
+        "68263c7d-147c-42de-ac6f-ec4930fa8e08",
         "10571d20-91bd-4a3e-a494-4c641068dfe4",
         "2accf155-90db-489e-91b1-068bc7a459d6",
         "df757468-22df-440a-8ba7-795f7bdbefb8",

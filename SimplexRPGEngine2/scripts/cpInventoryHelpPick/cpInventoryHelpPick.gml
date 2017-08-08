@@ -63,7 +63,12 @@ repeat(tmp_item.v_itemAtributes[e_inventoryAtributes.valItemNumber])
 			tmp_id.v_slotProperty[tmp_freeSlot, i] = tmp_item.v_itemProperty[i];
 			tmp_id.v_slotReq[tmp_freeSlot, i] = tmp_item.v_itemReq[i];
 		}
-		
+
+		for (var i = 0; i < mcAnimations; i++)
+		{
+			tmp_id.v_slotAnimations[tmp_freeSlot, i] = tmp_item.v_itemAnimation[i];
+		}
+				
 		// If we place item in the empty slot, inc stack size by 1
 		if (tmp_id.v_slot[tmp_freeSlot, e_inventoryAtributes.valCurrentStackSize] == 0) {tmp_id.v_slot[tmp_freeSlot, e_inventoryAtributes.valCurrentStackSize]++;}
 		instance_destroy(tmp_item);
