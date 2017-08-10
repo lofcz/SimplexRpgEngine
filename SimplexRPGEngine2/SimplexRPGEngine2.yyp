@@ -135,6 +135,14 @@
             }
         },
         {
+            "Key": "099cba70-0a4b-4c1a-aed6-fafc0e5a41fe",
+            "Value": {
+                "id": "fff98506-6930-4145-b768-b26771c8c0fa",
+                "resourcePath": "objects\\oEnemy\\oEnemy.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "0a9e9792-eee5-4011-a31b-448be6832b7b",
             "Value": {
                 "id": "d17cad8b-a847-4930-9ebc-949bfe4ec019",
@@ -244,6 +252,14 @@
                 "id": "74c8850f-9461-46ea-90f2-84a900106086",
                 "resourcePath": "sprites\\sHelmetEffect3\\sHelmetEffect3.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "11959ad1-6a03-4e3f-8fdf-a0acbbab8a63",
+            "Value": {
+                "id": "99f3504b-451b-4ad5-b6c6-bffb6aa87cda",
+                "resourcePath": "scripts\\libPathfindingAStar\\libPathfindingAStar.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -988,6 +1004,14 @@
                 "id": "5a273ecd-4500-488c-ae2f-0f2700c95686",
                 "resourcePath": "sprites\\sRelic2\\sRelic2.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "48605a6a-f1ca-4268-abc1-2526eb71618b",
+            "Value": {
+                "id": "3d3734b3-6014-4a2f-8f7e-62cbfc8499cd",
+                "resourcePath": "scripts\\move_outside\\move_outside.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -2415,6 +2439,14 @@
             }
         },
         {
+            "Key": "b4a9b194-289e-47fb-a1b3-5b9ed028c25a",
+            "Value": {
+                "id": "77a23f27-fb7d-4a75-8cce-210d3de0e4ff",
+                "resourcePath": "scripts\\libPlayerEventAnimationEnd\\libPlayerEventAnimationEnd.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "b77eb578-8950-49b8-bdfe-c3a75b3a1a98",
             "Value": {
                 "id": "dcbfcd86-bec7-4fd3-94e3-f67447807d76",
@@ -2660,6 +2692,14 @@
                 "id": "55fe5c3a-0adb-4f6c-b4e3-23369bb3b573",
                 "resourcePath": "fonts\\fntPixel\\fntPixel.yy",
                 "resourceType": "GMFont"
+            }
+        },
+        {
+            "Key": "d0760c5e-ed8b-44c9-bd1c-49236ac80d3e",
+            "Value": {
+                "id": "afb5de60-97db-4e49-95b7-373ba8593165",
+                "resourcePath": "sprites\\sprite246\\sprite246.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -3236,6 +3276,7 @@
         "e439492a-2ed2-44c0-a216-0045859e807c",
         "75025d32-b83f-4d9b-85c1-4752f883011f",
         "f7a2706c-a5e9-4ecc-8d8d-620b11f0e5f5",
+        "b4a9b194-289e-47fb-a1b3-5b9ed028c25a",
         "e307ce52-43ae-4e51-9b35-a18bc02d665b",
         "002bedf0-1fd5-45b2-b58c-2fd1139a6f35",
         "2b485559-4262-4de8-8ffc-aaca8b8061aa",
@@ -3243,6 +3284,7 @@
         "d4bfadd3-452e-4721-b5c4-749ee9af7b76",
         "7818962d-ad26-4767-aa42-4e20e22a333b",
         "4a9571fa-503a-4497-bdcb-e11d6f236379",
+        "11959ad1-6a03-4e3f-8fdf-a0acbbab8a63",
         "60cce270-0fda-4c9e-bd4a-07a76b4b9969",
         "3e99874f-193a-451a-b5ac-6bfb66127b1c",
         "194b8cbd-b22b-4079-9793-74fec6e6f1bc",
@@ -3273,7 +3315,8 @@
         "1889a1f2-5a25-4390-903d-3a87aabcd3d8",
         "ee435ec8-4497-49ac-96ae-fb4c317d9762",
         "3e24e474-3c0b-4fea-af98-56f70dc2f15d",
-        "ee3f09d3-7b47-441f-a0d0-a6d446c3d53b"
+        "ee3f09d3-7b47-441f-a0d0-a6d446c3d53b",
+        "48605a6a-f1ca-4268-abc1-2526eb71618b"
     ],
     "tutorial": ""
 }

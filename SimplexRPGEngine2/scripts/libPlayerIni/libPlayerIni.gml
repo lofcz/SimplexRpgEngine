@@ -13,7 +13,9 @@ enum e_animations
 	valWalk, valSlash, valFire, valDie, valBash, valThrust, valRun
 }
 
-enum e_animationSlots
+#macro mcAnimationSlots 14
+
+enum e_animationSlots 
 {
 	valBody, valHair, valArmor, valShoulders, valHead, valLegs, valBelt, valShoes, valHands, valRing, valNecklace, valWeapon1, valWeapon2
 }
@@ -31,3 +33,12 @@ v_bciDef[0, 17] = 0;
 v_bciSpeed = [0.4, 0.4, 0.4, 0.2, 0.2, 0.2, 0.4];
 v_currentAnimation = e_animations.valWalk;
 v_speedReal = 0;
+v_counter = 0;
+
+for (var i = 0; i < mcAnimations; i++)
+{
+	for (var j = 0; j < mcAnimationSlots; j++)
+	{
+		v_bci[i, j] = 0;
+	} 
+}

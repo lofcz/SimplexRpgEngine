@@ -40,6 +40,6 @@ v_itemProperty[e_inventoryProperties.valDamage] = 4;
 v_itemProperty[e_inventoryProperties.valEndurance] = 2;
 
 v_itemAnimation[e_animations.valWalk] = sBodyCanvasWeapon1;
-v_itemAnimation[e_animations.valRun] = sBodyCanvasWeapon1;
+v_itemAnimation[e_animations.valSlash] = sBodyCanvasAttackWeapon1;
 
 v_itemReq[e_inventoryProperties.valLevel] = 2;
