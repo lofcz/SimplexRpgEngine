@@ -80,4 +80,6 @@ v_hudSprite = sprite91;
 v_baseBarSlots = 20;
 
 v_playerProperty[e_inventoryProperties.valMaxXp] = 100;
+depth = -10000;
 
+v_mouseClickedUI = false;

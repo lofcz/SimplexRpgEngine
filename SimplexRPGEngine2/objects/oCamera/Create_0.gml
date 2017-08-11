@@ -12,3 +12,4 @@ view_camera[0] = v_cameraID;
 
 v_n = 10;
 v_target = oPlayer;
+v_canCollide = false;

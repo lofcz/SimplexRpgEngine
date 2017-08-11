@@ -25,7 +25,7 @@
     "option_windows_sleep_margin": 10,
     "option_windows_splash_screen": "${base_options_dir}\\windows\\splash\\splash.png",
     "option_windows_start_fullscreen": false,
-    "option_windows_texture_page": "2048x2048",
+    "option_windows_texture_page": "1024x1024",
     "option_windows_use_splash": false,
     "option_windows_version": {
         "build": 0,

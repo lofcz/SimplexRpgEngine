@@ -29,19 +29,64 @@ if (tmp_canMove)
 		
 		if (tmp_keyAny)
 		{
-			if (tmp_keyW) {v_dir = e_dirs.valW; direction = 90; if (!place_meeting(x, y - v_speedReal, oEnemy)) {y -= v_speedReal;}}
-			else if (tmp_keyS) {v_dir = e_dirs.valS; direction = 270; if (!place_meeting(x, y + v_speedReal, oEnemy)) {y += v_speedReal;}}
-			else if (tmp_keyA) {v_dir = e_dirs.valA; direction = 180; if (!place_meeting(x - v_speedReal, y, oEnemy)) {x -= v_speedReal;}}
-			else if (tmp_keyD) {v_dir = e_dirs.valD; direction = 0; if (!place_meeting(x + v_speedReal, y, oEnemy)) {x += v_speedReal;}}
+			v_speedReal = v_speed;
+			image_speed = 0.25 + (tmp_finalSpeed / 100);	
+			if (v_currentAnimation == e_animations.valRun) {image_speed *= 5; v_speedReal *= 2;}
 			
-			v_lastDir = v_dir;
-			v_speedReal = lerp(v_speedReal, tmp_finalSpeed, 0.25);
+			var tmp_inst, tmp_collPas, tmp_xShift, tmp_yShift, tmp_passed;
+			tmp_collPas = true;
+			tmp_xShift = 0;
+			tmp_yShift = 0;
+			tmp_passed = true;
+				
+			if (tmp_keyW) {v_dir = e_dirs.valW; direction = 90; tmp_yShift = -v_speedReal;}
+			else if (tmp_keyS) {v_dir = e_dirs.valS; direction = 270; tmp_yShift = v_speedReal;}
+			else if (tmp_keyA) {v_dir = e_dirs.valA; direction = 180; tmp_xShift = -v_speedReal;}
+			else if (tmp_keyD) {v_dir = e_dirs.valD; direction = 0; tmp_xShift = v_speedReal;}
 			
-			image_speed = 0.25 + (tmp_finalSpeed / 100);			
-			//speed = v_speedReal;
+			v_lastDir = v_dir;							
+			v_list = instance_position_list(x + tmp_xShift, y + tmp_yShift, parGameObject);
 			
-			if (v_currentAnimation == e_animations.valRun) {image_speed *= 5;}
-			fg = instance_nearest(x, y, oEnemy);
+			if (v_list != noone)
+			{
+				for (var i = 0; i < ds_list_size(v_list); i++)
+				{
+					tmp_inst = v_list[| i];
+					if (tmp_inst == id) {tmp_inst = noone;}
+				
+					if (tmp_inst != noone)
+					{
+						if (tmp_inst.v_canCollide)
+						{
+							if (!libUtilityIsCollisionUndefined(tmp_inst.v_collisionLegs))
+							{
+								if (libUtilityCollisionInCollision(tmp_inst.v_collisionLegs, libUtilityBuildCollision(v_collisionLegs, tmp_xShift, tmp_yShift)))
+								{
+									tmp_passed = false;
+								}
+							}
+							else
+							{
+								if (libUtilityCollisionInCollision(tmp_inst.v_collisionMain, libUtilityBuildCollision(v_collisionLegs, tmp_xShift, tmp_yShift)))
+								{
+									tmp_passed = false;
+								}					
+							}
+						}
+					}
+				}
+			}
+			
+			if (tmp_passed)
+			{
+				y += tmp_yShift;
+				x += tmp_xShift;
+			}
+
+			if (v_list != noone)
+			{
+				ds_list_destroy(v_list);
+			}
 		}
 		else
 		{
@@ -54,16 +99,23 @@ if (tmp_canMove)
 		}
 		
 		// If we hold weapon, attack
-		if (mouse_check_button_pressed(mb_left))
+		if (mouse_check_button_pressed(mb_left) && !oHUD.v_mouseClickedUI)
 		{
 			if (v_bci[v_currentAnimation, 4] != 0)
-			{
+			{	
+				var tmp_sX, tmp_sY;
+				tmp_sX = x;
+				tmp_sY = y;
+				
 				v_currentAnimation = e_animations.valSlash;
 				speed = 0;
-				if (v_lastDir == e_dirs.valW) {image_index = 0.1;}
-				if (v_lastDir == e_dirs.valS) {image_index = v_animationFrames[v_currentAnimation] * 2 + 0.1;}
-				if (v_lastDir == e_dirs.valA) {image_index = v_animationFrames[v_currentAnimation] + 0.1;}
-				if (v_lastDir == e_dirs.valD) {image_index = v_animationFrames[v_currentAnimation] * 3 + 0.1;}
+				if (v_lastDir == e_dirs.valW) {image_index = 0.1; tmp_sY = y - 64; tmp_sX -= 24}
+				if (v_lastDir == e_dirs.valS) {image_index = v_animationFrames[v_currentAnimation] * 2 + 0.1; tmp_sY = y + 48 tmp_sX -= 24}
+				if (v_lastDir == e_dirs.valA) {image_index = v_animationFrames[v_currentAnimation] + 0.1; tmp_sX = x - 76;}
+				if (v_lastDir == e_dirs.valD) {image_index = v_animationFrames[v_currentAnimation] * 3 + 0.1; tmp_sX += 18;}
+				
+				var tmp_inst = instance_create_depth(tmp_sX, tmp_sY, depth - 100, oCombatMask);
+				tmp_inst.v_dir = v_dir;
 			}
 		}
 								

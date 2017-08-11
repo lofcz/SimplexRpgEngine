@@ -1,6 +1,6 @@
 /// @desc [Simplex description line]
 
-if (libUtilityCheckCollisionRect(v_collisionMain, oPlayer.v_collisionLegs))
+if (libUtilityCheckCollisionRect(v_collisionInteraction, oPlayer.v_collisionLegs))
 {
 	if (keyboard_check_pressed(ord("E")) && oPlayer.v_lastDir == e_dirs.valW)
 	{
@@ -358,3 +358,4 @@ draw_self();
 
 if (v_lerpMode == 0) {v_actualLerp = lin(v_actualLerp, 0.01, 0.00005); if (v_actualLerp >= 0.003) {v_lerpMode = 1;}}
 if (v_lerpMode == 1) {v_actualLerp = lin(v_actualLerp, 0, 0.00005); if (v_actualLerp <= 0.0003) {v_lerpMode = 0;}}
+event_inherited();

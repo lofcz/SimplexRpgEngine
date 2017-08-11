@@ -1,5 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
+
 v_collisionLegs = [x - 16, y, x + 16, y + 24];
 
 if (v_action == "")
@@ -142,7 +143,7 @@ if (v_dir == e_dirs.valA) {if (image_index < 4 || image_index > 8 - 0.1) {image_
 if (v_dir == e_dirs.valW) {if (image_index < 12 || image_index > 16 - 0.1) {image_index = 12;}}
 if (v_dir == e_dirs.valS) {if (image_index < 0 || image_index > 4 - 0.1) {image_index = 0;}}
 
-
+draw_text(x, y - 48, "HP: " + string(v_properties[e_inventoryProperties.valHp]));
 
 draw_self();
 draw_circle(v_targetX, v_targetY, 4, false);
@@ -150,4 +151,5 @@ draw_circle(x, y, 4, false);
 draw_text(x, y + 32, d);
 	draw_line(x , y, v_targetX, v_targetY);
 
-libUtilityDrawRect(v_collisionLegs);
+//libUtilityDrawRect(v_collisionLegs);
+event_inherited();

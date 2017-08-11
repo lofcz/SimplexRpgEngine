@@ -138,6 +138,7 @@ for (var i = 0; i < min(v_slots, v_slotsPerPage); i++)
 		tmp_offsetHelp = oHUD.v_hudSlotUseX;
 		tmp_lastHover = i;
 		if (v_slot[i, e_inventoryAtributes.valID] != e_items.valNONE) {tmp_hovered = true; v_lastHover = tmp_lastHover;}
+		oHUD.v_mouseClickedUI = true;
 	}
 	
 	cpInventoryHelperHandleInput(id, i, tmp_hover);
@@ -269,6 +270,7 @@ if (v_slotBeingDragged != -1)
 			var tmp_switchDone, tmp_itemsSwitched;
 			tmp_switchDone = true;
 			tmp_itemsSwitched = 0;
+			oHUD.v_mouseClickedUI = true;
 			
 			// We try to join item slots if they have the same id and are stackable
 			if (v_slot[tmp_lastHover, e_inventoryAtributes.valID] == v_slot[v_slotBeingDragged, e_inventoryAtributes.valID] && v_slot[tmp_lastHover, e_inventoryAtributes.valStackable] && v_slot[v_slotBeingDragged, e_inventoryAtributes.valStackable])
@@ -464,6 +466,7 @@ for (var i = 0; i < 3; i++)
 		if (mouse_check_button_pressed(mb_left))
 		{
 			v_filterButtons[i, 0] = !v_filterButtons[i, 0];
+			oHUD.v_mouseClickedUI = true;
 		}
 	}
 }

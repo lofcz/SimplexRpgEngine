@@ -10,4 +10,11 @@ v_mindState = "hostile";
 v_action = "";
 v_timer = 0;
 
+event_inherited();
 v_collisionLegs = [x - 16, y, x + 16, y + 16];
+v_canBeDamaged = true;
+
+for (var i = 0; i < mcInventoryProperties; i++)
+{
+	v_properties[i] = 0;
+}

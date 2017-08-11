@@ -22,3 +22,5 @@ clr();
 
 v_collisionMain = [x - 16, y - 16, x + 16, y + 32];
 v_collisionLegs = [x - 16, y + 16, x + 16, y + 32];
+
+event_inherited();
