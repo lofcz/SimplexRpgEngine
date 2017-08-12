@@ -3159,6 +3159,14 @@
             }
         },
         {
+            "Key": "e5316637-ce6d-4e03-b36d-ad86d6cde7b5",
+            "Value": {
+                "id": "0e2226df-6af4-42b2-a1dd-c0e3dd69305d",
+                "resourcePath": "scripts\\sprite_divide\\sprite_divide.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "e5d2e571-2c30-4454-b1c0-e2ffed1feb4e",
             "Value": {
                 "id": "8281d24e-0445-4391-827b-ab3ae1c98fa6",
@@ -3497,7 +3505,6 @@
         "dfbe08d6-194c-4bea-b2de-023277c8a3ea",
         "4a9571fa-503a-4497-bdcb-e11d6f236379",
         "11959ad1-6a03-4e3f-8fdf-a0acbbab8a63",
-        "60cce270-0fda-4c9e-bd4a-07a76b4b9969",
         "3e99874f-193a-451a-b5ac-6bfb66127b1c",
         "194b8cbd-b22b-4079-9793-74fec6e6f1bc",
         "743acdb3-e5bb-41ad-9520-4ca6a45e617a",
@@ -3509,12 +3516,13 @@
         "7e14ee9e-8a74-4d50-9533-ad8cc8873ca2",
         "305c1a86-731e-40b1-9b89-0dc366af9724",
         "f0a441ad-d15c-4f51-b48b-177fee0236ee",
-        "2547e3b9-bf3f-405b-8916-9bbe326ab661",
         "48e653e1-e490-45d5-9e90-179dd6f172b1",
         "34857dbb-0e86-4058-af77-8fc898cd7d95",
         "80e68a51-6e3d-447d-9970-b0c6363a7a17",
         "68263c7d-147c-42de-ac6f-ec4930fa8e08",
         "e5d2e571-2c30-4454-b1c0-e2ffed1feb4e",
+        "2547e3b9-bf3f-405b-8916-9bbe326ab661",
+        "60cce270-0fda-4c9e-bd4a-07a76b4b9969",
         "10571d20-91bd-4a3e-a494-4c641068dfe4",
         "2accf155-90db-489e-91b1-068bc7a459d6",
         "df757468-22df-440a-8ba7-795f7bdbefb8",
@@ -3532,7 +3540,8 @@
         "48605a6a-f1ca-4268-abc1-2526eb71618b",
         "0b847b93-f5bf-4d8b-9e5a-ff9f75717ab4",
         "07e641e6-4261-4509-84b9-01bac666491e",
-        "ce5d8baa-57d7-4bcf-9c56-8ea11bfa756b"
+        "ce5d8baa-57d7-4bcf-9c56-8ea11bfa756b",
+        "e5316637-ce6d-4e03-b36d-ad86d6cde7b5"
     ],
     "tutorial": ""
 }

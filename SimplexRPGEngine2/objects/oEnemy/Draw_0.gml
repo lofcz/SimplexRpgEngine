@@ -145,11 +145,33 @@ if (v_dir == e_dirs.valS) {if (image_index < 0 || image_index > 4 - 0.1) {image_
 
 draw_text(x, y - 48, "HP: " + string(v_properties[e_inventoryProperties.valHp]));
 
-draw_self();
-draw_circle(v_targetX, v_targetY, 4, false);
-draw_circle(x, y, 4, false);
-draw_text(x, y + 32, d);
-	draw_line(x , y, v_targetX, v_targetY);
+
+//draw_circle(v_targetX, v_targetY, 4, false);
+//draw_circle(x, y, 4, false);
+//draw_text(x, y + 32, d);
+	//draw_line(x , y, v_targetX, v_targetY);
 
 //libUtilityDrawRect(v_collisionLegs);
 event_inherited();
+
+if (v_spriteRest != -1)
+{
+	x = v_restX;
+	y = v_restY;
+	
+	draw_sprite_ext(v_spriteRest, 0, v_restX, v_restY, 1, 1, v_restRot, c_white, v_restAlpha);
+	v_restX = lerp(v_restX, v_restStartX - 32, 0.1);
+	v_restX2 = lerp(v_restX2, 32, 0.1);
+	v_restRot = lin(v_restRot, 80, 2);
+	v_restAlpha = lin(v_restAlpha, 0, 0.01);
+	
+	if (irandom(10) == 2 && v_restRot < 70) {cpGoreFull();}
+	if (v_restAlpha <= 0) {v_spriteRest = -1; instance_destroy();}
+	
+	draw_sprite_ext(sprite_index, 0, v_restStartX + v_restX2, v_restY, 1, 1, -v_restRot, c_white, v_restAlpha);
+
+}
+else
+{
+	draw_self();
+}

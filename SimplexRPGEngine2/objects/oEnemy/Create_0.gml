@@ -18,3 +18,11 @@ for (var i = 0; i < mcInventoryProperties; i++)
 {
 	v_properties[i] = 0;
 }
+
+v_sprite = sprite_duplicate(sprite_index);
+v_spriteRest = -1;
+v_restAlpha = 1;
+v_restRot = 0;
+v_restStartX = x;
+v_restStartY = x;
+v_restX2 = 0;

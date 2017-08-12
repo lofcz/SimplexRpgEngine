@@ -27,3 +27,6 @@ instance_create_depth(x, y, -200, oDrawHelperAbove);
 
 v_collisionMain = [x, y, x, y];
 v_collisionLegs = [x, y, x, y];
+
+v_lerpMode = 0;
+v_actualLerp = 0;
