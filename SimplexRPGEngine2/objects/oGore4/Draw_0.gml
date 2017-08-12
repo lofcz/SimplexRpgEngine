@@ -5,7 +5,7 @@ image_angle = direction;
 
 if (fade)
    {
-    if (image_alpha > 0){image_alpha = lin(image_alpha, 0, 0.1);}
+    if (image_alpha >= 0){image_alpha = lin(image_alpha, 0, 0.1);}
     else {instance_destroy()}   
    }
 
