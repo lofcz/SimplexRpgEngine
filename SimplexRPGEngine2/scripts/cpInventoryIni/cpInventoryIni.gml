@@ -161,8 +161,8 @@ v_currentPage   = 0;
 v_drag          = false;
 v_drawSelf      = true;
 v_formAlpha     = 1;
-v_inventorySprite = sprite91;
-v_inventoryTexSprite = sprite92;
+v_inventorySprite = texUI;
+v_inventoryTexSprite = texUIFill;
 v_frameBorder = 4;
 v_itemSize = 32;
 

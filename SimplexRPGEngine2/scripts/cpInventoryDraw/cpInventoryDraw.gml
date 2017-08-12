@@ -506,7 +506,7 @@ if (v_formExtAlpha > 0.05)
 	if (v_formExtMode == "equipment")
 	{
 		clr(-1, min(v_formExtAlpha, v_formAlpha));
-		draw_sprite(sEquipmentForm, 0, v_formBaseMaxX + (v_slotSize / 2) * 3, v_drawStartY + v_slotSize);
+		draw_sprite(texEquipmentForm, 0, v_formBaseMaxX + (v_slotSize / 2) * 3, v_drawStartY + v_slotSize);
 		
 		cpEquipmentDraw();
 		

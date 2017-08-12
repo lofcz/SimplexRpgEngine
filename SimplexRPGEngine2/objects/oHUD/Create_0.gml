@@ -75,7 +75,7 @@ for (var i = 0; i < mcInventoryProperties; i++)
 
 v_lang = "en";
 v_mouseFree = true;
-v_hudSprite = sprite91;
+v_hudSprite = texUI;
 
 v_baseBarSlots = 20;
 

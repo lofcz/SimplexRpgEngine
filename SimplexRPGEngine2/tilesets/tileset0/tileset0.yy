@@ -11,7 +11,7 @@
             "closed_edge": false,
             "name": "autotile_1",
             "tiles": [
-                505,
+                537,
                 410,
                 411,
                 505,
@@ -64,7 +64,7 @@
             "id": "4f30bcf2-ab1b-463a-afda-f64e80ab195a",
             "modelName": "GMAutoTileSet",
             "mvc": "1.0",
-            "closed_edge": false,
+            "closed_edge": true,
             "name": "autotile_2",
             "tiles": [
                 293,
@@ -271,7 +271,7 @@
     "out_columns": 28,
     "out_tilehborder": 2,
     "out_tilevborder": 2,
-    "spriteId": "afb6d3f3-9fb0-4c22-949c-70e74a42cab6",
+    "spriteId": "674b2252-037d-482b-b24f-7a44789cd290",
     "sprite_no_export": true,
     "textureGroupId": "1225f6b0-ac20-43bd-a82e-be73fa0b6f4f",
     "tile_animation": {
