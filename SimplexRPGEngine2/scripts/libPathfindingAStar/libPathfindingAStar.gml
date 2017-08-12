@@ -128,7 +128,8 @@ while(ds_list_size(gridList) > 0){
             x1 = x0 + lengthdir_x(argument4, a * 90);
             y1 = y0 + lengthdir_y(argument4, a * 90);
             //Make sure neighbor squares are valid.
-            if (!position_meeting(x1, y1, argument7)
+			x -= 10000;
+            if ((!position_meeting(x1, y1, argument7))
             && ds_grid_get(grid_cellChecked, (x1 - argument4 * .5) / argument4, (y1 - argument4 * .5) / argument4) == 0
             && x1 > 0
             && x1 < room_width
@@ -142,6 +143,7 @@ while(ds_list_size(gridList) > 0){
                 //Add the cells respective values to the gridList.
                 ds_list_add(gridList, px, py, pd);
             }
+			x += 10000;
         }  
     }    
 }   
@@ -318,7 +320,7 @@ repeat(ds_list_size(cellTrimList) / 2 + 4){
         }
     }
 }    
-pfg = path_add();
+var pfg = path_add();
 path_set_closed(pfg, 0);
 for (var i = 0; i <path_get_number(p_path); i++)
 {
@@ -335,6 +337,8 @@ path_delete_point(p_path, path_get_number(p_path) - 2);
 ds_list_destroy(gridList);
 ds_list_destroy(cellTrimList)
 ds_grid_destroy(grid_cellChecked);
+
+path_delete(p_path);
 
 //Return result.
 return pfg;
