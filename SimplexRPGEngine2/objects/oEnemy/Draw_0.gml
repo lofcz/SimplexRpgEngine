@@ -22,7 +22,17 @@ if (v_action == "computeTarget")
 		else {image_index = 0;}		
 		
 		v_timer = 60;
-		v_action = "freeze";
+		v_action = "attack";
+		sprite_index = sGoblinAttack;
+		image_speed = 1;
+		v_currentAnimation = 1;
+		
+		cpGoreFull(oPlayer.x, oPlayer.y);
+if (v_dir == e_dirs.valD) {if (image_index < v_animationFrames[v_currentAnimation] || image_index > v_animationFrames[v_currentAnimation] * 2 - 0.1) {image_index = v_animationFrames[v_currentAnimation];}}
+if (v_dir == e_dirs.valA) {if (image_index < v_animationFrames[v_currentAnimation] * 3 || image_index > v_animationFrames[v_currentAnimation] * 4 - 0.1) {image_index = v_animationFrames[v_currentAnimation] * 3;}}
+if (v_dir == e_dirs.valW) {if (image_index < v_animationFrames[v_currentAnimation] * 2 || image_index > v_animationFrames[v_currentAnimation] * 3 - 0.1) {image_index = v_animationFrames[v_currentAnimation] * 2;}}
+if (v_dir == e_dirs.valS) {if (image_index < 0 || image_index > v_animationFrames[v_currentAnimation] - 0.1) {image_index = 0;}}
+		
 	}
 	else
 	{
@@ -60,7 +70,7 @@ if (v_action == "moveRight")
 	v_counter -= v_spd;
 	if (v_counter <= 0) {v_action = "computeTarget";}
 	v_dir = e_dirs.valD;
-	image_speed = 0.3;
+	image_speed = 0.6;
 	}
 	else
 	{
@@ -74,7 +84,7 @@ if (v_action == "moveLeft")
 	x -= v_spd;
 	v_counter -= v_spd;
 	if (v_counter <= 0) {v_action = "computeTarget";}
-	image_speed = 0.3;
+	image_speed = 0.6;
 	v_dir = e_dirs.valA;
 	}
 	else
@@ -90,7 +100,7 @@ if (v_action == "moveUp")
 	y -= v_spd;
 	v_counter -= v_spd;
 	if (v_counter <= 0) {v_action = "computeTarget";}
-	image_speed = 0.3;
+	image_speed = 0.6;
 	v_dir = e_dirs.valW;
 	}
 	else
@@ -106,7 +116,7 @@ if (v_action == "moveDown")
 	y += v_spd;
 	v_counter -= v_spd;
 	if (v_counter <= 0) {v_action = "computeTarget";}
-	image_speed = 0.3;
+	image_speed = 0.6;
 	v_dir = e_dirs.valS;
 	}
 	else
@@ -123,10 +133,10 @@ if (v_action == "freeze")
 	
 	d = point_direction(x, y, oPlayer.x, oPlayer.y);
 
-	if ((d > 0 && d < 45) || (d > 315 && d <= 360)) {v_dir = e_dirs.valD; image_index = 8;}
-	else if (d > 90 + 45 && d <= 180 + 45) {image_index = 4; v_dir = e_dirs.valA;}
-	else if (d >= 45 && d < 90 + 45) {image_index = 12; v_dir = e_dirs.valW}
-	else {image_index = 0; v_dir = e_dirs.valS;}		
+	if ((d > 0 && d < 45) || (d > 315 && d <= 360)) {v_dir = e_dirs.valD;}
+	else if (d > 90 + 45 && d <= 180 + 45) {v_dir = e_dirs.valA;}
+	else if (d >= 45 && d < 90 + 45) {v_dir = e_dirs.valW}
+	else {v_dir = e_dirs.valS;}		
 	
 	if (v_timer > 0)
 	{
@@ -138,10 +148,19 @@ if (v_action == "freeze")
 	}
 }
 
-if (v_dir == e_dirs.valD) {if (image_index < 8 || image_index > 12 - 0.1) {image_index = 8;}}
-if (v_dir == e_dirs.valA) {if (image_index < 4 || image_index > 8 - 0.1) {image_index = 4;}}
-if (v_dir == e_dirs.valW) {if (image_index < 12 || image_index > 16 - 0.1) {image_index = 12;}}
-if (v_dir == e_dirs.valS) {if (image_index < 0 || image_index > 4 - 0.1) {image_index = 0;}}
+if (v_action == "attack")
+{
+if (v_dir == e_dirs.valD) {if (image_index < v_animationFrames[v_currentAnimation] || image_index > v_animationFrames[v_currentAnimation] * 2 - 0.1) {sprite_index = sGoblinMove; v_currentAnimation = 0; v_action = "computeTarget";}}
+if (v_dir == e_dirs.valA) {if (image_index < v_animationFrames[v_currentAnimation] * 3 || image_index > v_animationFrames[v_currentAnimation] * 4 - 0.1) {sprite_index = sGoblinMove; v_currentAnimation = 0; v_action = "computeTarget";}}
+if (v_dir == e_dirs.valW) {if (image_index < v_animationFrames[v_currentAnimation] * 2 || image_index > v_animationFrames[v_currentAnimation] * 3 - 0.1) {sprite_index = sGoblinMove; v_currentAnimation = 0; v_action = "computeTarget";}}
+if (v_dir == e_dirs.valS) {if (image_index < 0 || image_index > v_animationFrames[v_currentAnimation] - 0.1) {sprite_index = sGoblinMove; v_currentAnimation = 0; v_action = "computeTarget";}}
+	
+}
+
+if (v_dir == e_dirs.valD) {if (image_index < v_animationFrames[v_currentAnimation] || image_index > v_animationFrames[v_currentAnimation] * 2 - 0.1) {image_index = v_animationFrames[v_currentAnimation];}}
+if (v_dir == e_dirs.valA) {if (image_index < v_animationFrames[v_currentAnimation] * 3 || image_index > v_animationFrames[v_currentAnimation] * 4 - 0.1) {image_index = v_animationFrames[v_currentAnimation] * 3;}}
+if (v_dir == e_dirs.valW) {if (image_index < v_animationFrames[v_currentAnimation] * 2 || image_index > v_animationFrames[v_currentAnimation] * 3 - 0.1) {image_index = v_animationFrames[v_currentAnimation] * 2;}}
+if (v_dir == e_dirs.valS) {if (image_index < 0 || image_index > v_animationFrames[v_currentAnimation] - 0.1) {image_index = 0;}}
 
 draw_text(x, y - 48, "HP: " + string(v_properties[e_inventoryProperties.valHp]));
 

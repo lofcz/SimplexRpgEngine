@@ -1679,6 +1679,14 @@
             }
         },
         {
+            "Key": "76e34226-687c-4164-a74e-10399835c611",
+            "Value": {
+                "id": "0d33f2b1-aa95-4e97-93a0-381c6243d128",
+                "resourcePath": "sprites\\sGoblinAttack\\sGoblinAttack.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "777deb13-bd85-40c5-bf5e-0eb59c87ee20",
             "Value": {
                 "id": "fff8708b-d3d7-408b-9e4b-b8c766518e98",
@@ -3467,6 +3475,14 @@
             "Value": {
                 "id": "3e78a328-ef0d-4e7b-903a-1f3f3ba8ef27",
                 "resourcePath": "sprites\\sEnchanterEffect\\sEnchanterEffect.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "fea8638c-da43-431e-8d16-f525cc334bc2",
+            "Value": {
+                "id": "da9cebad-e4d7-4a85-ac49-1457d2695153",
+                "resourcePath": "sprites\\sGoblinMove\\sGoblinMove.yy",
                 "resourceType": "GMSprite"
             }
         },

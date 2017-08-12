@@ -1,10 +1,10 @@
 /// @desc [Simplex description line]
 
-v_splitStartX = 16;
+v_splitStartX = 32;
 v_splitStartY = 0;
 
-v_splitEndX = 16;
-v_splitEndY = 16;
+v_splitEndX = 32;
+v_splitEndY = 64;
 
 v_restX = x;
 v_restY = y;

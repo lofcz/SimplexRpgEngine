@@ -26,3 +26,6 @@ v_restRot = 0;
 v_restStartX = x;
 v_restStartY = x;
 v_restX2 = 0;
+
+v_currentAnimation = 0;
+v_animationFrames = [8, 9];
