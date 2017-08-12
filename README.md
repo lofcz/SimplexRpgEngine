@@ -1,6 +1,6 @@
 <img src="https://img.shields.io/badge/version-2.0%20P--DEV-brightgreen.svg"> <img src="https://img.shields.io/shippable/5444c5ecb904a4b21567b0ff.svg"> <img src="https://img.shields.io/badge/license-GPL3-blue.svg">
 <br><br>
-<img align="middle" src="https://dl.dropboxusercontent.com/s/7tfdbbtp23xu4kh/imgLogo1.png?dl=0">
+<img align="middle" src="https://s15.postimg.org/hb1fpm51n/logo.png">
 <br>
 
 ## Modern RPG Engine that redifines the JRPG genre.
@@ -49,7 +49,7 @@
 
 **Fire Braid** (Studio Camo)  
 *In dev, to be published on the Google play*  
-<img  width="30%" height="30%" src="https://dl.dropboxusercontent.com/s/16mw9jkz3x0pq8x/fGame3.png?dl=0">
+<img  width="30%" height="30%" src="https://s10.postimg.org/pto7gbtqx/image.png">
 
 
 ## Engine preview: 
