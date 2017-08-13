@@ -35,3 +35,8 @@ else if (tmp_text == "Equipment")
 	if (oHUD.v_lang == "cz") {return "Vybavení";}
 	else {return tmp_text;}
 }
+else if (tmp_text == "Coins")
+{
+	if (oHUD.v_lang == "cz") {return "Mincí";}
+	else {return tmp_text;}
+}

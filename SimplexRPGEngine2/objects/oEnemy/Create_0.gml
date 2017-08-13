@@ -12,6 +12,10 @@ v_timer = 0;
 v_attackArea = [x - 256, y - 256, x + 256, y + 256];
 v_attackNote = 196;
 
+v_enemyType = choose("goblin");
+if (v_enemyType == "golem") {sprite_index = sGolemMove; v_animationFrames = [7, 7]; v_moveAnim = sGolemMove; v_attackAnim = sGolemAttack;}
+else {v_animationFrames = [8, 9]; v_moveAnim = sGoblinMove; v_attackAnim = sGoblinAttack;}
+
 event_inherited();
 v_collisionLegs = [x - 16, y, x + 16, y + 16];
 v_canBeDamaged = true;
@@ -30,7 +34,7 @@ v_restStartY = x;
 v_restX2 = 0;
 
 v_currentAnimation = 0;
-v_animationFrames = [8, 9];
+
 
 v_targetLastPosX = -1;
 v_targetLastPosY = -1;

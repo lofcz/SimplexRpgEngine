@@ -13,7 +13,7 @@ v_attackArea = [x - v_attackNote, y - v_attackNote, x + v_attackNote, y + v_atta
 
 if (v_mindState == "idle") {color = c_lime; 		v_attackNote = lerp(v_attackNote, 196, 0.1);} else if (v_mindState == "attack") {color = c_red; v_attackNote = lerp(v_attackNote, 256, 0.1);}
 else if (v_mindState == "search") {color = c_orange; v_attackNote = lerp(v_attackNote, 256, 0.1);}
-	libUtilityDrawRect(v_attackArea, false, color);
+//	libUtilityDrawRect(v_attackArea, false, color);
 
 if (v_action == "")
 {
@@ -41,7 +41,7 @@ if (v_action == "computeTarget")
 		
 		v_timer = 60;
 		v_action = "attack";
-		sprite_index = sGoblinAttack;
+		sprite_index = v_attackAnim;
 		image_speed = 1;
 		v_currentAnimation = 1;
 		
@@ -249,10 +249,10 @@ if (v_action == "rest")
 
 if (v_action == "attack")
 {
-if (v_dir == e_dirs.valD) {if (image_index < v_animationFrames[v_currentAnimation] || image_index > v_animationFrames[v_currentAnimation] * 2 - 0.1) {sprite_index = sGoblinMove; v_currentAnimation = 0; v_action = "computeTarget";}}
-if (v_dir == e_dirs.valA) {if (image_index < v_animationFrames[v_currentAnimation] * 3 || image_index > v_animationFrames[v_currentAnimation] * 4 - 0.1) {sprite_index = sGoblinMove; v_currentAnimation = 0; v_action = "computeTarget";}}
-if (v_dir == e_dirs.valW) {if (image_index < v_animationFrames[v_currentAnimation] * 2 || image_index > v_animationFrames[v_currentAnimation] * 3 - 0.1) {sprite_index = sGoblinMove; v_currentAnimation = 0; v_action = "computeTarget";}}
-if (v_dir == e_dirs.valS) {if (image_index < 0 || image_index > v_animationFrames[v_currentAnimation] - 0.1) {sprite_index = sGoblinMove; v_currentAnimation = 0; v_action = "computeTarget";}}
+if (v_dir == e_dirs.valD) {if (image_index < v_animationFrames[v_currentAnimation] || image_index > v_animationFrames[v_currentAnimation] * 2 - 0.1) {sprite_index = v_moveAnim; v_currentAnimation = 0; v_action = "computeTarget";}}
+if (v_dir == e_dirs.valA) {if (image_index < v_animationFrames[v_currentAnimation] * 3 || image_index > v_animationFrames[v_currentAnimation] * 4 - 0.1) {sprite_index = v_moveAnim; v_currentAnimation = 0; v_action = "computeTarget";}}
+if (v_dir == e_dirs.valW) {if (image_index < v_animationFrames[v_currentAnimation] * 2 || image_index > v_animationFrames[v_currentAnimation] * 3 - 0.1) {sprite_index = v_moveAnim; v_currentAnimation = 0; v_action = "computeTarget";}}
+if (v_dir == e_dirs.valS) {if (image_index < 0 || image_index > v_animationFrames[v_currentAnimation] - 0.1) {sprite_index = v_moveAnim; v_currentAnimation = 0; v_action = "computeTarget";}}
 	
 }
 
@@ -295,3 +295,4 @@ else
 {
 	draw_self();
 }
+

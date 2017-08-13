@@ -30,3 +30,5 @@ v_collisionLegs = [x, y, x, y];
 
 v_lerpMode = 0;
 v_actualLerp = 0;
+
+//some = 4;
