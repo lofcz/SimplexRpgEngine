@@ -18,7 +18,7 @@ cpBodyCanvasRegAnim(e_animations.valFire,   sBodyCanvasFire1,      sBodyCanvasFi
 cpBodyCanvasRegAnim(e_animations.valDie,    sBodyCanvasDie1,       sBodyCanvasDieHair1,    sBodyCanvasDieArmor1,    0, 0, 0, 0,             sBodyCanvasDieShoes1, 0, 0);
 cpBodyCanvasRegAnim(e_animations.valBash,   sBodyCanvasBash1,      sBodyCanvasBashHair1,   sBodyCanvasBashArmor1,   0, 0, 0, 0,             sBodyCanvasBashShoes1, 0, sCatchError, sBodyCanvasBashShield1);
 cpBodyCanvasRegAnim(e_animations.valThrust, sBodyCanvasThrust1,    sBodyCanvasThrustHair1, sBodyCanvasThrustArmor1, 0, 0, 0, 0,             sBodyCanvasThrustShoes1, 0, 0);
-cpBodyCanvasRegAnim(e_animations.valRun,   sBodyCanvasRun1, sBodyCanvasRunHair1,       sBodyCanvasRunArmor1,       0, sBodyCanvasRunHood1, sBodyCanvasRunLegs1, 0, sBodyCanvasRunShoes1, sBodyCanvasRunHands1, 0);
+cpBodyCanvasRegAnim(e_animations.valRun,   sBodyCanvasRun1, sBodyCanvasRunHair1,       sBodyCanvasRunArmor1,       sBodyCanvasRunHood1, sBodyCanvasRunHood1, sBodyCanvasRunLegs1, 0, sBodyCanvasRunShoes1, sBodyCanvasRunHands1, 0);
 
 instance_create_depth(x, y, 100, oCamera);
 instance_create_depth(x, y, -100, oInventory);

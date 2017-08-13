@@ -1,7 +1,19 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+		if (v_targetLastPosX != -1)
+		{
+			clr(-1, 0.4);
+			draw_sprite(sBodyCanvasRun1, 0, v_targetLastPosX, v_targetLastPosY);
+			clr();
+		}
+
 v_collisionLegs = [x - 16, y, x + 16, y + 24];
+v_attackArea = [x - v_attackNote, y - v_attackNote, x + v_attackNote, y + v_attackNote];
+
+if (v_mindState == "idle") {color = c_lime; 		v_attackNote = lerp(v_attackNote, 196, 0.1);} else if (v_mindState == "attack") {color = c_red; v_attackNote = lerp(v_attackNote, 256, 0.1);}
+else if (v_mindState == "search") {color = c_orange; v_attackNote = lerp(v_attackNote, 256, 0.1);}
+	libUtilityDrawRect(v_attackArea, false, color);
 
 if (v_action == "")
 {
@@ -11,8 +23,14 @@ if (v_action == "")
 if (v_action == "computeTarget")
 {
 	//move_snap(32, 32);
+	if (libUtilityCheckCollisionRect(v_attackArea, oPlayer.v_collisionMain))
+	{
+		v_mindState = "attack";
+	}
+	else {if (v_mindState == "attack") {v_targetLastPosX = oPlayer.x; v_targetLastPosY = oPlayer.y; v_mindState = "search";} else {if (v_targetLastPosX = -1) {v_mindState = "idle";}} }
+
 	
-	if (distance_to_object(oPlayer) < 32)
+	if (distance_to_object(oPlayer) < 4)
 	{
 		d = point_direction(x, y, oPlayer.x, oPlayer.y);
 
@@ -32,32 +50,58 @@ if (v_dir == e_dirs.valD) {if (image_index < v_animationFrames[v_currentAnimatio
 if (v_dir == e_dirs.valA) {if (image_index < v_animationFrames[v_currentAnimation] * 3 || image_index > v_animationFrames[v_currentAnimation] * 4 - 0.1) {image_index = v_animationFrames[v_currentAnimation] * 3;}}
 if (v_dir == e_dirs.valW) {if (image_index < v_animationFrames[v_currentAnimation] * 2 || image_index > v_animationFrames[v_currentAnimation] * 3 - 0.1) {image_index = v_animationFrames[v_currentAnimation] * 2;}}
 if (v_dir == e_dirs.valS) {if (image_index < 0 || image_index > v_animationFrames[v_currentAnimation] - 0.1) {image_index = 0;}}
-		
+
 	}
 	else
 	{
-		var tmp_grid;
-		v_path = path_add();
-		path_set_closed(v_path, false);
-	
-		v_path = libPathfindingAStar(x, y, oPlayer.x, oPlayer.y, 32, 0, false, parSolid, false);
-		v_targetX = path_get_point_x(v_path, 2);
-		v_targetY = path_get_point_y(v_path, 2);
-		v_action = "moveToTarget";
-		draw_path(v_path, x, y, true);
-		direction = 0;
-		d = point_direction(x, y, v_targetX, v_targetY);
-			draw_text(x, y -32, d);
-	
+		var tmp_targetX, tmp_targetY;
+		
+		if (v_mindState == "idle")
+		{
+				tmp_targetX = choose(x + 32, x - 64);
+				tmp_targetY = choose(y - 32, y + 64);
+		}
+		else if (v_mindState == "attack")
+		{
+			tmp_targetX = oPlayer.x;
+			tmp_targetY = oPlayer.y;
+		}
+		else if (v_mindState == "search")
+		{
+			tmp_targetX = v_targetLastPosX;
+			tmp_targetY = v_targetLastPosY;
+		}		
+		
+		if (distance_to_point(v_targetLastPosX, v_targetLastPosY) < 4 && v_mindState == "search")
+		{
+			v_mindState = "idle";
+			v_targetLastPosX = -1;
+			v_targetLastPosY = -1;
+		}
+		
 
-
-		if ((d > 0 && d < 45) || (d > 315 && d <= 360)) {v_action = "moveRight";}
-		else if (d > 90 + 45 && d <= 180 + 45) {v_action = "moveLeft";}
-		else if (d >= 45 && d < 90 + 45) {v_action = "moveUp";}
-		else {v_action = "moveDown";}
+		
+		if (v_action != "rest")
+		{
+			v_path = path_add();
+			path_set_closed(v_path, false);
 	
-		path_delete(v_path);
-		v_counter = 32;
+			v_path = libPathfindingAStar(x, y, tmp_targetX, tmp_targetY, 32, 0, false, parSolid, false);
+			v_targetX = path_get_point_x(v_path, 2);
+			v_targetY = path_get_point_y(v_path, 2);
+			v_action = "moveToTarget";
+			//draw_path(v_path, x, y, true);
+			direction = 0;
+			d = point_direction(x, y, v_targetX, v_targetY);
+
+			if ((d > 0 && d < 45) || (d > 315 && d <= 360)) {v_action = "moveRight";}
+			else if (d > 90 + 45 && d <= 180 + 45) {v_action = "moveLeft";}
+			else if (d >= 45 && d < 90 + 45) {v_action = "moveUp";}
+			else {v_action = "moveDown";}
+	
+			path_delete(v_path);
+			v_counter = 32;
+		}
 	}
 }
 v_spd = 1;
@@ -68,13 +112,21 @@ if (v_action == "moveRight")
 	{
 	x += v_spd;
 	v_counter -= v_spd;
-	if (v_counter <= 0) {v_action = "computeTarget";}
+	if (v_counter <= 0) {		if (v_mindState != "idle")
+		{
+			v_action = "computeTarget";
+		}
+		else {v_action = choose("rest", "computeTarget", "computeTarget");}}
 	v_dir = e_dirs.valD;
 	image_speed = 0.6;
 	}
 	else
 	{
-		v_action = "computeTarget";
+		if (v_mindState != "idle")
+		{
+			v_action = "computeTarget";
+		}
+		else {v_action = "rest";}
 	}
 }
 if (v_action == "moveLeft")
@@ -83,13 +135,21 @@ if (v_action == "moveLeft")
 	{
 	x -= v_spd;
 	v_counter -= v_spd;
-	if (v_counter <= 0) {v_action = "computeTarget";}
+	if (v_counter <= 0) {		if (v_mindState != "idle")
+		{
+			v_action = "computeTarget";
+		}
+		else {v_action = choose("rest", "computeTarget", "computeTarget");}}
 	image_speed = 0.6;
 	v_dir = e_dirs.valA;
 	}
 	else
 	{
-		v_action = "computeTarget";
+		if (v_mindState != "idle")
+		{
+			v_action = "computeTarget";
+		}
+		else {v_action = "rest";}
 	}
 }
 
@@ -99,13 +159,21 @@ if (v_action == "moveUp")
 	{
 	y -= v_spd;
 	v_counter -= v_spd;
-	if (v_counter <= 0) {v_action = "computeTarget";}
+	if (v_counter <= 0) {		if (v_mindState != "idle")
+		{
+			v_action = "computeTarget";
+		}
+		else {v_action = choose("rest", "computeTarget", "computeTarget");}}
 	image_speed = 0.6;
 	v_dir = e_dirs.valW;
 	}
 	else
 	{
-		v_action = "computeTarget";
+		if (v_mindState != "idle")
+		{
+			v_action = "computeTarget";
+		}
+		else {v_action = "rest";}
 	}	
 }
 
@@ -115,13 +183,21 @@ if (v_action == "moveDown")
 	{
 	y += v_spd;
 	v_counter -= v_spd;
-	if (v_counter <= 0) {v_action = "computeTarget";}
+	if (v_counter <= 0) {		if (v_mindState != "idle")
+		{
+			v_action = "computeTarget";
+		}
+		else {v_action = choose("rest", "computeTarget", "computeTarget");}}
 	image_speed = 0.6;
 	v_dir = e_dirs.valS;
 	}
 	else
 	{
-		v_action = "computeTarget";
+		if (v_mindState != "idle")
+		{
+			v_action = "computeTarget";
+		}
+		else {v_action = "rest";}
 	}	
 
 }
@@ -145,6 +221,29 @@ if (v_action == "freeze")
 	else
 	{
 		v_action = "computeTarget";
+	}
+}
+
+if (v_action == "rest")
+{
+	image_speed = 0;
+	draw_text(x, y - 32, "IM SLEEPING DONT GIVE A FCK ABOUT ME");
+	
+	if (v_dir == e_dirs.valD) {image_index = v_animationFrames[v_currentAnimation];}
+	if (v_dir == e_dirs.valA) {image_index = v_animationFrames[v_currentAnimation] * 3;}
+	if (v_dir == e_dirs.valW) {image_index = v_animationFrames[v_currentAnimation] * 2;}
+	if (v_dir == e_dirs.valS) {image_index = 0;}
+
+	
+
+	if (v_timer > 0)
+	{
+		v_timer--;
+	}
+	if (v_timer <= 0 || libUtilityCheckCollisionRect(v_attackArea, oPlayer.v_collisionMain))
+	{
+		v_action = "computeTarget";
+		v_timer = 60;
 	}
 }
 
@@ -177,6 +276,7 @@ if (v_spriteRest != -1)
 {
 	x = v_restX;
 	y = v_restY;
+	v_canCollide = false;
 	
 	draw_sprite_ext(v_spriteRest, 0, v_restX, v_restY, 1, 1, v_restRot, c_white, v_restAlpha);
 	v_restX = lerp(v_restX, v_restStartX - 32, 0.1);
@@ -185,10 +285,11 @@ if (v_spriteRest != -1)
 	v_restAlpha = lin(v_restAlpha, 0, 0.01);
 	
 	if (irandom(10) == 2 && v_restRot < 70) {cpGoreFull();}
-	if (v_restAlpha <= 0) {v_spriteRest = -1; instance_destroy();}
-	
+	if (v_restAlpha <= 0) {instance_destroy(); sprite_delete(v_spriteRest); sprite_delete(v_sprite); v_spriteRest = -1;}
+	else
+	{
 	draw_sprite_ext(sprite_index, 0, v_restStartX + v_restX2, v_restY, 1, 1, -v_restRot, c_white, v_restAlpha);
-
+}
 }
 else
 {
