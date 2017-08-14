@@ -10,6 +10,7 @@ tmp_y = oCamera.v_nullPosY;
 
 
 v_realXP = lerp(v_realXP, v_playerProperty[e_inventoryProperties.valXp], 0.1);
+v_realHP = lerp(v_realHP, v_playerProperty[e_inventoryProperties.valHp], 0.1);
 
 // Draw bars
 for (var j = 0; j < 3; j++)
@@ -18,9 +19,16 @@ for (var j = 0; j < 3; j++)
 	{	
 		draw_sprite_part(v_hudSprite, 0, v_hudBarBaseX, v_hudBarBaseY, 8, 16, tmp_x, tmp_y + 4);
 		
-		if (hp / max_hp > i / v_baseBarSlots)
+		if (v_realHP / v_playerProperty[e_inventoryProperties.valMaxXp] > (i + 1) / v_baseBarSlots)
 		{
 			draw_sprite_part(v_hudSprite, 0, v_hudBaseBarFillX, v_hudBaseBarFillY + 20 * j, 8, 16, tmp_x, tmp_y + 6);		
+		}
+		else if (v_realHP / v_playerProperty[e_inventoryProperties.valMaxXp] > ((i) / v_baseBarSlots))
+		{
+			tmp_xpForOneSlot = (v_playerProperty[e_inventoryProperties.valMaxXp] / v_baseBarSlots);
+			tmp_ratio = clamp((v_realHP - (tmp_xpForOneSlot * (i))) / tmp_xpForOneSlot, 0, 1);		
+		draw_sprite_part(v_hudSprite, 0, v_hudBaseBarFillX, v_hudBaseBarFillY + 20 * j, (8 * tmp_ratio), 16, tmp_x, tmp_y + 6);		
+	
 		}
 		tmp_x += 7;
 	}

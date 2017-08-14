@@ -6,3 +6,4 @@ v_collisionLegs = [-1, -1, -1, -1];
 v_canCollide    = true;
 v_staticDepth   = false;
 v_canBeDamaged  = false;
+v_alive         = true;

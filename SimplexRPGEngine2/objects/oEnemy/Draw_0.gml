@@ -1,6 +1,8 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+if (v_alive)
+{
 		if (v_targetLastPosX != -1)
 		{
 			clr(-1, 0.4);
@@ -46,6 +48,7 @@ if (v_action == "computeTarget")
 		v_currentAnimation = 1;
 		
 		cpGoreFull(oPlayer.x, oPlayer.y);
+		oHUD.v_playerProperty[e_inventoryProperties.valHp] -= 5;
 if (v_dir == e_dirs.valD) {if (image_index < v_animationFrames[v_currentAnimation] || image_index > v_animationFrames[v_currentAnimation] * 2 - 0.1) {image_index = v_animationFrames[v_currentAnimation];}}
 if (v_dir == e_dirs.valA) {if (image_index < v_animationFrames[v_currentAnimation] * 3 || image_index > v_animationFrames[v_currentAnimation] * 4 - 0.1) {image_index = v_animationFrames[v_currentAnimation] * 3;}}
 if (v_dir == e_dirs.valW) {if (image_index < v_animationFrames[v_currentAnimation] * 2 || image_index > v_animationFrames[v_currentAnimation] * 3 - 0.1) {image_index = v_animationFrames[v_currentAnimation] * 2;}}
@@ -262,7 +265,7 @@ if (v_dir == e_dirs.valW) {if (image_index < v_animationFrames[v_currentAnimatio
 if (v_dir == e_dirs.valS) {if (image_index < 0 || image_index > v_animationFrames[v_currentAnimation] - 0.1) {image_index = 0;}}
 
 draw_text(x, y - 48, "HP: " + string(v_properties[e_inventoryProperties.valHp]));
-
+}
 
 //draw_circle(v_targetX, v_targetY, 4, false);
 //draw_circle(x, y, 4, false);
