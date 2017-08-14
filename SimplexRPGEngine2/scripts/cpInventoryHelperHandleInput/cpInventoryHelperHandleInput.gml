@@ -1,17 +1,20 @@
-/// @fucntion cpInventoryHelperHandleInput(containerID, index, hover)
+/// @fucntion cpInventoryHelperHandleInput(containerID, index, hover, shiftAction)
 /// @desc Handles input of target container
 /// @arg {object} containerID ID of container
 /// @arg {int} index Current slot
 /// @arg {bool} hover If mouse hover over indexed slot
+/// @arg {string} shiftAction Action to do when shift + lmb ["equip", "inventoryPick"]
 
-var tmp_id, tmp_i, tmp_hover;
+var tmp_id, tmp_i, tmp_hover, tmp_shiftAction;
 tmp_id = 0; 
 tmp_i = 0;
 tmp_hover = false;
+tmp_shiftAction = "equip";
 
 if (argument_count > 0) {tmp_id = argument[0];}
 if (argument_count > 1) {tmp_i = argument[1];}
 if (argument_count > 2) {tmp_hover = argument[2];}
+if (argument_count > 3) {tmp_shiftAction = argument[3];}
 
 
 // We can drag item now
@@ -29,15 +32,49 @@ if (tmp_hover)
 					// Fast equip
 					if (keyboard_check_direct(vk_shift))
 					{
-						for (var i = 0; i < mcEquipmentSlots; i++)
+						if (tmp_shiftAction == "equip")
 						{
-							if (v_equipmentSlots[i, 2] == v_slot[tmp_i, e_inventoryAtributes.valEquipSlot])
+							for (var i = 0; i < mcEquipmentSlots; i++)
 							{
-								tmp_id.v_slotBeingDragged = tmp_i;
-								cpEquipmentEquip(i);
-								tmp_id.v_slotBeingDragged = -1;
-								break;
+								if (v_equipmentSlots[i, 2] == v_slot[tmp_i, e_inventoryAtributes.valEquipSlot])
+								{
+									tmp_id.v_slotBeingDragged = tmp_i;
+									cpEquipmentEquip(i);
+									tmp_id.v_slotBeingDragged = -1;
+									break;
+								}
 							}
+						}
+						
+						if (tmp_shiftAction == "inventoryPick")
+						{
+							var tmp_freeSlot = cpInventoryHelperFindFreeSlot(oInventory.id);
+							
+							var tmp_atrb, tmp_prop, tmp_req;
+							for (var k = 0; k <= mcInvenotryAtributes; k++)
+							{
+								tmp_atrb[k] = v_slot[tmp_i, k];			
+							}
+				
+							for (var k = 0; k < mcInventoryProperties; k++)
+							{
+								tmp_prop[k] = v_slotProperty[tmp_i, k];	
+								tmp_req[k] = v_slotReq[tmp_i, k];
+							}
+				
+							for (var k = 0; k <= mcInvenotryAtributes; k++)
+							{				
+								oInventory.v_slot[tmp_freeSlot, k] = tmp_atrb[k];
+							}
+			
+							for (var k = 0; k < mcInventoryProperties; k++)
+							{
+								oInventory.v_slotProperty[tmp_freeSlot, k] = tmp_prop[k];
+								oInventory.v_slotReq[tmp_freeSlot, k] = tmp_req[k];					
+							}		
+							
+							cpInventoryHelperClearSlot(tmp_i, id);					
+							
 						}
 					}
 					else

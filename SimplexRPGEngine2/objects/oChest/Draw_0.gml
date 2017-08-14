@@ -57,6 +57,8 @@ if (v_actionAlpha > 0.05)
 		tmp_actualSlot = 0;
 		tmp_lastHover = -1;	
 		tmp_hovered = false;
+		tmp_drawStartX = tmp_drawX;
+		tmp_drawStartY = tmp_drawY;
 	
 		for (var i = 0; i < v_slots; i++)
 		{
@@ -74,7 +76,7 @@ if (v_actionAlpha > 0.05)
 					if (oInventory.v_slotBeingDragged != -1) {oInventory.v_containerID = id;}
 				}	
 				
-				cpInventoryHelperHandleInput(id, i, tmp_hover);
+				cpInventoryHelperHandleInput(id, i, tmp_hover, "inventoryPick");
 				
 				if (tmp_currentRow == 0)
 				{
@@ -180,6 +182,11 @@ if (v_actionAlpha > 0.05)
 			{
 				tmp_drawX += oInventory.v_slotSize + 6;
 			}			
+		}
+		
+		if (point_in_rectangle(mouse_x, mouse_y, tmp_drawStartX, tmp_drawStartY, tmp_drawStartX + (oInventory.v_slotSize + 6) * v_slotsPerRow, tmp_drawY))
+		{
+			oHUD.v_mouseClickedUI = true;
 		}
 		
 		if (tmp_hovered) {v_hoverAlpha = lerp(v_hoverAlpha, 1, 0.1); v_hoverAlphaFF = 3;}

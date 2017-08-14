@@ -408,7 +408,7 @@ if (v_formAlpha > 0.05)
 						v_containerID.v_slotReq[v_containerID.tmp_lastHover, k] = tmp_req[k];					
 					}
 				
-					for (var k = 0; k <= mcAnimations; k++)
+					for (var k = 0; k < mcAnimations; k++)
 					{
 						v_slotAnimations[v_slotBeingDragged, k] = v_containerID.v_slotAnimations[v_containerID.tmp_lastHover, k];					
 						v_containerID.v_slotAnimations[v_containerID.tmp_lastHover, k] = tmp_anim[k];
