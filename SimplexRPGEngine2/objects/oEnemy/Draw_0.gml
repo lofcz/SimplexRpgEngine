@@ -32,14 +32,14 @@ if (v_action == "computeTarget")
 	else {if (v_mindState == "attack") {v_targetLastPosX = oPlayer.x; v_targetLastPosY = oPlayer.y; v_mindState = "search";} else {if (v_targetLastPosX = -1) {v_mindState = "idle";}} }
 
 	
-	if (distance_to_object(oPlayer) < 4)
+	if (distance_to_object(oPlayer) < 4)//distance_to_object(oPlayer) < 4
 	{
 		d = point_direction(x, y, oPlayer.x, oPlayer.y);
 
-		if ((d > 0 && d < 45) || (d > 315 && d <= 360)) {image_index = 8;}
-		else if (d > 90 + 45 && d <= 180 + 45) {image_index = 4;}
-		else if (d >= 45 && d < 90 + 45) {image_index = 12;}
-		else {image_index = 0;}		
+		if ((d > 0 && d < 45) || (d > 315 && d <= 360)) {v_dir = e_dirs.valD;}
+		else if (d > 90 + 45 && d <= 180 + 45) {v_dir = e_dirs.valA;}
+		else if (d >= 45 && d < 90 + 45) {v_dir = e_dirs.valW;}
+		else {v_dir = e_dirs.valS;}		
 		
 		v_timer = 60;
 		v_action = "attack";
@@ -49,6 +49,7 @@ if (v_action == "computeTarget")
 		
 		cpGoreFull(oPlayer.x, oPlayer.y);
 		oHUD.v_playerProperty[e_inventoryProperties.valHp] -= 15;
+		
 if (v_dir == e_dirs.valD) {if (image_index < v_animationFrames[v_currentAnimation] || image_index > v_animationFrames[v_currentAnimation] * 2 - 0.1) {image_index = v_animationFrames[v_currentAnimation];}}
 if (v_dir == e_dirs.valA) {if (image_index < v_animationFrames[v_currentAnimation] * 3 || image_index > v_animationFrames[v_currentAnimation] * 4 - 0.1) {image_index = v_animationFrames[v_currentAnimation] * 3;}}
 if (v_dir == e_dirs.valW) {if (image_index < v_animationFrames[v_currentAnimation] * 2 || image_index > v_animationFrames[v_currentAnimation] * 3 - 0.1) {image_index = v_animationFrames[v_currentAnimation] * 2;}}
@@ -89,7 +90,7 @@ if (v_dir == e_dirs.valS) {if (image_index < 0 || image_index > v_animationFrame
 			v_path = path_add();
 			path_set_closed(v_path, false);
 	
-			v_path = libPathfindingAStar(x, y, tmp_targetX, tmp_targetY, 32, 0, false, parSolid, false);
+			v_path = libPathfindingAStar(x, y, tmp_targetX div 32 * 32, tmp_targetY div 32 * 32, 32, 0, false, parSolid, false);
 			v_targetX = path_get_point_x(v_path, 2);
 			v_targetY = path_get_point_y(v_path, 2);
 			v_action = "moveToTarget";
@@ -101,7 +102,7 @@ if (v_dir == e_dirs.valS) {if (image_index < 0 || image_index > v_animationFrame
 			else if (d > 90 + 45 && d <= 180 + 45) {v_action = "moveLeft";}
 			else if (d >= 45 && d < 90 + 45) {v_action = "moveUp";}
 			else {v_action = "moveDown";}
-	
+	draw_path(v_path, x, y, 1);
 			path_delete(v_path);
 			v_counter = 32;
 		}
@@ -258,6 +259,7 @@ if (v_dir == e_dirs.valW) {if (image_index < v_animationFrames[v_currentAnimatio
 if (v_dir == e_dirs.valS) {if (image_index < 0 || image_index > v_animationFrames[v_currentAnimation] - 0.1) {sprite_index = v_moveAnim; v_currentAnimation = 0; v_action = "computeTarget";}}
 	
 }
+
 
 if (v_dir == e_dirs.valD) {if (image_index < v_animationFrames[v_currentAnimation] || image_index > v_animationFrames[v_currentAnimation] * 2 - 0.1) {image_index = v_animationFrames[v_currentAnimation];}}
 if (v_dir == e_dirs.valA) {if (image_index < v_animationFrames[v_currentAnimation] * 3 || image_index > v_animationFrames[v_currentAnimation] * 4 - 0.1) {image_index = v_animationFrames[v_currentAnimation] * 3;}}

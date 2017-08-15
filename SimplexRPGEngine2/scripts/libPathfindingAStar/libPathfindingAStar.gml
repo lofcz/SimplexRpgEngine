@@ -15,7 +15,7 @@ var a, b, c, d, e, f, sx, sy, tx, ty, x0, y0, x1, y1, px, py, pd, ph, pc;
 //pc - point check (We check every sequential value against the place holder to see if it is smaller than the place holder. If so, ph becomes the pc).
 
 //We will use this grid to check to see if the cell has been checked    
-grid_cellChecked = ds_grid_create(room_width div argument4, room_height div argument4);
+grid_cellChecked = ds_grid_create((room_width div argument4) + 1, (room_height div argument4) + 1);
 
 //Set the entire grid with the value of zero. We have not checked any cells yet. 0 = unchecked. 1 = checked.
 ds_grid_clear(grid_cellChecked, 0);
@@ -27,8 +27,8 @@ gridList = ds_list_create();
 cellTrimList = ds_list_create();
 
 //Acquire the starting x and y.
-x0 = round(argument0 / argument4) * argument4;
-y0 = round(argument1 / argument4) * argument4;
+x0 = floor(argument0 / argument4) * argument4;
+y0 = floor(argument1 / argument4) * argument4;
 x1 = argument4 * .5 * sign(argument0 - x0);
 y1 = argument4 * .5 * sign(argument1 - y0);
 if (x1 == 0){
@@ -41,8 +41,8 @@ sx = x0 + x1;
 sy = y0 + y1;
 
 //Acquire the goal x and y.
-x0 = round(argument2 / argument4) * argument4;
-y0 = round(argument3 / argument4) * argument4;
+x0 = ceil(argument2 / argument4) * argument4;
+y0 = ceil(argument3 / argument4) * argument4;
 x1 = argument4 * .5 * sign(argument2 - x0);
 y1 = argument4 * .5 * sign(argument3 - y0);
 if (x1 == 0){
@@ -54,6 +54,7 @@ if (y1 == 0){
 tx = x0 + x1;
 ty = y0 + y1;
 
+
 //The first search square will be our starting point.
 x0 = sx;
 y0 = sy;
@@ -64,6 +65,7 @@ ph = 0;
 //Lets add the first cell into our list for searching. The starting x and starting y locations.
 ds_list_add(gridList, x0, y0, -1);
 ds_grid_set(grid_cellChecked, (x0 - argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4, 1);  
+if (((x0 - argument4 * .5) / argument4) < 1) {show_message("B1");}
 
 //Keep searching so long as cells exist.
 while(ds_list_size(gridList) > 0){
@@ -74,6 +76,8 @@ while(ds_list_size(gridList) > 0){
             x0 = ds_list_find_value(gridList, a * 3);  
             y0 = ds_list_find_value(gridList, a * 3 + 1); 
             ds_grid_set(grid_cellChecked, (x0 - argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4, 0);
+			if (((y0 - argument4 * .5) / argument4) < 1) {show_message("B2");}
+
         }  
         //Delete the first two values from the trim list (These values are the startx and y values of the first square).
         repeat(2){
@@ -129,7 +133,7 @@ while(ds_list_size(gridList) > 0){
             y1 = y0 + lengthdir_y(argument4, a * 90);
             //Make sure neighbor squares are valid.
 			x -= 10000;
-            if ((!position_meeting(x1, y1, argument7))
+            if ((!position_meeting(x1, y1, argument7) || position_meeting(x1, y1, oPlayer))
             && ds_grid_get(grid_cellChecked, (x1 - argument4 * .5) / argument4, (y1 - argument4 * .5) / argument4) == 0
             && x1 > 0
             && x1 < room_width
@@ -139,7 +143,8 @@ while(ds_list_size(gridList) > 0){
                 py = y1;
                 pd = point_distance(px, py, tx, ty);
                 //Make sure to mark this cell as "checked" so that we don't add these values to the list again.
-                ds_grid_set(grid_cellChecked, (x1 - argument4 * .5) / argument4, (y1 - argument4 * .5) / argument4, 1);   
+                ds_grid_set(grid_cellChecked, (x1 - argument4 * .5) / argument4, (y1 - argument4 * .5) / argument4, 1); 
+				//show_message((y1 - argument4 * .5) / argument4);
                 //Add the cells respective values to the gridList.
                 ds_list_add(gridList, px, py, pd);
             }
@@ -159,15 +164,22 @@ do{
         //Identify all of the cells around each cell we are checking.
         if (ds_grid_get(grid_cellChecked, (x0 - argument4 * .5) / argument4, (y0 - (argument4 + argument4 * .5)) / argument4) == 1){//N
             e += 3;
+			if (((y0 - (argument4 + argument4 * .5)) / argument4) < 0) {show_message("B4");}
         }
         if (ds_grid_get(grid_cellChecked, (x0 + argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4) == 1){//E
             e += 7;
+			if (((y0 - argument4 * .5) / argument4) < 0) {show_message("B5");}
         }
         if (ds_grid_get(grid_cellChecked, (x0 - argument4 * .5) / argument4, (y0 + argument4 * .5) / argument4) == 1){//S
             e += 11;
+			if (((y0 + argument4 * .5) / argument4) < 0) {show_message("B6");}
+			
         }
         if (ds_grid_get(grid_cellChecked, (x0 - (argument4 + argument4 * .5)) / argument4, (y0 - argument4 * .5) / argument4) == 1){//W
             e += 13;
+			if (((y0 - argument4 * .5) / argument4) < 0) {show_message("B7");}
+		
+			
         }       
         switch(e){            
             //Stumps
@@ -208,11 +220,16 @@ do{
             }
             a --;
             ds_grid_set(grid_cellChecked, (x0 - argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4, 0);
+			//if (((y0 - argument4 * .5) / argument4) < 1) {show_message("B8:" + string(((y0 - argument4 * .5) / argument4)));}
+		
+
         }
     }
 }               
 until(d == false);
 
+var arg = argument8;
+/*
 //Are we doing a diagonal path?
 if (argument8){
     //Now we eliminate corners. But be mindful of walls!
@@ -269,11 +286,12 @@ if (argument8){
                 }
                 a --;
                 ds_grid_set(grid_cellChecked, (x0 - argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4, 0);
+				if (((y0 - argument4 * .5) / argument4) < 1) {show_message("B9");}
             }
         }
     }                
     until(d == false);
-}
+}*/
 
 //Now we construct a path to the target. 
 p_path = path_add();
@@ -285,6 +303,8 @@ y0 = sy;
 path_add_point(p_path, argument0, argument1, 100);
 path_add_point(p_path, x0, y0, 100);
 ds_grid_set(grid_cellChecked, (x0 - argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4, 0);
+				if (((y0 - argument4 * .5) / argument4) < 1) {show_message("B10");}
+
 repeat(ds_list_size(cellTrimList) / 2 + 4){
     if (x0 == tx && y0 == ty){
         path_add_point(p_path, argument2, argument3, 100);
@@ -301,6 +321,7 @@ repeat(ds_list_size(cellTrimList) / 2 + 4){
                 y0 = y1;
                 path_add_point(p_path, x0, y0, 100);
                 ds_grid_set(grid_cellChecked, (x0 - argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4, 0);
+				if (((y0 - argument4 * .5) / argument4) < 1) {show_message("B11");}				
                 break;
             }
         }
@@ -314,6 +335,7 @@ repeat(ds_list_size(cellTrimList) / 2 + 4){
                     y0 = y1;                    
                     path_add_point(p_path, x0, y0, 100);
                     ds_grid_set(grid_cellChecked, (x0 - argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4, 0);
+						if (((y0 - argument4 * .5) / argument4) < 1) {show_message("B12");}	
                     break;
                 }
             }

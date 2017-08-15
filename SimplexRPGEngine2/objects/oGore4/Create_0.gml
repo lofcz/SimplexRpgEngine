@@ -10,3 +10,5 @@ friction    = 0.3;
 alarm[0]    = 300;
 fade        = false;
 scrShaderPrepareColor();
+
+alarm[1] = 1;
