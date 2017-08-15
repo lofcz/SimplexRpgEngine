@@ -1,0 +1,3 @@
+/// @desc Render inventory
+
+cpInventoryDraw();

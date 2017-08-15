@@ -1,9 +1,0 @@
-﻿// English localisation
-
-// Inventory
-invTitle = "Inventory"
-invPage  = "Page"
-
-// Items
-itemSwordWoodenHeadStandard = "Wooden sword"
-itemSwordWoodenBody = "Simple, quite unharmful weapon. Powerful strike is however able to deal decent damage and even stun the target."

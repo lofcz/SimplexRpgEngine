@@ -1,8 +1,0 @@
-c:\users\matěj\documents\visual studio 2015\Projects\SimplexCutsceneManager\SimplexCutsceneManager\bin\Debug\SimplexCutsceneManager.exe
-c:\users\matěj\documents\visual studio 2015\Projects\SimplexCutsceneManager\SimplexCutsceneManager\bin\Debug\SimplexCutsceneManager.pdb
-c:\users\matěj\documents\visual studio 2015\Projects\SimplexCutsceneManager\SimplexCutsceneManager\obj\Debug\SimplexCutsceneManager.csprojResolveAssemblyReference.cache
-c:\users\matěj\documents\visual studio 2015\Projects\SimplexCutsceneManager\SimplexCutsceneManager\obj\Debug\SimplexCutsceneManager.Form1.resources
-c:\users\matěj\documents\visual studio 2015\Projects\SimplexCutsceneManager\SimplexCutsceneManager\obj\Debug\SimplexCutsceneManager.Properties.Resources.resources
-c:\users\matěj\documents\visual studio 2015\Projects\SimplexCutsceneManager\SimplexCutsceneManager\obj\Debug\SimplexCutsceneManager.csproj.GenerateResource.Cache
-c:\users\matěj\documents\visual studio 2015\Projects\SimplexCutsceneManager\SimplexCutsceneManager\obj\Debug\SimplexCutsceneManager.exe
-c:\users\matěj\documents\visual studio 2015\Projects\SimplexCutsceneManager\SimplexCutsceneManager\obj\Debug\SimplexCutsceneManager.pdb

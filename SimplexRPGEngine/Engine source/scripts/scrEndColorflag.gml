@@ -1,3 +1,0 @@
-///scrEndColorflag()
-
-return "[/c]";

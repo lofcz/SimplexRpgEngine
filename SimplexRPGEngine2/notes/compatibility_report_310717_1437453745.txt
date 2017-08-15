@@ -1,0 +1,6 @@
+!!! Font fntPixel uses a font (uni 05_53) not installed on this system. Font has NOT been regenerated.
+!!! Font fntPixelHuge uses a font (uni 05_53) not installed on this system. Font has NOT been regenerated.
+!!! Font fntPixelExtraTiny uses a font (uni 05_53) not installed on this system. Font has NOT been regenerated.
+!!! Font fntPixelSmall uses a font (uni 05_53) not installed on this system. Font has NOT been regenerated.
+!!! Font fntPixelBig uses a font (uni 05_53) not installed on this system. Font has NOT been regenerated.
+!!! Font fntPixelTiny uses a font (uni 05_53) not installed on this system. Font has NOT been regenerated.

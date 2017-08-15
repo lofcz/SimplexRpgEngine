@@ -1,0 +1,8 @@
+some genial shit:
+
+with (instance_create(x, y, obj_blank)) 
+{
+    index = 1;
+    instance_change(obj_player, true);
+}
+
