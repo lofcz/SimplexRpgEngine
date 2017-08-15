@@ -48,7 +48,7 @@ if (v_action == "computeTarget")
 		v_currentAnimation = 1;
 		
 		cpGoreFull(oPlayer.x, oPlayer.y);
-		oHUD.v_playerProperty[e_inventoryProperties.valHp] -= 5;
+		oHUD.v_playerProperty[e_inventoryProperties.valHp] -= 15;
 if (v_dir == e_dirs.valD) {if (image_index < v_animationFrames[v_currentAnimation] || image_index > v_animationFrames[v_currentAnimation] * 2 - 0.1) {image_index = v_animationFrames[v_currentAnimation];}}
 if (v_dir == e_dirs.valA) {if (image_index < v_animationFrames[v_currentAnimation] * 3 || image_index > v_animationFrames[v_currentAnimation] * 4 - 0.1) {image_index = v_animationFrames[v_currentAnimation] * 3;}}
 if (v_dir == e_dirs.valW) {if (image_index < v_animationFrames[v_currentAnimation] * 2 || image_index > v_animationFrames[v_currentAnimation] * 3 - 0.1) {image_index = v_animationFrames[v_currentAnimation] * 2;}}

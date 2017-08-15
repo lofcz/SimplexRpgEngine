@@ -65,6 +65,8 @@ v_hudMapZoomOutY = 394;
 
 v_realXP = 0;
 v_realHP = 0;
+v_realMP = 0;
+v_realSP = 0;
 
 hp = 100;
 max_hp = 120;
@@ -81,7 +83,13 @@ v_hudSprite = texUI;
 v_baseBarSlots = 20;
 
 v_playerProperty[e_inventoryProperties.valMaxXp] = 100;
-v_playerProperty[e_inventoryProperties.valHp] = 80;
+v_playerProperty[e_inventoryProperties.valHp] = 100;
+v_playerProperty[e_inventoryProperties.valMp] = 100;
+v_playerProperty[e_inventoryProperties.valSp] = 100;
+
+v_playerProperty[e_inventoryProperties.valMaxHp] = 100;
+v_playerProperty[e_inventoryProperties.valMaxMp] = 100;
+v_playerProperty[e_inventoryProperties.valMaxSp] = 100;
 depth = -10000;
 
 v_mouseClickedUI = false;
