@@ -103,7 +103,7 @@ if (v_dir == e_dirs.valS) {if (image_index < 0 || image_index > v_animationFrame
 			else if (d > 90 + 45 && d <= 180 + 45) {v_action = "moveLeft";}
 			else if (d >= 45 && d < 90 + 45) {v_action = "moveUp";}
 			else {v_action = "moveDown";}
-	draw_path(v_path, x, y, 1);
+	//draw_path(v_path, x, y, 1);
 			path_delete(v_path);
 			v_counter = 32;
 		}
@@ -300,5 +300,10 @@ if (v_spriteRest != -1)
 else
 {
 	draw_self();
+	
+	if (v_action != "attack")
+	{
+		draw_sprite(v_weaponSprite, image_index, x, y);
+	}
 }
 

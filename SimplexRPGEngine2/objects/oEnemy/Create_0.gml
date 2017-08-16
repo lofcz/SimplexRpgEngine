@@ -25,6 +25,9 @@ for (var i = 0; i < mcInventoryProperties; i++)
 	v_properties[i] = 0;
 }
 
+v_properties[e_inventoryProperties.valHp] = irandom(3) * 5 + 10;
+v_properties[e_inventoryProperties.valMaxHp] = v_properties[e_inventoryProperties.valHp];
+
 v_sprite = sprite_duplicate(sprite_index);
 v_spriteRest = -1;
 v_restAlpha = 1;
@@ -32,6 +35,7 @@ v_restRot = 0;
 v_restStartX = x;
 v_restStartY = x;
 v_restX2 = 0;
+v_weaponSprite = choose(sGoblinMoveSword, sGoblinMoveMace);
 
 v_currentAnimation = 0;
 

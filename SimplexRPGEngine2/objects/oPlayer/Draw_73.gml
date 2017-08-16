@@ -19,7 +19,7 @@ if (v_currentAnimation == e_animations.valWalk || v_currentAnimation == e_animat
 				if (v_lastDir == e_dirs.valA) {image_index = v_animationFrames[v_currentAnimation] + 0.1; tmp_sX = x - 76;}
 				if (v_lastDir == e_dirs.valD) {image_index = v_animationFrames[v_currentAnimation] * 3 + 0.1; tmp_sX += 18;}
 				
-				var tmp_inst = instance_create_depth(tmp_sX, tmp_sY, depth - 100, oCombatMask);
+				var tmp_inst = instance_create_depth(tmp_sX, tmp_sY, depth - 100, oAttackMask);
 				tmp_inst.v_dir = v_dir;
 			}
 		}

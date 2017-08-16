@@ -1,5 +1,7 @@
 /// @desc Set up variables
 
+randomize();
+
 v_hudFrameTopX = 16;
 v_hudFrameTopY = 40;
 
