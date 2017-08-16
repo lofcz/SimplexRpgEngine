@@ -16,3 +16,4 @@ h = choose(3, 4);
 
 v_canBeDamaged = false;
 v_canCollide = false;
+v_staticDepth = true;

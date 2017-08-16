@@ -455,6 +455,14 @@
             }
         },
         {
+            "Key": "1c6942f9-d7aa-4be9-a264-79b8dbc05a40",
+            "Value": {
+                "id": "c927f6ad-8ee0-4bc2-bea6-ce1ae2edb94b",
+                "resourcePath": "objects\\oTempObject\\oTempObject.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "1ce39e8d-8e19-47b8-9a7f-ce2e1f27742b",
             "Value": {
                 "id": "152ddfd5-278f-4833-b33f-824dc031ca03",
@@ -2591,14 +2599,6 @@
             }
         },
         {
-            "Key": "b0fe9876-132b-45e8-94bf-a7b0ef12de39",
-            "Value": {
-                "id": "5e52b869-0908-4508-848a-79f479e0bd2c",
-                "resourcePath": "objects\\oGore1\\oGore1.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
             "Key": "b249ebf8-5018-4629-a5a3-27462a7bf424",
             "Value": {
                 "id": "69a078c9-9e49-4cd8-88ff-c1e03eb52310",
@@ -2674,7 +2674,7 @@
             "Key": "b8eb52e8-69a4-4195-947f-0e2e4728a83a",
             "Value": {
                 "id": "1d5a83c8-5dc1-4b0b-a1b7-b1a137c17a3d",
-                "resourcePath": "objects\\oGore2\\oGore2.yy",
+                "resourcePath": "objects\\oGore\\oGore.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -3199,14 +3199,6 @@
             }
         },
         {
-            "Key": "e3dac75f-6438-4f4f-998e-858fd1169f44",
-            "Value": {
-                "id": "943b90cd-b247-4edc-a68f-aeff826f0de0",
-                "resourcePath": "objects\\oGore4\\oGore4.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
             "Key": "e439492a-2ed2-44c0-a216-0045859e807c",
             "Value": {
                 "id": "0dbc9dd1-2d81-4d15-b280-48d22e00600b",
@@ -3266,7 +3258,7 @@
             "Key": "e5d2e571-2c30-4454-b1c0-e2ffed1feb4e",
             "Value": {
                 "id": "8281d24e-0445-4391-827b-ab3ae1c98fa6",
-                "resourcePath": "scripts\\cpGoreFull\\cpGoreFull.yy",
+                "resourcePath": "scripts\\cpGoreBlood\\cpGoreBlood.yy",
                 "resourceType": "GMScript"
             }
         },

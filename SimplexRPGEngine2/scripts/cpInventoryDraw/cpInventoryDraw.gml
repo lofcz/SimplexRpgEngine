@@ -204,7 +204,7 @@ if (v_formAlpha > 0.05)
 			{
 				shader_set(shdLerp);
 				var tmp_uID = shader_get_uniform(shdLerp, "f_Colour1");
-				shader_set_uniform_f(tmp_uID, color_get_red(v_slot[i, e_inventoryAtributes.valLerpColor]), color_get_green(v_slot[i, e_inventoryAtributes.valLerpColor]), color_get_blue(v_slot[i, e_inventoryAtributes.valLerpColor]), v_actualLerp);
+				shader_set_uniform_f(tmp_uID, color_get_red(v_slot[i, e_inventoryAtributes.valLerpColor]) / 255, color_get_green(v_slot[i, e_inventoryAtributes.valLerpColor]) / 255, color_get_blue(v_slot[i, e_inventoryAtributes.valLerpColor]) / 255, v_actualLerp);
 			}
 			draw_sprite_ext(v_slot[i, e_inventoryAtributes.valSprite], v_slot[i, e_inventoryAtributes.valImageIndex] + 2, tmp_drawX + (v_slotSize / 2) + (tmp_realSlotArea - v_slotSize) / 2, tmp_drawY + (v_slotSize / 2) + (tmp_realSlotArea - v_slotSize) / 2, 1, 1, 0, c_white, v_formAlpha);	
 			shader_reset();
@@ -527,6 +527,6 @@ if (v_formAlpha > 0.05)
 
 	clr();
 
-	if (v_lerpMode == 0) {v_actualLerp = lin(v_actualLerp, 0.01, 0.00005); if (v_actualLerp >= 0.003) {v_lerpMode = 1;}}
-	if (v_lerpMode == 1) {v_actualLerp = lin(v_actualLerp, 0, 0.00005); if (v_actualLerp <= 0.0003) {v_lerpMode = 0;}}
+	if (v_lerpMode == 0) {v_actualLerp = lin(v_actualLerp, 0.5, 0.005); if (v_actualLerp >= 0.5) {v_lerpMode = 1;}}
+	if (v_lerpMode == 1) {v_actualLerp = lin(v_actualLerp, 0, 0.005); if (v_actualLerp <= 0) {v_lerpMode = 0;}}
 }

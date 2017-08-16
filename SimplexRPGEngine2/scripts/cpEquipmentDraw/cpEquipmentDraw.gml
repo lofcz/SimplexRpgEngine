@@ -47,7 +47,7 @@ for (var i = 0; i < mcEquipmentSlots; i++)
 		{
 			shader_set(shdLerp);
 			var tmp_uID = shader_get_uniform(shdLerp, "f_Colour1");
-			shader_set_uniform_f(tmp_uID, color_get_red(v_equipmentSlot[i, e_inventoryAtributes.valLerpColor]), color_get_green(v_equipmentSlot[i, e_inventoryAtributes.valLerpColor]), color_get_blue(v_equipmentSlot[i, e_inventoryAtributes.valLerpColor]), v_actualLerp);
+			shader_set_uniform_f(tmp_uID, color_get_red(v_equipmentSlot[i, e_inventoryAtributes.valLerpColor]) / 255, color_get_green(v_equipmentSlot[i, e_inventoryAtributes.valLerpColor]) / 255, color_get_blue(v_equipmentSlot[i, e_inventoryAtributes.valLerpColor]) / 255, v_actualLerp);
 		}
 		draw_sprite_ext(v_equipmentSlot[i, e_inventoryAtributes.valSprite], v_equipmentSlot[i, e_inventoryAtributes.valImageIndex] + 2, v_formBaseMaxX + (v_slotSize / 2) * 3 + v_equipmentSlots[i, 0] + 16, v_drawStartY + v_slotSize + v_equipmentSlots[i, 1] + 16, 1, 1, 0, c_white, min(v_formExtAlpha, v_formAlpha));	
 		shader_reset();

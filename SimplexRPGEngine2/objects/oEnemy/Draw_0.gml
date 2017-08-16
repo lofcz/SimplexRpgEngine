@@ -15,7 +15,7 @@ v_attackArea = [x - v_attackNote, y - v_attackNote, x + v_attackNote, y + v_atta
 
 if (v_mindState == "idle") {color = c_lime; 		v_attackNote = lerp(v_attackNote, 196, 0.1);} else if (v_mindState == "attack") {color = c_red; v_attackNote = lerp(v_attackNote, 256, 0.1);}
 else if (v_mindState == "search") {color = c_orange; v_attackNote = lerp(v_attackNote, 256, 0.1);}
-//	libUtilityDrawRect(v_attackArea, false, color);
+	//libUtilityDrawRect(v_attackArea, false, color);
 
 if (v_action == "")
 {
@@ -47,7 +47,8 @@ if (v_action == "computeTarget")
 		image_speed = 1;
 		v_currentAnimation = 1;
 		
-		cpGoreFull(oPlayer.x, oPlayer.y);
+
+		cpGoreBlood(oPlayer.x, oPlayer.y);
 		oHUD.v_playerProperty[e_inventoryProperties.valHp] -= 15;
 		
 if (v_dir == e_dirs.valD) {if (image_index < v_animationFrames[v_currentAnimation] || image_index > v_animationFrames[v_currentAnimation] * 2 - 0.1) {image_index = v_animationFrames[v_currentAnimation];}}
@@ -289,7 +290,7 @@ if (v_spriteRest != -1)
 	v_restRot = lin(v_restRot, 80, 2);
 	v_restAlpha = lin(v_restAlpha, 0, 0.01);
 	
-	if (irandom(10) == 2 && v_restRot < 70) {cpGoreFull();}
+	//if (irandom(10) == 2 && v_restRot < 70) {cpGoreFull();}
 	if (v_restAlpha <= 0) {instance_destroy(); sprite_delete(v_spriteRest); sprite_delete(v_sprite); v_spriteRest = -1;}
 	else
 	{

@@ -21,8 +21,15 @@ if (tmp_list != noone)
 				{
 					ds_list_add(v_hitList, tmp_list[| i]);
 					tmp_list[| i].v_properties[e_inventoryProperties.valHp] -= 5;
-					cpGoreFull(tmp_list[| i].x, tmp_list[| i].y);
 					
+					var tmp_d1, tmp_d2;
+					if (sprite_index == sSwingRight) {tmp_d1 = 315; tmp_d2 = 405;}
+					if (sprite_index == sSwingLeft) {tmp_d1 = 135; tmp_d2 = 225;}
+					if (sprite_index == sSwingDown) {tmp_d1 = 225; tmp_d2 = 315;}
+					if (sprite_index == sSwingUp) {tmp_d1 = 45; tmp_d2 = 135;}
+					
+					cpGoreBlood(tmp_list[| i].x, tmp_list[| i].y, 5, c_red, tmp_d1, tmp_d2);
+
 					with(tmp_list[| i])
 					{
 						if (v_alive)
