@@ -97,6 +97,10 @@ v_playerProperty[e_inventoryProperties.valHpRegenDelay] = 240;
 v_playerProperty[e_inventoryProperties.valHpRegenTick] = 60;
 v_playerProperty[e_inventoryProperties.valHpRegenValue] = 1;
 
+v_playerProperty[e_inventoryProperties.valSpRegenDelay] = 240;
+v_playerProperty[e_inventoryProperties.valSpRegenTick] = 10;
+v_playerProperty[e_inventoryProperties.valSpRegenValue] = 1;
+
 
 depth = -10000;
 

@@ -17,7 +17,8 @@ if (tmp_canMove)
 {
 	if (v_currentAnimation == e_animations.valWalk || v_currentAnimation == e_animations.valRun)
 	{
-		if (keyboard_check_direct(vk_shift)) {v_currentAnimation = e_animations.valRun; oHUD.v_playerProperty[e_inventoryProperties.valSp] -= 0.3;}
+		if (keyboard_check_direct(vk_shift)) {v_currentAnimation = e_animations.valRun; oHUD.v_playerProperty[e_inventoryProperties.valSp] -= 0.3;		oHUD.v_delaySP = oHUD.v_playerProperty[e_inventoryProperties.valSpRegenDelay];
+		oHUD.v_tickSP = -1;}
 		else {v_currentAnimation = e_animations.valWalk;}
 		
 		var tmp_keyW = keyboard_check(ord("W"));

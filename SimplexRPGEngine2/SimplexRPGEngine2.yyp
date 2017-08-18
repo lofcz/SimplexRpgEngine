@@ -527,6 +527,14 @@
             }
         },
         {
+            "Key": "1db39297-6501-49d5-8120-8f405784f4d9",
+            "Value": {
+                "id": "39d55a88-2072-481c-8a1f-34edaa6689e4",
+                "resourcePath": "sprites\\sGoblinAttackSword\\sGoblinAttackSword.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "2040c660-6c6b-4d8a-bf27-d142fc955c64",
             "Value": {
                 "id": "f462a537-44cc-421d-b5e8-0f74655de89f",
@@ -788,6 +796,14 @@
                 "id": "bf80732f-2261-42ab-a0db-48a8df2cf140",
                 "resourcePath": "scripts\\cpInventoryHelperGetTotalAtr\\cpInventoryHelperGetTotalAtr.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "31050709-5150-4f1e-ba1a-72738d2bddba",
+            "Value": {
+                "id": "74825d91-7954-400f-8607-fd43e2d35a0e",
+                "resourcePath": "sprites\\sGoblinAttackMace\\sGoblinAttackMace.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

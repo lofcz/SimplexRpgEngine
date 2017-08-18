@@ -22,6 +22,7 @@ v_timer = 0;
 v_attackArea = [x - 256, y - 256, x + 256, y + 256];
 v_attackNote = 64;
 
+
 v_enemyType = choose("goblin");
 if (v_enemyType == "golem") {sprite_index = sGolemMove; v_animationFrames = [7, 7]; v_moveAnim = sGolemMove; v_attackAnim = sGolemAttack;}
 else {v_animationFrames = [8, 9]; v_moveAnim = sGoblinMove; v_attackAnim = sGoblinAttack;}
@@ -45,7 +46,16 @@ v_restRot = 0;
 v_restStartX = x;
 v_restStartY = x;
 v_restX2 = 0;
-v_weaponSprite = choose(sGoblinMoveSword, sGoblinMoveMace);
+if (choose(1, 2) == 1)
+{
+	v_weaponSprite = sGoblinMoveSword;
+	v_weaponSpriteAttack = sGoblinAttackSword;
+}
+else
+{
+	v_weaponSprite = sGoblinMoveMace;
+	v_weaponSpriteAttack = sGoblinAttackMace;	
+}
 
 v_currentAnimation = 0;
 

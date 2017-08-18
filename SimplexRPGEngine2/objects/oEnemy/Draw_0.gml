@@ -318,5 +318,9 @@ else
 	{
 		draw_sprite(v_weaponSprite, image_index, x, y);
 	}
+	else
+	{
+		draw_sprite(v_weaponSpriteAttack, image_index, x, y);
+	}
 }
 

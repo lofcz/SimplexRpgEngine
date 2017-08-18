@@ -30,6 +30,19 @@ if (v_delayHP == 0)
 	else {v_tickHP--;}	
 }
 
+if (v_delayMP == 0)
+{
+	if (v_tickMP == -1) {v_playerProperty[e_inventoryProperties.valMp] += v_playerProperty[e_inventoryProperties.valHpRegenValue];  if (v_playerProperty[e_inventoryProperties.valMp] < v_playerProperty[e_inventoryProperties.valMaxMp]) {v_tickMP = v_playerProperty[e_inventoryProperties.valMpRegenTick];} else {v_tickMP = -1; v_delayMP = -1;}}
+	else {v_tickMP--;}	
+}
+
+if (v_delaySP == 0)
+{
+	if (v_tickSP == -1) {v_playerProperty[e_inventoryProperties.valSp] += v_playerProperty[e_inventoryProperties.valSpRegenValue];  if (v_playerProperty[e_inventoryProperties.valSp] < v_playerProperty[e_inventoryProperties.valMaxSp]) {v_tickSP = v_playerProperty[e_inventoryProperties.valSpRegenTick];} else {v_tickSP = -1; v_delaySP = -1;}}
+	else {v_tickSP--;}	
+}
+
+
 
 // Draw bars
 for (var j = 0; j < 3; j++)
@@ -102,6 +115,8 @@ for (var j = 0; j < 3; j++)
 				draw_sprite_part(v_hudSprite, 0, v_hudBaseBarEndX + 10, v_hudBaseBarEndY + (20 * j), 4, 16, tmp_x + i * 4 + 8, tmp_y + 2);
 				
 				if (j == 0) {if (v_delayHP > 0) {if (v_delayHP / v_playerProperty[e_inventoryProperties.valHpRegenDelay] > (i + 1) / 20) {clr(-1, min(draw_get_alpha(), 0.6)); draw_sprite_part(v_hudSprite, 0, 594, 186, 4, 16, tmp_x + i * 4 + 8, tmp_y + 5); clr();}} if (v_tickHP > 0) {if ((v_playerProperty[e_inventoryProperties.valHpRegenTick] - v_tickHP) > (v_playerProperty[e_inventoryProperties.valHpRegenTick] / 20) * i) {clr(-1, min(draw_get_alpha(), 0.3)); draw_sprite_part(v_hudSprite, 0, 594, 226, 4, 16, tmp_x + i * 4 + 8, tmp_y + 5); clr();}}}
+				if (j == 1) {if (v_delayMP > 0) {if (v_delayMP / v_playerProperty[e_inventoryProperties.valMpRegenDelay] > (i + 1) / 20) {clr(-1, min(draw_get_alpha(), 0.6)); draw_sprite_part(v_hudSprite, 0, 594, 186, 4, 16, tmp_x + i * 4 + 8, tmp_y + 5); clr();}} if (v_tickMP > 0) {if ((v_playerProperty[e_inventoryProperties.valHpRegenTick] - v_tickMP) > (v_playerProperty[e_inventoryProperties.valHpRegenTick] / 20) * i) {clr(-1, min(draw_get_alpha(), 0.3)); draw_sprite_part(v_hudSprite, 0, 594, 226, 4, 16, tmp_x + i * 4 + 8, tmp_y + 5); clr();}}}
+				if (j == 2) {if (v_delaySP > 0) {if (v_delaySP / v_playerProperty[e_inventoryProperties.valSpRegenDelay] > (i + 1) / 20) {clr(-1, min(draw_get_alpha(), 0.6)); draw_sprite_part(v_hudSprite, 0, 594, 186, 4, 16, tmp_x + i * 4 + 8, tmp_y + 5); clr();}} if (v_tickSP > 0) {if ((v_playerProperty[e_inventoryProperties.valHpRegenTick] - v_tickSP) > (v_playerProperty[e_inventoryProperties.valHpRegenTick] / 20) * i) {clr(-1, min(draw_get_alpha(), 0.3)); draw_sprite_part(v_hudSprite, 0, 594, 226, 4, 16, tmp_x + i * 4 + 8, tmp_y + 5); clr();}}}
 				
 				tmp_localMaxX = tmp_x + i * 4 + 8;
 			}
