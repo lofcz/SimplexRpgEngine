@@ -66,4 +66,4 @@ Do you have any questions, or have you created a game using Simplex and you want
 <sub><sup>Copyright © 2017 Matěj Štágl.</sup></sub>  
 <sub><sup><a href="https://github.com/lofcz/SimplexRpgEngine/wiki/Hall-of-fame-(Simplex-development-team)">Hall of fame (development team)</a></sup></sub>  
 <sub><sup>[Read the license, under which the project is available.](https://github.com/lofcz/SimplexRpgEngine/blob/master/license.md)</sup></sub>  
-<img src="https://s27.postimg.org/g2927jc2b/16426542_1438670869499293_2087437131_n.jpg" width="40" height="38"/>
+<img src="https://s2.postimg.org/hw96ro3nt/image.png" width="128" height="128"/>
