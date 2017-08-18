@@ -8,11 +8,28 @@ var tmp_x, tmp_y;
 tmp_x = oCamera.v_nullPosX + 84;
 tmp_y = oCamera.v_nullPosY;
 
+draw_text(mouse_x, mouse_y + 32, v_playerProperty[e_inventoryProperties.valHp]);
 
-v_realXP = lerp(v_realXP, v_playerProperty[e_inventoryProperties.valXp], 0.1);
-v_realHP = lerp(v_realHP, v_playerProperty[e_inventoryProperties.valHp], 0.1);
-v_realMP = lerp(v_realMP, v_playerProperty[e_inventoryProperties.valMp], 0.1);
-v_realSP = lerp(v_realSP, v_playerProperty[e_inventoryProperties.valSp], 0.1);
+if (abs(v_realXP - v_playerProperty[e_inventoryProperties.valXp]) <= 1) {v_realXP = v_playerProperty[e_inventoryProperties.valXp];}
+if (abs(v_realHP - v_playerProperty[e_inventoryProperties.valHp]) <= 1) {v_realHP = v_playerProperty[e_inventoryProperties.valHp];}
+if (abs(v_realMP - v_playerProperty[e_inventoryProperties.valMp]) <= 1) {v_realMP = v_playerProperty[e_inventoryProperties.valMp];}
+if (abs(v_realSP - v_playerProperty[e_inventoryProperties.valSp]) <= 1) {v_realSP = v_playerProperty[e_inventoryProperties.valSp];}
+
+v_realXP = clamp(lerp(v_realXP, v_playerProperty[e_inventoryProperties.valXp], 0.1), 0, v_playerProperty[e_inventoryProperties.valMaxXp]);
+v_realHP = clamp(lerp(v_realHP, v_playerProperty[e_inventoryProperties.valHp], 0.1), 0, v_playerProperty[e_inventoryProperties.valMaxHp]);
+v_realMP = clamp(lerp(v_realMP, v_playerProperty[e_inventoryProperties.valMp], 0.1), 0, v_playerProperty[e_inventoryProperties.valMaxMp]);
+v_realSP = clamp(lerp(v_realSP, v_playerProperty[e_inventoryProperties.valSp], 0.1), 0, v_playerProperty[e_inventoryProperties.valMaxSp]);
+
+if (v_delayHP > 0) {v_delayHP--;}
+if (v_delayMP > 0) {v_delayMP--;}
+if (v_delaySP > 0) {v_delaySP--;}
+
+if (v_delayHP == 0)
+{
+	if (v_tickHP == -1) {v_playerProperty[e_inventoryProperties.valHp] += v_playerProperty[e_inventoryProperties.valHpRegenValue];  if (v_playerProperty[e_inventoryProperties.valHp] < v_playerProperty[e_inventoryProperties.valMaxHp]) {v_tickHP = v_playerProperty[e_inventoryProperties.valHpRegenTick];} else {v_tickHP = -1; v_delayHP = -1;}}
+	else {v_tickHP--;}	
+}
+
 
 // Draw bars
 for (var j = 0; j < 3; j++)
@@ -39,7 +56,70 @@ for (var j = 0; j < 3; j++)
 		tmp_x += 7;
 	}
 
-	draw_sprite_part(v_hudSprite, 0, v_hudBaseBarEndX, v_hudBaseBarEndY + 20 * j, 32, 20, tmp_x, tmp_y + 2);
+	draw_sprite_part(v_hudSprite, 0, v_hudBaseBarEndX, v_hudBaseBarEndY + 20 * j, 8, 18, tmp_x, tmp_y + 2);
+	
+	var tmp_drawHT, tmp_drawMT, tmp_drawST;
+	tmp_drawHT = false;
+	tmp_drawMT = false;
+	tmp_drawST = false;
+	
+	if (v_realHP < v_playerProperty[e_inventoryProperties.valMaxHp]) {tmp_drawHT = true;}
+	if (v_realMP < v_playerProperty[e_inventoryProperties.valMaxMp]) {tmp_drawMT = true;}
+	if (v_realSP < v_playerProperty[e_inventoryProperties.valMaxSp]) {tmp_drawST = true;}
+	
+	if (tmp_drawHT)
+	{
+		v_alphaH = min(lerp(v_alphaH, 1.1, 0.05), 1);
+		if (v_alphaH >= 1) {v_alphaH2 = lerp(v_alphaH2, 1, 0.05);}
+	}
+	else {if (v_alphaH2 > 0.02) {v_alphaH2 = lerp(v_alphaH2, 0, 0.05);} else {v_alphaH = max(lerp(v_alphaH, -0.1, 0.05), 0);}}
+
+	if (tmp_drawMT)
+	{
+		v_alphaM = min(lerp(v_alphaM, 1.1, 0.05), 1);
+		if (v_alphaM >= 1) {v_alphaM2 = lerp(v_alphaM2, 1, 0.05);}
+	}
+	else {if (v_alphaM2 > 0.02) {v_alphaM2 = lerp(v_alphaM2, 0, 0.05);} else {v_alphaM = max(lerp(v_alphaM, -0.1, 0.05), 0);}}	
+
+	if (tmp_drawST)
+	{
+		v_alphaS = min(lerp(v_alphaS, 1.1, 0.05), 1);
+		if (v_alphaS >= 1) {v_alphaS2 = lerp(v_alphaS2, 1, 0.05);}
+	}
+	else {if (v_alphaS2 > 0.02) {v_alphaS2 = lerp(v_alphaS2, 0, 0.05);} else {v_alphaS = max(lerp(v_alphaS, -0.1, 0.05), 0);}}
+	
+	var tmp_localMaxX;
+	tmp_localMaxX = tmp_x + 8;
+	
+	if (j == 0) {tmp_aAlpha = v_alphaH; tmp_aAlpha2 = v_alphaH2; tmp_aVal = string(round(v_realHP)); tmp_aVal2 = string(v_playerProperty[e_inventoryProperties.valMaxHp]);}
+	if (j == 1) {tmp_aAlpha = v_alphaM; tmp_aAlpha2 = v_alphaM2; tmp_aVal = string(round(v_realMP)); tmp_aVal2 = string(v_playerProperty[e_inventoryProperties.valMaxMp]);}
+	if (j == 2) {tmp_aAlpha = v_alphaS; tmp_aAlpha2 = v_alphaS2; tmp_aVal = string(round(v_realSP)); tmp_aVal2 = string(v_playerProperty[e_inventoryProperties.valMaxSp]);}
+	
+		for (var i = 0; i < 20; i++)
+		{
+			if (tmp_aAlpha / 1 > (i + 1) / 20)
+			{
+				draw_sprite_part(v_hudSprite, 0, v_hudBaseBarEndX + 10, v_hudBaseBarEndY + (20 * j), 4, 16, tmp_x + i * 4 + 8, tmp_y + 2);
+				
+				if (j == 0) {if (v_delayHP > 0) {if (v_delayHP / v_playerProperty[e_inventoryProperties.valHpRegenDelay] > (i + 1) / 20) {clr(-1, min(draw_get_alpha(), 0.6)); draw_sprite_part(v_hudSprite, 0, 594, 186, 4, 16, tmp_x + i * 4 + 8, tmp_y + 5); clr();}} if (v_tickHP > 0) {if ((v_playerProperty[e_inventoryProperties.valHpRegenTick] - v_tickHP) > (v_playerProperty[e_inventoryProperties.valHpRegenTick] / 20) * i) {clr(-1, min(draw_get_alpha(), 0.3)); draw_sprite_part(v_hudSprite, 0, 594, 226, 4, 16, tmp_x + i * 4 + 8, tmp_y + 5); clr();}}}
+				
+				tmp_localMaxX = tmp_x + i * 4 + 8;
+			}
+		} 
+	
+		if (tmp_aAlpha >= 1)
+		{
+			clr(c_white, tmp_aAlpha2);
+			fnt(fntPixelTiny);
+			alg("center");
+			draw_text(tmp_localMaxX - 10 * 4 + 4, tmp_y + 12, tmp_aVal + " / " + tmp_aVal2);
+			alg();
+			fnt();
+			clr();
+		}
+	
+	draw_sprite_part(v_hudSprite, 0, v_hudBaseBarEndX + 18, v_hudBaseBarEndY + (20 * j), 17, 19, tmp_localMaxX, tmp_y + 2);
+	
 
 	tmp_x = oCamera.v_nullPosX + 84;
 	tmp_y += 20;

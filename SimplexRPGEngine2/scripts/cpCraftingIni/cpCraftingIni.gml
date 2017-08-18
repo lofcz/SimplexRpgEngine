@@ -36,6 +36,8 @@ v_craftingForms[5, 4] = 0;
 
 //v_craftingFormsUnlocked = [true, true, true, true, true, false];
 v_selectedForm = -1;
+v_subformAlpha = 0;
+v_selectedLastForm = -1;
 
 // Detail logic is handeled in cpCraftingHelperDB
 // <recieptID>

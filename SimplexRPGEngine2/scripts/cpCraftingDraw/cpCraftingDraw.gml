@@ -55,12 +55,12 @@ for (var i = 0; i < array_height_2d(v_craftingForms); i++)
 		
 	if (point_in_rectangle(mouse_x, mouse_y, v_formBaseMaxX + v_slotSize + v_formExtAlpha * (v_slotSize / 2), v_drawStartY + 48 + (30 * i) - v_craftingForms[i, 3], v_formBaseMaxX + v_slotSize + v_formExtAlpha * (v_slotSize / 2) + 6 * 40, v_drawStartY + 48 + (30 * i) + 24 - v_craftingForms[i, 3]) && v_craftingForms[i, 4])
 	{
-		if (v_selectedForm != i && v_craftingForms[i, 2] >= 0.98) {v_craftingForms[i, 1] = min(lerp(v_craftingForms[i, 1], 18, 0.1), 16);} 
+		if (v_selectedForm != i && v_craftingForms[i, 2] >= 0.98 && v_subformAlpha <= 0.05) {v_craftingForms[i, 1] = min(lerp(v_craftingForms[i, 1], 18, 0.1), 16);} 
 		else {v_craftingForms[i, 1] = max(lerp(v_craftingForms[i, 1], -2, 0.1), 0);}
 			
 		if (mouse_check_button_pressed(mb_left))
 		{
-			if (v_selectedForm == -1) {v_selectedForm = i;}
+			if (v_selectedForm == -1) {v_selectedForm = i; v_selectedLastForm = v_selectedForm;}
 			else {if (i == v_selectedForm) {v_selectedForm = -1;}}
 		}
 	}
@@ -68,17 +68,17 @@ for (var i = 0; i < array_height_2d(v_craftingForms); i++)
 		
 	if (v_selectedForm != -1)
 	{
-		if (v_selectedForm != i)
+		if (v_selectedForm != i && v_subformAlpha <= 0.05)
 		{
 			v_craftingForms[i, 2] = max(lerp(v_craftingForms[i, 2], -0.2, 0.1), 0);
 			v_craftingForms[i, 3] = lerp(v_craftingForms[i, 3], 0, 0.1);
 		}
-		else
+		else if (v_selectedForm == i && v_subformAlpha <= 0.05)
 		{
 			v_craftingForms[i, 3] = min(lerp(v_craftingForms[i, 3], 30 * (i + 0.5) + 2, 0.1), 30 * (i + 0.5));
 		}
 	}
-	else
+	else if (v_subformAlpha <= 0.05)
 	{
 		v_craftingForms[i, 3] = lerp(v_craftingForms[i, 3], 0, 0.1);
 		if (v_craftingForms[i, 3] < 1) {v_craftingForms[i, 2] = min(lerp(v_craftingForms[i, 2], 1.2, 0.1), 1);}
@@ -86,20 +86,24 @@ for (var i = 0; i < array_height_2d(v_craftingForms); i++)
 }
 
 // Draw selected subform
+if (v_selectedForm != -1 && v_craftingForms[v_selectedForm, 3] >= 30 * (v_selectedForm + 0.5)) {v_subformAlpha = lerp(v_subformAlpha, 1, 0.1);}
+else {v_subformAlpha = lerp(v_subformAlpha, 0, 0.1);}
 
 // Item crafting
-if (v_selectedForm == 0)
+
+if (v_selectedLastForm == 0 && v_subformAlpha > 0.05)
 {
 	var tmp_drawX, tmp_drawY, tmp_sx, tmp_sy, tmp_slotsRenderedNow, tmp_currentRow, tmp_offsetHelp;
-	tmp_drawX = v_formBaseMaxX + v_slotSize + v_formExtAlpha * (v_slotSize / 2);
-	tmp_drawY = v_drawStartY + 96;
+	tmp_drawX = v_formBaseMaxX + v_slotSize + v_subformAlpha * (v_slotSize / 2) + 8;
+	tmp_drawY = v_drawStartY + 108;
 	tmp_sx = tmp_drawX;
 	tmp_sy = tmp_drawY;
 	tmp_slotsRenderedNow = 0;
 	tmp_currentRow = 0;
 	tmp_offsetHelp = oHUD.v_hudSlotX;
 	
-	for (var i = 0; i < 30; i++)
+	clr(-1, min(v_subformAlpha, tmp_alpha));
+	for (var i = 0; i < 24; i++)
 	{
 		if (tmp_currentRow == 0)
 		{
@@ -107,7 +111,7 @@ if (v_selectedForm == 0)
 			{
 				draw_sprite_part(v_inventorySprite, 0, tmp_offsetHelp, oHUD.v_hudSlotY, 38, 38, tmp_drawX, tmp_drawY);
 			}
-			else if (tmp_slotsRenderedNow == 5 - 1)
+			else if (tmp_slotsRenderedNow == 6 - 1)
 			{
 				draw_sprite_part(v_inventorySprite, 0, tmp_offsetHelp + 76, oHUD.v_hudSlotY, 38, 38, tmp_drawX, tmp_drawY);		
 			}
@@ -116,7 +120,7 @@ if (v_selectedForm == 0)
 				draw_sprite_part(v_inventorySprite, 0, tmp_offsetHelp + 38, oHUD.v_hudSlotY, 38, 38, tmp_drawX, tmp_drawY);
 			}
 		}
-		else if (tmp_currentRow == (v_slotRows - v_expandSlotsY - 1))
+		else if (tmp_currentRow == 3)
 		{
 			if (tmp_slotsRenderedNow == 0)
 			{

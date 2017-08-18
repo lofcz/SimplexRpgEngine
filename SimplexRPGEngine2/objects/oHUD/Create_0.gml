@@ -92,6 +92,27 @@ v_playerProperty[e_inventoryProperties.valSp] = 100;
 v_playerProperty[e_inventoryProperties.valMaxHp] = 100;
 v_playerProperty[e_inventoryProperties.valMaxMp] = 100;
 v_playerProperty[e_inventoryProperties.valMaxSp] = 100;
+
+v_playerProperty[e_inventoryProperties.valHpRegenDelay] = 240;
+v_playerProperty[e_inventoryProperties.valHpRegenTick] = 60;
+v_playerProperty[e_inventoryProperties.valHpRegenValue] = 1;
+
+
 depth = -10000;
 
 v_mouseClickedUI = false;
+
+v_alphaH = 0;
+v_alphaM = 0;
+v_alphaS = 0;
+v_alphaH2 = 0;
+v_alphaM2 = 0;
+v_alphaS2 = 0;
+
+v_delayHP = -1;
+v_delayMP = -1;
+v_delaySP = -1;
+
+v_tickHP = -1;
+v_tickMP = -1;
+v_tickSP = -1;

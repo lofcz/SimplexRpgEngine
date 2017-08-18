@@ -50,6 +50,8 @@ if (v_action == "computeTarget")
 
 		cpGoreBlood(oPlayer.x, oPlayer.y);
 		oHUD.v_playerProperty[e_inventoryProperties.valHp] -= 15;
+		oHUD.v_delayHP = oHUD.v_playerProperty[e_inventoryProperties.valHpRegenDelay];
+		oHUD.v_tickHP = -1;
 		
 if (v_dir == e_dirs.valD) {if (image_index < v_animationFrames[v_currentAnimation] || image_index > v_animationFrames[v_currentAnimation] * 2 - 0.1) {image_index = v_animationFrames[v_currentAnimation];}}
 if (v_dir == e_dirs.valA) {if (image_index < v_animationFrames[v_currentAnimation] * 3 || image_index > v_animationFrames[v_currentAnimation] * 4 - 0.1) {image_index = v_animationFrames[v_currentAnimation] * 3;}}

@@ -46,7 +46,16 @@ enum e_inventoryProperties
 	valMp,
 	valSp,
 	valXp,
-	valMaxXp
+	valMaxXp,
+	valSpRegenDelay,
+	valHpRegenDelay,
+	valMpRegenDelay,
+	valSpRegenValue,
+	valHpRegenValue,
+	valMpRegenValue,
+	valHpRegenTick,
+	valMpRegenTick,
+	valSpRegenTick
 }
 
 enum e_items
