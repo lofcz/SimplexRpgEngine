@@ -1,16 +1,26 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+for (var i = 0; i < room_height div 32; i++)
+{
+	for (var j = 0; j < room_width div 32; j++)
+	{
+		cellArray[i, j] = 0;
+	}
+}
+
+//grid_cellChecked = ds_grid_create((room_width div 32), (room_height div 32));
+
 image_index = 0;
 image_speed = 0;
 
 v_imagesPerSide = 4;
 v_dir = e_dirs.valS;
 v_mindState = "idle";
-v_action = "";
+v_action = "rest";
 v_timer = 0;
 v_attackArea = [x - 256, y - 256, x + 256, y + 256];
-v_attackNote = 196;
+v_attackNote = 64;
 
 v_enemyType = choose("goblin");
 if (v_enemyType == "golem") {sprite_index = sGolemMove; v_animationFrames = [7, 7]; v_moveAnim = sGolemMove; v_attackAnim = sGolemAttack;}

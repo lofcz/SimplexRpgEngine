@@ -15,10 +15,18 @@ var a, b, c, d, e, f, sx, sy, tx, ty, x0, y0, x1, y1, px, py, pd, ph, pc;
 //pc - point check (We check every sequential value against the place holder to see if it is smaller than the place holder. If so, ph becomes the pc).
 
 //We will use this grid to check to see if the cell has been checked    
-grid_cellChecked = ds_grid_create((room_width div argument4) + 1, (room_height div argument4) + 1);
+cellArray = argument9;
 
 //Set the entire grid with the value of zero. We have not checked any cells yet. 0 = unchecked. 1 = checked.
-ds_grid_clear(grid_cellChecked, 0);
+for (var i = 0; i < room_height div 32; i++)
+{
+	for (var j = 0; j < room_width div 32; j++)
+	{
+		cellArray[@ i, j] = 0;
+	}
+}
+
+//ds_grid_clear(grid_cellChecked, 0);
 
 //Create a list to be used to to add information of all squares checked.
 gridList = ds_list_create();
@@ -64,7 +72,9 @@ ph = 0;
 
 //Lets add the first cell into our list for searching. The starting x and starting y locations.
 ds_list_add(gridList, x0, y0, -1);
-ds_grid_set(grid_cellChecked, (x0 - argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4, 1);  
+cellArray[@ (x0 - argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4] = 1;
+//ds_grid_set(grid_cellChecked, (x0 - argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4, 1);  
+
 if (((x0 - argument4 * .5) / argument4) < 1) {show_message("B1");}
 
 //Keep searching so long as cells exist.
@@ -75,7 +85,9 @@ while(ds_list_size(gridList) > 0){
         for(a = 0;a <= ds_list_size(gridList) / 3 - 1;a ++){
             x0 = ds_list_find_value(gridList, a * 3);  
             y0 = ds_list_find_value(gridList, a * 3 + 1); 
-            ds_grid_set(grid_cellChecked, (x0 - argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4, 0);
+			cellArray[@ (x0 - argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4] = 0;
+			
+            //ds_grid_set(grid_cellChecked, (x0 - argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4, 0);
 			if (((y0 - argument4 * .5) / argument4) < 1) {show_message("B2");}
 
         }  
@@ -134,7 +146,7 @@ while(ds_list_size(gridList) > 0){
             //Make sure neighbor squares are valid.
 			x -= 10000;
             if ((!position_meeting(x1, y1, argument7) || position_meeting(x1, y1, oPlayer))
-            && ds_grid_get(grid_cellChecked, (x1 - argument4 * .5) / argument4, (y1 - argument4 * .5) / argument4) == 0
+            && cellArray[@ (x1 - argument4 * .5) / argument4, (y1 - argument4 * .5) / argument4] == 0 // ds_grid_get(grid_cellChecked, (x1 - argument4 * .5) / argument4, (y1 - argument4 * .5) / argument4) == 0
             && x1 > 0
             && x1 < room_width
             && y1 > 0
@@ -143,7 +155,8 @@ while(ds_list_size(gridList) > 0){
                 py = y1;
                 pd = point_distance(px, py, tx, ty);
                 //Make sure to mark this cell as "checked" so that we don't add these values to the list again.
-                ds_grid_set(grid_cellChecked, (x1 - argument4 * .5) / argument4, (y1 - argument4 * .5) / argument4, 1); 
+				cellArray[@ (x1 - argument4 * .5) / argument4, (y1 - argument4 * .5) / argument4] = 1;
+                //ds_grid_set(grid_cellChecked, (x1 - argument4 * .5) / argument4, (y1 - argument4 * .5) / argument4, 1); 
 				//show_message((y1 - argument4 * .5) / argument4);
                 //Add the cells respective values to the gridList.
                 ds_list_add(gridList, px, py, pd);
@@ -162,20 +175,20 @@ do{
         x0 = ds_list_find_value(cellTrimList, a * 2);
         y0 = ds_list_find_value(cellTrimList, a * 2 + 1);         
         //Identify all of the cells around each cell we are checking.
-        if (ds_grid_get(grid_cellChecked, (x0 - argument4 * .5) / argument4, (y0 - (argument4 + argument4 * .5)) / argument4) == 1){//N
+        if (cellArray[@ (x0 - argument4 * .5) / argument4, (y0 - (argument4 + argument4 * .5)) / argument4] == 1) {//N /* ds_grid_get(grid_cellChecked, (x0 - argument4 * .5) / argument4, (y0 - (argument4 + argument4 * .5)) / argument4) == 1)*/
             e += 3;
 			if (((y0 - (argument4 + argument4 * .5)) / argument4) < 0) {show_message("B4");}
         }
-        if (ds_grid_get(grid_cellChecked, (x0 + argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4) == 1){//E
+        if (cellArray[@ (x0 + argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4] == 1)/* ds_grid_get(grid_cellChecked, (x0 + argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4) == 1)*/{//E
             e += 7;
 			if (((y0 - argument4 * .5) / argument4) < 0) {show_message("B5");}
         }
-        if (ds_grid_get(grid_cellChecked, (x0 - argument4 * .5) / argument4, (y0 + argument4 * .5) / argument4) == 1){//S
+        if (cellArray[@ (x0 - argument4 * .5) / argument4, (y0 + argument4 * .5) / argument4] == 1) /* ds_grid_get(grid_cellChecked, (x0 - argument4 * .5) / argument4, (y0 + argument4 * .5) / argument4) == 1)*/{//S
             e += 11;
 			if (((y0 + argument4 * .5) / argument4) < 0) {show_message("B6");}
 			
         }
-        if (ds_grid_get(grid_cellChecked, (x0 - (argument4 + argument4 * .5)) / argument4, (y0 - argument4 * .5) / argument4) == 1){//W
+        if (cellArray[@ (x0 - (argument4 + argument4 * .5)) / argument4, (y0 - argument4 * .5) / argument4] == 1)/* ds_grid_get(grid_cellChecked, (x0 - (argument4 + argument4 * .5)) / argument4, (y0 - argument4 * .5) / argument4) == 1)*/{//W
             e += 13;
 			if (((y0 - argument4 * .5) / argument4) < 0) {show_message("B7");}
 		
@@ -191,22 +204,22 @@ do{
             break;            
             //Corners
             case 10://N/E
-            if (ds_grid_get(grid_cellChecked, (x0 + argument4 * .5) / argument4, (y0 - (argument4 + argument4 * .5)) / argument4) == 1){//NE
+            if (cellArray[@ (x0 + argument4 * .5) / argument4, (y0 - (argument4 + argument4 * .5)) / argument4] == 1) /* ds_grid_get(grid_cellChecked, (x0 + argument4 * .5) / argument4, (y0 - (argument4 + argument4 * .5)) / argument4) == 1)*/{//NE
                 f = true;
             }
             break;
             case 18://S/E
-            if (ds_grid_get(grid_cellChecked, (x0 + argument4 * .5) / argument4, (y0 + argument4 * .5) / argument4) == 1){//SE
+            if (cellArray[@ (x0 + argument4 * .5) / argument4, (y0 + argument4 * .5) / argument4] == 1) /* ds_grid_get(grid_cellChecked, (x0 + argument4 * .5) / argument4, (y0 + argument4 * .5) / argument4) == 1)*/{//SE
                 f = true;
             }
             break;
             case 24://S/W
-            if (ds_grid_get(grid_cellChecked, (x0 - (argument4 + argument4 * .5)) / argument4, (y0 + argument4 * .5) / argument4) == 1){//SW
+            if (cellArray[@ (x0 - (argument4 + argument4 * .5)) / argument4, (y0 + argument4 * .5) / argument4] == 1) /* ds_grid_get(grid_cellChecked, (x0 - (argument4 + argument4 * .5)) / argument4, (y0 + argument4 * .5) / argument4) == 1)*/{//SW
                 f = true;
             }
             break;
             case 16://N/W
-            if (ds_grid_get(grid_cellChecked, (x0 - (argument4 + argument4 * .5)) / argument4, (y0 - (argument4 + argument4 * .5)) / argument4) == 1){//NW
+            if (cellArray[@ (x0 - (argument4 + argument4 * .5)) / argument4, (y0 - (argument4 + argument4 * .5)) / argument4] == 1) /* ds_grid_get(grid_cellChecked, (x0 - (argument4 + argument4 * .5)) / argument4, (y0 - (argument4 + argument4 * .5)) / argument4) == 1)*/{//NW
                 f = true;
             }
             break;            
@@ -219,7 +232,8 @@ do{
                 ds_list_delete(cellTrimList, a * 2);
             }
             a --;
-            ds_grid_set(grid_cellChecked, (x0 - argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4, 0);
+			cellArray[@ (x0 - argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4] = 0;
+           // ds_grid_set(grid_cellChecked, (x0 - argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4, 0);
 			//if (((y0 - argument4 * .5) / argument4) < 1) {show_message("B8:" + string(((y0 - argument4 * .5) / argument4)));}
 		
 
@@ -302,7 +316,8 @@ x0 = sx;
 y0 = sy;
 path_add_point(p_path, argument0, argument1, 100);
 path_add_point(p_path, x0, y0, 100);
-ds_grid_set(grid_cellChecked, (x0 - argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4, 0);
+//ds_grid_set(grid_cellChecked, (x0 - argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4, 0);
+cellArray[@ (x0 - argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4] = 0;
 				if (((y0 - argument4 * .5) / argument4) < 1) {show_message("B10");}
 
 repeat(ds_list_size(cellTrimList) / 2 + 4){
@@ -315,12 +330,13 @@ repeat(ds_list_size(cellTrimList) / 2 + 4){
         for(a = 0;a <= 3;a ++){
             x1 = x0 + lengthdir_x(argument4, a * 90);
             y1 = y0 + lengthdir_y(argument4, a * 90);
-            if (ds_grid_get(grid_cellChecked, (x1 - argument4 * .5) / argument4, (y1 - argument4 * .5) / argument4) == 1){
+            if (cellArray[@ (x1 - argument4 * .5) / argument4, (y1 - argument4 * .5) / argument4] == 1)/* ds_grid_get(grid_cellChecked, (x1 - argument4 * .5) / argument4, (y1 - argument4 * .5) / argument4) == 1)*/{
                 b = true;
                 x0 = x1;
                 y0 = y1;
                 path_add_point(p_path, x0, y0, 100);
-                ds_grid_set(grid_cellChecked, (x0 - argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4, 0);
+                //ds_grid_set(grid_cellChecked, (x0 - argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4, 0);
+				cellArray[@ (x0 - argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4] = 0;
 				if (((y0 - argument4 * .5) / argument4) < 1) {show_message("B11");}				
                 break;
             }
@@ -330,11 +346,12 @@ repeat(ds_list_size(cellTrimList) / 2 + 4){
             for(a = 0;a <= 3;a ++){        
                 x1 = round(x0 + lengthdir_x(45, a * 90 + 45));
                 y1 = round(y0 + lengthdir_y(45, a * 90 + 45));               
-                if (ds_grid_get(grid_cellChecked, (x1 - argument4 * .5) / argument4, (y1 - argument4 * .5) / argument4) == 1){                
+                if (cellArray[@ (x1 - argument4 * .5) / argument4, (y1 - argument4 * .5) / argument4] == 1)/* ds_grid_get(grid_cellChecked, (x1 - argument4 * .5) / argument4, (y1 - argument4 * .5) / argument4) == 1)*/{                
                     x0 = x1;
                     y0 = y1;                    
                     path_add_point(p_path, x0, y0, 100);
-                    ds_grid_set(grid_cellChecked, (x0 - argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4, 0);
+					cellArray[(x0 - argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4] = 0;
+                    //ds_grid_set(grid_cellChecked, (x0 - argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4, 0);
 						if (((y0 - argument4 * .5) / argument4) < 1) {show_message("B12");}	
                     break;
                 }
@@ -358,7 +375,7 @@ path_delete_point(p_path, path_get_number(p_path) - 2);
 //Delete structures.
 ds_list_destroy(gridList);
 ds_list_destroy(cellTrimList)
-ds_grid_destroy(grid_cellChecked);
+//ds_grid_destroy(grid_cellChecked);
 
 path_delete(p_path);
 

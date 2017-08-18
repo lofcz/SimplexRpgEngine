@@ -13,12 +13,12 @@ if (keyboard_check_pressed(ord("F"))) {t = !t}
 v_slotOffsetX = clamp(v_slotOffsetX, 0, 48);
 //v_slotOffsetY = clamp(v_slotOffsetY, 0, 12);
 
-if (keyboard_check_pressed(ord("G")))  {v_filterButtons[0] = ! v_filterButtons[0];}
+if (keyboard_check_pressed(ord("G")))  {v_filterButtons[1] = ! v_filterButtons[1];}
 if (keyboard_check_pressed(ord("I")))  {v_drawForm = !v_drawForm;}
-t = v_filterButtons[0];
+t = (v_filterButtons[0, 0] || v_filterButtons[1, 0]) && !v_changingForm;
 
 if (t) { hj = lerp(hj, 256, 0.1);  yj = lerp(yj, max(5 * (v_slotSize + v_slotOffsetY) - v_slotRows * (v_slotSize + v_slotOffsetY) + (v_slotSize / 2) * 3, 0), 0.1);}
-else {v_slotOffsetX = lerp(v_slotOffsetX, 6, 0.1); v_slotOffsetY = lerp(v_slotOffsetY, 6, 0.1); hj = lerp(hj, 0, 0.1); yj = lerp(yj, 0, 0.1);}
+else {v_slotOffsetX = lerp(v_slotOffsetX, 6, 0.1); v_slotOffsetY = lerp(v_slotOffsetY, 6, 0.1); hj = lerp(hj, 0, 0.1); yj = lerp(yj, 0, 0.1); if (hj < 5) {hj = lin(hj, 0, 1);} if (hj < 1) {hj = 0; v_changingForm = false; v_formExtMode = v_formExtModeStack;}}
 
 if (u) {v_slotSize = lerp(v_slotSize, 48, 0.1);}
 else {v_slotSize = lerp(v_slotSize, 32, 0.1);}
@@ -473,6 +473,16 @@ if (v_formAlpha > 0.05)
 			{
 				v_filterButtons[i, 0] = !v_filterButtons[i, 0];
 				oHUD.v_mouseClickedUI = true;
+				
+				if (i == 0) {v_formExtModeStack = "equipment";}
+				if (i == 1) {v_formExtModeStack = "crafting";}		
+				
+				v_changingForm = true;	
+				
+				for (var j = 0; j < 3; j++)
+				{
+					if (j != i) {v_filterButtons[j, 0] = false;}
+				}
 			}
 		}
 	}
@@ -522,6 +532,13 @@ if (v_formAlpha > 0.05)
 			draw_text(v_formBaseMaxX + (v_slotOffsetX * v_slotsPerRow) / 2 + (v_slotSize * 3) + v_formExtAlpha * (v_slotSize / 2), v_drawStartY + 16, __("Equipment"));
 			fnt();
 			alg();
+		}
+		
+		if (v_formExtMode == "crafting")
+		{
+			v_lastX = tmp_drawX;
+			v_lastY = tmp_drawY;
+			cpCraftingDraw();
 		}
 	}
 

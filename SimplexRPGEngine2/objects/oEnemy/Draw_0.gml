@@ -13,7 +13,7 @@ if (v_alive)
 v_collisionLegs = [x - 16, y, x + 16, y + 24];
 v_attackArea = [x - v_attackNote, y - v_attackNote, x + v_attackNote, y + v_attackNote];
 
-if (v_mindState == "idle") {color = c_lime; 		v_attackNote = lerp(v_attackNote, 196, 0.1);} else if (v_mindState == "attack") {color = c_red; v_attackNote = lerp(v_attackNote, 256, 0.1);}
+if (v_mindState == "idle") {color = c_lime; 		v_attackNote = lerp(v_attackNote, 64, 0.1);} else if (v_mindState == "attack") {color = c_red; v_attackNote = lerp(v_attackNote, 256, 0.1);}
 else if (v_mindState == "search") {color = c_orange; v_attackNote = lerp(v_attackNote, 256, 0.1);}
 	//libUtilityDrawRect(v_attackArea, false, color);
 
@@ -63,8 +63,9 @@ if (v_dir == e_dirs.valS) {if (image_index < 0 || image_index > v_animationFrame
 		
 		if (v_mindState == "idle")
 		{
-				tmp_targetX = choose(x + 32, x - 64);
-				tmp_targetY = choose(y - 32, y + 64);
+			if (choose(1, 2) == 1) {tmp_targetX = choose(x + 32, x - 32); tmp_targetY = y;}
+			else {tmp_targetY = choose(y - 64, y + 64); tmp_targetX = x;}
+
 		}
 		else if (v_mindState == "attack")
 		{
@@ -77,7 +78,7 @@ if (v_dir == e_dirs.valS) {if (image_index < 0 || image_index > v_animationFrame
 			tmp_targetY = v_targetLastPosY;
 		}		
 		
-		if (distance_to_point(v_targetLastPosX, v_targetLastPosY) < 4 && v_mindState == "search")
+		if (distance_to_point(v_targetLastPosX, v_targetLastPosY) < 32 && v_mindState == "search")
 		{
 			v_mindState = "idle";
 			v_targetLastPosX = -1;
@@ -90,16 +91,26 @@ if (v_dir == e_dirs.valS) {if (image_index < 0 || image_index > v_animationFrame
 		{
 			v_path = path_add();
 			path_set_closed(v_path, false);
-	
-			v_path = libPathfindingAStar(x, y, tmp_targetX div 32 * 32, tmp_targetY div 32 * 32, 32, 0, false, parSolid, false);
+
+//show_message("");
+		
+			if (v_mindState != "idle") {v_path = libPathfindingAStar(x, y, tmp_targetX div 32 * 32, tmp_targetY div 32 * 32, 32, 0, false, parSolid, false, cellArray);}
+			else
+			{
+				path_add_point(v_path, tmp_targetX, tmp_targetY, 100);
+				path_add_point(v_path, tmp_targetX, tmp_targetY, 100);
+				path_add_point(v_path, tmp_targetX, tmp_targetY, 100);
+			}
 			v_targetX = path_get_point_x(v_path, 2);
 			v_targetY = path_get_point_y(v_path, 2);
+			
+			draw_circle(v_targetX, v_targetY, 16, false);
 			v_action = "moveToTarget";
-			//draw_path(v_path, x, y, true);
+			draw_path(v_path, x, y, true);
 			direction = 0;
 			d = point_direction(x, y, v_targetX, v_targetY);
 
-			if ((d > 0 && d < 45) || (d > 315 && d <= 360)) {v_action = "moveRight";}
+			if ((d >= 0 && d < 45) || (d > 315 && d <= 360)) {v_action = "moveRight";}
 			else if (d > 90 + 45 && d <= 180 + 45) {v_action = "moveLeft";}
 			else if (d >= 45 && d < 90 + 45) {v_action = "moveUp";}
 			else {v_action = "moveDown";}

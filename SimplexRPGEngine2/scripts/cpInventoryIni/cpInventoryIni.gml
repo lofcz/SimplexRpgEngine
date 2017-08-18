@@ -200,7 +200,9 @@ v_containerID = -1;
 v_formExtW = 48;
 v_formExtH = 12;
 
-v_formExtMode = "equipment";
+v_formExtMode = "crafting";
+v_changingForm = false;
+v_formExtModeStack = v_formExtMode;
 
 v_formBaseMaxX = 0;
 v_formBaseMaxY = 0;
@@ -246,3 +248,4 @@ for (var i = 0; i <= v_slots; i++)
 }
 
 cpEquipmentIni();
+cpCraftingIni();
