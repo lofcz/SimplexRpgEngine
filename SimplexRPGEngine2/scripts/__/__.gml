@@ -50,3 +50,33 @@ else if (tmp_text == "Search")
 	if (oHUD.v_lang == "cz") {return "Hledat";}
 	else {return tmp_text;}
 }
+else if (tmp_text == "Items")
+{
+	if (oHUD.v_lang == "cz") {return "Předměty";}
+	else {return tmp_text;}
+}
+else if (tmp_text == "Enchanting")
+{
+	if (oHUD.v_lang == "cz") {return "Očarování";}
+	else {return tmp_text;}
+}
+else if (tmp_text == "Materials")
+{
+	if (oHUD.v_lang == "cz") {return "Materiály";}
+	else {return tmp_text;}
+}
+else if (tmp_text == "Alchemy")
+{
+	if (oHUD.v_lang == "cz") {return "Alchemie";}
+	else {return tmp_text;}
+}
+else if (tmp_text == "Food")
+{
+	if (oHUD.v_lang == "cz") {return "Jídlo";}
+	else {return tmp_text;}
+}
+else if (tmp_text == "Anvil")
+{
+	if (oHUD.v_lang == "cz") {return "Kovadlina";}
+	else {return tmp_text;}
+}

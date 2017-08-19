@@ -54,3 +54,60 @@ g_itemsList = ds_list_create();
 g_materialsList = ds_list_create();
 g_alchemyList = ds_list_create();
 g_foodList = ds_list_create();
+
+// <name, rarity, craftingSlots, craftingSlotsOptional>
+v_recieptItem[0, 0] = "Fod";
+	v_recieptItem[0, 1] = e_rarities.valCommon;
+	v_recieptItem[0, 2] = 3;
+	v_recieptItem[0, 3] = 4;
+		
+v_recieptItem[1, 0] = "Fol";
+	v_recieptItem[1, 1] = e_rarities.valRare;
+	v_recieptItem[1, 2] = 2;
+	v_recieptItem[1, 3] = 1;
+	
+// <propertiesREQ>
+for (var j = 0; j < 2; j++)
+{
+	for (var i = 0; i < mcInventoryProperties; i++)
+	{
+		v_recieptItemReq[j, i] = 0;
+	}
+}
+
+// crafting slots needed
+// <itemID, materialID, numberNeeded>
+for (var j = 0; j < 2; j++)
+{
+	for (var i = 0; i < 3 * v_recieptItem[j, 2]; i++)
+	{
+		v_recieptItemSlot[j, i] = 0;
+	}
+}
+// crafting slots optional
+for (var j = 0; j < 2; j++)
+{
+	for (var i = 0; i < 3 * v_recieptItem[j, 3]; i++)
+	{
+		v_recieptItemSlotOptional[j, i] = 0;
+	}
+}
+
+ds_list_add(g_itemsList, 1);
+ds_list_add(g_itemsList, 0);
+
+enum e_rarities
+{
+	valTrash,
+	valCommon,
+	valUncommon,
+	valRare,
+	valVeryRare,
+	valMythic,
+	valLegendary,
+	valQuest
+}
+
+v_craftItemSelected = -1;
+v_craftAlpha = 0;
+v_craftWIP = false;
