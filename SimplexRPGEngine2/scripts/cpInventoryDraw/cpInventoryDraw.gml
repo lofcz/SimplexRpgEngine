@@ -236,6 +236,13 @@ if (v_formAlpha > 0.05)
 				draw_text(tmp_drawX + (v_slotSize / 2) - tmp_drawOffsetX + 6, tmp_drawY + v_slotSize - 10, string(v_slot[i, e_inventoryAtributes.valCurrentStackSize]));
 				clr(c_black, v_formAlpha);
 			}
+			
+			if (v_slot[i, e_inventoryAtributes.valBeingUsed])
+			{
+				clr(c_black, v_formAlpha / 3);
+				draw_rectangle(tmp_drawX + 2, tmp_drawY + 2, tmp_drawX + 38, tmp_drawY + 38, false);
+				clr(c_black, v_formAlpha);
+			}
 		}
 	
 		tmp_slotsRenderedNow++;
@@ -266,7 +273,7 @@ if (v_formAlpha > 0.05)
 	// Check for item release
 	if (v_slotBeingDragged != -1)
 	{
-		if (mouse_check_button_released(mb_left))
+		if (mouse_check_button_released(mb_left) && !v_customDropItem)
 		{
 			// If we hover over any item switch them
 			if (tmp_lastHover != -1)

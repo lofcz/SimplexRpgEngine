@@ -76,27 +76,112 @@ for (var j = 0; j < 2; j++)
 }
 
 // crafting slots needed
-// <itemID, materialID, numberNeeded, slotName, slotDesc>
+// <itemID, materialID, numberNeeded, slotName, slotDesc, inputID>
 for (var j = 0; j < 2; j++)
 {
-	for (var i = 0; i < 5 * v_recieptItem[j, 2]; i++)
+	for (var i = 0; i < 6 * v_recieptItem[j, 2]; i++)
 	{
 		v_recieptItemSlot[j, i] = 0;
 	}
 }
+
+v_recieptItemSlot[0, 0] = e_items.valSwordWooden;
+v_recieptItemSlot[0, 1] = -1;
+v_recieptItemSlot[0, 2] = 1;
+v_recieptItemSlot[0, 3] = "Handle";
+v_recieptItemSlot[0, 4] = "Makes this sword usable";
+v_recieptItemSlot[0, 5] = -1;
+
+v_recieptItemSlot[0, 6] = e_items.valNONE;
+v_recieptItemSlot[0, 7] = -1;
+v_recieptItemSlot[0, 8] = 1;
+v_recieptItemSlot[0, 9] = "Blade";
+v_recieptItemSlot[0, 10] = "Due to this part you can stab ur enemies";
+v_recieptItemSlot[0, 11] = -1;
+
+v_recieptItemSlot[0, 12] = e_items.valNONE;
+v_recieptItemSlot[0, 13] = -1;
+v_recieptItemSlot[0, 14] = 1;
+v_recieptItemSlot[0, 15] = "Random text";
+v_recieptItemSlot[0, 16] = "Trashtalking";
+v_recieptItemSlot[0, 17] = -1;
+
+v_recieptItemSlot[0, 18] = e_items.valNONE;
+v_recieptItemSlot[0, 19] = -1;
+v_recieptItemSlot[0, 20] = 1;
+v_recieptItemSlot[0, 21] = "Freaking shit";
+v_recieptItemSlot[0, 22] = "Sample text";
+v_recieptItemSlot[0, 23] = -1;
+
+v_recieptItemSlot[0, 24] = e_items.valNONE;
+v_recieptItemSlot[0, 25] = -1;
+v_recieptItemSlot[0, 26] = 1;
+v_recieptItemSlot[0, 27] = "More trash";
+v_recieptItemSlot[0, 28] = "Shitty train";
+v_recieptItemSlot[0, 29] = -1;
+
+v_recieptItemSlot[0, 30] = e_items.valNONE;
+v_recieptItemSlot[0, 31] = -1;
+v_recieptItemSlot[0, 32] = 1;
+v_recieptItemSlot[0, 33] = "Even more crafting slots";
+v_recieptItemSlot[0, 34] = "Simplex sucks";
+v_recieptItemSlot[0, 35] = -1;
+
+v_recieptItemSlot[0, 36] = e_items.valSwordWooden;
+v_recieptItemSlot[0, 37] = -1;
+v_recieptItemSlot[0, 38] = 1;
+v_recieptItemSlot[0, 39] = "Fcking endless";
+v_recieptItemSlot[0, 40] = "Die in hell";
+v_recieptItemSlot[0, 41] = -1;
+
+v_recieptItemSlot[0, 42] = e_items.valNONE;
+v_recieptItemSlot[0, 43] = -1;
+v_recieptItemSlot[0, 44] = 1;
+v_recieptItemSlot[0, 45] = "Shit";
+v_recieptItemSlot[0, 46] = "Im dying in pain";
+v_recieptItemSlot[0, 47] = -1;
+
+v_recieptItemSlot[0, 48] = e_items.valSwordWooden;
+v_recieptItemSlot[0, 49] = -1;
+v_recieptItemSlot[0, 50] = 1;
+v_recieptItemSlot[0, 51] = "Can we";
+v_recieptItemSlot[0, 52] = "qwerty and more random trash";
+v_recieptItemSlot[0, 53] = -1;
+
+v_recieptItemSlot[0, 54] = e_items.valNONE;
+v_recieptItemSlot[0, 55] = -1;
+v_recieptItemSlot[0, 56] = 1;
+v_recieptItemSlot[0, 57] = "End";
+v_recieptItemSlot[0, 58] = "hell please";
+v_recieptItemSlot[0, 59] = -1;
+
+v_recieptItemSlot[0, 60] = e_items.valNONE;
+v_recieptItemSlot[0, 61] = -1;
+v_recieptItemSlot[0, 62] = 1;
+v_recieptItemSlot[0, 63] = "My suffering";
+v_recieptItemSlot[0, 64] = "au revoair";
+v_recieptItemSlot[0, 65] = -1;
+
+v_recieptItemSlot[0, 66] = e_items.valNONE;
+v_recieptItemSlot[0, 67] = -1;
+v_recieptItemSlot[0, 68] = 1;
+v_recieptItemSlot[0, 69] = "Please";
+v_recieptItemSlot[0, 70] = "Finally";
+v_recieptItemSlot[0, 71] = -1;
 
 v_recieptItemSlot[1, 0] = e_items.valSwordWooden;
 v_recieptItemSlot[1, 1] = -1;
 v_recieptItemSlot[1, 2] = 1;
 v_recieptItemSlot[1, 3] = "Handle";
 v_recieptItemSlot[1, 4] = "Makes this sword usable";
+v_recieptItemSlot[1, 5] = -1;
 
-v_recieptItemSlot[1, 5] = e_items.valSwordWooden;
-v_recieptItemSlot[1, 6] = -1;
-v_recieptItemSlot[1, 7] = 1;
-v_recieptItemSlot[1, 8] = "Blade";
-v_recieptItemSlot[1, 9] = "Due to this part you can stab ur enemies";
-
+v_recieptItemSlot[1, 6] = e_items.valSwordWooden;
+v_recieptItemSlot[1, 7] = -1;
+v_recieptItemSlot[1, 8] = 1;
+v_recieptItemSlot[1, 9] = "Blade";
+v_recieptItemSlot[1, 10] = "Due to this part you can stab ur enemies";
+v_recieptItemSlot[1, 11] = -1;
 
 // crafting slots optional
 for (var j = 0; j < 2; j++)
@@ -126,3 +211,4 @@ v_craftItemSelected = -1;
 v_craftAlpha = 0;
 v_craftWIP = false;
 v_tooltipAlpha = 0;
+v_customDropItem = false;
