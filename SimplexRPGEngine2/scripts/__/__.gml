@@ -45,3 +45,8 @@ else if (tmp_text == "Crafting")
 	if (oHUD.v_lang == "cz") {return "Výroba";}
 	else {return tmp_text;}
 }
+else if (tmp_text == "Search")
+{
+	if (oHUD.v_lang == "cz") {return "Hledat";}
+	else {return tmp_text;}
+}

@@ -46,6 +46,7 @@ v_searchActive = false;
 v_searchSurface = surface_create(400, 32); // 230
 v_searchSurfaceX = 200;
 v_searchSurfaceTarX = 200;
+v_searchTipAlpha = 0;
 
 // Detail logic is handeled in cpCraftingHelperDB
 // <recieptID>

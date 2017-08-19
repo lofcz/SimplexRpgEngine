@@ -191,31 +191,54 @@ if (v_selectedLastForm == 0 && v_subformAlpha > 0.05)
 	fnt(fntPixelSmall);
 	if (string_width(v_searchText) >= 225) {fnt(fntPixelTiny);}
 	
-	surface_set_target(v_searchSurface);
-	draw_clear_alpha(c_white, 0);
-	draw_text(200, 16, v_searchText);
-	alg();
-	if (v_carret && v_searchActive) {draw_text(200 + string_width(v_searchText) / 2, 8, "|");}
-	surface_reset_target();
-	
-	draw_surface_part(v_searchSurface, v_searchSurfaceX - 115, 0, 235, 32, tmp_sx, tmp_sy - 32);
-	
-	v_searchSurfaceX = lerp(v_searchSurfaceX, v_searchSurfaceTarX, 0.1);
-	
-	if (v_searchActive)
+	if (v_searchTipAlpha < 0.05)
 	{
-		oHUD.v_keyboardClickedUI = true;
-		if (keyboard_check(vk_anykey)) 
+		surface_set_target(v_searchSurface);
+		draw_clear_alpha(c_white, 0);
+		draw_text(200, 16, v_searchText);
+		alg();
+		if (v_carret && v_searchActive) {draw_text(200 + string_width(v_searchText) / 2, 8, "|");}
+		surface_reset_target();
+	
+		draw_surface_part(v_searchSurface, v_searchSurfaceX - 115, 0, 235, 32, tmp_sx, tmp_sy - 32);
+	
+		v_searchSurfaceX = lerp(v_searchSurfaceX, v_searchSurfaceTarX, 0.1);
+	
+		if (v_searchActive)
 		{
-			v_carretTimer = 60;
-			v_carret = true;
-		
-			if (string_length(keyboard_string) < 48 || keyboard_lastkey == vk_backspace)
+			oHUD.v_keyboardClickedUI = true;
+			if (keyboard_check(vk_anykey)) 
 			{
-				v_searchText = keyboard_string; 
-				if (string_width(v_searchText) >= 210) {v_searchSurfaceTarX = 200 - 115 + (string_width(keyboard_string) / 2);}
+				v_carretTimer = 60;
+				v_carret = true;
+				
+				if (keyboard_lastkey == vk_enter)
+				{
+					v_searchText = "";
+					keyboard_string = "";
+					v_searchActive = false;
+					v_searchSurfaceTarX = 200;
+					v_searchSurfaceX = 200;
+				}
+				else if (string_length(keyboard_string) < 48 || keyboard_lastkey == vk_backspace)
+				{
+					v_searchText = keyboard_string; 
+					if (string_width(v_searchText) >= 210) {v_searchSurfaceTarX = 200 - 115 + (string_width(keyboard_string) / 2);}
+				}
+				else {keyboard_string = v_searchText;}
 			}
-			else {keyboard_string = v_searchText;}
 		}
+	}
+	
+	if (!v_searchActive && v_searchText == "") {v_searchTipAlpha = lerp(v_searchTipAlpha, 1, 0.1);}
+	else {v_searchTipAlpha = lerp(v_searchTipAlpha, 0, 0.15);}
+	
+	if (v_searchTipAlpha > 0)
+	{
+		clr(-1, min(v_subformAlpha, tmp_alpha, v_searchTipAlpha));
+		alg("center");
+		draw_sprite_part(v_inventorySprite, 0, 98, 106, 12, 12, tmp_sx + 115 - 12 - string_width(__("Search")) / 2, tmp_sy - 20);
+		draw_text(tmp_sx + 115  + 6, tmp_sy - 14, __("Search"));
+		alg();
 	}
 }
