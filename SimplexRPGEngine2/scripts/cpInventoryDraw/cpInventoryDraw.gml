@@ -13,8 +13,6 @@ if (keyboard_check_pressed(ord("F"))) {t = !t}
 v_slotOffsetX = clamp(v_slotOffsetX, 0, 48);
 //v_slotOffsetY = clamp(v_slotOffsetY, 0, 12);
 
-if (keyboard_check_pressed(ord("G")))  {v_filterButtons[1] = ! v_filterButtons[1];}
-if (keyboard_check_pressed(ord("I")))  {v_drawForm = !v_drawForm;}
 t = (v_filterButtons[0, 0] || v_filterButtons[1, 0]) && !v_changingForm;
 
 if (t) { hj = lerp(hj, 256, 0.1);  yj = lerp(yj, max(5 * (v_slotSize + v_slotOffsetY) - v_slotRows * (v_slotSize + v_slotOffsetY) + (v_slotSize / 2) * 3, 0), 0.1);}
@@ -547,3 +545,7 @@ if (v_formAlpha > 0.05)
 	if (v_lerpMode == 0) {v_actualLerp = lin(v_actualLerp, 0.5, 0.005); if (v_actualLerp >= 0.5) {v_lerpMode = 1;}}
 	if (v_lerpMode == 1) {v_actualLerp = lin(v_actualLerp, 0, 0.005); if (v_actualLerp <= 0) {v_lerpMode = 0;}}
 }
+
+
+if (key_check_pressed(ord("G")))  {v_filterButtons[1] = ! v_filterButtons[1];}
+if (key_check_pressed(ord("I")))  {v_drawForm = !v_drawForm;}

@@ -105,6 +105,7 @@ v_playerProperty[e_inventoryProperties.valSpRegenValue] = 1;
 depth = -10000;
 
 v_mouseClickedUI = false;
+v_keyboardClickedUI = false;
 
 v_alphaH = 0;
 v_alphaM = 0;

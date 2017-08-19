@@ -162,6 +162,60 @@ if (v_selectedLastForm == 0 && v_subformAlpha > 0.05)
 		else
 		{
 			tmp_drawX += (v_slotSize + 6);
+		}	
+	}
+	
+	// Draw fulltext search
+	if (!surface_exists(v_searchSurface)) {v_searchSurface = surface_create(400, 32);}
+	if (v_carretTimer > 0) {v_carretTimer--;} else {v_carretTimer = 60; v_carret = !v_carret;}
+	
+	var tmp_carret;
+	tmp_carret = "";
+	
+	if (v_carret) {tmp_carret = "|";}
+	
+	clr(-1, min(v_subformAlpha / 2, tmp_alpha));	
+	draw_rectangle(tmp_sx, tmp_sy - 26, tmp_sx + 230, tmp_sy - 4, false);
+	
+	if (point_in_rectangle(mouse_x, mouse_y, tmp_sx, tmp_sy - 26, tmp_sx + 230, tmp_sy - 4))
+	{
+		if (mouse_check_button_pressed(mb_left))
+		{
+			v_searchActive = !v_searchActive;
+			if (v_searchActive) {keyboard_string = v_searchText;}
+		}
+	}
+	
+	clr(c_white, min(v_subformAlpha, tmp_alpha));
+	alg("center");
+	fnt(fntPixelSmall);
+	if (string_width(v_searchText) >= 225) {fnt(fntPixelTiny);}
+	
+	surface_set_target(v_searchSurface);
+	draw_clear_alpha(c_white, 0);
+	draw_text(200, 16, v_searchText);
+	alg();
+	if (v_carret && v_searchActive) {draw_text(200 + string_width(v_searchText) / 2, 8, "|");}
+	surface_reset_target();
+	
+	draw_surface_part(v_searchSurface, v_searchSurfaceX - 115, 0, 235, 32, tmp_sx, tmp_sy - 32);
+	
+	v_searchSurfaceX = lerp(v_searchSurfaceX, v_searchSurfaceTarX, 0.1);
+	
+	if (v_searchActive)
+	{
+		oHUD.v_keyboardClickedUI = true;
+		if (keyboard_check(vk_anykey)) 
+		{
+			v_carretTimer = 60;
+			v_carret = true;
+		
+			if (string_length(keyboard_string) < 48 || keyboard_lastkey == vk_backspace)
+			{
+				v_searchText = keyboard_string; 
+				if (string_width(v_searchText) >= 210) {v_searchSurfaceTarX = 200 - 115 + (string_width(keyboard_string) / 2);}
+			}
+			else {keyboard_string = v_searchText;}
 		}
 	}
 }

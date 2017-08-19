@@ -38,6 +38,14 @@ v_craftingForms[5, 4] = 0;
 v_selectedForm = -1;
 v_subformAlpha = 0;
 v_selectedLastForm = -1;
+v_searchText = "";
+v_carret = true;
+v_carretTimer = 60;
+v_searchActive = false;
+
+v_searchSurface = surface_create(400, 32); // 230
+v_searchSurfaceX = 200;
+v_searchSurfaceTarX = 200;
 
 // Detail logic is handeled in cpCraftingHelperDB
 // <recieptID>
