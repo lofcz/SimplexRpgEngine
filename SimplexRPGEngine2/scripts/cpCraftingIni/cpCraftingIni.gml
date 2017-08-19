@@ -58,8 +58,8 @@ g_foodList = ds_list_create();
 // <name, rarity, craftingSlots, craftingSlotsOptional>
 v_recieptItem[0, 0] = "Fod";
 	v_recieptItem[0, 1] = e_rarities.valCommon;
-	v_recieptItem[0, 2] = 3;
-	v_recieptItem[0, 3] = 4;
+	v_recieptItem[0, 2] = 12;
+	v_recieptItem[0, 3] = 3;
 		
 v_recieptItem[1, 0] = "Fol";
 	v_recieptItem[1, 1] = e_rarities.valRare;
@@ -76,14 +76,28 @@ for (var j = 0; j < 2; j++)
 }
 
 // crafting slots needed
-// <itemID, materialID, numberNeeded>
+// <itemID, materialID, numberNeeded, slotName, slotDesc>
 for (var j = 0; j < 2; j++)
 {
-	for (var i = 0; i < 3 * v_recieptItem[j, 2]; i++)
+	for (var i = 0; i < 5 * v_recieptItem[j, 2]; i++)
 	{
 		v_recieptItemSlot[j, i] = 0;
 	}
 }
+
+v_recieptItemSlot[1, 0] = e_items.valSwordWooden;
+v_recieptItemSlot[1, 1] = -1;
+v_recieptItemSlot[1, 2] = 1;
+v_recieptItemSlot[1, 3] = "Handle";
+v_recieptItemSlot[1, 4] = "Makes this sword usable";
+
+v_recieptItemSlot[1, 5] = e_items.valSwordWooden;
+v_recieptItemSlot[1, 6] = -1;
+v_recieptItemSlot[1, 7] = 1;
+v_recieptItemSlot[1, 8] = "Blade";
+v_recieptItemSlot[1, 9] = "Due to this part you can stab ur enemies";
+
+
 // crafting slots optional
 for (var j = 0; j < 2; j++)
 {
@@ -111,3 +125,4 @@ enum e_rarities
 v_craftItemSelected = -1;
 v_craftAlpha = 0;
 v_craftWIP = false;
+v_tooltipAlpha = 0;

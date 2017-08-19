@@ -307,10 +307,82 @@ if (v_craftAlpha > 0.05)
 	
 	clr(-1, min(v_craftAlpha, tmp_alpha));
 	//show_message(v_craftItemSelected);
+	
+	var tmp_lx, tmp_ly, tmp_ls, tmp_dx, tmp_dy, tmp_drawTooltip, tmp_tx, tmp_ty, tmp_flag;
+	tmp_lx = tmp_sx;
+	tmp_ly = tmp_sy;
+	tmp_ls = 0;
+	tmp_drawTooltip = -1;
+	tmp_tx = 0;
+	tmp_ty = 0;
+	tmp_flag = false;
+	
 	for (var i = 0; i < v_recieptItem[v_craftItemSelected, 2]; i++)
 	{
-		draw_sprite_part(v_inventorySprite, 0, 30, 288, 40, 40, tmp_sx, tmp_sy + (i * 46));
+		tmp_dx = 30;
+		tmp_dy = 288;
+		
+		if (point_in_rectangle(mouse_x, mouse_y, tmp_lx, tmp_ly, tmp_lx + 40, tmp_ly + 40))
+		{
+			tmp_dy = 329;			
+		}
+	
+		draw_sprite_part(v_inventorySprite, 0, tmp_dx, tmp_dy, 40, 40, tmp_lx, tmp_ly);
+		
+		if (point_in_rectangle(mouse_x, mouse_y, tmp_lx, tmp_ly, tmp_lx + 40, tmp_ly + 40))
+		{
+			tmp_drawTooltip = i;
+			tmp_flag = true;
+			tmp_tx = tmp_lx;
+			tmp_ty = tmp_ly;
+		}					
+		
+		tmp_ls++;
+		if (tmp_ls < 3)
+		{
+			tmp_ly += 46;
+		}
+		else
+		{
+			tmp_ly = tmp_sy;
+			tmp_lx += 46;
+			tmp_ls = 0;
+		}
 	}
+	
+	if (tmp_flag) {v_tooltipAlpha = lerp(v_tooltipAlpha, 1, 0.1);} else {v_tooltipAlpha = 0;}
+	
+	for (var i = 0; i < v_recieptItem[v_craftItemSelected, 3]; i++)
+	{
+		draw_sprite_part(v_inventorySprite, 0, 30, 370, 40, 40, tmp_sx + (46 * 4), tmp_sy + (i * 46));
+	}
+	
+	if (tmp_drawTooltip != -1)
+	{
+		v_actualIndex = v_recieptItemSlot[v_craftItemSelected, (5 * tmp_drawTooltip) + 3];
+		v_entireText = v_actualIndex +  "#\n\n#\n" + v_recieptItemSlot[v_craftItemSelected, (5 * tmp_drawTooltip) + 4];
+		v_midText = libUtilityParseTextColored("#" + v_recieptItemSlot[v_craftItemSelected, (5 * tmp_drawTooltip) + 4]);
+		//libDrawTextStylized(tmp_tx + 20 * v_tooltipAlpha, tmp_ty, v_actualIndex, v_tooltipAlpha, false, false);
+		
+		tmp_textClean = libUtilityParseTextColored(v_entireText, fntPixel);
+
+		 tmp_xo2 = string_width(v_entireText); 
+		 tmp_yo2 = string_height(v_actualIndex);
+		 tmp_x = tmp_tx + 20 * v_tooltipAlpha;
+		 tmp_y = tmp_ty;
+
+		clr(-1, min(tmp_alpha, v_tooltipAlpha / 2, v_craftAlpha));
+		draw_roundrect_ext(tmp_x - 8, tmp_y, tmp_x + 8 + tmp_xo2, tmp_y + 4 + tmp_yo2, 0, 0, false);
+		clr(-1, min(tmp_alpha, v_tooltipAlpha / 3, v_craftAlpha));
+		draw_roundrect_ext(tmp_x - 8, tmp_y + 4 + tmp_yo2, tmp_x + 8 + tmp_xo2, tmp_y + 4 + tmp_yo2 + string_height(v_midText) + 16, 0, 0, false);
+
+		clr(-1, min(tmp_alpha, v_tooltipAlpha, v_craftAlpha));
+		draw_text_colored(tmp_x, tmp_y + 3, v_actualIndex, -1, fntPixel);
+		ghj = string_height(libUtilityParseTextColored(v_actualIndex, fntPixel));
+
+		draw_text_colored(tmp_x, tmp_y + 3 + ghj, v_midText, -1, fntPixelTiny);
+		clr();
+	}	
 }
 
 ds_list_destroy(tmp_list);
