@@ -79,3 +79,5 @@ repeat(tmp_item.v_itemAtributes[e_inventoryAtributes.valItemNumber])
 		show_message("no space in da container " + string(tmp_id));
 	}
 }
+
+return tmp_freeSlot;

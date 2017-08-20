@@ -55,17 +55,18 @@ g_materialsList = ds_list_create();
 g_alchemyList = ds_list_create();
 g_foodList = ds_list_create();
 
-// <name, rarity, craftingSlots, craftingSlotsOptional>
+// <name, rarity, craftingSlots, craftingSlotsOptional, outputObject>
 v_recieptItem[0, 0] = "Fod";
 	v_recieptItem[0, 1] = e_rarities.valCommon;
 	v_recieptItem[0, 2] = 12;
 	v_recieptItem[0, 3] = 3;
-		
+	v_recieptItem[0, 4] = oItem1;
+			
 v_recieptItem[1, 0] = "Fol";
 	v_recieptItem[1, 1] = e_rarities.valRare;
 	v_recieptItem[1, 2] = 2;
 	v_recieptItem[1, 3] = 1;
-	
+	v_recieptItem[1, 4] = oItem1;	
 // <propertiesREQ>
 for (var j = 0; j < 2; j++)
 {
@@ -79,12 +80,13 @@ for (var j = 0; j < 2; j++)
 // <itemID, materialID, numberNeeded, slotName, slotDesc, inputID>
 for (var j = 0; j < 2; j++)
 {
-	for (var i = 0; i < 6 * v_recieptItem[j, 2]; i++)
+	for (var i = 0; i < 7 * v_recieptItem[j, 2]; i++)
 	{
 		v_recieptItemSlot[j, i] = 0;
 	}
 }
 
+// Bound slots to reciept [reciept_id, {neededItem, materialType, numberOfNeededItems, SlotName, slotDesc, -1}]
 v_recieptItemSlot[0, 0] = e_items.valSwordWooden;
 v_recieptItemSlot[0, 1] = -1;
 v_recieptItemSlot[0, 2] = 1;
@@ -169,12 +171,12 @@ v_recieptItemSlot[0, 69] = "Please";
 v_recieptItemSlot[0, 70] = "Finally";
 v_recieptItemSlot[0, 71] = -1;
 
-v_recieptItemSlot[1, 0] = e_items.valSwordWooden;
-v_recieptItemSlot[1, 1] = -1;
-v_recieptItemSlot[1, 2] = 1;
-v_recieptItemSlot[1, 3] = "Handle";
-v_recieptItemSlot[1, 4] = "Makes this sword usable";
-v_recieptItemSlot[1, 5] = -1;
+v_recieptItemSlot[1, 0] = e_items.valSwordWooden; // Item we need (-1 if we want material slot)
+v_recieptItemSlot[1, 1] = -1; // Material type we need (-1 if we want item specific slot)
+v_recieptItemSlot[1, 2] = 1; // How many times we need item to be placed in slot
+v_recieptItemSlot[1, 3] = "Handle"; // Slot title
+v_recieptItemSlot[1, 4] = "Makes this sword usable"; // Slot description
+v_recieptItemSlot[1, 5] = -1; // Always -1 (current item in slot)
 
 v_recieptItemSlot[1, 6] = e_items.valSwordWooden;
 v_recieptItemSlot[1, 7] = -1;
@@ -212,3 +214,4 @@ v_craftAlpha = 0;
 v_craftWIP = false;
 v_tooltipAlpha = 0;
 v_customDropItem = false;
+v_craftFinishAlpha = 0;

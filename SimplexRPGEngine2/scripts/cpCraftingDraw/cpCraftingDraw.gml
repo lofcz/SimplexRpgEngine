@@ -308,7 +308,7 @@ if (v_craftAlpha > 0.05)
 	clr(-1, min(v_craftAlpha, tmp_alpha));
 	//show_message(v_craftItemSelected);
 	
-	var tmp_lx, tmp_ly, tmp_ls, tmp_dx, tmp_dy, tmp_drawTooltip, tmp_tx, tmp_ty, tmp_flag;
+	var tmp_lx, tmp_ly, tmp_ls, tmp_dx, tmp_dy, tmp_drawTooltip, tmp_tx, tmp_ty, tmp_flag, tmp_ready;
 	tmp_lx = tmp_sx;
 	tmp_ly = tmp_sy;
 	tmp_ls = 0;
@@ -317,6 +317,7 @@ if (v_craftAlpha > 0.05)
 	tmp_ty = 0;
 	tmp_flag = false;
 	tmp_customDrop = false;
+	tmp_ready = true;
 	
 	for (var i = 0; i < v_recieptItem[v_craftItemSelected, 2]; i++)
 	{
@@ -372,6 +373,7 @@ if (v_craftAlpha > 0.05)
 				}
 			}		
 		}
+		else {tmp_ready = false;}
 		
 		if (point_in_rectangle(mouse_x, mouse_y, tmp_lx, tmp_ly, tmp_lx + 40, tmp_ly + 40))
 		{
@@ -394,6 +396,67 @@ if (v_craftAlpha > 0.05)
 		}
 	}
 	
+	// Check if we can finish the reciept
+	var tmp_text, tmp_color;
+	tmp_text = __("All compulsory slots must be filled\nto finish the reciept");
+	tmp_color = c_red;
+	
+	if (tmp_ready) {tmp_text = __("Item is ready to be finished"); tmp_color = c_lime; v_craftFinishAlpha = lerp(v_craftFinishAlpha, 1, 0.1);}
+	else {v_craftFinishAlpha = lerp(v_craftFinishAlpha, 0, 0.1);}
+	
+	fnt();
+	draw_text(tmp_sx, tmp_sy - 48, __("Crafting", 1, 1) + ": " + v_recieptItem[v_craftItemSelected, 0]);
+	fnt(fntPixelTiny);
+	clr(tmp_color, -1);
+	draw_text(tmp_sx, tmp_sy - 32, tmp_text);
+	clr(c_black, -1);
+	fnt();
+	
+	if (v_craftFinishAlpha > 0.05)
+	{
+		var tmp_rec;
+		tmp_rec = libDrawTextStylized(tmp_sx + 176 + 32 * v_craftFinishAlpha, tmp_sy - 32, _sc(__("Confirm")), min(v_craftAlpha, tmp_alpha, v_craftFinishAlpha), true, 20, fntPixelSmall);
+	
+		// Finish crafting on click
+		if (point_in_rectangle(mouse_x, mouse_y, tmp_rec[0], tmp_rec[1], tmp_rec[2], tmp_rec[3]))
+		{
+			if (mouse_check_button_pressed(mb_left))
+			{
+				// We start with array referencing base crafted item
+				// Then we add properties of used items, remove used materials and place new item in inventory
+				
+				// Pre-check for one free slot in inventory, or if we remove at least one item from it by crafting item
+				var tmp_canBeCrafted, tmp_freeSlot;
+				tmp_canBeCrafted = false;
+				
+				tmp_freeSlot = cpInventoryHelperFindFreeSlot();
+				
+				// Found slot lets forge the item
+				if (tmp_freeSlot != -1)
+				{
+					var input_slot;
+					input_slot = cpContainerAdd(v_recieptItem[v_craftItemSelected, 4], 1);
+					
+						for (var j = 0; j < v_recieptItem[v_craftItemSelected, 2]; j++)
+						{
+							for (var i = 0; i < mcInventoryProperties; i++)
+							{
+							//show_message(v_slot[input_slot, i]);
+								v_slotProperty[input_slot, i] += v_slotProperty[v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5], i];							
+							//show_message(v_slot[input_slot, i]);
+							}
+							
+							v_slot[v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5], e_inventoryAtributes.valItemNumber] -= v_recieptItemSlot[v_craftItemSelected, (6 * j) + 2];
+							
+							if (v_slot[v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5], e_inventoryAtributes.valItemNumber] <= 0) {cpInventoryHelperClearSlot(v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5]);}
+						}
+					
+				}
+			}
+		}
+	}
+	
+	clr(-1, min(v_craftAlpha, tmp_alpha));	
 	v_customDropItem = tmp_customDrop;
 	
 	if (tmp_flag) {v_tooltipAlpha = lerp(v_tooltipAlpha, 1, 0.1);} else {v_tooltipAlpha = 0;}
