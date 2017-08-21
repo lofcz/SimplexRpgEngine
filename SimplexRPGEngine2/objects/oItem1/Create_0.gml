@@ -29,10 +29,9 @@ v_itemAtributes[e_inventoryAtributes.valImageIndex] = e_items.valSwordWooden - 4
 v_itemAtributes[e_inventoryAtributes.valItemNumber] = 1;
 v_itemAtributes[e_inventoryAtributes.valStackable] = 0;
 v_itemAtributes[e_inventoryAtributes.valMaxStackSize] = 1;
-v_itemAtributes[e_inventoryAtributes.valInfoTextHead] = choose("Mighty", "Sexy", "Douchebag") + " wooden sword";
+v_itemAtributes[e_inventoryAtributes.valInfoTextHead] = "Wooden sword";
 v_itemAtributes[e_inventoryAtributes.valInfoTextBody] = "Simple weapon for script kiddies like" + _sc("you") + _sc("you", c_green) + _sc("you", c_red) + _sc("you", c_lime) + _sc("you") + _sc("you");
 v_itemAtributes[e_inventoryAtributes.valPriceBase] = 20;
-v_itemAtributes[e_inventoryAtributes.valLerpColor] = choose(c_lime, c_red, c_white, c_yellow);
 v_itemAtributes[e_inventoryAtributes.valWeight] = 2;
 v_itemAtributes[e_inventoryAtributes.valEquipSlot] = e_equipmentSlots.valWeaponRight;
 
@@ -43,3 +42,9 @@ v_itemAnimation[e_animations.valWalk] = sBodyCanvasWeapon1;
 v_itemAnimation[e_animations.valSlash] = sBodyCanvasAttackWeapon1;
 
 v_itemReq[e_inventoryProperties.valLevel] = 2;
+
+if (!variable_instance_exists(id, "v_staticItem"))
+{
+	v_itemAtributes[e_inventoryAtributes.valInfoTextHead] = choose("Mighty", "Sexy", "Douchebag") + " wooden sword";
+	v_itemAtributes[e_inventoryAtributes.valLerpColor] = choose(c_lime, c_red, c_white, c_yellow);
+}

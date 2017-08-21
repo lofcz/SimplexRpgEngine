@@ -15,7 +15,12 @@ v_slotOffsetX = clamp(v_slotOffsetX, 0, 48);
 
 t = (v_filterButtons[0, 0] || v_filterButtons[1, 0]) && !v_changingForm;
 
-if (t) { hj = lerp(hj, 256, 0.1);  yj = lerp(yj, max(5 * (v_slotSize + v_slotOffsetY) - v_slotRows * (v_slotSize + v_slotOffsetY) + (v_slotSize / 2) * 3, 0), 0.1);}
+var tmp_preview;
+tmp_preview = false;
+
+if (v_drawPreview || v_previewAlpha > 0.05) {tmp_preview = true;}
+
+if (t) { hj = lerp(hj, 256 + tmp_preview * 196, 0.1);  yj = lerp(yj, max(5 * (v_slotSize + v_slotOffsetY) - v_slotRows * (v_slotSize + v_slotOffsetY) + (v_slotSize / 2) * 3, 0), 0.1);}
 else {v_slotOffsetX = lerp(v_slotOffsetX, 6, 0.1); v_slotOffsetY = lerp(v_slotOffsetY, 6, 0.1); hj = lerp(hj, 0, 0.1); yj = lerp(yj, 0, 0.1); if (hj < 5) {hj = lin(hj, 0, 1);} if (hj < 1) {hj = 0; v_changingForm = false; v_formExtMode = v_formExtModeStack;}}
 
 if (u) {v_slotSize = lerp(v_slotSize, 48, 0.1);}

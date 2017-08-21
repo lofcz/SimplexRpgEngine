@@ -116,7 +116,7 @@ if (tmp_hoverAlpha > 0.05)
 			
 			if (tmp_array[1] == 0)
 			{
-				tmp_string += " " + tmp_array[0] + ": " + string(tmp_propertyArray[tmp_hoverID, i]) + "#"
+				tmp_string += " " + tmp_array[0] + ": " + string(tmp_propertyArray[tmp_hoverID, i]) + "#";
 			}			
 		} 
 	}

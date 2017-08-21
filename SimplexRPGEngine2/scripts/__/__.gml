@@ -98,3 +98,18 @@ else if (tmp_text == "Confirm")
 	if (oHUD.v_lang == "cz") {return "Dokončit";}
 	else {return tmp_text;}
 }
+else if (tmp_text == "Wooden sword")
+{
+	if (oHUD.v_lang == "cz") {return "Dřevěný meč";}
+	else {return tmp_text;}
+}
+else if (tmp_text == "Requires")
+{
+	if (oHUD.v_lang == "cz") {return "Vyžaduje";}
+	else {return tmp_text;}
+}
+else if (tmp_text == "Preview")
+{
+	if (oHUD.v_lang == "cz") {return "Náhled";}
+	else {return tmp_text;}
+}

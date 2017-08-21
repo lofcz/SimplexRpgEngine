@@ -51,22 +51,28 @@ v_searchTipAlpha = 0;
 // Detail logic is handeled in cpCraftingHelperDB
 // <recieptID>
 g_itemsList = ds_list_create();
-g_materialsList = ds_list_create();
-g_alchemyList = ds_list_create();
-g_foodList = ds_list_create();
 
-// <name, rarity, craftingSlots, craftingSlotsOptional, outputObject>
+v_currentFormType = "item";
+
+// <name, rarity, craftingSlots, craftingSlotsOptional, outputObject, seenByPlayer, tabType, customRuleIndex>
 v_recieptItem[0, 0] = "Fod";
 	v_recieptItem[0, 1] = e_rarities.valCommon;
 	v_recieptItem[0, 2] = 12;
 	v_recieptItem[0, 3] = 3;
 	v_recieptItem[0, 4] = oItem1;
-			
+	v_recieptItem[0, 5] = false;
+	v_recieptItem[0, 6] = "Items";
+	v_recieptItem[0, 7] = "";
+				
 v_recieptItem[1, 0] = "Fol";
 	v_recieptItem[1, 1] = e_rarities.valRare;
 	v_recieptItem[1, 2] = 2;
 	v_recieptItem[1, 3] = 1;
-	v_recieptItem[1, 4] = oItem1;	
+	v_recieptItem[1, 4] = oItem1;
+	v_recieptItem[1, 5] = false;
+	v_recieptItem[1, 6] = "Food";
+	v_recieptItem[1, 7] = "";	
+		
 // <propertiesREQ>
 for (var j = 0; j < 2; j++)
 {
@@ -86,7 +92,7 @@ for (var j = 0; j < 2; j++)
 	}
 }
 
-// Bound slots to reciept [reciept_id, {neededItem, materialType, numberOfNeededItems, SlotName, slotDesc, -1}]
+// Bound slots to reciept [reciept_id, {neededItem, materialType, numberOfNeededItems, SlotName, slotDesc, actualItemInSlot}]
 v_recieptItemSlot[0, 0] = e_items.valSwordWooden;
 v_recieptItemSlot[0, 1] = -1;
 v_recieptItemSlot[0, 2] = 1;
@@ -215,3 +221,6 @@ v_craftWIP = false;
 v_tooltipAlpha = 0;
 v_customDropItem = false;
 v_craftFinishAlpha = 0;
+v_drawPreview = false;
+v_previewAlpha = 0;
+tmp_refID = -1;

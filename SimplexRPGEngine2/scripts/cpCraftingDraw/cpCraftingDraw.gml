@@ -1,6 +1,7 @@
 
-var tmp_list;
+var tmp_list, tmp_list2;
 tmp_list = ds_list_create();
+tmp_list2 = ds_list_create();
 				
 var tmp_alpha;
 tmp_alpha = min(v_formAlpha, v_formExtAlpha);
@@ -63,7 +64,12 @@ for (var i = 0; i < array_height_2d(v_craftingForms); i++)
 			
 		if (mouse_check_button_pressed(mb_left))
 		{
-			if (v_selectedForm == -1) {v_selectedForm = i; v_selectedLastForm = v_selectedForm;}
+			if (v_selectedForm == -1) 
+			{
+				v_selectedForm = i; 
+				v_selectedLastForm = v_selectedForm; 			
+				v_currentFormType = v_craftingForms[i, 0];			
+			}
 			else {if (i == v_selectedForm) {if (v_craftAlpha < 0.05) {v_selectedForm = -1;} else {v_craftWIP = false;}}}
 		}
 	}
@@ -95,11 +101,11 @@ if (v_craftAlpha < 0.05 && !v_craftWIP) {v_craftItemSelected = -1;}
 if (v_selectedForm != -1 && v_craftingForms[v_selectedForm, 3] >= 30 * (v_selectedForm + 0.5) && v_craftItemSelected == -1) {v_subformAlpha = lerp(v_subformAlpha, 1, 0.1);}
 else {v_subformAlpha = lerp(v_subformAlpha, 0, 0.1);}
 
-if (v_subformAlpha <= 0.05 && v_craftItemSelected != -1 && v_selectedForm != -1 && v_craftingForms[v_selectedForm, 3] >= 30 * (v_selectedForm + 0.5) && v_craftWIP) {v_craftAlpha = lerp(v_craftAlpha, 1, 0.1);} else {v_craftAlpha = lerp(v_craftAlpha, 0, 0.1);}
+if (v_subformAlpha <= 0.05 && v_craftItemSelected != -1 && v_selectedForm != -1 && v_craftingForms[v_selectedForm, 3] >= 30 * (v_selectedForm + 0.5) && (v_craftWIP || hj > 260)) {v_craftAlpha = lerp(v_craftAlpha, 1, 0.1);} else {v_craftAlpha = lerp(v_craftAlpha, 0, 0.1);}
 draw_text(mouse_x + 256, mouse_y, v_craftAlpha);
 // Item crafting
 
-if (v_selectedLastForm == 0 && v_subformAlpha > 0.05)
+if ((v_selectedLastForm == 0 || v_selectedLastForm == 2 || v_selectedLastForm == 3 || v_selectedLastForm == 4) && v_subformAlpha > 0.05)
 {
 	var tmp_drawX, tmp_drawY, tmp_sx, tmp_sy, tmp_slotsRenderedNow, tmp_currentRow, tmp_offsetHelp;
 	tmp_drawX = v_formBaseMaxX + v_slotSize + v_subformAlpha * (v_slotSize / 2) + 8;
@@ -161,34 +167,55 @@ if (v_selectedLastForm == 0 && v_subformAlpha > 0.05)
 		
 		// Draw current reciept
 		// We need to decide which reciept draw in current slot
+		// Make use of double filters [tabType->searchString]		
 		var tmp_recieptID;
 		tmp_recieptID = -1;
-		
+
 		if (!v_searchActive) 
 		{
-			if (ds_list_size(g_itemsList) > i)
+			for (var j = 0; j < ds_list_size(g_itemsList); j++)
 			{
-				tmp_recieptID = g_itemsList[| i];
+				if (v_recieptItem[g_itemsList[| j], 6] == v_currentFormType && !ds_list_contains(tmp_list2, g_itemsList[| j]))
+				{
+					tmp_recieptID = g_itemsList[| j];
+					ds_list_add(tmp_list2, tmp_recieptID);
+					break;
+				}
 			}
 		}
 		else
 		{
 			for (var j = 0; j < ds_list_size(g_itemsList); j++)
 			{
-				if (string_count(v_searchText, v_recieptItem[g_itemsList[| j], 0]) && !ds_list_contains(tmp_list, g_itemsList[| j]))
+				if (string_count(string_lower(v_searchText), string_lower(v_recieptItem[g_itemsList[| j], 0])) && !ds_list_contains(tmp_list, g_itemsList[| j]))
 				{
 					// Selected right index to draw
-					tmp_recieptID = g_itemsList[| j];
-					ds_list_add(tmp_list, tmp_recieptID);
-					break;
+					if (v_recieptItem[g_itemsList[| i], 6] == v_currentFormType)
+					{
+						tmp_recieptID = g_itemsList[| j];
+						ds_list_add(tmp_list, tmp_recieptID);
+						break;
+					}
 				}
 			}
 		}
 		
 		// Draw current reciept (for real)		
 		if (tmp_recieptID != -1)
-		{
+		{	
 			draw_text(tmp_drawX, tmp_drawY, v_recieptItem[tmp_recieptID, 0]);
+
+			// Check if reciept have never been seen by player
+			if (!v_recieptItem[tmp_recieptID, 5])
+			{
+				shader_set(shdLerp);
+				var tmp_uID = shader_get_uniform(shdLerp, "f_Colour1");
+				shader_set_uniform_f(tmp_uID, color_get_red(c_yellow) / 255, color_get_green(c_yellow) / 255, color_get_blue(c_yellow) / 255, v_actualLerp);
+
+				draw_sprite_part(v_inventorySprite, 0, 130, 107, 9, 13, tmp_drawX + 25, tmp_drawY + 4);
+				
+				shader_reset();
+			}			
 		}
 		
 		// Check for hover and item selection
@@ -198,6 +225,7 @@ if (v_selectedLastForm == 0 && v_subformAlpha > 0.05)
 			{
 				v_craftItemSelected = tmp_recieptID;
 				v_craftWIP = true;
+				v_recieptItem[tmp_recieptID, 5] = true;
 			}
 		}
 		
@@ -318,6 +346,7 @@ if (v_craftAlpha > 0.05)
 	tmp_flag = false;
 	tmp_customDrop = false;
 	tmp_ready = true;
+	v_drawPreview = false;
 	
 	for (var i = 0; i < v_recieptItem[v_craftItemSelected, 2]; i++)
 	{
@@ -350,6 +379,7 @@ if (v_craftAlpha > 0.05)
 						v_slot[v_slotBeingDragged, e_inventoryAtributes.valBeingUsed] = true;
 						v_slotBeingDragged = -1;
 						oHUD.v_mouseFree = true;
+						oDrawHelperAbove.v_id = -1;
 					}
 				}
 			}
@@ -371,7 +401,9 @@ if (v_craftAlpha > 0.05)
 					v_recieptItemSlot[v_craftItemSelected, (6 * i) + 5] = -1;
 					v_slot[tmp_itemID, e_inventoryAtributes.valBeingUsed] = false;
 				}
-			}		
+			}	
+			
+			v_drawPreview = true;
 		}
 		else {tmp_ready = false;}
 		
@@ -396,6 +428,8 @@ if (v_craftAlpha > 0.05)
 		}
 	}
 	
+	if (v_craftWIP == false) {v_drawPreview = false;}
+	
 	// Check if we can finish the reciept
 	var tmp_text, tmp_color;
 	tmp_text = __("All compulsory slots must be filled\nto finish the reciept");
@@ -412,6 +446,72 @@ if (v_craftAlpha > 0.05)
 	clr(c_black, -1);
 	fnt();
 	
+	// Draw preview if needed
+	if (v_drawPreview && hj > 446)
+	{
+		v_previewAlpha = lerp(v_previewAlpha, 1, 0.1); 		
+	}
+	else {v_previewAlpha = lerp(v_previewAlpha, 0, 0.1);}
+	
+	if (v_previewAlpha > 0.05)
+	{
+		clr(-1, min(v_craftAlpha, tmp_alpha, v_previewAlpha));
+		
+		alg("center")
+		fnt(fntPixelBig);
+		draw_text(v_formBaseMaxX + (v_slotOffsetX * v_slotsPerRow) / 2 + (v_slotSize * 4.5) + v_previewAlpha * (v_slotSize / 2) + 220, v_drawStartY + 16, __("Preview"));
+		fnt();
+		alg();
+		
+		// Draw item statistics
+		var tmp_string;
+		tmp_refID = -1;
+		tmp_string = "";
+		
+		if (v_craftItemSelected != -1)
+		{
+			with (instance_create_depth(0, 0, 0, oTempObject))
+			{
+				v_staticItem = true;
+				instance_change(oInventory.v_recieptItem[oInventory.v_craftItemSelected, 4], true);
+				oInventory.tmp_refID = id;
+			}
+		
+			var tmp_propertiesArray, tmp_a1;
+		
+			for (var i = 0; i < mcInventoryProperties; i++)
+			{
+				tmp_propertiesArray[i] = tmp_refID.v_itemProperty[i];							
+			}		
+			instance_destroy(tmp_refID);
+		
+			for (var i = 0; i < v_recieptItem[v_craftItemSelected, 2]; i++)
+			{
+				if (v_recieptItemSlot[v_craftItemSelected, (6 * i) + 5] != -1)
+				{
+					for (var j = 0; j < mcInventoryProperties; j++)
+					{
+						tmp_propertiesArray[j] += v_slotProperty[v_recieptItemSlot[v_craftItemSelected, (6 * i) + 5], j];			
+					}					
+				}
+			}
+		
+			for (var i = 0; i < mcInventoryProperties; i++)
+			{
+				tmp_a1 = libUtilityPropertyToString(i);
+			
+				if (tmp_a1[1] == 0 && tmp_propertiesArray[i] != 0)
+				{
+					tmp_string += " " + tmp_a1[0] + ": " + _sc(string(tmp_propertiesArray[i])) + "#";
+				}							
+			}			
+		
+			clr(c_black, -1);
+			draw_text_colored(v_formBaseMaxX + (v_slotOffsetX * v_slotsPerRow) / 2 + (v_slotSize * 4.5) + v_previewAlpha * (v_slotSize / 2) + 120, v_drawStartY + 30, tmp_string);
+		}
+	}
+	
+	clr(-1, min(v_craftAlpha, tmp_alpha));
 	if (v_craftFinishAlpha > 0.05)
 	{
 		var tmp_rec;
@@ -441,16 +541,15 @@ if (v_craftAlpha > 0.05)
 						{
 							for (var i = 0; i < mcInventoryProperties; i++)
 							{
-							//show_message(v_slot[input_slot, i]);
 								v_slotProperty[input_slot, i] += v_slotProperty[v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5], i];							
-							//show_message(v_slot[input_slot, i]);
 							}
 							
 							v_slot[v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5], e_inventoryAtributes.valItemNumber] -= v_recieptItemSlot[v_craftItemSelected, (6 * j) + 2];
 							
 							if (v_slot[v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5], e_inventoryAtributes.valItemNumber] <= 0) {cpInventoryHelperClearSlot(v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5]);}
+							
+							v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5] = -1;
 						}
-					
 				}
 			}
 		}
@@ -469,6 +568,11 @@ if (v_craftAlpha > 0.05)
 	if (tmp_drawTooltip != -1)
 	{
 		// Check if we hold needed item
+		var tmp_color, tmp_string, tmp_array;
+		tmp_color = c_white;
+		tmp_string = "";
+		
+		if (v_recieptItemSlot[v_craftItemSelected, (6 * tmp_drawTooltip) + 5] != -1) {tmp_color = c_lime;}
 		
 		v_actualIndex = v_recieptItemSlot[v_craftItemSelected, (6 * tmp_drawTooltip) + 3];
 		//v_entireText = v_actualIndex + v_recieptItemSlot[v_craftItemSelected, (5 * tmp_drawTooltip) + 4];
@@ -479,32 +583,55 @@ if (v_craftAlpha > 0.05)
 		
 		if (v_recieptItemSlot[v_craftItemSelected, (6 * tmp_drawTooltip)] != -1)
 		{
-			tmp_infoText =  _sc("Requires: ") + libUtilityItemToString(v_recieptItemSlot[v_craftItemSelected, (6 * tmp_drawTooltip)]) + " x" + string(v_recieptItemSlot[v_craftItemSelected, (6 * tmp_drawTooltip) + 2]) + "#";
+			if (tmp_color == c_white) {tmp_infoText =  _sc(__("Requires")) + ": " + __(libUtilityItemToString(v_recieptItemSlot[v_craftItemSelected, (6 * tmp_drawTooltip)])) + " x" + string(v_recieptItemSlot[v_craftItemSelected, (6 * tmp_drawTooltip) + 2]) + "#";}
+			else
+			{
+				// Build info string
+				tmp_string = "Slot bonus:#";
+				
+				for (var i = 0; i < mcInventoryProperties; i++)
+				{
+					tmp_array = libUtilityPropertyToString(i);
+			
+					if (tmp_array[1] == 0 && v_slotProperty[v_recieptItemSlot[v_craftItemSelected, (6 * tmp_drawTooltip) + 5], i] != 0)
+					{
+						tmp_string += tmp_array[0] + ": " + _sc(string(v_slotProperty[v_recieptItemSlot[v_craftItemSelected, (6 * tmp_drawTooltip) + 5], i])) + "#";
+					}			
+				}
+				
+				tmp_infoText = tmp_string;
+			}
 		}
 		else
 		{
 			tmp_infoText = "";
 		}
 
-		 fnt(fntPixelTiny);
+		 fnt(fntPixel);
 		 tmp_xo2 = string_width(v_entireText); 
 		 tmp_yo2 = string_height(v_actualIndex);
 		 tmp_x = tmp_tx + 44 * v_tooltipAlpha;
 		 tmp_y = tmp_ty;
 
+		 fnt(fntPixelTiny);
 		clr(-1, min(tmp_alpha, v_tooltipAlpha / 2, v_craftAlpha));
 		draw_roundrect_ext(tmp_x - 8, tmp_y, tmp_x + 8 + tmp_xo2, tmp_y + 4 + tmp_yo2, 0, 0, false);
 		clr(-1, min(tmp_alpha, v_tooltipAlpha / 3, v_craftAlpha));
-		draw_roundrect_ext(tmp_x - 8, tmp_y + 4 + tmp_yo2, tmp_x + 8 + tmp_xo2, tmp_y + 4 + tmp_yo2 + string_height(v_midText + tmp_infoText) + 32, 0, 0, false);
+		
+		t1 = string_replace(tmp_infoText, "#", "\n");
+		t2 = string_replace(tmp_infoText, "#", "\n");
+		
+		draw_roundrect_ext(tmp_x - 8, tmp_y + 4 + tmp_yo2, tmp_x + 8 + tmp_xo2, tmp_y + 4 + tmp_yo2 + string_height(t1) + string_height(t2) + 12, 0, 0, false);
 
 		clr(-1, min(tmp_alpha, v_tooltipAlpha, v_craftAlpha));
-		draw_text_colored(tmp_x, tmp_y + 3, v_actualIndex, -1, fntPixel);
+		draw_text_colored(tmp_x, tmp_y + 3, _sc(v_actualIndex, tmp_color), -1, fntPixel);
 		ghj = string_height(libUtilityParseTextColored(v_actualIndex, fntPixel));
 
 		alg();
-		draw_text_colored(tmp_x, tmp_y + 3 + ghj, tmp_infoText + v_midText, -1, fntPixelTiny);
+		draw_text_colored(tmp_x, tmp_y + 6 + ghj, tmp_infoText + v_midText, -1, fntPixelTiny);
 		clr();
 	}	
 }
 
 ds_list_destroy(tmp_list);
+ds_list_destroy(tmp_list2);
