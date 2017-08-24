@@ -68,6 +68,11 @@ repeat(tmp_item.v_itemAtributes[e_inventoryAtributes.valItemNumber])
 		{
 			tmp_id.v_slotAnimations[tmp_freeSlot, i] = tmp_item.v_itemAnimation[i];
 		}
+		
+		for (var i = 0; i < array_length_1d(tmp_item.v_itemOption); i++)
+		{
+			tmp_id.v_itemOptions[tmp_freeSlot, i] = tmp_item.v_itemOption[i];
+		}
 				
 		// If we place item in the empty slot, inc stack size by 1
 		if (tmp_id.v_slot[tmp_freeSlot, e_inventoryAtributes.valCurrentStackSize] == 0) {tmp_id.v_slot[tmp_freeSlot, e_inventoryAtributes.valCurrentStackSize]++;}

@@ -43,6 +43,11 @@ v_itemAnimation[e_animations.valSlash] = sBodyCanvasAttackWeapon1;
 
 v_itemReq[e_inventoryProperties.valLevel] = 2;
 
+v_itemOption[0] = "Hi";
+v_itemOption[1] = "This is";
+v_itemOption[2] = "Test";
+
+
 if (!variable_instance_exists(id, "v_staticItem"))
 {
 	v_itemAtributes[e_inventoryAtributes.valInfoTextHead] = choose("Mighty", "Sexy", "Douchebag") + " wooden sword";

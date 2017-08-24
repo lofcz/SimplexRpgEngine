@@ -228,9 +228,25 @@ v_drawForm = true;
 v_hoverContainerForm = "";
 tmp_equipmentLastHover = 0;
 
+v_menuItem = -1;
+g_menuList = ds_list_create();
+v_menuItemStartX = -1;
+v_menuItemStartY = -1;
+v_secondMenu = -1;
+v_secondMenuX = -1;
+v_secondMenuY = -1;
+v_secondMenuW = -1;
+v_secondMenuH = -1;
+v_secondMenuLast = -1;
+
+v_secondMenuText[0] = "Star";
+v_secondMenuText[1] = "Trash";
+v_secondMenuText[2] = "Unmark";
+
 
 for (var i = 0; i <= v_slots; i++)
 {
+	v_itemOptions[i, 0] = "";
 	
 	for (var j = 0; j <= mcInvenotryAtributes; j++)
 	{
