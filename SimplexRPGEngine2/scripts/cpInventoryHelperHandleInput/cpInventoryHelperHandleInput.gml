@@ -21,7 +21,7 @@ if (argument_count > 3) {tmp_shiftAction = argument[3];}
 if (tmp_hover)
 {
 	// Drag item
-	if ((mouse_check_button_pressed(mb_left) || mouse_check_button_pressed(mb_middle)) && oHUD.v_mouseFree && !tmp_id.v_slot[tmp_i, e_inventoryAtributes.valBeingUsed])
+	if ((mouse_check_button_pressed(mb_left) || mouse_check_button_pressed(mb_middle)) && oHUD.v_mouseFree && !tmp_id.v_slot[tmp_i, e_inventoryAtributes.valBeingUsed] && tmp_id.v_menuItem == -1)
 	{
 		if (tmp_id.v_itemMouse == -1)
 		{

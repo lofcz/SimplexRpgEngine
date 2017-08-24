@@ -47,6 +47,14 @@
             }
         },
         {
+            "Key": "01f08253-9180-431c-aecf-01c2f69d2916",
+            "Value": {
+                "id": "942e893c-3f13-4565-8aed-b33ce3f54333",
+                "resourcePath": "objects\\oBasicItem\\oBasicItem.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "020be543-91ff-4e6b-a233-14b2945e698b",
             "Value": {
                 "id": "f0f2e087-c860-4ed4-8909-2a180e2dbdd2",
@@ -655,6 +663,22 @@
             }
         },
         {
+            "Key": "2818c652-4cb2-4b5f-b7e8-d0a4348d2284",
+            "Value": {
+                "id": "6b03915c-853f-4896-abe0-e62a517a959f",
+                "resourcePath": "scripts\\cpItemsOptionsDB\\cpItemsOptionsDB.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "2846bf8d-34c7-4af7-b981-833f34ccdb58",
+            "Value": {
+                "id": "7b2d8f5d-581f-442f-bf32-3db7924355b0",
+                "resourcePath": "views\\2846bf8d-34c7-4af7-b981-833f34ccdb58.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "287c86ce-9d43-40f2-98b9-ce2c78fe0e9c",
             "Value": {
                 "id": "22311551-7a91-47ce-9cd3-053fb0053463",
@@ -1027,6 +1051,14 @@
             "Value": {
                 "id": "cebcf921-a9e8-4248-a9ff-5e4ec6f6120c",
                 "resourcePath": "scripts\\cpInventoryIni\\cpInventoryIni.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "401edd6c-8985-4a18-8c5e-c324d4d0a30a",
+            "Value": {
+                "id": "6df1f0b2-df60-45cf-ae89-593294023e35",
+                "resourcePath": "scripts\\cpInventoryDropSlot\\cpInventoryDropSlot.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -1411,6 +1443,14 @@
             "Value": {
                 "id": "e2519f5f-4412-42c0-adf3-2473dbb6180c",
                 "resourcePath": "sprites\\sBodyCanvasFireBow1\\sBodyCanvasFireBow1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "5712286c-0a45-4630-a4a5-ea7ed39d03b5",
+            "Value": {
+                "id": "6dd2a291-649d-4984-b0b4-0527751575a1",
+                "resourcePath": "sprites\\sprite271\\sprite271.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -3884,6 +3924,8 @@
         "7e14ee9e-8a74-4d50-9533-ad8cc8873ca2",
         "305c1a86-731e-40b1-9b89-0dc366af9724",
         "f0a441ad-d15c-4f51-b48b-177fee0236ee",
+        "401edd6c-8985-4a18-8c5e-c324d4d0a30a",
+        "2818c652-4cb2-4b5f-b7e8-d0a4348d2284",
         "48e653e1-e490-45d5-9e90-179dd6f172b1",
         "34857dbb-0e86-4058-af77-8fc898cd7d95",
         "80e68a51-6e3d-447d-9970-b0c6363a7a17",

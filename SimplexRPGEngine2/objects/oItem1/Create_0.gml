@@ -43,9 +43,23 @@ v_itemAnimation[e_animations.valSlash] = sBodyCanvasAttackWeapon1;
 
 v_itemReq[e_inventoryProperties.valLevel] = 2;
 
-v_itemOption[0] = "Hi";
-v_itemOption[1] = "This is";
-v_itemOption[2] = "Test";
+if (choose(0, 1) == 0)
+{
+	v_itemOption[0] = "This is";
+	
+	if (choose(0, 1))
+	{
+		v_itemOption[1] = "TEST";
+		
+		if (choose(0, 1))
+		{
+			v_itemOption[2] = "Of a stupid string";
+		}
+	}
+}
+//v_itemOption[0] = "";
+//v_itemOption[1] = "This is";
+//v_itemOption[2] = "Test";
 
 
 if (!variable_instance_exists(id, "v_staticItem"))

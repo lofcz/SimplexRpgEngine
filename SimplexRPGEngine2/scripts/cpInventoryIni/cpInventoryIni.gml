@@ -18,7 +18,7 @@ enum e_inventoryAtributes
 	valRarityEffect,
 	valPickSound,
 	valEquipSlot,
-	valIsStarred,
+	valLabel,
 	valMaterialType,
 	valBeingUsed,
 	valInfoTextColorFooter,	
@@ -245,9 +245,7 @@ v_secondMenuText[2] = "Unmark";
 
 
 for (var i = 0; i <= v_slots; i++)
-{
-	v_itemOptions[i, 0] = "";
-	
+{	
 	for (var j = 0; j <= mcInvenotryAtributes; j++)
 	{
 		if (cpInventoryHelpIsStringAtr(j))
@@ -269,6 +267,11 @@ for (var i = 0; i <= v_slots; i++)
 	for (var j = 0; j < mcAnimations; j++)
 	{
 		v_slotAnimations[i, j] = 0;
+	}
+
+	for (var j = 0; j < 16; j++)
+	{
+		v_itemOptions[i, j] = "";
 	}
 }
 

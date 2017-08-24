@@ -31,6 +31,7 @@ tmp_lastHover = -1;
 
 v_actualLerp = 0;
 v_lerpMode = 0;
+v_menuItem = -1;
 
 for (var i = 0; i <= v_slots; i++)
 {

@@ -151,7 +151,7 @@ if (v_formAlpha > 0.05)
 				if (v_slot[i, e_inventoryAtributes.valID] != e_items.valNONE) {tmp_hovered = true; v_lastHover = tmp_lastHover;}
 			}
 			
-			if (mouse_check_button_pressed(mb_right))
+			if (mouse_check_button_pressed(mb_right) && v_slot[i, e_inventoryAtributes.valID] != e_items.valNONE && !v_slot[i, e_inventoryAtributes.valBeingUsed])
 			{
 				v_menuItem = i;
 				v_menuItemStartX = tmp_drawX;
@@ -231,7 +231,18 @@ if (v_formAlpha > 0.05)
 			}
 			draw_sprite_ext(v_slot[i, e_inventoryAtributes.valSprite], v_slot[i, e_inventoryAtributes.valImageIndex] + 2, tmp_drawX + (v_slotSize / 2) + (tmp_realSlotArea - v_slotSize) / 2, tmp_drawY + (v_slotSize / 2) + (tmp_realSlotArea - v_slotSize) / 2, 1, 1, 0, c_white, v_formAlpha);	
 			shader_reset();
-	
+			
+			// Draw star / trash icon
+			if (v_slot[i, e_inventoryAtributes.valLabel] == 1)
+			{
+				draw_sprite_part_ext(v_inventorySprite, 0, 605, 455, 20, 20, tmp_drawX + 24, tmp_drawY + 5, 0.5, 0.5, c_white, draw_get_alpha());
+			}
+
+			if (v_slot[i, e_inventoryAtributes.valLabel] == 2)
+			{
+				draw_sprite_part_ext(v_inventorySprite, 0, 628, 455, 20, 20, tmp_drawX + 24, tmp_drawY + 5, 0.5, 0.5, c_white, draw_get_alpha());
+			}	
+
 			var tmp_drawColor, tmp_drawOffsetX;
 			tmp_drawColor = c_white;
 			tmp_drawOffsetX = 0; 
@@ -295,178 +306,7 @@ if (v_formAlpha > 0.05)
 	fnt();
 	alg();
 	
-	// Draw context menu form
-	if (v_menuItem != -1)
-	{
-		ds_list_clear(g_menuList);
-		
-		// Build main rectangle
-		fnt(fntPixelSmall);
-		
-		var tmp_localMax, tmp_height;
-		tmp_localMax = 128;
-		tmp_height = 0;
-		
-		for (var i = 0; i < array_length_2d(v_itemOptions, v_menuItem) + 2; i++)
-		{
-			if (i < array_length_2d(v_itemOptions, v_menuItem))
-			{
-				if (string_width(v_itemOptions[v_menuItem, i]) > tmp_localMax) 
-				{
-					tmp_localMax = string_width(v_itemOptions[v_menuItem, i]);
-				}
-			}
-			
-			tmp_height += 24;
-		}
-		
-		var tmp_width, tmp_height, tmp_secondMenu, tmp_secondMenuX, tmp_secondMenuY, tmp_secondMenuW, tmp_secondMenuH;
-
-		
-		ds_list_add(g_menuList, v_menuItemStartX + 20, v_menuItemStartY + 20, v_menuItemStartX + tmp_localMax + 20, v_menuItemStartY + tmp_height + 20); // Main menu rec
-		ds_list_add(g_menuList, v_menuItemStartX, v_menuItemStartY, v_menuItemStartX + 40, v_menuItemStartY + 40); // Item rec
-		if (v_secondMenu) {ds_list_add(g_menuList, v_secondMenuX - 30, v_secondMenuY, v_secondMenuX + v_secondMenuW, v_secondMenuY + v_secondMenuH);}
-		
-		var tmp_mouseRec;
-		tmp_mouseRec = -1;
-		
-		for (var i = 0; i < ds_list_size(g_menuList); i += 4)
-		{
-			if (point_in_rectangle(mouse_x, mouse_y, g_menuList[| i], g_menuList[| i + 1], g_menuList[| i + 2] + 20, g_menuList[| i + 3]))
-			{
-				tmp_mouseRec = i;
-			}
-		}
-		
-		if (tmp_mouseRec == -1)
-		{
-			v_menuItem = -1;
-			v_secondMenuLast = -1;
-		}
-		else
-		{
-			//draw_rectangle(g_menuList[| 0], g_menuList[| 1], g_menuList[| 2], g_menuList[| 3], false);
-			tmp_width = (tmp_localMax div 20 * 20) + 20;
-			tmp_height = (tmp_height);
-			
-			draw_sprite_tiled_area(v_inventoryTexSprite, 0, 0, 0, g_menuList[| 0], g_menuList[| 1] + 2, g_menuList[| 0] + tmp_width - 4, g_menuList[| 1] + tmp_height);
-			
-			var tmp_pass;
-			tmp_pass = false;
-			
-			for (var i = 0; i < array_length_2d(v_itemOptions, v_menuItem) + 2; i++)
-			{	
-				fnt();
-				
-				if (i < array_length_2d(v_itemOptions, v_menuItem)) {tmp_text = v_itemOptions[v_menuItem, i];}
-				else if (i == array_length_2d(v_itemOptions, v_menuItem)) {tmp_text = "Mark";}
-				else if (i == array_length_2d(v_itemOptions, v_menuItem) + 1) {tmp_text = "Drop";}
-				
-				draw_text(g_menuList[| 0] + 8, g_menuList[| 1] + i * 20 + 8, tmp_text);
-				
-				if (point_in_rectangle(mouse_x, mouse_y, g_menuList[| 0], g_menuList[| 1] + i * 20 + 8, g_menuList[| 0] + tmp_width div 20 * 20, g_menuList[| 1] + i * 20 + 8 + 20) || (v_secondMenuLast == i && tmp_mouseRec == 8))
-				{
-					clr(c_black, min(v_formAlpha, 0.3));
-					var tmp_xo;
-					tmp_xo = 8;
-					if (i == 0) {tmp_xo = 3;}
-					
-					draw_rectangle(g_menuList[| 0] + 2, g_menuList[| 1] + i * 20 + tmp_xo, g_menuList[| 0] + tmp_width - 4, g_menuList[| 1] + i * 20 + 8 + 20, false);
-					clr(-1, v_formAlpha);
-					
-					if (i == array_length_2d(v_itemOptions, v_menuItem) || tmp_mouseRec == 8)
-					{
-						v_secondMenu = i;
-						v_secondMenuX = g_menuList[| 0] + tmp_width;
-						v_secondMenuY = g_menuList[| 1] + i * 20 + 8;
-						v_secondMenuW = 120;
-						v_secondMenuH = 80;
-						v_secondMenuLast = i;
-						tmp_pass = true;
-					}
-				}
-			}
-			
-			if (tmp_mouseRec == 8)
-			{
-				v_secondMenuX = g_menuList[| 0] + tmp_width;
-				v_secondMenuY = g_menuList[| 1] + v_secondMenu * 20 + 8;
-				v_secondMenuW = 120;
-				v_secondMenuH = 80;
-				tmp_pass = true;
-			}
-			
-			if (!tmp_pass) {v_secondMenu = -1; v_secondMenuLast = -1;}
-		
-						
-			for (var j = 0; j < tmp_height div 20; j++)
-			{
-				var tmp_top;
-				tmp_top = 40;
-
-				if (j == 0) {tmp_top = 40;}
-				else if (j == tmp_height div 20 - 1) {tmp_top = 84;}
-				else {tmp_top = 60;}			
-					
-				for (var i = 0; i < tmp_width div 20; i++)
-				{
-					var tmp_left;
-					tmp_left = 16;
-				
-					if (i == 0) {tmp_left = 16;}
-					else if (i == tmp_width div 20 - 1) {tmp_left = 94;}
-					else {tmp_left = 60;}
-				
-					draw_sprite_part(v_inventorySprite, 0, tmp_left, tmp_top, 20, 20, g_menuList[| 0] + i * 20, g_menuList[| 1] + j * 20);
-				}
-			}
-			
-			if (v_secondMenu)
-			{
-				draw_sprite_tiled_area(v_inventoryTexSprite, 0, 0, 0, v_secondMenuX + 2, v_secondMenuY + 2, v_secondMenuX + v_secondMenuW - 4, v_secondMenuY + v_secondMenuH);
-
-				for (var i = 0; i < 3; i++)
-				{	
-					fnt();
-				
-					draw_text(v_secondMenuX + 8, v_secondMenuY + i * 20 + 8, v_secondMenuText[i]);
-				
-					if (point_in_rectangle(mouse_x, mouse_y, v_secondMenuX, v_secondMenuY + i * 20 + 8, v_secondMenuX + v_secondMenuW div 20 * 20, v_secondMenuY + i * 20 + 8 + 20))
-					{
-						clr(c_black, min(v_formAlpha, 0.3));
-						var tmp_xo;
-						tmp_xo = 8;
-						if (i == 0) {tmp_xo = 3;}
-					
-						draw_rectangle(v_secondMenuX + 2, v_secondMenuY + i * 20 + tmp_xo, v_secondMenuX + v_secondMenuW - 4, v_secondMenuY + i * 20 + 8 + 20, false);
-						clr(-1, v_formAlpha);
-					}
-				}
-				
-				for (var j = 0; j < v_secondMenuH div 20; j++)
-				{
-					var tmp_top;
-					tmp_top = 40;
-
-					if (j == 0) {tmp_top = 40;}
-					else if (j == v_secondMenuH div 20 - 1) {tmp_top = 84;}
-					else {tmp_top = 60;}			
-					
-					for (var i = 0; i < v_secondMenuW div 20; i++)
-					{
-						var tmp_left;
-						tmp_left = 16;
-				
-						if (i == 0) {tmp_left = 16;}
-						else if (i == v_secondMenuW div 20 - 1) {tmp_left = 94;}
-						else {tmp_left = 60;}
-				
-						draw_sprite_part(v_inventorySprite, 0, tmp_left, tmp_top, 20, 20, v_secondMenuX + i * 20, v_secondMenuY + j * 20);
-					}
-				}
-			}	
-		}
-	}
+// here was shit
 
 	// Check for item release
 	if (v_slotBeingDragged != -1)
@@ -512,7 +352,8 @@ if (v_formAlpha > 0.05)
 			
 				if (!tmp_switchDone && tmp_itemsSwitched == 0)
 				{
-					var tmp_atrb, tmp_prop, tmp_req;
+					var tmp_atrb, tmp_prop, tmp_req, tmp_opt;
+					
 					for (var k = 0; k <= mcInvenotryAtributes; k++)
 					{
 						tmp_atrb[k] = v_slot[v_slotBeingDragged, k];			
@@ -522,6 +363,11 @@ if (v_formAlpha > 0.05)
 					{
 						tmp_prop[k] = v_slotProperty[v_slotBeingDragged, k];	
 						tmp_req[k] = v_slotReq[v_slotBeingDragged, k];
+					}
+					
+					for (var k = 0; k < 16; k++)
+					{
+						tmp_opt[k] = v_itemOptions[v_slotBeingDragged, k];
 					}
 				
 					for (var k = 0; k <= mcInvenotryAtributes; k++)
@@ -536,8 +382,17 @@ if (v_formAlpha > 0.05)
 						v_slotProperty[tmp_lastHover, k] = tmp_prop[k];
 					
 						v_slotReq[v_slotBeingDragged, k] = v_slotReq[tmp_lastHover, k];
-						v_slotReq[tmp_lastHover, k] = tmp_req[k];					
+						v_slotReq[tmp_lastHover, k] = tmp_req[k];				
 					}
+
+					for (var k = 0; k < 16; k++)
+					{
+						//show_message(v_itemOptions[tmp_lastHover, k]);
+						//show_message(string(tmp_lastHover)+","+string(v_slotBeingDragged));
+						v_itemOptions[v_slotBeingDragged, k] = v_itemOptions[tmp_lastHover, k];
+						v_itemOptions[tmp_lastHover, k] = tmp_opt[k];
+						//show_message(v_itemOptions[v_slotBeingDragged, k]);
+					}					
 				}	
 			}
 		
@@ -672,7 +527,7 @@ if (v_formAlpha > 0.05)
 
 		if (point_in_rectangle(mouse_x, mouse_y, tmp_drawX + (24 + tmp_buttonOffsetX) * i, tmp_drawY, tmp_drawX + (23 + tmp_buttonOffsetX) * (i + 1), tmp_drawY + 24))
 		{
-			if (mouse_check_button_pressed(mb_left))
+			if (mouse_check_button_pressed(mb_left) && ! oHUD.v_mouseClickedUI)
 			{
 				v_filterButtons[i, 0] = !v_filterButtons[i, 0];
 				oHUD.v_mouseClickedUI = true;
@@ -750,6 +605,215 @@ if (v_formAlpha > 0.05)
 	if (v_lerpMode == 0) {v_actualLerp = lin(v_actualLerp, 0.5, 0.005); if (v_actualLerp >= 0.5) {v_lerpMode = 1;}}
 	if (v_lerpMode == 1) {v_actualLerp = lin(v_actualLerp, 0, 0.005); if (v_actualLerp <= 0) {v_lerpMode = 0;}}
 }
+
+	// Draw context menu form
+	if (v_menuItem != -1)
+	{
+		ds_list_clear(g_menuList);
+		
+		// Build main rectangle
+		fnt(fntPixelSmall);
+		
+		var tmp_localMax, tmp_height, tmp_realOptions, tmp_i, tmp_optionsCount;
+		tmp_localMax = 128;
+		tmp_height = 0;
+		tmp_i = 0;
+		//tmp_realOptions[0] = "";
+		tmp_optionsCount = 0;
+		
+		for (var i = 0; i < 16; i++)
+		{
+			if (v_itemOptions[v_menuItem, i] != "") {tmp_realOptions[tmp_i] = v_itemOptions[v_menuItem, i]; tmp_i++; tmp_optionsCount++;}
+		}		
+		
+		for (var i = 0; i < tmp_optionsCount + 2; i++)
+		{
+			if (i < tmp_optionsCount)
+			{
+				fnt();
+				if (string_width(tmp_realOptions[i]) > tmp_localMax) 
+				{
+					tmp_localMax = string_width(tmp_realOptions[i]) + 16;
+				}
+			}
+			
+			tmp_height += 20;
+		}
+		
+		tmp_height = max(60, tmp_height + 20);
+		
+		var tmp_width, tmp_height, tmp_secondMenu, tmp_secondMenuX, tmp_secondMenuY, tmp_secondMenuW, tmp_secondMenuH;
+
+		
+		ds_list_add(g_menuList, v_menuItemStartX + 20, v_menuItemStartY + 20, v_menuItemStartX + tmp_localMax + 20, v_menuItemStartY + tmp_height + 20); // Main menu rec
+		ds_list_add(g_menuList, v_menuItemStartX, v_menuItemStartY, v_menuItemStartX + 40, v_menuItemStartY + 40); // Item rec
+		if (v_secondMenu != -1) {ds_list_add(g_menuList, v_secondMenuX, v_secondMenuY, v_secondMenuX + v_secondMenuW, v_secondMenuY + v_secondMenuH);}
+		
+		var tmp_mouseRec;
+		tmp_mouseRec = -1;
+		
+		for (var i = 0; i < ds_list_size(g_menuList); i += 4)
+		{
+			if (point_in_rectangle(mouse_x, mouse_y, g_menuList[| i], g_menuList[| i + 1], g_menuList[| i + 2] + 20, g_menuList[| i + 3]))
+			{
+				tmp_mouseRec = i;
+				oHUD.v_mouseClickedUI = true;
+			}
+		}
+		
+		if (tmp_mouseRec == -1)
+		{
+			v_menuItem = -1;
+			v_secondMenuLast = -1;
+		}
+		else
+		{
+			//draw_rectangle(g_menuList[| 0], g_menuList[| 1], g_menuList[| 2], g_menuList[| 3], false);
+			tmp_width = (tmp_localMax div 20 * 20) + 20;
+			tmp_height = (tmp_height);
+			
+			draw_sprite_tiled_area(v_inventoryTexSprite, 0, 0, 0, g_menuList[| 0], g_menuList[| 1] + 2, g_menuList[| 0] + tmp_width - 4, g_menuList[| 1] + tmp_height);
+			
+			var tmp_pass, var_ys;
+			tmp_pass = false;
+			var_ys = 0;
+			
+			for (var i = 0; i < tmp_optionsCount + 2; i++)
+			{	
+				fnt();
+
+				if (i < tmp_optionsCount) {tmp_text = tmp_realOptions[i];}
+				else if (i == tmp_optionsCount) {tmp_text = "Mark";}
+				else if (i == tmp_optionsCount + 1) {tmp_text = "Drop";}
+				
+				draw_text(g_menuList[| 0] + 8, g_menuList[| 1] + i * 20 + 8, tmp_text);
+				
+				if (point_in_rectangle(mouse_x, mouse_y, g_menuList[| 0], g_menuList[| 1] + i * 20 + 8, g_menuList[| 0] + tmp_width div 20 * 20, g_menuList[| 1] + i * 20 + 8 + 19) || (v_secondMenuLast == i && tmp_mouseRec == 8))
+				{
+					clr(c_black, min(v_formAlpha, 0.3));
+					var tmp_xo;
+					tmp_xo = 8;
+					if (i == 0) {tmp_xo = 3;}
+					
+					draw_rectangle(g_menuList[| 0] + 2, g_menuList[| 1] + i * 20 + tmp_xo, g_menuList[| 0] + tmp_width - 4, g_menuList[| 1] + i * 20 + 8 + 20, false);
+					clr(-1, v_formAlpha);
+					
+					if (i == tmp_optionsCount || tmp_mouseRec == 8)
+					{
+						v_secondMenu = i;
+						v_secondMenuX = g_menuList[| 0] + tmp_width;
+						v_secondMenuY = g_menuList[| 1] + (i) * 20 + 8;
+						v_secondMenuW = 120;
+						v_secondMenuH = 80;
+						v_secondMenuLast = i;
+						tmp_pass = true;
+					}
+					
+
+					if (mouse_check_button_pressed(mb_left))
+					{
+						if (i < tmp_optionsCount)
+						{
+							cpItemsOptionsDB(v_slot[v_menuItem, e_inventoryAtributes.valID], i);
+						}
+						
+						if (i == tmp_optionsCount + 1)
+						{
+							cpInventoryDropSlot(v_menuItem);
+							v_menuItem = -1;
+						}
+					}
+					
+				}
+			}
+			
+			if (tmp_mouseRec == 8)
+			{
+				v_secondMenuX = g_menuList[| 0] + tmp_width;
+				v_secondMenuY = g_menuList[| 1] + v_secondMenu * 20 + 8;
+				v_secondMenuW = 120;
+				v_secondMenuH = 80;
+				tmp_pass = true;
+			}
+			
+			if (!tmp_pass) {v_secondMenu = -1; v_secondMenuLast = -1;}
+		
+						
+			for (var j = 0; j < tmp_height div 20; j++)
+			{
+				var tmp_top;
+				tmp_top = 40;
+
+				if (j == 0) {tmp_top = 40;}
+				else if (j == tmp_height div 20 - 1) {tmp_top = 84;}
+				else {tmp_top = 60;}			
+					
+				for (var i = 0; i < tmp_width div 20; i++)
+				{
+					var tmp_left;
+					tmp_left = 16;
+				
+					if (i == 0) {tmp_left = 16;}
+					else if (i == tmp_width div 20 - 1) {tmp_left = 94;}
+					else {tmp_left = 60;}
+				
+					draw_sprite_part(v_inventorySprite, 0, tmp_left, tmp_top, 20, 20, g_menuList[| 0] + i * 20, g_menuList[| 1] + j * 20);
+				}
+			}
+			
+			if (v_secondMenu != -1)
+			{
+				draw_sprite_tiled_area(v_inventoryTexSprite, 0, 0, 0, v_secondMenuX + 2, v_secondMenuY + 2, v_secondMenuX + v_secondMenuW - 4, v_secondMenuY + v_secondMenuH);
+
+				for (var i = 0; i < 3; i++)
+				{	
+					fnt();
+				
+					draw_text(v_secondMenuX + 8, v_secondMenuY + i * 20 + 8, v_secondMenuText[i]);
+				
+					if (point_in_rectangle(mouse_x, mouse_y, v_secondMenuX, v_secondMenuY + i * 20 + 8, v_secondMenuX + v_secondMenuW div 20 * 20, v_secondMenuY + i * 20 + 8 + 19))
+					{
+						clr(c_black, min(v_formAlpha, 0.3));
+						var tmp_xo;
+						tmp_xo = 8;
+						if (i == 0) {tmp_xo = 3;}
+					
+						draw_rectangle(v_secondMenuX + 2, v_secondMenuY + i * 20 + tmp_xo, v_secondMenuX + v_secondMenuW - 4, v_secondMenuY + i * 20 + 8 + 20, false);
+						clr(-1, v_formAlpha);
+						
+						if (mouse_check_button_pressed(mb_left))
+						{
+							if (i == 0) {v_slot[v_menuItem, e_inventoryAtributes.valLabel] = 1;}
+							if (i == 1) {v_slot[v_menuItem, e_inventoryAtributes.valLabel] = 2;}
+							if (i == 2) {v_slot[v_menuItem, e_inventoryAtributes.valLabel] = 0;}							
+						}
+					}
+				}
+				
+				for (var j = 0; j < v_secondMenuH div 20; j++)
+				{
+					var tmp_top;
+					tmp_top = 40;
+
+					if (j == 0) {tmp_top = 40;}
+					else if (j == v_secondMenuH div 20 - 1) {tmp_top = 84;}
+					else {tmp_top = 60;}			
+					
+					for (var i = 0; i < v_secondMenuW div 20; i++)
+					{
+						var tmp_left;
+						tmp_left = 16;
+				
+						if (i == 0) {tmp_left = 16;}
+						else if (i == v_secondMenuW div 20 - 1) {tmp_left = 94;}
+						else {tmp_left = 60;}
+				
+						draw_sprite_part(v_inventorySprite, 0, tmp_left, tmp_top, 20, 20, v_secondMenuX + i * 20, v_secondMenuY + j * 20);
+					}
+				}
+			}	
+		}
+	}
 
 
 if (key_check_pressed(ord("G")))  {v_filterButtons[1] = ! v_filterButtons[1];}
