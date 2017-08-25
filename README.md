@@ -63,7 +63,9 @@ Do you have any questions, or have you created a game using Simplex and you want
 - <a href="https://www.facebook.com/simplexengine/?pnref=lhc">Facebook</a>
 - <a href="https://www.youtube.com/channel/UCCDT5l4gglPpFB_tEZd5c7Q">Youtube</a>
 
+## Version history can be found here:
+<a href="https://github.com/lofcz/SimplexRpgEngine/wiki/Simplex-RPG-Engine-2-PRE-DEV-Roadmap"> 2.0 P-DEV </a>
+
 <sub><sup>Copyright © 2017 Matěj Štágl.</sup></sub>  
 <sub><sup><a href="https://github.com/lofcz/SimplexRpgEngine/wiki/Hall-of-fame-(Simplex-development-team)">Hall of fame (development team)</a></sup></sub>  
 <sub><sup>[Read the license, under which the project is available.](https://github.com/lofcz/SimplexRpgEngine/blob/master/license.md)</sup></sub>  
-<img src="https://s2.postimg.org/hw96ro3nt/image.png" width="128" height="128"/>
