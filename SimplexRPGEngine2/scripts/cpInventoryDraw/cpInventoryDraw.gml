@@ -4,7 +4,7 @@
 x = oCamera.v_nullPosX;
 y = oCamera.v_nullPosY;
 
-// **** DEBUG
+#region Debug control
 
 if (mouse_check_button_pressed(mb_middle) || key_check_pressed(ord("M"))) {cpContainerAdd(oItem1, 2, id);}
 if (mouse_wheel_down()) {v_slotsPerRow++;}
@@ -29,8 +29,7 @@ else {v_slotSize = lerp(v_slotSize, 32, 0.1);}
 if (!v_drawForm) {v_formAlpha = lerp(v_formAlpha, 0, 0.1); v_actualY = lerp(v_actualY, 0, 0.1);}
 else {v_formAlpha = lerp(v_formAlpha, 1, 0.5); v_actualY = lerp(v_actualY, 69, 0.1);}
 
-
-// **** /DEBUG
+#endregion
 
 v_drawStartX = x + v_actualY - 68;
 v_drawStartY = y + 68;
@@ -88,27 +87,27 @@ if (v_formAlpha > 0.05)
 			//	- Bottom row
 			if (i == 0)
 			{
-				if (j == 0) {draw_sprite_part_ext(v_inventorySprite, 0, oHUD.v_hudFrameTopX, oHUD.v_hudFrameTopY, 32, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, v_formAlpha);}
+				if (j == 0) {draw_sprite_part_ext(v_inventorySprite, 0, oHUD.v_hudFrameTopX, oHUD.v_hudFrameTopY, 32, 33, tmp_drawX, tmp_drawY, 1, 1, c_white, v_formAlpha);}
 				else if (j == tmp_layoutSlotsX - 1) {draw_sprite_part_ext(v_inventorySprite, 0, oHUD.v_hudFrameTopX + 32, oHUD.v_hudFrameTopY, tmp_layoutWidth - (tmp_layoutSlotsX - 1) * v_slotSize, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, v_formAlpha);}
-				else if (j == tmp_layoutSlotsX) {draw_sprite_part_ext(v_inventorySprite, 0, oHUD.v_hudFrameTopX + 64, oHUD.v_hudFrameTopY, 32, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, v_formAlpha);}
+				else if (j == tmp_layoutSlotsX) {draw_sprite_part_ext(v_inventorySprite, 0, oHUD.v_hudFrameTopX + 64, oHUD.v_hudFrameTopY, 33, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, v_formAlpha);}
 				else {draw_sprite_part_ext(v_inventorySprite, 0, oHUD.v_hudFrameTopX + 32, oHUD.v_hudFrameTopY, 32, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, v_formAlpha);}
 			}
 			else if (i == tmp_layoutSlotsY - 1)
 			{
 				if (j == 0) {draw_sprite_part_ext(v_inventorySprite, 0, oHUD.v_hudFrameBottomX, oHUD.v_hudFrameBottomY, 32, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, v_formAlpha);}
-				else if (j == tmp_layoutSlotsX) {draw_sprite_part_ext(v_inventorySprite, 0, oHUD.v_hudFrameBottomX + 64, oHUD.v_hudFrameBottomY, 32, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, v_formAlpha);}
+				else if (j == tmp_layoutSlotsX) {draw_sprite_part_ext(v_inventorySprite, 0, oHUD.v_hudFrameBottomX + 64, oHUD.v_hudFrameBottomY, 33, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, v_formAlpha);}
 				else if (j == tmp_layoutSlotsX - 1) {draw_sprite_part_ext(v_inventorySprite, 0, oHUD.v_hudFrameBottomX + 32, oHUD.v_hudFrameBottomY, tmp_layoutRestX, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, v_formAlpha);}
 				else {draw_sprite_part_ext(v_inventorySprite, 0, oHUD.v_hudFrameBottomX + 32, oHUD.v_hudFrameBottomY, 32, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, v_formAlpha); }		
 			}	
 			else if (i == tmp_layoutSlotsY - 2)
 			{
 				if (j == 0) {draw_sprite_part_ext(v_inventorySprite, 0, oHUD.v_hudFrameMidX, oHUD.v_hudFrameMidY, 32, tmp_layoutRestY, tmp_drawX, tmp_drawY, 1, 1, c_white, v_formAlpha);}
-				else if (j == tmp_layoutSlotsX) {draw_sprite_part_ext(v_inventorySprite, 0, oHUD.v_hudFrameMidX + 64, oHUD.v_hudFrameMidY, 32, tmp_layoutRestY, tmp_drawX, tmp_drawY, 1, 1, c_white, v_formAlpha);}		
+				else if (j == tmp_layoutSlotsX) {draw_sprite_part_ext(v_inventorySprite, 0, oHUD.v_hudFrameMidX + 64, oHUD.v_hudFrameMidY, 33, tmp_layoutRestY, tmp_drawX, tmp_drawY, 1, 1, c_white, v_formAlpha);}		
 			}		
 			else
 			{
 				if (j == 0) {draw_sprite_part_ext(v_inventorySprite, 0, oHUD.v_hudFrameMidX, oHUD.v_hudFrameMidY, 32, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, v_formAlpha);}
-				else if (j == tmp_layoutSlotsX) {draw_sprite_part_ext(v_inventorySprite, 0, oHUD.v_hudFrameMidX + 64, oHUD.v_hudFrameMidY, 32, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, v_formAlpha);}		
+				else if (j == tmp_layoutSlotsX) {draw_sprite_part_ext(v_inventorySprite, 0, oHUD.v_hudFrameMidX + 64, oHUD.v_hudFrameMidY, 33, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, v_formAlpha);}		
 			}	
 					
 			if (j != tmp_layoutSlotsX - 1) {tmp_drawX += v_slotSize;} else {tmp_drawX += tmp_layoutWidth - (tmp_layoutSlotsX - 1) * v_slotSize;}
@@ -471,11 +470,9 @@ if (v_formAlpha > 0.05)
 	var tmp_weight;
 	tmp_weight = cpInventoryHelperGetTotalAtr();
 
-	if (tmp_weight > 0)
-	{
-		fnt(fntPixelSmall);
-		draw_text(tmp_drawX + 3 * 24 + 4, tmp_drawY, "Weight: " + string(tmp_weight));
-	}
+	fnt(fntPixelSmall);
+	if (tmp_weight > 0) {draw_text(tmp_drawX + 3 * 24 + 4, tmp_drawY + 16, "Weight: " + string(tmp_weight));}
+	draw_text(tmp_drawX + 3 * 24 + 4, tmp_drawY, "Gold: " + string(oHUD.v_goldD));		
 
 	// Compute hover alpha
 	// v_hoverAlphaFF (flicker fix) is used to eliminate flickering when changing focus

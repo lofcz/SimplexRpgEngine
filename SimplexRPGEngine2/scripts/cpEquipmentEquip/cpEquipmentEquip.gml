@@ -36,9 +36,7 @@ if (argument_count > 0) {tmp_equipSlot = argument[0];}
 					tmp_switchDone = false;
 				}*/
 				if (!tmp_switchDone && tmp_itemsSwitched == 0)
-				{
-					cpInventoryHelperSwitch(id, id, v_slotBeingDragged, tmp_equipSlot);
-					
+				{				
 					var tmp_atrb, tmp_prop, tmp_req, tmp_anim;
 					for (var k = 0; k <= mcInvenotryAtributes; k++)
 					{

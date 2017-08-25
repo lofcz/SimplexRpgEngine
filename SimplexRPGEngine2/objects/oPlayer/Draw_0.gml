@@ -9,6 +9,7 @@ draw_text_colored(x, y - 120, "This is" + _sc("colored text") + _sc("even", c_li
 draw_text(oCamera.v_nullPosX + 780, oCamera.v_nullPosY, fps);
 draw_text(oCamera.v_nullPosX + 780, oCamera.v_nullPosY + 16, instance_count);
 
+#region Some shit
 
 /*
 draw_rectangle(x - 16, y - 16, x + 16, y + 32, true);
@@ -25,5 +26,6 @@ clr();*/
 
 v_collisionMain = [x - 16, y - 16, x + 16, y + 32];
 v_collisionLegs = [x - 16, y + 16, x + 16, y + 32];
+#endregion
 
 event_inherited();

@@ -21,78 +21,35 @@ if (argument_count > 4) {tmp_sm = argument[4];}
 
 var tmp_atrb, tmp_prop, tmp_req, tmp_opt, tmp_anim, tmp_propS;
 	
-// Store temp values				
+#region Store temp vars			
 for (var k = 0; k <= mcInvenotryAtributes; k++)
 {
-	if (tmp_sm != "E2I") 
-	{
-		tmp_atrb[k] = tmp_owner1.v_slot[tmp_slot1, k];
-	}		
-	else
-	{
-		tmp_atrb[k] = tmp_owner1.v_equipmentSlot[tmp_slot1, k];
-	}
+	tmp_atrb[k] = tmp_owner1.v_slot[tmp_slot1, k];
 }
 				
 for (var k = 0; k < mcInventoryProperties; k++)
 {
-	if (tmp_sm != "E2I") 
-	{
-		tmp_prop[k] = tmp_owner1.v_slotProperty[tmp_slot1, k];	
-		tmp_req[k] = tmp_owner1.v_slotReq[tmp_slot1, k];
-		tmp_propS[k] = tmp_owner1.v_slotPropertyStatic[tmp_slot1, k];
-	}
-	else
-	{
-		tmp_prop[k] = tmp_owner1.v_equipmentSlotProperty[tmp_slot1, k];	
-		tmp_req[k] = tmp_owner1.v_equipmentReq[tmp_slot1, k];
-		tmp_propS[k] = tmp_owner1.v_equipmentSlotPropertyStatic[tmp_slot1, k];	
-	}
+	tmp_prop[k] = tmp_owner1.v_slotProperty[tmp_slot1, k];	
+	tmp_req[k] = tmp_owner1.v_slotReq[tmp_slot1, k];
+	tmp_propS[k] = tmp_owner1.v_slotPropertyStatic[tmp_slot1, k];
 }
 					
 for (var k = 0; k < 16; k++)
 {
-	if (tmp_sm != "E2I") 
-	{
-		tmp_opt[k] = tmp_owner1.v_itemOptions[tmp_slot1, k];
-	}
-	else
-	{
-		tmp_opt[k] = tmp_owner1.v_equipmentItemOptions[tmp_slot1, k];		
-	}
+	tmp_opt[k] = tmp_owner1.v_itemOptions[tmp_slot1, k];
 }
 					
 for (var k = 0; k < mcAnimations; k++)
 {
-	if (tmp_sm != "E21") 
-	{
-		tmp_anim[k] = tmp_owner1.v_slotAnimations[tmp_slot1, k];
-	}
-	else
-	{
-		tmp_anim[k] = tmp_owner1.v_equipmentSlotAnimations[tmp_slot1, k];	
-	}
+	tmp_anim[k] = tmp_owner1.v_slotAnimations[tmp_slot1, k];
 }
-		
-// Switch actual values		
+	
+#endregion	
+#region Swap values
 for (var k = 0; k <= mcInvenotryAtributes; k++)
 {
-	if (tmp_sm == "") 
-	{
-		tmp_owner1.v_slot[tmp_slot1, k] = tmp_owner2.v_slot[tmp_slot2, k];					
-		tmp_owner2.v_slot[tmp_slot2, k] = tmp_atrb[k];
-	}
-	
-	if (tmp_sm == "I2E")
-	{
-		tmp_owner1.v_slot[tmp_slot1, k] = tmp_owner2.v_equipmentSlot[tmp_slot2, k];					
-		tmp_owner2.v_equipmentSlot[tmp_slot2, k] = tmp_atrb[k];		
-	}
-	
-	if (tmp_sm == "E2I")
-	{			
-		tmp_owner2.v_equipmentSlot[tmp_slot2, k] = tmp_atrb[k];		
-	}
+	tmp_owner1.v_slot[tmp_slot1, k] = tmp_owner2.v_slot[tmp_slot2, k];					
+	tmp_owner2.v_slot[tmp_slot2, k] = tmp_atrb[k];
 }
 			
 for (var k = 0; k < mcInventoryProperties; k++)
@@ -117,4 +74,5 @@ for (var k = 0; k < mcAnimations; k++)
 {
 	tmp_owner1.v_slotAnimations[tmp_slot1, k] = tmp_owner2.v_slotAnimations[tmp_slot2, k];
 	tmp_owner2.v_slotAnimations[tmp_slot2, k] = tmp_anim[k];
-}		
+}	
+#endregion	

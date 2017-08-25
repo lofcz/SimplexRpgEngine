@@ -47,22 +47,22 @@ if (tmp_hoverAlpha > 0.05)
 			if (i == 0)
 			{
 				if (j == 0) {draw_sprite_part_ext(oInventory.v_inventorySprite, 0, oHUD.v_hudFrameTopX, oHUD.v_hudFrameTopY, 32, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, tmp_alpha);}
-				else if (j == tmp_layoutSlotsX - 1) {draw_sprite_part_ext(oInventory.v_inventorySprite, 0, oHUD.v_hudFrameTopX + 32, oHUD.v_hudFrameTopY, oInventory.v_layoutRestX, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, tmp_alpha);}
-				else if (j == tmp_layoutSlotsX) {draw_sprite_part_ext(oInventory.v_inventorySprite, 0, oHUD.v_hudFrameTopX + 64, oHUD.v_hudFrameTopY, 32, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, tmp_alpha);}
+				else if (j == tmp_layoutSlotsX - 1) {draw_sprite_part_ext(oInventory.v_inventorySprite, 0, oHUD.v_hudFrameTopX + 32, oHUD.v_hudFrameTopY, oInventory.v_layoutRestX + 1, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, tmp_alpha);}
+				else if (j == tmp_layoutSlotsX) {draw_sprite_part_ext(oInventory.v_inventorySprite, 0, oHUD.v_hudFrameTopX + 64, oHUD.v_hudFrameTopY, 33, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, tmp_alpha);}
 				else {draw_sprite_part_ext(oInventory.v_inventorySprite, 0, oHUD.v_hudFrameTopX + 32, oHUD.v_hudFrameTopY, 32, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, tmp_alpha);}
 			}
 		
 			else if (i == tmp_infoboxH)
 			{
 				if (j == 0) {draw_sprite_part_ext(oInventory.v_inventorySprite, 0, oHUD.v_hudFrameBottomX, oHUD.v_hudFrameBottomY, 32, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, tmp_alpha);}
-				else if (j == tmp_layoutSlotsX) {draw_sprite_part_ext(oInventory.v_inventorySprite, 0, oHUD.v_hudFrameBottomX + 64, oHUD.v_hudFrameBottomY, 32, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, tmp_alpha);}
-				else if (j == tmp_layoutSlotsX - 1) {draw_sprite_part_ext(oInventory.v_inventorySprite, 0, oHUD.v_hudFrameBottomX + 32, oHUD.v_hudFrameBottomY, oInventory.v_layoutRestX, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, tmp_alpha);}
+				else if (j == tmp_layoutSlotsX) {draw_sprite_part_ext(oInventory.v_inventorySprite, 0, oHUD.v_hudFrameBottomX + 64, oHUD.v_hudFrameBottomY, 33, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, tmp_alpha);}
+				else if (j == tmp_layoutSlotsX - 1) {draw_sprite_part_ext(oInventory.v_inventorySprite, 0, oHUD.v_hudFrameBottomX + 32, oHUD.v_hudFrameBottomY, oInventory.v_layoutRestX + 1, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, tmp_alpha);}
 				else {draw_sprite_part_ext(oInventory.v_inventorySprite, 0, oHUD.v_hudFrameBottomX + 32, oHUD.v_hudFrameBottomY, 32, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, tmp_alpha); }		
 			}			
 			else
 			{
 				if (j == 0) {draw_sprite_part_ext(oInventory.v_inventorySprite, 0, oHUD.v_hudFrameMidX, oHUD.v_hudFrameMidY, 32, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, tmp_alpha);}
-				else if (j == tmp_layoutSlotsX) {draw_sprite_part_ext(oInventory.v_inventorySprite, 0, oHUD.v_hudFrameMidX + 64, oHUD.v_hudFrameMidY, 32, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, tmp_alpha);}		
+				else if (j == tmp_layoutSlotsX) {draw_sprite_part_ext(oInventory.v_inventorySprite, 0, oHUD.v_hudFrameMidX + 64, oHUD.v_hudFrameMidY, 33, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, tmp_alpha);}		
 			}	
 					
 			if (j != tmp_layoutSlotsX - 1) {tmp_drawX += oInventory.v_slotSize;} else {tmp_drawX += oInventory.v_layoutRestX;}

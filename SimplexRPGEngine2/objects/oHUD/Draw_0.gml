@@ -10,6 +10,8 @@ tmp_y = oCamera.v_nullPosY;
 
 draw_text(mouse_x, mouse_y + 32, v_playerProperty[e_inventoryProperties.valHp]);
 
+v_goldD = lin(v_goldD, v_gold, 1);
+
 if (abs(v_realXP - v_playerProperty[e_inventoryProperties.valXp]) <= 1) {v_realXP = v_playerProperty[e_inventoryProperties.valXp];}
 if (abs(v_realHP - v_playerProperty[e_inventoryProperties.valHp]) <= 1) {v_realHP = v_playerProperty[e_inventoryProperties.valHp];}
 if (abs(v_realMP - v_playerProperty[e_inventoryProperties.valMp]) <= 1) {v_realMP = v_playerProperty[e_inventoryProperties.valMp];}
@@ -57,14 +59,40 @@ for (var j = 0; j < 3; j++)
 		
 		if (tmp_val1 / tmp_val2 > (i + 1) / v_baseBarSlots)
 		{
-			draw_sprite_part(v_hudSprite, 0, v_hudBaseBarFillX, v_hudBaseBarFillY + 20 * j, 8, 16, tmp_x, tmp_y + 6);		
+			if (j == 2)
+			{
+				shader_set(shdColor);		
+				shader_set_uniform_f(shader_get_uniform(shdColor, "f_ChannelMask"), 1, v_l, v_l, 1);
+				draw_sprite_part(v_hudSprite, 0, v_hudBaseBarFillX, v_hudBaseBarFillY + 20 * j, 8, 16, tmp_x, tmp_y + 6);		
+				shader_reset();
+			}
+			else
+			{
+				draw_sprite_part(v_hudSprite, 0, v_hudBaseBarFillX, v_hudBaseBarFillY + 20 * j, 8, 16, tmp_x, tmp_y + 6);					
+			}
 		}
 		else if (tmp_val1 / tmp_val2 > ((i) / v_baseBarSlots))
 		{
 			tmp_xpForOneSlot = (tmp_val2 / v_baseBarSlots);
-			tmp_ratio = clamp((tmp_val1 - (tmp_xpForOneSlot * (i))) / tmp_xpForOneSlot, 0, 1);		
-			draw_sprite_part(v_hudSprite, 0, v_hudBaseBarFillX, v_hudBaseBarFillY + 20 * j, (8 * tmp_ratio), 16, tmp_x, tmp_y + 6);		
-	
+			tmp_ratio = clamp((tmp_val1 - (tmp_xpForOneSlot * (i))) / tmp_xpForOneSlot, 0, 1);
+			
+			if (j == 2)
+			{
+				if (oHUD.v_playerProperty[e_inventoryProperties.valSp] / oHUD.v_playerProperty[e_inventoryProperties.valMaxSp] < 0.3)
+				{
+					v_l = lerp(v_l, 0.5, 0.1);
+				}
+				else {v_l = lerp(v_l, 1, 0.1);}
+				
+				shader_set(shdColor);		
+				shader_set_uniform_f(shader_get_uniform(shdColor, "f_ChannelMask"), 1, v_l, v_l, 1);
+				draw_sprite_part(v_hudSprite, 0, v_hudBaseBarFillX, v_hudBaseBarFillY + 20 * j, (8 * tmp_ratio), 16, tmp_x, tmp_y + 6);		
+				shader_reset();
+			}
+			else
+			{
+				draw_sprite_part(v_hudSprite, 0, v_hudBaseBarFillX, v_hudBaseBarFillY + 20 * j, (8 * tmp_ratio), 16, tmp_x, tmp_y + 6);					
+			}
 		}
 		tmp_x += 7;
 	}

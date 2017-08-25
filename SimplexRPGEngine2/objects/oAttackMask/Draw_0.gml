@@ -31,6 +31,9 @@ if (tmp_list != noone)
 					cpGoreBlood(tmp_list[| i].x, tmp_list[| i].y, 5, c_red, tmp_d1, tmp_d2);
 					cpSplashMessage(string(5), c_black, -1, 0, 0, tmp_list[| i].x, tmp_list[| i].y - 32);
 					
+					tmp_list[| i].v_mindState = "attack";
+					tmp_list[| i].v_attackNote = 256;
+					
 					if (tmp_list[| i].v_properties[e_inventoryProperties.valHp] <= 0)
 					{
 						with(tmp_list[| i])

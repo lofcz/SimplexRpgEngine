@@ -3,4 +3,7 @@
     "option_lastchanged": "25 August 2017 14:15:01",
     "option_game_speed": 60,
     "option_mips_for_3d_textures": true
+}←1225f6b0-ac20-43bd-a82e-be73fa0b6f4f|{
+    "mipsToGenerate": -1,
+    "border": 8
 }

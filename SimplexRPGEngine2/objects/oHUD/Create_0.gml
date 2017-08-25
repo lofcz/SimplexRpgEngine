@@ -73,6 +73,10 @@ v_realSP = 0;
 hp = 100;
 max_hp = 120;
 
+v_gold = 0;
+v_goldD = 0;
+v_l = 1;
+v_l = 1;
 for (var i = 0; i < mcInventoryProperties; i++)
 {
 	v_playerProperty[i] = 0;

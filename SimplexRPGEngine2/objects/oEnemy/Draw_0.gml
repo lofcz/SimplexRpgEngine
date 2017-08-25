@@ -122,7 +122,9 @@ if (v_dir == e_dirs.valS) {if (image_index < 0 || image_index > v_animationFrame
 		}
 	}
 }
-v_spd = 1;
+
+if (v_mindState != "attack") {v_spd = 1;}
+else {v_spd = 2;}
 
 if (v_action == "moveRight")
 {
@@ -136,7 +138,7 @@ if (v_action == "moveRight")
 		}
 		else {v_action = choose("rest", "computeTarget", "computeTarget");}}
 	v_dir = e_dirs.valD;
-	image_speed = 0.6;
+	image_speed = 0.6 + (v_spd - 1) * 0.3;
 	}
 	else
 	{
@@ -158,7 +160,7 @@ if (v_action == "moveLeft")
 			v_action = "computeTarget";
 		}
 		else {v_action = choose("rest", "computeTarget", "computeTarget");}}
-	image_speed = 0.6;
+	image_speed = 0.6 + (v_spd - 1) * 0.3;
 	v_dir = e_dirs.valA;
 	}
 	else
@@ -182,7 +184,7 @@ if (v_action == "moveUp")
 			v_action = "computeTarget";
 		}
 		else {v_action = choose("rest", "computeTarget", "computeTarget");}}
-	image_speed = 0.6;
+	image_speed = 0.6 + (v_spd - 1) * 0.3;
 	v_dir = e_dirs.valW;
 	}
 	else
@@ -206,7 +208,7 @@ if (v_action == "moveDown")
 			v_action = "computeTarget";
 		}
 		else {v_action = choose("rest", "computeTarget", "computeTarget");}}
-	image_speed = 0.6;
+	image_speed = 0.6 + (v_spd - 1) * 0.3;
 	v_dir = e_dirs.valS;
 	}
 	else

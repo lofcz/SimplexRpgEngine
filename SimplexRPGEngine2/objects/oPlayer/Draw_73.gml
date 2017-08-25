@@ -17,8 +17,7 @@ if (tmp_canMove)
 {
 	if (v_currentAnimation == e_animations.valWalk || v_currentAnimation == e_animations.valRun)
 	{
-		if (keyboard_check_direct(vk_shift)) {v_currentAnimation = e_animations.valRun; oHUD.v_playerProperty[e_inventoryProperties.valSp] -= 0.3;		oHUD.v_delaySP = oHUD.v_playerProperty[e_inventoryProperties.valSpRegenDelay];
-		oHUD.v_tickSP = -1;}
+		if (keyboard_check_direct(vk_shift)) {v_currentAnimation = e_animations.valRun; if (x != xprevious && y != yprevious) {oHUD.v_playerProperty[e_inventoryProperties.valSp] -= 0.3; oHUD.v_delaySP = oHUD.v_playerProperty[e_inventoryProperties.valSpRegenDelay]; oHUD.v_tickSP = -1;}}
 		else {v_currentAnimation = e_animations.valWalk;}
 		
 		var tmp_keyW = key_check(ord("W"));
@@ -30,8 +29,8 @@ if (tmp_canMove)
 		
 		if (tmp_keyAny)
 		{
-			v_speedReal = v_speed;
-			image_speed = 0.25 + (tmp_finalSpeed / 100);	
+			v_speedReal = v_speed * oHUD.v_l;
+			image_speed = 0.25 + (tmp_finalSpeed / 100) * oHUD.v_l;	
 			if (v_currentAnimation == e_animations.valRun) {image_speed *= 5; v_speedReal *= 2;}
 			
 			var tmp_inst, tmp_collPas, tmp_xShift, tmp_yShift, tmp_passed;
@@ -111,13 +110,21 @@ if (tmp_canMove)
 if (v_currentAnimation == e_animations.valWalk || v_currentAnimation == e_animations.valRun)
 {
 		// If we hold weapon, attack
-		if (mouse_check_button_pressed(mb_left) && !oHUD.v_mouseClickedUI)
+		var tmp_canAttack;
+		tmp_canAttack = false;
+		
+		if (oHUD.v_playerProperty[e_inventoryProperties.valSp] >= 30) {tmp_canAttack = true;}
+		
+		if (mouse_check_button_pressed(mb_left) && !oHUD.v_mouseClickedUI && tmp_canAttack)
 		{
 			if (v_bci[v_currentAnimation, 4] != 0)
 			{	
 				var tmp_sX, tmp_sY;
 				tmp_sX = x;
 				tmp_sY = y;
+				oHUD.v_playerProperty[e_inventoryProperties.valSp] -= 30;
+				oHUD.v_delaySP = oHUD.v_playerProperty[e_inventoryProperties.valSpRegenDelay]; 
+				oHUD.v_tickSP = -1;				
 				
 				v_currentAnimation = e_animations.valSlash;
 				speed = 0;
