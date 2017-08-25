@@ -78,7 +78,7 @@ for (var j = 0; j < 3; j++)
 			
 			if (j == 2)
 			{
-				if (oHUD.v_playerProperty[e_inventoryProperties.valSp] / oHUD.v_playerProperty[e_inventoryProperties.valMaxSp] < 0.3)
+				if (oHUD.v_playerProperty[e_inventoryProperties.valSp] / oHUD.v_playerProperty[e_inventoryProperties.valMaxSp] < v_fatigueSpStart)
 				{
 					v_l = lerp(v_l, 0.5, 0.1);
 				}

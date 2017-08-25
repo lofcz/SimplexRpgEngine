@@ -88,6 +88,8 @@ v_hudSprite = texUI;
 
 v_baseBarSlots = 20;
 
+v_fatigueSpStart = 0.1
+
 v_playerProperty[e_inventoryProperties.valMaxXp] = 100;
 v_playerProperty[e_inventoryProperties.valHp] = 100;
 v_playerProperty[e_inventoryProperties.valMp] = 100;

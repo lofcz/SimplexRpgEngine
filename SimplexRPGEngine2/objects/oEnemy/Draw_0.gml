@@ -32,10 +32,11 @@ if (v_action == "computeTarget")
 	else {if (v_mindState == "attack") {v_targetLastPosX = oPlayer.x; v_targetLastPosY = oPlayer.y; v_mindState = "search";} else {if (v_targetLastPosX = -1) {v_mindState = "idle";}} }
 
 	
-	if (distance_to_object(oPlayer) < 4)//distance_to_object(oPlayer) < 4
+	if (distance_to_object(oPlayer) < 4 || v_forceAttack)
 	{
 		d = point_direction(x, y, oPlayer.x, oPlayer.y);
-
+		v_forceAttack = false;
+		
 		if ((d > 0 && d < 45) || (d > 315 && d <= 360)) {v_dir = e_dirs.valD;}
 		else if (d > 90 + 45 && d <= 180 + 45) {v_dir = e_dirs.valA;}
 		else if (d >= 45 && d < 90 + 45) {v_dir = e_dirs.valW;}
@@ -89,7 +90,7 @@ if (v_dir == e_dirs.valS) {if (image_index < 0 || image_index > v_animationFrame
 		
 
 		
-		if (v_action != "rest")
+		if (v_action == "computeTarget")
 		{
 			v_path = path_add();
 			path_set_closed(v_path, false);
@@ -124,7 +125,7 @@ if (v_dir == e_dirs.valS) {if (image_index < 0 || image_index > v_animationFrame
 }
 
 if (v_mindState != "attack") {v_spd = 1;}
-else {v_spd = 2;}
+else {v_spd = 3;}
 
 if (v_action == "moveRight")
 {
@@ -145,6 +146,7 @@ if (v_action == "moveRight")
 		if (v_mindState != "idle")
 		{
 			v_action = "computeTarget";
+			v_forceAttack = true;
 		}
 		else {v_action = "rest";}
 	}
@@ -168,6 +170,7 @@ if (v_action == "moveLeft")
 		if (v_mindState != "idle")
 		{
 			v_action = "computeTarget";
+			v_forceAttack = true;			
 		}
 		else {v_action = "rest";}
 	}
@@ -192,6 +195,7 @@ if (v_action == "moveUp")
 		if (v_mindState != "idle")
 		{
 			v_action = "computeTarget";
+			v_forceAttack = true;
 		}
 		else {v_action = "rest";}
 	}	
@@ -216,6 +220,7 @@ if (v_action == "moveDown")
 		if (v_mindState != "idle")
 		{
 			v_action = "computeTarget";
+			v_forceAttack = true;
 		}
 		else {v_action = "rest";}
 	}	

@@ -62,6 +62,7 @@ if (tmp_list != noone)
 							
 								event_user(0);
 								v_alive = false;
+								cpGoreBlood(tmp_list[| i].x, tmp_list[| i].y, 20, c_red, 0, 360);
 							}
 																	
 						}	

@@ -21,6 +21,7 @@ v_action = "rest";
 v_timer = 0;
 v_attackArea = [x - 256, y - 256, x + 256, y + 256];
 v_attackNote = 64;
+v_forceAttack = false;
 
 
 v_enemyType = choose("goblin");
