@@ -40,6 +40,8 @@ tmp_freeSlot = cpInventoryHelperFindFreeSlot();
 				}*/
 				if (!tmp_switchDone && tmp_itemsSwitched == 0)
 				{
+					//cpInventoryHelperSwitch(id, id, tmp_equipSlot, tmp_freeSlot, "E2I");
+					
 					var tmp_atrb, tmp_prop, tmp_req, tmp_anim;
 					for (var k = 0; k <= mcInvenotryAtributes; k++)
 					{

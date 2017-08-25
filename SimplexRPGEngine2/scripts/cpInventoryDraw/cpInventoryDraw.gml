@@ -306,8 +306,6 @@ if (v_formAlpha > 0.05)
 	fnt();
 	alg();
 	
-// here was shit
-
 	// Check for item release
 	if (v_slotBeingDragged != -1)
 	{
@@ -352,47 +350,7 @@ if (v_formAlpha > 0.05)
 			
 				if (!tmp_switchDone && tmp_itemsSwitched == 0)
 				{
-					var tmp_atrb, tmp_prop, tmp_req, tmp_opt;
-					
-					for (var k = 0; k <= mcInvenotryAtributes; k++)
-					{
-						tmp_atrb[k] = v_slot[v_slotBeingDragged, k];			
-					}
-				
-					for (var k = 0; k < mcInventoryProperties; k++)
-					{
-						tmp_prop[k] = v_slotProperty[v_slotBeingDragged, k];	
-						tmp_req[k] = v_slotReq[v_slotBeingDragged, k];
-					}
-					
-					for (var k = 0; k < 16; k++)
-					{
-						tmp_opt[k] = v_itemOptions[v_slotBeingDragged, k];
-					}
-				
-					for (var k = 0; k <= mcInvenotryAtributes; k++)
-					{
-						v_slot[v_slotBeingDragged, k] = v_slot[tmp_lastHover, k];					
-						v_slot[tmp_lastHover, k] = tmp_atrb[k];
-					}
-			
-					for (var k = 0; k < mcInventoryProperties; k++)
-					{
-						v_slotProperty[v_slotBeingDragged, k] = v_slotProperty[tmp_lastHover, k];
-						v_slotProperty[tmp_lastHover, k] = tmp_prop[k];
-					
-						v_slotReq[v_slotBeingDragged, k] = v_slotReq[tmp_lastHover, k];
-						v_slotReq[tmp_lastHover, k] = tmp_req[k];				
-					}
-
-					for (var k = 0; k < 16; k++)
-					{
-						//show_message(v_itemOptions[tmp_lastHover, k]);
-						//show_message(string(tmp_lastHover)+","+string(v_slotBeingDragged));
-						v_itemOptions[v_slotBeingDragged, k] = v_itemOptions[tmp_lastHover, k];
-						v_itemOptions[tmp_lastHover, k] = tmp_opt[k];
-						//show_message(v_itemOptions[v_slotBeingDragged, k]);
-					}					
+					cpInventoryHelperSwitch(id, id, v_slotBeingDragged, tmp_lastHover);
 				}	
 			}
 		
@@ -434,43 +392,7 @@ if (v_formAlpha > 0.05)
 			
 				if (!tmp_switchDone && tmp_itemsSwitched == 0)
 				{
-					var tmp_atrb, tmp_prop, tmp_req, tmp_anim;
-					for (var k = 0; k <= mcInvenotryAtributes; k++)
-					{
-						tmp_atrb[k] = v_slot[v_slotBeingDragged, k];			
-					}
-				
-					for (var k = 0; k < mcInventoryProperties; k++)
-					{
-						tmp_prop[k] = v_slotProperty[v_slotBeingDragged, k];	
-						tmp_req[k] = v_slotReq[v_slotBeingDragged, k];
-					}
-				
-					for (var k = 0; k < mcAnimations; k++)
-					{
-						tmp_anim[k] = v_slotAnimations[v_slotBeingDragged, k];	
-					}				
-				
-					for (var k = 0; k <= mcInvenotryAtributes; k++)
-					{
-						v_slot[v_slotBeingDragged, k] = v_containerID.v_slot[v_containerID.tmp_lastHover, k];					
-						v_containerID.v_slot[v_containerID.tmp_lastHover, k] = tmp_atrb[k];
-					}
-			
-					for (var k = 0; k < mcInventoryProperties; k++)
-					{
-						v_slotProperty[v_slotBeingDragged, k] = v_containerID.v_slotProperty[v_containerID.tmp_lastHover, k];
-						v_containerID.v_slotProperty[v_containerID.tmp_lastHover, k] = tmp_prop[k];
-					
-						v_slotReq[v_slotBeingDragged, k] = v_containerID.v_slotReq[v_containerID.tmp_lastHover, k];
-						v_containerID.v_slotReq[v_containerID.tmp_lastHover, k] = tmp_req[k];					
-					}
-				
-					for (var k = 0; k < mcAnimations; k++)
-					{
-						v_slotAnimations[v_slotBeingDragged, k] = v_containerID.v_slotAnimations[v_containerID.tmp_lastHover, k];					
-						v_containerID.v_slotAnimations[v_containerID.tmp_lastHover, k] = tmp_anim[k];
-					}				
+					cpInventoryHelperSwitch(id, v_containerID, v_slotBeingDragged, v_containerID.tmp_lastHover);
 				}	
 			}
 		
@@ -527,7 +449,7 @@ if (v_formAlpha > 0.05)
 
 		if (point_in_rectangle(mouse_x, mouse_y, tmp_drawX + (24 + tmp_buttonOffsetX) * i, tmp_drawY, tmp_drawX + (23 + tmp_buttonOffsetX) * (i + 1), tmp_drawY + 24))
 		{
-			if (mouse_check_button_pressed(mb_left) && ! oHUD.v_mouseClickedUI)
+			if (mouse_check_button_pressed(mb_left) && v_menuItem == -1)
 			{
 				v_filterButtons[i, 0] = !v_filterButtons[i, 0];
 				oHUD.v_mouseClickedUI = true;

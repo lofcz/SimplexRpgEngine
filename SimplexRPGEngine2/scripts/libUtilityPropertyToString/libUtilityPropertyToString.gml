@@ -46,7 +46,13 @@ switch(tmp_index)
 		tmp_output = "Swiftness";
 		break;
 	}	
-	
+
+	case e_inventoryProperties.valMaxHp:
+	{
+		tmp_output = "Health";
+		break;
+	}	
+		
 	case e_inventoryProperties.valLevel:
 	{
 		tmp_output = "Level";

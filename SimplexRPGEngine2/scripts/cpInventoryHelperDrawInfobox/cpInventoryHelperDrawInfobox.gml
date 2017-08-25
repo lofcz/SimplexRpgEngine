@@ -2,7 +2,7 @@
 /// @desc Draws standard infobox
 /// @arg {object} containerID ID of owner
 
-var tmp_id, tmp_slotID, tmp_hoverAlpha, tmp_hoverID, tmp_propertyArray, tmp_reqArray;
+var tmp_id, tmp_slotID, tmp_hoverAlpha, tmp_hoverID, tmp_propertyArray, tmp_reqArray, tmp_propertyStaticArray;
 tmp_id = oInventory;
 
 if (argument_count > 0) {tmp_id = argument[0];}
@@ -12,12 +12,14 @@ tmp_hoverAlpha = tmp_id.v_hoverAlpha;
 tmp_hoverID = tmp_id.v_lastHover;
 tmp_propertyArray = tmp_id.v_slotProperty;
 tmp_reqArray = tmp_id.v_slotReq;
+tmp_propertyStaticArray = tmp_id.v_slotPropertyStatic;
 
 if (argument_count > 1) {tmp_slotID = argument[1];}
 if (argument_count > 2) {tmp_hoverAlpha = argument[2];}
 if (argument_count > 3) {tmp_hoverID = argument[3];}
 if (argument_count > 4) {tmp_propertyArray = argument[4];}
 if (argument_count > 5) {tmp_reqArray = argument[5];}
+if (argument_count > 6) {tmp_propertyStaticArray = argument[6];}
 
 if (tmp_hoverAlpha > 0.05)
 {
@@ -110,13 +112,22 @@ if (tmp_hoverAlpha > 0.05)
 	// First we set up properties string
 	for (var i = 0; i < mcInventoryProperties; i++)
 	{
-		if (tmp_propertyArray[tmp_hoverID, i] > 0)
+		var tmp_staticVal, tmp_val, tmp_string1, tmp_string2;
+		tmp_staticVal = tmp_propertyStaticArray[tmp_hoverID, i];
+		tmp_val = tmp_propertyArray[tmp_hoverID, i];
+		tmp_string1 = "";
+		tmp_string2 = "";
+		
+		if (tmp_val > 0 || tmp_staticVal > 0)
 		{
 			tmp_array = libUtilityPropertyToString(i);
 			
 			if (tmp_array[1] == 0)
 			{
-				tmp_string += " " + tmp_array[0] + ": " + string(tmp_propertyArray[tmp_hoverID, i]) + "#";
+				if (tmp_val > 0) {tmp_string1 += string(tmp_val); if (tmp_staticVal > 0) {tmp_string1 += " + " + _sc(string(tmp_staticVal), c_lime);}}
+				else {tmp_string1 += _sc(string(tmp_staticVal), c_lime);}
+				
+				tmp_string += " " + tmp_array[0] + ": " + tmp_string1 + "#";
 			}			
 		} 
 	}
@@ -135,11 +146,11 @@ if (tmp_hoverAlpha > 0.05)
 			
 			if (tmp_color == c_red)
 			{	
-				tmp_string += _sc(tmp_array[0] + " required: " + string(tmp_reqArray[tmp_hoverID, i]) + " (now: " + string(oHUD.v_playerProperty[i]) + ")", tmp_color) + "#";		
+				tmp_string += " " + _sc(tmp_array[0] + " required: " + string(tmp_reqArray[tmp_hoverID, i]) + " (now: " + string(oHUD.v_playerProperty[i]) + ")", tmp_color) + "#";		
 			}
 			else
 			{
-				tmp_string += _sc(tmp_array[0] + " required: " + string(tmp_reqArray[tmp_hoverID, i]), tmp_color) + "#";		
+				tmp_string += " " + _sc(tmp_array[0] + " required: " + string(tmp_reqArray[tmp_hoverID, i]), tmp_color) + "#";		
 			}
 		} 
 	}	

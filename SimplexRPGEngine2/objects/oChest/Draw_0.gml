@@ -240,32 +240,7 @@ if (v_actionAlpha > 0.05)
 			
 					if (!tmp_switchDone && tmp_itemsSwitched == 0)
 					{
-						var tmp_atrb, tmp_prop, tmp_req;
-						for (var k = 0; k <= mcInvenotryAtributes; k++)
-						{
-							tmp_atrb[k] = v_slot[v_slotBeingDragged, k];			
-						}
-				
-						for (var k = 0; k < mcInventoryProperties; k++)
-						{
-							tmp_prop[k] = v_slotProperty[v_slotBeingDragged, k];	
-							tmp_req[k] = v_slotReq[v_slotBeingDragged, k];
-						}
-				
-						for (var k = 0; k <= mcInvenotryAtributes; k++)
-						{
-							v_slot[v_slotBeingDragged, k] = v_slot[tmp_lastHover, k];					
-							v_slot[tmp_lastHover, k] = tmp_atrb[k];
-						}
-			
-						for (var k = 0; k < mcInventoryProperties; k++)
-						{
-							v_slotProperty[v_slotBeingDragged, k] = v_slotProperty[tmp_lastHover, k];
-							v_slotProperty[tmp_lastHover, k] = tmp_prop[k];
-					
-							v_slotReq[v_slotBeingDragged, k] = v_slotReq[tmp_lastHover, k];
-							v_slotReq[tmp_lastHover, k] = tmp_req[k];					
-						}
+						cpInventoryHelperSwitch(id, id, v_slotBeingDragged, tmp_lastHover);
 					}	
 				}
 				
@@ -305,32 +280,7 @@ if (v_actionAlpha > 0.05)
 			
 					if (!tmp_switchDone && tmp_itemsSwitched == 0)
 					{
-						var tmp_atrb, tmp_prop, tmp_req;
-						for (var k = 0; k <= mcInvenotryAtributes; k++)
-						{
-							tmp_atrb[k] = v_slot[v_slotBeingDragged, k];			
-						}
-				
-						for (var k = 0; k < mcInventoryProperties; k++)
-						{
-							tmp_prop[k] = v_slotProperty[v_slotBeingDragged, k];	
-							tmp_req[k] = v_slotReq[v_slotBeingDragged, k];
-						}
-				
-						for (var k = 0; k <= mcInvenotryAtributes; k++)
-						{
-							v_slot[v_slotBeingDragged, k] = oInventory.v_slot[oInventory.tmp_lastHover, k];					
-							oInventory.v_slot[oInventory.tmp_lastHover, k] = tmp_atrb[k];
-						}
-			
-						for (var k = 0; k < mcInventoryProperties; k++)
-						{
-							v_slotProperty[v_slotBeingDragged, k] = oInventory.v_slotProperty[oInventory.tmp_lastHover, k];
-							oInventory.v_slotProperty[oInventory.tmp_lastHover, k] = tmp_prop[k];
-					
-							v_slotReq[v_slotBeingDragged, k] = oInventory.v_slotReq[oInventory.tmp_lastHover, k];
-							oInventory.v_slotReq[oInventory.tmp_lastHover, k] = tmp_req[k];					
-						}
+						cpInventoryHelperSwitch(id, oInventory.id, v_slotBeingDragged, oInventory.tmp_lastHover);
 					}	
 				}
 				

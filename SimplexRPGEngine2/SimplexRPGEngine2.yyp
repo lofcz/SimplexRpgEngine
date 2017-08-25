@@ -1119,6 +1119,14 @@
             }
         },
         {
+            "Key": "45598008-f792-4e95-be7a-cd473470c7e5",
+            "Value": {
+                "id": "82a4c502-8777-4dc3-b5ea-5433acf20369",
+                "resourcePath": "scripts\\cpInventoryHelperSwitch\\cpInventoryHelperSwitch.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "45cbe420-d1b4-4f26-8963-afdd6c9f1edf",
             "Value": {
                 "id": "d3d48f0f-d0c3-4625-951d-3580dc2888a1",
@@ -3925,6 +3933,7 @@
         "305c1a86-731e-40b1-9b89-0dc366af9724",
         "f0a441ad-d15c-4f51-b48b-177fee0236ee",
         "401edd6c-8985-4a18-8c5e-c324d4d0a30a",
+        "45598008-f792-4e95-be7a-cd473470c7e5",
         "2818c652-4cb2-4b5f-b7e8-d0a4348d2284",
         "48e653e1-e490-45d5-9e90-179dd6f172b1",
         "34857dbb-0e86-4058-af77-8fc898cd7d95",

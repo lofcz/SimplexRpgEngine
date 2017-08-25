@@ -262,6 +262,7 @@ for (var i = 0; i <= v_slots; i++)
 	{
 		v_slotProperty[i, j] = 0;
 		v_slotReq[i, j] = 0;
+		v_slotPropertyStatic[i, j] = 0;
 	}
 	
 	for (var j = 0; j < mcAnimations; j++)

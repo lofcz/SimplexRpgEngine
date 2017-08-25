@@ -15,6 +15,7 @@ for (var i = 0; i < mcInvenotryAtributes; i++)
 for (var i = 0; i < mcInventoryProperties; i++)
 {
 	v_itemProperty[i] = 0;
+	v_itemPropertyStatic[i] = 0;
 	v_itemReq[i] = 0;
 }
 
@@ -37,6 +38,9 @@ v_itemAtributes[e_inventoryAtributes.valEquipSlot] = e_equipmentSlots.valWeaponR
 
 v_itemProperty[e_inventoryProperties.valDamage] = 4;
 v_itemProperty[e_inventoryProperties.valEndurance] = 2;
+
+v_itemPropertyStatic[e_inventoryProperties.valDamage] = 2;
+v_itemPropertyStatic[e_inventoryProperties.valMaxHp] = 30;
 
 v_itemAnimation[e_animations.valWalk] = sBodyCanvasWeapon1;
 v_itemAnimation[e_animations.valSlash] = sBodyCanvasAttackWeapon1;

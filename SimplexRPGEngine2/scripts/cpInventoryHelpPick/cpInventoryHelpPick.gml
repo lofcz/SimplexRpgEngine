@@ -62,6 +62,7 @@ repeat(tmp_item.v_itemAtributes[e_inventoryAtributes.valItemNumber])
 		{
 			tmp_id.v_slotProperty[tmp_freeSlot, i] = tmp_item.v_itemProperty[i];
 			tmp_id.v_slotReq[tmp_freeSlot, i] = tmp_item.v_itemReq[i];
+			tmp_id.v_slotPropertyStatic[tmp_freeSlot, i] = tmp_item.v_itemPropertyStatic[i];
 		}
 
 		for (var i = 0; i < mcAnimations; i++)
