@@ -163,9 +163,9 @@ enum e_items
 
 
 
-v_slots         = 25;
+v_slots         = 75;
 v_slotsPerRow   = 5;
-v_slotsPerPage  = 40;
+v_slotsPerPage  = 25;
 v_currentPage   = 0;
 v_drag          = false;
 v_drawSelf      = true;

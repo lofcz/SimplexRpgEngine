@@ -113,5 +113,10 @@ else if (tmp_text == "Preview")
 	if (oHUD.v_lang == "cz") {return "Náhled";}
 	else {return tmp_text;}
 }
+else if (tmp_text == "Page")
+{
+	if (oHUD.v_lang == "cz") {return "Strana";}
+	else {return tmp_text;}
+}
 
 return "";

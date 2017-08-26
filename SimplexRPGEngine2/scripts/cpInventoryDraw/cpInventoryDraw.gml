@@ -129,7 +129,7 @@ if (v_formAlpha > 0.05)
 	tmp_drawY = v_drawStartY + (v_slotSize) + 16;
 	tmp_slotsRenderedNow = 0;
 
-	for (var i = 0; i < min(v_slots, v_slotsPerPage); i++)
+	for (var i = v_currentPage * v_slotsPerPage; i < min(v_slots, v_slotsPerPage * (v_currentPage + 1)); i++)
 	{	
 		// Draw slots
 		//	- need to keep track of current row
@@ -283,6 +283,40 @@ if (v_formAlpha > 0.05)
 	clr(-1, v_formAlpha);
 	draw_text((tmp_maxX / 2) + v_drawStartX + v_slotSize, v_drawStartY + 16, __("Inventory"));
 	fnt();
+	alg();
+	
+	// Draw pagination
+	alg("center");
+	fnt(fntPixelSmall);
+	clr(-1, v_formAlpha);
+	v_pages = ceil(v_slots / v_slotsPerPage);
+	draw_text((tmp_maxX / 2) + v_drawStartX + v_slotSize, v_drawStartY + 36, __("Page") + " " + string(v_currentPage + 1) + " / " + string(v_pages));
+	
+	var tmp_color1, tmp_color2;
+	tmp_color1 = c_black;
+	tmp_color2 = c_black;
+	
+	if (v_currentPage > 0) {tmp_color1 = c_white;}
+	if (v_currentPage + 1 < v_pages) {tmp_color2 = c_white;}
+	
+	draw_sprite_part_ext(v_inventorySprite, 0, 117, 143, 8, 10, (tmp_maxX / 2) + v_drawStartX + v_slotSize - string_width(__("Page") + " " + string(v_currentPage + 1) + " / " + string(v_pages)) / 2 - 12, v_drawStartY + 31, 1, 1, tmp_color1, v_formAlpha);
+	draw_sprite_part_ext(v_inventorySprite, 0, 134, 143, 8, 10, (tmp_maxX / 2) + v_drawStartX + v_slotSize + string_width(__("Page") + " " + string(v_currentPage + 1) + " / " + string(v_pages)) / 2 + 2, v_drawStartY + 31, 1, 1, tmp_color2, v_formAlpha);
+	
+	if (point_in_rectangle(mouse_x, mouse_y, (tmp_maxX / 2) + v_drawStartX + v_slotSize - string_width(__("Page") + " " + string(v_currentPage + 1) + " / " + string(v_pages)) / 2 - 12, v_drawStartY + 31, (tmp_maxX / 2) + v_drawStartX + v_slotSize - string_width(__("Page") + " " + string(v_currentPage + 1) + " / " + string(v_pages)) / 2 - 12 + 12, v_drawStartY + 31 + 12))
+	{
+		if (mouse_check_button_pressed(mb_left))
+		{
+			if (v_currentPage > 0) {v_currentPage--;}
+		}
+	}
+	
+	if (point_in_rectangle(mouse_x, mouse_y, (tmp_maxX / 2) + v_drawStartX + v_slotSize + string_width(__("Page") + " " + string(v_currentPage + 1) + " / " + string(v_pages)) / 2 + 2, v_drawStartY + 31, (tmp_maxX / 2) + v_drawStartX + v_slotSize + string_width(__("Page") + " " + string(v_currentPage + 1) + " / " + string(v_pages)) / 2 + 2 + 12, v_drawStartY + 31 + 12))
+	{
+		if (mouse_check_button_pressed(mb_left))
+		{
+			if (v_currentPage + 1 < v_pages) {v_currentPage++;}
+		}
+	}	
 	alg();
 	
 	// Check for item release
