@@ -39,6 +39,7 @@ v_itemAtributes[e_inventoryAtributes.valInfoTextBody] = "Simple weapon for scrip
 v_itemAtributes[e_inventoryAtributes.valPriceBase] = 20;
 v_itemAtributes[e_inventoryAtributes.valWeight] = 2;
 v_itemAtributes[e_inventoryAtributes.valEquipSlot] = e_equipmentSlots.valWeaponRight;
+v_itemAtributes[e_inventoryAtributes.valIdentified] = choose(true, false);
 
 v_itemProperty[e_inventoryProperties.valDamage] = 4;
 v_itemProperty[e_inventoryProperties.valEndurance] = 2;

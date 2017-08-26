@@ -118,5 +118,14 @@ else if (tmp_text == "Page")
 	if (oHUD.v_lang == "cz") {return "Strana";}
 	else {return tmp_text;}
 }
-
+else if (tmp_text == "Weight")
+{
+	if (oHUD.v_lang == "cz") {return "Váha";}
+	else {return tmp_text;}
+}
+else if (tmp_text == "Gold")
+{
+	if (oHUD.v_lang == "cz") {return "Zlato";}
+	else {return tmp_text;}
+}
 return "";

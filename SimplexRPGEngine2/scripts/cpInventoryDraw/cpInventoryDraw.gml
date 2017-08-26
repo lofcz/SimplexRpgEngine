@@ -200,17 +200,29 @@ if (v_formAlpha > 0.05)
 		// Draw item
 		if (v_slot[i, e_inventoryAtributes.valID] != 0 && v_slotBeingDragged != i)
 		{
-	
 			// Apply shader if needed
+			var tmp_alpha;
+			tmp_alpha = v_formAlpha;
+			
+			if (!v_slot[i, e_inventoryAtributes.valIdentified])
+			{
+				tmp_alpha /= 3;
+			}
+			
 			if (v_slot[i, e_inventoryAtributes.valLerpColor] != 0)
 			{
 				shader_set(shdLerp);
 				var tmp_uID = shader_get_uniform(shdLerp, "f_Colour1");
 				shader_set_uniform_f(tmp_uID, color_get_red(v_slot[i, e_inventoryAtributes.valLerpColor]) / 255, color_get_green(v_slot[i, e_inventoryAtributes.valLerpColor]) / 255, color_get_blue(v_slot[i, e_inventoryAtributes.valLerpColor]) / 255, v_actualLerp);
 			}
-			draw_sprite_ext(v_slot[i, e_inventoryAtributes.valSprite], v_slot[i, e_inventoryAtributes.valImageIndex] + 2, tmp_drawX + (v_slotSize / 2) + (tmp_realSlotArea - v_slotSize) / 2, tmp_drawY + (v_slotSize / 2) + (tmp_realSlotArea - v_slotSize) / 2, 1, 1, 0, c_white, v_formAlpha);	
+			draw_sprite_ext(v_slot[i, e_inventoryAtributes.valSprite], v_slot[i, e_inventoryAtributes.valImageIndex] + 2, tmp_drawX + (v_slotSize / 2) + (tmp_realSlotArea - v_slotSize) / 2, tmp_drawY + (v_slotSize / 2) + (tmp_realSlotArea - v_slotSize) / 2, 1, 1, 0, c_white, tmp_alpha);	
 			shader_reset();
 			
+			// If unidentified
+			if (!v_slot[i, e_inventoryAtributes.valIdentified])
+			{
+				draw_sprite_part(v_inventorySprite, 0, 237, 517, 36, 36, tmp_drawX + 2, tmp_drawY + 2);
+			}			
 			// Draw star / trash icon
 			if (v_slot[i, e_inventoryAtributes.valLabel] == 1)
 			{
@@ -485,8 +497,8 @@ if (v_formAlpha > 0.05)
 	tmp_weight = cpInventoryHelperGetTotalAtr();
 
 	fnt(fntPixelSmall);
-	if (tmp_weight > 0) {draw_text(tmp_drawX + 3 * 24 + 4, tmp_drawY + 16, "Weight: " + string(tmp_weight));}
-	draw_text(tmp_drawX + 3 * 24 + 4, tmp_drawY, "Gold: " + string(oHUD.v_goldD));		
+	if (tmp_weight > 0) {draw_text(tmp_drawX + 3 * 24 + 4, tmp_drawY + 16, __("Weight") + ": " + string(tmp_weight));}
+	draw_text(tmp_drawX + 3 * 24 + 4, tmp_drawY, __("Gold") + ": " + string(oHUD.v_goldD));		
 
 	// Compute hover alpha
 	// v_hoverAlphaFF (flicker fix) is used to eliminate flickering when changing focus
