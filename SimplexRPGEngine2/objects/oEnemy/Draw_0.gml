@@ -66,9 +66,21 @@ if (v_dir == e_dirs.valS) {if (image_index < 0 || image_index > v_animationFrame
 		
 		if (v_mindState == "idle")
 		{
-			if (choose(1, 2) == 1) {tmp_targetX = choose(x + 32, x - 32); tmp_targetY = y;}
-			else {tmp_targetY = choose(y - 64, y + 64); tmp_targetX = x;}
-
+			var tmp_options;
+			tmp_options = "";
+			
+			if (!place_meeting(x + 32, y, parSolid)) {tmp_options += "d";}
+			if (!place_meeting(x - 32, y, parSolid)) {tmp_options += "a";}
+			if (!place_meeting(x, y - 32, parSolid)) {tmp_options += "w";}
+			if (!place_meeting(x, y + 32, parSolid)) {tmp_options += "s";}
+			
+			var tmp_choosenDir;
+			tmp_choosenDir = string_copy(tmp_options, irandom_range(1, string_length(tmp_options)), 1);
+			
+			if (tmp_choosenDir == "d") {tmp_targetX = x + 32; tmp_targetY = y;}
+			if (tmp_choosenDir == "a") {tmp_targetX = x - 32; tmp_targetY = y;}
+			if (tmp_choosenDir == "w") {tmp_targetX = x; tmp_targetY = y - 32;}
+			if (tmp_choosenDir == "s") {tmp_targetX = y; tmp_targetY = y + 32;}
 		}
 		else if (v_mindState == "attack")
 		{

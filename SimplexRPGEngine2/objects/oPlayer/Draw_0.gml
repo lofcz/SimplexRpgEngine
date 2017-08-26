@@ -30,6 +30,6 @@ v_collisionLegs = [x - 16, y + 16, x + 16, y + 32];
 
 event_inherited();
 
-var tmp_point = collision_line_point(x, y, mouse_x, mouse_y, parSolid, false, true);
-draw_line(x, y, mouse_x, mouse_y);
-draw_line_width(x, y, tmp_point[1], tmp_point[2], 3);
+//var tmp_point = collision_line_point(x, y, mouse_x, mouse_y, parSolid, false, true);
+//draw_line(x, y, mouse_x, mouse_y);
+//draw_line_width(x, y, tmp_point[1], tmp_point[2], 3);

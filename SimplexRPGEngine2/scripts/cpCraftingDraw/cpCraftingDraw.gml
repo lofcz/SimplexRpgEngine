@@ -187,10 +187,10 @@ if ((v_selectedLastForm == 0 || v_selectedLastForm == 2 || v_selectedLastForm ==
 		{
 			for (var j = 0; j < ds_list_size(g_itemsList); j++)
 			{
-				if (string_count(string_lower(v_searchText), string_lower(v_recieptItem[g_itemsList[| j], 0])) && !ds_list_contains(tmp_list, g_itemsList[| j]))
+				if ((string_count(string_lower(v_searchText), string_lower(v_recieptItem[g_itemsList[| j], 0])) || v_searchText == "") && !ds_list_contains(tmp_list, g_itemsList[| j]))
 				{
 					// Selected right index to draw
-					if (v_recieptItem[g_itemsList[| i], 6] == v_currentFormType)
+					if (v_recieptItem[g_itemsList[| j], 6] == v_currentFormType)
 					{
 						tmp_recieptID = g_itemsList[| j];
 						ds_list_add(tmp_list, tmp_recieptID);
@@ -316,7 +316,7 @@ if ((v_selectedLastForm == 0 || v_selectedLastForm == 2 || v_selectedLastForm ==
 	{
 		clr(-1, min(v_subformAlpha, tmp_alpha, v_searchTipAlpha));
 		alg("center");
-		draw_sprite_part(v_inventorySprite, 0, 98, 106, 12, 12, tmp_sx + 115 - 12 - string_width(__("Search")) / 2, tmp_sy - 20);
+		draw_sprite_part(v_inventorySprite, 0, 100, 126, 12, 12, tmp_sx + 115 - 12 - string_width(__("Search")) / 2, tmp_sy - 20);
 		draw_text(tmp_sx + 115  + 6, tmp_sy - 14, __("Search"));
 		alg();
 	}
@@ -358,8 +358,9 @@ if (v_craftAlpha > 0.05)
 			tmp_dy = 329;			
 		}
 	
-		draw_sprite_part(v_inventorySprite, 0, tmp_dx, tmp_dy, 40, 40, tmp_lx, tmp_ly);
-		
+		draw_sprite_part(v_inventorySprite, 0, tmp_dx, tmp_dy, 40, 40, tmp_lx, tmp_ly);	
+		if (v_recieptItemSlot[v_craftItemSelected, (6 * i)] != e_items.valNONE && v_recieptItemSlot[v_craftItemSelected, (6 * i) + 5] == -1) {shader_set(shdGreyscale); draw_sprite(sItems, v_recieptItemSlot[v_craftItemSelected, (6 * i)] - 2, tmp_lx + 20, tmp_ly + 20); shader_reset();}
+	
 		if (v_slotBeingDragged != -1 && v_recieptItemSlot[v_craftItemSelected, (6 * i) + 5] == -1)
 		{
 			if (v_slot[v_slotBeingDragged, e_inventoryAtributes.valID] == v_recieptItemSlot[v_craftItemSelected, (6 * i)])

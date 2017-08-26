@@ -16,7 +16,7 @@ if (argument_count > 2) {tmp_id = argument[2];}
 
 repeat(tmp_number)
 {
-	var inst = instance_create_depth(oPlayer.x, oPlayer.y, -100, tmp_item);
+	var inst = instance_create_depth(-1, -1, -100, tmp_item);
 	tmp_finalSlot = cpInventoryHelpPick(inst, tmp_id);
 }
 

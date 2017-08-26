@@ -1,5 +1,9 @@
 /// @desc [Simplex description line]
 
+event_inherited();
+
+
+
 for (var i = 0; i < mcInvenotryAtributes; i++)
 {
 	if (!cpInventoryHelpIsStringAtr(i))
@@ -42,8 +46,8 @@ v_itemProperty[e_inventoryProperties.valEndurance] = 2;
 v_itemPropertyStatic[e_inventoryProperties.valDamage] = 2;
 v_itemPropertyStatic[e_inventoryProperties.valMaxHp] = 30;
 
-v_itemAnimation[e_animations.valWalk] = sBodyCanvasWeapon1;
-v_itemAnimation[e_animations.valSlash] = sBodyCanvasAttackWeapon1;
+v_itemAnimation[e_animations.valWalk] = sBodyCanvasWeapon5;
+v_itemAnimation[e_animations.valSlash] = sBodyCanvasAttackWeapon3;
 
 v_itemReq[e_inventoryProperties.valLevel] = 2;
 
@@ -71,3 +75,9 @@ if (!variable_instance_exists(id, "v_staticItem"))
 	v_itemAtributes[e_inventoryAtributes.valInfoTextHead] = choose("Mighty", "Sexy", "Douchebag") + " wooden sword";
 	v_itemAtributes[e_inventoryAtributes.valLerpColor] = choose(c_lime, c_red, c_white, c_yellow);
 }
+
+sprite_index = v_itemAtributes[e_inventoryAtributes.valSprite];
+image_index = v_itemAtributes[e_inventoryAtributes.valID] - 2;
+image_speed = 0;
+v_lerpMode = 0;
+v_actualLerp = 0;

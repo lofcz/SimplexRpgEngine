@@ -28,7 +28,7 @@ if (tmp_hoverAlpha > 0.05)
 	tmp_infoboxW = oInventory.v_layoutSlotsX;
 	tmp_infoboxH = 4;
 	tmp_drawX = oInventory.v_formEndX;
-	tmp_drawY = oInventory.v_formEndY;
+	tmp_drawY = oInventory.v_formEndY - 12;
 	tmp_alpha = min(v_formAlpha, tmp_hoverAlpha);
 	tmp_layoutSlotsX = tmp_infoboxW;
 
@@ -74,7 +74,7 @@ if (tmp_hoverAlpha > 0.05)
 
 	// Draw info about item
 	tmp_drawX = (oInventory.v_layoutEndX - oInventory.v_drawStartX) / 2 + oInventory.v_drawStartX;
-	tmp_drawY = oInventory.v_formEndY + 16;
+	tmp_drawY = oInventory.v_formEndY + 4;
 	
 	fnt(fntPixelSmall);
 	alg("center");

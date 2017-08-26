@@ -1,10 +1,11 @@
-/// @function draw_text_colored(x, y, text, w, font)
+/// @function draw_text_colored(x, y, text, w, font, baseColor)
 /// @desc Draws text using bbcode flags: _sc(color, string), _sb(string) [bold], _si(string) [italic], _sp(sprite, image, text)
 /// @arg {int} x X
 /// @arg {int} y Y
 /// @arg {string} text Text to be drawn
 /// @arg {int} w Max line width, simulating gm draw_ext format
 /// @arg {font} font Font to use
+/// @arg {color} baseColor Base color
 
 var tmp_input, tmp_sequenceState, tmp_currentColor, tmp_x, tmp_y, tmp_flagString, tmp_baseColor, tmp_startX, tmp_startY, tmp_flagActiveBold, tmp_boldDifY, tmp_flagActiveItalic, tmp_w, tmp_cW, tmp_font;
 tmp_baseColor = c_white;
@@ -25,6 +26,7 @@ if (argument_count > 1) {tmp_y = argument[1];}
 if (argument_count > 2) {tmp_input = argument[2];}
 if (argument_count > 3) {tmp_w = argument[3];}
 if (argument_count > 4) {tmp_font = argument[4];}
+if (argument_count > 5) {tmp_currentColor = argument[5]; tmp_baseColor = tmp_currentColor;}
 
 tmp_startX = tmp_x;
 tmp_startY = tmp_y;

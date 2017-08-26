@@ -4,7 +4,16 @@
     "mvc": "1.0",
     "name": "parSolid",
     "eventList": [
-        
+        {
+            "id": "4fd11688-a9d0-403f-ac56-3e9d542d28f5",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
+            "m_owner": "9794fae9-8872-4a46-849f-0b0ef52a28b2"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "parentObjectId": "906ea9f6-8f71-4b4d-aa49-27e3a2158930",

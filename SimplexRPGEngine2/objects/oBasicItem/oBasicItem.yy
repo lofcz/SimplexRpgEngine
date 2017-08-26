@@ -4,19 +4,10 @@
     "mvc": "1.0",
     "name": "oBasicItem",
     "eventList": [
-        {
-            "id": "dd31b082-7840-46ac-aa88-c7a64fafae71",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "e858e928-365b-4109-8633-b73c64135b59",
-            "enumb": 0,
-            "eventtype": 4,
-            "m_owner": "01f08253-9180-431c-aecf-01c2f69d2916"
-        }
+        
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
-    "parentObjectId": "00000000-0000-0000-0000-000000000000",
+    "parentObjectId": "e439cab0-e082-4c4f-a81b-ec8f530e5d6c",
     "persistent": false,
     "physicsAngularDamping": 0.1,
     "physicsDensity": 0.5,

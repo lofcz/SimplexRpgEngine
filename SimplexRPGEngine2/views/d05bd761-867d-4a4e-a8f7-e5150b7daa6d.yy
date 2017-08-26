@@ -8,7 +8,8 @@
         "b9a51494-ac8b-46dc-aea2-539e18f48c10",
         "c4fa46a4-0d0f-433b-b133-4c36ebdd2018",
         "913815e4-2fd7-4c07-b66d-caa9eba15dda",
-        "6940fd4e-8a89-4dd3-9714-1ed9c5cf315a"
+        "6940fd4e-8a89-4dd3-9714-1ed9c5cf315a",
+        "71a8de2b-7f97-4e80-b549-8e533267abfe"
     ],
     "filterType": "GMObject",
     "folderName": "Renderers",

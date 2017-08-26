@@ -67,6 +67,6 @@ for (var i = 0; i <= v_slots; i++)
 
 cpContainerAdd(oItem1, 5, id);
 
-v_collisionMain = [x, y + 32, x + 32, y + 48];
 event_inherited();
 v_collisionInteraction = [x, y + 32, x + 32, y + 48];
+v_collisionMain = [x, y + 32, x + 32, y + 48];

@@ -8,7 +8,7 @@ y = oCamera.v_nullPosY;
 
 if (mouse_check_button_pressed(mb_middle) || key_check_pressed(ord("M"))) {cpContainerAdd(oItem1, 2, id);}
 if (mouse_wheel_down()) {v_slotsPerRow++;}
-if (mouse_wheel_up()) {v_slotOffsetY++;}
+if (mouse_wheel_up()) {u = !u}
 if (keyboard_check_pressed(ord("F"))) {t = !t}
 v_slotOffsetX = clamp(v_slotOffsetX, 0, 48);
 //v_slotOffsetY = clamp(v_slotOffsetY, 0, 12);
@@ -21,10 +21,10 @@ tmp_preview = false;
 if (v_drawPreview || v_previewAlpha > 0.05) {tmp_preview = true;}
 
 if (t) { hj = lerp(hj, 256 + tmp_preview * 196, 0.1);  yj = lerp(yj, max(5 * (v_slotSize + v_slotOffsetY) - v_slotRows * (v_slotSize + v_slotOffsetY) + (v_slotSize / 2) * 3, 0), 0.1);}
-else {v_slotOffsetX = lerp(v_slotOffsetX, 6, 0.1); v_slotOffsetY = lerp(v_slotOffsetY, 6, 0.1); hj = lerp(hj, 0, 0.1); yj = lerp(yj, 0, 0.1); if (hj < 5) {hj = lin(hj, 0, 1);} if (hj < 1) {hj = 0; v_changingForm = false; v_formExtMode = v_formExtModeStack;}}
+else {hj = lerp(hj, 0, 0.1); yj = lerp(yj, 0, 0.1); if (hj < 5) {hj = lin(hj, 0, 1);} if (hj < 1) {hj = 0; v_changingForm = false; v_formExtMode = v_formExtModeStack;}}
 
-if (u) {v_slotSize = lerp(v_slotSize, 48, 0.1);}
-else {v_slotSize = lerp(v_slotSize, 32, 0.1);}
+if (u) {v_slotOffsetX = lerp(v_slotOffsetX, 16, 0.1); v_slotOffsetY = lerp(v_slotOffsetY, 16, 0.1);}
+else {v_slotOffsetX = max(lerp(v_slotOffsetX, 5, 0.1), 6); v_slotOffsetY = max(lerp(v_slotOffsetY, 5, 0.1), 6);}
 
 if (!v_drawForm) {v_formAlpha = lerp(v_formAlpha, 0, 0.1); v_actualY = lerp(v_actualY, 0, 0.1);}
 else {v_formAlpha = lerp(v_formAlpha, 1, 0.5); v_actualY = lerp(v_actualY, 69, 0.1);}
@@ -75,45 +75,45 @@ if (v_formAlpha > 0.05)
 		oHUD.v_mouseClickedUI = true;
 	}
 
-	draw_sprite_tiled_area(v_inventoryTexSprite, 0, 0, 0, tmp_drawX + v_frameBorder, tmp_drawY + v_frameBorder, tmp_drawX + tmp_layoutWidth + v_slotSize - v_frameBorder + 1, tmp_drawY + tmp_layoutHeight - (v_frameBorder - 1));
+	draw_sprite_tiled_area(v_inventoryTexSprite, 0, 0, 0, tmp_drawX + v_frameBorder, tmp_drawY + v_frameBorder, tmp_drawX + tmp_layoutWidth + v_slotSize - v_frameBorder + 1, tmp_drawY + tmp_layoutHeight + v_slotSize - v_frameBorder + 1 - 11);
 
-	for (var i = 0; i < tmp_layoutSlotsY; i++)
+	for (var i = 0; i <= tmp_layoutSlotsY; i++)
 	{
-		for (var j = 0; j < tmp_layoutSlotsX + 1; j++)
+		var tmp_top;
+		tmp_top = 40;
+		
+		if (i == 0) {tmp_top = 40;}
+		else if (i == tmp_layoutSlotsY) {tmp_top = 84;}
+		else {tmp_top = 50;}	
+				
+		for (var j = 0; j <= tmp_layoutSlotsX; j++)
 		{
 			// Draw form layout
 			//	- Top row
 			//  - Middle rows
 			//	- Bottom row
-			if (i == 0)
-			{
-				if (j == 0) {draw_sprite_part_ext(v_inventorySprite, 0, oHUD.v_hudFrameTopX, oHUD.v_hudFrameTopY, 32, 33, tmp_drawX, tmp_drawY, 1, 1, c_white, v_formAlpha);}
-				else if (j == tmp_layoutSlotsX - 1) {draw_sprite_part_ext(v_inventorySprite, 0, oHUD.v_hudFrameTopX + 32, oHUD.v_hudFrameTopY, tmp_layoutWidth - (tmp_layoutSlotsX - 1) * v_slotSize, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, v_formAlpha);}
-				else if (j == tmp_layoutSlotsX) {draw_sprite_part_ext(v_inventorySprite, 0, oHUD.v_hudFrameTopX + 64, oHUD.v_hudFrameTopY, 33, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, v_formAlpha);}
-				else {draw_sprite_part_ext(v_inventorySprite, 0, oHUD.v_hudFrameTopX + 32, oHUD.v_hudFrameTopY, 32, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, v_formAlpha);}
-			}
-			else if (i == tmp_layoutSlotsY - 1)
-			{
-				if (j == 0) {draw_sprite_part_ext(v_inventorySprite, 0, oHUD.v_hudFrameBottomX, oHUD.v_hudFrameBottomY, 32, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, v_formAlpha);}
-				else if (j == tmp_layoutSlotsX) {draw_sprite_part_ext(v_inventorySprite, 0, oHUD.v_hudFrameBottomX + 64, oHUD.v_hudFrameBottomY, 33, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, v_formAlpha);}
-				else if (j == tmp_layoutSlotsX - 1) {draw_sprite_part_ext(v_inventorySprite, 0, oHUD.v_hudFrameBottomX + 32, oHUD.v_hudFrameBottomY, tmp_layoutRestX, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, v_formAlpha);}
-				else {draw_sprite_part_ext(v_inventorySprite, 0, oHUD.v_hudFrameBottomX + 32, oHUD.v_hudFrameBottomY, 32, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, v_formAlpha); }		
-			}	
-			else if (i == tmp_layoutSlotsY - 2)
-			{
-				if (j == 0) {draw_sprite_part_ext(v_inventorySprite, 0, oHUD.v_hudFrameMidX, oHUD.v_hudFrameMidY, 32, tmp_layoutRestY, tmp_drawX, tmp_drawY, 1, 1, c_white, v_formAlpha);}
-				else if (j == tmp_layoutSlotsX) {draw_sprite_part_ext(v_inventorySprite, 0, oHUD.v_hudFrameMidX + 64, oHUD.v_hudFrameMidY, 33, tmp_layoutRestY, tmp_drawX, tmp_drawY, 1, 1, c_white, v_formAlpha);}		
-			}		
-			else
-			{
-				if (j == 0) {draw_sprite_part_ext(v_inventorySprite, 0, oHUD.v_hudFrameMidX, oHUD.v_hudFrameMidY, 32, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, v_formAlpha);}
-				else if (j == tmp_layoutSlotsX) {draw_sprite_part_ext(v_inventorySprite, 0, oHUD.v_hudFrameMidX + 64, oHUD.v_hudFrameMidY, 33, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, v_formAlpha);}		
-			}	
+			var tmp_left;
+			tmp_left = 16;
+				
+			if (j == 0) {tmp_left = 16;}
+			else if (j == tmp_layoutSlotsX) {tmp_left = 94;}
+			else {tmp_left = 57;}	
 					
-			if (j != tmp_layoutSlotsX - 1) {tmp_drawX += v_slotSize;} else {tmp_drawX += tmp_layoutWidth - (tmp_layoutSlotsX - 1) * v_slotSize;}
+			var tmp_w, tmp_h;
+			tmp_w = 32;
+			tmp_h = 32;
+			
+			var tmp_color;
+			tmp_color = c_white
+			if (j == tmp_layoutSlotsX - 1) {tmp_w = tmp_layoutRestX + 11;}
+			if (i == tmp_layoutSlotsY - 1) {tmp_h = tmp_layoutRestY;}
+			
+			draw_sprite_part_ext(v_inventorySprite, 0, tmp_left, tmp_top, tmp_w, tmp_h, tmp_drawX, tmp_drawY, 1, 1, tmp_color, v_formAlpha);
+								
+			if (j != tmp_layoutSlotsX - 1) {tmp_drawX += v_slotSize;} else {tmp_drawX += tmp_layoutWidth - (tmp_layoutSlotsX - 1) * (v_slotSize) + 11;}
 		}	
 	
-		if (i != tmp_layoutSlotsY - 2) {tmp_drawY += v_slotSize;} else {tmp_drawY += tmp_layoutRestY;}
+		if (i != tmp_layoutSlotsY - 1) {tmp_drawY += v_slotSize;} else {tmp_drawY += tmp_layoutHeight - (tmp_layoutSlotsY - 1) * (v_slotSize);}
 		tmp_drawX = v_drawStartX;
 	}
 
@@ -126,7 +126,7 @@ if (v_formAlpha > 0.05)
 	tmp_hovered = false;
 
 	tmp_drawX = v_drawStartX + (v_slotSize / 2);
-	tmp_drawY = v_drawStartY + (v_slotSize);
+	tmp_drawY = v_drawStartY + (v_slotSize) + 16;
 	tmp_slotsRenderedNow = 0;
 
 	for (var i = 0; i < min(v_slots, v_slotsPerPage); i++)
@@ -171,51 +171,31 @@ if (v_formAlpha > 0.05)
 	
 		cpInventoryHelperHandleInput(id, i, tmp_hover);
 				
+		tmp_w = 38;
+		tmp_h = 38;
+		
 		if (tmp_currentRow == 0)
 		{
-			if (tmp_slotsRenderedNow == 0)
-			{
-				draw_sprite_part(v_inventorySprite, 0, tmp_offsetHelp, oHUD.v_hudSlotY, 38, 38, tmp_drawX, tmp_drawY);
-			}
-			else if (tmp_slotsRenderedNow == v_slotsPerRow - 1)
-			{
-				draw_sprite_part(v_inventorySprite, 0, tmp_offsetHelp + 76, oHUD.v_hudSlotY, 38, 38, tmp_drawX, tmp_drawY);		
-			}
-			else
-			{
-				draw_sprite_part(v_inventorySprite, 0, tmp_offsetHelp + 38, oHUD.v_hudSlotY, 38, 38, tmp_drawX, tmp_drawY);
-			}
-		}
+			if (tmp_slotsRenderedNow == 0) {tmp_left = tmp_offsetHelp; tmp_top = oHUD.v_hudSlotY;}
+			else if (tmp_slotsRenderedNow == v_slotsPerRow - 1) {tmp_left = tmp_offsetHelp + 76; tmp_top = oHUD.v_hudSlotY;}
+			else {tmp_left = tmp_offsetHelp + 38; tmp_top = oHUD.v_hudSlotY;}			
+		}		
 		else if (tmp_currentRow == (v_slotRows - v_expandSlotsY - 1))
 		{
-			if (tmp_slotsRenderedNow == 0)
-			{
-				draw_sprite_part(v_inventorySprite, 0, tmp_offsetHelp, oHUD.v_hudSlotY + 76, 38, 38, tmp_drawX, tmp_drawY);
-			}
-			else if (tmp_slotsRenderedNow == v_slotsPerRow - 1)
-			{
-				draw_sprite_part(v_inventorySprite, 0, tmp_offsetHelp + 76, oHUD.v_hudSlotY + 76, 38, 38, tmp_drawX, tmp_drawY);		
-			}
-			else
-			{
-				draw_sprite_part(v_inventorySprite, 0, tmp_offsetHelp + 38, oHUD.v_hudSlotY + 76, 38, 38, tmp_drawX, tmp_drawY);
-			}
+			if (tmp_slotsRenderedNow == 0) {tmp_left = tmp_offsetHelp; tmp_top = oHUD.v_hudSlotY + 76;}
+			else if (tmp_slotsRenderedNow == v_slotsPerRow - 1) {tmp_left = tmp_offsetHelp + 76; tmp_top = oHUD.v_hudSlotY + 76;}
+			else {tmp_left = tmp_offsetHelp + 38; tmp_top = oHUD.v_hudSlotY + 76;}			
 		}
-		else
+		else 
 		{
-			if (tmp_slotsRenderedNow == 0)
-			{
-				draw_sprite_part(v_inventorySprite, 0, tmp_offsetHelp, oHUD.v_hudSlotY + 38, 38, 38, tmp_drawX, tmp_drawY);
-			}
-			else if (tmp_slotsRenderedNow == v_slotsPerRow - 1)
-			{
-				draw_sprite_part(v_inventorySprite, 0, tmp_offsetHelp + 76, oHUD.v_hudSlotY + 38, 38, 38, tmp_drawX, tmp_drawY);		
-			}
-			else
-			{
-				draw_sprite_part(v_inventorySprite, 0, tmp_offsetHelp + 38, oHUD.v_hudSlotY + 38, 38, 38, tmp_drawX, tmp_drawY);
-			}
+			if (tmp_slotsRenderedNow == 0) {tmp_left = tmp_offsetHelp; tmp_top = oHUD.v_hudSlotY + 38;}
+			else if (tmp_slotsRenderedNow == v_slotsPerRow - 1) {tmp_left = tmp_offsetHelp + 76; tmp_top = oHUD.v_hudSlotY + 38;}
+			else {tmp_left = tmp_offsetHelp + 38; tmp_top = oHUD.v_hudSlotY + 38;}			
 		}
+		
+		if (v_slotOffsetX > 6 || v_slotOffsetY > 6) {tmp_left = 30; tmp_top = 288; tmp_w = 40; tmp_h = 40;}
+		
+		draw_sprite_part(v_inventorySprite, 0, tmp_left, tmp_top, tmp_w, tmp_h, tmp_drawX, tmp_drawY);		
 	
 		// Draw item
 		if (v_slot[i, e_inventoryAtributes.valID] != 0 && v_slotBeingDragged != i)
@@ -432,7 +412,7 @@ if (v_formAlpha > 0.05)
 	var tmp_buttonOffsetX;
 	tmp_buttonOffsetX = 0;
 	tmp_drawX = v_drawStartX + v_slotSize / 2;
-	tmp_drawY = tmp_layoutHeight - v_slotOffsetY - v_frameBorder - 1 - (v_slotSize / 2) * 3 + v_drawStartY + 16;
+	tmp_drawY = tmp_layoutHeight - v_slotOffsetY - v_frameBorder - 1 - (v_slotSize / 2) * 3 + v_drawStartY + 32;
 
 	for (var i = 0; i < 3; i++)
 	{
