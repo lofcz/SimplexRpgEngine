@@ -7,7 +7,7 @@
 /// @arg {font} font Font to use
 /// @arg {color} baseColor Base color
 
-var tmp_input, tmp_sequenceState, tmp_currentColor, tmp_x, tmp_y, tmp_flagString, tmp_baseColor, tmp_startX, tmp_startY, tmp_flagActiveBold, tmp_boldDifY, tmp_flagActiveItalic, tmp_w, tmp_cW, tmp_font;
+var tmp_input, tmp_sequenceState, tmp_currentColor, tmp_x, tmp_y, tmp_flagString, tmp_baseColor, tmp_startX, tmp_startY, tmp_flagActiveBold, tmp_boldDifY, tmp_flagActiveItalic, tmp_w, tmp_cW, tmp_font, tmp_flagSmall, tmp_flagSmallN;
 tmp_baseColor = c_white;
 tmp_input = "This is [bold][color=" +string(c_yellow) + "]text[/color][/bold], bold and colored. #This is newline.#[italic]This is italic text[/italic]##And look, cute [icon=sItems,4] icon";
 tmp_sequenceState = "print";
@@ -20,6 +20,8 @@ tmp_flagActiveItalic = false;
 tmp_cW = 0;
 tmp_w = -1;
 tmp_font = fntPixel;
+tmp_flagSmall = false;
+tmp_flagSmallN = false;
 
 if (argument_count > 0) {tmp_x = argument[0];}
 if (argument_count > 1) {tmp_y = argument[1];}
@@ -62,6 +64,11 @@ for (var i = 1; i <= string_length(tmp_input); i++)
 				tmp_flagActiveBold = false;
 			}	
 			
+			if (string_count("small", tmp_flagString) > 0)
+			{			
+				tmp_flagSmall = false;
+			}
+						
 			if (string_count("italic", tmp_flagString) > 0)
 			{			
 				tmp_flagActiveItalic = false;
@@ -82,6 +89,10 @@ for (var i = 1; i <= string_length(tmp_input); i++)
 				tmp_flagActiveBold = true;
 			}
 			
+			if (string_count("small", tmp_flagString) > 0)
+			{			
+				tmp_flagSmall = true;
+			}			
 			if (string_count("italic", tmp_flagString) > 0)
 			{			
 				tmp_flagActiveItalic = true;
@@ -116,6 +127,9 @@ for (var i = 1; i <= string_length(tmp_input); i++)
 			else {fnt(tmp_font); tmp_boldDifY = string_height(tmp_char); fnt(fntPixelHuge); tmp_boldDifY = string_height(tmp_char) - tmp_boldDifY;}
 			
 			clr(tmp_currentColor, -1);
+			if (tmp_flagSmall) {fnt(fntPixelTiny); if (!tmp_flagSmallN) {tmp_x -= fnt(tmp_font); tmp_w = string_width(tmp_char); fnt(fntPixelTiny);  tmp_x -= tmp_w - 2;} tmp_flagSmallN = true;}
+			else {tmp_flagSmallN = false;}
+			
 			draw_text_transformed(tmp_x, tmp_y - tmp_boldDifY / 2, tmp_char, 1, 1, -(tmp_flagActiveItalic * 5));
 			tmp_x += string_width(tmp_char);
 		}

@@ -47,6 +47,7 @@ v_searchSurface = surface_create(400, 32); // 230
 v_searchSurfaceX = 200;
 v_searchSurfaceTarX = 200;
 v_searchTipAlpha = 0;
+v_tipAlpha = 0;
 
 // Detail logic is handeled in cpCraftingHelperDB
 // <recieptID>
@@ -54,7 +55,7 @@ g_itemsList = ds_list_create();
 
 v_currentFormType = "item";
 
-// <name, rarity, craftingSlots, craftingSlotsOptional, outputObject, seenByPlayer, tabType, customRuleIndex>
+// <name, rarity, craftingSlots, craftingSlotsOptional, outputObject, seenByPlayer, tabType, customRuleIndex, description, reqCraftingSkill>
 v_recieptItem[0, 0] = "Fod";
 	v_recieptItem[0, 1] = e_rarities.valCommon;
 	v_recieptItem[0, 2] = 12;
@@ -63,8 +64,10 @@ v_recieptItem[0, 0] = "Fod";
 	v_recieptItem[0, 5] = false;
 	v_recieptItem[0, 6] = "Items";
 	v_recieptItem[0, 7] = "";
+	v_recieptItem[0, 8] = "";
+	v_recieptItem[0, 9] = 0;	
 				
-v_recieptItem[1, 0] = "Fol";
+v_recieptItem[1, 0] = "Basic HP elixir";
 	v_recieptItem[1, 1] = e_rarities.valRare;
 	v_recieptItem[1, 2] = 2;
 	v_recieptItem[1, 3] = 1;
@@ -72,7 +75,8 @@ v_recieptItem[1, 0] = "Fol";
 	v_recieptItem[1, 5] = false;
 	v_recieptItem[1, 6] = "Food";
 	v_recieptItem[1, 7] = "";	
-		
+	v_recieptItem[1, 8] = "Placebo effect for the win";
+	v_recieptItem[1, 9] = 0;			
 // <propertiesREQ>
 for (var j = 0; j < 2; j++)
 {
@@ -205,14 +209,14 @@ ds_list_add(g_itemsList, 0);
 
 enum e_rarities
 {
-	valTrash,
-	valCommon,
-	valUncommon,
-	valRare,
-	valVeryRare,
-	valMythic,
-	valLegendary,
-	valQuest
+	valTrash = c_dkgray,
+	valCommon = c_white,
+	valUncommon = c_silver,
+	valRare = c_lime,
+	valVeryRare = c_aqua,
+	valMythic = c_purple,
+	valLegendary = c_yellow,
+	valQuest = c_fuchsia
 }
 
 v_craftItemSelected = -1;

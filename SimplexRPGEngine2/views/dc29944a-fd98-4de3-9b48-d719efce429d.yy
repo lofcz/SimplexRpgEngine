@@ -8,7 +8,8 @@
         "7b70c592-0e1d-4f5a-a6ff-910917b0b53d",
         "7bf6c2c4-9da3-4f39-b94e-66f9a27a5f26",
         "0c350b18-a880-44d9-844f-4c50b00f1760",
-        "1889a1f2-5a25-4390-903d-3a87aabcd3d8"
+        "1889a1f2-5a25-4390-903d-3a87aabcd3d8",
+        "2f1bf614-2529-4d05-9526-e717112183ac"
     ],
     "filterType": "GMScript",
     "folderName": "Magic functions",

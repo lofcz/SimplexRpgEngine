@@ -117,6 +117,11 @@ if ((v_selectedLastForm == 0 || v_selectedLastForm == 2 || v_selectedLastForm ==
 	tmp_offsetHelp = oHUD.v_hudSlotX;
 	
 	clr(-1, min(v_subformAlpha, tmp_alpha));
+	var tmp_hoverID, tmp_hoverX, tmp_hoverY;
+	tmp_hoverID = -1;
+	tmp_hoverX = 0;
+	tmp_hoverY = 0;
+	
 	for (var i = 0; i < 24; i++)
 	{
 		if (tmp_currentRow == 0)
@@ -203,13 +208,20 @@ if ((v_selectedLastForm == 0 || v_selectedLastForm == 2 || v_selectedLastForm ==
 		// Draw current reciept (for real)		
 		if (tmp_recieptID != -1)
 		{	
-			draw_text(tmp_drawX, tmp_drawY, v_recieptItem[tmp_recieptID, 0]);
 			var tmp_index, tmp_inst;
 			tmp_inst = instance_create_layer(0, 0, "Items", v_recieptItem[tmp_recieptID, 4]);
 			tmp_index = tmp_inst.image_index;
 			instance_destroy(tmp_inst);
-			draw_sprite(sItems, tmp_index, tmp_drawX + 16, tmp_drawY + 16);
 			
+			var tmp_array;
+			tmp_array = libUtilityRarityToPosition(v_recieptItem[tmp_recieptID, 1]);
+			
+			if (tmp_array[0] != -1)
+			{
+				draw_sprite_part(v_inventorySprite, 0, tmp_array[0], tmp_array[1], 32, 32, tmp_drawX + 4, tmp_drawY + 4);
+			}
+			
+			draw_sprite(sItems, tmp_index, tmp_drawX + 18, tmp_drawY + 20);			
 
 			// Check if reciept have never been seen by player
 			if (!v_recieptItem[tmp_recieptID, 5])
@@ -225,8 +237,12 @@ if ((v_selectedLastForm == 0 || v_selectedLastForm == 2 || v_selectedLastForm ==
 		}
 		
 		// Check for hover and item selection
-		if (point_in_rectangle(mouse_x, mouse_y, tmp_drawX, tmp_drawY, tmp_drawX + 38, tmp_drawY + 38))
+		if (point_in_rectangle(mouse_x, mouse_y, tmp_drawX, tmp_drawY, tmp_drawX + 38, tmp_drawY + 38) && tmp_recieptID != -1)
 		{
+			tmp_hoverID = tmp_recieptID;
+			tmp_hoverX = tmp_drawX;
+			tmp_hoverY = tmp_drawY;
+			
 			if (mouse_check_button_pressed(mb_left))
 			{
 				v_craftItemSelected = tmp_recieptID;
@@ -248,6 +264,16 @@ if ((v_selectedLastForm == 0 || v_selectedLastForm == 2 || v_selectedLastForm ==
 		{
 			tmp_drawX += (v_slotSize + 6);
 		}	
+	}
+	
+	if (tmp_hoverID != -1)
+	{
+		libDrawTextStylized(tmp_hoverX + 40 * v_tipAlpha, tmp_hoverY, _sc(v_recieptItem[tmp_hoverID, 0], v_recieptItem[tmp_hoverID, 1]) + "#" + _ss(v_recieptItem[tmp_hoverID, 8]), min(draw_get_alpha(), v_tipAlpha), false, false);
+		v_tipAlpha = lerp(v_tipAlpha, 1, 0.1);
+	}
+	else
+	{
+		v_tipAlpha = 0;
 	}
 	
 	// Draw fulltext search

@@ -34,7 +34,7 @@ for (var i = 1; i <= string_length(tmp_text); i++)
 				tmp_output += " ";
 			}
 		}
-		
+	
 		tmp_flagString = "";
 		continue;
 	}
@@ -45,4 +45,5 @@ for (var i = 1; i <= string_length(tmp_text); i++)
 	}
 }
 
+tmp_output = string_replace(tmp_output, "#", "\n");
 return tmp_output;
