@@ -204,6 +204,12 @@ if ((v_selectedLastForm == 0 || v_selectedLastForm == 2 || v_selectedLastForm ==
 		if (tmp_recieptID != -1)
 		{	
 			draw_text(tmp_drawX, tmp_drawY, v_recieptItem[tmp_recieptID, 0]);
+			var tmp_index, tmp_inst;
+			tmp_inst = instance_create_layer(0, 0, "Items", v_recieptItem[tmp_recieptID, 4]);
+			tmp_index = tmp_inst.image_index;
+			instance_destroy(tmp_inst);
+			draw_sprite(sItems, tmp_index, tmp_drawX + 16, tmp_drawY + 16);
+			
 
 			// Check if reciept have never been seen by player
 			if (!v_recieptItem[tmp_recieptID, 5])
@@ -359,7 +365,7 @@ if (v_craftAlpha > 0.05)
 		}
 	
 		draw_sprite_part(v_inventorySprite, 0, tmp_dx, tmp_dy, 40, 40, tmp_lx, tmp_ly);	
-		if (v_recieptItemSlot[v_craftItemSelected, (6 * i)] != e_items.valNONE && v_recieptItemSlot[v_craftItemSelected, (6 * i) + 5] == -1) {shader_set(shdGreyscale); draw_sprite(sItems, v_recieptItemSlot[v_craftItemSelected, (6 * i)] - 2, tmp_lx + 20, tmp_ly + 20); shader_reset();}
+		if (v_recieptItemSlot[v_craftItemSelected, (6 * i)] != e_items.valNONE && v_recieptItemSlot[v_craftItemSelected, (6 * i) + 5] == -1) {shader_set(shdGreyscale); draw_sprite_ext(sItems, v_recieptItemSlot[v_craftItemSelected, (6 * i)] - 2, tmp_lx + 20, tmp_ly + 20, 1, 1, 0, c_white, min(v_craftAlpha, tmp_alpha)); shader_reset();}
 	
 		if (v_slotBeingDragged != -1 && v_recieptItemSlot[v_craftItemSelected, (6 * i) + 5] == -1)
 		{

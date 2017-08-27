@@ -62,111 +62,73 @@ if (v_actionAlpha > 0.05)
 	
 		for (var i = 0; i < v_slots; i++)
 		{
-				clr(-1, min(v_fadeAlpha, v_actionAlpha));
+			clr(-1, min(v_fadeAlpha, v_actionAlpha));
 				
-				tmp_hover = false;
-				tmp_offsetHelp = oHUD.v_hudSlotX;
+			tmp_hover = false;
+			tmp_offsetHelp = oHUD.v_hudSlotX;
 				
-				if (point_in_rectangle(mouse_x, mouse_y, tmp_drawX, tmp_drawY, tmp_drawX + 36, tmp_drawY + 36))
+			if (point_in_rectangle(mouse_x, mouse_y, tmp_drawX, tmp_drawY, tmp_drawX + 36, tmp_drawY + 36))
+			{
+				tmp_hover = true;
+				tmp_offsetHelp = oHUD.v_hudSlotUseX;
+				tmp_lastHover = tmp_actualSlot;
+				if (v_slot[tmp_actualSlot, e_inventoryAtributes.valID] != e_items.valNONE) { v_lastHover = tmp_actualSlot; tmp_hovered = true;}
+				if (oInventory.v_slotBeingDragged != -1) {oInventory.v_containerID = id;}
+			}	
+				
+			cpInventoryHelperHandleInput(id, i, tmp_hover, "inventoryPick");
+				
+			if (tmp_currentRow == 0)
+			{
+				if (tmp_slotsRenderedNow == 0)
 				{
-					tmp_hover = true;
-					tmp_offsetHelp = oHUD.v_hudSlotUseX;
-					tmp_lastHover = tmp_actualSlot;
-					if (v_slot[tmp_actualSlot, e_inventoryAtributes.valID] != e_items.valNONE) { v_lastHover = tmp_actualSlot; tmp_hovered = true;}
-					if (oInventory.v_slotBeingDragged != -1) {oInventory.v_containerID = id;}
-				}	
-				
-				cpInventoryHelperHandleInput(id, i, tmp_hover, "inventoryPick");
-				
-				if (tmp_currentRow == 0)
-				{
-					if (tmp_slotsRenderedNow == 0)
-					{
-						draw_sprite_part(oInventory.v_inventorySprite, 0, tmp_offsetHelp, oHUD.v_hudSlotY, 38, 38, tmp_drawX, tmp_drawY);
-					}
-					else if (tmp_slotsRenderedNow == v_slotsPerRow - 1)
-					{
-						draw_sprite_part(oInventory.v_inventorySprite, 0, tmp_offsetHelp + 76, oHUD.v_hudSlotY, 38, 38, tmp_drawX, tmp_drawY);		
-					}
-					else
-					{
-						draw_sprite_part(oInventory.v_inventorySprite, 0, tmp_offsetHelp + 38, oHUD.v_hudSlotY, 38, 38, tmp_drawX, tmp_drawY);
-					}
+					draw_sprite_part(oInventory.v_inventorySprite, 0, tmp_offsetHelp, oHUD.v_hudSlotY, 38, 38, tmp_drawX, tmp_drawY);
 				}
-				else if (tmp_currentRow == (v_slotRows - 1))
+				else if (tmp_slotsRenderedNow == v_slotsPerRow - 1)
 				{
-					if (tmp_slotsRenderedNow == 0)
-					{
-						draw_sprite_part(oInventory.v_inventorySprite, 0, tmp_offsetHelp, oHUD.v_hudSlotY + 76, 38, 38, tmp_drawX, tmp_drawY);
-					}
-					else if (tmp_slotsRenderedNow == v_slotsPerRow - 1)
-					{
-						draw_sprite_part(oInventory.v_inventorySprite, 0, tmp_offsetHelp + 76, oHUD.v_hudSlotY + 76, 38, 38, tmp_drawX, tmp_drawY);		
-					}
-					else
-					{
-						draw_sprite_part(oInventory.v_inventorySprite, 0, tmp_offsetHelp + 38, oHUD.v_hudSlotY + 76, 38, 38, tmp_drawX, tmp_drawY);
-					}
+					draw_sprite_part(oInventory.v_inventorySprite, 0, tmp_offsetHelp + 76, oHUD.v_hudSlotY, 38, 38, tmp_drawX, tmp_drawY);		
 				}
 				else
 				{
-					if (tmp_slotsRenderedNow == 0)
-					{
-						draw_sprite_part(oInventory.v_inventorySprite, 0, tmp_offsetHelp, oHUD.v_hudSlotY + 38, 38, 38, tmp_drawX, tmp_drawY);
-					}
-					else if (tmp_slotsRenderedNow == v_slotsPerRow - 1)
-					{
-						draw_sprite_part(oInventory.v_inventorySprite, 0, tmp_offsetHelp + 76, oHUD.v_hudSlotY + 38, 38, 38, tmp_drawX, tmp_drawY);		
-					}
-					else
-					{
-						draw_sprite_part(oInventory.v_inventorySprite, 0, tmp_offsetHelp + 38, oHUD.v_hudSlotY + 38, 38, 38, tmp_drawX, tmp_drawY);
-					}
-				}		
+					draw_sprite_part(oInventory.v_inventorySprite, 0, tmp_offsetHelp + 38, oHUD.v_hudSlotY, 38, 38, tmp_drawX, tmp_drawY);
+				}
+			}
+			else if (tmp_currentRow == (v_slotRows - 1))
+			{
+				if (tmp_slotsRenderedNow == 0)
+				{
+					draw_sprite_part(oInventory.v_inventorySprite, 0, tmp_offsetHelp, oHUD.v_hudSlotY + 76, 38, 38, tmp_drawX, tmp_drawY);
+				}
+				else if (tmp_slotsRenderedNow == v_slotsPerRow - 1)
+				{
+					draw_sprite_part(oInventory.v_inventorySprite, 0, tmp_offsetHelp + 76, oHUD.v_hudSlotY + 76, 38, 38, tmp_drawX, tmp_drawY);		
+				}
+				else
+				{
+					draw_sprite_part(oInventory.v_inventorySprite, 0, tmp_offsetHelp + 38, oHUD.v_hudSlotY + 76, 38, 38, tmp_drawX, tmp_drawY);
+				}
+			}
+			else
+			{
+				if (tmp_slotsRenderedNow == 0)
+				{
+					draw_sprite_part(oInventory.v_inventorySprite, 0, tmp_offsetHelp, oHUD.v_hudSlotY + 38, 38, 38, tmp_drawX, tmp_drawY);
+				}
+				else if (tmp_slotsRenderedNow == v_slotsPerRow - 1)
+				{
+					draw_sprite_part(oInventory.v_inventorySprite, 0, tmp_offsetHelp + 76, oHUD.v_hudSlotY + 38, 38, 38, tmp_drawX, tmp_drawY);		
+				}
+				else
+				{
+					draw_sprite_part(oInventory.v_inventorySprite, 0, tmp_offsetHelp + 38, oHUD.v_hudSlotY + 38, 38, 38, tmp_drawX, tmp_drawY);
+				}
+			}		
 				
-				//draw_text(tmp_drawX - 16, tmp_drawY, string(i));				
-				
-				// Draw item
-				if (v_slot[i, e_inventoryAtributes.valID] != 0 && v_slotBeingDragged != i)
-				{		
-					if (v_slot[i, e_inventoryAtributes.valLerpColor] != 0)
-					{
-						shader_set(shdLerp);
-						var tmp_uID = shader_get_uniform(shdLerp, "f_Colour1");
-						shader_set_uniform_f(tmp_uID, color_get_red(v_slot[i, e_inventoryAtributes.valLerpColor]), color_get_green(v_slot[i, e_inventoryAtributes.valLerpColor]), color_get_blue(v_slot[i, e_inventoryAtributes.valLerpColor]), v_actualLerp);
-					}
-					draw_sprite_ext(v_slot[i, e_inventoryAtributes.valSprite], v_slot[i, e_inventoryAtributes.valImageIndex] + 2, tmp_drawX + 20, tmp_drawY + 20, 1, 1, 0, c_white, min(v_fadeAlpha, v_actionAlpha));		
-					shader_reset();
-					
-					var tmp_drawColor, tmp_drawOffsetX;
-					tmp_drawColor = c_white;
-					tmp_drawOffsetX = 0; 
-		
-					if (v_slot[tmp_actualSlot, e_inventoryAtributes.valStackable])
-					{
-						if (v_slot[tmp_actualSlot, e_inventoryAtributes.valCurrentStackSize] == v_slot[tmp_actualSlot, e_inventoryAtributes.valMaxStackSize]) 
-						{
-							tmp_drawColor = c_yellow;
-						}
-			
-						if (v_slot[tmp_actualSlot, e_inventoryAtributes.valCurrentStackSize] >= 1000)
-						{
-							tmp_drawOffsetX = 12;
-						}			
-						else if (v_slot[tmp_actualSlot, e_inventoryAtributes.valCurrentStackSize] >= 100)
-						{
-							tmp_drawOffsetX = 8;
-						}
-						else if (v_slot[tmp_actualSlot, e_inventoryAtributes.valCurrentStackSize] >= 10)
-						{
-							tmp_drawOffsetX = 4;
-						}
-			
-						fnt(fntPixelSmall);
-						clr(tmp_drawColor, min(v_fadeAlpha, v_actionAlpha));
-						draw_text(tmp_drawX + 16 - tmp_drawOffsetX + 6, tmp_drawY + 32 - 10, string(v_slot[tmp_actualSlot, e_inventoryAtributes.valCurrentStackSize]));
-						clr(c_black, min(v_fadeAlpha, v_actionAlpha));
-					}					
+			// Draw item
+			if (v_slot[i, e_inventoryAtributes.valID] != 0 && v_slotBeingDragged != i)
+			{		
+				v_formAlpha = min(v_fadeAlpha, v_actionAlpha);
+				cpInventoryHelperDrawItem(id, tmp_actualSlot, tmp_drawX, tmp_drawY);			
 			}
 			
 			tmp_actualSlot++;		

@@ -128,4 +128,10 @@ else if (tmp_text == "Gold")
 	if (oHUD.v_lang == "cz") {return "Zlato";}
 	else {return tmp_text;}
 }
+else if (tmp_text == "This item is covered with mystifing aura, you need to identify it first")
+{
+	if (oHUD.v_lang == "cz") {return "Tento předmět je zahalen mystifikující aurou, musíš ho nejprve identifikovat";}
+	else {return tmp_text;}
+}
+
 return "";

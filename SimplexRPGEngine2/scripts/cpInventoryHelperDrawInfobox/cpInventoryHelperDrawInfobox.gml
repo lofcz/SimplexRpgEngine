@@ -93,7 +93,7 @@ if (tmp_hoverAlpha > 0.05)
 	clr(c_black, tmp_hoverAlpha);
 	tmp_text = tmp_slotID[tmp_hoverID, e_inventoryAtributes.valInfoTextBody];
 	
-	if (!tmp_slotID[tmp_hoverID, e_inventoryAtributes.valIdentified]) {tmp_text = _sc("This item is covered with mystifing aura, you need to identify it first", c_red);}
+	if (!tmp_slotID[tmp_hoverID, e_inventoryAtributes.valIdentified]) {tmp_text = _sc(__("This item is covered with mystifing aura, you need to identify it first"), c_red);}
 	
 	draw_text_colored(tmp_drawX, tmp_drawY, tmp_text, oInventory.v_layoutEndX - oInventory.v_drawStartX - 30, fntPixelTiny);
 

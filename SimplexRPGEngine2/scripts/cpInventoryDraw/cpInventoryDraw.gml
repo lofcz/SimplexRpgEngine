@@ -200,76 +200,7 @@ if (v_formAlpha > 0.05)
 		// Draw item
 		if (v_slot[i, e_inventoryAtributes.valID] != 0 && v_slotBeingDragged != i)
 		{
-			// Apply shader if needed
-			var tmp_alpha;
-			tmp_alpha = v_formAlpha;
-			
-			if (!v_slot[i, e_inventoryAtributes.valIdentified])
-			{
-				tmp_alpha /= 3;
-			}
-			
-			if (v_slot[i, e_inventoryAtributes.valLerpColor] != 0)
-			{
-				shader_set(shdLerp);
-				var tmp_uID = shader_get_uniform(shdLerp, "f_Colour1");
-				shader_set_uniform_f(tmp_uID, color_get_red(v_slot[i, e_inventoryAtributes.valLerpColor]) / 255, color_get_green(v_slot[i, e_inventoryAtributes.valLerpColor]) / 255, color_get_blue(v_slot[i, e_inventoryAtributes.valLerpColor]) / 255, v_actualLerp);
-			}
-			draw_sprite_ext(v_slot[i, e_inventoryAtributes.valSprite], v_slot[i, e_inventoryAtributes.valImageIndex] + 2, tmp_drawX + (v_slotSize / 2) + (tmp_realSlotArea - v_slotSize) / 2, tmp_drawY + (v_slotSize / 2) + (tmp_realSlotArea - v_slotSize) / 2, 1, 1, 0, c_white, tmp_alpha);	
-			shader_reset();
-			
-			// If unidentified
-			if (!v_slot[i, e_inventoryAtributes.valIdentified])
-			{
-				draw_sprite_part(v_inventorySprite, 0, 237, 517, 36, 36, tmp_drawX + 2, tmp_drawY + 2);
-			}			
-			// Draw star / trash icon
-			if (v_slot[i, e_inventoryAtributes.valLabel] == 1)
-			{
-				draw_sprite_part_ext(v_inventorySprite, 0, 605, 455, 20, 20, tmp_drawX + 24, tmp_drawY + 5, 0.5, 0.5, c_white, draw_get_alpha());
-			}
-
-			if (v_slot[i, e_inventoryAtributes.valLabel] == 2)
-			{
-				draw_sprite_part_ext(v_inventorySprite, 0, 628, 455, 20, 20, tmp_drawX + 24, tmp_drawY + 5, 0.5, 0.5, c_white, draw_get_alpha());
-			}	
-
-			var tmp_drawColor, tmp_drawOffsetX;
-			tmp_drawColor = c_white;
-			tmp_drawOffsetX = 0; 
-		
-			if (v_slot[i, e_inventoryAtributes.valStackable])
-			{
-				if (v_slot[i, e_inventoryAtributes.valCurrentStackSize] == v_slot[i, e_inventoryAtributes.valMaxStackSize]) 
-				{
-					tmp_drawColor = c_yellow;
-				}
-			
-				if (v_slot[i, e_inventoryAtributes.valCurrentStackSize] >= 1000)
-				{
-					tmp_drawOffsetX = 12;
-				}			
-				else if (v_slot[i, e_inventoryAtributes.valCurrentStackSize] >= 100)
-				{
-					tmp_drawOffsetX = 8;
-				}
-				else if (v_slot[i, e_inventoryAtributes.valCurrentStackSize] >= 10)
-				{
-					tmp_drawOffsetX = 4;
-				}
-			
-				fnt(fntPixelSmall);
-				clr(tmp_drawColor, v_formAlpha);
-				draw_text(tmp_drawX + (v_slotSize / 2) - tmp_drawOffsetX + 6, tmp_drawY + v_slotSize - 10, string(v_slot[i, e_inventoryAtributes.valCurrentStackSize]));
-				clr(c_black, v_formAlpha);
-			}
-			
-			if (v_slot[i, e_inventoryAtributes.valBeingUsed])
-			{
-				clr(c_black, v_formAlpha / 3);
-				draw_rectangle(tmp_drawX + 2, tmp_drawY + 2, tmp_drawX + 38, tmp_drawY + 38, false);
-				clr(c_black, v_formAlpha);
-			}
+			cpInventoryHelperDrawItem(id, i, tmp_drawX, tmp_drawY);
 		}
 	
 		tmp_slotsRenderedNow++;
@@ -563,13 +494,15 @@ if (v_formAlpha > 0.05)
 		tmp_localMax = 128;
 		tmp_height = 0;
 		tmp_i = 0;
-		//tmp_realOptions[0] = "";
 		tmp_optionsCount = 0;
 		
-		for (var i = 0; i < 16; i++)
+		if (v_slot[v_menuItem, e_inventoryAtributes.valIdentified])
 		{
-			if (v_itemOptions[v_menuItem, i] != "") {tmp_realOptions[tmp_i] = v_itemOptions[v_menuItem, i]; tmp_i++; tmp_optionsCount++;}
-		}		
+			for (var i = 0; i < 16; i++)
+			{
+				if (v_itemOptions[v_menuItem, i] != "") {tmp_realOptions[tmp_i] = v_itemOptions[v_menuItem, i]; tmp_i++; tmp_optionsCount++;}
+			}	
+		}	
 		
 		for (var i = 0; i < tmp_optionsCount + 2; i++)
 		{

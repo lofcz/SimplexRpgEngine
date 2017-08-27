@@ -63,6 +63,8 @@ if (v_dir == e_dirs.valS) {if (image_index < 0 || image_index > v_animationFrame
 	else
 	{
 		var tmp_targetX, tmp_targetY;
+		tmp_targetX = x;
+		tmp_targetY = y;
 		
 		if (v_mindState == "idle")
 		{

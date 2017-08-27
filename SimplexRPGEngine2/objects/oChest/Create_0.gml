@@ -28,6 +28,7 @@ v_lastHover = -1;
 v_hoverAlpha = 0;
 v_hoverAlphaFF = 0;
 tmp_lastHover = -1;
+v_slotSize = 32;
 
 v_actualLerp = 0;
 v_lerpMode = 0;
@@ -65,6 +66,7 @@ for (var i = 0; i <= v_slots; i++)
 	}
 }
 
+randomize();
 cpContainerAdd(oItem1, 5, id);
 
 event_inherited();
