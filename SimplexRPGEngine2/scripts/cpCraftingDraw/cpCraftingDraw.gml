@@ -542,33 +542,27 @@ if (v_craftAlpha > 0.05)
 			clr(c_black, -1);
 			draw_text_colored(v_formBaseMaxX + (v_slotOffsetX * v_slotsPerRow) / 2 + (v_slotSize * 4.5) + v_previewAlpha * (v_slotSize / 2) + 120, v_drawStartY + 30, tmp_string);
 		}
-	}
-	
-	clr(-1, min(v_craftAlpha, tmp_alpha));
-	if (v_craftFinishAlpha > 0.05)
-	{
-		var tmp_rec;
-		tmp_rec = libDrawTextStylized(tmp_sx + 176 + 32 * v_craftFinishAlpha, tmp_sy - 32, _sc(__("Confirm")), min(v_craftAlpha, tmp_alpha, v_craftFinishAlpha), true, 20, fntPixelSmall);
-	
-		// Finish crafting on click
+		
+		var tmp_rec, tmp_color;
+		tmp_color = c_white;
+		
+		if (v_craftFinishAlpha > 0.05) {tmp_color = c_yellow;}
+		
+		tmp_rec = libDrawTextStylized(v_formBaseMaxX + (v_slotOffsetX * v_slotsPerRow) / 2 + (v_slotSize * 4.5) + v_previewAlpha * (v_slotSize / 2) + 150, v_drawStartY + 260, _sc(__("Confirm"), tmp_color), min(v_craftAlpha, tmp_alpha, v_previewAlpha), true, 20, fntPixelSmall);
+		
 		if (point_in_rectangle(mouse_x, mouse_y, tmp_rec[0], tmp_rec[1], tmp_rec[2], tmp_rec[3]))
 		{
 			if (mouse_check_button_pressed(mb_left))
 			{
-				// We start with array referencing base crafted item
-				// Then we add properties of used items, remove used materials and place new item in inventory
-				
-				// Pre-check for one free slot in inventory, or if we remove at least one item from it by crafting item
-				var tmp_canBeCrafted, tmp_freeSlot;
-				tmp_canBeCrafted = false;
-				
-				tmp_freeSlot = cpInventoryHelperFindFreeSlot();
-				
-				// Found slot lets forge the item
-				if (tmp_freeSlot != -1)
+				if (tmp_color == c_yellow)
 				{
-					var input_slot;
-					input_slot = cpContainerAdd(v_recieptItem[v_craftItemSelected, 4], 1);
+					tmp_freeSlot = cpInventoryHelperFindFreeSlot();
+				
+					// Found slot lets forge the item
+					if (tmp_freeSlot != -1)
+					{
+						var input_slot;
+						input_slot = cpContainerAdd(v_recieptItem[v_craftItemSelected, 4], 1);
 					
 						for (var j = 0; j < v_recieptItem[v_craftItemSelected, 2]; j++)
 						{
@@ -583,7 +577,25 @@ if (v_craftAlpha > 0.05)
 							
 							v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5] = -1;
 						}
+					}					
 				}
+			}
+		}
+		
+		tmp_rec = libDrawTextStylized(v_formBaseMaxX + (v_slotOffsetX * v_slotsPerRow) / 2 + (v_slotSize * 4.5) + v_previewAlpha * (v_slotSize / 2) + 295, v_drawStartY + 260, _sc(__("Quit")), min(v_craftAlpha, tmp_alpha, v_previewAlpha), true, 20, fntPixelSmall);
+	
+		if (point_in_rectangle(mouse_x, mouse_y, tmp_rec[0], tmp_rec[1], tmp_rec[2], tmp_rec[3]))
+		{
+			if (mouse_check_button_pressed(mb_left))
+			{
+				for (var j = 0; j < v_recieptItem[v_craftItemSelected, 2]; j++)
+				{						
+					if (v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5] != -1)
+					{
+						v_slot[v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5], e_inventoryAtributes.valBeingUsed] = false;
+						v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5] = -1;
+					}
+				}				
 			}
 		}
 	}

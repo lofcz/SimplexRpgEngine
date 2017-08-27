@@ -1,7 +1,7 @@
 /// @function cpInventoryIni()
 /// @desc Sets up inventory variables
 
-#macro mcInvenotryAtributes 23
+#macro mcInvenotryAtributes 25
 #macro mcInventoryProperties 120
 
 enum e_inventoryAtributes
@@ -28,7 +28,9 @@ enum e_inventoryAtributes
 	valPriceBase,
 	valLerpColor,
 	valWeight,
-	valIdentified
+	valIdentified,
+	valDurability,
+	valMaxDurability
 }
 
 enum e_inventoryProperties

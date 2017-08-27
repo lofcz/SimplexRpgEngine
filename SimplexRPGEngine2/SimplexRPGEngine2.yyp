@@ -759,6 +759,14 @@
             }
         },
         {
+            "Key": "2b6a98bc-ce3e-4bd3-900a-4ac7fcb07a48",
+            "Value": {
+                "id": "1b9f7c53-d709-436d-94b2-ff9cdb97dcec",
+                "resourcePath": "scripts\\cpItemAddOption\\cpItemAddOption.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "2c98fc38-8386-4f02-878d-3628fbe04f7b",
             "Value": {
                 "id": "2c78e452-8b5c-4aa7-b381-916a194e37ed",
@@ -924,6 +932,14 @@
                 "id": "b273607d-77b4-4032-a8e1-f745ea7e5512",
                 "resourcePath": "views\\3542113f-a69d-4bae-928d-da36251d4b4e.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "35e618f4-676f-4139-b3be-01e2e0f2f047",
+            "Value": {
+                "id": "1b969218-8673-4cca-8448-6383462c152f",
+                "resourcePath": "scripts\\cpItemSetPropertyS\\cpItemSetPropertyS.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -1503,6 +1519,14 @@
             }
         },
         {
+            "Key": "56720835-73ab-4278-baea-1bb9748a1d1a",
+            "Value": {
+                "id": "c0a974fa-a13a-4595-984d-2205f0a1a8ac",
+                "resourcePath": "scripts\\cpItemSetAtribute\\cpItemSetAtribute.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "5712286c-0a45-4630-a4a5-ea7ed39d03b5",
             "Value": {
                 "id": "6dd2a291-649d-4984-b0b4-0527751575a1",
@@ -1620,6 +1644,14 @@
                 "id": "bd2bf8dc-92b4-400c-a6c2-f423a783d3e7",
                 "resourcePath": "sprites\\sMedalEffect\\sMedalEffect.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "5f465970-c197-45cf-a498-aa19e88f1330",
+            "Value": {
+                "id": "ea427d62-10cd-44d2-9648-7692195e1633",
+                "resourcePath": "scripts\\cpItemSetProperty\\cpItemSetProperty.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -2639,6 +2671,14 @@
             }
         },
         {
+            "Key": "9c778abe-00eb-484e-abd4-be452c017b4f",
+            "Value": {
+                "id": "5c8990e6-a2b0-42ac-9b73-f944360a920f",
+                "resourcePath": "scripts\\cpItemIni\\cpItemIni.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "9d10b8a7-f95c-4746-9d5b-bbcfd87aef01",
             "Value": {
                 "id": "bac5bd4d-2700-41be-9721-aff1c6de589e",
@@ -2927,6 +2967,14 @@
             }
         },
         {
+            "Key": "b005cddb-5cb9-4e40-b58a-ff12723f1fe3",
+            "Value": {
+                "id": "3aae39b5-bc25-48b6-aa8c-b94361d551c2",
+                "resourcePath": "scripts\\cpItemSetReq\\cpItemSetReq.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "b0a0f240-c707-45ed-8251-0e5295f51259",
             "Value": {
                 "id": "79b9e7d0-db68-4007-b786-27715cc0d88b",
@@ -2972,6 +3020,14 @@
                 "id": "cfce5795-1051-46ac-9855-9fd0dddd88ba",
                 "resourcePath": "sprites\\sWhetstoneEffect\\sWhetstoneEffect.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "b34007b4-9696-48b4-88f0-d9ad1ac99ec6",
+            "Value": {
+                "id": "0dab2663-af99-44ea-9348-1a3433dae280",
+                "resourcePath": "scripts\\_static\\_static.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -3172,6 +3228,14 @@
                 "id": "ac987eb3-469b-4b70-9bff-b5ab5bc28926",
                 "resourcePath": "sprites\\sShieldEffect2\\sShieldEffect2.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "c4ba2785-3559-4407-b798-03f2ee14404d",
+            "Value": {
+                "id": "a7e24728-d34b-402d-b791-d5d558fab207",
+                "resourcePath": "scripts\\cpItemSetWearable\\cpItemSetWearable.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -4088,6 +4152,13 @@
         "45598008-f792-4e95-be7a-cd473470c7e5",
         "27281f47-c306-4e37-b114-3300c1e80f1c",
         "2818c652-4cb2-4b5f-b7e8-d0a4348d2284",
+        "9c778abe-00eb-484e-abd4-be452c017b4f",
+        "c4ba2785-3559-4407-b798-03f2ee14404d",
+        "b005cddb-5cb9-4e40-b58a-ff12723f1fe3",
+        "2b6a98bc-ce3e-4bd3-900a-4ac7fcb07a48",
+        "5f465970-c197-45cf-a498-aa19e88f1330",
+        "35e618f4-676f-4139-b3be-01e2e0f2f047",
+        "56720835-73ab-4278-baea-1bb9748a1d1a",
         "48e653e1-e490-45d5-9e90-179dd6f172b1",
         "34857dbb-0e86-4058-af77-8fc898cd7d95",
         "80e68a51-6e3d-447d-9970-b0c6363a7a17",
@@ -4112,6 +4183,7 @@
         "0c350b18-a880-44d9-844f-4c50b00f1760",
         "1889a1f2-5a25-4390-903d-3a87aabcd3d8",
         "2f1bf614-2529-4d05-9526-e717112183ac",
+        "b34007b4-9696-48b4-88f0-d9ad1ac99ec6",
         "939a9a25-8408-48ed-bf1d-6681da686324",
         "6df0e25a-6cd5-4afa-bdc3-bef8d254263f",
         "b75271a6-4866-444d-b1e9-016eac8522a4",
