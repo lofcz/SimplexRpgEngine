@@ -10,8 +10,6 @@ if (z < 0) {
     if (zspeed < 1) {
         z = 0;
         zspeed = 0;
-        alarm[0] = 60;
-        alarm[1] = 30;
     }
 }
 

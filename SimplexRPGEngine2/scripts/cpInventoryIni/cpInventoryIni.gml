@@ -1,7 +1,7 @@
 /// @function cpInventoryIni()
 /// @desc Sets up inventory variables
 
-#macro mcInvenotryAtributes 22
+#macro mcInvenotryAtributes 25
 #macro mcInventoryProperties 120
 
 enum e_inventoryAtributes
@@ -18,7 +18,7 @@ enum e_inventoryAtributes
 	valRarityEffect,
 	valPickSound,
 	valEquipSlot,
-	valIsStarred,
+	valLabel,
 	valMaterialType,
 	valBeingUsed,
 	valInfoTextColorFooter,	
@@ -27,7 +27,10 @@ enum e_inventoryAtributes
 	valMaxStackSize,
 	valPriceBase,
 	valLerpColor,
-	valWeight
+	valWeight,
+	valIdentified,
+	valDurability,
+	valMaxDurability
 }
 
 enum e_inventoryProperties
@@ -46,7 +49,16 @@ enum e_inventoryProperties
 	valMp,
 	valSp,
 	valXp,
-	valMaxXp
+	valMaxXp,
+	valSpRegenDelay,
+	valHpRegenDelay,
+	valMpRegenDelay,
+	valSpRegenValue,
+	valHpRegenValue,
+	valMpRegenValue,
+	valHpRegenTick,
+	valMpRegenTick,
+	valSpRegenTick
 }
 
 enum e_items
@@ -154,9 +166,9 @@ enum e_items
 
 
 
-v_slots         = 25;
+v_slots         = 75;
 v_slotsPerRow   = 5;
-v_slotsPerPage  = 40;
+v_slotsPerPage  = 25;
 v_currentPage   = 0;
 v_drag          = false;
 v_drawSelf      = true;
@@ -200,7 +212,9 @@ v_containerID = -1;
 v_formExtW = 48;
 v_formExtH = 12;
 
-v_formExtMode = "equipment";
+v_formExtMode = "crafting";
+v_changingForm = false;
+v_formExtModeStack = v_formExtMode;
 
 v_formBaseMaxX = 0;
 v_formBaseMaxY = 0;
@@ -217,10 +231,24 @@ v_drawForm = true;
 v_hoverContainerForm = "";
 tmp_equipmentLastHover = 0;
 
+v_menuItem = -1;
+g_menuList = ds_list_create();
+v_menuItemStartX = -1;
+v_menuItemStartY = -1;
+v_secondMenu = -1;
+v_secondMenuX = -1;
+v_secondMenuY = -1;
+v_secondMenuW = -1;
+v_secondMenuH = -1;
+v_secondMenuLast = -1;
+
+v_secondMenuText[0] = "Star";
+v_secondMenuText[1] = "Trash";
+v_secondMenuText[2] = "Unmark";
+
 
 for (var i = 0; i <= v_slots; i++)
-{
-	
+{	
 	for (var j = 0; j <= mcInvenotryAtributes; j++)
 	{
 		if (cpInventoryHelpIsStringAtr(j))
@@ -237,12 +265,19 @@ for (var i = 0; i <= v_slots; i++)
 	{
 		v_slotProperty[i, j] = 0;
 		v_slotReq[i, j] = 0;
+		v_slotPropertyStatic[i, j] = 0;
 	}
 	
 	for (var j = 0; j < mcAnimations; j++)
 	{
 		v_slotAnimations[i, j] = 0;
 	}
+
+	for (var j = 0; j < 16; j++)
+	{
+		v_itemOptions[i, j] = "";
+	}
 }
 
 cpEquipmentIni();
+cpCraftingIni();

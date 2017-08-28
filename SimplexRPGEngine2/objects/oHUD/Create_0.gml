@@ -1,5 +1,7 @@
 /// @desc Set up variables
 
+randomize();
+
 v_hudFrameTopX = 16;
 v_hudFrameTopY = 40;
 
@@ -71,6 +73,10 @@ v_realSP = 0;
 hp = 100;
 max_hp = 120;
 
+v_gold = 0;
+v_goldD = 0;
+v_l = 1;
+v_l = 1;
 for (var i = 0; i < mcInventoryProperties; i++)
 {
 	v_playerProperty[i] = 0;
@@ -82,6 +88,8 @@ v_hudSprite = texUI;
 
 v_baseBarSlots = 20;
 
+v_fatigueSpStart = 0.1
+
 v_playerProperty[e_inventoryProperties.valMaxXp] = 100;
 v_playerProperty[e_inventoryProperties.valHp] = 100;
 v_playerProperty[e_inventoryProperties.valMp] = 100;
@@ -90,6 +98,32 @@ v_playerProperty[e_inventoryProperties.valSp] = 100;
 v_playerProperty[e_inventoryProperties.valMaxHp] = 100;
 v_playerProperty[e_inventoryProperties.valMaxMp] = 100;
 v_playerProperty[e_inventoryProperties.valMaxSp] = 100;
+
+v_playerProperty[e_inventoryProperties.valHpRegenDelay] = 240;
+v_playerProperty[e_inventoryProperties.valHpRegenTick] = 60;
+v_playerProperty[e_inventoryProperties.valHpRegenValue] = 1;
+
+v_playerProperty[e_inventoryProperties.valSpRegenDelay] = 240;
+v_playerProperty[e_inventoryProperties.valSpRegenTick] = 10;
+v_playerProperty[e_inventoryProperties.valSpRegenValue] = 1;
+
+
 depth = -10000;
 
 v_mouseClickedUI = false;
+v_keyboardClickedUI = false;
+
+v_alphaH = 0;
+v_alphaM = 0;
+v_alphaS = 0;
+v_alphaH2 = 0;
+v_alphaM2 = 0;
+v_alphaS2 = 0;
+
+v_delayHP = -1;
+v_delayMP = -1;
+v_delaySP = -1;
+
+v_tickHP = -1;
+v_tickMP = -1;
+v_tickSP = -1;

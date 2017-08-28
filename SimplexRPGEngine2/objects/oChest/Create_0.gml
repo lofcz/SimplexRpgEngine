@@ -28,9 +28,11 @@ v_lastHover = -1;
 v_hoverAlpha = 0;
 v_hoverAlphaFF = 0;
 tmp_lastHover = -1;
+v_slotSize = 32;
 
 v_actualLerp = 0;
 v_lerpMode = 0;
+v_menuItem = -1;
 
 for (var i = 0; i <= v_slots; i++)
 {
@@ -50,16 +52,23 @@ for (var i = 0; i <= v_slots; i++)
 	{
 		v_slotProperty[i, j] = 0;
 		v_slotReq[i, j] = 0;
+		v_slotPropertyStatic[i, j] = 0;
 	}
 	
 	for (var j = 0; j < mcAnimations; j++)
 	{
 		v_slotAnimations[i, j] = 0;
 	}	
+	
+	for (var j = 0; j < 16; j++)
+	{
+		v_itemOptions[i, j] = "";
+	}
 }
 
+randomize();
 cpContainerAdd(oItem1, 5, id);
 
-v_collisionMain = [x, y + 32, x + 32, y + 48];
 event_inherited();
 v_collisionInteraction = [x, y + 32, x + 32, y + 48];
+v_collisionMain = [x, y + 32, x + 32, y + 48];

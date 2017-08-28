@@ -27,3 +27,8 @@ for (var i = 0; i <= mcInventoryProperties; i++)
 	tmp_id.v_slotProperty[tmp_slot, i] = 0;
 	tmp_id.v_slotReq[tmp_slot, i] = 0;
 }
+
+for (var i = 0; i < array_length_2d(tmp_id.v_itemOptions, tmp_slot); i++)
+{
+	tmp_id.v_itemOptions[tmp_slot, i] = "";
+}

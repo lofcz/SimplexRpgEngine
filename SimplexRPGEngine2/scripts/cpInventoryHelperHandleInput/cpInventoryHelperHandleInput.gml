@@ -21,7 +21,7 @@ if (argument_count > 3) {tmp_shiftAction = argument[3];}
 if (tmp_hover)
 {
 	// Drag item
-	if ((mouse_check_button_pressed(mb_left) || mouse_check_button_pressed(mb_middle)) && oHUD.v_mouseFree)
+	if ((mouse_check_button_pressed(mb_left) || mouse_check_button_pressed(mb_middle)) && oHUD.v_mouseFree && !tmp_id.v_slot[tmp_i, e_inventoryAtributes.valBeingUsed] && tmp_id.v_menuItem == -1)
 	{
 		if (tmp_id.v_itemMouse == -1)
 		{
@@ -49,32 +49,7 @@ if (tmp_hover)
 						if (tmp_shiftAction == "inventoryPick")
 						{
 							var tmp_freeSlot = cpInventoryHelperFindFreeSlot(oInventory.id);
-							
-							var tmp_atrb, tmp_prop, tmp_req;
-							for (var k = 0; k <= mcInvenotryAtributes; k++)
-							{
-								tmp_atrb[k] = v_slot[tmp_i, k];			
-							}
-				
-							for (var k = 0; k < mcInventoryProperties; k++)
-							{
-								tmp_prop[k] = v_slotProperty[tmp_i, k];	
-								tmp_req[k] = v_slotReq[tmp_i, k];
-							}
-				
-							for (var k = 0; k <= mcInvenotryAtributes; k++)
-							{				
-								oInventory.v_slot[tmp_freeSlot, k] = tmp_atrb[k];
-							}
-			
-							for (var k = 0; k < mcInventoryProperties; k++)
-							{
-								oInventory.v_slotProperty[tmp_freeSlot, k] = tmp_prop[k];
-								oInventory.v_slotReq[tmp_freeSlot, k] = tmp_req[k];					
-							}		
-							
-							cpInventoryHelperClearSlot(tmp_i, id);					
-							
+							cpInventoryHelperSwitch(id, oInventory.id, tmp_i, tmp_freeSlot);									
 						}
 					}
 					else

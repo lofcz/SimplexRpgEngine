@@ -28,7 +28,7 @@ if (argument_count > 9) {if (argument[9] != -1) {spd      = argument[9];}}
 //if (text   == "-1") {text   = "+ " + itm_info_head; if (itm_stackable && itm_number > 1) {text += " x" + string(itm_number);}}
 //if (color  == -1)   {color  = itm_effect; if (color == c_black) {color = c_white;}}
 //if (sprite == -1)   {sprite = tempSpr;}
-
+/*
 if (override) 
    {
    switch(itm_info_color)
@@ -70,7 +70,7 @@ if (override)
                                }                                                                                            
                          }
    }
-
+*/
 log = instance_create_depth(xx, yy, -9000, oSplashMessage);
 log.sprite = sprite;
 log.text   = text;

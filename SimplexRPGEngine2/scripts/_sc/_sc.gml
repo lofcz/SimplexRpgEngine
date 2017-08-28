@@ -10,4 +10,4 @@ tmp_text = "";
 if (argument_count > 0) {tmp_text = argument[0];}
 if (argument_count > 1) {tmp_color = argument[1];}
 
-return "[color=" + string(tmp_color) + "] " + tmp_text + "[/color]";
+return "[color=" + string(tmp_color) + "]" + tmp_text + "[/color]";
