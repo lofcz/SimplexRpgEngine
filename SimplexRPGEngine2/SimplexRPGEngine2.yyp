@@ -823,6 +823,14 @@
             }
         },
         {
+            "Key": "2e4cb9c8-ca33-4276-8ba1-adc6efb813c8",
+            "Value": {
+                "id": "f3907c76-b105-4aa5-9c5a-b88102ad4639",
+                "resourcePath": "scripts\\libUtilityDrawForm\\libUtilityDrawForm.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "2ea44b73-24a0-4309-8ec9-77a23a5e5e30",
             "Value": {
                 "id": "b3ffcd6f-611d-4d35-8e77-a5a128741616",
@@ -1367,6 +1375,14 @@
             }
         },
         {
+            "Key": "4eaf97d3-97a2-4e13-9cf6-60c8942edddf",
+            "Value": {
+                "id": "0fa87ea9-fd1a-4f50-b9e0-c9c55c56f208",
+                "resourcePath": "scripts\\libDrawMenu\\libDrawMenu.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "4ef93099-94a3-4214-b3b2-a12baa86f526",
             "Value": {
                 "id": "aa9b3457-e999-4ed1-ba0c-baf022accb64",
@@ -1615,6 +1631,14 @@
             }
         },
         {
+            "Key": "5acea39f-9187-44fe-9948-3fdaff0e4ca5",
+            "Value": {
+                "id": "330cf0a5-3dc2-485b-a23d-912af7c78a0f",
+                "resourcePath": "sprites\\texUI2\\texUI2.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "5d31967b-d76f-4bfe-a5d3-815b36f98b63",
             "Value": {
                 "id": "c52fdd62-efb8-4538-9fdb-b829ee03645c",
@@ -1652,6 +1676,14 @@
                 "id": "ea427d62-10cd-44d2-9648-7692195e1633",
                 "resourcePath": "scripts\\cpItemSetProperty\\cpItemSetProperty.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "5f48a561-7ceb-413b-bb3a-f23aaaa73ae2",
+            "Value": {
+                "id": "63ff7081-9916-45b6-80cf-8260a160dd6c",
+                "resourcePath": "objects\\oStatusMenu\\oStatusMenu.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -4137,6 +4169,8 @@
         "a3fc231d-5f69-4f5d-b792-792a2ec7a03f",
         "0e2b4025-2195-4320-88ca-5bc723b8cc4f",
         "4a9571fa-503a-4497-bdcb-e11d6f236379",
+        "2e4cb9c8-ca33-4276-8ba1-adc6efb813c8",
+        "4eaf97d3-97a2-4e13-9cf6-60c8942edddf",
         "3e99874f-193a-451a-b5ac-6bfb66127b1c",
         "194b8cbd-b22b-4079-9793-74fec6e6f1bc",
         "743acdb3-e5bb-41ad-9520-4ca6a45e617a",

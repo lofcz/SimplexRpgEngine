@@ -42,10 +42,11 @@ tmp_slotsRenderedNow = 0;
 
 // Draw base layout
 // - need to compute its size
-
+#region Compute layout dimensions
 var tmp_layoutWidth, tmp_layoutHeight;
 tmp_layoutWidth = min(v_slots, v_slotsPerRow) * (v_slotSize + v_slotOffsetX) + hj;
 tmp_layoutHeight = max(v_slotRows * (v_slotSize + v_slotOffsetY), 0) + yj;
+
 
 draw_text(oPlayer.x, oPlayer.y + 100, v_slotRows);
 draw_text(oPlayer.x, oPlayer.y + 120, tmp_layoutHeight / 32);
@@ -65,6 +66,8 @@ v_layoutRestX = tmp_layoutRestX;
 v_layoutRestY = tmp_layoutRestY;
 
 v_layoutEndX = tmp_drawX + tmp_layoutWidth + v_slotSize - v_frameBorder + 1;
+#endregion
+
 
 if (v_formAlpha > 0.05)
 {
@@ -75,50 +78,11 @@ if (v_formAlpha > 0.05)
 		oHUD.v_mouseClickedUI = true;
 	}
 
-	draw_sprite_tiled_area(v_inventoryTexSprite, 0, 0, 0, tmp_drawX + v_frameBorder, tmp_drawY + v_frameBorder, tmp_drawX + tmp_layoutWidth + v_slotSize - v_frameBorder + 1, tmp_drawY + tmp_layoutHeight + v_slotSize - v_frameBorder + 1 - 11);
+	var tmp_array;
+	tmp_array = libUtilityDrawForm(tmp_drawX, tmp_drawY, tmp_layoutWidth, tmp_layoutHeight, v_formAlpha);
 
-	for (var i = 0; i <= tmp_layoutSlotsY; i++)
-	{
-		var tmp_top;
-		tmp_top = 40;
-		
-		if (i == 0) {tmp_top = 40;}
-		else if (i == tmp_layoutSlotsY) {tmp_top = 84;}
-		else {tmp_top = 50;}	
-				
-		for (var j = 0; j <= tmp_layoutSlotsX; j++)
-		{
-			// Draw form layout
-			//	- Top row
-			//  - Middle rows
-			//	- Bottom row
-			var tmp_left;
-			tmp_left = 16;
-				
-			if (j == 0) {tmp_left = 16;}
-			else if (j == tmp_layoutSlotsX) {tmp_left = 94;}
-			else {tmp_left = 57;}	
-					
-			var tmp_w, tmp_h;
-			tmp_w = 32;
-			tmp_h = 32;
-			
-			var tmp_color;
-			tmp_color = c_white
-			if (j == tmp_layoutSlotsX - 1) {tmp_w = tmp_layoutRestX + 11;}
-			if (i == tmp_layoutSlotsY - 1) {tmp_h = tmp_layoutRestY;}
-			
-			draw_sprite_part_ext(v_inventorySprite, 0, tmp_left, tmp_top, tmp_w, tmp_h, tmp_drawX, tmp_drawY, 1, 1, tmp_color, v_formAlpha);
-								
-			if (j != tmp_layoutSlotsX - 1) {tmp_drawX += v_slotSize;} else {tmp_drawX += tmp_layoutWidth - (tmp_layoutSlotsX - 1) * (v_slotSize) + 11;}
-		}	
-	
-		if (i != tmp_layoutSlotsY - 1) {tmp_drawY += v_slotSize;} else {tmp_drawY += tmp_layoutHeight - (tmp_layoutSlotsY - 1) * (v_slotSize);}
-		tmp_drawX = v_drawStartX;
-	}
-
-	v_formEndX = tmp_drawX;
-	v_formEndY = tmp_drawY;
+	v_formEndX = tmp_array[2];
+	v_formEndY = tmp_array[3];
 
 	var tmp_currentRow, tmp_hovered, tmp_maxX;
 	tmp_currentRow = 0;

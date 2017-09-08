@@ -25,6 +25,7 @@ instance_create_depth(x, y, -100, oInventory);
 instance_create_depth(x, y, -100, oHUD);
 instance_create_depth(x, y, -200, oDrawHelperAbove);
 instance_create_depth(x, y, -200, oStateLog);
+instance_create_depth(x, y, -2000, oStatusMenu);
 
 v_collisionMain = [x, y, x, y];
 v_collisionLegs = [x, y, x, y];

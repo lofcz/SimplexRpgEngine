@@ -1,6 +1,7 @@
 /// @desc Draw HUD
 
 if (keyboard_check_pressed(ord("K"))) {v_playerProperty[e_inventoryProperties.valXp] += 10;}
+if (keyboard_check_pressed(ord("L"))) {if (oInventory.v_inventorySprite == texUI) {oInventory.v_inventorySprite = texUI2;} else {oInventory.v_inventorySprite = texUI;} v_hudSprite = oInventory.v_inventorySprite;}
 
 draw_sprite_part(v_hudSprite, 0, v_hudPortraitX, v_hudPortraitY, 85, 64, oCamera.v_nullPosX, oCamera.v_nullPosY);
 
