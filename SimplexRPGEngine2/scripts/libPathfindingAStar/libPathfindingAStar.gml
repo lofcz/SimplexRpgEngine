@@ -62,7 +62,6 @@ if (y1 == 0){
 tx = x0 + x1;
 ty = y0 + y1;
 
-
 //The first search square will be our starting point.
 x0 = sx;
 y0 = sy;
@@ -163,7 +162,12 @@ while(ds_list_size(gridList) > 0){
             }
 			x += 10000;
         }  
-    }    
+    }  
+	
+	if (point_distance(x, y, x0, y0) > 800)
+	{
+		return -1;
+	}  
 }   
 
 //This is where we start to eliminate (trim) cells we do not need so we can correctly lay down a path. Trim stumps and trees!
