@@ -4,6 +4,7 @@ event_inherited();
 v_canCollide = false;
 v_canBeDamaged = false;
 v_staticDepth = true;
+image_speed = 0;
 
 for (var i = 0; i < mcInvenotryAtributes; i++)
 {

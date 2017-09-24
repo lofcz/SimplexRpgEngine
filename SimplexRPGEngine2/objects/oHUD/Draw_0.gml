@@ -13,12 +13,12 @@ draw_text(mouse_x, mouse_y + 32, v_playerProperty[e_inventoryProperties.valHp]);
 
 v_goldD = lin(v_goldD, v_gold, 1);
 
-if (abs(v_realXP - v_playerProperty[e_inventoryProperties.valXp]) <= 1) {v_realXP = v_playerProperty[e_inventoryProperties.valXp];}
+//if (abs(v_realXP - v_playerProperty[e_inventoryProperties.valXp]) <= 1) {v_realXP = v_playerProperty[e_inventoryProperties.valXp];}
 if (abs(v_realHP - v_playerProperty[e_inventoryProperties.valHp]) <= 1) {v_realHP = v_playerProperty[e_inventoryProperties.valHp];}
 if (abs(v_realMP - v_playerProperty[e_inventoryProperties.valMp]) <= 1) {v_realMP = v_playerProperty[e_inventoryProperties.valMp];}
 if (abs(v_realSP - v_playerProperty[e_inventoryProperties.valSp]) <= 1) {v_realSP = v_playerProperty[e_inventoryProperties.valSp];}
 
-v_realXP = clamp(lerp(v_realXP, v_playerProperty[e_inventoryProperties.valXp], 0.1), 0, v_playerProperty[e_inventoryProperties.valMaxXp]);
+v_realXP = clamp(min(lerp(v_realXP, v_playerProperty[e_inventoryProperties.valXp] + 1, 0.01), v_playerProperty[e_inventoryProperties.valXp]), 0, v_playerProperty[e_inventoryProperties.valMaxXp]);
 v_realHP = clamp(lerp(v_realHP, v_playerProperty[e_inventoryProperties.valHp], 0.1), 0, v_playerProperty[e_inventoryProperties.valMaxHp]);
 v_realMP = clamp(lerp(v_realMP, v_playerProperty[e_inventoryProperties.valMp], 0.1), 0, v_playerProperty[e_inventoryProperties.valMaxMp]);
 v_realSP = clamp(lerp(v_realSP, v_playerProperty[e_inventoryProperties.valSp], 0.1), 0, v_playerProperty[e_inventoryProperties.valMaxSp]);
@@ -170,22 +170,39 @@ for (var j = 0; j < 3; j++)
 }
 
 // Draw xp-bar
-v_xpbarSlots = 33;
+v_xpbarSlots = 30;
 
 var tmp_totalW;
-tmp_totalW = (oCamera.v_viewSizeX - v_xpbarSlots * 23) / 2;
+tmp_totalW = (oCamera.v_viewSizeX - v_xpbarSlots * 24) / 2;
 tmp_x = oCamera.v_nullPosX + tmp_totalW;
 tmp_y = oCamera.v_nullPosY + oCamera.v_viewSizeY - 22;
+tmp_xy = tmp_x + 10;
 
+tmp_doDraw = true;
 for (var i = 0; i < v_xpbarSlots; i++)
 {
 	var tmp_offset;
 	tmp_offset = 0;
 	if (i == v_xpbarSlots - 1) {tmp_offset = 48;}
 	else if (i != 0) {tmp_offset = 24;}
+	tmp_w = 24;
+	if (i == v_xpbarSlots - 1) {tmp_w = 26;}
 	
-	draw_sprite_part(v_hudSprite, 0, v_hudBarXpX + tmp_offset, v_hudBarXpY, 24, 20, tmp_x, tmp_y);
+	draw_sprite_part(v_hudSprite, 0, v_hudBarXpX + tmp_offset, v_hudBarXpY, tmp_w, 20, tmp_x, tmp_y);
 	
+	tmp_xpForOneSlot = (v_playerProperty[e_inventoryProperties.valMaxXp] / v_xpbarSlots);
+	
+	tmp_ratio = clamp((v_realXP - (tmp_xpForOneSlot * i + 1)) / tmp_xpForOneSlot, 0, 1);
+	
+	tmp_xx = tmp_x;
+	if (i == 0) {tmp_xx = tmp_x + 10;}
+	draw_sprite_part(v_hudSprite, 0, 372, 40, (24 * tmp_ratio), 16, tmp_xx, tmp_y + 3);
+	
+	
+	//fnt(fntPixelTiny);
+	//draw_text(tmp_x, tmp_y, tmp_ratio);
+	
+	/*
 	if (i != 0 && i != v_xpbarSlots - 1)
 	{
 		if (v_realXP / v_playerProperty[e_inventoryProperties.valMaxXp] > i + 1 / v_xpbarSlots)
@@ -210,11 +227,12 @@ for (var i = 0; i < v_xpbarSlots; i++)
 		tmp_xpForOneSlot = (v_playerProperty[e_inventoryProperties.valMaxXp] / v_xpbarSlots);
 		tmp_ratio = clamp((v_realXP - (tmp_xpForOneSlot * (i))) / tmp_xpForOneSlot, 0, 0.7);		
 		draw_sprite_part(v_hudSprite, 0, 371, 40, (24 * tmp_ratio), 16, tmp_x, tmp_y + 3);	
-	}
+	}*/
 	
 	if (i == round(v_xpbarSlots / 2)) {v_midX = tmp_x;}
 
-	tmp_x += 23;
+	tmp_x += 24;
+	tmp_xy += 24;
 }
 
 var tmp_string;

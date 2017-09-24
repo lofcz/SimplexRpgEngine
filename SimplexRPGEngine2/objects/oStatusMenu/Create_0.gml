@@ -3,7 +3,8 @@
 
 v_formAlpha = 1;
 v_selectionDone = false;
-v_meanuReady = true;
+v_menuReady = true;
+v_menuAlpha = 0;
 
 v_menuItems[0, 0] = "Status";
 v_menuItems[0, 1] = 1;
