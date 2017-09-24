@@ -247,6 +247,14 @@
             }
         },
         {
+            "Key": "0f239a4e-eb2a-4858-8721-d2d9c4388f9e",
+            "Value": {
+                "id": "f5ad3a6c-81d2-45b1-a5ad-e43793b48a46",
+                "resourcePath": "sprites\\sGoblinMoveIdleSword\\sGoblinMoveIdleSword.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "0f330c2e-8e46-402d-be99-32cef699a4fc",
             "Value": {
                 "id": "5dd270af-a51c-418a-a1f7-5a61a7d77944",
@@ -667,6 +675,14 @@
             "Value": {
                 "id": "d5a0e086-1e6f-483c-9872-693a951015d4",
                 "resourcePath": "sprites\\sBodyCanvasRing1\\sBodyCanvasRing1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "27f13c42-e778-4e19-9f9c-3316829417f8",
+            "Value": {
+                "id": "22deb86b-d815-4fea-a356-b4d8133bfa9f",
+                "resourcePath": "sprites\\sGoblinTakeOutSword\\sGoblinTakeOutSword.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -1151,6 +1167,14 @@
             }
         },
         {
+            "Key": "41d6ca72-b68e-4fc0-95e5-a95903d5da0c",
+            "Value": {
+                "id": "c035d482-fb9e-4f64-b17f-878385e2452c",
+                "resourcePath": "views\\41d6ca72-b68e-4fc0-95e5-a95903d5da0c.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "41e02407-8af8-406f-81bc-796645c1e982",
             "Value": {
                 "id": "6078f81d-8ca8-45e5-bf43-b0515fdf5fb0",
@@ -1591,6 +1615,14 @@
             }
         },
         {
+            "Key": "590cbab8-1f8f-4b52-a554-151fd75bc82e",
+            "Value": {
+                "id": "aaa58ecb-9f5b-4b75-bae8-af0c6d6a643e",
+                "resourcePath": "sprites\\sGoblinMoveIdleMace\\sGoblinMoveIdleMace.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "592997d8-b5ee-4f90-9a6d-4eee27b96e11",
             "Value": {
                 "id": "237ecece-73f3-4ead-9148-1e5efb7a519c",
@@ -1603,6 +1635,14 @@
             "Value": {
                 "id": "8ce806e2-6627-41ab-bd77-a525c15bf412",
                 "resourcePath": "sprites\\sNecklaceEffect\\sNecklaceEffect.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "5a21aa3f-670c-46f9-bfa6-14a8a70ad507",
+            "Value": {
+                "id": "9afa2555-1956-4c33-82db-7c2e327b0249",
+                "resourcePath": "sprites\\sMonsterWalk1\\sMonsterWalk1.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -2092,6 +2132,14 @@
                 "id": "394d9970-25ed-4198-ab8c-8067a4125f9b",
                 "resourcePath": "sprites\\sBodyCanvasArmor3\\sBodyCanvasArmor3.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "7aedd153-1214-452d-8435-fd23af801e51",
+            "Value": {
+                "id": "feb7b320-99cc-44f1-91dc-7f8fdac4cf3d",
+                "resourcePath": "views\\7aedd153-1214-452d-8435-fd23af801e51.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -3539,6 +3587,14 @@
             "Value": {
                 "id": "58964bda-c03f-4436-9bb0-429949055510",
                 "resourcePath": "sprites\\sGemEffect3\\sGemEffect3.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "dadcd4df-64c7-4aea-ac3b-79926c435c04",
+            "Value": {
+                "id": "719268ba-9988-48e1-a575-ddcc835e4008",
+                "resourcePath": "sprites\\sGoblinTakeOutMace\\sGoblinTakeOutMace.yy",
                 "resourceType": "GMSprite"
             }
         },
