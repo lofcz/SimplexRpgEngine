@@ -66,6 +66,12 @@ Do you have any questions, or have you created a game using Simplex and you want
 ## Version history can be found here:
 <a href="https://github.com/lofcz/SimplexRpgEngine/wiki/Simplex-RPG-Engine-2-PRE-DEV-Roadmap"> 2.0 P-DEV </a>
 
+## Hit us on marketplace and support development:
+As opensource project we are always short of funds, which are, despite the fact we don't like it necessary for the development. Licences, professional art, coding, music & sfx - all of that costs a small fortune. So we've decided to offer some parts of Simplex on the marketplace for symbolic price - 1.99$ (we get 1.5$ out of that) as assets. These assets are cleaned of simlex dependencies but still are in function equivalent to their in-simplex counterparts, therefore they are ready to be used in projects without SimplexCore.
+  
+*Please note that buying any of them is optional and you can still find all of them as part of Simplex*  
+<a href="https://marketplace.yoyogames.com/publishers/3821/simplex">Pay us a visit, plenty of awesome stuff in here!</a>
+
 <sub><sup>Copyright © 2017 Matěj Štágl.</sup></sub>  
 <sub><sup><a href="https://github.com/lofcz/SimplexRpgEngine/wiki/Hall-of-fame-(Simplex-development-team)">Hall of fame (development team)</a></sup></sub>  
 <sub><sup>[Read the license, under which the project is available.](https://github.com/lofcz/SimplexRpgEngine/blob/master/license.md)</sup></sub>  
