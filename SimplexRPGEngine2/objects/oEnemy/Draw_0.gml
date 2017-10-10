@@ -117,7 +117,12 @@ if (v_action == "computeTarget")
 				v_path = path_add();
 				path_set_closed(v_path, false);
 		
-				if (v_mindState != "idle") {v_path = libPathfindingAStar(x, y, tmp_targetX div 32 * 32, tmp_targetY div 32 * 32, 32, 0, false, parSolid, false, cellArray);}
+				if (v_mindState != "idle") 
+				{
+					with(oTree) {image_index--;}
+					v_path = libPathfindingAStar(x, y, tmp_targetX div 32 * 32, tmp_targetY div 32 * 32, 32, 0, false, parSolid, false, cellArray);
+					with(oTree) {image_index++;}
+				}
 				else
 				{
 					path_add_point(v_path, tmp_targetX, tmp_targetY, 100);

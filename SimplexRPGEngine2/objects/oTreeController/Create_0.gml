@@ -1,4 +1,4 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-libUtilityDrawRect(v_collisionMain);
+Sname = part_system_create();
