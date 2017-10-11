@@ -28,7 +28,11 @@ if (tmp_list != noone)
 					if (sprite_index == sSwingDown) {tmp_d1 = 225; tmp_d2 = 315;}
 					if (sprite_index == sSwingUp) {tmp_d1 = 45; tmp_d2 = 135;}
 					
-					cpGoreBlood(tmp_list[| i].x, tmp_list[| i].y, 5, c_red, tmp_d1, tmp_d2);
+					if (tmp_list[| i].v_isVivid)
+					{
+						cpGoreBlood(tmp_list[| i].x, tmp_list[| i].y, 5, c_red, tmp_d1, tmp_d2);
+					}
+					
 					cpSplashMessage(string(5), c_black, -1, 0, 0, tmp_list[| i].x, tmp_list[| i].y - 32);
 					
 					tmp_list[| i].v_mindState = "attack";
@@ -40,29 +44,76 @@ if (tmp_list != noone)
 						{
 							if (v_alive)
 							{
-								v_splitStartX = 32;
-								v_splitStartY = 0;
+								if (v_isVivid)
+								{
+									v_splitStartX = 32;
+									v_splitStartY = 0;
 
-								v_splitEndX = 32;
-								v_splitEndY = 64;
+									v_splitEndX = 32;
+									v_splitEndY = 64;
 
-								v_restX = x;
-								v_restY = y;
+									v_restX = x;
+									v_restY = y;
 
-								v_restStartX = v_restX;
-								v_restStartY = v_restY;
+									v_restStartX = v_restX;
+									v_restStartY = v_restY;
 
 
-								d_spriteList = sprite_divide(v_sprite,v_splitStartX,v_splitStartY,v_splitEndX,v_splitEndY);
+									d_spriteList = sprite_divide(v_sprite,v_splitStartX,v_splitStartY,v_splitEndX,v_splitEndY);
 
-								sprite_index = d_spriteList[| 1];
-								v_spriteRest = d_spriteList[| 0];
+									sprite_index = d_spriteList[| 1];
+									v_spriteRest = d_spriteList[| 0];
 
-								ds_list_destroy(d_spriteList);
-							
-								event_user(0);
+									ds_list_destroy(d_spriteList);
+									cpGoreBlood(tmp_list[| i].x, tmp_list[| i].y, 20, c_red, 0, 360);
+								}		
+								
+								if (v_isMask)
+								{
+									// Delete tile
+									var data;
+									data = tilemap_get(v_tileIndex[2], v_tileIndex[0], v_tileIndex[1]);
+									
+									var surf;
+									surf = surface_create(32, 32);
+									surface_set_target(surf);
+									
+									var index;
+									index = tile_get_index(data);
+									
+									var tx, ty;
+									tx = 32; 
+									ty = 0;
+									
+									index = index div 4 * 4;
+									for (var i = 0; i < index; i++)
+									{
+										tx += 32;
+										
+										if (tx > 128) {tx = 32; ty += 32;}
+									}
+									
+									//show_message("x: " + string(tx) + "\n" + "y: " + string(ty));
+									draw_sprite_part(sprite286, 0, tx, max(ty, 0), 32, 32, 0, 0);
+									surface_reset_target();
+									
+									var sprite;
+									sprite = sprite_create_from_surface(surf, 0, 0, 32, 32, 0, 0, 0, 0);
+									
+									cpGoreShards(sprite, 0, 32, 4);
+									
+									//sprite_delete(sprite);
+									surface_free(surf);
+									
+									data = tile_set_index(data, 0);				
+									tilemap_set(v_tileIndex[2], data, v_tileIndex[0], v_tileIndex[1]);
+
+								}
+								
 								v_alive = false;
-								cpGoreBlood(tmp_list[| i].x, tmp_list[| i].y, 20, c_red, 0, 360);
+								event_user(0);
+								
+
 							}
 																	
 						}	

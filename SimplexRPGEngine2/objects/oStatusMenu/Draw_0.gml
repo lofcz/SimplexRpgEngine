@@ -1,6 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+/*
 x = oCamera.v_nullPosX;
 y = oCamera.v_nullPosY + 70;
 

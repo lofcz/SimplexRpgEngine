@@ -423,6 +423,14 @@
             }
         },
         {
+            "Key": "186060b8-4ad1-4d44-97a1-e229c4ffb215",
+            "Value": {
+                "id": "4933f1df-ef42-4178-9094-152c27d1bff7",
+                "resourcePath": "objects\\oCollMaskNonsolid\\oCollMaskNonsolid.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "18858d71-95b6-4088-89c8-3b5318595827",
             "Value": {
                 "id": "50c5878c-e9d5-4aab-8026-fffa0ad3779e",
@@ -588,6 +596,14 @@
                 "id": "bf984f38-bdd1-461e-9f09-34318609254e",
                 "resourcePath": "sprites\\sPouchEffect1\\sPouchEffect1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "21134740-bb7b-4861-afa7-24683af4b7e0",
+            "Value": {
+                "id": "3e716d4e-630e-45c4-bdec-2cdbda368393",
+                "resourcePath": "objects\\oTilesHandler\\oTilesHandler.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -2215,6 +2231,14 @@
             }
         },
         {
+            "Key": "7b687e53-ebf9-426a-8daf-99b9cedd7555",
+            "Value": {
+                "id": "6f87dcff-a024-40ee-833a-698c4c19ea1d",
+                "resourcePath": "scripts\\cpGoreShards\\cpGoreShards.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "7b70c592-0e1d-4f5a-a6ff-910917b0b53d",
             "Value": {
                 "id": "f952da67-1ffb-41bb-bfc0-917301f5abb7",
@@ -2267,6 +2291,14 @@
             "Value": {
                 "id": "e073a9ff-9a0f-487c-bde8-16163715fdd8",
                 "resourcePath": "sprites\\sEffectHerb6\\sEffectHerb6.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "7fa6fac0-dcef-41a6-8b84-9c207d4d8b13",
+            "Value": {
+                "id": "adc0bcb2-f4cc-4368-91b4-ab2959b54b58",
+                "resourcePath": "sprites\\sprite290\\sprite290.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -2956,6 +2988,14 @@
                 "id": "1cccae9d-45d9-4cc6-a86f-6c285eb7ac9b",
                 "resourcePath": "sprites\\sLianaEffect\\sLianaEffect.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "a54f88d0-fefe-4c2a-baf9-398ff18eb907",
+            "Value": {
+                "id": "67816b46-1d44-49a6-9f5c-d89ea7ebf5e8",
+                "resourcePath": "objects\\oShard\\oShard.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -4015,6 +4055,14 @@
             }
         },
         {
+            "Key": "ebcd59c4-a9b5-4275-a786-10e7478ff949",
+            "Value": {
+                "id": "0bf2756d-d2fe-47c4-ad42-175a8c2aeb68",
+                "resourcePath": "views\\ebcd59c4-a9b5-4275-a786-10e7478ff949.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "ebd2c4fc-73e9-453f-ab2c-531abb350457",
             "Value": {
                 "id": "28f0ca85-30e5-4b57-8b02-851be4ab2ec1",
@@ -4349,7 +4397,6 @@
         "75025d32-b83f-4d9b-85c1-4752f883011f",
         "f7a2706c-a5e9-4ecc-8d8d-620b11f0e5f5",
         "b4a9b194-289e-47fb-a1b3-5b9ed028c25a",
-        "e307ce52-43ae-4e51-9b35-a18bc02d665b",
         "002bedf0-1fd5-45b2-b58c-2fd1139a6f35",
         "2b485559-4262-4de8-8ffc-aaca8b8061aa",
         "cf2d0c6c-cc3c-4a1c-a58f-cc94e5080107",
@@ -4363,6 +4410,7 @@
         "4a9571fa-503a-4497-bdcb-e11d6f236379",
         "2e4cb9c8-ca33-4276-8ba1-adc6efb813c8",
         "4eaf97d3-97a2-4e13-9cf6-60c8942edddf",
+        "e307ce52-43ae-4e51-9b35-a18bc02d665b",
         "3e99874f-193a-451a-b5ac-6bfb66127b1c",
         "194b8cbd-b22b-4079-9793-74fec6e6f1bc",
         "743acdb3-e5bb-41ad-9520-4ca6a45e617a",
@@ -4390,6 +4438,7 @@
         "80e68a51-6e3d-447d-9970-b0c6363a7a17",
         "68263c7d-147c-42de-ac6f-ec4930fa8e08",
         "e5d2e571-2c30-4454-b1c0-e2ffed1feb4e",
+        "7b687e53-ebf9-426a-8daf-99b9cedd7555",
         "2547e3b9-bf3f-405b-8916-9bbe326ab661",
         "60cce270-0fda-4c9e-bd4a-07a76b4b9969",
         "976ca7eb-6263-479b-89d1-4a7fb75a7c7c",

@@ -31,6 +31,7 @@ else {v_animationFrames = [8, 9]; v_moveAnim = sGoblinMove; v_attackAnim = sGobl
 event_inherited();
 v_collisionLegs = [x - 16, y, x + 16, y + 16];
 v_canBeDamaged = true;
+v_isVivid = true;
 
 for (var i = 0; i < mcInventoryProperties; i++)
 {

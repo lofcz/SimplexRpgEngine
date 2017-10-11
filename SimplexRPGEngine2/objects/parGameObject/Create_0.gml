@@ -7,3 +7,5 @@ v_canCollide    = true;
 v_staticDepth   = false;
 v_canBeDamaged  = false;
 v_alive         = true;
+v_isVivid       = false;
+v_isMask        = false;
