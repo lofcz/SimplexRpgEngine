@@ -3,12 +3,10 @@
 <img align="middle" src="https://s15.postimg.org/hb1fpm51n/logo.png">
 <br>
 
-<img src="https://s1.postimg.org/8c003t9zfj/Logomakr_80585_M.png">
+<img src="https://s1.postimg.org/4pwqmskfcv/Logomakr_4_Cks_Df.png">
 
 ## Supported IDEs:
-<img align="middle" width="128" height="128" src="https://s21.postimg.org/vghqza03r/rounded_corners.png"> <img align="middle" src="https://s10.postimg.org/tvc4uhp3t/Lateralgmlogo.png"> <img align="middle" width="128" height="128" src="https://s15.postimg.org/jrlizdqor/rounded_corners.jpg"> <img align="middle" width="128" height="128" src="https://s21.postimg.org/pisaduls7/rounded_corners.png">  
-  
-*Note: Simplex RPG Engine 2 is build for GMS2 & SimplexIDE only. For usage on GMS1.4 or LateralGM head back to the Simplex1 branch.*
+<img align="middle" width="128" height="128" src="https://s21.postimg.org/vghqza03r/rounded_corners.png"> <img align="middle" src="https://s10.postimg.org/tvc4uhp3t/Lateralgmlogo.png"> <img align="middle" width="128" height="128" src="https://s15.postimg.org/jrlizdqor/rounded_corners.jpg"> <img align="middle" width="128" height="128" src="https://s1.postimg.org/3z06nkdman/rounded_corners.png">  
 
 ## Engine awards:
 **Attending project on the Intel ICEF and EUCES 2018 
