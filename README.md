@@ -12,12 +12,10 @@
 **Attending project on the Intel ICEF and EUCES 2018 
 as a result of winning an Intel ISEF-affiliated fair at a national level.**  
 **Winning project of national and district round of the Students` Professional Activities (SPA) for the Czech Republic**
-
-  
   
 <img align="middle" width="30%" height="30%" src="https://s1.postimg.org/4lc4gdmvnj/photo.jpg"> <img align="middle" width="30%" height="30%" src="https://s1.postimg.org/5lui02d0in/eucys-logo.jpg"> <img align="middle" width="20%" height="20%" src="https://s1.postimg.org/7ee9l4xnkf/Bezejmenn.png">
 
-## A handful of commercially successful projects powered by the Simplex RPG Engine:
+## A handful of commercially successful projects powered by Simplex RPG Engine:
 **Fate of Hero** (Kedarsoft)  
 *A successful crowdfunding campaign on Startovac.cz, 10 000 CZK (370 EUR) raised.*   
 <a href="https://www.startovac.cz/projekty/fate-of-hero/">![](https://s27.postimg.org/u9agoid37/image.png)</a>
@@ -32,9 +30,9 @@ as a result of winning an Intel ISEF-affiliated fair at a national level.**  
 
 
 ## Engine preview: 
-<img align="middle" width="256" height="196" src="https://s28.postimg.org/5wf0fchkt/image.png"> <img align="middle" width="256" height="196" src="https://s23.postimg.org/v8wvav5vv/image.png"> <img align="middle" width="256" height="196" src="https://s23.postimg.org/gmorl1uez/image.png">
-<img align="middle" width="256" height="196" src="https://s27.postimg.org/9bdyorsr7/image.png"> <img align="middle" width="256" height="196" src="https://s27.postimg.org/m03kjchur/image.png"> <img align="middle" width="256" height="196" src="https://s27.postimg.org/4jgle4ir7/image.png">
-<img align="middle" width="256" height="196" src="https://s23.postimg.org/m7jo1ymdn/image.png"> <img align="middle" width="256" height="196" src="https://s30.postimg.org/lj5rlrzcx/image.png"> <img align="middle" width="256" height="196" src="https://s23.postimg.org/itbvdjtsr/image.png">
+<img align="middle" width="256" height="196" src="https://s1.postimg.org/8ejvqnd7jz/Picture1.png"> <img align="middle" width="256" height="196" src="https://s1.postimg.org/46hfuzurbz/Picture2.png"> <img align="middle" width="256" height="196" src="https://s1.postimg.org/8pjgxz0vf3/Picture3.png">
+<img align="middle" width="256" height="196" src="https://s1.postimg.org/9lfydfa4fj/Picture4.png"> <img align="middle" width="256" height="196" src="https://s1.postimg.org/78dbw7wiyn/Picture5.png"> <img align="middle" width="256" height="196" src="https://s1.postimg.org/3ze7zk7yr3/Picture6.png">
+<img align="middle" width="256" height="196" src="https://s1.postimg.org/7q3dkssjn3/image.jpg"> <img align="middle" width="256" height="196" src="https://s1.postimg.org/1mblicsv9r/Picture7.jpg"> <img align="middle" width="256" height="196" src="https://s1.postimg.org/9lfydf8u4v/Picture8.jpg">
 
 ## The future is within your grasp. Start [here](https://github.com/lofcz/SimplexRpgEngine/wiki).
 
