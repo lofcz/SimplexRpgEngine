@@ -21,13 +21,12 @@ cpBodyCanvasRegAnim(e_animations.valThrust, sBodyCanvasThrust1,    sBodyCanvasTh
 cpBodyCanvasRegAnim(e_animations.valRun,   sBodyCanvasRun1, sBodyCanvasRunHair1,       sBodyCanvasRunArmor1,       sBodyCanvasRunHood1, sBodyCanvasRunHood1, sBodyCanvasRunLegs1, 0, sBodyCanvasRunShoes1, sBodyCanvasRunHands1, 0);
 
 instance_create_depth(x, y, 100, oCamera);
-instance_create_depth(x, y, -100, oInventory);
-instance_create_depth(x, y, -100, oHUD);
-instance_create_depth(x, y, -200, oDrawHelperAbove);
-instance_create_depth(x, y, -200, oStateLog);
-instance_create_depth(x, y, -2000, oStatusMenu);
-instance_create_depth(x, y, -900, oTreeController);
-instance_create_depth(x, y, -900, oTilesHandler);
+instance_create_depth(x, y, -30000, oInventory);
+instance_create_depth(x, y, -31000, oHUD);
+instance_create_depth(x, y, -31000, oDrawHelperAbove);
+instance_create_depth(x, y, -31000, oStateLog);
+instance_create_depth(x, y, -31000, oStatusMenu);
+instance_create_depth(x, y, -9000, oTreeController);
 
 v_collisionMain = [x, y, x, y];
 v_collisionLegs = [x, y, x, y];

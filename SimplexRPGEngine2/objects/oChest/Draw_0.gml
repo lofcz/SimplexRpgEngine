@@ -45,8 +45,9 @@ if (v_actionAlpha > 0.05)
 		v_lastString = tmp_string;
 	}
 	
-	libDrawTextStylized(x + 16, y - 16, _sc("E", c_yellow) + " - " + v_lastString, v_actionAlpha);
+	//libDrawTextStylized(x + 16, y - 16, _sc("E", c_yellow) + " - " + v_lastString, v_actionAlpha);
 
+/*
 	if (v_fadeAlpha > 0.05)
 	{		
 		var tmp_drawX, tmp_drawY, tmp_currentRow, tmp_slotsRenderedNow, tmp_offsetHelp, tmp_actualSlot, tmp_hover, tmp_hovered;
@@ -251,6 +252,7 @@ if (v_actionAlpha > 0.05)
 			}
 		}
 		
+
 		// Draw dragged item
 		if (v_slotBeingDragged != -1)
 		{
@@ -264,7 +266,7 @@ if (v_actionAlpha > 0.05)
 			oDrawHelperAbove.v_id = id;
 			oDrawHelperAbove.v_mode = 1;
 		}		
-	}
+	}*/
 }
 else
 {

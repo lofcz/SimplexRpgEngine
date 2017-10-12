@@ -34,7 +34,7 @@ if (tmp_list != noone)
 					}
 					
 					cpSplashMessage(string(5), c_black, -1, 0, 0, tmp_list[| i].x, tmp_list[| i].y - 32);
-					
+
 					tmp_list[| i].v_mindState = "attack";
 					tmp_list[| i].v_attackNote = 256;
 					
@@ -85,35 +85,36 @@ if (tmp_list != noone)
 									tx = 32; 
 									ty = 0;
 									
-									index = index div 4 * 4;
-									for (var i = 0; i < index; i++)
+									var w, ws;
+									w = sprite_get_width(v_tileIndex[3]);
+									ws = w div 32;
+
+									//index = index div ws * ws;
+									for (var f = 0; f < index; f++)
 									{
 										tx += 32;
-										
-										if (tx > 128) {tx = 32; ty += 32;}
+
+										if (tx > w) {tx = 32; ty += 32;}
 									}
-									
-									//show_message("x: " + string(tx) + "\n" + "y: " + string(ty));
-									draw_sprite_part(sprite286, 0, tx, max(ty, 0), 32, 32, 0, 0);
+
+									draw_sprite_part(v_tileIndex[3], 0, tx, max(ty, 0), 32, 32, 0, 0);
 									surface_reset_target();
 									
 									var sprite;
 									sprite = sprite_create_from_surface(surf, 0, 0, 32, 32, 0, 0, 0, 0);
 									
 									cpGoreShards(sprite, 0, 32, 4);
-									
-									//sprite_delete(sprite);
+
 									surface_free(surf);
 									
 									data = tile_set_index(data, 0);				
 									tilemap_set(v_tileIndex[2], data, v_tileIndex[0], v_tileIndex[1]);
-
 								}
 								
 								v_alive = false;
 								event_user(0);
-								
-
+							}
+								}
 							}
 																	
 						}	
@@ -121,7 +122,7 @@ if (tmp_list != noone)
 				}
 			}
 		}
-	}
-}
+
+
 
 if (tmp_list != noone) {ds_list_destroy(tmp_list);}
