@@ -36,7 +36,7 @@ as a result of winning an Intel ISEF-affiliated fair at a national level.**  
 
 ## The future is within your grasp. Start [here](https://github.com/lofcz/SimplexRpgEngine/wiki).
 
-Do you have any questions, or have you created a game using Simplex and you want to let us know? Contact us!
+Would you like to ask something about the engine, or have you created a game using Simplex and want to let us know? Contact us!
 - <a href="https://www.facebook.com/simplexengine/?pnref=lhc">Facebook</a>
 - <a href="https://www.youtube.com/channel/UCCDT5l4gglPpFB_tEZd5c7Q">Youtube</a>
 
