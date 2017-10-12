@@ -3,7 +3,6 @@
 <img align="middle" src="https://s15.postimg.org/hb1fpm51n/logo.png">
 <br>
 
-## Modern Engine that redifines the JRPG industry.
 <img src="https://s1.postimg.org/8c003t9zfj/Logomakr_80585_M.png">
 
 ## Supported IDEs:
