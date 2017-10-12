@@ -32,7 +32,7 @@
 *Note: Simplex RPG Engine 2 is build for GMS2 & SimplexIDE only. For usage on GMS1.4 or LateralGM head back to the Simplex1 branch.*
 
 ## Engine awards:
-**Attending project on the Intel ICEF and EUCES 2018 as a result of winning  
+**Attending project on the Intel ICEF and EUCES 2018 
 as a result of winning an Intel ISEF-affiliated fair at a national level.**  
   
   
