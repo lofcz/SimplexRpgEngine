@@ -4,3 +4,13 @@
 event_inherited();
 
 draw_self();
+
+if (!v_alive)
+{
+    if (image_xscale > 0)
+       {
+        image_xscale -= 0.01;
+        image_yscale = image_xscale;
+       }
+       else {instance_destroy();}	
+}

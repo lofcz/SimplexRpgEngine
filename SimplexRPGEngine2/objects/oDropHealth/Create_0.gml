@@ -3,3 +3,6 @@
 
 entityIni();
 
+v_alive = true;
+v_staticDepth = true;
+v_canCollide = false;

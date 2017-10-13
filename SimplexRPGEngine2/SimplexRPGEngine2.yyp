@@ -1543,6 +1543,14 @@
             }
         },
         {
+            "Key": "4fdf786a-e014-4510-bc15-b19fc1045a63",
+            "Value": {
+                "id": "88c14b36-21a1-4f16-a29a-c801a9237870",
+                "resourcePath": "scripts\\cpSplashNote\\cpSplashNote.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "506b5b73-d295-4594-b3b3-54e5720b5a62",
             "Value": {
                 "id": "96f0d517-9212-4da2-80a3-ad3151579995",
@@ -3255,6 +3263,14 @@
             }
         },
         {
+            "Key": "ad9c6509-b05d-464f-a6bf-91e221872b16",
+            "Value": {
+                "id": "4485ae43-0d45-4974-b8c5-faad22ecc34f",
+                "resourcePath": "objects\\oSplashNote\\oSplashNote.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "ae741a92-2c54-4c2a-85d7-3440918c56ec",
             "Value": {
                 "id": "3c4afa0d-29df-4017-9d2f-052ca6d5e48d",
@@ -4303,6 +4319,14 @@
             }
         },
         {
+            "Key": "f46d8b9e-c1c6-45de-b92a-cd73d4845826",
+            "Value": {
+                "id": "3a6fa23e-2f2b-4c01-b238-fbc3b4384ab9",
+                "resourcePath": "views\\f46d8b9e-c1c6-45de-b92a-cd73d4845826.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "f47e30dd-33c5-43ed-afae-722adbbb1996",
             "Value": {
                 "id": "200206e1-673c-4c19-8cb2-e473c2f65eac",
@@ -4563,6 +4587,7 @@
         "2547e3b9-bf3f-405b-8916-9bbe326ab661",
         "60cce270-0fda-4c9e-bd4a-07a76b4b9969",
         "976ca7eb-6263-479b-89d1-4a7fb75a7c7c",
+        "4fdf786a-e014-4510-bc15-b19fc1045a63",
         "ede4df16-0aea-445b-8aca-2e31bd01dcc7",
         "8501a7ec-e236-4790-a07f-2d177a146cb6",
         "11959ad1-6a03-4e3f-8fdf-a0acbbab8a63",
