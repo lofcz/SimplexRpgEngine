@@ -71,44 +71,49 @@ if (tmp_list != noone)
 								if (v_isMask)
 								{
 									// Delete tile
-									var data;
-									data = tilemap_get(v_tileIndex[2], v_tileIndex[0], v_tileIndex[1]);
-									
-									var surf;
-									surf = surface_create(32, 32);
-									surface_set_target(surf);
-									
-									var index;
-									index = tile_get_index(data);
-									
-									var tx, ty;
-									tx = 32; 
-									ty = 0;
-									
-									var w, ws;
-									w = sprite_get_width(v_tileIndex[3]);
-									ws = w div 32;
-
-									//index = index div ws * ws;
-									for (var f = 0; f < index; f++)
+									for (var f = 0; f < v_currentTile; f++)
 									{
-										tx += 32;
+										var data;
+										data = tilemap_get(v_tileIndex[2, f], v_tileIndex[0, f], v_tileIndex[1, f]);
+									
+										var surf;
+										surf = surface_create(32, 32);
+										surface_set_target(surf);
+									
+										var index;
+										index = tile_get_index(data);
+									
+										var tx, ty;
+										tx = 32; 
+										ty = 0;
+									
+										var w, ws;
+										w = sprite_get_width(v_tileIndex[3, f]);
+										ws = w div 32;
 
-										if (tx > w) {tx = 32; ty += 32;}
+										//index = index div ws * ws;
+										for (var g = 0; g < index; g++)
+										{
+											tx += 32;
+
+											if (tx > w) {tx = 32; ty += 32;}
+										}
+
+										draw_sprite_part(v_tileIndex[3, f], 0, tx, max(ty, 0), 32, 32, 0, 0);
+										surface_reset_target();
+									
+										var sprite;
+										sprite = sprite_create_from_surface(surf, 0, 0, 32, 32, 0, 0, 0, 0);
+									
+										cpGoreShards(sprite, 0, 32, 4);
+
+										surface_free(surf);
+									
+										data = tile_set_index(data, 0);				
+										tilemap_set(v_tileIndex[2, f], data, v_tileIndex[0, f], v_tileIndex[1, f]);
 									}
-
-									draw_sprite_part(v_tileIndex[3], 0, tx, max(ty, 0), 32, 32, 0, 0);
-									surface_reset_target();
 									
-									var sprite;
-									sprite = sprite_create_from_surface(surf, 0, 0, 32, 32, 0, 0, 0, 0);
-									
-									cpGoreShards(sprite, 0, 32, 4);
-
-									surface_free(surf);
-									
-									data = tile_set_index(data, 0);				
-									tilemap_set(v_tileIndex[2], data, v_tileIndex[0], v_tileIndex[1]);
+									instance_destroy(tmp_list[| i]);
 								}
 								
 								v_alive = false;

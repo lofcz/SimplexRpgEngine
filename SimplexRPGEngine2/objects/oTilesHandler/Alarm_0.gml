@@ -14,13 +14,26 @@ for (var k = 0; k < v_layers; k++)
 		
 			if (data != 0)
 			{
-				if (!place_meeting(j * 32, i * 32, oCollMaskNonsolid))
+				
+				if (!place_meeting(j * 32, i * 32, oCollMaskNonsolid) && !place_meeting(j * 32, i * 32, oCollMaskSolid))
 				{
 					var inst = instance_create_depth(j * 32, i * 32, - 900, oCollMaskNonsolid);
-					inst.v_tileIndex[0] = j;
-					inst.v_tileIndex[1] = i;
-					inst.v_tileIndex[2] = map_id;
-					inst.v_tileIndex[3] = v_data[k, 1];
+					inst.v_tileIndex[0, 0] = j;
+					inst.v_tileIndex[1, 0] = i;
+					inst.v_tileIndex[2, 0] = map_id;
+					inst.v_tileIndex[3, 0] = v_data[k, 1];
+					inst.v_currentTile++;
+				}
+				else
+				{
+					var inst = instance_place(j * 32, i * 32, oCollMaskNonsolid);
+					if (inst == noone) {inst = instance_place(j * 32, i * 32, oCollMaskSolid);}
+					
+					inst.v_tileIndex[0, inst.v_currentTile] = j;
+					inst.v_tileIndex[1, inst.v_currentTile] = i;
+					inst.v_tileIndex[2, inst.v_currentTile] = map_id;
+					inst.v_tileIndex[3, inst.v_currentTile] = v_data[k, 1];	
+					inst.v_currentTile++;
 				}
 			}
 		}

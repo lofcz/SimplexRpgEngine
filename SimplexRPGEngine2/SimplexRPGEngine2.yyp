@@ -1743,6 +1743,14 @@
             }
         },
         {
+            "Key": "59f805e4-af92-4c39-8890-ba70e43da27c",
+            "Value": {
+                "id": "4c749c60-85ab-4ddf-9d9f-2bf750b6345a",
+                "resourcePath": "objects\\oCollMaskSolid\\oCollMaskSolid.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "5a21aa3f-670c-46f9-bfa6-14a8a70ad507",
             "Value": {
                 "id": "9afa2555-1956-4c33-82db-7c2e327b0249",
@@ -2988,6 +2996,14 @@
                 "id": "6649dcd0-07f4-4d26-8bdf-6f9c36e7c6e4",
                 "resourcePath": "scripts\\cpParticleLeafs\\cpParticleLeafs.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "a0de35a3-131d-44d5-a33c-b5bb380802f0",
+            "Value": {
+                "id": "6172f068-723d-438d-9d6a-b3077e7bb2d3",
+                "resourcePath": "sprites\\sprite2901\\sprite2901.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
