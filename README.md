@@ -9,7 +9,7 @@
 <img align="middle" width="128" height="128" src="https://s21.postimg.org/vghqza03r/rounded_corners.png"> <img align="middle" src="https://s10.postimg.org/tvc4uhp3t/Lateralgmlogo.png"> <img align="middle" width="128" height="128" src="https://s15.postimg.org/jrlizdqor/rounded_corners.jpg"> <img align="middle" width="128" height="128" src="https://s1.postimg.org/3z06nkdman/rounded_corners.png">  
 
 ## Engine awards:
-**Attending project on the Intel ICEF and EUCES 2018 
+**Attending project on the Intel ICEF and EUCYS 2018 
 as a result of winning an Intel ISEF-affiliated fair at a national level.**  
 **Winning project of national and district round of the Students` Professional Activities (SPA) for the Czech Republic**
   
