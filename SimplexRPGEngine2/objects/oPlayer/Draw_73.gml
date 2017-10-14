@@ -26,18 +26,18 @@ if (tmp_canMove)
 		var tmp_keyD = key_check(ord("D"));
 		var tmp_keyAny = (tmp_keyW || tmp_keyS || tmp_keyA || tmp_keyD);
 		
+		var tmp_inst, tmp_collPas, tmp_xShift, tmp_yShift, tmp_passed;
+		tmp_collPas = true;
+		tmp_xShift = 0;
+		tmp_yShift = 0;
+		tmp_passed = true;
 		
+		v_localMotion = (v_speedReal / (v_speed * oHUD.v_l));
 		if (tmp_keyAny)
 		{
-			v_speedReal = v_speed * oHUD.v_l;
+			v_speedReal = lerp(v_speedReal, v_speed * oHUD.v_l, 0.3);
 			image_speed = 0.25 + (tmp_finalSpeed / 100) * oHUD.v_l;	
 			if (v_currentAnimation == e_animations.valRun) {image_speed *= 5; v_speedReal *= 2;}
-			
-			var tmp_inst, tmp_collPas, tmp_xShift, tmp_yShift, tmp_passed;
-			tmp_collPas = true;
-			tmp_xShift = 0;
-			tmp_yShift = 0;
-			tmp_passed = true;
 				
 			if (tmp_keyW) {v_dir = e_dirs.valW; direction = 90; tmp_yShift = -v_speedReal;}
 			else if (tmp_keyS) {v_dir = e_dirs.valS; direction = 270; tmp_yShift = v_speedReal;}
@@ -81,6 +81,9 @@ if (tmp_canMove)
 			{
 				y += tmp_yShift;
 				x += tmp_xShift;
+				
+				v_lastShiftX = tmp_xShift;
+				v_lastShiftY = tmp_yShift;
 			}
 
 			if (v_list != noone)
@@ -95,9 +98,8 @@ if (tmp_canMove)
 			speed = 0;
 			image_index = 12;
 			v_speedReal = lerp(v_speedReal, 0, 0.30);
-						fg = instance_nearest(x, y, oEnemy);
-		}		
-								
+			fg = instance_nearest(x, y, oEnemy);					
+		}						
 	}
 	
 	if (v_currentAnimation == e_animations.valSlash)

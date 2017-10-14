@@ -16,7 +16,8 @@ if (scale < 1.3) {scale += 0.02;}
 draw_set_font(font);
 draw_set_color(color);
 draw_set_alpha(image_alpha);
-if (mode = "normal") {draw_text_colored(x-(string_width(text) / 2),y -yy + 8,text);}
+
+if (mode = "normal") {draw_text_colored(x-(string_width(text) / 2),y -yy + 8,text, -1, font, color);}
 if (mode = "combat") {alg("center"); draw_text_transformed(x-(string_width(text)/2),y-(string_height(text)/2),text,scale,scale,0); alg();}
 
 if (sprite > 0) 

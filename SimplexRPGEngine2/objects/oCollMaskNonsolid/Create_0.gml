@@ -13,3 +13,5 @@ v_currentTile = 0;
 alarm[0] = 1;
 
 v_collisionMain = [x, y, x + 32 * image_xscale, y + 32 * image_yscale];
+
+alarm[0] = 2;

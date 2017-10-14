@@ -10,6 +10,10 @@ v_animationFrames[e_animations.valBash] = 6;
 v_animationFrames[e_animations.valThrust] = 6;
 v_animationFrames[e_animations.valRun] = 8;
 
+v_localMotion = 0;
+v_lastShiftX = 0;
+v_lastShiftY = 0;
+
 libPlayerIni();
 
 cpBodyCanvasRegAnim(e_animations.valWalk,   sBodyCanvasHumanWalk1, sBodyCanvasHair1,       sBodyCanvasArmor5,       0, 0, sBodyCanvasLegs2, 0, sBodyCanvasShoes1, 0, 0, 0, 0);
@@ -30,6 +34,7 @@ instance_create_depth(x, y, -9000, oTreeController);
 
 v_collisionMain = [x, y, x, y];
 v_collisionLegs = [x, y, x, y];
+v_collisionHead = [x, y, x , y];
 
 v_lerpMode = 0;
 v_actualLerp = 0;

@@ -11,3 +11,4 @@ v_properties[e_inventoryProperties.valMaxHp] = v_properties[e_inventoryPropertie
 v_iniSelf = true;
 v_currentTile = 0;
 alarm[0] = 1;
+y--;
