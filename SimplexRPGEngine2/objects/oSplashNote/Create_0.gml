@@ -12,3 +12,4 @@ p      = 0;
 mode   = 0;
 scale  = 1;
 yy     = 0;
+depth = -30000;

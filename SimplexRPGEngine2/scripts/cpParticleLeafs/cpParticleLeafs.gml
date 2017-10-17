@@ -1,4 +1,4 @@
-/// @function cpParticleLeafs(System, x, y, number)
+/// @function cpParticleLeafs(System, emitter, x, y, number)
 
 f = random_range(250, 290);
 var particle1, emitter1;
@@ -16,6 +16,5 @@ part_type_blend(particle1,1);
 part_type_life(particle1,60,80);
 part_system_depth(argument0, -800);
 
-emitter1 = part_emitter_create(argument0);
-part_emitter_region(argument0,emitter1,argument1 + random_range(-20, 20),argument1 + random_range(-20, 20),argument2,argument2,0,0);
-part_emitter_burst(argument0,emitter1,particle1,argument3);
+part_emitter_region(argument0,argument1,argument2 + random_range(-20, 20),argument2 + random_range(-20, 20),argument3,argument3,0,0);
+part_emitter_burst(argument0,argument1,particle1,argument4);

@@ -71,7 +71,7 @@ if (override)
                          }
    }
 */
-log = instance_create_depth(xx, yy, -9000, oSplashMessage);
+log = instance_create_depth(xx, yy, -10000, oSplashMessage);
 log.sprite = sprite;
 log.text   = text;
 log.color  = color;

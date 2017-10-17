@@ -3599,6 +3599,14 @@
             }
         },
         {
+            "Key": "c2a3058c-9ba8-44d4-8a32-9ea76db3cb0a",
+            "Value": {
+                "id": "d850f030-076e-4658-9c65-797dd382b7c3",
+                "resourcePath": "scripts\\cpGoreShardsLong\\cpGoreShardsLong.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "c3b17662-5623-45db-b6b3-d1c00711aa5e",
             "Value": {
                 "id": "7596e8e1-da6b-4c84-9a75-392c9529544b",
@@ -4632,6 +4640,7 @@
         "68263c7d-147c-42de-ac6f-ec4930fa8e08",
         "e5d2e571-2c30-4454-b1c0-e2ffed1feb4e",
         "7b687e53-ebf9-426a-8daf-99b9cedd7555",
+        "c2a3058c-9ba8-44d4-8a32-9ea76db3cb0a",
         "2547e3b9-bf3f-405b-8916-9bbe326ab661",
         "60cce270-0fda-4c9e-bd4a-07a76b4b9969",
         "976ca7eb-6263-479b-89d1-4a7fb75a7c7c",

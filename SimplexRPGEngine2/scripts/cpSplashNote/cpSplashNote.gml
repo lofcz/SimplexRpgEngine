@@ -69,7 +69,7 @@ if (override)
                          }
    }
 
-log = instance_create_depth(xx, yy, depth, oSplashNote);
+log = instance_create_depth(xx, yy, -30000, oSplashNote);
 log.sprite = sprite;
 log.text   = text;
 log.color  = color;

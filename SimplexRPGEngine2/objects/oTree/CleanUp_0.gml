@@ -1,5 +1,5 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-Sname = part_system_create();
-emitter1 = part_emitter_create(Sname);
+sprite_delete(v_spriteRest);
+sprite_delete(kk);

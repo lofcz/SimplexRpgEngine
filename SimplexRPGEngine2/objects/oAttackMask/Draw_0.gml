@@ -33,6 +33,11 @@ if (tmp_list != noone)
 						cpGoreBlood(tmp_list[| i].x, tmp_list[| i].y, 5, c_red, tmp_d1, tmp_d2);
 					}
 					
+					if (tmp_list[| i].v_dropShardsOnHit)
+					{
+						cpGoreShardsLong(tmp_list[| i].k, tmp_list[| i].image_index - 1, 32 + irandom(32), 4);	
+					}
+					
 					cpSplashMessage(string(5), c_black, -1, 0, 0, tmp_list[| i].x, tmp_list[| i].y - 32);
 
 					tmp_list[| i].v_mindState = "attack";
@@ -66,7 +71,32 @@ if (tmp_list != noone)
 
 									ds_list_destroy(d_spriteList);
 									cpGoreBlood(tmp_list[| i].x, tmp_list[| i].y, 20, c_red, 0, 360);
-								}		
+								}	
+								
+								if (v_dropShardsOnHit)
+								{
+									v_sprite = sprite_duplicate(sprite_index);
+									
+									v_splitStartX = point1[0];
+									v_splitStartY = point1[1];
+
+									v_splitEndX = point2[0];
+									v_splitEndY = point2[1];
+
+									v_restX = x;
+									v_restY = y;
+
+									v_restStartX = v_restX;
+									v_restStartY = v_restY;
+
+
+									d_spriteList = sprite_divide(v_sprite,v_splitStartX,v_splitStartY,v_splitEndX,v_splitEndY);
+
+									kk = d_spriteList[| 1];
+									v_spriteRest = d_spriteList[| 0];
+
+									ds_list_destroy(d_spriteList);									
+								}
 								
 								if (v_isMask)
 								{
