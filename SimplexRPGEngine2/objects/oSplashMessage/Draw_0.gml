@@ -10,8 +10,8 @@ if (mode = "normal") {draw_text(x-(string_width(text) / 2),y -yy,text);}
 
 if (sprite > 0) 
    {
-   if (a < sprite_get_number(sprite)) {a += ani;} else {a = 0;}
-   draw_sprite(sprite,a,x+(string_width(text)/2) + 16,y + 16);
+	   if (a < sprite_get_number(sprite)) {a += ani;} else {a = 0;}
+	   draw_sprite(sprite,a,x+(string_width(text)/2) + 16,y + 8);
   
    }
 draw_set_color(c_black);

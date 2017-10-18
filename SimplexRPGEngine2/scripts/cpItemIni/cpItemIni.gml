@@ -40,5 +40,7 @@ v_itemAtributes[e_inventoryAtributes.valImageIndex] = v_itemAtributes[e_inventor
 v_itemAtributes[e_inventoryAtributes.valItemNumber] = 1;
 v_itemAtributes[e_inventoryAtributes.valEquipSlot] = -1;
 
+v_tempSprite = sprite_index;
+
 sprite_index = v_itemAtributes[e_inventoryAtributes.valSprite];
 image_index = v_itemAtributes[e_inventoryAtributes.valID] - 2;

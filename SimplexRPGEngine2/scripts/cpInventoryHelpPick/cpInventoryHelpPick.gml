@@ -85,6 +85,7 @@ repeat(tmp_item.v_itemAtributes[e_inventoryAtributes.valItemNumber])
 	{
 		// [DEBUG] 
 		show_message("no space in da container " + string(tmp_id));
+		return -1;
 	}
 }
 

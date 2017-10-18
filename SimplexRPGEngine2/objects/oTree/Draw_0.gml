@@ -16,4 +16,4 @@ if (v_sprite != -1)
 	if (!v_alive && !u) {image_alpha = lerp(image_alpha, 0, 0.1); if (image_alpha < 0.05) {instance_destroy();}}
 }
 
-draw_sprite_ext(kk, image_index + 1, x, y, 1, 1, image_angle, c_white, image_alpha);
+if (sprite_exists(kk)) {draw_sprite_ext(kk, image_index + 1, x, y, 1, 1, image_angle, c_white, image_alpha);}

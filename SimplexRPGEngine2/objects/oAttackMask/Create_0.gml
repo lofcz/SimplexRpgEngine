@@ -12,3 +12,5 @@ depth = -12000;
 
 alarm[0] = 1;
 sprite_index = sSwingRight;
+
+sfx(choose(sndSwing1, sndSwing2, sndSwing3));

@@ -5,6 +5,6 @@ if (v_alive)
 {
 	depth = oPlayer.depth - 50;
 	v_alive = false;
-	
-	cpSplashNote("+ "+string(10),c_red,sHealthEffect,0,0.4);
+
+	cpSplashMessage("+ " + string(5), c_red, sHealthEffect, 0, 0.4, x, y - 32);
 }

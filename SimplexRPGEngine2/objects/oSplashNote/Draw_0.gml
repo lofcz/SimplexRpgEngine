@@ -1,6 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+/*
 if (mode != "combat") {image_alpha -= spd;}
 else {image_alpha -= max(spd-(spd/5),0.01);}
 
@@ -17,7 +18,7 @@ draw_set_font(font);
 draw_set_color(color);
 draw_set_alpha(image_alpha);
 
-if (mode = "normal") {draw_text_colored(x-(string_width(text) / 2),y -yy + 8,text, -1, font, color);}
+if (mode = "normal") {draw_text_colored(x-(string_width(text) / 2),y -yy,text, -1, font, color);}
 if (mode = "combat") {alg("center"); draw_text_transformed(x-(string_width(text)/2),y-(string_height(text)/2),text,scale,scale,0); alg();}
 
 if (sprite > 0) 

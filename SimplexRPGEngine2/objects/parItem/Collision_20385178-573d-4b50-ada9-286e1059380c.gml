@@ -1,4 +1,7 @@
 /// @desc [Simplex description line]
 
-cpInventoryHelpPick(id);
-instance_destroy();
+if (cpInventoryHelpPick(id) != -1)
+{
+	cpSplashMessage("+ " + string("Wooden sword"), c_white, v_tempSprite, 0, 0.9, x, y - 32);
+	instance_destroy();
+}

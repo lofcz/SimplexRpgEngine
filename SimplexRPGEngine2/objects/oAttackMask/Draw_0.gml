@@ -78,7 +78,7 @@ if (tmp_list != noone)
 									v_sprite = sprite_duplicate(sprite_index);
 									
 									v_splitStartX = point1[0];
-									v_splitStartY = point1[1];
+									v_splitStartY = point1[1] + irandom(8);
 
 									v_splitEndX = point2[0];
 									v_splitEndY = point2[1];

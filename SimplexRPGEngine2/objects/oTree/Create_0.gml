@@ -11,6 +11,7 @@ time = random_range(0, 360);
 v_canBeDamaged = true;
 v_properties[e_inventoryProperties.valHp] = 5;
 v_dropShardsOnHit = true;
+v_spriteRest = -1;
 
 point1 = [-64, 64];
 point2 = [64, 96];
