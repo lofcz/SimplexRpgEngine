@@ -1,0 +1,9 @@
+﻿  Project1.cpp
+Project1.cpp(28): warning C4005: '_WIN32_WINNT': macro redefinition
+  C:\Program Files (x86)\Windows Kits\10\Include\10.0.15063.0\shared\SDKDDKVer.h(213): note: see previous definition of '_WIN32_WINNT'
+Project1.cpp(85): warning C4101: 'bSuccess': unreferenced local variable
+  .NETFramework,Version=v4.0.AssemblyAttributes.cpp
+  dllmain.obj : /DEBUG:FASTLINK is not supported when managed code is present; restarting link with /DEBUG:FULL
+     Creating library C:\Users\lof\source\repos\Project1\Debug\Project1.lib and object C:\Users\lof\source\repos\Project1\Debug\Project1.exp
+  Project1.vcxproj -> C:\Users\lof\source\repos\Project1\Debug\Project1.dll
+  Project1.vcxproj -> C:\Users\lof\source\repos\Project1\Debug\Project1.pdb (Partial PDB)
