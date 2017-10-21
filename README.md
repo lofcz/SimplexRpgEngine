@@ -32,7 +32,7 @@ as a result of winning an Intel ISEF-affiliated fair at a national level.**  
 ## Engine preview: 
 <img align="middle" width="256" height="196" src="https://s1.postimg.org/8ejvqnd7jz/Picture1.png"> <img align="middle" width="256" height="196" src="https://s1.postimg.org/46hfuzurbz/Picture2.png"> <img align="middle" width="256" height="196" src="https://s1.postimg.org/8pjgxz0vf3/Picture3.png">
 <img align="middle" width="256" height="196" src="https://s1.postimg.org/9lfydfa4fj/Picture4.png"> <img align="middle" width="256" height="196" src="https://s1.postimg.org/78dbw7wiyn/Picture5.png"> <img align="middle" width="256" height="196" src="https://s1.postimg.org/3ze7zk7yr3/Picture6.png">
-<img align="middle" width="256" height="196" src="https://s1.postimg.org/7q3dkssjn3/image.jpg"> <img align="middle" width="256" height="196" src="https://s1.postimg.org/1mblicsv9r/Picture7.jpg"> <img align="middle" width="256" height="196" src="https://s1.postimg.org/9lfydf8u4v/Picture8.jpg">
+<img align="middle" width="256" height="196" src="https://s1.postimg.org/7q3dkssjn3/image.jpg"> <img align="middle" width="256" height="196" src="https://s1.postimg.org/5k8jxvx7sv/Bezejmenn.png"> <img align="middle" width="256" height="196" src="https://s1.postimg.org/9lfydf8u4v/Picture8.jpg">
 
 ## The future is within your grasp. Start [here](https://github.com/lofcz/SimplexRpgEngine/wiki).
 
