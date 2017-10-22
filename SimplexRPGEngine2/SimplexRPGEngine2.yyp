@@ -4047,6 +4047,14 @@
             }
         },
         {
+            "Key": "bfd1bc93-54f6-460f-940f-57bbd2901d40",
+            "Value": {
+                "id": "fceb24c6-95fd-4dc5-829c-18a63e22f081",
+                "resourcePath": "objects\\oDropXP\\oDropXP.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "c0876f9c-209e-4a61-80ac-f4296fa506f1",
             "Value": {
                 "id": "8ded948e-f77e-4eef-8fff-b91aa5810eed",
@@ -5196,6 +5204,14 @@
                 "id": "ac42539f-8224-4ab5-8621-0dc6954235b3",
                 "resourcePath": "sprites\\sBodyCanvasLegs2\\sBodyCanvasLegs2.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "fada6b38-54fb-440b-b977-24616e865094",
+            "Value": {
+                "id": "b9c60a6d-80c5-4ace-afa4-3c14e3674437",
+                "resourcePath": "sounds\\sndTreeFall\\sndTreeFall.yy",
+                "resourceType": "GMSound"
             }
         },
         {

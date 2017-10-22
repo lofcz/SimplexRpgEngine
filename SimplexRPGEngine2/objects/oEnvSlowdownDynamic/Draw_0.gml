@@ -7,5 +7,9 @@ draw_self();
 if (!v_alive)
 {
 	cpGoreShards(sprite_index, image_index, 32, 4);
+	repeat(100)
+	{
+		instance_create_layer(x, y, "Items", oDropXP);	
+	}
 	instance_destroy();
 }
