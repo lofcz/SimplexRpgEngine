@@ -5,7 +5,7 @@ var tmp_canMove = !mathArrayContains(v_canMove, 0);
 var tmp_finalSpeed = v_speed;
 var tmp_suppresEvent = false;
 
-if (v_currentAnimation == e_animations.valRun) {tmp_finalSpeed *= 1.5}
+//if (v_currentAnimation == e_animations.valRun) {tmp_finalSpeed *= 1.5}
 
 
 /*
@@ -35,9 +35,9 @@ if (tmp_canMove)
 		v_localMotion = (v_speedReal / (v_speed * oHUD.v_l));
 		if (tmp_keyAny)
 		{
-			v_speedReal = lerp(v_speedReal, v_speed * oHUD.v_l, 0.3);
 			image_speed = 0.25 + (tmp_finalSpeed / 100) * oHUD.v_l;	
-			if (v_currentAnimation == e_animations.valRun) {image_speed *= 5; v_speedReal *= 2;}
+			if (v_currentAnimation == e_animations.valRun) {image_speed *= 5; v_speedReal = lerp(v_speedReal, v_speed * oHUD.v_l * 2, 0.3);}
+			else {v_speedReal = lerp(v_speedReal, v_speed * oHUD.v_l, 0.3);}
 				
 			if (tmp_keyW) {v_dir = e_dirs.valW; direction = 90; tmp_yShift = -v_speedReal;}
 			else if (tmp_keyS) {v_dir = e_dirs.valS; direction = 270; tmp_yShift = v_speedReal;}
