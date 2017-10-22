@@ -22,3 +22,7 @@ v_staticDepth = true;
 
 image_xscale = scale;
 image_yscale = scale;
+
+v_lerp = c_white;
+v_lerpAlpha = 1;
+time = 0;

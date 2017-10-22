@@ -104,7 +104,7 @@ if (v_formAlpha > 0.05)
 		tmp_realSlotArea = v_slotSize + 4;
 	
 		// Check for hover
-		if (point_in_rectangle(mouse_x, mouse_y, tmp_drawX, tmp_drawY, tmp_drawX + tmp_realSlotArea, tmp_drawY + tmp_realSlotArea))
+		if (point_in_rectangle(mouse_x, mouse_y, tmp_drawX, tmp_drawY, tmp_drawX + tmp_realSlotArea, tmp_drawY + tmp_realSlotArea) && v_drawForm)
 		{
 			if (v_menuItem == -1)
 			{
@@ -401,7 +401,7 @@ if (v_formAlpha > 0.05)
 	else {if (v_hoverAlphaFF > 0) {v_hoverAlphaFF--;} else {v_hoverAlpha = lerp(v_hoverAlpha, 0, 0.1);}}
 
 	// Draw infobox
-	cpInventoryHelperDrawInfobox();
+	cpInventoryHelperDrawInfobox(); // 404, lof's brain not found
 	v_containerID = -1;
 
 	// Draw second active form

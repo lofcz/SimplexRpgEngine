@@ -33,17 +33,22 @@ if (tmp_hoverAlpha > 0.05)
 	tmp_layoutSlotsX = tmp_infoboxW;
 
 	clr(-1, tmp_alpha);
-	draw_sprite_tiled_area(oInventory.v_inventoryTexSprite, 0, 0, 0, tmp_drawX + oInventory.v_frameBorder, tmp_drawY + oInventory.v_frameBorder, oInventory.v_layoutEndX, tmp_drawY - 2 + tmp_infoboxH * oInventory.v_slotSize);
+	//draw_sprite_tiled_area(oInventory.v_inventoryTexSprite, 0, 0, 0, tmp_drawX + oInventory.v_frameBorder, tmp_drawY + oInventory.v_frameBorder, oInventory.v_layoutEndX, tmp_drawY - 2 + tmp_infoboxH * oInventory.v_slotSize);
 	clr();
+	
+	libUtilityDrawForm(tmp_drawX + 1, tmp_drawY + oInventory.v_frameBorder, abs((tmp_drawX + oInventory.v_frameBorder) - oInventory.v_layoutEndX) - 28, abs((tmp_drawY + oInventory.v_frameBorder) - tmp_drawY - 2 + tmp_infoboxH * oInventory.v_slotSize), tmp_alpha);
+	
 	
 	for (var i = 0; i < tmp_infoboxH + 1; i++)
 	{
+		
 		for (var j = 0; j < tmp_infoboxW + 1; j++)
 		{
 			// Draw form layout
 			//	- Top row
 			//  - Middle rows
 			//	- Bottom row
+			/*
 			if (i == 0)
 			{
 				if (j == 0) {draw_sprite_part_ext(oInventory.v_inventorySprite, 0, oHUD.v_hudFrameTopX, oHUD.v_hudFrameTopY, 32, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, tmp_alpha);}
@@ -64,9 +69,9 @@ if (tmp_hoverAlpha > 0.05)
 				if (j == 0) {draw_sprite_part_ext(oInventory.v_inventorySprite, 0, oHUD.v_hudFrameMidX, oHUD.v_hudFrameMidY, 32, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, tmp_alpha);}
 				else if (j == tmp_layoutSlotsX) {draw_sprite_part_ext(oInventory.v_inventorySprite, 0, oHUD.v_hudFrameMidX + 64, oHUD.v_hudFrameMidY, 33, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, tmp_alpha);}		
 			}	
-					
+			*/		
 			if (j != tmp_layoutSlotsX - 1) {tmp_drawX += oInventory.v_slotSize;} else {tmp_drawX += oInventory.v_layoutRestX;}
-		}	
+		}
 	
 		if (i != tmp_infoboxH - 1) {tmp_drawY += oInventory.v_slotSize;}
 		tmp_drawX = oInventory.v_drawStartX;
@@ -84,7 +89,8 @@ if (tmp_hoverAlpha > 0.05)
 	
 	if (!tmp_slotID[tmp_hoverID, e_inventoryAtributes.valIdentified]) {tmp_text = "??????";}
 	
-	draw_text_color(tmp_drawX, tmp_drawY, tmp_text, c_black, c_black, c_black, c_black, tmp_hoverAlpha);
+	clr(c_black, tmp_hoverAlpha);
+	draw_text(tmp_drawX, tmp_drawY, tmp_text);
 	alg();
 	
 	tmp_drawX = oInventory.v_drawStartX + 8;
@@ -95,7 +101,7 @@ if (tmp_hoverAlpha > 0.05)
 	
 	if (!tmp_slotID[tmp_hoverID, e_inventoryAtributes.valIdentified]) {tmp_text = _sc(__("This item is covered with mystifing aura, you need to identify it first"), c_red);}
 	
-	draw_text_colored(tmp_drawX, tmp_drawY, tmp_text, oInventory.v_layoutEndX - oInventory.v_drawStartX - 30, fntPixelTiny);
+	draw_text_colored(tmp_drawX, tmp_drawY, tmp_text, oInventory.v_layoutEndX - oInventory.v_drawStartX - 30, fntPixelTiny, c_black);
 
 	var tmp_stringH;
 	tmp_stringH = string_height(tmp_slotID[tmp_hoverID, e_inventoryAtributes.valInfoTextBody]);
@@ -108,14 +114,14 @@ if (tmp_hoverAlpha > 0.05)
 		
 		if (!tmp_slotID[tmp_hoverID, e_inventoryAtributes.valIdentified]) {tmp_text = "?";}
 	
-		draw_text(oInventory.v_layoutEndX - 4, tmp_drawY - 2 + tmp_infoboxH * oInventory.v_slotSize - 52, tmp_text + "G");
+		draw_text(oInventory.v_layoutEndX - 5, tmp_drawY - 2 + tmp_infoboxH * oInventory.v_slotSize - 14, tmp_text + "G");
 		alg();
 	}
 
 
 	clr(c_black, tmp_hoverAlpha);
 	alg(fa_right, fa_top);
-	draw_text(oInventory.v_layoutEndX - 4, tmp_drawY - 2 + tmp_infoboxH * oInventory.v_slotSize - 42, string(tmp_slotID[tmp_hoverID, e_inventoryAtributes.valWeight]) + "W");
+	draw_text(oInventory.v_layoutEndX - 5, tmp_drawY - 2 + tmp_infoboxH * oInventory.v_slotSize - 26, string(tmp_slotID[tmp_hoverID, e_inventoryAtributes.valWeight]) + "W");
 	alg();
 
 	
@@ -173,7 +179,7 @@ if (tmp_hoverAlpha > 0.05)
 	{
 		if (tmp_slotID[tmp_hoverID, e_inventoryAtributes.valIdentified])
 		{
-			draw_text_colored(tmp_drawX - 3, tmp_drawY + 16 + tmp_stringH, tmp_string, -1, fntPixelExtraTiny);
+			draw_text_colored(tmp_drawX - 3, tmp_drawY + 16 + tmp_stringH, tmp_string, -1, fntPixelExtraTiny, c_black);
 		}
 	}
 	
