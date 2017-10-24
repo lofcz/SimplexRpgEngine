@@ -54,8 +54,25 @@ if (tmp_hover)
 					}
 					else
 					{
-						tmp_id.v_slotBeingDragged = tmp_i;
-						oHUD.v_mouseFree = false;
+						if (!v_drawCombinations)
+						{
+							tmp_id.v_slotBeingDragged = tmp_i;
+							oHUD.v_mouseFree = false;
+						}
+						else
+						{
+							// Handle combination
+							var tmp_canBeCombined;
+							tmp_canBeCombined = (cpItemsOptionsDB(tmp_id.v_slot[tmp_id.v_usedItem, e_inventoryAtributes.valID], tmp_id.v_usedOption, tmp_i) && !tmp_id.v_slot[tmp_i, e_inventoryAtributes.valBeingUsed] && tmp_id.v_slot[tmp_i, e_inventoryAtributes.valIdentified]);
+
+							if (tmp_canBeCombined)
+							{
+								cpItemsCombinationsDB(id, tmp_id.v_usedItem, tmp_i);						
+							}
+							
+							v_drawCombinations = false;
+							tmp_id.v_slot[tmp_id.v_usedItem, e_inventoryAtributes.valBeingUsed] = false;
+						}
 					}
 				}
 			}

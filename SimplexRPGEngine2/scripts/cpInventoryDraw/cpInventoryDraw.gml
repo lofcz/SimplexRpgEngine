@@ -557,6 +557,7 @@ if (v_formAlpha > 0.05)
 						if (i < tmp_optionsCount)
 						{
 							cpItemsOptionsDB(v_slot[v_menuItem, e_inventoryAtributes.valID], i);
+							v_menuItem = -1;
 						}
 						
 						if (i == tmp_optionsCount + 1)

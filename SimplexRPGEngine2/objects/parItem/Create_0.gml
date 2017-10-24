@@ -30,6 +30,15 @@ for (var i = 0; i < mcAnimations; i++)
 	v_itemAnimation[i] = 0;
 }
 
+// <gemID, [string] gemStatistics, gemIcon, gemName>
+for (var i = 0; i < 6; i++)
+{
+	for (var j = 0; j < 10; j++)
+	{
+		v_itemPearls[i, j] = 0
+	}
+}
+
 v_itemAtributes[e_inventoryAtributes.valIdentified] = true;
 v_lerpMode = 0;
 v_actualLerp = 0;

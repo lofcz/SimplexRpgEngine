@@ -2,6 +2,6 @@
 
 if (cpInventoryHelpPick(id) != -1)
 {
-	cpSplashMessage("+ " + string("Wooden sword"), c_white, v_tempSprite, 0, 0.9, x, y - 32);
+	cpSplashMessage("+ " + string(v_itemAtributes[e_inventoryAtributes.valInfoTextHead]), c_white, v_tempSprite, 0, 0.9, x, y - 32);
 	instance_destroy();
 }

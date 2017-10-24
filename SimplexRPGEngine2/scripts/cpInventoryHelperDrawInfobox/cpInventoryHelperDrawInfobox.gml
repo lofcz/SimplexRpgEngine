@@ -44,32 +44,6 @@ if (tmp_hoverAlpha > 0.05)
 		
 		for (var j = 0; j < tmp_infoboxW + 1; j++)
 		{
-			// Draw form layout
-			//	- Top row
-			//  - Middle rows
-			//	- Bottom row
-			/*
-			if (i == 0)
-			{
-				if (j == 0) {draw_sprite_part_ext(oInventory.v_inventorySprite, 0, oHUD.v_hudFrameTopX, oHUD.v_hudFrameTopY, 32, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, tmp_alpha);}
-				else if (j == tmp_layoutSlotsX - 1) {draw_sprite_part_ext(oInventory.v_inventorySprite, 0, oHUD.v_hudFrameTopX + 32, oHUD.v_hudFrameTopY, oInventory.v_layoutRestX + 1, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, tmp_alpha);}
-				else if (j == tmp_layoutSlotsX) {draw_sprite_part_ext(oInventory.v_inventorySprite, 0, oHUD.v_hudFrameTopX + 64, oHUD.v_hudFrameTopY, 33, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, tmp_alpha);}
-				else {draw_sprite_part_ext(oInventory.v_inventorySprite, 0, oHUD.v_hudFrameTopX + 32, oHUD.v_hudFrameTopY, 32, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, tmp_alpha);}
-			}
-		
-			else if (i == tmp_infoboxH)
-			{
-				if (j == 0) {draw_sprite_part_ext(oInventory.v_inventorySprite, 0, oHUD.v_hudFrameBottomX, oHUD.v_hudFrameBottomY, 32, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, tmp_alpha);}
-				else if (j == tmp_layoutSlotsX) {draw_sprite_part_ext(oInventory.v_inventorySprite, 0, oHUD.v_hudFrameBottomX + 64, oHUD.v_hudFrameBottomY, 33, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, tmp_alpha);}
-				else if (j == tmp_layoutSlotsX - 1) {draw_sprite_part_ext(oInventory.v_inventorySprite, 0, oHUD.v_hudFrameBottomX + 32, oHUD.v_hudFrameBottomY, oInventory.v_layoutRestX + 1, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, tmp_alpha);}
-				else {draw_sprite_part_ext(oInventory.v_inventorySprite, 0, oHUD.v_hudFrameBottomX + 32, oHUD.v_hudFrameBottomY, 32, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, tmp_alpha); }		
-			}			
-			else
-			{
-				if (j == 0) {draw_sprite_part_ext(oInventory.v_inventorySprite, 0, oHUD.v_hudFrameMidX, oHUD.v_hudFrameMidY, 32, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, tmp_alpha);}
-				else if (j == tmp_layoutSlotsX) {draw_sprite_part_ext(oInventory.v_inventorySprite, 0, oHUD.v_hudFrameMidX + 64, oHUD.v_hudFrameMidY, 33, 32, tmp_drawX, tmp_drawY, 1, 1, c_white, tmp_alpha);}		
-			}	
-			*/		
 			if (j != tmp_layoutSlotsX - 1) {tmp_drawX += oInventory.v_slotSize;} else {tmp_drawX += oInventory.v_layoutRestX;}
 		}
 	
@@ -101,10 +75,14 @@ if (tmp_hoverAlpha > 0.05)
 	
 	if (!tmp_slotID[tmp_hoverID, e_inventoryAtributes.valIdentified]) {tmp_text = _sc(__("This item is covered with misty aura, you need to identify it first."), c_red);}
 	
-	ui = draw_text_colored(tmp_drawX, tmp_drawY, tmp_text, abs((tmp_drawX + oInventory.v_frameBorder) - oInventory.v_layoutEndX) - 30, fntPixelTiny, c_black);
-
-	var tmp_stringH;	
-	tmp_stringH = string_height(scrWordwrap(libUtilityParseTextColored(tmp_text, fntPixelSmall), oInventory.v_layoutEndX - oInventory.v_drawStartX - 46, fntPixelSmall, true));
+	var tmp_stringH, tmp_fX;
+	tmp_fX = 0;
+	
+	if (tmp_slotID[tmp_hoverID, e_inventoryAtributes.valGemSlots] > 1) {tmp_fX += 16;}
+	
+	ui = draw_text_colored(tmp_drawX, tmp_drawY, tmp_text, abs((tmp_drawX + oInventory.v_frameBorder) - oInventory.v_layoutEndX) - 30 - tmp_fX, fntPixelTiny, c_black);
+	
+	tmp_stringH = string_height(scrWordwrap(libUtilityParseTextColored(tmp_text, fntPixelSmall), oInventory.v_layoutEndX - oInventory.v_drawStartX - (46 + tmp_fX), fntPixelSmall, true));
 	
 	if (tmp_slotID[tmp_hoverID, e_inventoryAtributes.valPriceBase] > 0)
 	{
@@ -114,14 +92,21 @@ if (tmp_hoverAlpha > 0.05)
 		
 		if (!tmp_slotID[tmp_hoverID, e_inventoryAtributes.valIdentified]) {tmp_text = "?";}
 	
-		draw_text(oInventory.v_layoutEndX - 5, tmp_drawY - 2 + tmp_infoboxH * oInventory.v_slotSize - 14, tmp_text + "G");
+		draw_text(oInventory.v_layoutEndX - 5, tmp_drawY - 2 + tmp_infoboxH * oInventory.v_slotSize - 14, tmp_text + "   ");
+		draw_sprite_ext(sCoinDrop, 4, oInventory.v_layoutEndX - 13, tmp_drawY + tmp_infoboxH * oInventory.v_slotSize + 5, 0.8, 0.8, 0, c_white, tmp_hoverAlpha);
 		alg();
 	}
 
 
 	clr(c_black, tmp_hoverAlpha);
 	alg(fa_right, fa_top);
-	draw_text(oInventory.v_layoutEndX - 5, tmp_drawY - 2 + tmp_infoboxH * oInventory.v_slotSize - 26, string(tmp_slotID[tmp_hoverID, e_inventoryAtributes.valWeight]) + "W");
+	
+	var tmp_strR;
+	tmp_strR = number_format(tmp_slotID[tmp_hoverID, e_inventoryAtributes.valWeight], 1, ".", ",");
+	if (tmp_slotID[tmp_hoverID, e_inventoryAtributes.valWeight] % 1 == 0) {tmp_strR = string(tmp_slotID[tmp_hoverID, e_inventoryAtributes.valWeight]);}
+	
+	draw_text(oInventory.v_layoutEndX - 5, tmp_drawY - 2 + tmp_infoboxH * oInventory.v_slotSize - 26, tmp_strR + "   ");
+	draw_sprite_ext(sInventoryIcons, 0, oInventory.v_layoutEndX - 13, tmp_drawY + 5 + tmp_infoboxH * oInventory.v_slotSize - 26, 0.35, 0.35, 0, c_white, tmp_hoverAlpha);
 	alg();
 
 	
@@ -189,8 +174,26 @@ if (tmp_hoverAlpha > 0.05)
 	
 	if (tmp_slotID[tmp_hoverID, e_inventoryAtributes.valEquipSlot] != e_equipmentSlots.valNONE) {tmp_itemC += libUtilityEquipmentSlotToString(tmp_slotID[tmp_hoverID, e_inventoryAtributes.valEquipSlot]);}
 	
+	// Add durability
+	if (tmp_slotID[tmp_hoverID, e_inventoryAtributes.valDurability] != 0)
+	{
+		tmp_itemC += ", " + string(tmp_slotID[tmp_hoverID, e_inventoryAtributes.valDurability]) + " / " + string(tmp_slotID[tmp_hoverID, e_inventoryAtributes.valMaxDurability]);
+		
+	}
+	
+	
 	tmp_itemC += "]";
 	fnt(fntPixelExtraTiny);
+	clr(-1, tmp_hoverAlpha);
 	draw_text(tmp_drawX, tmp_drawY + 8 + tmp_infoboxH * oInventory.v_slotSize - 26, tmp_itemC);
+	
+	// Draw gems
+	if (tmp_slotID[tmp_hoverID, e_inventoryAtributes.valGemSlots] > 0)
+	{
+		for (var i = 0; i < tmp_slotID[tmp_hoverID, e_inventoryAtributes.valGemSlots]; i++)
+		{
+			draw_sprite_part(oHUD.v_hudSprite, 0, 66, 157, 14, 14, oInventory.v_layoutEndX - 20, tmp_drawY - 12 + i * 16);
+		}
+	}
 	clr();
 }

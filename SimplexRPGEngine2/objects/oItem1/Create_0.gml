@@ -6,6 +6,8 @@ cpItemSetProperty(e_inventoryProperties.valDamage, 4);
 cpItemSetPropertyS(e_inventoryProperties.valDamage, 2);
 cpItemSetProperty(e_inventoryProperties.valMaxHp, 2);
 
+cpItemSetAtribute(e_inventoryAtributes.valGemSlots, 1);
+
 //cpItemSetReq(e_inventoryProperties.valLevel, 2);
 cpItemAddOption("First option", "Second option", "Third option");
 

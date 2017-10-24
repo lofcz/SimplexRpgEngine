@@ -79,10 +79,33 @@ if (tmp_owner.v_slot[tmp_slot, e_inventoryAtributes.valStackable])
 	draw_text(tmp_x + (tmp_owner.v_slotSize / 2) - tmp_drawOffsetX + 6, tmp_y + tmp_owner.v_slotSize - 10, string(tmp_owner.v_slot[tmp_slot, e_inventoryAtributes.valCurrentStackSize]));
 	clr(c_black, tmp_owner.v_formAlpha);
 }
+
+// Draw combinations
+if (v_drawCombinations)
+{
+	var tmp_canBeCombined;
+	tmp_canBeCombined = (cpItemsOptionsDB(v_slot[v_usedItem, e_inventoryAtributes.valID], v_usedOption, tmp_slot) && !v_slot[tmp_slot, e_inventoryAtributes.valBeingUsed] && v_slot[tmp_slot, e_inventoryAtributes.valIdentified]);
+	
+	if (tmp_canBeCombined)
+	{
+		clr(c_lime, tmp_owner.v_formAlpha / 3);
+		draw_roundrect(tmp_x + 2, tmp_y + 2, tmp_x + 36, tmp_y + 36, false);
+		clr(c_black, tmp_owner.v_formAlpha);
+	}
+	else
+	{
+		if (!v_slot[tmp_slot, e_inventoryAtributes.valBeingUsed])
+		{
+			clr(c_red, tmp_owner.v_formAlpha / 3);
+			draw_roundrect(tmp_x + 1, tmp_y + 2, tmp_x + 36, tmp_y + 36, false);
+			clr(c_black, tmp_owner.v_formAlpha);	
+		}
+	}
+}
 			
 if (tmp_owner.v_slot[tmp_slot, e_inventoryAtributes.valBeingUsed])
 {
 	clr(c_black, tmp_owner.v_formAlpha / 3);
-	draw_rectangle(tmp_x + 2, tmp_y + 2, tmp_x + 38, tmp_y + 38, false);
+	draw_rectangle(tmp_x + 1, tmp_y + 2, tmp_x + 38, tmp_y + 38, false);
 	clr(c_black, tmp_owner.v_formAlpha);
 }

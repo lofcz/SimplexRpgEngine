@@ -1,7 +1,7 @@
 /// @function cpInventoryIni()
 /// @desc Sets up inventory variables
 
-#macro mcInvenotryAtributes 25
+#macro mcInvenotryAtributes 26
 #macro mcInventoryProperties 120
 
 enum e_inventoryAtributes
@@ -30,7 +30,8 @@ enum e_inventoryAtributes
 	valWeight,
 	valIdentified,
 	valDurability,
-	valMaxDurability
+	valMaxDurability,
+	valGemSlots
 }
 
 enum e_inventoryProperties
@@ -245,6 +246,10 @@ v_secondMenuLast = -1;
 v_secondMenuText[0] = "Star";
 v_secondMenuText[1] = "Trash";
 v_secondMenuText[2] = "Unmark";
+
+v_drawCombinations = false;
+v_usedItem = -1;
+v_usedOption = 0;
 
 
 for (var i = 0; i <= v_slots; i++)
