@@ -46,6 +46,8 @@ if (argument_count > 0) {tmp_equipSlot = argument[0];}
 					for (var k = 0; k < mcInventoryProperties; k++)
 					{
 						tmp_prop[k] = v_slotProperty[v_slotBeingDragged, k];	
+						tmp_propS[k] = v_slotPropertyStatic[v_slotBeingDragged, k];
+						
 						tmp_req[k] = v_slotReq[v_slotBeingDragged, k];
 					}
 
@@ -66,7 +68,13 @@ if (argument_count > 0) {tmp_equipSlot = argument[0];}
 						v_equipmentSlotProperty[tmp_equipSlot, k] = tmp_prop[k];
 					
 						v_slotReq[v_slotBeingDragged, k] = v_equipmentReq[tmp_equipSlot, k];
-						v_equipmentReq[tmp_equipSlot, k] = tmp_req[k];					
+						v_equipmentReq[tmp_equipSlot, k] = tmp_req[k];	
+						
+					    v_slotPropertyStatic[v_slotBeingDragged, k] = v_equipmentSlotPropertyStatic[tmp_equipSlot, k];
+						v_equipmentSlotPropertyStatic[tmp_equipSlot, k] = tmp_propS[k];		
+						
+						oHUD.v_playerProperty[k] += tmp_prop[k];
+						oHUD.v_playerPropertyStatic[k] += tmp_propS[k];
 					}
 					
 					for (var k = 0; k < mcAnimations; k++)
@@ -78,5 +86,5 @@ if (argument_count > 0) {tmp_equipSlot = argument[0];}
 					for (var k = 0; k < mcAnimations; k++)
 					{
 						oPlayer.v_bci[k, v_equipmentSlot[tmp_equipSlot, e_inventoryAtributes.valEquipSlot]] = v_equipmentSlotAnimations[tmp_equipSlot, k];	
-					}
+					}				
 				}

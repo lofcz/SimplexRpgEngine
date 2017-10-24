@@ -143,3 +143,4 @@ for (var i = 1; i <= string_length(tmp_input); i++)
 }
 
 clr();
+return tmp_y;

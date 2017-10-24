@@ -112,6 +112,7 @@ for (var j = 0; j <= 30; j++)
 	for (var i = 0; i <= mcInventoryProperties; i++)
 	{
 		v_equipmentSlotProperty[j, i] = 0;
+		v_equipmentSlotPropertyStatic[j, i] = 0;
 		v_equipmentReq[j, i] = 0;
 	}
 	

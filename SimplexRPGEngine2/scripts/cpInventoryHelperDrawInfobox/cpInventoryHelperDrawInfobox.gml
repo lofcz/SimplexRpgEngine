@@ -99,12 +99,12 @@ if (tmp_hoverAlpha > 0.05)
 	clr(c_black, tmp_hoverAlpha);
 	tmp_text = tmp_slotID[tmp_hoverID, e_inventoryAtributes.valInfoTextBody];
 	
-	if (!tmp_slotID[tmp_hoverID, e_inventoryAtributes.valIdentified]) {tmp_text = _sc(__("This item is covered with mystifing aura, you need to identify it first"), c_red);}
+	if (!tmp_slotID[tmp_hoverID, e_inventoryAtributes.valIdentified]) {tmp_text = _sc(__("This item is covered with misty aura, you need to identify it first."), c_red);}
 	
-	draw_text_colored(tmp_drawX, tmp_drawY, tmp_text, oInventory.v_layoutEndX - oInventory.v_drawStartX - 30, fntPixelTiny, c_black);
+	ui = draw_text_colored(tmp_drawX, tmp_drawY, tmp_text, abs((tmp_drawX + oInventory.v_frameBorder) - oInventory.v_layoutEndX) - 30, fntPixelTiny, c_black);
 
-	var tmp_stringH;
-	tmp_stringH = string_height(tmp_slotID[tmp_hoverID, e_inventoryAtributes.valInfoTextBody]);
+	var tmp_stringH;	
+	tmp_stringH = string_height(scrWordwrap(libUtilityParseTextColored(tmp_text, fntPixelSmall), oInventory.v_layoutEndX - oInventory.v_drawStartX - 46, fntPixelSmall, true));
 	
 	if (tmp_slotID[tmp_hoverID, e_inventoryAtributes.valPriceBase] > 0)
 	{
@@ -144,7 +144,7 @@ if (tmp_hoverAlpha > 0.05)
 			
 			if (tmp_array[1] == 0)
 			{
-				if (tmp_val > 0) {tmp_string1 += string(tmp_val); if (tmp_staticVal > 0) {tmp_string1 += " + " + _sc(string(tmp_staticVal), c_lime);}}
+				if (tmp_val > 0) {tmp_string1 += _sc(string(tmp_val), c_white); if (tmp_staticVal > 0) {tmp_string1 += _sc(" + ", c_black) + _sc(string(tmp_staticVal), c_lime);}}
 				else {tmp_string1 += _sc(string(tmp_staticVal), c_lime);}
 				
 				tmp_string += " " + tmp_array[0] + ": " + tmp_string1 + "#";
@@ -179,9 +179,18 @@ if (tmp_hoverAlpha > 0.05)
 	{
 		if (tmp_slotID[tmp_hoverID, e_inventoryAtributes.valIdentified])
 		{
-			draw_text_colored(tmp_drawX - 3, tmp_drawY + 16 + tmp_stringH, tmp_string, -1, fntPixelExtraTiny, c_black);
+			draw_text_colored(tmp_drawX - 3, ui + 12, tmp_string, -1, fntPixelExtraTiny, c_black);
 		}
 	}
 	
+	// Draw item category
+	var tmp_itemC;
+	tmp_itemC = "[";
+	
+	if (tmp_slotID[tmp_hoverID, e_inventoryAtributes.valEquipSlot] != e_equipmentSlots.valNONE) {tmp_itemC += libUtilityEquipmentSlotToString(tmp_slotID[tmp_hoverID, e_inventoryAtributes.valEquipSlot]);}
+	
+	tmp_itemC += "]";
+	fnt(fntPixelExtraTiny);
+	draw_text(tmp_drawX, tmp_drawY + 8 + tmp_infoboxH * oInventory.v_slotSize - 26, tmp_itemC);
 	clr();
 }

@@ -1359,6 +1359,14 @@
             }
         },
         {
+            "Key": "3cccbd8a-4fc6-4c84-8edd-a9350bbcecd3",
+            "Value": {
+                "id": "f4816afe-e6b3-419a-8b89-252ec53d42ab",
+                "resourcePath": "scripts\\libUtilityEquipmentSlotToString\\libUtilityEquipmentSlotToString.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "3d5272ba-0494-469d-9f08-89205cab4ae0",
             "Value": {
                 "id": "450b16c3-7072-40a3-9833-01ad861d0e9a",
@@ -5327,7 +5335,6 @@
         "b4a9b194-289e-47fb-a1b3-5b9ed028c25a",
         "002bedf0-1fd5-45b2-b58c-2fd1139a6f35",
         "2b485559-4262-4de8-8ffc-aaca8b8061aa",
-        "cf2d0c6c-cc3c-4a1c-a58f-cc94e5080107",
         "d4bfadd3-452e-4721-b5c4-749ee9af7b76",
         "7818962d-ad26-4767-aa42-4e20e22a333b",
         "4f43a38c-2482-447b-ae2b-469fb7e03afc",
@@ -5336,9 +5343,11 @@
         "a3fc231d-5f69-4f5d-b792-792a2ec7a03f",
         "0e2b4025-2195-4320-88ca-5bc723b8cc4f",
         "48c97c14-2e12-4337-9f38-ede606046aee",
+        "3cccbd8a-4fc6-4c84-8edd-a9350bbcecd3",
         "4a9571fa-503a-4497-bdcb-e11d6f236379",
         "2e4cb9c8-ca33-4276-8ba1-adc6efb813c8",
         "4eaf97d3-97a2-4e13-9cf6-60c8942edddf",
+        "cf2d0c6c-cc3c-4a1c-a58f-cc94e5080107",
         "e307ce52-43ae-4e51-9b35-a18bc02d665b",
         "3e99874f-193a-451a-b5ac-6bfb66127b1c",
         "194b8cbd-b22b-4079-9793-74fec6e6f1bc",

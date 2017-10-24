@@ -51,6 +51,7 @@ tmp_freeSlot = cpInventoryHelperFindFreeSlot();
 					for (var k = 0; k < mcInventoryProperties; k++)
 					{
 						tmp_prop[k] = v_equipmentSlotProperty[tmp_equipSlot, k];	
+						tmp_propS[k] = v_equipmentSlotPropertyStatic[tmp_equipSlot, k];
 						tmp_req[k] = v_equipmentReq[tmp_equipSlot, k];
 					}
 
@@ -67,11 +68,17 @@ tmp_freeSlot = cpInventoryHelperFindFreeSlot();
 			
 					for (var k = 0; k < mcInventoryProperties; k++)
 					{
+						oHUD.v_playerProperty[k] -= tmp_prop[k];
+						oHUD.v_playerPropertyStatic[k] -= tmp_propS[k];
+
 						v_slotProperty[tmp_freeSlot, k] = tmp_prop[k];		
 						v_equipmentSlotProperty[tmp_equipSlot, k] = 0;
+						
+						v_slotPropertyStatic[tmp_freeSlot, k] = tmp_propS[k];		
+						v_equipmentSlotPropertyStatic[tmp_equipSlot, k] = 0;
 					
 						v_slotReq[tmp_freeSlot, k] = tmp_req[k];	
-						v_equipmentReq[tmp_equipSlot, k] = 0;		
+						v_equipmentReq[tmp_equipSlot, k] = 0;														
 					}
 					
 					for (var k = 0; k < mcAnimations; k++)

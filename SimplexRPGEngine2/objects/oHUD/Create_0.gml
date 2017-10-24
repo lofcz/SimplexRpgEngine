@@ -80,6 +80,7 @@ v_l = 1;
 for (var i = 0; i < mcInventoryProperties; i++)
 {
 	v_playerProperty[i] = 0;
+	v_playerPropertyStatic[i] = 0;
 }
 
 v_lang = "en";

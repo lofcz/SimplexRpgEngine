@@ -138,4 +138,5 @@ else if (tmp_text == "Quit")
 	if (oHUD.v_lang == "cz") {return "Odejít";}
 	else {return tmp_text;}
 }
-return "";
+
+return tmp_text;
