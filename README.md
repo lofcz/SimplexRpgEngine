@@ -11,9 +11,12 @@
 ## Engine awards:
 **Attending project on the Intel ICEF and EUCYS 2018 
 as a result of winning an Intel ISEF-affiliated fair at a national level.**  
-**Winning project of national and district round of the Students` Professional Activities (SPA) for the Czech Republic**
+**Winning project of national and district round of the Students` Professional Activities (SPA) for the Czech Republic.**
+**Awarded as best student project of 2017 for district of Liberec.** 
+
+_Note: All financial prizes are used to further improve quality of Simplex. For details about marketing see below._ 
   
-<img align="middle" width="30%" height="30%" src="https://s1.postimg.org/4lc4gdmvnj/photo.jpg"> <img align="middle" width="30%" height="30%" src="https://s1.postimg.org/5lui02d0in/eucys-logo.jpg"> <img align="middle" width="20%" height="20%" src="https://s1.postimg.org/7ee9l4xnkf/Bezejmenn.png">
+<img align="middle" width="30%" height="30%" src="https://s1.postimg.org/4lc4gdmvnj/photo.jpg"> <img align="middle" width="30%" height="30%" src="https://s1.postimg.org/5lui02d0in/eucys-logo.jpg"> <img align="middle" width="20%" height="20%" src="https://s1.postimg.org/7ee9l4xnkf/Bezejmenn.png"> <img align="middle" width="512" height="196" src="https://s1.postimg.org/9s745xg9v3/20160118b.gif">
 
 ## A handful of commercially successful projects powered by Simplex RPG Engine:
 **Fate of Hero** (Kedarsoft)  
