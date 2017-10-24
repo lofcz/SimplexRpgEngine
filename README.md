@@ -54,4 +54,4 @@ As opensource project we are always short of funds, which are, despite the fact 
 
 <sub><sup>Copyright © 2017 Matěj Štágl.</sup></sub>  
 <sub><sup><a href="https://github.com/lofcz/SimplexRpgEngine/wiki/Hall-of-fame-(Simplex-development-team)">Hall of fame (development team)</a></sup></sub>  
-<sub><sup>[Read the license, under which the project is available.](https://github.com/lofcz/SimplexRpgEngine/blob/master/license.md)</sup></sub>  
+<sub><sup>[Read the license, under which the project is available.](https://github.com/lofcz/SimplexRpgEngine/blob/master/LICENSE.md)</sup></sub>  
