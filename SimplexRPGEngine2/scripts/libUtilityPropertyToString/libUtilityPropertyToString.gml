@@ -17,6 +17,48 @@ switch(tmp_index)
 		break;
 	}
 	
+	case e_inventoryProperties.valCharisma:
+	{
+		tmp_output = "Charisma";
+		break;
+	}
+	
+	case e_inventoryProperties.valFate:
+	{
+		tmp_output = "Fate";
+		break;
+	}
+	
+	case e_inventoryProperties.valFortitude:
+	{
+		tmp_output = "Fortitude";
+		break;
+	}
+	
+	case e_inventoryProperties.valIntellect:
+	{
+		tmp_output = "Intellect";
+		break;
+	}
+	
+	case e_inventoryProperties.valPerception:
+	{
+		tmp_output = "Perception";
+		break;
+	}	
+	
+	case e_inventoryProperties.valPsyche:
+	{
+		tmp_output = "Psyche";
+		break;
+	}
+	
+	case e_inventoryProperties.valResolve:
+	{
+		tmp_output = "Resolve";
+		break;
+	}	
+	
 	case e_inventoryProperties.valAccuray:
 	{
 		tmp_output = "Accuray";

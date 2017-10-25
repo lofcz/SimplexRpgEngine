@@ -9,7 +9,8 @@
         "d01f092b-448e-42ef-8771-8c612c1eba37",
         "6a8518d7-fe41-4eb4-bbd9-99ede9b65eff",
         "1b62337c-3c15-47aa-8054-6441be1b6eb4",
-        "c0876f9c-209e-4a61-80ac-f4296fa506f1"
+        "c0876f9c-209e-4a61-80ac-f4296fa506f1",
+        "195d8c5d-10f2-48f2-9ce9-682160926bcf"
     ],
     "filterType": "GMFont",
     "folderName": "Pixel (uni 05)",

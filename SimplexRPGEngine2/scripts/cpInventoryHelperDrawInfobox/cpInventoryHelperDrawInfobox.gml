@@ -175,16 +175,17 @@ if (tmp_hoverAlpha > 0.05)
 	tmp_itemC = "[";
 	
 	if (tmp_slotID[tmp_hoverID, e_inventoryAtributes.valEquipSlot] != e_equipmentSlots.valNONE) {tmp_itemC += libUtilityEquipmentSlotToString(tmp_slotID[tmp_hoverID, e_inventoryAtributes.valEquipSlot]);}
-	
+
 	// Add durability
 	if (tmp_slotID[tmp_hoverID, e_inventoryAtributes.valDurability] != 0)
 	{
-		tmp_itemC += ", " + string(tmp_slotID[tmp_hoverID, e_inventoryAtributes.valDurability]) + " / " + string(tmp_slotID[tmp_hoverID, e_inventoryAtributes.valMaxDurability]);
-		
+		tmp_itemC += ", " + string(tmp_slotID[tmp_hoverID, e_inventoryAtributes.valDurability]) + " / " + string(tmp_slotID[tmp_hoverID, e_inventoryAtributes.valMaxDurability]);		
 	}
 	
 	
-	tmp_itemC += "]";
+	tmp_itemC += "]";	
+	if (tmp_itemC == "[]") {tmp_itemC = "[Other]";}
+	
 	fnt(fntPixelExtraTiny);
 	clr(-1, tmp_hoverAlpha);
 	draw_text(tmp_drawX, tmp_drawY + 8 + tmp_infoboxH * oInventory.v_slotSize - 26, tmp_itemC);

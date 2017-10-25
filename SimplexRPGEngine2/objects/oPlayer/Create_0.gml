@@ -29,7 +29,7 @@ instance_create_depth(x, y, -30000, oInventory);
 instance_create_depth(x, y, -31000, oHUD);
 instance_create_depth(x, y, -31000, oDrawHelperAbove);
 instance_create_depth(x, y, -31000, oStateLog);
-instance_create_depth(x, y, -31000, oStatusMenu);
+instance_create_depth(x, y, -6100, oStatusMenu);
 instance_create_depth(x, y, -5000, oTreeController);
 
 v_collisionMain = [x, y, x, y];

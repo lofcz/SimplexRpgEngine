@@ -14,6 +14,7 @@ for (var i = 0; i < mcInvenotryAtributes; i++)
 for (var i = 0; i < mcInventoryProperties; i++)
 {
 	tmp_inst.v_itemProperty[i] = oInventory.v_slotProperty[tmp_slot, i];
+	tmp_inst.v_itemPropertyStatic[i] = oInventory.v_slotPropertyStatic[tmp_slot, i];
 	tmp_inst.v_itemReq[i] = oInventory.v_slotReq[tmp_slot, i]
 }
 
@@ -25,6 +26,11 @@ for (var i = 0; i < mcAnimations; i++)
 for (var i = 0;  i < array_length_2d(v_itemOptions, tmp_slot); i++)
 {
 	tmp_inst.v_itemOption[i] = oInventory.v_itemOptions[tmp_slot, i];
+}
+
+for (var i = 0; i < 20; i++)
+{
+	tmp_inst.v_itemPearls[i] = 	 oInventory.v_slotGems[tmp_slot, i];
 }
 
 tmp_inst.sprite_index = sItems;

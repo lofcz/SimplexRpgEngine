@@ -3,17 +3,17 @@
     "modelName": "GMSprite",
     "mvc": "1.12",
     "name": "texUI",
-    "For3D": false,
+    "For3D": true,
     "HTile": false,
     "VTile": false,
-    "bbox_bottom": 560,
-    "bbox_left": 8,
-    "bbox_right": 855,
-    "bbox_top": 4,
-    "bboxmode": 0,
+    "bbox_bottom": 567,
+    "bbox_left": 0,
+    "bbox_right": 863,
+    "bbox_top": 0,
+    "bboxmode": 1,
     "colkind": 1,
     "coltolerance": 0,
-    "edgeFiltering": false,
+    "edgeFiltering": true,
     "frames": [
         {
             "id": "3b42221d-c4c2-438f-93ec-0c6082dd40fd",
@@ -72,11 +72,11 @@
             "visible": true
         }
     ],
-    "origin": 9,
-    "originLocked": false,
+    "origin": 0,
+    "originLocked": true,
     "playbackSpeed": 15,
     "playbackSpeedType": 0,
-    "premultiplyAlpha": false,
+    "premultiplyAlpha": true,
     "sepmasks": false,
     "swatchColours": [
         4278190335,
@@ -162,6 +162,6 @@
     "textureGroupId": "1225f6b0-ac20-43bd-a82e-be73fa0b6f4f",
     "type": 0,
     "width": 864,
-    "xorig": 101,
-    "yorig": 175
+    "xorig": 0,
+    "yorig": 0
 }

@@ -64,6 +64,11 @@ for (var i = 0; i <= v_slots; i++)
 	{
 		v_itemOptions[i, j] = "";
 	}
+	
+	for (var j = 0; j < 24; j++)
+	{
+		v_slotGems[i, j] = "";	
+	}
 }
 
 randomize();
@@ -72,3 +77,7 @@ cpContainerAdd(oItem1, 5, id);
 event_inherited();
 v_collisionInteraction = [x, y + 32, x + 32, y + 48];
 v_collisionMain = [x, y + 32, x + 32, y + 48];
+
+v_drawCombinations = false;
+v_usedItem = -1;
+v_usedOption = 0;

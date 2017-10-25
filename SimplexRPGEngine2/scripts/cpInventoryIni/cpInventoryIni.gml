@@ -59,7 +59,14 @@ enum e_inventoryProperties
 	valMpRegenValue,
 	valHpRegenTick,
 	valMpRegenTick,
-	valSpRegenTick
+	valSpRegenTick,
+	valIntellect, 
+	valFortitude,
+	valCharisma,
+	valPsyche,
+	valResolve,
+	valPerception,
+	valFate
 }
 
 enum e_items
