@@ -14,7 +14,7 @@ for (var i = 0; i < mcEquipmentSlots; i++)
 		
 		if (v_equipmentSlot[i, e_inventoryAtributes.valID] != 0)
 		{
-			cpInventoryHelperDrawInfobox(id, v_equipmentSlot, 1, v_equipmentLastHover, v_equipmentSlotProperty, v_equipmentReq);	
+			cpInventoryHelperDrawInfobox(id, v_equipmentSlot, 1, v_equipmentLastHover, v_equipmentSlotProperty, v_equipmentReq, v_equipmentSlotPropertyStatic, v_equipmentSlotGems);	
 			
 			// Unequip
 			if (mouse_check_button_pressed(mb_left))

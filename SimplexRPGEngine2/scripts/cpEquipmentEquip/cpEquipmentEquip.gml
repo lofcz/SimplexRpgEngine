@@ -37,7 +37,13 @@ if (argument_count > 0) {tmp_equipSlot = argument[0];}
 				}*/
 				if (!tmp_switchDone && tmp_itemsSwitched == 0)
 				{				
-					var tmp_atrb, tmp_prop, tmp_req, tmp_anim;
+					var tmp_atrb, tmp_prop, tmp_req, tmp_anim, tmp_gem;
+					
+					for (var k = 0; k < 20; k++)
+					{
+						tmp_gem[k] = v_slotGems[v_slotBeingDragged, k];						
+					}
+					
 					for (var k = 0; k <= mcInvenotryAtributes; k++)
 					{
 						tmp_atrb[k] = v_slot[v_slotBeingDragged, k];			
@@ -61,6 +67,13 @@ if (argument_count > 0) {tmp_equipSlot = argument[0];}
 						v_slot[v_slotBeingDragged, k] = v_equipmentSlot[tmp_equipSlot, k];					
 						v_equipmentSlot[tmp_equipSlot, k] = tmp_atrb[k];
 					}
+					
+					for (var k = 0; k < 20; k++)
+					{
+						v_slotGems[v_slotBeingDragged, k] = v_equipmentSlotGems[tmp_equipSlot, k];
+						v_equipmentSlotGems[tmp_equipSlot, k] = tmp_gem[k]
+					}
+				
 			
 					for (var k = 0; k < mcInventoryProperties; k++)
 					{
@@ -73,8 +86,8 @@ if (argument_count > 0) {tmp_equipSlot = argument[0];}
 					    v_slotPropertyStatic[v_slotBeingDragged, k] = v_equipmentSlotPropertyStatic[tmp_equipSlot, k];
 						v_equipmentSlotPropertyStatic[tmp_equipSlot, k] = tmp_propS[k];		
 						
-						oHUD.v_playerProperty[k] += tmp_prop[k];
-						oHUD.v_playerPropertyStatic[k] += tmp_propS[k];
+						//oHUD.v_playerProperty[k] += tmp_prop[k];
+						//oHUD.v_playerPropertyStatic[k] += tmp_propS[k];
 					}
 					
 					for (var k = 0; k < mcAnimations; k++)

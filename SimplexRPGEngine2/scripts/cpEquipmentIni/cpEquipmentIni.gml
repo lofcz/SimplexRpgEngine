@@ -120,4 +120,9 @@ for (var j = 0; j <= 30; j++)
 	{
 		v_equipmentSlotAnimations[j, i] = 0;
 	}
+	
+	for (var i = 0; i < 20; i++)
+	{
+		v_equipmentSlotGems[j, i] = "";	
+	}
 }

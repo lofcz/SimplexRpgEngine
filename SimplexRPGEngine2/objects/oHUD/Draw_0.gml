@@ -1,5 +1,7 @@
 /// @desc Draw HUD
 
+
+
 if (keyboard_check_pressed(ord("K"))) {v_playerProperty[e_inventoryProperties.valXp] += 10;}
 if (keyboard_check_pressed(ord("L"))) {if (oInventory.v_inventorySprite == texUI) {oInventory.v_inventorySprite = texUI2;} else {oInventory.v_inventorySprite = texUI;} v_hudSprite = oInventory.v_inventorySprite;}
 
@@ -9,9 +11,15 @@ var tmp_x, tmp_y;
 tmp_x = oCamera.v_nullPosX + 84;
 tmp_y = oCamera.v_nullPosY;
 
+
 for (var i = 0; i < mcInventoryProperties; i++)
 {
-	v_playerPropertyTotal[i] = v_playerProperty[i] + v_playerPropertyStatic[i];		
+	v_playerPropertyTotal[i] = v_playerProperty[i] + v_playerPropertyStatic[i];	
+	
+	for (var j = 0; j < mcEquipmentSlots; j++)
+	{
+		v_playerPropertyTotal[i] += oInventory.v_equipmentSlotProperty[j, i] + oInventory.v_equipmentSlotPropertyStatic[j, i];
+	}
 }
 
 draw_text(mouse_x, mouse_y + 32, v_playerPropertyTotal[e_inventoryProperties.valHp]);
@@ -27,13 +35,14 @@ v_realHP = clamp(lerp(v_realHP, v_playerPropertyTotal[e_inventoryProperties.valH
 v_realMP = clamp(lerp(v_realMP, v_playerPropertyTotal[e_inventoryProperties.valMp], 0.1), 0, v_playerPropertyTotal[e_inventoryProperties.valMaxMp]);
 v_realSP = clamp(lerp(v_realSP, v_playerPropertyTotal[e_inventoryProperties.valSp], 0.1), 0, v_playerPropertyTotal[e_inventoryProperties.valMaxSp]);
 
-if (v_playerProperty[e_inventoryProperties.valHp] > v_playerProperty[e_inventoryProperties.valMaxHp]) {v_playerProperty[e_inventoryProperties.valHp] = v_playerProperty[e_inventoryProperties.valMaxHp];}
+
+if (v_playerProperty[e_inventoryProperties.valHp] > v_playerPropertyTotal[e_inventoryProperties.valMaxHp]) {v_playerProperty[e_inventoryProperties.valHp] = v_playerPropertyTotal[e_inventoryProperties.valMaxHp];}
 if (v_playerPropertyTotal[e_inventoryProperties.valHp] < v_playerPropertyTotal[e_inventoryProperties.valMaxHp]) {if (v_delayHP == -1) {v_delayHP = 1;}}
 
-if (v_playerProperty[e_inventoryProperties.valMp] > v_playerProperty[e_inventoryProperties.valMaxMp]) {v_playerProperty[e_inventoryProperties.valMp] = v_playerProperty[e_inventoryProperties.valMaxMp];}
+if (v_playerProperty[e_inventoryProperties.valMp] > v_playerPropertyTotal[e_inventoryProperties.valMaxMp]) {v_playerProperty[e_inventoryProperties.valMp] = v_playerPropertyTotal[e_inventoryProperties.valMaxMp];}
 if (v_playerPropertyTotal[e_inventoryProperties.valMp] < v_playerPropertyTotal[e_inventoryProperties.valMaxMp]) {if (v_delayHP == -1) {v_delayMP = 1;}}
 
-if (v_playerProperty[e_inventoryProperties.valSp] > v_playerProperty[e_inventoryProperties.valMaxSp]) {v_playerProperty[e_inventoryProperties.valSp] = v_playerProperty[e_inventoryProperties.valMaxSp];}
+if (v_playerProperty[e_inventoryProperties.valSp] > v_playerPropertyTotal[e_inventoryProperties.valMaxSp]) {v_playerProperty[e_inventoryProperties.valSp] = v_playerPropertyTotal[e_inventoryProperties.valMaxSp];}
 if (v_playerPropertyTotal[e_inventoryProperties.valSp] < v_playerPropertyTotal[e_inventoryProperties.valMaxSp]) {if (v_delayHP == -1) {v_delaySP = 1;}}
 
 

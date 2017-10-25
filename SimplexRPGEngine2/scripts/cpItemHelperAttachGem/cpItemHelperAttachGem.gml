@@ -32,7 +32,8 @@ if (tmp_gemSlot != -1)
 		oInventory.v_slotPropertyStatic[tmp_s2, i] += tmp_value;
 	}
 	
-	oInventory.v_slotGems[tmp_s2, tmp_gemSlot] = "FUCK OFF";
+	oInventory.v_slotGems[tmp_s2, tmp_gemSlot] = string(oInventory.v_slot[tmp_s1, e_inventoryAtributes.valID]);
+	oInventory.v_slotGems[tmp_s2, tmp_gemSlot + 2] = string(oInventory.v_slot[tmp_s1, e_inventoryAtributes.valInfoTextHead]);
 }
 
 ds_list_destroy(tmp_sourceList);

@@ -6,7 +6,7 @@
 /// @arg {int} slotID2 ID of the target slot
 /// @arg {string} specialMode "E2I, I2E"
 
-var tmp_owner1, tmp_owner2, tmp_slot1, tmp_slot2, tmp_sm;
+var tmp_owner1, tmp_owner2, tmp_slot1, tmp_slot2, tmp_sm, tmp_gem;
 tmp_owner1 = id;
 tmp_owner2 = id;
 tmp_slot1 = 0;
@@ -43,6 +43,11 @@ for (var k = 0; k < mcAnimations; k++)
 {
 	tmp_anim[k] = tmp_owner1.v_slotAnimations[tmp_slot1, k];
 }
+
+for (var k = 0; k < 20; k++)
+{
+	tmp_gem[k] = tmp_owner1.v_slotGems[tmp_slot1, k];	
+}
 	
 #endregion	
 #region Swap values
@@ -75,4 +80,10 @@ for (var k = 0; k < mcAnimations; k++)
 	tmp_owner1.v_slotAnimations[tmp_slot1, k] = tmp_owner2.v_slotAnimations[tmp_slot2, k];
 	tmp_owner2.v_slotAnimations[tmp_slot2, k] = tmp_anim[k];
 }	
+
+for (var k = 0; k < 20; k++)
+{
+	tmp_owner1.v_slotGems[tmp_slot1, k] = tmp_owner2.v_slotGems[tmp_slot2, k];					
+	tmp_owner2.v_slotGems[tmp_slot2, k] = tmp_gem[k];
+}
 #endregion	

@@ -2,7 +2,7 @@
 /// @desc Draws standard infobox
 /// @arg {object} containerID ID of owner
 
-var tmp_id, tmp_slotID, tmp_hoverAlpha, tmp_hoverID, tmp_propertyArray, tmp_reqArray, tmp_propertyStaticArray;
+var tmp_id, tmp_slotID, tmp_hoverAlpha, tmp_hoverID, tmp_propertyArray, tmp_reqArray, tmp_propertyStaticArray, tmp_gemsArray;
 tmp_id = oInventory;
 
 if (argument_count > 0) {tmp_id = argument[0];}
@@ -13,6 +13,7 @@ tmp_hoverID = tmp_id.v_lastHover;
 tmp_propertyArray = tmp_id.v_slotProperty;
 tmp_reqArray = tmp_id.v_slotReq;
 tmp_propertyStaticArray = tmp_id.v_slotPropertyStatic;
+tmp_gemsArray = tmp_id.v_slotGems;
 
 if (argument_count > 1) {tmp_slotID = argument[1];}
 if (argument_count > 2) {tmp_hoverAlpha = argument[2];}
@@ -20,6 +21,7 @@ if (argument_count > 3) {tmp_hoverID = argument[3];}
 if (argument_count > 4) {tmp_propertyArray = argument[4];}
 if (argument_count > 5) {tmp_reqArray = argument[5];}
 if (argument_count > 6) {tmp_propertyStaticArray = argument[6];}
+if (argument_count > 7) {tmp_gemsArray = argument[7];}
 
 if (tmp_hoverAlpha > 0.05)
 {
@@ -191,10 +193,17 @@ if (tmp_hoverAlpha > 0.05)
 	if (tmp_slotID[tmp_hoverID, e_inventoryAtributes.valGemSlots] > 0)
 	{
 		for (var i = 0; i < tmp_slotID[tmp_hoverID, e_inventoryAtributes.valGemSlots]; i++)
-		{
-			draw_sprite_part(oHUD.v_hudSprite, 0, 66, 157, 14, 14, oInventory.v_layoutEndX - 20, tmp_drawY - 12 + i * 16);
-			
-			draw_text(oInventory.v_layoutEndX - 20, tmp_drawY - 12 + i * 16, tmp_id.v_slotGems[tmp_hoverID, i * 4]);
+		{			
+			if (tmp_gemsArray[tmp_hoverID, i * 4] != "")
+			{
+				draw_sprite_ext(sItems, real(tmp_gemsArray[tmp_hoverID, i * 4]) - 2, oInventory.v_layoutEndX - 13, tmp_drawY - 5 + i * 18, 0.7, 0.7, 0, c_white, tmp_hoverAlpha);
+				
+				libDrawTextStylized(oInventory.v_layoutEndX + 8, tmp_drawY - 15 + i * 18, _sc(tmp_gemsArray[tmp_hoverID, i * 4 + 2], c_lime), tmp_hoverAlpha, false, 8, fntPixelTiny);
+			}
+			else
+			{
+				draw_sprite_part(oHUD.v_hudSprite, 0, 66, 157, 14, 14, oInventory.v_layoutEndX - 20, tmp_drawY - 12 + i * 18);
+			}
 		}
 	}
 	clr();

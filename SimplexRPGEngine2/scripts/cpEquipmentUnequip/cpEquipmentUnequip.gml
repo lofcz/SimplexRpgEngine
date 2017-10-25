@@ -10,44 +10,21 @@ tmp_itemsSwitched = 0;
 
 tmp_freeSlot = cpInventoryHelperFindFreeSlot();
 			
-				// We try to join item slots if they have the same id and are stackable
-				/*if (v_slot[tmp_lastHover, e_inventoryAtributes.valID] == v_slot[v_slotBeingDragged, e_inventoryAtributes.valID] && v_slot[tmp_lastHover, e_inventoryAtributes.valStackable] && v_slot[v_slotBeingDragged, e_inventoryAtributes.valStackable])
-				{			
-					repeat(v_slot[v_slotBeingDragged, e_inventoryAtributes.valCurrentStackSize])
-					{
-						if (v_slot[tmp_lastHover, e_inventoryAtributes.valCurrentStackSize] < v_slot[tmp_lastHover, e_inventoryAtributes.valMaxStackSize])
-						{
-							v_slot[tmp_lastHover, e_inventoryAtributes.valCurrentStackSize]++;
-							v_slot[v_slotBeingDragged, e_inventoryAtributes.valCurrentStackSize]--;
-							tmp_itemsSwitched++;
-						
-							if (v_slot[v_slotBeingDragged, e_inventoryAtributes.valCurrentStackSize] <= 0)
-							{
-								cpInventoryHelperClearSlot(v_slotBeingDragged);
-								oHUD.v_mouseFree = true;
-								break;
-							}
-						}
-						else
-						{
-							tmp_switchDone = false;
-						}
-					}
-				}
-				else
-				{
-					tmp_switchDone = false;
-				}*/
+
 				if (!tmp_switchDone && tmp_itemsSwitched == 0)
 				{
-					//cpInventoryHelperSwitch(id, id, tmp_equipSlot, tmp_freeSlot, "E2I");
 					
-					var tmp_atrb, tmp_prop, tmp_req, tmp_anim;
+					var tmp_atrb, tmp_prop, tmp_req, tmp_anim, tmp_gems;
 					for (var k = 0; k <= mcInvenotryAtributes; k++)
 					{
 						tmp_atrb[k] = v_equipmentSlot[tmp_equipSlot, k];			
 					}
-				
+					
+					for (var k = 0; k < 20; k++)
+					{
+						tmp_gems[k] = v_equipmentSlotGems[tmp_equipSlot, k];			
+					}
+					
 					for (var k = 0; k < mcInventoryProperties; k++)
 					{
 						tmp_prop[k] = v_equipmentSlotProperty[tmp_equipSlot, k];	
@@ -68,8 +45,8 @@ tmp_freeSlot = cpInventoryHelperFindFreeSlot();
 			
 					for (var k = 0; k < mcInventoryProperties; k++)
 					{
-						oHUD.v_playerProperty[k] -= tmp_prop[k];
-						oHUD.v_playerPropertyStatic[k] -= tmp_propS[k];
+						//oHUD.v_playerProperty[k] -= tmp_prop[k];
+						//oHUD.v_playerPropertyStatic[k] -= tmp_propS[k];
 
 						v_slotProperty[tmp_freeSlot, k] = tmp_prop[k];		
 						v_equipmentSlotProperty[tmp_equipSlot, k] = 0;
@@ -85,6 +62,12 @@ tmp_freeSlot = cpInventoryHelperFindFreeSlot();
 					{
 						v_slotAnimations[tmp_freeSlot, k] = tmp_anim[k];		
 						v_equipmentSlotAnimations[tmp_equipSlot, k] = 0;									
+					}
+					
+					for (var k = 0; k < 20; k++)
+					{
+						v_slotGems[tmp_freeSlot, k] = tmp_gems[k];		
+						v_equipmentSlotGems[tmp_equipSlot, k] = "";									
 					}
 					
 					for (var k = 0; k < mcAnimations; k++)

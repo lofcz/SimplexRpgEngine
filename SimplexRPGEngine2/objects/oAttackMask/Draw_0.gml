@@ -20,7 +20,7 @@ if (tmp_list != noone)
 				if (!ds_list_contains(v_hitList, tmp_list[| i]) && tmp_list[|i].v_alive)
 				{
 					ds_list_add(v_hitList, tmp_list[| i]);
-					tmp_list[| i].v_properties[e_inventoryProperties.valHp] -= 5;
+					tmp_list[| i].v_properties[e_inventoryProperties.valHp] -= max(oHUD.v_playerPropertyTotal[e_inventoryProperties.valDamage], 5);
 					
 					var tmp_d1, tmp_d2;
 					if (sprite_index == sSwingRight) {tmp_d1 = 315; tmp_d2 = 405;}
@@ -38,7 +38,7 @@ if (tmp_list != noone)
 						cpGoreShardsLong(tmp_list[| i].k, tmp_list[| i].image_index - 1, 32 + irandom(32), 4);	
 					}
 					
-					cpSplashMessage(string(5), c_black, -1, 0, 0, tmp_list[| i].x, tmp_list[| i].y - 32);
+					cpSplashMessage(string(max(oHUD.v_playerPropertyTotal[e_inventoryProperties.valDamage], 5)), c_black, -1, 0, 0, tmp_list[| i].x, tmp_list[| i].y - 32);
 
 					tmp_list[| i].v_mindState = "attack";
 					tmp_list[| i].v_attackNote = 256;

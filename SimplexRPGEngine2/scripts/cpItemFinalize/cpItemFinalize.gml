@@ -14,5 +14,6 @@ if (tmp_cba)
 	for (var i = 0; i < mcInventoryProperties; i++)
 	{
 		v_itemPearls[1] += string(v_itemProperty[i]) + ",";	
+		v_itemPearls[2] = v_itemAtributes[e_inventoryAtributes.valInfoTextHead];	
 	}
 }
