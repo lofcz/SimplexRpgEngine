@@ -193,6 +193,8 @@ if (tmp_hoverAlpha > 0.05)
 		for (var i = 0; i < tmp_slotID[tmp_hoverID, e_inventoryAtributes.valGemSlots]; i++)
 		{
 			draw_sprite_part(oHUD.v_hudSprite, 0, 66, 157, 14, 14, oInventory.v_layoutEndX - 20, tmp_drawY - 12 + i * 16);
+			
+			draw_text(oInventory.v_layoutEndX - 20, tmp_drawY - 12 + i * 16, tmp_id.v_slotGems[tmp_hoverID, i * 4]);
 		}
 	}
 	clr();

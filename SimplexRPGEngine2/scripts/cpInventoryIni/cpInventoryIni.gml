@@ -282,6 +282,11 @@ for (var i = 0; i <= v_slots; i++)
 	{
 		v_itemOptions[i, j] = "";
 	}
+	
+	for (var j = 0; j < 24; j++)
+	{
+		v_slotGems[i, j] = "";	
+	}
 }
 
 cpEquipmentIni();

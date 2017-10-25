@@ -703,6 +703,14 @@
             }
         },
         {
+            "Key": "20c0b819-902e-49fd-a5ae-ca015a9c780f",
+            "Value": {
+                "id": "2d6bde79-7cb2-4c8b-acb2-e2269b68ed96",
+                "resourcePath": "scripts\\_cFilterFreeGemstone\\_cFilterFreeGemstone.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "20c7120a-a94e-470f-91d8-4db38cd6e876",
             "Value": {
                 "id": "e0e5772f-b645-40e2-8414-4407b2bcaedc",
@@ -1599,6 +1607,14 @@
             }
         },
         {
+            "Key": "47dd6a30-e5ee-4a48-9b27-fa8596d3987c",
+            "Value": {
+                "id": "bdb4518a-83be-4b18-93ec-2c3199d13bc8",
+                "resourcePath": "scripts\\string_parse\\string_parse.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "48605a6a-f1ca-4268-abc1-2526eb71618b",
             "Value": {
                 "id": "3d3734b3-6014-4a2f-8f7e-62cbfc8499cd",
@@ -1956,6 +1972,14 @@
                 "id": "469e57e5-4b88-43db-b064-dc65f009106e",
                 "resourcePath": "objects\\oGem1\\oGem1.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "54801c5d-799d-408b-ab3d-74f98c1584be",
+            "Value": {
+                "id": "bf44ad98-1a12-4e4e-92be-ceb5954bc72c",
+                "resourcePath": "scripts\\cpItemFinalize\\cpItemFinalize.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -3004,6 +3028,14 @@
                 "id": "771a1850-56c1-41fe-b0b0-177d21a0b135",
                 "resourcePath": "sprites\\sBodyCanvasWeapon4\\sBodyCanvasWeapon4.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "8939eb87-7988-4b98-a89c-32f4ff2b98c5",
+            "Value": {
+                "id": "556750d9-e060-4339-a775-d319555b29d7",
+                "resourcePath": "scripts\\cpItemHelperAttachGem\\cpItemHelperAttachGem.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -5404,6 +5436,8 @@
         "5f465970-c197-45cf-a498-aa19e88f1330",
         "35e618f4-676f-4139-b3be-01e2e0f2f047",
         "56720835-73ab-4278-baea-1bb9748a1d1a",
+        "8939eb87-7988-4b98-a89c-32f4ff2b98c5",
+        "54801c5d-799d-408b-ab3d-74f98c1584be",
         "48e653e1-e490-45d5-9e90-179dd6f172b1",
         "34857dbb-0e86-4058-af77-8fc898cd7d95",
         "80e68a51-6e3d-447d-9970-b0c6363a7a17",
@@ -5452,7 +5486,9 @@
         "07e641e6-4261-4509-84b9-01bac666491e",
         "ce5d8baa-57d7-4bcf-9c56-8ea11bfa756b",
         "f5c584e9-b55d-4bfd-839f-ffa5dd96d65c",
-        "073fbc49-3d26-47b0-9368-05b91d2bd818"
+        "073fbc49-3d26-47b0-9368-05b91d2bd818",
+        "47dd6a30-e5ee-4a48-9b27-fa8596d3987c",
+        "20c0b819-902e-49fd-a5ae-ca015a9c780f"
     ],
     "tutorial": ""
 }

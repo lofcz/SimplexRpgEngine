@@ -31,12 +31,9 @@ for (var i = 0; i < mcAnimations; i++)
 }
 
 // <gemID, [string] gemStatistics, gemIcon, gemName>
-for (var i = 0; i < 6; i++)
+for (var i = 0; i < 20; i++)
 {
-	for (var j = 0; j < 10; j++)
-	{
-		v_itemPearls[i, j] = 0
-	}
+	v_itemPearls[i] = "";
 }
 
 v_itemAtributes[e_inventoryAtributes.valIdentified] = true;

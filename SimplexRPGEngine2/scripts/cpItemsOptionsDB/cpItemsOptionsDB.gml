@@ -49,7 +49,7 @@ else
 			if (tmp_option == 0) 
 			{			
 				// Filter
-				if (v_slot[tmp_caf, e_inventoryAtributes.valEquipSlot] == e_equipmentSlots.valWeaponRight) {return true;}
+				if (v_slot[tmp_caf, e_inventoryAtributes.valEquipSlot] == e_equipmentSlots.valWeaponRight && _cFilterFreeGemstone(tmp_caf)) {return true;}
 				return false;			
 			}
 			break;

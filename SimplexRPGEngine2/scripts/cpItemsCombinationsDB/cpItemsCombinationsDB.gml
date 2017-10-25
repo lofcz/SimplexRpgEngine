@@ -7,7 +7,8 @@ tmp_s2 = argument2;
 
 if (tmp_owner.v_slot[tmp_s1, e_inventoryAtributes.valID] == e_items.valPearlGreen)
 {
-	tmp_owner.v_slotPropertyStatic[tmp_s2, e_inventoryProperties.valDamage] += 2;
+	cpItemHelperAttachGem(tmp_s2, tmp_s1);
+	//tmp_owner.v_slotPropertyStatic[tmp_s2, e_inventoryProperties.valDamage] += 2;
 	cpInventoryHelperClearSlot(tmp_s1, tmp_owner);
 }
 

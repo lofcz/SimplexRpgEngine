@@ -70,6 +70,11 @@ repeat(tmp_item.v_itemAtributes[e_inventoryAtributes.valItemNumber])
 			tmp_id.v_slotAnimations[tmp_freeSlot, i] = tmp_item.v_itemAnimation[i];
 		}
 		
+		for (var i = 0; i < 20; i++)
+		{
+			tmp_id.v_slotGems[tmp_freeSlot, i] = tmp_item.v_itemPearls[i];	
+		}
+		
 		if (variable_instance_exists(tmp_item, "v_itemOption"))
 		{
 			for (var i = 0; i < array_length_1d(tmp_item.v_itemOption); i++)
