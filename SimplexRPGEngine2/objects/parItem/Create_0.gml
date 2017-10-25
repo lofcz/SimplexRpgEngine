@@ -42,3 +42,6 @@ for (var i = 0; i < 6; i++)
 v_itemAtributes[e_inventoryAtributes.valIdentified] = true;
 v_lerpMode = 0;
 v_actualLerp = 0;
+
+v_uniform = shader_get_uniform(shdLerp, "f_Colour1");
+v_tempSprite = sprite_index;
