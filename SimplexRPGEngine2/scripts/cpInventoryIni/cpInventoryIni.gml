@@ -66,7 +66,18 @@ enum e_inventoryProperties
 	valPsyche,
 	valResolve,
 	valPerception,
-	valFate
+	valFate,
+	valResistEarth,
+	valResistFire,
+	valResistAir,
+	valResistWater,
+	valPersuasion,
+	valIntimidation,
+	valBargaining,
+	valTrustfulness,
+	valDefense,
+	valCriticalChance,
+	valCriticalDamage
 }
 
 enum e_items

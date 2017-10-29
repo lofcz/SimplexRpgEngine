@@ -128,3 +128,6 @@ v_delaySP = -1;
 v_tickHP = -1;
 v_tickMP = -1;
 v_tickSP = -1;
+
+v_playerSkillPointsAttributes = 10;
+v_playerSkillPointsAbilities = 20;

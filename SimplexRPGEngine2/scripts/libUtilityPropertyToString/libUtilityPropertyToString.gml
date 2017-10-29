@@ -41,12 +41,6 @@ switch(tmp_index)
 		break;
 	}
 	
-	case e_inventoryProperties.valPerception:
-	{
-		tmp_output = "Perception";
-		break;
-	}	
-	
 	case e_inventoryProperties.valPsyche:
 	{
 		tmp_output = "Psyche";
@@ -101,6 +95,54 @@ switch(tmp_index)
 		tmp_group  = 1;
 		break;
 	}		
+	
+	case e_inventoryProperties.valPerception:
+	{
+		tmp_output = "Perception";
+		break;
+	}
+	
+	case e_inventoryProperties.valPersuasion:
+	{
+		tmp_output = "Persuasion";
+		break;
+	}
+	
+	case e_inventoryProperties.valIntimidation:
+	{
+		tmp_output = "Intimidation";
+		break;
+	}	
+
+	case e_inventoryProperties.valBargaining:
+	{
+		tmp_output = "Bargaining";
+		break;
+	}
+	
+	case e_inventoryProperties.valTrustfulness:
+	{
+		tmp_output = "Trustfulness";
+		break;
+	}
+
+	case e_inventoryProperties.valDefense:
+	{
+		tmp_output = "Defense";
+		break;
+	}
+	
+	case e_inventoryProperties.valCriticalChance:
+	{
+		tmp_output = "Critical chance";
+		break;
+	}
+	
+	case e_inventoryProperties.valCriticalDamage:
+	{
+		tmp_output = "Critical damage";
+		break;
+	}
 }
 
 tmp_array[0] = tmp_output;

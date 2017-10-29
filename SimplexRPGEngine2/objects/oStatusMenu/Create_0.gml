@@ -45,3 +45,9 @@ v_layoutW = 230;
 v_layoutH = 210;
 v_layoutMode = 0;
 v_selectedIndex = -1;
+v_currentAbility = 0;
+
+for (var i = 0; i < mcInventoryProperties; i++)
+{
+	v_propertyTemp[i] = 0;	
+}
