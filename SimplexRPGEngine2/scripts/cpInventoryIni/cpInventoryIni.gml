@@ -77,7 +77,11 @@ enum e_inventoryProperties
 	valTrustfulness,
 	valDefense,
 	valCriticalChance,
-	valCriticalDamage
+	valCriticalDamage,
+	valDefenseMagic,
+	valMagicMultiplier,
+	valLuck,
+	valTrapDetection
 }
 
 enum e_items

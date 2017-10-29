@@ -102,7 +102,7 @@ if (v_menuAlpha > 0.05)
 			
 			clr(-1, max(((v_menuItems[0, 2] - 30) / 150), 0));
 			z = libUtilityPropertyToString(v_statusAttributes[i]);
-			draw_text_colored(x + 17 + xSet + 20, y + 80 + i * 16, z[0] + ": " + _sc(string(oHUD.v_playerPropertyTotal[v_statusAttributes[i]] + v_propertyTemp[i]), c_white), -1, fntPixelLess, c_black);
+			draw_text_colored(x + 17 + xSet + 20, y + 80 + i * 16, z[0] + ": " + _sc(string(oHUD.v_playerPropertyTotal[v_statusAttributes[i]] + v_propertyTemp[v_statusAttributes[i]]), c_white), -1, fntPixelLess, c_black);
 			clr(-1, max(((v_menuItems[0, 2] - 30) / 150), 0));
 			
 			draw_sprite_ext(sElements, 4 + i, x + xSet + 8 + 16, y + 88  + i * 16, 0.45, 0.45, 0, c_white, max(((v_menuItems[0, 2] - 30) / 150)));
