@@ -51,3 +51,33 @@ for (var i = 0; i < mcInventoryProperties; i++)
 {
 	v_propertyTemp[i] = 0;	
 }
+
+
+v_statusAttributes[0] = e_inventoryProperties.valStrenght;
+v_statusAttributes[1] = e_inventoryProperties.valEndurance;
+v_statusAttributes[2] = e_inventoryProperties.valFortitude;
+v_statusAttributes[3] = e_inventoryProperties.valDexterity;
+v_statusAttributes[4] = e_inventoryProperties.valIntellect;
+v_statusAttributes[5] = e_inventoryProperties.valCharisma;
+v_statusAttributes[6] = e_inventoryProperties.valPsyche;
+v_statusAttributes[7] = e_inventoryProperties.valResolve;
+v_statusAttributes[8] = e_inventoryProperties.valPerception;
+v_statusAttributes[9] = e_inventoryProperties.valFate;
+
+v_statusAbility[0] = "Speech";
+v_statusAbility[1] = "Craft";
+v_statusAbility[2] = "Craft";
+
+v_statusAbilitySub[0, 0] = e_inventoryProperties.valPersuasion;
+v_statusAbilitySub[0, 1] = e_inventoryProperties.valIntimidation;
+v_statusAbilitySub[0, 2] = e_inventoryProperties.valTrustfulness;
+v_statusAbilitySub[0, 3] = e_inventoryProperties.valBargaining;
+
+v_statusStatictics[0] = e_inventoryProperties.valDamage;
+v_statusStatictics[1] = e_inventoryProperties.valMagicMultiplier;
+v_statusStatictics[2] = e_inventoryProperties.valDefense;
+v_statusStatictics[3] = e_inventoryProperties.valDefenseMagic;
+v_statusStatictics[4] = e_inventoryProperties.valCriticalChance;
+v_statusStatictics[5] = e_inventoryProperties.valCriticalDamage;
+v_statusStatictics[6] = e_inventoryProperties.valTrapDetection;
+v_statusStatictics[7] = e_inventoryProperties.valLuck;

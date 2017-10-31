@@ -17,6 +17,30 @@ switch(tmp_index)
 		break;
 	}
 	
+	case e_inventoryProperties.valMagicMultiplier:
+	{
+		tmp_output = "Willpower";
+		break;
+	}
+	
+	case e_inventoryProperties.valDefenseMagic:
+	{
+		tmp_output = "Magic resist";
+		break;
+	}	
+	
+	case e_inventoryProperties.valTrapDetection:
+	{
+		tmp_output = "Trap detection";
+		break;
+	}
+	
+	case e_inventoryProperties.valLuck:
+	{
+		tmp_output = "Luck";
+		break;
+	}	
+	
 	case e_inventoryProperties.valCharisma:
 	{
 		tmp_output = "Charisma";
