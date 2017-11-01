@@ -36,7 +36,7 @@ else
 if (v_menuAlpha > 0.05)
 {
 	// Status
-	if (v_selectedIndex == 0)
+	if (v_lastSelectedIndex == 0)
 	{
 		xSet = -160 + 160 * (v_menuItems[0, 2] / 180);		
 		clr(-1, max(((v_menuItems[0, 2] - 30) / 150), 0));
@@ -49,6 +49,7 @@ if (v_menuAlpha > 0.05)
 		// Draw status
 		draw_text_colored(x + 16 + xSet,y + 53, "Attributes" + tmp_stringRest, -1, fntPixelBig, c_black);
 		draw_line_width(x + 15+ xSet, y + 72, x + 150+ xSet, y + 72, 2);
+		clr(-1, max(((v_menuItems[0, 2] - 30) / 150), 0));
 		
 		for (var i = 0; i < array_length_1d(v_statusAttributes); i++)
 		{			
@@ -83,6 +84,7 @@ if (v_menuAlpha > 0.05)
 			clr(-1, max(((v_menuItems[0, 2] - 30) / 150), 0));
 			
 			draw_sprite_ext(sElements, 4 + i, x + xSet + 8 + 16, y + 88  + i * 16, 0.45, 0.45, 0, c_white, max(((v_menuItems[0, 2] - 30) / 150)));
+			clr(-1, max(((v_menuItems[0, 2] - 30) / 150), 0));
 		}
 		
 		clr(-1, max(((v_menuItems[0, 2] - 30) / 150), 0));
@@ -130,19 +132,52 @@ if (v_menuAlpha > 0.05)
 		if (oHUD.v_playerSkillPointsAbilities > 0) {tmp_stringRest = " (" + _sc("+" + string(oHUD.v_playerSkillPointsAbilities), c_lime) + ")";}
 		
 		draw_text_colored(x + 16 + 200+ xSet, y + 53, "Abilities" + tmp_stringRest, -1, fntPixelBig, c_black);
+		clr(-1, max(((v_menuItems[0, 2] - 30) / 150), 0));
 		draw_line_width(x + 15 + 200+ xSet, y + 72, x + 150 + 200+ xSet, y + 72, 2);
 		fnt(fntPixel);	
 		
 		alg("center");
-		var tmp_text1 = "< " + string(v_statusAbility[v_currentAbility]) + " >";
+		var tmp_color, tmp_color2;
+		tmp_color = c_black;
+		tmp_color2 = c_black;
 		
-		draw_text(x + 15 + 200+ xSet - string_width(tmp_text1) / 2 + 110, y + 72 + 16, tmp_text1);
+		if (point_in_rectangle(mouse_x, mouse_y, x + 15 + 200+ xSet, y + 72, x + 15 + 200+ xSet + 70, y + 72 + 30))
+		{
+			if (v_currentAbility != 0)
+			{
+				tmp_color = c_white;	
+				
+				if (mouse_check_button_pressed(mb_left))
+				{
+					v_currentAbility--;	
+				}
+			}
+		}
+		
+		if (point_in_rectangle(mouse_x, mouse_y, x + 15 + 200+ xSet + 71, y + 72, x + 15 + 200+ xSet + 140, y + 72 + 30))
+		{
+			if (v_currentAbility < array_length_1d(v_statusAbility) - 1)
+			{
+				tmp_color2 = c_white;	
+				
+				if (mouse_check_button_pressed(mb_left))
+				{
+					v_currentAbility++;	
+				}
+			}
+		}
+		
+		var tmp_text1 = _sc("< ", tmp_color) + string(v_statusAbility[v_currentAbility]) + _sc(" >", tmp_color2);
+		
+		draw_text_colored(x + 15 + 160+ xSet - string_width(libUtilityParseTextColored(tmp_text1, fntPixel)) / 2 + 110, y + 72 + 16, tmp_text1, -1, fntPixel, c_black);
+		clr(-1, max(((v_menuItems[0, 2] - 30) / 150), 0));
 		alg();
 		
 		var tmp_addIndex;
 		tmp_addIndex = 0;
 		
 		if (v_currentAbility == 0) {tmp_addIndex = 17;}
+		if (v_currentAbility == 1) {tmp_addIndex = 29;}
 		
 		for (var i = 0; i < array_length_2d(v_statusAbilitySub, v_currentAbility); i++)
 		{
@@ -150,10 +185,29 @@ if (v_menuAlpha > 0.05)
 			z = libUtilityPropertyToString(v_statusAbilitySub[v_currentAbility, i]);
 			draw_text_colored(x + 17 + xSet + 20 + 200, y + 80 + 20 + i * 16, z[0] + ": ", -1, fntPixelLess, c_black);	
 			clr(-1, max(((v_menuItems[0, 2] - 30) / 150), 0));
-			draw_text_colored(x + 17 + xSet + 20 + 200 + 120, y + 80 + 20 + i * 16, _sc(string(oHUD.v_playerPropertyTotal[v_statusAttributes[i]]), c_white), -1, fntPixelLess, c_black);	
+			draw_text_colored(x + 17 + xSet + 20 + 200 + 120, y + 80 + 20 + i * 16, _sc(string(oHUD.v_playerPropertyTotal[v_statusAbilitySub[v_currentAbility, i]]), c_white), -1, fntPixelLess, c_black);	
 			
 			clr(-1, max(((v_menuItems[0, 2] - 30) / 150), 0));
 			draw_sprite_ext(sElements, tmp_addIndex + i, x + 25 + 200 + xSet, y + 80 + 28 + i * 16, 0.45, 0.45, 0, c_white, max(((v_menuItems[0, 2] - 30) / 150)));
+			
+			if (oHUD.v_playerSkillPointsAbilities > 0)
+			{
+				tmp_color = c_white;
+				
+				if (point_in_rectangle(mouse_x, mouse_y, x + 17 + xSet + 20 + 200 + 120 + 30, y + 80 + 20 + i * 16, x + 17 + xSet + 20 + 200 + 120 + 30 + 10, y + 80 + 20 + i * 16 + 12))
+				{
+					tmp_color = c_lime;	
+					
+					if (mouse_check_button_pressed(mb_left))
+					{
+						oHUD.v_playerSkillPointsAbilities--;
+						oHUD.v_playerProperty[v_statusAbilitySub[v_currentAbility, i]]++;
+					}
+				}
+				
+				draw_text_colored(x + 17 + xSet + 20 + 200 + 120 + 30, y + 80 + 20 + i * 16, "+", -1, fntPixelSmall, tmp_color);	
+				
+			}
 		}
 	
 		
@@ -213,11 +267,19 @@ if (v_menuAlpha > 0.05)
 			var tmp_suffix;
 			tmp_suffix = "";
 			
-			if (i == 3) {tmp_suffix = "%";}
-			if (i == 4 || i == 1) {tmp_suffix = "x ";}
+			if (i == 4) {tmp_suffix = "%";}
+			if (i == 5) {tmp_suffix = "x ";}
+			
+			var tmp_color, tmp_dif;
+			tmp_color = c_white;
+			tmp_dif = "";		
+			if (v_propertyTemp[v_statusStatictics[i]] != 0) {tmp_color = c_lime; tmp_dif = "(" + _sc("+" + string(v_propertyTemp[v_statusStatictics[i]]), c_lime) + ")";}
+
 			
 			z = libUtilityPropertyToString(v_statusStatictics[i]);
-			draw_text_colored(x + 20 + 17+ 400 + xSet, y + 80 + i * 16, z[0] + ": " + _sc(string(oHUD.v_playerPropertyTotal[v_statusStatictics[i]]), c_white) + tmp_suffix, -1, fntPixelLess, c_black);			
+			draw_text_colored(x + 20 + 17+ 400 + xSet, y + 80 + i * 16, z[0] + ": ", -1, fntPixelLess, c_black);			
+			clr(-1, max(((v_menuItems[0, 2] - 30) / 150), 0));			
+			draw_text_colored(x + 20 + 17+ 400 + xSet + 130, y + 80 + i * 16, _sc(string(oHUD.v_playerPropertyTotal[v_statusStatictics[i]] + v_propertyTemp[v_statusStatictics[i]]) + tmp_suffix, tmp_color) + tmp_dif, -1, fntPixelLess, c_black);			
 			clr(-1, max(((v_menuItems[0, 2] - 30) / 150), 0));
 			draw_sprite_ext(sElements, 21 + i, x + 25+ 400 + xSet, y + 88 + i * 16, 0.45, 0.45, 0, c_white, max(((v_menuItems[0, 2] - 30) / 150)));
 		}

@@ -55,11 +55,12 @@ for (var i = 0; i < array_height_2d(tmp_i); i++)
 				{
 					v_layoutMode = !v_layoutMode;
 					v_selectedIndex = i;
+					v_lastSelectedIndex = i;
 				}
-				else {v_selectedIndex = -1; v_selectionDone = false;}
+				else {v_selectedIndex = -1;}
 			}
 		} 
-		else {if (!v_selectionDone) {tmp_i[@ i, 2] = lerp(tmp_i[@ i, 2], 0, 0.1);}}
+		//else {if (!v_selectionDone) {tmp_i[@ i, 2] = lerp(tmp_i[@ i, 2], 0, 0.1);}}
 		
 		if (v_selectedIndex != -1)
 		{
@@ -72,11 +73,14 @@ for (var i = 0; i < array_height_2d(tmp_i); i++)
 			
 			if (v_layoutW > 300) {tmp_doneScrolling = false;}
 		
-			tmp_i[@ i, 3] = lerp(tmp_i[@ i, 3], 0, 0.1);
+			tmp_i[@ i, 2] = lerp(tmp_i[@ i, 2], 0, 0.1);
+			
+			if (tmp_i[@ i, 2] > 50) {v_selectionDone = true;} else {v_selectionDone = false;}
 			
 			if (tmp_doneScrolling)
 			{
 				tmp_i[@ i, 1] = lerp(tmp_i[@ i, 1], 1, 0.1);
+				tmp_i[@ i, 3] = lerp(tmp_i[@ i, 3], 0, 0.1);
 			}
 		}
 		alg();

@@ -46,6 +46,7 @@ v_layoutH = 210;
 v_layoutMode = 0;
 v_selectedIndex = -1;
 v_currentAbility = 0;
+v_lastSelectedIndex = v_selectedIndex;
 
 for (var i = 0; i < mcInventoryProperties; i++)
 {
@@ -64,14 +65,25 @@ v_statusAttributes[7] = e_inventoryProperties.valResolve;
 v_statusAttributes[8] = e_inventoryProperties.valPerception;
 v_statusAttributes[9] = e_inventoryProperties.valFate;
 
-v_statusAbility[0] = "Speech";
-v_statusAbility[1] = "Craft";
+v_statusAbility[0] = "Oratory";
+v_statusAbility[1] = "Martial";
 v_statusAbility[2] = "Craft";
+v_statusAbility[3] = "Thievery";
+
 
 v_statusAbilitySub[0, 0] = e_inventoryProperties.valPersuasion;
 v_statusAbilitySub[0, 1] = e_inventoryProperties.valIntimidation;
 v_statusAbilitySub[0, 2] = e_inventoryProperties.valTrustfulness;
 v_statusAbilitySub[0, 3] = e_inventoryProperties.valBargaining;
+
+v_statusAbilitySub[1, 0] = e_inventoryProperties.valMasterySwords;
+v_statusAbilitySub[1, 1] = e_inventoryProperties.valMasteryAxes;
+v_statusAbilitySub[1, 2] = e_inventoryProperties.valMasteryMaces;
+v_statusAbilitySub[1, 3] = e_inventoryProperties.valMasteryDaggers;
+v_statusAbilitySub[1, 4] = e_inventoryProperties.valMasterySpears;
+v_statusAbilitySub[1, 5] = e_inventoryProperties.valMasteryBows;
+v_statusAbilitySub[1, 6] = e_inventoryProperties.valMasteryShields;
+
 
 v_statusStatictics[0] = e_inventoryProperties.valDamage;
 v_statusStatictics[1] = e_inventoryProperties.valMagicMultiplier;

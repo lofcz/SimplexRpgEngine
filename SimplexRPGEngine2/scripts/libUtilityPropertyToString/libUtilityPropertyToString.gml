@@ -17,6 +17,48 @@ switch(tmp_index)
 		break;
 	}
 	
+	case e_inventoryProperties.valMasteryAxes:
+	{
+		tmp_output = "Axes";
+		break;
+	}	
+	
+	case e_inventoryProperties.valMasteryBows:
+	{
+		tmp_output = "Bows";
+		break;
+	}	
+	
+	case e_inventoryProperties.valMasteryDaggers:
+	{
+		tmp_output = "Daggers";
+		break;
+	}	
+	
+	case e_inventoryProperties.valMasteryMaces:
+	{
+		tmp_output = "Maces";
+		break;
+	}	
+	
+	case e_inventoryProperties.valMasteryShields:
+	{
+		tmp_output = "Shields";
+		break;
+	}	
+	
+	case e_inventoryProperties.valMasterySpears:
+	{
+		tmp_output = "Spears";
+		break;
+	}	
+	
+	case e_inventoryProperties.valMasterySwords:
+	{
+		tmp_output = "Swords";
+		break;
+	}	
+	
 	case e_inventoryProperties.valMagicMultiplier:
 	{
 		tmp_output = "Willpower";
@@ -158,13 +200,13 @@ switch(tmp_index)
 	
 	case e_inventoryProperties.valCriticalChance:
 	{
-		tmp_output = "Critical chance";
+		tmp_output = "Critical";
 		break;
 	}
 	
 	case e_inventoryProperties.valCriticalDamage:
 	{
-		tmp_output = "Critical damage";
+		tmp_output = "Crit damage";
 		break;
 	}
 }

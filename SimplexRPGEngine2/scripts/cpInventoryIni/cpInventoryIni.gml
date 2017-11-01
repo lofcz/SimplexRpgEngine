@@ -81,7 +81,14 @@ enum e_inventoryProperties
 	valDefenseMagic,
 	valMagicMultiplier,
 	valLuck,
-	valTrapDetection
+	valTrapDetection,
+	valMasterySwords,
+	valMasterySpears,
+	valMasteryBows,
+	valMasteryDaggers,
+	valMasteryAxes,
+	valMasteryShields,
+	valMasteryMaces
 }
 
 enum e_items
