@@ -6,6 +6,7 @@
     "option_windows_allow_fullscreen_switching": false,
     "option_windows_borderless": false,
     "option_windows_company_info": "Matěj Štágl",
+    "option_windows_copy_exe_to_dest": true,
     "option_windows_copyright_info": "Matěj Štágl, 2017",
     "option_windows_description_info": "Standalone RPG Engine",
     "option_windows_display_cursor": true,
