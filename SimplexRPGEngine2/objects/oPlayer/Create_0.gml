@@ -1,5 +1,9 @@
 /// @desc Set the player up
 
+refl_start("Effects", true);
+refl_water_layer("Water", true);
+refl_add_object(parGameObject, 0);			//Enables reflection for obj_player.
+
 entityIni();
 
 v_animationFrames[e_animations.valWalk] = 6;

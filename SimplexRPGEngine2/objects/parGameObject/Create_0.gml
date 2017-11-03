@@ -10,3 +10,7 @@ v_alive				= true;
 v_isVivid			= false;
 v_isMask			= false;
 v_dropShardsOnHit	= false;
+v_reflIndex         = 0;
+v_reflOffset        = 0;
+v_reflSprite        = -1;
+v_reflImageIndex    = -1;

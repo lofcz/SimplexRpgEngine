@@ -26,3 +26,6 @@ k = sprite_index;
 a2 = 1;
 kk = k;
 scale = 1;
+
+v_reflIndex = -1;
+v_reflOffset = 16;
