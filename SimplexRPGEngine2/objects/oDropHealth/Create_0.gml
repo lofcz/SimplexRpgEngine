@@ -6,3 +6,6 @@ entityIni();
 v_alive = true;
 v_staticDepth = true;
 v_canCollide = false;
+
+v_reflSprite = sDropHealth;
+v_reflIndex = 0;

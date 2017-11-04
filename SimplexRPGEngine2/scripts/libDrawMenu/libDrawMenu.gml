@@ -80,7 +80,11 @@ for (var i = 0; i < array_height_2d(tmp_i); i++)
 			if (tmp_doneScrolling)
 			{
 				tmp_i[@ i, 1] = lerp(tmp_i[@ i, 1], 1, 0.1);
-				tmp_i[@ i, 3] = lerp(tmp_i[@ i, 3], 0, 0.1);
+				
+				if (tmp_i[@ i, 1]  <= 1)
+				{
+					tmp_i[@ i, 3] = lerp(tmp_i[@ i, 3], 0, 0.1);
+				}
 			}
 		}
 		alg();

@@ -1,16 +1,24 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-/*
+if (keyboard_check_pressed(ord("O"))) {v_drawForm = !v_drawForm;}
+
+if (v_drawForm)
+{
 x = oCamera.v_nullPosX;
 y = oCamera.v_nullPosY + 70;
+
+var tmp_c;
+tmp_c = true;
+
+if (v_lastSelectedIndex != -1) {if (v_menuItems[v_lastSelectedIndex, 2] > 4) {tmp_c = false;}}
 
 if (v_selectionDone)
 {
 	v_layoutW = lerp(v_layoutW, 600, 0.1);
 	v_layoutH = lerp(v_layoutH, 400, 0.1);
 }
-else
+else if (tmp_c)
 {
 	v_layoutW = lerp(v_layoutW, 230, 0.1);
 	v_layoutH = lerp(v_layoutH, 210, 0.1);
@@ -20,7 +28,7 @@ else
 u = libUtilityDrawForm(x, y, v_layoutW, v_layoutH, v_formAlpha);
 libDrawMenu(x + 8, y + 10, v_menuItems, v_formAlpha, false);
 
-draw_text(mouse_x, mouse_y, "         xxx" + string(v_menuItems[0, 2])); 
+draw_text(mouse_x, mouse_y, v_menuAlpha); 
 
 if (v_menuReady)
 {
@@ -31,15 +39,15 @@ else
 	v_menuAlpha = lerp(v_menuAlpha, 0, 0.1);
 }
 
-//v_statusAbilities[0, 0] 
-
 if (v_menuAlpha > 0.05)
 {
 	// Status
-	if (v_lastSelectedIndex == 0)
+	if (v_lastSelectedIndex == 0 && ((v_menuItems[0, 2] - 30) / 150) > 0.05)
 	{
 		xSet = -160 + 160 * (v_menuItems[0, 2] / 180);		
 		clr(-1, max(((v_menuItems[0, 2] - 30) / 150), 0));
+		draw_sprite_part(oInventory.v_inventorySprite, 0, 117, 144, 16, 16, x + 156 + xSet,y + 20);
+		draw_sprite_part(oInventory.v_inventorySprite, 0, 133, 144, 16, 16, x + 450 + xSet,y + 20);
 		
 		var tmp_stringRest;
 		tmp_stringRest = "";
@@ -298,3 +306,4 @@ if (v_menuAlpha > 0.05)
 }
 
 clr();
+}
