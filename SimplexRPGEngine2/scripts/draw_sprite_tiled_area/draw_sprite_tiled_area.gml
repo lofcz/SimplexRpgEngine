@@ -18,7 +18,7 @@ x1 = argument4;
 y1 = argument5;
 x2 = argument6;
 y2 = argument7;
-
+/*
 var sw,sh,i,j,jj,left,top,width,height,X,Y;
 sw = sprite_get_width(sprite);
 sh = sprite_get_height(sprite);
@@ -27,7 +27,7 @@ i = x1-((x1 mod sw) - (xx mod sw)) - sw*((x1 mod sw)<(xx mod sw));
 j = y1-((y1 mod sh) - (yy mod sh)) - sh*((y1 mod sh)<(yy mod sh)); 
 jj = j;
 
-for(i=i; i<=x2; i+=sw) {
+for(i=i; i<=x2; i+=sw-1) {
     for(j=j; j<=y2; j+=sh) {
 
         if(i <= x1) left = x1-i;
@@ -48,5 +48,8 @@ for(i=i; i<=x2; i+=sw) {
     }
     j = jj;
 }
-
+*/
+var colo;
+colo  = make_color_rgb(89, 86, 82);
+draw_rectangle_color(x1, y1, x2, y2, colo, colo, colo, colo, false);
 return false;

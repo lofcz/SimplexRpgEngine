@@ -210,8 +210,8 @@ ds_list_add(g_itemsList, 0);
 enum e_rarities
 {
 	valTrash = c_dkgray,
-	valCommon = c_white,
-	valUncommon = c_silver,
+	valCommon = c_black,
+	valUncommon = c_black,
 	valRare = c_lime,
 	valVeryRare = c_aqua,
 	valMythic = c_purple,

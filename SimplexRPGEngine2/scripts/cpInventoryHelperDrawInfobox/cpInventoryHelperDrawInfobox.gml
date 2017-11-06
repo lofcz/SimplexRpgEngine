@@ -60,12 +60,14 @@ if (tmp_hoverAlpha > 0.05)
 	fnt(fntPixelSmall);
 	alg("center");
 	
-	var tmp_text;
+	var tmp_text, tmp_color;
 	tmp_text = tmp_slotID[tmp_hoverID, e_inventoryAtributes.valInfoTextHead];
+	tmp_color = c_black;
 	
 	if (!tmp_slotID[tmp_hoverID, e_inventoryAtributes.valIdentified]) {tmp_text = "??????";}
+	else {tmp_color = tmp_slotID[tmp_hoverID, e_inventoryAtributes.valRarity];}
 	
-	clr(c_black, tmp_hoverAlpha);
+	clr(tmp_color, tmp_hoverAlpha);
 	draw_text(tmp_drawX, tmp_drawY, tmp_text);
 	alg();
 	

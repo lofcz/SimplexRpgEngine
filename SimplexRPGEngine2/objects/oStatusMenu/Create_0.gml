@@ -12,7 +12,7 @@ v_menuItems[0, 1] = 1;
 v_menuItems[0, 2] = 0;
 v_menuItems[0, 3] = 0;
 
-v_menuItems[1, 0] = "Spells";
+v_menuItems[1, 0] = "Grimoire";
 v_menuItems[1, 1] = 1;
 v_menuItems[1, 2] = 0;
 v_menuItems[1, 3] = 0;

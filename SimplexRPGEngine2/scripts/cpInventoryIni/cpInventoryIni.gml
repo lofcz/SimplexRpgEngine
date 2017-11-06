@@ -15,7 +15,7 @@ enum e_inventoryAtributes
 	valInfoTextFooter,
 	valInfoTextColor,
 	valOptions,
-	valRarityEffect,
+	valRarity,
 	valPickSound,
 	valEquipSlot,
 	valLabel,

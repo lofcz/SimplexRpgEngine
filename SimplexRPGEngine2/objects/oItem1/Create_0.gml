@@ -14,4 +14,5 @@ cpItemAddOption("First option", "Second option", "Third option");
 if (!_static())
 {
 	cpItemSetAtribute(e_inventoryAtributes.valLerpColor, choose(c_lime, c_red, c_white, c_yellow), e_inventoryAtributes.valIdentified, choose(true, false));
+	cpItemSetAtribute(e_inventoryAtributes.valRarity, choose(e_rarities.valRare, e_rarities.valVeryRare, e_rarities.valCommon));
 }
