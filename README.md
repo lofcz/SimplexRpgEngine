@@ -47,7 +47,7 @@ Would you like to ask something about the engine, or have you created a game usi
 <a href="https://github.com/lofcz/SimplexRpgEngine/wiki/Simplex-RPG-Engine-2-PRE-DEV-Roadmap"> 2.0 P-DEV </a>
 
 ## Hit us on marketplace and support development:
-As opensource project we are always short of funds, which are, despite the fact we don't like it necessary for the development. Licences, professional art, coding, music & sfx - all of that costs a small fortune. So we've decided to offer some parts of Simplex on the marketplace for symbolic price - 1.99$ (we get 1.5$ out of that) as assets. These assets are cleaned of Simplex dependencies but still are in function equivalent to their in-simplex counterparts, therefore they are ready to be used in projects without SimplexCore.
+As opensource project we are always short of funds, which are, despite the fact we don't like it necessary for the development. Licences, professional art, coding, music & sfx - all of that costs a small fortune. So we've decided to offer some parts of Simplex on the marketplace for symbolic price - 9.99$ (we get cca 8$ out of that) as assets. These assets are cleaned of Simplex dependencies but still are in function equivalent to their in-simplex counterparts, therefore they are ready to be used in projects without SimplexCore.
   
 *Please note that buying any of them is optional and you can still find all of them as part of Simplex*  
 <a href="https://marketplace.yoyogames.com/publishers/3821/simplex">Pay us a visit, plenty of awesome stuff in here!</a>
