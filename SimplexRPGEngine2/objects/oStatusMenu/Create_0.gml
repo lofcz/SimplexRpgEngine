@@ -94,3 +94,13 @@ v_statusStatictics[4] = e_inventoryProperties.valCriticalChance;
 v_statusStatictics[5] = e_inventoryProperties.valCriticalDamage;
 v_statusStatictics[6] = e_inventoryProperties.valTrapDetection;
 v_statusStatictics[7] = e_inventoryProperties.valLuck;
+
+g_spellList = ds_list_create();
+
+ds_list_add(g_spellList, 1);
+ds_list_add(g_spellList, 0);
+
+v_indexSelected = -1;
+v_spellSelected = -1;
+v_alphaImage = 0;
+time = 0;

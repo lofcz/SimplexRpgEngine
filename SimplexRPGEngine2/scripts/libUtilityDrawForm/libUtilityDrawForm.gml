@@ -1,4 +1,4 @@
-/// @function libUtilityDrawForm(x, y, width, height, alpha)
+/// @function libUtilityDrawForm(x, y, width, height, alpha, drawFill)
 /// @desc Renders basic form on screen
 /// @arg {int} x Draw x
 /// @arg {int} y Draw a
@@ -6,18 +6,20 @@
 /// @arg {int} height Draw height
 /// @arg {int} alpha Draw alpha
 
-var tmp_x, tmp_y, tmp_w, tmp_h, tmp_a, tmp_array;
+var tmp_x, tmp_y, tmp_w, tmp_h, tmp_a, tmp_array, tmp_d;
 tmp_x = x;
 tmp_y = y;
 tmp_w = 200;
 tmp_h = 100;
 tmp_a = 1;
+tmp_d = 1;
 
 if (argument_count > 0) {tmp_x = argument[0];}
 if (argument_count > 1) {tmp_y = argument[1];}
 if (argument_count > 2) {tmp_w = argument[2];}
 if (argument_count > 3) {tmp_h = argument[3];}
 if (argument_count > 4) {tmp_a = argument[4];}
+if (argument_count > 5) {tmp_d = argument[5];}
 
 var tmp_sy, tmp_sx;
 tmp_sx = tmp_w div 32 + 1;
@@ -32,7 +34,7 @@ tmp_layoutRestX = tmp_w - (tmp_sx - 1) * 32;
 tmp_layoutRestY = tmp_h - (tmp_sy - 1) * 32;
 
 clr(-1, tmp_a);
-draw_sprite_tiled_area(oInventory.v_inventoryTexSprite, 0, 0, 0, tmp_x + 3, tmp_y + 3, tmp_x + tmp_w + 32 - 3 + 1, tmp_y + tmp_h + 32 + 1 - 18);
+if (tmp_d) {draw_sprite_tiled_area(oInventory.v_inventoryTexSprite, 0, 0, 0, tmp_x + 3, tmp_y + 3, tmp_x + tmp_w + 32 - 3 + 1, tmp_y + tmp_h + 32 + 1 - 18);}
 
 for (var i = 0; i <= tmp_sy; i++)
 {

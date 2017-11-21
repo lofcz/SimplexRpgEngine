@@ -7,7 +7,7 @@
 /// @arg {bool} returnOnly Dont render in this call
 /// @arg {int} dataEventIndex Index of user event which will render additional data
 
-var tmp_x, tmp_y, tmp_i, tmp_a, tmp_sx, tmp_sy, tmp_ro, tmp_e;
+var tmp_x, tmp_y, tmp_i, tmp_a, tmp_sx, tmp_sy, tmp_ro, tmp_e, tmp_zz;
 tmp_x = x;
 tmp_y = y;
 tmp_i = [];
@@ -16,6 +16,7 @@ tmp_sx = tmp_x;
 tmp_sy = tmp_y;
 tmp_ro = false;
 tmp_e = -1;
+tmp_zz = 1;
 
 if (argument_count > 0) {tmp_x = argument[0];}
 if (argument_count > 1) {tmp_y = argument[1];}
@@ -23,6 +24,7 @@ if (argument_count > 2) {tmp_i = argument[2];}
 if (argument_count > 3) {tmp_a = argument[3];}
 if (argument_count > 4) {tmp_ro = argument[4];}
 if (argument_count > 5) {tmp_e = argument[5];}
+if (argument_count > 6) {tmp_zz = argument[6];}
 
 var tmp_done;
 tmp_done = true;
@@ -42,24 +44,28 @@ for (var i = 0; i < array_height_2d(tmp_i); i++)
 		fnt();
 		alg("center");
 		draw_text(tmp_x + (40 * 6) / 2 + tmp_i[@ i, 2], tmp_y + 12 - tmp_i[@ i, 3], tmp_i[i, 0]);
-		if (point_in_rectangle(mouse_x, mouse_y, tmp_x, tmp_y - tmp_i[@ i, 3], tmp_x + 6 * 40, tmp_y + 28 - tmp_i[@ i, 3]))
+		
+		if (tmp_zz)
 		{
-			if (v_selectedIndex != i && v_layoutW < 231)
+			if (point_in_rectangle(mouse_x, mouse_y, tmp_x, tmp_y - tmp_i[@ i, 3], tmp_x + 6 * 40, tmp_y + 28 - tmp_i[@ i, 3]))
 			{
-				tmp_i[@ i, 2] = lerp(tmp_i[@ i, 2], 8, 0.1);
-			}
-			
-			if (mouse_check_button_pressed(mb_left) && tmp_i[@ i, 1] > 0.05)
-			{
-				if (v_selectedIndex == -1)
+				if (v_selectedIndex != i && v_layoutW < 231)
 				{
-					v_layoutMode = !v_layoutMode;
-					v_selectedIndex = i;
-					v_lastSelectedIndex = i;
+					tmp_i[@ i, 2] = lerp(tmp_i[@ i, 2], 8, 0.1);
 				}
-				else {v_selectedIndex = -1;}
-			}
-		} 
+			
+				if (mouse_check_button_pressed(mb_left) && tmp_i[@ i, 1] > 0.05)
+				{
+					if (v_selectedIndex == -1)
+					{
+						v_layoutMode = !v_layoutMode;
+						v_selectedIndex = i;
+						v_lastSelectedIndex = i;
+					}
+					else {v_selectedIndex = -1;}
+				}
+			} 
+		}
 		//else {if (!v_selectionDone) {tmp_i[@ i, 2] = lerp(tmp_i[@ i, 2], 0, 0.1);}}
 		
 		if (v_selectedIndex != -1)

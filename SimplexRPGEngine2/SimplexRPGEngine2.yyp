@@ -1559,6 +1559,14 @@
             }
         },
         {
+            "Key": "42f1bad9-8d41-4fba-b2d7-f3dd967db3ed",
+            "Value": {
+                "id": "e026a6d4-bef9-4e31-9d77-335509c1f08d",
+                "resourcePath": "sprites\\sSpells\\sSpells.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "43556917-cebd-471b-bac7-f0f489cc0dad",
             "Value": {
                 "id": "3ba2c102-d11b-424a-b993-54e85bfdf9b1",
@@ -1668,6 +1676,14 @@
                 "id": "1daf24b1-00a4-4aea-a8b2-f2fda7466beb",
                 "resourcePath": "sprites\\tresOusideObjects1\\tresOusideObjects1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "47b7d000-31ad-4c72-8c85-bb908fdfe94b",
+            "Value": {
+                "id": "20ce82b6-bbc6-4971-8046-e14d3eb43d31",
+                "resourcePath": "shaders\\shd_spell\\shd_spell.yy",
+                "resourceType": "GMShader"
             }
         },
         {

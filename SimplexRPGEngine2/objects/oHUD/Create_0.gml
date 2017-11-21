@@ -131,3 +131,29 @@ v_tickSP = -1;
 
 v_playerSkillPointsAttributes = 10;
 v_playerSkillPointsAbilities = 20;
+
+#macro mcSpells 2
+
+enum e_spells
+{
+	valFireball,
+	valIcicles
+}
+
+v_playerSpell[e_spells.valFireball, 0] = "Fire ball";
+v_playerSpell[e_spells.valFireball, 1] = 0;
+v_playerSpell[e_spells.valFireball, 2] = "Mighty spell of gods. Quisque porta. Etiam commodo dui eget wisi. Praesent vitae arcu tempor neque lacinia pretium. Vivamus porttitor turpis ac leo.";
+
+// <name, value, upgradeCost>
+v_playerSpellStaticstics[e_spells.valFireball, 0] = "Mana cost";
+v_playerSpellStaticstics[e_spells.valFireball, 1] = 60;
+v_playerSpellStaticstics[e_spells.valFireball, 2] = -1;
+
+v_playerSpell[e_spells.valIcicles, 0] = "Icicles";
+v_playerSpell[e_spells.valIcicles, 1] = 1;
+v_playerSpell[e_spells.valIcicles, 2] = "Icicles. Quisque porta. Etiam commodo dui eget wisi. Praesent vitae arcu tempor neque lacinia pretium. Vivamus porttitor turpis ac leo.";
+
+v_playerSpellStaticstics[e_spells.valIcicles, 0] = "Mana cost";
+v_playerSpellStaticstics[e_spells.valIcicles, 1] = 40;
+v_playerSpellStaticstics[e_spells.valIcicles, 2] = -1;
+

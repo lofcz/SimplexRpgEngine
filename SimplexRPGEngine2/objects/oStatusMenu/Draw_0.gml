@@ -41,6 +41,7 @@ else
 
 if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
 {
+	time++;
 	if ((v_menuItems[v_lastSelectedIndex, 2] - 30) / 150 > 0.05)
 	{
 		var xSet, tmp_alpha, tmp_yoffset;
@@ -306,14 +307,64 @@ if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
 		#endregion
 		#region Grimoire
 		if (v_lastSelectedIndex == 1)
-		{		
-			clr(-1, tmp_alpha);			
-			for (var i = 0; i < 10; i++)
+		{						
+			if (v_spellSelected != -1)
 			{
+				v_alphaImage = lerp(v_alphaImage, 1, 0.1);
+				
+				var tmp_xO;
+				tmp_xO = 64 - v_alphaImage * 64;
+				
+				fnt(fntPixelBig);
+				draw_text(x + xSet + 220 - tmp_xO, y + tmp_yoffset + 34, oHUD.v_playerSpell[g_spellList[| v_spellSelected], 0]);
+				draw_line_width(x + xSet + 220 - tmp_xO, y + tmp_yoffset + 52, x + xSet + 250 - tmp_xO + 350, y + tmp_yoffset + 52, 2);
+				
+				fnt(fntPixelLess);
+				draw_text_colored(x + xSet + 220 - tmp_xO, y + tmp_yoffset + 60, oHUD.v_playerSpell[g_spellList[| v_spellSelected], 2], 300, fntPixelLess, c_black);
+				
+			}
+			
+			clr(-1, tmp_alpha);		
+			for (var i = 0; i < 10; i++)
+			{			
 				clr(-1, tmp_alpha / 2);	
 				draw_roundrect_ext(x + xSet + 8, y + i * 32 + tmp_yoffset + 32, x + 196 + xSet, y + 26 + i * 32 + tmp_yoffset + 32, 2, 2, false);	
 				clr(-1, tmp_alpha);	
 				draw_roundrect_ext(x + xSet + 8, y + i * 32 + tmp_yoffset + 32, x + 196 + xSet, y + 26 + i * 32 + tmp_yoffset + 32, 2, 2, true);			
+				draw_roundrect_ext(x + xSet + 8, y + i * 32 + tmp_yoffset + 32, x + 40 + xSet, y + 26 + i * 32 + tmp_yoffset + 32, 2, 2, true);			
+				
+				var tmp_name;
+				if (ds_list_size(g_spellList) > i)
+				{
+					tmp_name = oHUD.v_playerSpell[g_spellList[| i], 0];
+				}
+				else {tmp_name = "???";}
+				
+				draw_text_colored(x + xSet + 44, y + i * 32 + tmp_yoffset + 36, tmp_name, -1, fntPixelLess, c_white);
+				clr(-1, tmp_alpha / 2);		
+				
+				if (tmp_name != "???")
+				{
+					clr(-1, tmp_alpha);	
+					draw_sprite_stretched(sSpells, oHUD.v_playerSpell[g_spellList[| i], 1], x + xSet + 8, y + i * 32 + tmp_yoffset + 33, 33, 26); 	
+				}
+				
+				if (point_in_rectangle(mouse_x, mouse_y, x + xSet + 8, y + i * 32 + tmp_yoffset + 32, x + 196 + xSet, y + 26 + i * 32 + tmp_yoffset + 32))
+				{
+					if (tmp_name != "???")
+					{
+						if (mouse_check_button_pressed(mb_left))
+						{
+							v_indexSelected = i;
+							v_spellSelected = i;
+						}
+					}
+				}
+			}
+			
+			if (mouse_check_button_released(mb_left))
+			{
+				v_indexSelected = -1;	
 			}
 		}
 		#endregion
