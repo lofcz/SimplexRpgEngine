@@ -144,10 +144,18 @@ v_playerSpell[e_spells.valFireball, 0] = "Fire ball";
 v_playerSpell[e_spells.valFireball, 1] = 0;
 v_playerSpell[e_spells.valFireball, 2] = "Mighty spell of gods. Quisque porta. Etiam commodo dui eget wisi. Praesent vitae arcu tempor neque lacinia pretium. Vivamus porttitor turpis ac leo.";
 
+// attribute
 // <name, value, upgradeCost>
 v_playerSpellStaticstics[e_spells.valFireball, 0] = "Mana cost";
 v_playerSpellStaticstics[e_spells.valFireball, 1] = 60;
 v_playerSpellStaticstics[e_spells.valFireball, 2] = -1;
+
+// upgrade
+// <name, level, maxLevel, upgradeCost> 
+v_playerSpellUpgrade[e_spells.valFireball, 0] = "Eternal fire";
+v_playerSpellUpgrade[e_spells.valFireball, 1] = 0;
+v_playerSpellUpgrade[e_spells.valFireball, 2] = 1;
+v_playerSpellUpgrade[e_spells.valFireball, 3] = 120;
 
 v_playerSpell[e_spells.valIcicles, 0] = "Icicles";
 v_playerSpell[e_spells.valIcicles, 1] = 1;

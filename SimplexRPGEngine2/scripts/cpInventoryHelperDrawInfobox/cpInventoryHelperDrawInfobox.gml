@@ -23,7 +23,7 @@ if (argument_count > 5) {tmp_reqArray = argument[5];}
 if (argument_count > 6) {tmp_propertyStaticArray = argument[6];}
 if (argument_count > 7) {tmp_gemsArray = argument[7];}
 
-if (tmp_hoverAlpha > 0.05)
+if (tmp_hoverAlpha > 0.05 && oInventory.v_formAlpha > 0.05)
 {
 	// Draw base layout
 	var tmp_infoboxW, tmp_infoboxH, tmp_alpha, tmp_drawX, tmp_drawY, tmp_layoutWidth, tmp_layoutHeight, tmp_layoutSlotsX;
@@ -31,7 +31,8 @@ if (tmp_hoverAlpha > 0.05)
 	tmp_infoboxH = 4;
 	tmp_drawX = oInventory.v_formEndX;
 	tmp_drawY = oInventory.v_formEndY - 12;
-	tmp_alpha = min(v_formAlpha, tmp_hoverAlpha);
+	tmp_alpha = min(v_formAlpha, tmp_hoverAlpha, oInventory.v_formAlpha);
+	tmp_hoverAlpha = min(tmp_hoverAlpha, oInventory.v_formAlpha);
 	tmp_layoutSlotsX = tmp_infoboxW;
 
 	clr(-1, tmp_alpha);
