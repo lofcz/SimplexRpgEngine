@@ -46,7 +46,7 @@ if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
 	{
 		var xSet, tmp_alpha, tmp_yoffset;
 		xSet = -160 + 160 * (v_menuItems[v_lastSelectedIndex, 2] / 180);
-		tmp_alpha = max(((v_menuItems[v_lastSelectedIndex, 2] - 30) / 150), 0);
+		tmp_alpha = max(min(((v_menuItems[v_lastSelectedIndex, 2] - 30) / 150), v_formAlpha), 0);
 		tmp_yoffset = 64;
 		#region Status
 		if (v_lastSelectedIndex == 0)
@@ -307,7 +307,11 @@ if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
 		#endregion
 		#region Grimoire
 		if (v_lastSelectedIndex == 1)
-		{						
+		{				
+			clr(-1, tmp_alpha);				
+			draw_sprite_part(oInventory.v_inventorySprite, 0, 117, 144, 16, 16, x + 156 + xSet, y + 20);
+			draw_sprite_part(oInventory.v_inventorySprite, 0, 133, 144, 16, 16, x + 450 + xSet, y + 20);
+			
 			if (v_spellSelected != -1)
 			{
 				v_alphaImage = lerp(v_alphaImage, 1, 0.1);
@@ -315,12 +319,68 @@ if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
 				var tmp_xO;
 				tmp_xO = 64 - v_alphaImage * 64;
 				
+				clr(-1, tmp_alpha);
 				fnt(fntPixelBig);
 				draw_text(x + xSet + 220 - tmp_xO, y + tmp_yoffset + 34, oHUD.v_playerSpell[g_spellList[| v_spellSelected], 0]);
 				draw_line_width(x + xSet + 220 - tmp_xO, y + tmp_yoffset + 52, x + xSet + 250 - tmp_xO + 350, y + tmp_yoffset + 52, 2);
 				
 				fnt(fntPixelLess);
-				draw_text_colored(x + xSet + 220 - tmp_xO, y + tmp_yoffset + 60, oHUD.v_playerSpell[g_spellList[| v_spellSelected], 2], 300, fntPixelLess, c_black);
+				tmp_callY = draw_text_colored(x + xSet + 220 - tmp_xO, y + tmp_yoffset + 60, oHUD.v_playerSpell[g_spellList[| v_spellSelected], 2], 300, fntPixelLess, c_black);
+				clr(-1, tmp_alpha);
+				draw_text_colored(x + xSet + 220 - tmp_xO, tmp_callY + 24, "Mana cost: " + _sc(string(oHUD.v_playerSpellStaticstics[g_spellList[| v_spellSelected], 1]), c_aqua), 300, fntPixelLess, c_black);
+				clr(-1, tmp_alpha);
+				
+				var tmp_index;
+				tmp_index = 0;
+				
+				fnt();
+				draw_text(x + xSet + 220 - tmp_xO, tmp_callY + 60, "Statistics:");
+				draw_line_width(x + xSet + 220 - tmp_xO, tmp_callY + 77, x + xSet + 420 - tmp_xO - 30, tmp_callY + 77, 2);
+				
+				// Render statistics
+				for (var i = 4; i < array_length_2d(oHUD.v_playerSpellStaticstics, g_spellList[| v_spellSelected]) - 1; i += 4)
+				{
+					clr(-1, tmp_alpha);
+					draw_text_colored(x + xSet + 220 - tmp_xO, tmp_callY + 90 + tmp_index * 20, string(oHUD.v_playerSpellStaticstics[g_spellList[| v_spellSelected], i]) + ": ", 300, fntPixelLess, c_black);	
+					clr(-1, tmp_alpha);
+					draw_text_colored(x + xSet + 220 - tmp_xO + 150, tmp_callY + 90 + tmp_index * 20, _sc(string(oHUD.v_playerSpellStaticstics[g_spellList[| v_spellSelected], i + 1]), c_white) + _sc(string(oHUD.v_playerSpellStaticstics[g_spellList[| v_spellSelected], i + 3]), c_white), 300, fntPixelLess, c_black);	
+					 
+					tmp_index++;
+				}
+				
+				fnt();
+				clr(-1, tmp_alpha);
+				draw_text(x + xSet + 220 - tmp_xO + 220, tmp_callY + 60, "Enchancements:");
+				draw_line_width(x + xSet + 220 - tmp_xO + 220, tmp_callY + 77, x + xSet + 420 - tmp_xO + 220 - 30, tmp_callY + 77, 2);
+				
+				
+				// Render upgrades
+				var tmp_hit;
+				tmp_hit = -1;				
+				tmp_index = 0;
+				for (var i = 0; i < array_length_2d(oHUD.v_playerSpellUpgrade, g_spellList[| v_spellSelected]); i += 8)
+				{
+					clr(-1, tmp_alpha);
+					draw_text_colored(x + xSet + 220 - tmp_xO + 220, tmp_callY + 90 + tmp_index * 24, string(oHUD.v_playerSpellUpgrade[g_spellList[| v_spellSelected], i]) + " (" + string(oHUD.v_playerSpellUpgrade[g_spellList[| v_spellSelected], i + 1]) + "/" + string(oHUD.v_playerSpellUpgrade[g_spellList[| v_spellSelected], i + 2]) + ")", -1, fntPixelLess, c_black);						
+					
+					if (point_in_rectangle(mouse_x, mouse_y, x + xSet + 220 - tmp_xO + 220, tmp_callY + 90 + tmp_index * 24, x + xSet + 220 - tmp_xO + 400, tmp_callY + 90 + tmp_index * 20 + 20))
+					{
+						tmp_hit = i;
+						v_lastHitSpell = i;
+					}
+
+					tmp_index++;
+				}
+				
+				if (tmp_hit != -1) {v_detailAlpha = lerp(v_detailAlpha, 1, 0.1);}
+				else {v_detailAlpha = lerp(v_detailAlpha, 0, 0.1);}
+				
+				if (v_detailAlpha > 0.05)
+				{
+					clr(c_black, min(v_formAlpha, v_detailAlpha, tmp_alpha));
+					draw_text_colored(x + xSet + 220 - 20 + 20 * v_detailAlpha, tmp_callY + 60 + 170, string(oHUD.v_playerSpellUpgrade[g_spellList[| v_spellSelected], v_lastHitSpell + 5]), 300, fntPixelLess, c_black);						
+	
+				}
 				
 			}
 			
@@ -349,7 +409,7 @@ if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
 					draw_sprite_stretched(sSpells, oHUD.v_playerSpell[g_spellList[| i], 1], x + xSet + 8, y + i * 32 + tmp_yoffset + 33, 33, 26); 	
 				}
 				
-				if (point_in_rectangle(mouse_x, mouse_y, x + xSet + 8, y + i * 32 + tmp_yoffset + 32, x + 196 + xSet, y + 26 + i * 32 + tmp_yoffset + 32))
+				if (point_in_rectangle(mouse_x, mouse_y, x + xSet + 8 + 32, y + i * 32 + tmp_yoffset + 32, x + 196 + xSet, y + 26 + i * 32 + tmp_yoffset + 32))
 				{
 					if (tmp_name != "???")
 					{
@@ -358,6 +418,15 @@ if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
 							v_indexSelected = i;
 							v_spellSelected = i;
 						}
+					}			
+				}
+				
+				// Spell select
+				if (point_in_rectangle(mouse_x, mouse_y, x + xSet + 8, y + i * 32 + tmp_yoffset + 32, x + 8 + 32 + xSet, y + 26 + i * 32 + tmp_yoffset + 32))
+				{
+					if (mouse_check_button_pressed(mb_left))
+					{
+						v_spellSelection = i;	
 					}
 				}
 			}
@@ -365,6 +434,12 @@ if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
 			if (mouse_check_button_released(mb_left))
 			{
 				v_indexSelected = -1;	
+				v_spellSelection = -1;
+			}
+			
+			if (v_spellSelection != -1)
+			{
+				//draw_sprite_stretched(sSpells, oHUD.v_playerSpell[g_spellList[| v_spellSelection], 1], mouse_x - 17, mouse_y - 13, 34, 26); 		
 			}
 		}
 		#endregion

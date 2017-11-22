@@ -104,3 +104,6 @@ v_indexSelected = -1;
 v_spellSelected = -1;
 v_alphaImage = 0;
 time = 0;
+v_detailAlpha = 0;
+v_lastHitSpell = -1;
+v_spellSelection = -1;

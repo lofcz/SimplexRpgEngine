@@ -1,6 +1,12 @@
 /// @desc Draw HUD
 
-
+var tmp_selX, tmp_selY, tmp_selW, tmp_selH, tmp_selXO, tmp_selYO;
+tmp_selX = mouse_x;
+tmp_selY = mouse_y;
+tmp_selW = 34;
+tmp_selH = 26;
+tmp_selXO = 17;
+tmp_selYO = 13;
 
 if (keyboard_check_pressed(ord("K"))) {v_playerProperty[e_inventoryProperties.valXp] += 10;}
 if (keyboard_check_pressed(ord("L"))) {if (oInventory.v_inventorySprite == texUI) {oInventory.v_inventorySprite = texUI2;} else {oInventory.v_inventorySprite = texUI;} v_hudSprite = oInventory.v_inventorySprite;}
@@ -258,15 +264,38 @@ tmp_y = oCamera.v_nullPosY + oCamera.v_viewSizeY - 64;
 
 draw_sprite_part(v_hudSprite, 0, v_hudBarStartX, v_hudBarSlotY, 14, 40, tmp_x - 14, tmp_y);
 
+var tmp_canDrawS;
+tmp_canDrawS = true;
+
 for (var i = 0; i < v_hotbarSlots; i++)
 {	
 	draw_sprite_part(v_hudSprite, 0, v_hudBarSlotX, v_hudBarSlotY, 40, 40, tmp_x, tmp_y);
 	if (i != v_hotbarSlots - 1) {draw_sprite_part(v_hudSprite, 0, v_hudBarConnectX, v_hudBarConnectY, 5, 40, tmp_x + 40, tmp_y);}
 	
+	if (point_in_rectangle(mouse_x, mouse_y, tmp_x, tmp_y, tmp_x + 40, tmp_y + 40))
+	{
+		tmp_selX = tmp_x;
+		tmp_selY = tmp_y;
+		tmp_selXO = 0;
+		tmp_selYO = 0;
+		tmp_selW = 40;
+		tmp_selH = 40;
+		
+		if (oStatusMenu.v_spellSelection != -1 )
+		{
+			draw_sprite_stretched(sSpells, oHUD.v_playerSpell[oStatusMenu.g_spellList[| oStatusMenu.v_spellSelection], 1], tmp_selX - tmp_selXO + 2, tmp_selY - tmp_selYO + 2, tmp_selW - 4, tmp_selH - 4); 		
+			tmp_canDrawS = false;
+		}
+	}
+	
+	draw_sprite_part(v_hudSprite, 0, 353, 423, 40, 40, tmp_x, tmp_y);	
 	tmp_x += 45;
 }
 
-
+if (tmp_canDrawS && oStatusMenu.v_spellSelection != -1)
+{
+	draw_sprite_stretched(sSpells, oHUD.v_playerSpell[oStatusMenu.g_spellList[| oStatusMenu.v_spellSelection], 1], tmp_selX - tmp_selXO, tmp_selY - tmp_selYO, tmp_selW, tmp_selH); 	
+}
 
 draw_sprite_part(v_hudSprite, 0, v_hudBarEndX, v_hudBarSlotY, 14, 40, tmp_x - 6, tmp_y);
 
@@ -277,7 +306,6 @@ tmp_y = oCamera.v_nullPosY + 4;
 draw_sprite_part(v_hudSprite, 0, v_hudMapX, v_hudMapY, 136, 129, tmp_x, tmp_y);
 
 // Draw minimap buttons
-
 draw_sprite_part(v_hudSprite, 0, v_hudBallX, v_hudBallY, 15, 15, tmp_x + 101, tmp_y + 19);
 draw_sprite_part(v_hudSprite, 0, v_hudBallX, v_hudBallY, 15, 15, tmp_x + 15, tmp_y + 89);
 draw_sprite_part(v_hudSprite, 0, v_hudBallX, v_hudBallY, 15, 15, tmp_x + 31, tmp_y + 105);

@@ -145,17 +145,45 @@ v_playerSpell[e_spells.valFireball, 1] = 0;
 v_playerSpell[e_spells.valFireball, 2] = "Mighty spell of gods. Quisque porta. Etiam commodo dui eget wisi. Praesent vitae arcu tempor neque lacinia pretium. Vivamus porttitor turpis ac leo.";
 
 // attribute
-// <name, value, upgradeCost>
+// <name, value, upgradeCost, suffix>
 v_playerSpellStaticstics[e_spells.valFireball, 0] = "Mana cost";
 v_playerSpellStaticstics[e_spells.valFireball, 1] = 60;
 v_playerSpellStaticstics[e_spells.valFireball, 2] = -1;
+v_playerSpellStaticstics[e_spells.valFireball, 3] = "";
+
+v_playerSpellStaticstics[e_spells.valFireball, 4] = "Burst damage";
+v_playerSpellStaticstics[e_spells.valFireball, 5] = 24;
+v_playerSpellStaticstics[e_spells.valFireball, 6] = -1;
+v_playerSpellStaticstics[e_spells.valFireball, 7] = "";
+
+v_playerSpellStaticstics[e_spells.valFireball, 8] = "Sparks damage";
+v_playerSpellStaticstics[e_spells.valFireball, 9] = 3;
+v_playerSpellStaticstics[e_spells.valFireball, 10] = -1;
+v_playerSpellStaticstics[e_spells.valFireball, 11] = "";
+
+v_playerSpellStaticstics[e_spells.valFireball, 12] = "Ablaze chance";
+v_playerSpellStaticstics[e_spells.valFireball, 13] = 12;
+v_playerSpellStaticstics[e_spells.valFireball, 14] = -1;
+v_playerSpellStaticstics[e_spells.valFireball, 15] = "%";
+
+v_playerSpellStaticstics[e_spells.valFireball, 16] = "Cooldown";
+v_playerSpellStaticstics[e_spells.valFireball, 17] = 20;
+v_playerSpellStaticstics[e_spells.valFireball, 18] = -1;
+v_playerSpellStaticstics[e_spells.valFireball, 19] = "s";
 
 // upgrade
-// <name, level, maxLevel, upgradeCost> 
+// <name, level, maxLevel, upgradeCost, upgradeUnlocked, detailText, isVisible, isKnown> 
 v_playerSpellUpgrade[e_spells.valFireball, 0] = "Eternal fire";
 v_playerSpellUpgrade[e_spells.valFireball, 1] = 0;
 v_playerSpellUpgrade[e_spells.valFireball, 2] = 1;
 v_playerSpellUpgrade[e_spells.valFireball, 3] = 120;
+v_playerSpellUpgrade[e_spells.valFireball, 4] = 1;
+v_playerSpellUpgrade[e_spells.valFireball, 5] = "Forces u to you to fuck your own mom";
+v_playerSpellUpgrade[e_spells.valFireball, 6] = 1;
+v_playerSpellUpgrade[e_spells.valFireball, 7] = 1;
+
+// req
+// <reqIndex1, reqVal1...>
 
 v_playerSpell[e_spells.valIcicles, 0] = "Icicles";
 v_playerSpell[e_spells.valIcicles, 1] = 1;
