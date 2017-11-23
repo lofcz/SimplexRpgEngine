@@ -432,7 +432,13 @@ if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
 			}
 			
 			if (mouse_check_button_released(mb_left))
-			{
+			{				
+				if (v_hotslot != -1)
+				{
+					oHUD.v_hotbar[v_hotslot, 0] = 0;
+					oHUD.v_hotbar[v_hotslot, 1] = g_spellList[| v_spellSelection];
+				}
+				
 				v_indexSelected = -1;	
 				v_spellSelection = -1;
 			}

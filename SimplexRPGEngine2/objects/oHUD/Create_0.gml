@@ -132,6 +132,8 @@ v_tickSP = -1;
 v_playerSkillPointsAttributes = 10;
 v_playerSkillPointsAbilities = 20;
 
+v_hotbarSlots = 9;
+
 #macro mcSpells 2
 
 enum e_spells
@@ -193,3 +195,11 @@ v_playerSpellStaticstics[e_spells.valIcicles, 0] = "Mana cost";
 v_playerSpellStaticstics[e_spells.valIcicles, 1] = 40;
 v_playerSpellStaticstics[e_spells.valIcicles, 2] = -1;
 
+// <mode, id> 
+// mode: -1 = noone, 0 = spell, 1 = item
+
+for (var i = 0; i < v_hotbarSlots; i++)
+{
+	v_hotbar[i, 0] = -1;
+	v_hotbar[i, 1] = -1;
+}

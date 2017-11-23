@@ -256,19 +256,19 @@ draw_text(v_midX - 11, tmp_y + 9, tmp_string);
 alg();
 
 // Draw hotbar
-v_hotbarSlots = 9;
-
 tmp_totalW = (oCamera.v_viewSizeX - (v_hotbarSlots * 40 + 2 * 14 + v_hotbarSlots * 5)) / 2;
 tmp_x = oCamera.v_nullPosX + tmp_totalW;
 tmp_y = oCamera.v_nullPosY + oCamera.v_viewSizeY - 64;
 
 draw_sprite_part(v_hudSprite, 0, v_hudBarStartX, v_hudBarSlotY, 14, 40, tmp_x - 14, tmp_y);
 
-var tmp_canDrawS;
+var tmp_canDrawS, tmp_canDrawZ;
 tmp_canDrawS = true;
+tmp_canDrawZ = true;
 
 for (var i = 0; i < v_hotbarSlots; i++)
 {	
+	tmp_canDrawZ = true;
 	draw_sprite_part(v_hudSprite, 0, v_hudBarSlotX, v_hudBarSlotY, 40, 40, tmp_x, tmp_y);
 	if (i != v_hotbarSlots - 1) {draw_sprite_part(v_hudSprite, 0, v_hudBarConnectX, v_hudBarConnectY, 5, 40, tmp_x + 40, tmp_y);}
 	
@@ -280,24 +280,37 @@ for (var i = 0; i < v_hotbarSlots; i++)
 		tmp_selYO = 0;
 		tmp_selW = 40;
 		tmp_selH = 40;
+		oStatusMenu.v_hotslot = i;
 		
-		if (oStatusMenu.v_spellSelection != -1 )
+		if (oStatusMenu.v_spellSelection != -1)
 		{
 			draw_sprite_stretched(sSpells, oHUD.v_playerSpell[oStatusMenu.g_spellList[| oStatusMenu.v_spellSelection], 1], tmp_selX - tmp_selXO + 2, tmp_selY - tmp_selYO + 2, tmp_selW - 4, tmp_selH - 4); 		
 			tmp_canDrawS = false;
+			tmp_canDrawZ = false;
 		}
+	}
+	
+	// Render binded spell
+	if (v_hotbar[i, 0] == 0 && tmp_canDrawZ)
+	{
+		draw_sprite_stretched(sSpells, oHUD.v_playerSpell[v_hotbar[i, 1], 1], tmp_x + 2, tmp_y + 2, 36, 36); 				
 	}
 	
 	draw_sprite_part(v_hudSprite, 0, 353, 423, 40, 40, tmp_x, tmp_y);	
 	tmp_x += 45;
 }
 
+draw_sprite_part(v_hudSprite, 0, v_hudBarEndX, v_hudBarSlotY, 14, 40, tmp_x - 6, tmp_y);
+
+if (tmp_canDrawS)
+{
+	oStatusMenu.v_hotslot = -1;	
+}
 if (tmp_canDrawS && oStatusMenu.v_spellSelection != -1)
 {
 	draw_sprite_stretched(sSpells, oHUD.v_playerSpell[oStatusMenu.g_spellList[| oStatusMenu.v_spellSelection], 1], tmp_selX - tmp_selXO, tmp_selY - tmp_selYO, tmp_selW, tmp_selH); 	
 }
 
-draw_sprite_part(v_hudSprite, 0, v_hudBarEndX, v_hudBarSlotY, 14, 40, tmp_x - 6, tmp_y);
 
 // Draw minimap
 tmp_x = oCamera.v_nullPosX + oCamera.v_viewSizeX - 136;

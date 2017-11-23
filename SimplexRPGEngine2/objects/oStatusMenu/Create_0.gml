@@ -107,3 +107,4 @@ time = 0;
 v_detailAlpha = 0;
 v_lastHitSpell = -1;
 v_spellSelection = -1;
+v_hotslot = -1;
