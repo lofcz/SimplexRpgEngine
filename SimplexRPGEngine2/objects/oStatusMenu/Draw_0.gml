@@ -435,8 +435,26 @@ if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
 			{				
 				if (v_hotslot != -1)
 				{
-					oHUD.v_hotbar[v_hotslot, 0] = 0;
-					oHUD.v_hotbar[v_hotslot, 1] = g_spellList[| v_spellSelection];
+					if (v_originalSlot != -1 && oHUD.v_hotbar[v_hotslot, 0] != -1)
+					{												
+						oHUD.v_hotbar[v_originalSlot, 0] = oHUD.v_hotbar[v_hotslot, 0];
+						oHUD.v_hotbar[v_originalSlot, 1] = oHUD.v_hotbar[v_hotslot, 1];
+						
+						oHUD.v_hotbar[v_hotslot, 0] = tmp_index1;
+						oHUD.v_hotbar[v_hotslot, 1] = tmp_index2;	
+						
+						oHUD.v_hotbar[v_hotslot, 2] = 0;
+						oHUD.v_hotbar[v_originalSlot, 2] = 0;
+					}
+					else
+					{
+						oHUD.v_hotbar[v_hotslot, 0] = 0;
+						oHUD.v_hotbar[v_hotslot, 1] = g_spellList[| v_spellSelection];	
+						if (v_originalSlot != -1) {oHUD.v_hotbar[v_originalSlot, 0] = -1;}
+						oHUD.v_hotbar[v_hotslot, 2] = 0;						
+					}
+					
+					v_originalSlot = -1;
 				}
 				
 				v_indexSelected = -1;	

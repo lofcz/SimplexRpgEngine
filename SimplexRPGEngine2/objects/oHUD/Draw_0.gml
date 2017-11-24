@@ -300,8 +300,12 @@ for (var i = 0; i < v_hotbarSlots; i++)
 		{
 			if (v_hotbar[i, 0] == 0)
 			{
+				oStatusMenu.v_originalSlot = i;
+				oStatusMenu.tmp_index1 = oHUD.v_hotbar[oStatusMenu.v_originalSlot, 0];
+				oStatusMenu.tmp_index2 = oHUD.v_hotbar[oStatusMenu.v_originalSlot, 1];
+				
 				oStatusMenu.v_spellSelection = oStatusMenu.g_spellList[| v_hotbar[i, 1]];
-				v_hotbar[i, 0] = -1;
+				v_hotbar[i, 2] = 1;
 			}
 		}
 	}
@@ -309,7 +313,20 @@ for (var i = 0; i < v_hotbarSlots; i++)
 	// Render binded spell
 	if (v_hotbar[i, 0] == 0 && tmp_canDrawZ)
 	{
-		draw_sprite_stretched(sSpells, oHUD.v_playerSpell[v_hotbar[i, 1], 1], tmp_x + 2, tmp_y + 2, 36, 36); 				
+		var tmp_alphaR;
+		tmp_alphaR = 1;
+		
+		if (v_hotbar[i, 2] == 1) {tmp_alphaR = 0.5;}
+		
+		clr(-1, draw_get_alpha() * tmp_alphaR);
+		draw_sprite_stretched(sSpells, oHUD.v_playerSpell[v_hotbar[i, 1], 1], tmp_x + 2, tmp_y + 2, 36, 36); 			
+		
+		draw_set_halign(fa_right);
+		fnt(fntPixelTiny);
+		clr(c_white, -1);
+		draw_text(tmp_x + 34, tmp_y + 20, oHUD.v_playerSpellStaticstics[v_hotbar[i, 1], 1]);
+		alg();
+		clr();
 	}
 	
 	draw_sprite_part(v_hudSprite, 0, 353, 423, 40, 40, tmp_x, tmp_y);	
