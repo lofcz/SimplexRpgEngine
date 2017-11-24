@@ -146,6 +146,14 @@ v_playerSpell[e_spells.valFireball, 0] = "Fire ball";
 v_playerSpell[e_spells.valFireball, 1] = 0;
 v_playerSpell[e_spells.valFireball, 2] = "Mighty spell of gods. Quisque porta. Etiam commodo dui eget wisi. Praesent vitae arcu tempor neque lacinia pretium. Vivamus porttitor turpis ac leo.";
 
+// <oncastCD, actualCD>
+v_playerSpellCD[e_spells.valFireball, 0] = 180;
+v_playerSpellCD[e_spells.valFireball, 1] = -1;
+
+v_playerSpellCD[e_spells.valIcicles, 0] = 60;
+v_playerSpellCD[e_spells.valIcicles, 1] = -1;
+
+
 // attribute
 // <name, value, upgradeCost, suffix>
 v_playerSpellStaticstics[e_spells.valFireball, 0] = "Mana cost";
@@ -204,3 +212,8 @@ for (var i = 0; i < v_hotbarSlots; i++)
 	v_hotbar[i, 1] = -1;
 	v_hotbar[i, 2] = 0;
 }
+
+tmp_selW = 34;
+tmp_selH = 26;
+tmp_selWT = 34;
+tmp_selHT = 26;

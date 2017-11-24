@@ -1,12 +1,13 @@
 /// @desc Draw HUD
 
-var tmp_selX, tmp_selY, tmp_selW, tmp_selH, tmp_selXO, tmp_selYO;
+var tmp_selX, tmp_selY, tmp_selXO, tmp_selYO;
 tmp_selX = mouse_x;
 tmp_selY = mouse_y;
-tmp_selW = 34;
-tmp_selH = 26;
 tmp_selXO = 17;
 tmp_selYO = 13;
+tmp_selW = lerp(tmp_selW, tmp_selWT, 0.1);
+tmp_selH = lerp(tmp_selH, tmp_selHT, 0.1);
+
 
 if (keyboard_check_pressed(ord("K"))) {v_playerProperty[e_inventoryProperties.valXp] += 10;}
 if (keyboard_check_pressed(ord("L"))) {if (oInventory.v_inventorySprite == texUI) {oInventory.v_inventorySprite = texUI2;} else {oInventory.v_inventorySprite = texUI;} v_hudSprite = oInventory.v_inventorySprite;}
@@ -278,8 +279,8 @@ for (var i = 0; i < v_hotbarSlots; i++)
 		tmp_selY = tmp_y;
 		tmp_selXO = 0;
 		tmp_selYO = 0;
-		tmp_selW = 40;
-		tmp_selH = 40;
+		tmp_selWT = 40;
+		tmp_selHT = 40;
 		oStatusMenu.v_hotslot = i;
 		
 		if (oStatusMenu.v_spellSelection != -1)
@@ -324,7 +325,19 @@ for (var i = 0; i < v_hotbarSlots; i++)
 		draw_set_halign(fa_right);
 		fnt(fntPixelTiny);
 		clr(c_white, -1);
+		
+		// Render CD
+		if (v_playerSpellCD[v_hotbar[i, 1], 1] > 0)
+		{
+			var tmp_value;
+			tmp_value = (v_playerSpellCD[v_hotbar[i, 1], 1] / v_playerSpellCD[v_hotbar[i, 1], 0]);
+			draw_rectangle_cd(tmp_x + 2, tmp_y + 2, tmp_x + 38, tmp_y + 38, ( 360 - (tmp_value) * 360));		
+		}
+		
+		clr(c_white);
 		draw_text(tmp_x + 34, tmp_y + 20, oHUD.v_playerSpellStaticstics[v_hotbar[i, 1], 1]);
+		draw_text(tmp_x + 34, tmp_y, string(i + 1));
+		
 		alg();
 		clr();
 	}
@@ -341,7 +354,7 @@ if (tmp_canDrawS)
 }
 if (tmp_canDrawS && oStatusMenu.v_spellSelection != -1)
 {
-	draw_sprite_stretched(sSpells, oHUD.v_playerSpell[oStatusMenu.g_spellList[| oStatusMenu.v_spellSelection], 1], tmp_selX - tmp_selXO, tmp_selY - tmp_selYO, tmp_selW, tmp_selH); 	
+	draw_sprite_stretched(sSpells, oHUD.v_playerSpell[oStatusMenu.g_spellList[| oStatusMenu.v_spellSelection], 1], tmp_selX - (tmp_selW / 2) + 2, tmp_selY - (tmp_selH / 2) + 2, tmp_selW, tmp_selH); 	
 }
 
 
@@ -355,3 +368,21 @@ draw_sprite_part(v_hudSprite, 0, v_hudMapX, v_hudMapY, 136, 129, tmp_x, tmp_y);
 draw_sprite_part(v_hudSprite, 0, v_hudBallX, v_hudBallY, 15, 15, tmp_x + 101, tmp_y + 19);
 draw_sprite_part(v_hudSprite, 0, v_hudBallX, v_hudBallY, 15, 15, tmp_x + 15, tmp_y + 89);
 draw_sprite_part(v_hudSprite, 0, v_hudBallX, v_hudBallY, 15, 15, tmp_x + 31, tmp_y + 105);
+
+// Check for spellcast
+if (keyboard_check_pressed(vk_anykey))
+{
+	for (var i = 0; i < 10; i++)
+	{
+		if (keyboard_lastkey == 49 + i)
+		{
+			cpSpellsCast(i);		
+		}
+	}
+}
+
+for (var i = 0; i < mcSpells; i++)
+{
+	if (v_playerSpellCD[i, 1] > 0) {v_playerSpellCD[i, 1]--;}	
+	if (v_playerSpellCD[i, 1] == 0) {v_playerSpellCD[i, 1] = -1;}
+}

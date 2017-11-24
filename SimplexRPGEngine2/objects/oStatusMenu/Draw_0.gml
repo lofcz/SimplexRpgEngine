@@ -427,43 +427,13 @@ if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
 					if (mouse_check_button_pressed(mb_left))
 					{
 						v_spellSelection = i;	
+						oHUD.tmp_selW = 34;
+						oHUD.tmp_selH = 26;
+						oHUD.tmp_selWT = 40;
+						oHUD.tmp_selHT = 40;
+						
 					}
 				}
-			}
-			
-			if (mouse_check_button_released(mb_left))
-			{				
-				if (v_hotslot != -1)
-				{
-					if (v_originalSlot != -1 && oHUD.v_hotbar[v_hotslot, 0] != -1)
-					{												
-						oHUD.v_hotbar[v_originalSlot, 0] = oHUD.v_hotbar[v_hotslot, 0];
-						oHUD.v_hotbar[v_originalSlot, 1] = oHUD.v_hotbar[v_hotslot, 1];
-						
-						oHUD.v_hotbar[v_hotslot, 0] = tmp_index1;
-						oHUD.v_hotbar[v_hotslot, 1] = tmp_index2;	
-						
-						oHUD.v_hotbar[v_hotslot, 2] = 0;
-						oHUD.v_hotbar[v_originalSlot, 2] = 0;
-					}
-					else
-					{
-						oHUD.v_hotbar[v_hotslot, 0] = 0;
-						oHUD.v_hotbar[v_hotslot, 1] = g_spellList[| v_spellSelection];	
-						if (v_originalSlot != -1) {oHUD.v_hotbar[v_originalSlot, 0] = -1;}
-						oHUD.v_hotbar[v_hotslot, 2] = 0;						
-					}
-					
-					v_originalSlot = -1;
-				}
-				
-				v_indexSelected = -1;	
-				v_spellSelection = -1;
-			}
-			
-			if (v_spellSelection != -1)
-			{
-				//draw_sprite_stretched(sSpells, oHUD.v_playerSpell[g_spellList[| v_spellSelection], 1], mouse_x - 17, mouse_y - 13, 34, 26); 		
 			}
 		}
 		#endregion
@@ -477,3 +447,42 @@ if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
 
 clr();
 }
+
+#region HUD Logic posthandler		
+if (mouse_check_button_released(mb_left))
+{				
+	if (v_hotslot != -1)
+	{
+		if (v_originalSlot != -1 && oHUD.v_hotbar[v_hotslot, 0] != -1)
+		{												
+			oHUD.v_hotbar[v_originalSlot, 0] = oHUD.v_hotbar[v_hotslot, 0];
+			oHUD.v_hotbar[v_originalSlot, 1] = oHUD.v_hotbar[v_hotslot, 1];
+						
+			oHUD.v_hotbar[v_hotslot, 0] = tmp_index1;
+			oHUD.v_hotbar[v_hotslot, 1] = tmp_index2;	
+						
+			oHUD.v_hotbar[v_hotslot, 2] = 0;
+			oHUD.v_hotbar[v_originalSlot, 2] = 0;
+		}
+		else
+		{
+			oHUD.v_hotbar[v_hotslot, 0] = 0;
+			oHUD.v_hotbar[v_hotslot, 1] = g_spellList[| v_spellSelection];	
+			if (v_originalSlot != -1) {oHUD.v_hotbar[v_originalSlot, 0] = -1;}
+			oHUD.v_hotbar[v_hotslot, 2] = 0;						
+		}					
+	}
+				
+	v_indexSelected = -1;	
+	v_originalSlot = -1;
+	v_spellSelection = -1;
+}
+			
+if (mouse_check_button_released(mb_left))
+{
+	for (var i = 0; i < 10; i++)
+	{
+		oHUD.v_hotbar[i, 2] = 0;			
+	}
+}
+#endregion
