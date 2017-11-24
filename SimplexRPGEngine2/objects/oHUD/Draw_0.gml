@@ -288,6 +288,22 @@ for (var i = 0; i < v_hotbarSlots; i++)
 			tmp_canDrawS = false;
 			tmp_canDrawZ = false;
 		}
+		
+		// Reset slot
+		if (mouse_check_button_pressed(mb_right))
+		{
+			v_hotbar[i, 0] = -1;
+		}
+		
+		// Drag slot
+		if (mouse_check_button_pressed(mb_left))
+		{
+			if (v_hotbar[i, 0] == 0)
+			{
+				oStatusMenu.v_spellSelection = oStatusMenu.g_spellList[| v_hotbar[i, 1]];
+				v_hotbar[i, 0] = -1;
+			}
+		}
 	}
 	
 	// Render binded spell
