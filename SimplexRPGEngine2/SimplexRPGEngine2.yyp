@@ -31,6 +31,14 @@
     },
     "resources": [
         {
+            "Key": "0017e443-0637-4901-87e4-bf25362390f4",
+            "Value": {
+                "id": "e65deaaa-2444-4f60-abbf-1f50b2dcff3a",
+                "resourcePath": "scripts\\cpParticlesFireballTrail\\cpParticlesFireballTrail.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "002bedf0-1fd5-45b2-b58c-2fd1139a6f35",
             "Value": {
                 "id": "3f2e2bf9-248d-4186-af52-fee5a65df7e1",
@@ -4119,6 +4127,14 @@
             }
         },
         {
+            "Key": "b2b509eb-516c-44dd-bd73-7edb16b09858",
+            "Value": {
+                "id": "30052f7e-d532-4d5a-bdc4-c0390adee603",
+                "resourcePath": "objects\\oSpellBase\\oSpellBase.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "b2e10260-6254-495c-b22d-4ac98b7d4e20",
             "Value": {
                 "id": "a3424cde-94dd-454b-a223-0b27b2e4c365",
@@ -4308,6 +4324,14 @@
                 "id": "b6c6e57a-fa97-47b1-8dc9-91bc119d8c54",
                 "resourcePath": "sprites\\sBodyCanvasShield1\\sBodyCanvasShield1.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "bca5dd20-d20b-469a-a1c7-3ecfd09d45eb",
+            "Value": {
+                "id": "c8740c44-2990-4ee1-aeb6-ec2bddc122f5",
+                "resourcePath": "scripts\\libUtilityDirToVal\\libUtilityDirToVal.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -5711,6 +5735,7 @@
         "0e2b4025-2195-4320-88ca-5bc723b8cc4f",
         "48c97c14-2e12-4337-9f38-ede606046aee",
         "3cccbd8a-4fc6-4c84-8edd-a9350bbcecd3",
+        "bca5dd20-d20b-469a-a1c7-3ecfd09d45eb",
         "4a9571fa-503a-4497-bdcb-e11d6f236379",
         "2e4cb9c8-ca33-4276-8ba1-adc6efb813c8",
         "4eaf97d3-97a2-4e13-9cf6-60c8942edddf",
@@ -5755,6 +5780,7 @@
         "8501a7ec-e236-4790-a07f-2d177a146cb6",
         "11959ad1-6a03-4e3f-8fdf-a0acbbab8a63",
         "9f47d0f1-3a03-43e0-8e39-b9a2e8e79dca",
+        "0017e443-0637-4901-87e4-bf25362390f4",
         "4d013243-03bc-4be3-a6d5-b553de3c757f",
         "cc924329-1b34-4398-a89a-467995bf5752",
         "99c74bb2-7f28-4422-8970-5a02a4ed8c2a",

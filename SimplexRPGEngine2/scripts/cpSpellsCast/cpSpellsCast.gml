@@ -21,7 +21,12 @@ if (oHUD.v_playerSpellCD[tmp_spellIndex, 1] == -1)
 	
 	if (tmp_spellIndex == e_spells.valFireball)
 	{
+		var tmp_inst;
+		tmp_inst = instance_create_layer(oPlayer.x, oPlayer.y, "Effects", oSpellBase);
 		
+		tmp_inst.speed = 6;
+		tmp_inst.direction = libUtilityDirToVal(oPlayer.v_dir);
+		tmp_inst.v_speedT = 30;
 	}
 	
 	#endregion
