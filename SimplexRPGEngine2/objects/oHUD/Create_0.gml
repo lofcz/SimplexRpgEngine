@@ -221,3 +221,22 @@ tmp_selW = 34;
 tmp_selH = 26;
 tmp_selWT = 34;
 tmp_selHT = 26;
+
+
+enum e_talents
+{
+		
+}
+
+v_playerTalentBranch[0] = "Warrior";
+v_playerTalentBranch[1] = "Mage";
+v_playerTalentBranch[2] = "Thief";
+
+// <branch, name, desc, level, maxLevel, row, cell>
+v_playerTalent[0, 0] = 0;
+v_playerTalent[0, 1] = "Sample text";
+v_playerTalent[0, 2] = "Random shit";
+v_playerTalent[0, 3] = 0;
+v_playerTalent[0, 4] = 5;
+v_playerTalent[0, 5] = 0;
+v_playerTalent[0, 6] = 2;

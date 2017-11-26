@@ -38,7 +38,7 @@ instance_create_depth(x, y, -5000, oTreeController);
 
 v_collisionMain = [x, y, x, y];
 v_collisionLegs = [x, y, x, y];
-v_collisionHead = [x, y, x , y];
+v_collisionHead = [x, y, x, y];
 
 v_lerpMode = 0;
 v_actualLerp = 0;

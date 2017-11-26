@@ -437,6 +437,28 @@ if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
 			}
 		}
 		#endregion
+		#region Talents
+		if (v_lastSelectedIndex == 2)
+		{
+			clr(-1, tmp_alpha);				
+			draw_sprite_part(oInventory.v_inventorySprite, 0, 117, 144, 16, 16, x + 156 + xSet, y + 20);
+			draw_sprite_part(oInventory.v_inventorySprite, 0, 133, 144, 16, 16, x + 450 + xSet, y + 20);
+
+			// Render branches head
+			var tmp_w;
+			tmp_w = ((v_layoutW) / 3);
+			
+			for (var i = 0; i < 3; i++)
+			{
+				alg("center");
+				draw_text(x + xSet + (tmp_w * (i + 1)) - tmp_w / 2, y + 60, oHUD.v_playerTalentBranch[i]);
+				alg();
+				
+				draw_line(x + xSet + tmp_w * (i), y, x + xSet + tmp_w * (i), y + 200);
+				draw_text(x + xSet + tmp_w * (i), y + 200, string(x + xSet + tmp_w * (i)));
+			}
+		}
+		#endregion
 	}
 	
 	for (var i = 0; i < mcInventoryProperties; i++)
