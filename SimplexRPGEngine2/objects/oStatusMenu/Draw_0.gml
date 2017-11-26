@@ -446,12 +446,16 @@ if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
 
 			// Render branches head
 			var tmp_w;
-			tmp_w = ((v_layoutW) / 3);
+			tmp_w = ((v_layoutW + 32) / 3);
 			
 			for (var i = 0; i < 3; i++)
 			{
+				clr(c_black, tmp_alpha / 2);
+				draw_rectangle(x + xSet + (tmp_w * (i)) + 32, y + 80, x + xSet + (tmp_w * (i + 1)) - 32, y + 120, false);
+				clr(c_black, tmp_alpha);
+				
 				alg("center");
-				draw_text(x + xSet + (tmp_w * (i + 1)) - tmp_w / 2, y + 60, oHUD.v_playerTalentBranch[i]);
+				draw_text(x + xSet + (tmp_w * (i + 1)) - tmp_w / 2, y + 80, oHUD.v_playerTalentBranch[i]);
 				alg();
 				
 				draw_line(x + xSet + tmp_w * (i), y, x + xSet + tmp_w * (i), y + 200);
