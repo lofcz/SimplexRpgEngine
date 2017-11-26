@@ -5,7 +5,7 @@ if (alarm[1] == -1)
 {
 	alarm[1] = 60;
 	with(other) {cpGoreBlood(x, y, 30); v_properties[e_inventoryProperties.valHp] -= 10;}
-	
+	cpParticlesFireballExplode();
 	
 	if (other.v_properties[e_inventoryProperties.valHp] <= 0)
 	{

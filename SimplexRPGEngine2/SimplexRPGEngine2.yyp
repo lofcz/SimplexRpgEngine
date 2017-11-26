@@ -135,6 +135,14 @@
             }
         },
         {
+            "Key": "0436640d-a646-4ab0-b354-79047a0ea08f",
+            "Value": {
+                "id": "673d433d-d62f-484a-b901-7b70f255a2e9",
+                "resourcePath": "scripts\\cpParticlesFireballExplode\\cpParticlesFireballExplode.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "047f3a7c-a894-45e6-b59a-ce0a4add1e76",
             "Value": {
                 "id": "fbd3976d-7a3a-477e-88b9-bbfdc760d270",
@@ -5781,6 +5789,7 @@
         "11959ad1-6a03-4e3f-8fdf-a0acbbab8a63",
         "9f47d0f1-3a03-43e0-8e39-b9a2e8e79dca",
         "0017e443-0637-4901-87e4-bf25362390f4",
+        "0436640d-a646-4ab0-b354-79047a0ea08f",
         "4d013243-03bc-4be3-a6d5-b553de3c757f",
         "cc924329-1b34-4398-a89a-467995bf5752",
         "99c74bb2-7f28-4422-8970-5a02a4ed8c2a",

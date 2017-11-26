@@ -12,7 +12,7 @@ if (argument_count > 0) {tmp_index = argument[0];}
 if (oHUD.v_hotbar[tmp_index, 0] != 0) {return 0;}
 tmp_spellIndex = oHUD.v_hotbar[tmp_index, 1];
 
-if (oHUD.v_playerSpellCD[tmp_spellIndex, 1] == -1)
+if (oHUD.v_playerSpellCD[tmp_spellIndex, 1] == -1 && oHUD.v_playerProperty[e_inventoryProperties.valMp] >= oHUD.v_playerSpellStaticstics[tmp_spellIndex, 1])
 {
 	// Start CD
 	oHUD.v_playerSpellCD[tmp_spellIndex, 1] = oHUD.v_playerSpellCD[tmp_spellIndex, 0];
@@ -27,6 +27,8 @@ if (oHUD.v_playerSpellCD[tmp_spellIndex, 1] == -1)
 		tmp_inst.speed = 6;
 		tmp_inst.direction = libUtilityDirToVal(oPlayer.v_dir);
 		tmp_inst.v_speedT = 30;
+		
+		oHUD.v_playerProperty[e_inventoryProperties.valMp] -= oHUD.v_playerSpellStaticstics[tmp_spellIndex, 1];
 	}
 	
 	#endregion

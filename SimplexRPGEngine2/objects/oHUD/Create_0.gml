@@ -80,7 +80,7 @@ v_l = 1;
 for (var i = 0; i < mcInventoryProperties; i++)
 {
 	v_playerProperty[i] = choose(1, 2, 3, 4);
-	v_playerPropertyStatic[i] = choose(1, 2, 0);
+	v_playerPropertyStatic[i] = choose(0, 0, 0);
 }
 
 v_lang = "en";
@@ -107,6 +107,10 @@ v_playerProperty[e_inventoryProperties.valHpRegenValue] = 1;
 v_playerProperty[e_inventoryProperties.valSpRegenDelay] = 240;
 v_playerProperty[e_inventoryProperties.valSpRegenTick] = 10;
 v_playerProperty[e_inventoryProperties.valSpRegenValue] = 1;
+
+v_playerProperty[e_inventoryProperties.valMpRegenDelay] = 300;
+v_playerProperty[e_inventoryProperties.valMpRegenTick] = 100;
+v_playerProperty[e_inventoryProperties.valMpRegenValue] = 1;
 
 
 depth = -10000;
@@ -157,7 +161,7 @@ v_playerSpellCD[e_spells.valIcicles, 1] = -1;
 // attribute
 // <name, value, upgradeCost, suffix>
 v_playerSpellStaticstics[e_spells.valFireball, 0] = "Mana cost";
-v_playerSpellStaticstics[e_spells.valFireball, 1] = 60;
+v_playerSpellStaticstics[e_spells.valFireball, 1] = 15;
 v_playerSpellStaticstics[e_spells.valFireball, 2] = -1;
 v_playerSpellStaticstics[e_spells.valFireball, 3] = "";
 

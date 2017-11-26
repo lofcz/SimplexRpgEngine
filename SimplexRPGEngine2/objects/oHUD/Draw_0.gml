@@ -47,10 +47,10 @@ if (v_playerProperty[e_inventoryProperties.valHp] > v_playerPropertyTotal[e_inve
 if (v_playerPropertyTotal[e_inventoryProperties.valHp] < v_playerPropertyTotal[e_inventoryProperties.valMaxHp]) {if (v_delayHP == -1) {v_delayHP = 1;}}
 
 if (v_playerProperty[e_inventoryProperties.valMp] > v_playerPropertyTotal[e_inventoryProperties.valMaxMp]) {v_playerProperty[e_inventoryProperties.valMp] = v_playerPropertyTotal[e_inventoryProperties.valMaxMp];}
-if (v_playerPropertyTotal[e_inventoryProperties.valMp] < v_playerPropertyTotal[e_inventoryProperties.valMaxMp]) {if (v_delayHP == -1) {v_delayMP = 1;}}
+if (v_playerPropertyTotal[e_inventoryProperties.valMp] < v_playerPropertyTotal[e_inventoryProperties.valMaxMp]) {if (v_delayMP == -1) {v_delayMP = 1;}}
 
 if (v_playerProperty[e_inventoryProperties.valSp] > v_playerPropertyTotal[e_inventoryProperties.valMaxSp]) {v_playerProperty[e_inventoryProperties.valSp] = v_playerPropertyTotal[e_inventoryProperties.valMaxSp];}
-if (v_playerPropertyTotal[e_inventoryProperties.valSp] < v_playerPropertyTotal[e_inventoryProperties.valMaxSp]) {if (v_delayHP == -1) {v_delaySP = 1;}}
+if (v_playerPropertyTotal[e_inventoryProperties.valSp] < v_playerPropertyTotal[e_inventoryProperties.valMaxSp]) {if (v_delaySP == -1) {v_delaySP = 1;}}
 
 
 if (v_delayHP > 0) {v_delayHP--;}
@@ -65,7 +65,7 @@ if (v_delayHP == 0)
 
 if (v_delayMP == 0)
 {
-	if (v_tickMP == -1) {v_playerProperty[e_inventoryProperties.valMp] += v_playerPropertyTotal[e_inventoryProperties.valHpRegenValue];  if (v_playerPropertyTotal[e_inventoryProperties.valMp] < v_playerPropertyTotal[e_inventoryProperties.valMaxMp]) {v_tickMP = v_playerPropertyTotal[e_inventoryProperties.valMpRegenTick];} else {v_tickMP = -1; v_delayMP = -1;}}
+	if (v_tickMP == -1) {v_playerProperty[e_inventoryProperties.valMp] += v_playerPropertyTotal[e_inventoryProperties.valMpRegenValue];  if (v_playerPropertyTotal[e_inventoryProperties.valMp] < v_playerPropertyTotal[e_inventoryProperties.valMaxMp]) {v_tickMP = v_playerPropertyTotal[e_inventoryProperties.valMpRegenTick];} else {v_tickMP = -1; v_delayMP = -1;}}
 	else {v_tickMP--;}	
 }
 
