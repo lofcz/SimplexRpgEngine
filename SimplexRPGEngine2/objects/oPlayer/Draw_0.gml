@@ -9,6 +9,7 @@ libPlayerDraw();
 fnt(fntPixelSmall);
 draw_text(oCamera.v_nullPosX + 780, oCamera.v_nullPosY, fps);
 draw_text(oCamera.v_nullPosX + 780, oCamera.v_nullPosY + 16, instance_count);
+draw_text(oCamera.v_nullPosX + 760, oCamera.v_nullPosY + 200, fps_real);
 
 draw_text(x, y - 32, "Motion: " + string(v_localMotion));
 

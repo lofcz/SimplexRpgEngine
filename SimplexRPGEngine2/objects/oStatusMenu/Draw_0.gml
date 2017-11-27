@@ -1,5 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
+if (live_call()) return live_result;
+ 
 
 if (keyboard_check_pressed(ord("O"))) {v_drawForm = !v_drawForm;}
 
@@ -450,8 +452,8 @@ if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
 			
 			for (var i = 0; i < 3; i++)
 			{
-				clr(c_black, tmp_alpha / 2);
-				draw_rectangle(x + xSet + (tmp_w * (i)) + 32, y + 80, x + xSet + (tmp_w * (i + 1)) - 32, y + 120, false);
+				clr(c_black, tmp_alpha / 3);
+				draw_roundrect(x + xSet + (tmp_w * (i)) + 8, y + 66, x + xSet + (tmp_w * (i + 1)) - 32, y + 96, false);
 				clr(c_black, tmp_alpha);
 				
 				alg("center");

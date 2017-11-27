@@ -35,6 +35,7 @@ instance_create_depth(x, y, -31000, oDrawHelperAbove);
 instance_create_depth(x, y, -31000, oStateLog);
 instance_create_depth(x, y, -6100, oStatusMenu);
 instance_create_depth(x, y, -5000, oTreeController);
+instance_create_depth(x, y, 0, oGL21);
 
 v_collisionMain = [x, y, x, y];
 v_collisionLegs = [x, y, x, y];
