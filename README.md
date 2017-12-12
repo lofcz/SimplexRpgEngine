@@ -27,8 +27,8 @@ _Note: All financial prizes are used to further improve quality of Simplex. For 
 *Published on the Google Play*   
 <a href="https://play.google.com/store/apps/details?id=sk.KandPGames.Shuups">![](http://s21.postimg.org/wpxsja7o7/Noname.png)</a>
 
-**Fire Braid** (Studio Camo)  
-*In dev, to be published on the Google play, 700 EUR (19 000 CZK) raised.*  
+**Fire Braid** (Stalof)  
+*In dev, to be published on the Google play & Steam, 700 EUR (19 000 CZK) raised.*  
 <img  width="30%" height="30%" src="https://s10.postimg.org/pto7gbtqx/image.png">
 
 
