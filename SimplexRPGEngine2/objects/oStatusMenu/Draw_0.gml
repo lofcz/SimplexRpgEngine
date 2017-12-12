@@ -13,6 +13,7 @@ y = oCamera.v_nullPosY + 70;
 var tmp_c;
 tmp_c = true;
 
+
 if (v_lastSelectedIndex != -1) {if (v_menuItems[v_lastSelectedIndex, 2] > 4) {tmp_c = false;}}
 
 if (v_selectionDone)
