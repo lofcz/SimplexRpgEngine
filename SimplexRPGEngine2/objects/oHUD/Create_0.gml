@@ -232,7 +232,9 @@ v_playerTalentBranch[0] = "Warrior";
 v_playerTalentBranch[1] = "Mage";
 v_playerTalentBranch[2] = "Thief";
 
-// <branch, name, desc, level, maxLevel, row, cell>
+// <id, name, desc, level, maxLevel, row, cell, req1, req2, req3, spriteIndex, imageIndex>
+#macro mcTalentLenght 12;
+
 v_playerTalent[0, 0] = 0;
 v_playerTalent[0, 1] = "Sample text";
 v_playerTalent[0, 2] = "Random shit";
@@ -240,3 +242,8 @@ v_playerTalent[0, 3] = 0;
 v_playerTalent[0, 4] = 5;
 v_playerTalent[0, 5] = 0;
 v_playerTalent[0, 6] = 2;
+v_playerTalent[0, 7] = -1;
+v_playerTalent[0, 8] = -1;
+v_playerTalent[0, 9] = -1;
+v_playerTalent[0, 10] = sTalentsPack1;
+v_playerTalent[0, 11] = 0;

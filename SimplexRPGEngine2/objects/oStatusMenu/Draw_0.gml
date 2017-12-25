@@ -1,6 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-if (live_call()) return live_result;
+//if (live_call()) return live_result;
  
 
 if (keyboard_check_pressed(ord("O"))) {v_drawForm = !v_drawForm;}
@@ -18,13 +18,13 @@ if (v_lastSelectedIndex != -1) {if (v_menuItems[v_lastSelectedIndex, 2] > 4) {tm
 
 if (v_selectionDone)
 {
-	v_layoutW = lerp(v_layoutW, 600, 0.1);
-	v_layoutH = lerp(v_layoutH, 400, 0.1);
+	v_layoutW = lerp(v_layoutW, 600, v_lerpSpeed);
+	v_layoutH = lerp(v_layoutH, 400, v_lerpSpeed);
 }
 else if (tmp_c)
 {
-	v_layoutW = lerp(v_layoutW, 230, 0.1);
-	v_layoutH = lerp(v_layoutH, 210, 0.1);
+	v_layoutW = lerp(v_layoutW, 230, v_lerpSpeed);
+	v_layoutH = lerp(v_layoutH, 210, v_lerpSpeed);
 }
 
 
@@ -35,11 +35,11 @@ draw_text(mouse_x, mouse_y, v_menuAlpha);
 
 if (v_menuReady)
 {
-	v_menuAlpha = lerp(v_menuAlpha, 1, 0.1);
+	v_menuAlpha = lerp(v_menuAlpha, 1, v_lerpSpeed);
 }
 else
 {
-	v_menuAlpha = lerp(v_menuAlpha, 0, 0.1);
+	v_menuAlpha = lerp(v_menuAlpha, 0, v_lerpSpeed);
 }
 
 if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
@@ -453,8 +453,12 @@ if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
 			
 			for (var i = 0; i < 3; i++)
 			{
+				var tmp_xx, tmp_yy;
+				tmp_xx = x + xSet + tmp_w * (i);
+				tmp_yy = y + 100;
+				
 				clr(c_black, tmp_alpha / 3);
-				draw_roundrect(x + xSet + (tmp_w * (i)) + 8, y + 66, x + xSet + (tmp_w * (i + 1)) - 32, y + 96, false);
+				//draw_roundrect(x + xSet + (tmp_w * (i)) + 8, y + 66, x + xSet + (tmp_w * (i + 1)) - 32, y + 96, false);
 				clr(c_black, tmp_alpha);
 				
 				alg("center");
@@ -463,6 +467,19 @@ if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
 				
 				draw_line(x + xSet + tmp_w * (i), y, x + xSet + tmp_w * (i), y + 200);
 				draw_text(x + xSet + tmp_w * (i), y + 200, string(x + xSet + tmp_w * (i)));
+				
+				for (var j = 0; j < array_length_2d(oHUD.v_playerTalent, i) ; j += mcTalentLenght)
+				{
+					var tmp_row, tmp_cell, tmp_fx, tmp_fy;
+					tmp_row  = oHUD.v_playerTalent[i, j + 5];
+					tmp_cell = oHUD.v_playerTalent[i, j + 6];
+					
+					tmp_fx = tmp_xx + tmp_cell * 48;
+					tmp_fy = tmp_yy + tmp_row * 48;
+					
+					draw_rectangle(tmp_fx, tmp_fy, tmp_fx + 32, tmp_fy + 32, true);
+					
+				}
 			}
 		}
 		#endregion

@@ -51,7 +51,7 @@ for (var i = 0; i < array_height_2d(tmp_i); i++)
 			{
 				if (v_selectedIndex != i && v_layoutW < 231)
 				{
-					tmp_i[@ i, 2] = lerp(tmp_i[@ i, 2], 8, 0.1);
+					tmp_i[@ i, 2] = lerp(tmp_i[@ i, 2], 8, v_lerpSpeed);
 				}
 			
 				if (mouse_check_button_pressed(mb_left) && tmp_i[@ i, 1] > 0.05)
@@ -70,7 +70,7 @@ for (var i = 0; i < array_height_2d(tmp_i); i++)
 		
 		if (v_selectedIndex != -1)
 		{
-			if (i != v_selectedIndex) {tmp_i[@ i, 1] = lerp(tmp_i[@ i, 1], 0, 0.1); if (tmp_i[@ i, 1] > 0.05) {tmp_done = false;}}
+			if (i != v_selectedIndex) {tmp_i[@ i, 1] = lerp(tmp_i[@ i, 1], 0,v_lerpSpeed); if (tmp_i[@ i, 1] > 0.05) {tmp_done = false;}}
 		}
 		else
 		{
@@ -79,17 +79,17 @@ for (var i = 0; i < array_height_2d(tmp_i); i++)
 			
 			if (v_layoutW > 300) {tmp_doneScrolling = false;}
 		
-			tmp_i[@ i, 2] = lerp(tmp_i[@ i, 2], 0, 0.1);
+			tmp_i[@ i, 2] = lerp(tmp_i[@ i, 2], 0, v_lerpSpeed);
 			
 			if (tmp_i[@ i, 2] > 50) {v_selectionDone = true;} else {v_selectionDone = false;}
 			
 			if (tmp_doneScrolling)
 			{
-				tmp_i[@ i, 1] = lerp(tmp_i[@ i, 1], 1, 0.1);
+				tmp_i[@ i, 1] = lerp(tmp_i[@ i, 1], 1, v_lerpSpeed);
 				
 				if (tmp_i[@ i, 1]  <= 1)
 				{
-					tmp_i[@ i, 3] = lerp(tmp_i[@ i, 3], 0, 0.1);
+					tmp_i[@ i, 3] = lerp(tmp_i[@ i, 3], 0, v_lerpSpeed);
 				}
 			}
 		}
@@ -100,7 +100,7 @@ for (var i = 0; i < array_height_2d(tmp_i); i++)
 
 if (v_selectedIndex != -1 && tmp_done)
 {
-	tmp_i[@ v_selectedIndex, 3] = lerp(tmp_i[@ v_selectedIndex, 3], v_selectedIndex * 30, 0.1);
+	tmp_i[@ v_selectedIndex, 3] = lerp(tmp_i[@ v_selectedIndex, 3], v_selectedIndex * 30, v_lerpSpeed);
 	if (tmp_i[@ v_selectedIndex, 3] >= v_selectedIndex * 30 - 2) {v_selectionDone = true; if (v_layoutW > 595) {tmp_i[@ v_selectedIndex, 2] = lerp(tmp_i[@ v_selectedIndex, 2], 300 - 120, 0.1); if (tmp_i[@ v_selectedIndex, 2] > 300 - 125) {if (tmp_e != -1) {v_menuReady = true;}}}} else {v_selectionDone = false;}
 }
 

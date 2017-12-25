@@ -199,14 +199,6 @@
             }
         },
         {
-            "Key": "07a92402-8c8d-44e5-85f6-71d957130743",
-            "Value": {
-                "id": "2bc87df1-6252-4f55-a5d0-0a3d3e224e64",
-                "resourcePath": "datafiles_yy\\gmlive-server.exe.yy",
-                "resourceType": "GMIncludedFile"
-            }
-        },
-        {
             "Key": "07c0e386-fca2-44c6-83f1-8158f76ad141",
             "Value": {
                 "id": "3a0ab448-6d0d-4ffc-9f59-27860295305b",
@@ -220,6 +212,14 @@
                 "id": "9ce10579-bc19-4392-a1b9-ed2d24e26c85",
                 "resourcePath": "scripts\\scrShaderPrepareColor\\scrShaderPrepareColor.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "0845fa29-2a4f-451e-9a6c-f91a34168176",
+            "Value": {
+                "id": "026f3b9d-3c6a-4014-8377-7b8e74f6e217",
+                "resourcePath": "sprites\\sTalents\\sTalents.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -1644,6 +1644,14 @@
                 "id": "379762a1-63b6-4bfa-ac75-41e7e93832b7",
                 "resourcePath": "sprites\\sGemEffect5\\sGemEffect5.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "44a23537-6b93-4a08-873f-6ecf2913ef84",
+            "Value": {
+                "id": "cd778a71-0303-4ec7-8733-fc0c45ac8bf3",
+                "resourcePath": "views\\44a23537-6b93-4a08-873f-6ecf2913ef84.yy",
+                "resourceType": "GMFolder"
             }
         },
         {
@@ -5756,6 +5764,14 @@
                 "id": "3e78a328-ef0d-4e7b-903a-1f3f3ba8ef27",
                 "resourcePath": "sprites\\sEnchanterEffect\\sEnchanterEffect.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "fd35d4b3-2571-4fc7-8252-5ed10fcab1d9",
+            "Value": {
+                "id": "5d0beba6-f890-4338-98e0-2641a29abe6f",
+                "resourcePath": "datafiles_yy\\gmlive-server.exe.yy",
+                "resourceType": "GMIncludedFile"
             }
         },
         {

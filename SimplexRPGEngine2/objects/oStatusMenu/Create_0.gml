@@ -109,3 +109,5 @@ v_lastHitSpell = -1;
 v_spellSelection = -1;
 v_hotslot = -1;
 v_originalSlot = -1;
+
+v_lerpSpeed = 0.2;
