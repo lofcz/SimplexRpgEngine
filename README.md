@@ -35,6 +35,12 @@ _Note: All financial prizes are used to further improve quality of Simplex. For 
 *In dev, to be published on Steam, budget in thousands of eur.*  
 <img  width="20%" height="20%" src="https://s31.postimg.org/q7advzht7/bagr_MRA4.png">
 
+**On the other shore** (Václav Valenta, Matěj Štágl)  
+*In dev, to be published on Steam*  
+<img  width="30%" height="30%" src="https://s14.postimg.org/shfumdaap/Bezejmenn.png">
+
+
+
 
 ## Engine preview: 
 <img align="middle" width="256" height="196" src="https://s1.postimg.org/8ejvqnd7jz/Picture1.png"> <img align="middle" width="256" height="196" src="https://s1.postimg.org/46hfuzurbz/Picture2.png"> <img align="middle" width="256" height="196" src="https://s1.postimg.org/8pjgxz0vf3/Picture3.png">
