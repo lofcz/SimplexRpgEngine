@@ -513,7 +513,7 @@ if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
 							
 						if (mouse_check_button_pressed(mb_left))
 						{
-							if (oHUD.v_playerSkillPointsTalents >= oHUD.v_playerTalent[i, j + 6] && oHUD.v_playerTalent[i, j + 4] < oHUD.v_playerTalent[i, j + 5])
+							if (oHUD.v_playerSkillPointsTalents >= oHUD.v_playerTalent[i, j + 6] && oHUD.v_playerTalent[i, j + 4] < oHUD.v_playerTalent[i, j + 5] && tmp_eLog == "")
 							{
 								oHUD.v_playerTalent[i, j + 4]++;
 								oHUD.v_playerSkillPointsTalents -= oHUD.v_playerTalent[i, j + 6];
@@ -522,6 +522,33 @@ if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
 					}
 				}
 			}
+		}
+		#endregion
+		#region Traits
+		if (v_lastSelectedIndex == 3)
+		{
+			clr(-1, tmp_alpha);				
+			draw_sprite_part(oInventory.v_inventorySprite, 0, 117, 144, 16, 16, x + 156 + xSet, y + 20);
+			draw_sprite_part(oInventory.v_inventorySprite, 0, 133, 144, 16, 16, x + 450 + xSet, y + 20);
+			
+			var tmp_index, tmp_yy;
+			tmp_index = 0;
+			tmp_yy = y + 64;
+			
+			for (var i = 0; i < ds_list_size(oHUD.v_playerTraitList); i += 3)
+			{
+				clr(oHUD.v_playerTraitList[| i + 2], -1);
+				fnt(fntPixel);
+				draw_text(x + xSet + 16, tmp_yy, oHUD.v_playerTraitList[| i]);	
+				tmp_yy += 20;
+				fnt(fntPixelLess);
+				draw_text_ext(x + xSet + 16 + 8, tmp_yy, oHUD.v_playerTraitList[| i + 1], 16, 400);	
+				tmp_yy += string_height(oHUD.v_playerTraitList[| i + 1]);
+				tmp_yy += 20;
+				
+				tmp_index++;
+			}
+			
 		}
 		#endregion
 	}

@@ -250,3 +250,11 @@ v_playerTalentBranch[2] = "Thief";
 cpTalentsRegister(e_talentBranches.valWarrior, e_talents.valCrafting, "Basic crafting", "Allows you to craft some shit", 0, 0, 1, 1, 0, 0, e_talents.valS, -1, -1, 1, 0, 0);
 cpTalentsRegister(e_talentBranches.valWarrior, e_talents.valS, "Fucking shit", "Noob", 2, 0, 1, 1, 0, 1);
 cpTalentsRegister(e_talentBranches.valWarrior, e_talents.valS, "Fucking shit", "Noob", 1, 0, 1, 1, 0, 2);
+
+// <name, desc, color>
+v_playerTraitList = ds_list_create();
+
+cpTraitsRegister("Autism", "You're playing with SCAR20", c_red);
+cpTraitsRegister("Autism2", "You're playing with SCAR20");
+cpTraitsRegister("Autism3", "You're playing with SCAR20");
+
