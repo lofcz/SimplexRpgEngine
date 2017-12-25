@@ -1,141 +1,142 @@
-///sprite_divide(sprite,x1,y1,x2,y2)
-/*
-Splits one sprite into two sprites quickly by drawing the sprite to two surfaces
-then erasing half of each determined by the input line
-coordinates start at the top left of the sprite 0,0 
-and end at the bottom right of the sprite sprite_width,sprite_height
-*/
+/// @function sprite_divide(sprite, x1, y1, x2, y2)
+/// @desc Divides sprite into two and returns them in a list
+/// @arg {sprite} sprite Sprite to use
+/// @arg {int} x1 First point X
+/// @arg {int} y1 First point Y
+/// @arg {int} x2 Second point X
+/// @arg {int} y2 Second point Y
 
-var script_sprite_one = sprite_duplicate(argument0);
-var script_sprite_two = sprite_duplicate(argument0);
+var tmp_sprite1, tmp_sprite2, tmp_inSprite, tmp_inX1, tmp_inX2, tmp_inY1, tmp_inY2, tmp_splitX1, tmp_splitX2, tmp_splitY1, tmp_splitY2, tmp_imageHeight, tmp_imageWidth, tmp_surfaceOne, tmp_surfaceTwo, tmp_XO, tmp_YO, tmp_slope, tmp_xx, tmp_yy, tmp_x1, tmp_x2, tmp_y1, tmp_y2, tmp_r1, tmp_r2, tmp_rList;
 
-if argument3<argument1 ///flip x's to help distinguish between top and bottom pieces
+if (argument_count > 0) {tmp_inSprite = argument[0];}
+if (argument_count > 1) {tmp_x1 = argument[1];}
+if (argument_count > 2) {tmp_y1 = argument[2];}
+if (argument_count > 3) {tmp_x2 = argument[3];}
+if (argument_count > 4) {tmp_y2 = argument[4];}
+
+tmp_sprite1 = tmp_inSprite;
+tmp_sprite2 = tmp_inSprite;
+
+if (tmp_x2 < tmp_x1)
 {
-     var split_x1 = argument3;
-     var split_y1 = argument4;
-     var split_x2 = argument1;
-     var split_y2 = argument2;
+     tmp_splitX1 = tmp_x2;
+     tmp_splitY1 = tmp_y2;
+     tmp_splitX2 = tmp_x1;
+     tmp_splitY2 = tmp_y1;
 }
 else
 {
-     var split_x1 = argument1;
-     var split_y1 = argument2;
-     var split_x2 = argument3;
-     var split_y2 = argument4;
+     tmp_splitX1 = tmp_x1;
+     tmp_splitY1 = tmp_y1;
+     tmp_splitX2 = tmp_x2;
+     tmp_splitY2 = tmp_y2;
 }
 
-var image_height = sprite_get_height(script_sprite_one)
-var image_width = sprite_get_width(script_sprite_one)
+tmp_imageHeight = sprite_get_height(tmp_sprite1);
+tmp_imageWidth  = sprite_get_width(tmp_sprite1);
+tmp_surfaceOne  = surface_create(tmp_imageWidth, tmp_imageHeight);
+tmp_surfaceTwo  = surface_create(tmp_imageWidth, tmp_imageHeight);
+tmp_XO			= sprite_get_xoffset(tmp_sprite1);
+tmp_YO			= sprite_get_yoffset(tmp_sprite1);
 
-var script_surface_one = surface_create(image_width,image_height)
-var script_surface_two = surface_create(image_width,image_height)
-
-var script_xoffset = sprite_get_xoffset(script_sprite_one);
-var script_yoffset = sprite_get_yoffset(script_sprite_one);
-
-///////////////////////////////First Half
-if surface_exists(script_surface_one)
+if (surface_exists(tmp_surfaceOne))
 {
-     surface_set_target(script_surface_one)
-	 gpu_set_blendmode_ext(bm_zero,bm_inv_src_alpha);
-
-               draw_rectangle_colour(0,0,surface_get_width(script_surface_one),surface_get_height(script_surface_one),c_black,c_black,c_black,c_black,0)///clear surface of artifacts if they exist
-          gpu_set_blendmode(bm_normal)
-    
-          draw_sprite(script_sprite_one,0,script_xoffset,script_yoffset)///draw sprite on surface
-
-          gpu_set_blendmode_ext(bm_zero,bm_inv_src_alpha)///causes black drawn lines to erase color
-               for (var yy=0; yy<image_height; yy+=1)
-               {
-                    if split_x1-split_x2 !=0//meaning vertical //would cause divide by zero
-                    {
-                         slope=((split_y1-split_y2)/(split_x1-split_x2));//find the slope of the line
+	surface_set_target(tmp_surfaceOne);
+	gpu_set_blendmode_ext(bm_zero, bm_inv_src_alpha);
+	draw_rectangle_colour(0, 0, surface_get_width(tmp_surfaceOne), surface_get_height(tmp_surfaceOne), c_black, c_black, c_black, c_black, 0);
+	gpu_set_blendmode(bm_normal);    
+	draw_sprite(tmp_sprite1, 0, tmp_XO, tmp_YO);
+	gpu_set_blendmode_ext(bm_zero, bm_inv_src_alpha);
+	 
+	for (tmp_yy = 0; tmp_yy < tmp_imageHeight; tmp_yy++)
+	{
+		if ((tmp_splitX1 - tmp_splitX2) !=0)
+		{
+			tmp_slope = ((tmp_splitY1-tmp_splitY2)/(tmp_splitX1-tmp_splitX2));
           
-                         if slope!=0//meaning horizontal //would cause divide by zero
-                         {
-                              if split_y1<split_y2//helps distinguish between top and bottom sprite pieces
-                              {
-                                   draw_line_colour(-1,yy,((yy-split_y1)/slope)+split_x1,yy,c_black,c_black)//normal cut lines
-                              }
-                              else
-                              {
-                                   draw_line_colour(((yy-split_y1)/slope)+split_x1,yy,image_width,yy,c_black,c_black)//normal cut lines
-                              }
-                         }
-                         else
-                         {
-                              if yy>=split_y1 
-                              {
-                                   draw_line_colour(-1,yy,image_width,yy,c_black,c_black)///horizontal cut lines
-                              }
-                         }    
-                    }
-                    else
-                    {
-                         draw_line_colour(split_x1,yy,image_width,yy,c_black,c_black)///vertical cut lines
-                    }
-               }
-          gpu_set_blendmode(bm_normal)
-     surface_reset_target()
+			if (tmp_slope != 0)
+			{
+				if (tmp_splitY1 < tmp_splitY2)
+				{
+					draw_line_colour(-1, tmp_yy, ((tmp_yy - tmp_splitY1) / tmp_slope) + tmp_splitX1, tmp_yy, c_black, c_black);
+				}
+				else
+				{
+					draw_line_colour(((tmp_yy - tmp_splitY1) / tmp_slope) + tmp_splitX1, tmp_yy, tmp_imageWidth, tmp_yy, c_black, c_black);
+				}
+			}
+			else
+			{
+				if (tmp_yy >= tmp_splitY1) 
+				{
+					draw_line_colour(-1, tmp_yy, tmp_imageWidth, tmp_yy, c_black, c_black);
+				}
+			}    
+		}
+		else
+		{
+			draw_line_colour(tmp_splitX1, tmp_yy, tmp_imageWidth, tmp_yy, c_black, c_black);
+		}
+	}
+	
+	gpu_set_blendmode(bm_normal);
+	surface_reset_target();
 }
 
-///////////////////////////////////////////Second Half
-if surface_exists(script_surface_two)
+if (surface_exists(tmp_surfaceTwo))
 {
-     surface_set_target(script_surface_two)
-          gpu_set_blendmode_ext(bm_zero,bm_inv_src_alpha)
-               draw_rectangle_colour(0,0,surface_get_width(script_surface_two),surface_get_height(script_surface_two),c_black,c_black,c_black,c_black,0)///clear surface of artifacts if they exist
-          gpu_set_blendmode(bm_normal)
-    
-          draw_sprite(script_sprite_two,0,script_xoffset,script_yoffset)///draw sprite on surface
-
-          gpu_set_blendmode_ext(bm_zero,bm_inv_src_alpha)///causes black drawn lines to erase color
-               for (var yy=0; yy<image_height; yy+=1)
-               {
-                    if split_x1-split_x2 !=0//meaning vertical //would cause divide by zero
-                    {
-                         slope=((split_y1-split_y2)/(split_x1-split_x2));//find the slope of the line
+	surface_set_target(tmp_surfaceTwo);
+	gpu_set_blendmode_ext(bm_zero, bm_inv_src_alpha);
+	draw_rectangle_colour(0, 0, surface_get_width(tmp_surfaceTwo), surface_get_height(tmp_surfaceTwo), c_black, c_black, c_black, c_black, 0);
+	gpu_set_blendmode(bm_normal);    
+	draw_sprite(tmp_sprite2, 0, tmp_XO, tmp_YO);
+	gpu_set_blendmode_ext(bm_zero, bm_inv_src_alpha);
+	
+	for (tmp_yy = 0; tmp_yy < tmp_imageHeight; tmp_yy++)
+	{
+		if (tmp_splitX1 - tmp_splitX2 !=0)
+		{
+			tmp_slope = ((tmp_splitY1 - tmp_splitY2) / (tmp_splitX1 - tmp_splitX2));
           
-                         if slope!=0//meaning horizontal //would cause divide by zero
-                         {
-                              if split_y1<split_y2//helps distinguish between top and bottom sprite pieces
-                              {
-                                   draw_line_colour(((yy-split_y1)/slope)+split_x1,yy,image_width,yy,c_black,c_black)//normal cut lines
-                              }
-                              else
-                              {
-                                   draw_line_colour(-1,yy,((yy-split_y1)/slope)+split_x1,yy,c_black,c_black)//normal cut lines
-                              }
-                         }
-                         else
-                         {
-                              if yy<split_y1 
-                              {
-                                   draw_line_colour(-1,yy,image_width,yy,c_black,c_black)//Horizontal cut lines
-                              }
-                         }
-                    }
-                    else
-                    {
-                         draw_line_colour(-1,yy,split_x1,yy,c_black,c_black)//vertical cut lines
-                    }
-               }
-          gpu_set_blendmode(bm_normal)
-     surface_reset_target()
+			if (tmp_slope != 0)
+			{
+				if (tmp_splitY1 < tmp_splitY2)
+				{
+					draw_line_colour(((tmp_yy - tmp_splitY1) / tmp_slope) + tmp_splitX1, tmp_yy, tmp_imageWidth, tmp_yy, c_black, c_black);
+				}
+				else
+				{
+					draw_line_colour(-1, tmp_yy, ((tmp_yy - tmp_splitY1) / tmp_slope) + tmp_splitX1, tmp_yy, c_black, c_black);
+				}
+			}
+			else
+			{
+				if (tmp_yy < tmp_splitY1)
+				{
+					draw_line_colour(-1, tmp_yy, tmp_imageWidth, tmp_yy, c_black, c_black);
+				}
+			}
+		}
+		else
+		{
+			draw_line_colour(-1, tmp_yy, tmp_splitX1, tmp_yy, c_black, c_black);
+		}
+	}
+	
+	gpu_set_blendmode(bm_normal);
+	surface_reset_target();
 }
 
-/////////////////////create sprites and remove surfaces
-script_sprite_one = sprite_create_from_surface(script_surface_one,0,0,image_width,image_height,0,0,script_xoffset,script_yoffset)
-script_sprite_two = sprite_create_from_surface(script_surface_two,0,0,image_width,image_height,0,0,script_xoffset,script_yoffset)
-surface_free(script_surface_one)
-surface_free(script_surface_two)
+tmp_r1 = sprite_create_from_surface(tmp_surfaceOne, 0, 0, tmp_imageWidth, tmp_imageHeight, 0, 0, tmp_XO, tmp_YO);
+tmp_r2 = sprite_create_from_surface(tmp_surfaceTwo, 0, 0, tmp_imageWidth, tmp_imageHeight, 0, 0, tmp_XO, tmp_YO);
 
-///////////////////assign collision masks
-sprite_collision_mask(script_sprite_one,1,0,0,0,0,0,0,0)
-sprite_collision_mask(script_sprite_two,1,0,0,0,0,0,0,0)
+surface_free(tmp_surfaceOne);
+surface_free(tmp_surfaceTwo);
 
-/////////////////collect the sprites together and return them
-var both_sprites = ds_list_create()
-ds_list_add(both_sprites,script_sprite_one)
-ds_list_add(both_sprites,script_sprite_two)
-return both_sprites;
+tmp_rList = ds_list_create();
+ds_list_add(tmp_rList, tmp_r1);
+ds_list_add(tmp_rList, tmp_r2);
+
+return tmp_rList;
+
+
