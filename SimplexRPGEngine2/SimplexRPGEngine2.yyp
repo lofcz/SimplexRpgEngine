@@ -791,6 +791,14 @@
             }
         },
         {
+            "Key": "21c82e2c-03c9-4a9a-87ab-4125a2ee44f8",
+            "Value": {
+                "id": "62899094-23d9-4a82-9851-d9e1a12bc5c6",
+                "resourcePath": "scripts\\cpTalentsRegister\\cpTalentsRegister.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "22147162-8086-4d11-b660-416c443fe5dc",
             "Value": {
                 "id": "be3feebf-70ff-4d69-ac8c-92ac40137759",
@@ -5906,6 +5914,7 @@
         "f1b263cf-a5c3-4add-a572-dcd4221ee528",
         "ff21060e-c0b9-42fd-942d-abac4386049b",
         "2e820dcf-2718-460c-bf23-18e3229f121b",
+        "21c82e2c-03c9-4a9a-87ab-4125a2ee44f8",
         "939a9a25-8408-48ed-bf1d-6681da686324",
         "6df0e25a-6cd5-4afa-bdc3-bef8d254263f",
         "b75271a6-4866-444d-b1e9-016eac8522a4",

@@ -450,12 +450,12 @@ if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
 			// Render branches head
 			var tmp_w;
 			tmp_w = ((v_layoutW + 32) / 3);
-			
+
 			for (var i = 0; i < 3; i++)
 			{
 				var tmp_xx, tmp_yy;
-				tmp_xx = x + xSet + tmp_w * (i);
-				tmp_yy = y + 100;
+				tmp_xx = x + xSet + tmp_w * (i) + 32;
+				tmp_yy = y + 120;
 				
 				clr(c_black, tmp_alpha / 3);
 				//draw_roundrect(x + xSet + (tmp_w * (i)) + 8, y + 66, x + xSet + (tmp_w * (i + 1)) - 32, y + 96, false);
@@ -468,17 +468,17 @@ if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
 				draw_line(x + xSet + tmp_w * (i), y, x + xSet + tmp_w * (i), y + 200);
 				draw_text(x + xSet + tmp_w * (i), y + 200, string(x + xSet + tmp_w * (i)));
 				
-				for (var j = 0; j < array_length_2d(oHUD.v_playerTalent, i) ; j += mcTalentLenght)
+				for (var j = 0; j < array_length_2d(oHUD.v_playerTalent, i); j += mcTalentLenght)
 				{
 					var tmp_row, tmp_cell, tmp_fx, tmp_fy;
-					tmp_row  = oHUD.v_playerTalent[i, j + 5];
-					tmp_cell = oHUD.v_playerTalent[i, j + 6];
-					
+					tmp_row  = oHUD.v_playerTalent[i, j + 7];
+					tmp_cell = oHUD.v_playerTalent[i, j + 8];
+
 					tmp_fx = tmp_xx + tmp_cell * 48;
 					tmp_fy = tmp_yy + tmp_row * 48;
-					
-					draw_rectangle(tmp_fx, tmp_fy, tmp_fx + 32, tmp_fy + 32, true);
-					
+
+					draw_sprite_ext(sTalents, oHUD.v_playerTalent[i, j + 3], tmp_fx, tmp_fy, 0.5, 0.5, 0, c_white, tmp_alpha);
+					//show_message(oHUD.v_playerTalent[i, j + 4]);
 				}
 			}
 		}

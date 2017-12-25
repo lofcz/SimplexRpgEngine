@@ -222,28 +222,30 @@ tmp_selH = 26;
 tmp_selWT = 34;
 tmp_selHT = 26;
 
+enum e_talentBranches
+{
+	valWarrior,
+	valMage,
+	valThief
+}
 
 enum e_talents
 {
-		
+	valCrafting,
+	valS
+}
+
+for(var i = 0; i < 3; i++)
+{
+	v_talentIndexInternal[i] = 0;	
 }
 
 v_playerTalentBranch[0] = "Warrior";
 v_playerTalentBranch[1] = "Mage";
 v_playerTalentBranch[2] = "Thief";
 
-// <id, name, desc, level, maxLevel, row, cell, req1, req2, req3, spriteIndex, imageIndex>
-#macro mcTalentLenght 12;
+#macro mcTalentLenght 16;
 
-v_playerTalent[0, 0] = 0;
-v_playerTalent[0, 1] = "Sample text";
-v_playerTalent[0, 2] = "Random shit";
-v_playerTalent[0, 3] = 0;
-v_playerTalent[0, 4] = 5;
-v_playerTalent[0, 5] = 0;
-v_playerTalent[0, 6] = 2;
-v_playerTalent[0, 7] = -1;
-v_playerTalent[0, 8] = -1;
-v_playerTalent[0, 9] = -1;
-v_playerTalent[0, 10] = sTalentsPack1;
-v_playerTalent[0, 11] = 0;
+cpTalentsRegister(e_talentBranches.valWarrior, e_talents.valCrafting, "Basic crafting", "Allows you to craft some shit", 0, 0, 1, 1, 0, 0);
+cpTalentsRegister(e_talentBranches.valWarrior, e_talents.valS, "Fucking shit", "Noob", 2, 0, 1, 1, 0, 1);
+cpTalentsRegister(e_talentBranches.valWarrior, e_talents.valS, "Fucking shit", "Noob", 1, 0, 1, 1, 0, 2);
