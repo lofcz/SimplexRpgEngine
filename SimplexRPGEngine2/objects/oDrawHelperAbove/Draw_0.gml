@@ -251,3 +251,47 @@ if (v_mode == 2)
 v_id = -1;
 clr();
 }
+
+if (v_drawTalent != -1)
+{
+	var tmp_x, tmp_y, tmp_a;
+	tmp_x = v_drawTalentX - 16 + 16 * v_drawTalentA;
+	tmp_y = v_drawTalentY;
+	tmp_a = v_drawTalentA;
+	
+	clr(-1, (tmp_a / 4) * 3);
+	draw_rectangle(tmp_x, tmp_y, tmp_x + 256, tmp_y + 128, false);
+	
+	alg("center");
+	fnt(fntPixel);
+	
+	if (v_drawTalentE == "") {clr(c_white, tmp_a);}
+	else {clr(c_red, tmp_a);}
+	
+	draw_text(tmp_x + 128, tmp_y + 16, oHUD.v_playerTalent[v_drawTalentBranch, v_drawTalent + 1]);
+	
+	alg();
+	fnt(fntPixelTiny);
+	
+	if (v_drawTalentE == "")
+	{
+		draw_text_ext(tmp_x + 4, tmp_y + 32, oHUD.v_playerTalent[v_drawTalentBranch, v_drawTalent + 2], 16, 256);
+	}
+	else
+	{
+		clr(c_red, - 1);
+		draw_text_ext(tmp_x + 4, tmp_y + 32, "You need to learn this first:\n" + v_drawTalentE, 16, 256);
+	}
+	
+	fnt(fntPixelExtraTiny);
+	draw_text(tmp_x + 4, tmp_y + 110, "Level: " + string(oHUD.v_playerTalent[v_drawTalentBranch, v_drawTalent + 4]) + " / " + string(oHUD.v_playerTalent[v_drawTalentBranch, v_drawTalent + 5]));
+	
+	draw_set_halign(fa_right);
+	draw_text(tmp_x + 254, tmp_y + 110, "Upgrade cost: " + string(oHUD.v_playerTalent[v_drawTalentBranch, v_drawTalent + 6]));
+	draw_set_halign(fa_left);
+
+	clr();
+	v_drawTalent = -1;	
+	v_drawTalentA = lerp(v_drawTalentA, 1, 0.2);
+}
+else {v_drawTalentA = 0;}

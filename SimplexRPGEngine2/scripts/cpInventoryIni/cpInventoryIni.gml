@@ -193,9 +193,6 @@ enum e_items
 	valArmorLeather2
 }
 
-
-
-
 v_slots         = 75;
 v_slotsPerRow   = 5;
 v_slotsPerPage  = 25;

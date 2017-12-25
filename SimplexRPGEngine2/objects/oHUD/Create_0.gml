@@ -135,6 +135,7 @@ v_tickSP = -1;
 
 v_playerSkillPointsAttributes = 10;
 v_playerSkillPointsAbilities = 20;
+v_playerSkillPointsTalents = 20;
 
 v_hotbarSlots = 9;
 
@@ -244,8 +245,8 @@ v_playerTalentBranch[0] = "Warrior";
 v_playerTalentBranch[1] = "Mage";
 v_playerTalentBranch[2] = "Thief";
 
-#macro mcTalentLenght 16;
+#macro mcTalentLenght 16
 
-cpTalentsRegister(e_talentBranches.valWarrior, e_talents.valCrafting, "Basic crafting", "Allows you to craft some shit", 0, 0, 1, 1, 0, 0);
+cpTalentsRegister(e_talentBranches.valWarrior, e_talents.valCrafting, "Basic crafting", "Allows you to craft some shit", 0, 0, 1, 1, 0, 0, e_talents.valS, -1, -1, 1, 0, 0);
 cpTalentsRegister(e_talentBranches.valWarrior, e_talents.valS, "Fucking shit", "Noob", 2, 0, 1, 1, 0, 1);
 cpTalentsRegister(e_talentBranches.valWarrior, e_talents.valS, "Fucking shit", "Noob", 1, 0, 1, 1, 0, 2);

@@ -470,15 +470,56 @@ if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
 				
 				for (var j = 0; j < array_length_2d(oHUD.v_playerTalent, i); j += mcTalentLenght)
 				{
-					var tmp_row, tmp_cell, tmp_fx, tmp_fy;
-					tmp_row  = oHUD.v_playerTalent[i, j + 7];
-					tmp_cell = oHUD.v_playerTalent[i, j + 8];
+					var tmp_row, tmp_cell, tmp_fx, tmp_fy, tmp_color, tmp_unlocked;
+					tmp_row   = oHUD.v_playerTalent[i, j + 7];
+					tmp_cell  = oHUD.v_playerTalent[i, j + 8];
+					tmp_color = c_white;
+					tmp_unlocked = true;
 
 					tmp_fx = tmp_xx + tmp_cell * 48;
 					tmp_fy = tmp_yy + tmp_row * 48;
+					
+					if (oHUD.v_playerTalent[i, j + 4] == oHUD.v_playerTalent[i, j + 5]) {tmp_color = c_yellow;}
+					
+					var tmp_eLog;
+					tmp_eLog = "";
+					
+					for (var k = 0; k < 3; k++)
+					{
+						if (oHUD.v_playerTalent[i, j + k + 9] != -1)
+						{
+							if (oHUD.v_playerTalent[i, oHUD.v_playerTalent[i, j + k + 9] * 16 + 4]	< oHUD.v_playerTalent[i, j + k + 12]) 
+							{
+								tmp_unlocked = false;
+								tmp_eLog += oHUD.v_playerTalent[i, oHUD.v_playerTalent[i, j + k + 9] * 16 + 1] + string(", level ") + string(oHUD.v_playerTalent[i, j + k + 12]) + "\n";
+							}
+						}
+					}
 
-					draw_sprite_ext(sTalents, oHUD.v_playerTalent[i, j + 3], tmp_fx, tmp_fy, 0.5, 0.5, 0, c_white, tmp_alpha);
-					//show_message(oHUD.v_playerTalent[i, j + 4]);
+					var tmp_aF;
+					tmp_aF = tmp_alpha;
+					
+					if (!tmp_unlocked) {tmp_aF = tmp_alpha / 2;}
+					draw_sprite_ext(sTalents, oHUD.v_playerTalent[i, j + 3], tmp_fx, tmp_fy, 0.5, 0.5, 0, tmp_color, tmp_aF);
+					
+					
+					if (point_in_rectangle(mouse_x, mouse_y, tmp_fx - 16, tmp_fy - 16, tmp_fx + 16, tmp_fy + 16))
+					{
+						oDrawHelperAbove.v_drawTalent = j;
+						oDrawHelperAbove.v_drawTalentBranch = i;
+						oDrawHelperAbove.v_drawTalentX = tmp_fx;
+						oDrawHelperAbove.v_drawTalentY = tmp_fy;
+						oDrawHelperAbove.v_drawTalentE = tmp_eLog;
+							
+						if (mouse_check_button_pressed(mb_left))
+						{
+							if (oHUD.v_playerSkillPointsTalents >= oHUD.v_playerTalent[i, j + 6] && oHUD.v_playerTalent[i, j + 4] < oHUD.v_playerTalent[i, j + 5])
+							{
+								oHUD.v_playerTalent[i, j + 4]++;
+								oHUD.v_playerSkillPointsTalents -= oHUD.v_playerTalent[i, j + 6];
+							}
+						}
+					}
 				}
 			}
 		}
