@@ -7,7 +7,7 @@ yy = argument2;
 
 array[0] = -1;
 
-if (index == sprite291)
+//if (index == sprite291)
 {
 	if (point_in_rectangle(xx, yy, 0, 416, 31, 447))
 	{

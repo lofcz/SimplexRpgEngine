@@ -2783,6 +2783,14 @@
             }
         },
         {
+            "Key": "72814dd3-8c83-444e-9106-6b9682910a37",
+            "Value": {
+                "id": "34ed25c5-3d9c-46f8-a2e7-43158228d99a",
+                "resourcePath": "tilesets\\tileset9\\tileset9.yy",
+                "resourceType": "GMTileSet"
+            }
+        },
+        {
             "Key": "72badbcd-9d98-4552-9590-708dd18765f4",
             "Value": {
                 "id": "4f2e2068-400d-457f-a467-998876a404ee",
@@ -3116,6 +3124,14 @@
                 "id": "2f53152c-b064-4510-8c5e-497c9eb7e109",
                 "resourcePath": "scripts\\cpTraitsRegister\\cpTraitsRegister.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "7f105a46-c141-4a0b-aeef-a2bf152db6a3",
+            "Value": {
+                "id": "f93d9ff9-462d-42f2-a9a7-45e8a1b0ade0",
+                "resourcePath": "objects\\oOptimize\\oOptimize.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -4596,6 +4612,14 @@
                 "id": "d850f030-076e-4658-9c65-797dd382b7c3",
                 "resourcePath": "scripts\\cpGoreShardsLong\\cpGoreShardsLong.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "c2d0cdca-a268-41b7-bbde-5089d21b581e",
+            "Value": {
+                "id": "2f011025-6b90-4724-bc3d-f16b7b011b25",
+                "resourcePath": "sprites\\sprite303\\sprite303.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
