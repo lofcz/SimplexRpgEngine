@@ -268,3 +268,5 @@ cpQuestsRegister("Quest 2", "Fuck off noob", "AWP", 7, "Goblins", e_questType.va
 
 cpQuestsStart("Quest 1");
 cpQuestsStart("Quest 2");
+
+cpCollectionIni();

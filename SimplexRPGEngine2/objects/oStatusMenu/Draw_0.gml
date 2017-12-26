@@ -649,14 +649,34 @@ if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
 		#endregion
 		#region Collection
 		if (v_lastSelectedIndex == 5)
-		{
+		{			
 			clr(-1, tmp_alpha);				
 			draw_sprite_part(oInventory.v_inventorySprite, 0, 117, 144, 16, 16, x + 156 + xSet, y + 20);
 			draw_sprite_part(oInventory.v_inventorySprite, 0, 133, 144, 16, 16, x + 450 + xSet, y + 20);
 			
-			var tmp_index, tmp_yy;
+			var tmp_index, tmp_yy, tmp_xx;
 			tmp_index = 0;
 			tmp_yy = y + 64;	
+			tmp_xx = x + xSet + 32;
+			
+			for (var i = 0; i < oHUD.v_collectionRows; i++)
+			{
+				for (var j = 0; j < oHUD.v_collectionPerRow; j++)
+				{
+					clr(c_black, tmp_alpha / 2);
+					draw_roundrect(tmp_xx, tmp_yy, tmp_xx + 32, tmp_yy + 32, false);
+					clr(-1, tmp_alpha);
+					draw_roundrect(tmp_xx, tmp_yy, tmp_xx + 32, tmp_yy + 32, true);
+					
+					fnt(fntPixelHuge);
+					clr(c_white, -1);
+					draw_text(tmp_xx + 12, tmp_yy + 6, "?");
+					tmp_xx += 48;
+				}
+				
+				tmp_xx = x + xSet + 32;
+				tmp_yy += 48;
+			}
 			
 		}
 		#endregion
