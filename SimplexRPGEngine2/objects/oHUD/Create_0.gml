@@ -258,3 +258,13 @@ cpTraitsRegister("Autism", "You're playing with SCAR20", c_red);
 cpTraitsRegister("Autism2", "You're playing with SCAR20");
 cpTraitsRegister("Autism3", "You're playing with SCAR20");
 
+// <name, description, reward, difficulty, fraction, questType, isActive>
+v_playerQuestsList = ds_list_create();
+v_questLenght = 7;
+v_questIndex = 0;
+
+cpQuestsRegister("Quest 1", "Fuck off noob", "GOLD GOLD GOLD", 7, "Kids", e_questType.valMain);
+cpQuestsRegister("Quest 2", "Fuck off noob", "AWP", 7, "Goblins", e_questType.valSide);
+
+cpQuestsStart("Quest 1");
+cpQuestsStart("Quest 2");

@@ -135,9 +135,9 @@ if (v_action == "computeTarget")
 					v_targetX = path_get_point_x(v_path, 2);
 					v_targetY = path_get_point_y(v_path, 2);
 			
-					draw_circle(v_targetX, v_targetY, 16, false);
+					//draw_circle(v_targetX, v_targetY, 16, false);
 					v_action = "moveToTarget";
-					draw_path(v_path, x, y, true);
+					//draw_path(v_path, x, y, true);
 					direction = 0;
 					d = point_direction(x, y, v_targetX, v_targetY);
 

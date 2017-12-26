@@ -1,7 +1,6 @@
 /// @description Insert description here
 // You can write your code in this editor
-//if (live_call()) return live_result;
- 
+if (live_call()) return live_result;
 
 if (keyboard_check_pressed(ord("O"))) {v_drawForm = !v_drawForm;}
 
@@ -548,6 +547,116 @@ if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
 				
 				tmp_index++;
 			}
+			
+		}
+		#endregion
+		#region Quests
+		if (v_lastSelectedIndex == 4)
+		{
+			clr(-1, tmp_alpha);				
+			draw_sprite_part(oInventory.v_inventorySprite, 0, 117, 144, 16, 16, x + 156 + xSet, y + 20);
+			draw_sprite_part(oInventory.v_inventorySprite, 0, 133, 144, 16, 16, x + 450 + xSet, y + 20);
+			
+			var tmp_index, tmp_yy;
+			tmp_index = 0;
+			tmp_yy = y + 64;
+			
+			clr(-1, tmp_alpha);
+			libUtilityDrawForm(x + xSet + 6, tmp_yy, 180, 30, tmp_alpha, true, sTextureDark1);
+			libUtilityDrawForm(x + xSet + 216, tmp_yy, 90, 30, tmp_alpha, true, sTextureDark1);
+			libUtilityDrawForm(x + xSet + 336, tmp_yy, 90, 30, tmp_alpha, true, sTextureDark1);
+			libUtilityDrawForm(x + xSet + 456, tmp_yy, 90, 30, tmp_alpha, true, sTextureDark1);
+			libUtilityDrawForm(x + xSet + 576, tmp_yy, 20, 30, tmp_alpha, true, sTextureDark1);
+			libUtilityDrawForm(x + xSet + 6, tmp_yy + 50, 590, 280, tmp_alpha, true, sTextureDark1);
+			
+			libUtilityDrawForm(x + xSet + 480, y + 6, 116, 20, tmp_alpha, true, sTextureDark1);
+			
+			alg("center");
+			fnt(fntPixelHuge);
+			draw_text(x + xSet + 113, tmp_yy + 24, __("Name"));
+			draw_text(x + xSet + 276, tmp_yy + 24, __("Type"));
+			draw_text(x + xSet + 396, tmp_yy + 24, __("Reward"));
+			draw_text(x + xSet + 516, tmp_yy + 24, __("Fraction"));
+			alg();
+			draw_text_colored(x + xSet + 494, y + 20, "Active" + _sc(" / ", c_black) + _sc(" Completed", c_black), -1, fntPixelTiny, c_lime);
+						
+			var tmp_xx;
+			tmp_xx = x + xSet + 10;
+			tmp_yy += 56;
+			
+			tmp_index = 0;
+			for (var i = 0; i < ds_list_size(oHUD.v_playerQuestsList); i += oHUD.v_questLenght)
+			{
+				// If quest is active
+				if (oHUD.v_playerQuestsList[| i + 6])
+				{
+					clr(-1, tmp_alpha / 3 + oHUD.v_questAlpha[tmp_index]);
+					draw_roundrect(tmp_xx, tmp_yy, tmp_xx + 610, tmp_yy + 32, false);
+					clr();
+					fnt(fntPixel);
+					draw_text_colored(tmp_xx + 10, tmp_yy + 8, oHUD.v_playerQuestsList[| i], -1, fntPixelTiny, c_white);
+
+					if (point_in_rectangle(mouse_x, mouse_y, tmp_xx, tmp_yy, tmp_xx + 610, tmp_yy + 32))
+					{
+						oHUD.v_questAlpha[tmp_index] = lerp(oHUD.v_questAlpha[tmp_index], 0.2, 0.2);	
+						
+						if (mouse_check_button_pressed(mb_left))
+						{
+							oHUD.v_questDetail[tmp_index] = !oHUD.v_questDetail[tmp_index];	
+						}
+					}
+					else {oHUD.v_questAlpha[tmp_index] = lerp(oHUD.v_questAlpha[tmp_index], 0, 0.2);}									
+					
+					// Draw type
+					alg("center");
+					clr(c_white, -1);
+					draw_text(tmp_xx + 270, tmp_yy + 15, libUtilityQuestTypeToString(oHUD.v_playerQuestsList[| i + 5]));
+					alg();
+					
+					draw_text_colored(tmp_xx + 390 - string_width(oHUD.v_playerQuestsList[| i + 2]) / 2, tmp_yy + 8, oHUD.v_playerQuestsList[| i + 2], -1, fntPixelTiny, c_white);
+					draw_text_colored(tmp_xx + 510 - string_width(oHUD.v_playerQuestsList[| i + 4]) / 2, tmp_yy + 8, oHUD.v_playerQuestsList[| i + 4], -1, fntPixelTiny, c_white);
+					
+					// Render quest detail
+					if (oHUD.v_questDetail[tmp_index] || oHUD.v_questSize[tmp_index] > 1)
+					{
+						fnt(fntPixelTiny);
+						
+						var tmp_realH;
+						tmp_realH = max(string_height_ext(oHUD.v_playerQuestsList[| i + 1], 16, 400), 48);
+						
+						clr(-1, (tmp_alpha / 3) * (oHUD.v_questSize[tmp_index] / tmp_realH));						
+						draw_roundrect(tmp_xx, tmp_yy + 36, tmp_xx + 610, max(tmp_yy + 36, tmp_yy + 36 + oHUD.v_questSize[tmp_index] - 4), false);
+						clr(c_white, (tmp_alpha) * (oHUD.v_questSize[tmp_index] / tmp_realH));	
+						fnt(fntPixelTiny);
+						draw_text(tmp_xx + 8, tmp_yy + 44 - 6 + 6 * (oHUD.v_questSize[tmp_index] / tmp_realH), oHUD.v_playerQuestsList[| i + 1]); 
+						clr();
+						
+						if (oHUD.v_questDetail[tmp_index]) {oHUD.v_questSize[tmp_index] = lerp(oHUD.v_questSize[tmp_index], tmp_realH, 0.2);}
+						else {oHUD.v_questSize[tmp_index] = lerp(oHUD.v_questSize[tmp_index], 0, 0.2);}
+					}
+					else 
+					{
+						oHUD.v_questSize[tmp_index] = lerp(oHUD.v_questSize[tmp_index], 0, 0.2);						
+					}
+					
+					tmp_yy += 36 + oHUD.v_questSize[tmp_index];
+					tmp_index++;
+				}
+			}
+			
+			draw_text(mouse_x, mouse_y + 100, "X: " + string(mouse_x - oCamera.v_nullPosX) + "\nY:" + string(mouse_y - oCamera.v_nullPosY));			
+		}		
+		#endregion
+		#region Collection
+		if (v_lastSelectedIndex == 5)
+		{
+			clr(-1, tmp_alpha);				
+			draw_sprite_part(oInventory.v_inventorySprite, 0, 117, 144, 16, 16, x + 156 + xSet, y + 20);
+			draw_sprite_part(oInventory.v_inventorySprite, 0, 133, 144, 16, 16, x + 450 + xSet, y + 20);
+			
+			var tmp_index, tmp_yy;
+			tmp_index = 0;
+			tmp_yy = y + 64;	
 			
 		}
 		#endregion

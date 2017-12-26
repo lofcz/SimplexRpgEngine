@@ -2383,6 +2383,22 @@
             }
         },
         {
+            "Key": "5e21d014-9f69-4c94-881a-bed38636f575",
+            "Value": {
+                "id": "6d9d04ec-8cc3-4b12-91d8-01b133a4a25b",
+                "resourcePath": "scripts\\cpQuestsStart\\cpQuestsStart.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "5e232fba-6c6f-42e7-961b-469319e8ba47",
+            "Value": {
+                "id": "d166559b-f9ab-47f4-b6a7-7d77e1f569dd",
+                "resourcePath": "sprites\\sTextureDark1\\sTextureDark1.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "5e46fd40-7e16-425a-845d-d77ac084fbb7",
             "Value": {
                 "id": "1d1a9d47-2eef-4024-8954-9aa9ebfb2ff5",
@@ -2788,6 +2804,14 @@
                 "id": "139cf66b-4e6a-4853-81f3-a3b19ad7c8fb",
                 "resourcePath": "sprites\\sBeltEffect\\sBeltEffect.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "73c391e3-27e7-47ba-8047-6413d0bb9975",
+            "Value": {
+                "id": "b73e718b-62ab-4aaf-9d6f-c16fa72befb4",
+                "resourcePath": "scripts\\cpQuestsRegister\\cpQuestsRegister.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -5159,6 +5183,14 @@
             }
         },
         {
+            "Key": "e18db9b5-5013-4e4d-a8e9-43d02237f4d1",
+            "Value": {
+                "id": "bb9b0b0b-0144-4ba4-9438-d5304bd42736",
+                "resourcePath": "views\\e18db9b5-5013-4e4d-a8e9-43d02237f4d1.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "e1bb206c-ec59-4292-a722-ecdc0d24fb99",
             "Value": {
                 "id": "8fb14b64-7b0a-4342-8803-ac3c07820b1b",
@@ -5695,6 +5727,14 @@
             }
         },
         {
+            "Key": "f8da4f6c-8428-4d4e-b74c-3c54b0580f9b",
+            "Value": {
+                "id": "0fb28722-d7e2-4fae-8cd9-7670d2acc980",
+                "resourcePath": "scripts\\libUtilityQuestTypeToString\\libUtilityQuestTypeToString.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "f96f0ecd-e257-477f-93f6-6fbf2c36dc39",
             "Value": {
                 "id": "8fc110fa-b4b4-4a4c-9a19-1a7b43255683",
@@ -5872,6 +5912,7 @@
         "48c97c14-2e12-4337-9f38-ede606046aee",
         "3cccbd8a-4fc6-4c84-8edd-a9350bbcecd3",
         "bca5dd20-d20b-469a-a1c7-3ecfd09d45eb",
+        "f8da4f6c-8428-4d4e-b74c-3c54b0580f9b",
         "4a9571fa-503a-4497-bdcb-e11d6f236379",
         "2e4cb9c8-ca33-4276-8ba1-adc6efb813c8",
         "4eaf97d3-97a2-4e13-9cf6-60c8942edddf",
@@ -5932,6 +5973,8 @@
         "2e820dcf-2718-460c-bf23-18e3229f121b",
         "21c82e2c-03c9-4a9a-87ab-4125a2ee44f8",
         "7f0490e1-40b9-452d-86ab-f1c580003bd9",
+        "73c391e3-27e7-47ba-8047-6413d0bb9975",
+        "5e21d014-9f69-4c94-881a-bed38636f575",
         "939a9a25-8408-48ed-bf1d-6681da686324",
         "6df0e25a-6cd5-4afa-bdc3-bef8d254263f",
         "b75271a6-4866-444d-b1e9-016eac8522a4",

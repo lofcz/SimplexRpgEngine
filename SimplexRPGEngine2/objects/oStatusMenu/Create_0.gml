@@ -111,3 +111,4 @@ v_hotslot = -1;
 v_originalSlot = -1;
 
 v_lerpSpeed = 0.2;
+v_questAlpha = 0;

@@ -50,6 +50,7 @@ for(i=i; i<=x2; i+=sw-1) {
 }
 */
 var colo;
-colo  = make_color_rgb(89, 86, 82);
+if (sprite == sTextureDark1) {colo  = make_color_rgb(70, 70, 70);}
+else {colo  = make_color_rgb(89, 86, 82);}
 draw_rectangle_color(x1, y1, x2, y2, colo, colo, colo, colo, false);
 return false;
