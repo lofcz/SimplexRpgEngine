@@ -3,5 +3,5 @@
 
 refl_start("Effects", true);
 refl_water_layer("Water", true);
-refl_add_object(parGameObject, 0);
+refl_add_object(oTree, 0);
 with(oCollMaskTemp) {instance_destroy();}

@@ -37,9 +37,12 @@ gpu_set_blendmode_ext(bm_dest_alpha, bm_inv_src_alpha);
 //Draw priorty
 var prior = ds_priority_create();
 
-for(var i=0; i<ds_list_size(global.refl_insts); i++){
+for(var i=0; i<ds_list_size(global.refl_insts); i++)
+{
 	var inst = global.refl_insts[|i];
-	ds_priority_add(prior, inst, inst.depth);
+	
+	if (instance_exists(inst)) {ds_priority_add(prior, inst, inst.depth);}
+	else {ds_list_delete(global.refl_insts, i);}
 }
 
 //for(var i=ds_priority_size(prior)-1; i>=0; i--){
