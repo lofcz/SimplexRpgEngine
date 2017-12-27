@@ -29,7 +29,7 @@ while (string_length(str) > 0)
       
      // Add if sum of widths is lesser than max width.  
 	 fnt(f);
-     if (string_width(tempLine) + string_width(libUtilityParseTextColored(nextWord, f)) < width) 
+     if (string_width(tempLine) + string_width(libUtilityParseTextColored(nextWord, f)) + string_width(string("  ")) < width) 
         {                        
          outLine += nextWord + " ";
          str = string_delete(str, 1, string_length(nextWord));

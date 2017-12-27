@@ -154,7 +154,25 @@ switch(tmp_index)
 		tmp_output = "Health";
 		break;
 	}	
-		
+	
+	case e_inventoryProperties.valHp:
+	{
+		tmp_output = "Recovers health";
+		break;
+	}
+	
+	case e_inventoryProperties.valMp:
+	{
+		tmp_output = "Recovers mana";
+		break;
+	}	
+	
+	case e_inventoryProperties.valSp:
+	{
+		tmp_output = "Recovers stamina";
+		break;
+	}	
+	
 	case e_inventoryProperties.valLevel:
 	{
 		tmp_output = "Level";

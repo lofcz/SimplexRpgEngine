@@ -2575,6 +2575,14 @@
             }
         },
         {
+            "Key": "63e5525e-3be1-4930-9dfd-b35618f5c24d",
+            "Value": {
+                "id": "a5d20025-ab66-4a9d-ad9e-44cb2eb93aee",
+                "resourcePath": "objects\\oPotionSmallHP\\oPotionSmallHP.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "64445fcb-a370-4d1a-a174-01e9f19a020b",
             "Value": {
                 "id": "ebadc793-176d-4296-9332-dba680ca6376",
