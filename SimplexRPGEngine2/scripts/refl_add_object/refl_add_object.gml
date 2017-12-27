@@ -30,6 +30,7 @@ for(var i = 0; i < inst_num; i++)
 	{
 		ds_list_add(global.refl_insts, inst);
 		ds_list_add(global.refl_offsets, argument1);
+		inst.v_alwaysOn = true;
 	}
 	
 	inst.v_nearest = -1;

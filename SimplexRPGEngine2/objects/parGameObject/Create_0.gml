@@ -14,3 +14,4 @@ v_reflIndex         = 0;
 v_reflOffset        = 0;
 v_reflSprite        = -1;
 v_reflImageIndex    = -1;
+v_alwaysOn          = false;
