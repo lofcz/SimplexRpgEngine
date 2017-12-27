@@ -45,13 +45,15 @@ _Note: All financial prizes are used to further improve quality of Simplex. For 
 ## Engine preview: 
 <img align="middle" width="256" height="196" src="https://s1.postimg.org/8ejvqnd7jz/Picture1.png"> <img align="middle" width="256" height="196" src="https://s1.postimg.org/46hfuzurbz/Picture2.png"> <img align="middle" width="256" height="196" src="https://s1.postimg.org/8pjgxz0vf3/Picture3.png">
 <img align="middle" width="256" height="196" src="https://s1.postimg.org/9lfydfa4fj/Picture4.png"> <img align="middle" width="256" height="196" src="https://s1.postimg.org/78dbw7wiyn/Picture5.png"> <img align="middle" width="256" height="196" src="https://s1.postimg.org/3ze7zk7yr3/Picture6.png">
-<img align="middle" width="256" height="196" src="https://s1.postimg.org/7q3dkssjn3/image.jpg"> <img align="middle" width="256" height="196" src="https://s1.postimg.org/5k8jxvx7sv/Bezejmenn.png"> <img align="middle" width="256" height="196" src="https://s1.postimg.org/9lfydf8u4v/Picture8.jpg">
+<img align="middle" width="256" height="196" src="https://s1.postimg.org/7q3dkssjn3/image.jpg"> <img align="middle" width="256" height="196" src="https://s1.postimg.org/5k8jxvx7sv/Bezejmenn.png"> <img align="middle" width="256" height="196" src="https://s1.postimg.org/9lfydf8u4v/Picture8.jpg"> <img align="middle" width="768" height="588" src="https://s18.postimg.org/4st8kpfa1/image.jpg">
 
 ## The future is within your grasp. Start [here](https://github.com/lofcz/SimplexRpgEngine/wiki).
 
 Would you like to ask something about the engine, or have you created a game using Simplex and want to let us know? Contact us!
 - <a href="https://www.facebook.com/simplexengine/?pnref=lhc">Facebook</a>
 - <a href="https://www.youtube.com/channel/UCCDT5l4gglPpFB_tEZd5c7Q">Youtube</a>
+
+Our fellow users are extending resources database which helps you jump directly into the development. [Take a look at some of the art submissions!](https://github.com/lofcz/SimplexRpgEngine/wiki/Fanart)
 
 ## Version history can be found here:
 <a href="https://github.com/lofcz/SimplexRpgEngine/wiki/Simplex-RPG-Engine-2-PRE-DEV-Roadmap"> 2.0 P-DEV </a>
