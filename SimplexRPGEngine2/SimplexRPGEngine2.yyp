@@ -839,6 +839,14 @@
             }
         },
         {
+            "Key": "2515ea5c-f50d-4df1-bc72-7120b0d70681",
+            "Value": {
+                "id": "48c11d0a-ab81-4e2f-bb29-dd4588bb05dd",
+                "resourcePath": "sprites\\sCollisionMaskTemp\\sCollisionMaskTemp.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "2547e3b9-bf3f-405b-8916-9bbe326ab661",
             "Value": {
                 "id": "a724e3b1-4569-4a71-a114-03b99dd1e814",
@@ -3495,11 +3503,27 @@
             }
         },
         {
+            "Key": "90f6772c-9475-4374-98d4-c4df612768e6",
+            "Value": {
+                "id": "9789370d-825a-4034-b2f7-52050ad33054",
+                "resourcePath": "objects\\oCollMaskTemp\\oCollMaskTemp.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "9117f333-6593-41cd-a3db-604a7ec24937",
             "Value": {
                 "id": "36c8e359-e90b-4f2d-a3ae-6cfda2dd57c5",
                 "resourcePath": "sounds\\sndFragment2\\sndFragment2.yy",
                 "resourceType": "GMSound"
+            }
+        },
+        {
+            "Key": "91375b23-b6bd-4448-8733-d61c09f83421",
+            "Value": {
+                "id": "f5e05ada-d94a-4515-a3d5-6af03ef2ffc3",
+                "resourcePath": "objects\\oTempCollider\\oTempCollider.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -3898,7 +3922,7 @@
             "Key": "a0de35a3-131d-44d5-a33c-b5bb380802f0",
             "Value": {
                 "id": "6172f068-723d-438d-9d6a-b3077e7bb2d3",
-                "resourcePath": "sprites\\sCollidionMaskAdvanced\\sCollidionMaskAdvanced.yy",
+                "resourcePath": "sprites\\sCollisionMaskAdvanced\\sCollisionMaskAdvanced.yy",
                 "resourceType": "GMSprite"
             }
         },

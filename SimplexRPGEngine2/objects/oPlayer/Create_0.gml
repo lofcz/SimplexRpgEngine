@@ -1,9 +1,7 @@
 /// @desc Set the player up
-refl_start("Effects", true);
-refl_water_layer("Water", true);
-refl_add_object(parGameObject, 0);			//Enables reflection for obj_player.
 
 entityIni();
+alarm[0] = 60;
 
 v_animationFrames[e_animations.valWalk] = 6;
 v_animationFrames[e_animations.valSlash] = 6;
@@ -35,7 +33,7 @@ instance_create_depth(x, y, -31000, oStateLog);
 instance_create_depth(x, y, -6100, oStatusMenu);
 instance_create_depth(x, y, -5000, oTreeController);
 instance_create_depth(x, y, 0, oGL21);
-instance_create_depth(x, y, -36000, oOptimize);
+instance_create_layer(x, y, "Actors", oOptimize);
 
 v_collisionMain = [x, y, x, y];
 v_collisionLegs = [x, y, x, y];

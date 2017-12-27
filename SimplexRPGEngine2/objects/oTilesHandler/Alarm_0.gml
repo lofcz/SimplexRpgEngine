@@ -47,6 +47,7 @@ for (var k = 0; k < v_layers; k++)
 					if (!place_meeting(j * 32, i * 32, oCollMaskBasic))
 					{
 						var inst = instance_create_depth(j * 32, i * 32, - 900, oCollMaskBasic);
+						instance_create_depth(j * 32, i * 32, - 900, oCollMaskTemp);
 					}	
 				}
 			}

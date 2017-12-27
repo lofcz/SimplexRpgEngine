@@ -247,69 +247,6 @@ do{
 until(d == false);
 
 var arg = argument8;
-/*
-//Are we doing a diagonal path?
-if (argument8){
-    //Now we eliminate corners. But be mindful of walls!
-    do{
-        d = false;        
-        for(a = 0;a <= ds_list_size(cellTrimList) / 2 - 1;a ++){        
-            e = 0;
-            f = false;
-            x0 = ds_list_find_value(cellTrimList, a * 2);
-            y0 = ds_list_find_value(cellTrimList, a * 2 + 1);         
-            //Identify all of the cells around each cell we are checking.
-            if (ds_grid_get(grid_cellChecked, (x0 - argument4 * .5) / argument4, (y0 - (argument4 + argument4 * .5)) / argument4) == 1){//N
-                e += 3;
-            }
-            if (ds_grid_get(grid_cellChecked, (x0 + argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4) == 1){//E
-                e += 7;
-            }
-            if (ds_grid_get(grid_cellChecked, (x0 - argument4 * .5) / argument4, (y0 + argument4 * .5) / argument4) == 1){//S
-                e += 11;
-            }
-            if (ds_grid_get(grid_cellChecked, (x0 - (argument4 + argument4 * .5)) / argument4, (y0 - argument4 * .5) / argument4) == 1){//W
-                e += 13;
-            }       
-            switch(e){            
-                //Corners
-                case 10://N/E
-                if (!position_meeting(x0 + argument4, y0 - argument4, argument6)){
-                    f = true;
-                }
-                break;
-                case 18://S/E
-                if (!position_meeting(x0 + argument4, y0 + argument4, argument6)){
-                    f = true;
-                }
-                break;
-                case 24://S/W
-                if (!position_meeting(x0 - argument4, y0 + argument4, argument6)){
-                    f = true;
-                }
-                break;
-                case 16://N/W
-                if (!position_meeting(x0 - argument4, y0 - argument4, argument6)){
-                    f = true;
-                }
-                break;            
-                //Not any of the above.
-                default:
-                break;
-            }         
-            if (f){                    
-                d = true;
-                repeat(2){
-                    ds_list_delete(cellTrimList, a * 2);
-                }
-                a --;
-                ds_grid_set(grid_cellChecked, (x0 - argument4 * .5) / argument4, (y0 - argument4 * .5) / argument4, 0);
-				if (((y0 - argument4 * .5) / argument4) < 1) {show_message("B9");}
-            }
-        }
-    }                
-    until(d == false);
-}*/
 
 //Now we construct a path to the target. 
 p_path = path_add();

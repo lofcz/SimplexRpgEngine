@@ -60,3 +60,13 @@ uni_blur_power = shader_get_uniform(sh_refl, "blur_radius");
 //uni_spr_size = shader_get_uniform(sh_refl, "spr_size");
 //uni_surf_size = shader_get_uniform(sh_refl, "surf_size");
 #endregion
+
+alarm[0] = 10;
+c = false;
+
+
+		w = camera_get_view_width(view_camera);
+		h = camera_get_view_height(view_camera);
+
+
+	global.refl_surf = surface_create(w, h);

@@ -1,5 +1,6 @@
 /// @description 
 //surface
+
 if (!surface_exists(global.refl_surf)){
 	var w, h;
 

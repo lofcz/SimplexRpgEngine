@@ -2,7 +2,7 @@
     "id": "a0de35a3-131d-44d5-a33c-b5bb380802f0",
     "modelName": "GMSprite",
     "mvc": "1.12",
-    "name": "sCollidionMaskAdvanced",
+    "name": "sCollisionMaskAdvanced",
     "For3D": false,
     "HTile": false,
     "VTile": false,

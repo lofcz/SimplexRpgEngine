@@ -4,32 +4,27 @@
 event_inherited();
 
 time++;
-	var _vx = camera_get_view_x(view_camera[0]);
-	var _vy = camera_get_view_y(view_camera[0]);
 	
-if (point_in_rectangle(x, y, _vx - 64, _vy - 64, _vx + 64 + oCamera.v_viewSizeX, _vy + 64 + oCamera.v_viewSizeY))
+if (v_sprite != -1)
 {
-	if (v_sprite != -1)
-	{
 	
-		if (v_fallDirection == sSwingRight) {xx = lerp(xx, 32, 0.1); 	yy = lerp(yy, 8, 0.1); if (r < 45) {r = lerp(r, 45, 0.1);}}
-		if (v_fallDirection == sSwingLeft) {xx = lerp(xx, -32, 0.1); 	yy = lerp(yy, 8, 0.1); if (r > -45) {r = lerp(r, -45, 0.1);}}
-		if (v_fallDirection == sSwingUp) {yy = lerp(yy, -32, 0.1); xx = lerp(xx, 8, 0.1); scale = lerp(scale, 0.95, 0.1);}
-		if (v_fallDirection == sSwingDown) {yy = lerp(yy, 32, 0.1); xx = lerp(xx, -8, 0.1); scale = lerp(scale, 1.05, 0.1);}
+	if (v_fallDirection == sSwingRight) {xx = lerp(xx, 32, 0.1); 	yy = lerp(yy, 8, 0.1); if (r < 45) {r = lerp(r, 45, 0.1);}}
+	if (v_fallDirection == sSwingLeft) {xx = lerp(xx, -32, 0.1); 	yy = lerp(yy, 8, 0.1); if (r > -45) {r = lerp(r, -45, 0.1);}}
+	if (v_fallDirection == sSwingUp) {yy = lerp(yy, -32, 0.1); xx = lerp(xx, 8, 0.1); scale = lerp(scale, 0.95, 0.1);}
+	if (v_fallDirection == sSwingDown) {yy = lerp(yy, 32, 0.1); xx = lerp(xx, -8, 0.1); scale = lerp(scale, 1.05, 0.1);}
 
-		if (v_fallDirection != sSwingDown) {draw_sprite_ext(v_spriteRest, 0, x + xx, y + 8 + yy, scale, scale, -r, c_white, a);}
+	if (v_fallDirection != sSwingDown) {draw_sprite_ext(v_spriteRest, 0, x + xx, y + 8 + yy, scale, scale, -r, c_white, a);}
 	
-		if (abs(xx) > 31 || abs(yy) > 31) {a = lerp(a, 0, 0.1); if (a >= 0.9 && u) {u = false; v_alive = true; v_properties[e_inventoryProperties.valHp] = 5;}}
-		if (!v_alive && !u) {image_alpha = lerp(image_alpha, 0, 0.1); if (image_alpha < 0.05) {instance_destroy();}}
-	}
+	if (abs(xx) > 31 || abs(yy) > 31) {a = lerp(a, 0, 0.1); if (a >= 0.9 && u) {u = false; v_alive = true; v_properties[e_inventoryProperties.valHp] = 5;}}
+	if (!v_alive && !u) {image_alpha = lerp(image_alpha, 0, 0.1); if (image_alpha < 0.05) {instance_destroy();}}
+}
 
-	if (sprite_exists(kk)) {draw_sprite_ext(kk, image_index + 1, x, y, 1, 1, image_angle, c_white, image_alpha);}
+if (sprite_exists(kk)) {draw_sprite_ext(kk, image_index + 1, x, y, 1, 1, image_angle, c_white, image_alpha);}
 
-	if (v_sprite != -1)
+if (v_sprite != -1)
+{
+	if (sprite_exists(v_spriteRest))
 	{
-		if (sprite_exists(v_spriteRest))
-		{
-			if (v_fallDirection == sSwingDown) {draw_sprite_ext(v_spriteRest, 0, x + xx, y + 8 + yy, scale, scale, -r, c_white, a);}
-		}
+		if (v_fallDirection == sSwingDown) {draw_sprite_ext(v_spriteRest, 0, x + xx, y + 8 + yy, scale, scale, -r, c_white, a);}
 	}
 }

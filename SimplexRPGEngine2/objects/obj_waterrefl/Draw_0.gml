@@ -1,4 +1,7 @@
 /// @description 
+
+if (c)
+{
 surface_set_target(global.refl_surf);
 
 //Draw water
@@ -120,3 +123,4 @@ surface_reset_target();
 
 //Draw surface
 draw_surface(global.refl_surf, cam_x*global.camera_used, cam_y*global.camera_used);
+}
