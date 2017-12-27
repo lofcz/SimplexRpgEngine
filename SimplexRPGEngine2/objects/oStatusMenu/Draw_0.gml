@@ -585,16 +585,20 @@ if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
 			tmp_yy += 56;
 			
 			tmp_index = 0;
-			for (var i = 0; i < ds_list_size(oHUD.v_playerQuestsList); i += oHUD.v_questLenght)
-			{
+			
+			var z_alpha;
+			z_alpha = tmp_alpha;
+			for (var i = 0; i < array_height_2d(oHUD.v_playerQuests); i++)
+			{				
 				// If quest is active
-				if (oHUD.v_playerQuestsList[| i + 6])
+				if (oHUD.v_playerQuests[i, 6])
 				{
-					clr(-1, tmp_alpha / 3 + oHUD.v_questAlpha[tmp_index]);
+					clr(c_black, tmp_alpha / 3 + oHUD.v_questAlpha[tmp_index]);
 					draw_roundrect(tmp_xx, tmp_yy, tmp_xx + 610, tmp_yy + 32, false);
 					clr();
 					fnt(fntPixel);
-					draw_text_colored(tmp_xx + 10, tmp_yy + 8, oHUD.v_playerQuestsList[| i], -1, fntPixelTiny, c_white);
+					
+					draw_text_colored(tmp_xx + 10, tmp_yy + 8, oHUD.v_playerQuests[i, 0], -1, fntPixelTiny, c_white);
 
 					if (point_in_rectangle(mouse_x, mouse_y, tmp_xx, tmp_yy, tmp_xx + 610, tmp_yy + 32))
 					{
@@ -610,11 +614,11 @@ if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
 					// Draw type
 					alg("center");
 					clr(c_white, -1);
-					draw_text(tmp_xx + 270, tmp_yy + 15, libUtilityQuestTypeToString(oHUD.v_playerQuestsList[| i + 5]));
+					draw_text(tmp_xx + 270, tmp_yy + 15, libUtilityQuestTypeToString(oHUD.v_playerQuests[i, 5]));
 					alg();
 					
-					draw_text_colored(tmp_xx + 390 - string_width(oHUD.v_playerQuestsList[| i + 2]) / 2, tmp_yy + 8, oHUD.v_playerQuestsList[| i + 2], -1, fntPixelTiny, c_white);
-					draw_text_colored(tmp_xx + 510 - string_width(oHUD.v_playerQuestsList[| i + 4]) / 2, tmp_yy + 8, oHUD.v_playerQuestsList[| i + 4], -1, fntPixelTiny, c_white);
+					draw_text_colored(tmp_xx + 390 - string_width(oHUD.v_playerQuests[i, 2]) / 2, tmp_yy + 8, oHUD.v_playerQuests[i, 2], -1, fntPixelTiny, c_white);
+					draw_text_colored(tmp_xx + 510 - string_width(oHUD.v_playerQuests[i, 4]) / 2, tmp_yy + 8, oHUD.v_playerQuests[i, 4], -1, fntPixelTiny, c_white);
 					
 					// Render quest detail
 					if (oHUD.v_questDetail[tmp_index] || oHUD.v_questSize[tmp_index] > 1)
@@ -622,14 +626,44 @@ if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
 						fnt(fntPixelTiny);
 						
 						var tmp_realH;
-						tmp_realH = max(string_height_ext(oHUD.v_playerQuestsList[| i + 1], 16, 400), 48);
+						tmp_realH = 12;
 						
+						for (var j = 0; j < array_length_2d(oHUD.v_playerQuestsObjectives, i); j += 4)
+						{
+							if (oHUD.v_playerQuestsObjectives[i, j + 1])
+							{
+								tmp_realH += 12;
+							}
+						}	
+						
+						
+						tmp_realH = max(string_height_ext(libUtilityParseTextColored(oHUD.v_playerQuests[i, 1], fntPixelTiny), 16, 400) + tmp_realH, 48);
+
 						clr(-1, (tmp_alpha / 3) * (oHUD.v_questSize[tmp_index] / tmp_realH));						
 						draw_roundrect(tmp_xx, tmp_yy + 36, tmp_xx + 610, max(tmp_yy + 36, tmp_yy + 36 + oHUD.v_questSize[tmp_index] - 4), false);
 						clr(c_white, (tmp_alpha) * (oHUD.v_questSize[tmp_index] / tmp_realH));	
 						fnt(fntPixelTiny);
-						draw_text(tmp_xx + 8, tmp_yy + 44 - 6 + 6 * (oHUD.v_questSize[tmp_index] / tmp_realH), oHUD.v_playerQuestsList[| i + 1]); 
+						draw_text_colored(tmp_xx + 8, tmp_yy + 44 - 6 + 6 * (oHUD.v_questSize[tmp_index] / tmp_realH), oHUD.v_playerQuests[i, 1], 400, fntPixelTiny, c_white); 
 						clr();
+						
+						if ((tmp_alpha) * (oHUD.v_questSize[tmp_index] / tmp_realH) > 0.5)
+						{
+							for (var j = 0; j < array_length_2d(oHUD.v_playerQuestsObjectives, i); j += 4)
+							{
+								if (oHUD.v_playerQuestsObjectives[i, j + 1])
+								{
+									var tmp_finalText, tmp_color;
+									tmp_finalText = oHUD.v_playerQuestsObjectives[i, j];
+									tmp_color = c_white;
+									
+									if (oHUD.v_playerQuestsObjectives[i, j + 3]) {tmp_color = c_lime;}									
+									if (oHUD.v_playerQuestsObjectives[i, j + 2]) {tmp_finalText = "???";}
+									
+									clr(tmp_color, (tmp_alpha) * (oHUD.v_questSize[tmp_index] / tmp_realH));
+									draw_text(tmp_xx + 16, tmp_yy + 44 - 6 + 6 * (oHUD.v_questSize[tmp_index] / tmp_realH) + string_height_ext(libUtilityParseTextColored(oHUD.v_playerQuests[i, 1], fntPixelTiny), 16, 400) + (j / 4) * 12, "- " + tmp_finalText);						
+								}
+							}
+						}
 						
 						if (oHUD.v_questDetail[tmp_index]) {oHUD.v_questSize[tmp_index] = lerp(oHUD.v_questSize[tmp_index], tmp_realH, 0.2);}
 						else {oHUD.v_questSize[tmp_index] = lerp(oHUD.v_questSize[tmp_index], 0, 0.2);}

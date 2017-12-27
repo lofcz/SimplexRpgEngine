@@ -263,10 +263,21 @@ v_playerQuestsList = ds_list_create();
 v_questLenght = 7;
 v_questIndex = 0;
 
-cpQuestsRegister("Quest 1", "Fuck off noob", "GOLD GOLD GOLD", 7, "Kids", e_questType.valMain);
-cpQuestsRegister("Quest 2", "Fuck off noob", "AWP", 7, "Goblins", e_questType.valSide);
+enum e_quests
+{
+	valLearnToPlay,
+	valFuckOff
+}
 
-cpQuestsStart("Quest 1");
-cpQuestsStart("Quest 2");
+cpQuestsRegister("Quest 1", "Fuck off noob", "GOLD GOLD GOLD", 7, "Kids", e_questType.valMain);
+	cpQuestsRegisterObjectives("Learn how to aim", "Suck a dick", "Kill yourself", "TASK1", "TASK2", "TASK3");
+	
+cpQuestsRegister("Quest 2", "Fuck off noob", "AWP", 7, "Goblins", e_questType.valSide);
+	cpQuestsRegisterObjectives("Die in hell", "Die again");
+
+cpQuestsStart(e_quests.valLearnToPlay);
+cpQuestsStart(e_quests.valFuckOff);
+
+cpQuestsMarkObjective(e_quests.valLearnToPlay, 1, true);
 
 cpCollectionIni();

@@ -7,6 +7,7 @@ tmp_n = "";
 
 if (argument_count > 0) {tmp_n = argument[0];}
 
+/*
 for (var i = 0; i < ds_list_size(oHUD.v_playerQuestsList); i += oHUD.v_questLenght)
 {
 	if (oHUD.v_playerQuestsList[| i] == tmp_n) 
@@ -15,5 +16,7 @@ for (var i = 0; i < ds_list_size(oHUD.v_playerQuestsList); i += oHUD.v_questLeng
 		return true;
 	}
 }
+*/
 
+oHUD.v_playerQuests[tmp_n, 6] = true;
 return false;

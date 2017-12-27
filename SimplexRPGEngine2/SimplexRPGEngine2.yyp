@@ -815,6 +815,14 @@
             }
         },
         {
+            "Key": "228ca270-c267-4ded-994b-cfbea1e71cc3",
+            "Value": {
+                "id": "e09c0a35-e1d0-4f8c-887f-a05eed6ac01d",
+                "resourcePath": "scripts\\cpQuestsMarkObjective\\cpQuestsMarkObjective.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "2308c581-6463-4244-9d2f-8bd2d41d0ffc",
             "Value": {
                 "id": "0e7fe1dd-8bb1-478d-8393-9a5b16699cf5",
@@ -2252,6 +2260,14 @@
                 "id": "38a2ab71-29c6-469b-90bc-1a99107520c7",
                 "resourcePath": "sprites\\texUIFill\\texUIFill.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "58ba1837-55a6-4fff-a8a8-97f254dde463",
+            "Value": {
+                "id": "dbf474c4-4cb6-4557-8dce-c07ffaf1aa9f",
+                "resourcePath": "tilesets\\tileset10\\tileset10.yy",
+                "resourceType": "GMTileSet"
             }
         },
         {
@@ -5055,6 +5071,14 @@
             }
         },
         {
+            "Key": "d99ca04b-27e4-4960-bf0b-3663d2794d99",
+            "Value": {
+                "id": "8d6b7764-2756-4237-8181-db0dc85e2ef0",
+                "resourcePath": "sprites\\sprite305\\sprite305.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "d9a53454-51be-4083-aae5-293a7ab17513",
             "Value": {
                 "id": "974bbd55-1ae3-4eef-a07c-ca58d3a1b329",
@@ -5188,6 +5212,14 @@
                 "id": "759950ee-b5db-494f-b4e7-75e13a22193f",
                 "resourcePath": "sprites\\sBodyCanvasBashWeapon\\sBodyCanvasBashWeapon.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "decb4277-1719-48b1-9027-8ddb14721f13",
+            "Value": {
+                "id": "d5e9ef01-bfef-4dd4-a87a-cc2cb9aa1d3f",
+                "resourcePath": "tilesets\\tileset11\\tileset11.yy",
+                "resourceType": "GMTileSet"
             }
         },
         {
@@ -5531,6 +5563,14 @@
             "Value": {
                 "id": "48cb9197-308c-4cdf-b4b6-74779329d7c5",
                 "resourcePath": "scripts\\scrWordwrap\\scrWordwrap.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "ee4de429-b4a7-441f-88cc-fe7837c43e72",
+            "Value": {
+                "id": "43e7b023-eb9d-452d-8958-5d22ff78ceee",
+                "resourcePath": "scripts\\cpQuestsRegisterObjectives\\cpQuestsRegisterObjectives.yy",
                 "resourceType": "GMScript"
             }
         },
@@ -6039,6 +6079,8 @@
         "7f0490e1-40b9-452d-86ab-f1c580003bd9",
         "73c391e3-27e7-47ba-8047-6413d0bb9975",
         "5e21d014-9f69-4c94-881a-bed38636f575",
+        "ee4de429-b4a7-441f-88cc-fe7837c43e72",
+        "228ca270-c267-4ded-994b-cfbea1e71cc3",
         "ddcdda00-5286-49a2-8c82-60efd08c408b",
         "939a9a25-8408-48ed-bf1d-6681da686324",
         "6df0e25a-6cd5-4afa-bdc3-bef8d254263f",

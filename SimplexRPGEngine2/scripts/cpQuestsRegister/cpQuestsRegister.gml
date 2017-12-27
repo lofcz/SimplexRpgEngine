@@ -31,6 +31,22 @@ if (argument_count > 3) {tmp_D = argument[3];}
 if (argument_count > 4) {tmp_f = argument[4];}
 if (argument_count > 5) {tmp_q = argument[5];}
 
+
+// <name, description, reward, difficulty, fraction, questType, active>
+oHUD.v_playerQuests[v_questIndex, 0] = tmp_n;
+oHUD.v_playerQuests[v_questIndex, 1] = tmp_d;
+oHUD.v_playerQuests[v_questIndex, 2] = tmp_r;
+oHUD.v_playerQuests[v_questIndex, 3] = tmp_D;
+oHUD.v_playerQuests[v_questIndex, 4] = tmp_f;
+oHUD.v_playerQuests[v_questIndex, 5] = tmp_q;
+oHUD.v_playerQuests[v_questIndex, 6] = false;
+
+// <name, completed?>
+oHUD.v_playerQuestsObjectives[v_questIndex, 0] = "";
+oHUD.v_playerQuestsObjectives[v_questIndex, 1] = false;
+
+
+
 ds_list_add(oHUD.v_playerQuestsList, tmp_n, tmp_d, tmp_r, tmp_D, tmp_f, tmp_q, false); 
 
 v_questAlpha[v_questIndex] = 0;
