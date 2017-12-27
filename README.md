@@ -53,6 +53,8 @@ Would you like to ask something about the engine, or have you created a game usi
 - <a href="https://www.facebook.com/simplexengine/?pnref=lhc">Facebook</a>
 - <a href="https://www.youtube.com/channel/UCCDT5l4gglPpFB_tEZd5c7Q">Youtube</a>
 
+Our fellow users are extending resources database which helps you jump directly into the development. [Take a look at some of the art submissions!](https://github.com/lofcz/SimplexRpgEngine/wiki/Fanart)
+
 ## Version history can be found here:
 <a href="https://github.com/lofcz/SimplexRpgEngine/wiki/Simplex-RPG-Engine-2-PRE-DEV-Roadmap"> 2.0 P-DEV </a>
 
