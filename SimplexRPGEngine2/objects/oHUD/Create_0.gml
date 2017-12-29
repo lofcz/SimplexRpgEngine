@@ -281,3 +281,12 @@ cpQuestsStart(e_quests.valFuckOff);
 cpQuestsMarkObjective(e_quests.valLearnToPlay, 1, true);
 
 cpCollectionIni();
+
+enum e_affections
+{
+	
+}
+
+v_playerAffections = ds_list_create();
+
+

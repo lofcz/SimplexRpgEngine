@@ -600,11 +600,11 @@ if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
 					
 					draw_text_colored(tmp_xx + 10, tmp_yy + 8, oHUD.v_playerQuests[i, 0], -1, fntPixelTiny, c_white);
 
-					if (point_in_rectangle(mouse_x, mouse_y, tmp_xx, tmp_yy, tmp_xx + 610, tmp_yy + 32))
+					if (point_in_rectangle(mouse_x, mouse_y, tmp_xx, tmp_yy, tmp_xx + 610, tmp_yy + 32) || oHUD.v_questDetail[tmp_index])
 					{
 						oHUD.v_questAlpha[tmp_index] = lerp(oHUD.v_questAlpha[tmp_index], 0.2, 0.2);	
 						
-						if (mouse_check_button_pressed(mb_left))
+						if (mouse_check_button_pressed(mb_left) && point_in_rectangle(mouse_x, mouse_y, tmp_xx, tmp_yy, tmp_xx + 610, tmp_yy + 32))
 						{
 							oHUD.v_questDetail[tmp_index] = !oHUD.v_questDetail[tmp_index];	
 						}
