@@ -1,4 +1,4 @@
-<img src="https://img.shields.io/badge/version-2.0%20P--DEV-brightgreen.svg"> <img src="https://img.shields.io/shippable/5444c5ecb904a4b21567b0ff.svg"> <img src="https://img.shields.io/badge/license-GPL3-blue.svg">
+<img src="https://img.shields.io/badge/version-2.0%20P--DEV-brightgreen.svg"> <img src="https://img.shields.io/shippable/5444c5ecb904a4b21567b0ff.svg"> <img src="https://img.shields.io/badge/license-EDU%20%2F%20Commercial-blue.svg">
 <br><br>
 <img align="middle" src="https://s15.postimg.org/hb1fpm51n/logo.png">
 <br>
