@@ -400,6 +400,7 @@ tmp_y = oCamera.v_nullPosY + 200;
 
 if (mouse_check_button_pressed(mb_left))
 {
+	ds_list_add(v_playerAchievementsList, 0);
 	ds_list_add(v_playerAffections, choose("Heal", "Autism"), 6, 90, 0, choose(c_red, c_lime, c_aqua), 0, 0, c_green, true, e_affections.valVenom);
 }
 
@@ -480,5 +481,26 @@ for (var i = 0; i < ds_list_size(v_playerAffections); i += v_affectionLenght)
 	
 		if (tmp_index == 2 || (tmp_index == 1 && (tmp_s > (v_affectionR * 2) + 12))) {tmp_index = -1; tmp_x = oCamera.v_nullPosX + oCamera.v_viewSizeX - 120; tmp_y += (v_affectionR * 2) + 36;}
 		tmp_index++;
+	}
+}
+
+for (var i = 0; i < ds_list_size(v_playerAchievementsList); i++)
+{
+	if (!instance_number(oAchievement))
+	{
+		if (!v_playerAchievements[v_playerAchievementsList[| i], 3])
+		{
+			var tmp_inst;
+			tmp_inst = instance_create_depth(x, y, -6000, oAchievement);
+			tmp_inst.v_index = v_playerAchievementsList[| i];
+			
+			cpAchievementsDB(v_playerAchievementsList[| i]);
+			ds_list_delete(v_playerAchievementsList, i);
+			break;
+		}
+		else 
+		{
+			ds_list_delete(v_playerAchievementsList, i);
+		}
 	}
 }

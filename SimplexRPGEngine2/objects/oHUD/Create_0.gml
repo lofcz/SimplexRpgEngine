@@ -289,4 +289,18 @@ enum e_affections
 
 v_playerAffections = ds_list_create();
 
+enum e_achievements
+{
+	valAchievement1	
+}
+
+// <name, text, imageIndex, unlocked?>  
+v_achievementLenght = 4;
+
+v_playerAchievements[0, 0] = "Cancer";
+v_playerAchievements[0, 1] = "Sample cancerous text";
+v_playerAchievements[0, 2] = 0;
+v_playerAchievements[0, 3] = false;
+
+v_playerAchievementsList = ds_list_create();
 

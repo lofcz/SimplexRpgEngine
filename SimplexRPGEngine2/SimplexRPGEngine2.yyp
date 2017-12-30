@@ -583,6 +583,14 @@
             }
         },
         {
+            "Key": "199b38a0-52e9-4637-b8a1-be71046d3426",
+            "Value": {
+                "id": "dfb24394-2940-4370-8e99-7a2d8771c31a",
+                "resourcePath": "scripts\\cpAchievementsDB\\cpAchievementsDB.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "19c7a009-2b44-4b9e-acc5-640d72fef0bc",
             "Value": {
                 "id": "5e8f09da-aea6-455c-ae21-207bad9cac07",
@@ -2367,6 +2375,14 @@
             }
         },
         {
+            "Key": "5ab8cd49-48fb-4750-b3ec-5580ce11c0a6",
+            "Value": {
+                "id": "c38b3ab7-208a-483a-9a65-1ab32af5e72b",
+                "resourcePath": "sprites\\sAchievements\\sAchievements.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "5acea39f-9187-44fe-9948-3fdaff0e4ca5",
             "Value": {
                 "id": "330cf0a5-3dc2-485b-a23d-912af7c78a0f",
@@ -2903,6 +2919,14 @@
             }
         },
         {
+            "Key": "7517c132-0da1-4c6f-ad5e-689e58a0cbed",
+            "Value": {
+                "id": "878e0dbe-31ac-44c8-8bc9-15d9d2a9a032",
+                "resourcePath": "views\\7517c132-0da1-4c6f-ad5e-689e58a0cbed.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "75a6c6c7-a729-4980-9c07-a1b5927b8c55",
             "Value": {
                 "id": "cbcd49bb-3274-4556-9535-9418b3614a91",
@@ -3052,6 +3076,14 @@
                 "id": "394d9970-25ed-4198-ab8c-8067a4125f9b",
                 "resourcePath": "sprites\\sBodyCanvasArmor3\\sBodyCanvasArmor3.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "79e091aa-e1a6-4d8b-b1fd-d648fceefacc",
+            "Value": {
+                "id": "0e2b11b8-0df1-43e1-9051-7143d8094ec8",
+                "resourcePath": "objects\\oAchievement\\oAchievement.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -6115,6 +6147,7 @@
         "228ca270-c267-4ded-994b-cfbea1e71cc3",
         "ddcdda00-5286-49a2-8c82-60efd08c408b",
         "3ab35ded-4c53-4cef-8a32-719351e8a72b",
+        "199b38a0-52e9-4637-b8a1-be71046d3426",
         "939a9a25-8408-48ed-bf1d-6681da686324",
         "6df0e25a-6cd5-4afa-bdc3-bef8d254263f",
         "b75271a6-4866-444d-b1e9-016eac8522a4",
