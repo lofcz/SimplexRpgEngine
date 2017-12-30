@@ -1471,6 +1471,14 @@
             }
         },
         {
+            "Key": "3ab35ded-4c53-4cef-8a32-719351e8a72b",
+            "Value": {
+                "id": "36862fd5-020f-404b-a848-ed2431fbd5e8",
+                "resourcePath": "scripts\\cpAffectionsDB\\cpAffectionsDB.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "3b502ff7-0b3b-43c7-9351-61f6e4f97c8a",
             "Value": {
                 "id": "b0dd065c-76c8-48c5-b430-d3164efeb68d",
@@ -6106,6 +6114,7 @@
         "ee4de429-b4a7-441f-88cc-fe7837c43e72",
         "228ca270-c267-4ded-994b-cfbea1e71cc3",
         "ddcdda00-5286-49a2-8c82-60efd08c408b",
+        "3ab35ded-4c53-4cef-8a32-719351e8a72b",
         "939a9a25-8408-48ed-bf1d-6681da686324",
         "6df0e25a-6cd5-4afa-bdc3-bef8d254263f",
         "b75271a6-4866-444d-b1e9-016eac8522a4",

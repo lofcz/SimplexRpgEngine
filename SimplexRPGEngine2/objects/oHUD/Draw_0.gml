@@ -387,8 +387,8 @@ for (var i = 0; i < mcSpells; i++)
 	if (v_playerSpellCD[i, 1] == 0) {v_playerSpellCD[i, 1] = -1;}
 }
 
-// <name, stacks, stackTime, currentTime, color, scale, imageIndex>
-v_affectionLenght = 7;
+// <name, stacks, stackTime, currentTime, color, scale, imageIndex, color2, isAlive, actionIndex>
+v_affectionLenght = 10;
 v_affectionR = 16;
 v_affectionO = 4;
 v_affectionsQuality = 64;
@@ -400,7 +400,7 @@ tmp_y = oCamera.v_nullPosY + 200;
 
 if (mouse_check_button_pressed(mb_left))
 {
-	ds_list_add(v_playerAffections, choose("Heal", "Autism"), 6, 90, 0, choose(c_red, c_lime, c_aqua), 0, 0);
+	ds_list_add(v_playerAffections, choose("Heal", "Autism"), 6, 90, 0, choose(c_red, c_lime, c_aqua), 0, 0, c_green, true, e_affections.valVenom);
 }
 
 // Render affections
@@ -408,12 +408,24 @@ for (var i = 0; i < ds_list_size(v_playerAffections); i += v_affectionLenght)
 {	
 	if (ds_list_size(v_playerAffections) > 0)
 	{
-		draw_sprite_ext(sAffections, v_playerAffections[| i + 6], tmp_x, tmp_y, v_playerAffections[| i + 5], v_playerAffections[| i + 5], 0, c_white, v_playerAffections[| i + 5]);
-		draw_ring_part(tmp_x, tmp_y, v_affectionR * v_playerAffections[| i + 5], v_affectionO, v_affectionsQuality, (v_playerAffections[| i + 3] / v_playerAffections[| i + 2]) * v_affectionsQuality, 0, 360, -1, v_playerAffections[| i + 4], false, 1); 	
+		clr(c_black, v_playerAffections[| i + 5] / 2);
+		draw_circle(tmp_x, tmp_y, (v_affectionR + v_affectionO) * v_playerAffections[| i + 5], false);
+		
+		var tmp_color;
+		tmp_color = merge_color(v_playerAffections[| i + 4], v_playerAffections[| i + 7], v_playerAffections[| i + 3] / v_playerAffections[| i + 2]);
+		
+		draw_sprite_ext(sAffections, v_playerAffections[| i + 6], tmp_x, tmp_y, v_playerAffections[| i + 5], v_playerAffections[| i + 5], 0, c_white, v_playerAffections[| i + 5] / 2);
+		draw_ring_part(tmp_x, tmp_y, v_affectionR * v_playerAffections[| i + 5], v_affectionO, v_affectionsQuality, (v_playerAffections[| i + 3] / v_playerAffections[| i + 2]) * v_affectionsQuality, 90, 360, -1, tmp_color, false, 1); 	
+		
 		draw_circle(tmp_x, tmp_y, v_affectionR * v_playerAffections[| i + 5], true);
 		draw_circle(tmp_x, tmp_y, (v_affectionR + v_affectionO) * v_playerAffections[| i + 5], true);
 	
-		draw_text(tmp_x, tmp_y, v_playerAffections[| i + 1]);
+		if (v_playerAffections[| i + 8])
+		{
+			clr(c_white, -1);
+			fnt(fntPixelTiny);
+			draw_text(tmp_x + 6, tmp_y, v_playerAffections[| i + 1]);
+		}
 		
 		var tmp_r, tmp_s, tmp_r2, tmp_s2;
 		tmp_r  = libDrawTextStylized(tmp_x, tmp_y - (v_affectionR * 2), v_playerAffections[| i], v_playerAffections[| i + 5], true, 16, fntPixelTiny, true);
@@ -423,7 +435,7 @@ for (var i = 0; i < ds_list_size(v_playerAffections); i += v_affectionLenght)
 		// Width correction
 		if (i < ds_list_size(v_playerAffections) - v_affectionLenght)
 		{
-			tmp_r2 = libDrawTextStylized(tmp_x, tmp_y - (v_affectionR * 2), v_playerAffections[| i + v_affectionLenght], 1, true, 16, fntPixelTiny, false);
+			tmp_r2 = libDrawTextStylized(tmp_x, tmp_y - (v_affectionR * 2), __(v_playerAffections[| i + v_affectionLenght]), 1, true, 16, fntPixelTiny, false);
 			tmp_s2 = (tmp_r2[2] - tmp_r2[0]);				
 		}
 		
@@ -432,24 +444,36 @@ for (var i = 0; i < ds_list_size(v_playerAffections); i += v_affectionLenght)
 		
 		// Handle time
 		v_playerAffections[| i + 3]++;
-		v_playerAffections[| i + 5] = lerp(v_playerAffections[| i + 5], 1, 0.2);
+		
+		if (v_playerAffections[| i + 8]) {v_playerAffections[| i + 5] = lerp(v_playerAffections[| i + 5], 1, 0.2);} else {v_playerAffections[| i + 5] = lerp(v_playerAffections[| i + 5], 0, 0.2);}
 				
-		if (v_playerAffections[| i + 3] >= v_playerAffections[| i + 2]) // Stack off
+		if (v_playerAffections[| i + 3] >= v_playerAffections[| i + 2] && v_playerAffections[| i + 1] > -1) // Stack off
 		{
 			v_playerAffections[| i + 1]--;
 		
+			// Proc stack
 			if (v_playerAffections[| i + 1] > 0)
 			{
 				v_playerAffections[| i + 3] = 0;
-				v_playerAffections[| i + 5] = 0.8;			
+				v_playerAffections[| i + 5] = 0.8;	
+				
+				cpAffectionsDB(v_playerAffections[| i + 9]);
 			}
 			else
+			{
+				v_playerAffections[| i + 8] = false;			
+			}
+		}
+		
+		if (!v_playerAffections[| i + 8])
+		{
+			if (v_playerAffections[| i + 5] < 0.05)
 			{
 				repeat(v_affectionLenght)
 				{
 					ds_list_delete(v_playerAffections, i);	
 				}
-			}
+			}	
 		}
 		
 		tmp_x += max((v_affectionR * 2) + 12, tmp_s);

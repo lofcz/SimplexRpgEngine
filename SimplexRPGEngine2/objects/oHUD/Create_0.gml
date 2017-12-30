@@ -284,7 +284,7 @@ cpCollectionIni();
 
 enum e_affections
 {
-	
+	valVenom
 }
 
 v_playerAffections = ds_list_create();

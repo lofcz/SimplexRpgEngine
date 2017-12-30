@@ -1,5 +1,5 @@
 /// @desc [Simplex description line]
-
+/*
 if (v_timer > 0) {v_timer--;} else {if (ds_queue_size(g_queue) > 0) {a = ds_queue_dequeue(g_queue); ds_list_add(g_list, a, 0 - ((ds_list_size(g_list) - 3) / 3) * 10, 100); v_timer = 50;}}
 
 surface_set_target(v_surf);
