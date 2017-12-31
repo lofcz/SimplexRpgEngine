@@ -23,7 +23,7 @@ if (v_selectionDone)
 else if (tmp_c)
 {
 	v_layoutW = lerp(v_layoutW, 230, v_lerpSpeed);
-	v_layoutH = lerp(v_layoutH, 210, v_lerpSpeed);
+	v_layoutH = lerp(v_layoutH, 240, v_lerpSpeed);
 }
 
 
@@ -714,6 +714,158 @@ if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
 			
 		}
 		#endregion
+		#region Bestiary
+		if (v_lastSelectedIndex == 6)
+		{			
+			clr(-1, tmp_alpha);				
+			draw_sprite_part(oInventory.v_inventorySprite, 0, 117, 144, 16, 16, x + 156 + xSet, y + 20);
+			draw_sprite_part(oInventory.v_inventorySprite, 0, 133, 144, 16, 16, x + 450 + xSet, y + 20);
+			
+			var tmp_index, tmp_yy, tmp_xx, tmp_prev, tmp_index;
+			tmp_index = 0;
+			tmp_yy = y + 64;	
+			tmp_xx = x + xSet + 16;
+			tmp_prev = 0;
+			tmp_index = 0;
+			
+			fnt()
+			for (var i = 0; i < array_height_2d(oHUD.v_playerBestiaryGroup); i++)
+			{
+				clr(c_black, min(tmp_alpha / 2, oHUD.v_playerBestiaryGroup[i, 2]));
+				draw_rectangle(tmp_xx - 6, tmp_yy + oHUD.v_playerBestiaryGroup[i, 3], tmp_xx + 196, tmp_yy + 32 + oHUD.v_playerBestiaryGroup[i, 3], false);
+				clr(c_black, min(tmp_alpha, oHUD.v_playerBestiaryGroup[i, 2]));
+				draw_rectangle(tmp_xx - 6, tmp_yy + oHUD.v_playerBestiaryGroup[i, 3], tmp_xx + 196, tmp_yy + 32 + oHUD.v_playerBestiaryGroup[i, 3], true);
+				clr(c_white, -1);
+				draw_text(tmp_xx + 32, tmp_yy + 6 + oHUD.v_playerBestiaryGroup[i, 3], __(oHUD.v_playerBestiaryGroup[i, 1]));
+				
+				if (point_in_rectangle(mouse_x, mouse_y, tmp_xx - 6, tmp_yy + oHUD.v_playerBestiaryGroup[i, 3], tmp_xx + 196, tmp_yy + 32 + oHUD.v_playerBestiaryGroup[i, 3]))
+				{
+					if (mouse_check_button_pressed(mb_left) && oHUD.v_playerBestiaryGroup[i, 2] > 0.95)
+					{
+						if (v_bestiarySelected == -1)
+						{
+							v_bestiarySelected = i;
+							v_bestiarySelectedLast = i;
+						}
+						else
+						{
+							v_bestiarySelected = -1;
+							v_bestiaryMonsterSelected = -1;
+							
+							for (var j = 0; j < oHUD.v_playerBestiaryGroup[i, 0]; j++)
+							{
+								tmp_realIndex = tmp_index + j;
+								tmp_xO = - 16 + 16 * oHUD.v_playerBestiary[tmp_realIndex, 14];
+								
+								oHUD.v_playerBestiary[tmp_realIndex, 14] = 0;
+							}
+						}
+					}
+				}
+				
+				if (v_bestiarySelected != -1)
+				{
+					if (v_bestiarySelected != i) {oHUD.v_playerBestiaryGroup[i, 2] = lerp(oHUD.v_playerBestiaryGroup[i, 2], 0, 0.2);}	
+					else
+					{
+						oHUD.v_playerBestiaryGroup[i, 3] = lerp(oHUD.v_playerBestiaryGroup[i, 3], -i * 36, 0.2);
+						
+						// Ready
+						if (oHUD.v_playerBestiaryGroup[i, 3] > -i * 36 - 4)
+						{
+							// Render all items from the list
+							var tmp_realIndex, tmp_y2, tmp_x2, tmp_xO;
+							tmp_x2 = tmp_xx;
+							tmp_y2 = y + 64 + 48;
+							tmp_xO = 0;
+							
+							for (var j = 0; j < oHUD.v_playerBestiaryGroup[i, 0]; j++)
+							{
+								tmp_realIndex = tmp_index + j;
+								tmp_xO = -16 + 16 * oHUD.v_playerBestiary[tmp_realIndex, 14];
+								
+								oHUD.v_playerBestiary[tmp_realIndex, 14] = lerp(oHUD.v_playerBestiary[tmp_realIndex, 14], 1, 0.1);
+								
+								clr(c_black, min(oHUD.v_playerBestiary[tmp_realIndex, 14] / 2, oHUD.v_playerBestiaryGroup[i, 2] / 2));
+								draw_rectangle(tmp_x2 + tmp_xO - 6, tmp_y2, tmp_x2 + tmp_xO + 162, tmp_y2 + 24, false);
+								clr(c_black, min(oHUD.v_playerBestiary[tmp_realIndex, 14], oHUD.v_playerBestiaryGroup[i, 2]));
+								draw_rectangle(tmp_x2 + tmp_xO - 6, tmp_y2, tmp_x2 + tmp_xO + 162, tmp_y2 + 24, true);
+								
+								fnt(fntPixelTiny);
+								clr(c_white, min(oHUD.v_playerBestiary[tmp_realIndex, 14], oHUD.v_playerBestiaryGroup[i, 2]));								
+								draw_text(tmp_x2 + tmp_xO + 6, tmp_y2 + 6, oHUD.v_playerBestiary[tmp_realIndex, 0]);
+								
+								// Select monster
+								if (point_in_rectangle(mouse_x, mouse_y, tmp_x2 + tmp_xO - 6, tmp_y2, tmp_x2 + tmp_xO + 162, tmp_y2 + 24))
+								{
+									if (mouse_check_button_pressed(mb_left) && tmp_xO > -1)
+									{
+										v_bestiaryMonsterSelected = tmp_realIndex;
+										v_bestiaryMonsterAlpha = 0;
+									}
+								}
+							}
+							
+							// Render selected monster
+							if (v_bestiaryMonsterSelected != -1)
+							{
+								v_bestiaryMonsterAlpha = lerp(v_bestiaryMonsterAlpha, 1, 0.1);
+								
+								var tmp_xO;
+								tmp_xO = - 32 + 32 * v_bestiaryMonsterAlpha;
+								tmp_xx = tmp_xx + 256;
+								fnt();
+								clr(c_black, v_bestiaryMonsterAlpha);
+								draw_text(tmp_xx + tmp_xO, tmp_yy, oHUD.v_playerBestiary[v_bestiaryMonsterSelected, 0]);
+								draw_line(tmp_xx + tmp_xO - 2, tmp_yy + 16, tmp_xx + tmp_xO + 256, tmp_yy + 16);
+								
+								var tmp_y;
+								tmp_y = draw_text_colored(tmp_xx + tmp_xO, tmp_yy + 24, __(oHUD.v_playerBestiary[v_bestiaryMonsterSelected, 1]), 300, fntPixelTiny, c_black);
+								clr(c_black, v_bestiaryMonsterAlpha);
+								draw_line(tmp_xx + tmp_xO - 2, tmp_y  + 28, tmp_xx + tmp_xO + 256, tmp_y + 28);
+
+								tmp_y = draw_text_colored(tmp_xx + tmp_xO, tmp_y + 36, __("Drops: ") + _sc(__(oHUD.v_playerBestiary[v_bestiaryMonsterSelected, 2]), c_yellow), 300, fntPixelTiny, c_black);
+								clr(c_black, v_bestiaryMonsterAlpha);
+
+								tmp_y = draw_text_colored(tmp_xx + tmp_xO, tmp_y + 16, __("Killed: ") + _sc(string(oHUD.v_playerBestiary[v_bestiaryMonsterSelected, 3]), c_red) + _sc("x", c_red), 300, fntPixelTiny, c_black);
+								clr(c_black, v_bestiaryMonsterAlpha);
+								
+								draw_line(tmp_xx + tmp_xO - 2, tmp_y  + 28, tmp_xx + tmp_xO + 256, tmp_y + 28);
+
+								tmp_y = draw_text_colored(tmp_xx + tmp_xO, tmp_y + 32, __("Known weaknesses: "), 300, fntPixelTiny, c_black);
+								clr(c_black, v_bestiaryMonsterAlpha);
+								
+								tmp_y += 4
+								for (var k = 0; k < 5; k++)
+								{
+									var tmp_text;
+									tmp_text = "???";
+									
+									if (oHUD.v_playerBestiary[v_bestiaryMonsterSelected, 4 + k]) {tmp_text = v_playerBestiary[0, 9 + k];}
+									
+									tmp_y = draw_text_colored(tmp_xx + tmp_xO, tmp_y + 12, tmp_text, 300, fntPixelTiny, c_black);								
+									clr(c_black, v_bestiaryMonsterAlpha);
+								}
+							}
+						}
+					}
+				}
+				else
+				{
+					oHUD.v_playerBestiaryGroup[i, 3] = lerp(oHUD.v_playerBestiaryGroup[i, 3], 0, 0.2);	
+					oHUD.v_playerBestiaryGroup[i, 2] = lerp(oHUD.v_playerBestiaryGroup[i, 2], 1, 0.2);					
+				}
+				
+				tmp_index += oHUD.v_playerBestiaryGroup[i, 0];
+				tmp_yy += 36;
+			}
+			
+			if (v_bestiarySelected != -1)
+			{
+					
+			}
+		}
+		#endregion
 	}
 	
 	for (var i = 0; i < mcInventoryProperties; i++)
@@ -725,6 +877,7 @@ if (v_menuAlpha > 0.05 && v_lastSelectedIndex != -1)
 clr();
 }
 
+if (mouse_wheel_down()) {oHUD.v_playerBestiary[0, 14] = 0;}
 #region HUD Logic posthandler		
 if (mouse_check_button_released(mb_left))
 {				

@@ -304,3 +304,53 @@ v_playerAchievements[0, 3] = false;
 
 v_playerAchievementsList = ds_list_create();
 
+
+// <name, description, loot, timesKilled, shard1, shard2, shard3, shard4, shard5, shard1Text, shard2Text, shard3Text, shard4Text, shard5Text, alpha>
+
+enum e_bestiary
+{
+	valWolf	
+}
+
+v_playerBestiary[0, 0] = "Wolf";
+v_playerBestiary[0, 1] = "Bad doggy";
+v_playerBestiary[0, 2] = "Gold & exp";
+v_playerBestiary[0, 3] = 0;
+v_playerBestiary[0, 4] = false;
+v_playerBestiary[0, 5] = false;
+v_playerBestiary[0, 6] = false;
+v_playerBestiary[0, 7] = false;
+v_playerBestiary[0, 8] = false;
+v_playerBestiary[0, 9] = "Fire is effective";
+v_playerBestiary[0, 10] = "Burns in hell like a shit";
+v_playerBestiary[0, 11] = "Dies instantly";
+v_playerBestiary[0, 12] = "Fucks you";
+v_playerBestiary[0, 13] = "OMFG GO DIE";
+v_playerBestiary[0, 14] = 0;
+
+v_playerBestiary[1, 0] = "Wolf2";
+v_playerBestiary[1, 1] = "Bad doggy";
+v_playerBestiary[1, 2] = "Gold & exp";
+v_playerBestiary[1, 3] = 0;
+v_playerBestiary[1, 4] = false;
+v_playerBestiary[1, 5] = false;
+v_playerBestiary[1, 6] = false;
+v_playerBestiary[1, 7] = false;
+v_playerBestiary[1, 8] = false;
+v_playerBestiary[1, 9] = "Fire is effective";
+v_playerBestiary[1, 10] = "Burns in hell like a shit";
+v_playerBestiary[1, 11] = "Dies instantly";
+v_playerBestiary[1, 12] = "Fucks you";
+v_playerBestiary[1, 13] = "OMFG GO DIE";
+v_playerBestiary[1, 14] = 0;
+
+// <itemsNumber, name, alpha, vOffset>
+v_playerBestiaryGroup[0, 0] = 1;
+v_playerBestiaryGroup[0, 1] = "Plains";
+v_playerBestiaryGroup[0, 2] = 1;
+v_playerBestiaryGroup[0, 3] = 0;
+
+v_playerBestiaryGroup[1, 0] = 1;
+v_playerBestiaryGroup[1, 1] = "Caves";
+v_playerBestiaryGroup[1, 2] = 1;
+v_playerBestiaryGroup[1, 3] = 0;

@@ -7,6 +7,7 @@ v_menuReady = true;
 v_menuAlpha = 0;
 v_drawForm = false;
 
+// <name, alpha, horizontalOffset, verticalOffset>
 v_menuItems[0, 0] = "Status";
 v_menuItems[0, 1] = 1;
 v_menuItems[0, 2] = 0;
@@ -37,13 +38,18 @@ v_menuItems[5, 1] = 1;
 v_menuItems[5, 2] = 0;
 v_menuItems[5, 3] = 0;
 
-v_menuItems[6, 0] = "Achievements";
+v_menuItems[6, 0] = "Bestiary";
 v_menuItems[6, 1] = 1;
 v_menuItems[6, 2] = 0;
 v_menuItems[6, 3] = 0;
 
+v_menuItems[7, 0] = "Achievements";
+v_menuItems[7, 1] = 1;
+v_menuItems[7, 2] = 0;
+v_menuItems[7, 3] = 0;
+
 v_layoutW = 230;
-v_layoutH = 210;
+v_layoutH = 240;
 v_layoutMode = 0;
 v_selectedIndex = -1;
 v_currentAbility = 0;
@@ -112,3 +118,8 @@ v_originalSlot = -1;
 
 v_lerpSpeed = 0.2;
 v_questAlpha = 0;
+
+v_bestiarySelected = -1;
+v_bestiarySelectedLast = -1;
+v_bestiaryMonsterSelected = -1;
+v_bestiaryMonsterAlpha = 0;

@@ -34,6 +34,8 @@ for (var i = 0; i < array_height_2d(tmp_i); i++)
 	if (!tmp_ro)
 	{
 		clr(-1, min(tmp_i[@ i, 1], tmp_a));
+		
+		// Labels
 		for (var j = 0; j < 6; j++)
 		{
 			if (j == 0) {draw_sprite_part(oInventory.v_inventorySprite, 0, 633, 23, 40, 28, tmp_x + j * 40 + tmp_i[@ i, 2], tmp_y - tmp_i[@ i, 3]);}
@@ -54,6 +56,7 @@ for (var i = 0; i < array_height_2d(tmp_i); i++)
 					tmp_i[@ i, 2] = lerp(tmp_i[@ i, 2], 8, v_lerpSpeed);
 				}
 			
+				// Select from menu
 				if (mouse_check_button_pressed(mb_left) && tmp_i[@ i, 1] > 0.05)
 				{
 					if (v_selectedIndex == -1)
@@ -70,7 +73,7 @@ for (var i = 0; i < array_height_2d(tmp_i); i++)
 		
 		if (v_selectedIndex != -1)
 		{
-			if (i != v_selectedIndex) {tmp_i[@ i, 1] = lerp(tmp_i[@ i, 1], 0,v_lerpSpeed); if (tmp_i[@ i, 1] > 0.05) {tmp_done = false;}}
+			if (i != v_selectedIndex) {tmp_i[@ i, 1] = lerp(tmp_i[@ i, 1], 0, v_lerpSpeed); if (tmp_i[@ i, 1] > 0.05) {tmp_done = false;}}
 		}
 		else
 		{
@@ -98,7 +101,7 @@ for (var i = 0; i < array_height_2d(tmp_i); i++)
 	tmp_y += 30;
 }
 
-if (v_selectedIndex != -1 && tmp_done)
+if (v_selectedIndex != -1)
 {
 	tmp_i[@ v_selectedIndex, 3] = lerp(tmp_i[@ v_selectedIndex, 3], v_selectedIndex * 30, v_lerpSpeed);
 	if (tmp_i[@ v_selectedIndex, 3] >= v_selectedIndex * 30 - 2) {v_selectionDone = true; if (v_layoutW > 595) {tmp_i[@ v_selectedIndex, 2] = lerp(tmp_i[@ v_selectedIndex, 2], 300 - 120, 0.1); if (tmp_i[@ v_selectedIndex, 2] > 300 - 125) {if (tmp_e != -1) {v_menuReady = true;}}}} else {v_selectionDone = false;}
