@@ -8,7 +8,7 @@ tmp_selYO = 13;
 tmp_selW = lerp(tmp_selW, tmp_selWT, 0.1);
 tmp_selH = lerp(tmp_selH, tmp_selHT, 0.1);
 
-
+clr();
 if (keyboard_check_pressed(ord("K"))) {v_playerProperty[e_inventoryProperties.valXp] += 10;}
 if (keyboard_check_pressed(ord("L"))) {if (oInventory.v_inventorySprite == texUI) {oInventory.v_inventorySprite = texUI2;} else {oInventory.v_inventorySprite = texUI;} v_hudSprite = oInventory.v_inventorySprite;}
 
