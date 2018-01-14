@@ -2,7 +2,9 @@
 if (argument0 == e_items.valNONE) {return "";}
 if (argument0 == e_items.valBasicItem) {return "Basic item";}
 if (argument0 == e_items.valSwordWooden) {return "Wooden sword";}
+if (argument0 == e_items.valPearlGreen) {return "Green pearl";}
 
+return "UNTRANSLATED-ITEM [libUtilityItemToString]";
 /*
 {
 	valNONE,

@@ -461,6 +461,81 @@ if (v_craftAlpha > 0.05)
 		}
 	}
 	
+	// Draw optional slots
+	var tmp_drawTooltipOpt;
+	tmp_drawTooltipOpt = -1;
+	
+	tmp_lx = tmp_sx + 184;
+	tmp_ly = tmp_sy;
+	
+	for (var i = 0; i < v_recieptItem[v_craftItemSelected, 3]; i++)
+	{
+		tmp_dx = 30;
+		tmp_dy = 370;
+		
+		if (point_in_rectangle(mouse_x, mouse_y, tmp_lx, tmp_ly, tmp_lx + 40, tmp_ly + 40))
+		{
+			tmp_dx = 75;		
+			tmp_drawTooltipOpt = i;
+			tmp_flag = true;
+			tmp_flag = true;
+			tmp_tx = tmp_lx;
+			tmp_ty = tmp_ly;
+		}
+
+		draw_sprite_part(v_inventorySprite, 0, tmp_dx, tmp_dy, 40, 40, tmp_lx, tmp_ly);
+		if (v_recieptItemSlotOptional[v_craftItemSelected, (6 * i)] != e_items.valNONE && v_recieptItemSlotOptional[v_craftItemSelected, (6 * i) + 5] == -1) {shader_set(shdGreyscale); draw_sprite_ext(sItems, v_recieptItemSlotOptional[v_craftItemSelected, (6 * i)] - 2, tmp_lx + 20, tmp_ly + 20, 1, 1, 0, c_white, min(v_craftAlpha, tmp_alpha)); shader_reset();}
+
+		if (v_slotBeingDragged != -1 && v_recieptItemSlotOptional[v_craftItemSelected, (6 * i) + 5] == -1)
+		{
+			if (v_slot[v_slotBeingDragged, e_inventoryAtributes.valID] == v_recieptItemSlotOptional[v_craftItemSelected, (6 * i)])
+			{
+				clr(c_lime, min(0.3, tmp_alpha));
+				draw_rectangle(tmp_lx + 2, tmp_ly + 2, tmp_lx + 38, tmp_ly + 38, false);
+				clr();
+				
+				// Check for item drop
+				if (point_in_rectangle(mouse_x, mouse_y, tmp_lx, tmp_ly, tmp_lx + 40, tmp_ly + 40))
+				{
+					tmp_customDrop = true;
+					
+					if (mouse_check_button_released(mb_left))
+					{
+						v_recieptItemSlotOptional[v_craftItemSelected, (6 * i) + 5] = v_slotBeingDragged;
+						v_slot[v_slotBeingDragged, e_inventoryAtributes.valBeingUsed] = true;
+						v_slotBeingDragged = -1;
+						oHUD.v_mouseFree = true;
+						oDrawHelperAbove.v_id = -1;
+					}
+				}
+			}
+		}
+		
+		// If any item is in slot, draw it
+		if (v_recieptItemSlotOptional[v_craftItemSelected, (6 * i) + 5] != -1)
+		{	
+			var tmp_itemID;
+			tmp_itemID = v_recieptItemSlotOptional[v_craftItemSelected, (6 * i) + 5];
+			
+			draw_sprite(v_slot[tmp_itemID, e_inventoryAtributes.valSprite], v_slot[tmp_itemID, e_inventoryAtributes.valImageIndex] + 2, tmp_lx + 20, tmp_ly + 20);
+			
+			// Release item on click
+			if (point_in_rectangle(mouse_x, mouse_y, tmp_lx, tmp_ly, tmp_lx + 40, tmp_ly + 40))
+			{	
+				if (mouse_check_button_pressed(mb_left))
+				{
+					v_recieptItemSlotOptional[v_craftItemSelected, (6 * i) + 5] = -1;
+					v_slot[tmp_itemID, e_inventoryAtributes.valBeingUsed] = false;
+				}
+			}	
+			
+			v_drawPreview = true;
+		}
+		else {tmp_ready = false;}
+		
+		tmp_ly += 46;
+	}	
+	
 	if (v_craftWIP == false) {v_drawPreview = false;}
 	
 	// Check if we can finish the reciept
@@ -518,17 +593,33 @@ if (v_craftAlpha > 0.05)
 			}		
 			instance_destroy(tmp_refID);
 		
-			for (var i = 0; i < v_recieptItem[v_craftItemSelected, 2]; i++)
+			for (var i = 0; i < max(v_recieptItem[v_craftItemSelected, 2], v_recieptItem[v_craftItemSelected, 3]); i++)
 			{
-				if (v_recieptItemSlot[v_craftItemSelected, (6 * i) + 5] != -1)
+				if (i < v_recieptItem[v_craftItemSelected, 2])
 				{
-					for (var j = 0; j < mcInventoryProperties; j++)
+					if (v_recieptItemSlot[v_craftItemSelected, (6 * i) + 5] != -1)
 					{
-						tmp_propertiesArray[j] += v_slotProperty[v_recieptItemSlot[v_craftItemSelected, (6 * i) + 5], j];			
-					}					
+						for (var j = 0; j < mcInventoryProperties; j++)
+						{
+							tmp_propertiesArray[j] += v_slotProperty[v_recieptItemSlot[v_craftItemSelected, (6 * i) + 5], j];	
+							tmp_propertiesArray[j] += v_slotPropertyStatic[v_recieptItemSlot[v_craftItemSelected, (6 * i) + 5], j];
+						}					
+					}
+				}
+				
+				if (i < v_recieptItem[v_craftItemSelected, 3])
+				{
+					if (v_recieptItemSlotOptional[v_craftItemSelected, (6 * i) + 5] != -1)
+					{
+						for (var j = 0; j < mcInventoryProperties; j++)
+						{
+							tmp_propertiesArray[j] += v_slotProperty[v_recieptItemSlotOptional[v_craftItemSelected, (6 * i) + 5], j];	
+							tmp_propertiesArray[j] += v_slotPropertyStatic[v_recieptItemSlotOptional[v_craftItemSelected, (6 * i) + 5], j];
+						}					
+					}
 				}
 			}
-		
+
 			for (var i = 0; i < mcInventoryProperties; i++)
 			{
 				tmp_a1 = libUtilityPropertyToString(i);
@@ -548,6 +639,7 @@ if (v_craftAlpha > 0.05)
 		
 		if (v_craftFinishAlpha > 0.05) {tmp_color = c_yellow;}
 		
+		// Confirm crafting
 		tmp_rec = libDrawTextStylized(v_formBaseMaxX + (v_slotOffsetX * v_slotsPerRow) / 2 + (v_slotSize * 4.5) + v_previewAlpha * (v_slotSize / 2) + 150, v_drawStartY + 260, _sc(__("Confirm"), tmp_color), min(v_craftAlpha, tmp_alpha, v_previewAlpha), true, 20, fntPixelSmall);
 		
 		if (point_in_rectangle(mouse_x, mouse_y, tmp_rec[0], tmp_rec[1], tmp_rec[2], tmp_rec[3]))
@@ -564,24 +656,42 @@ if (v_craftAlpha > 0.05)
 						var input_slot;
 						input_slot = cpContainerAdd(v_recieptItem[v_craftItemSelected, 4], 1);
 					
-						for (var j = 0; j < v_recieptItem[v_craftItemSelected, 2]; j++)
+						for (var j = 0; j < max(v_recieptItem[v_craftItemSelected, 2], v_recieptItem[v_craftItemSelected, 3]); j++)
 						{
 							for (var i = 0; i < mcInventoryProperties; i++)
 							{
-								v_slotProperty[input_slot, i] += v_slotProperty[v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5], i];							
+								if (j < v_recieptItem[v_craftItemSelected, 2])
+								{								
+									v_slotProperty[input_slot, i] += v_slotProperty[v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5], i];	
+								}
+								
+								if (j < v_recieptItem[v_craftItemSelected, 3])
+								{								
+									v_slotProperty[input_slot, i] += v_slotProperty[v_recieptItemSlotOptional[v_craftItemSelected, (6 * j) + 5], i];	
+								}								
+							}
+														
+							if (j < v_recieptItem[v_craftItemSelected, 2])
+							{
+								if (v_slot[v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5], e_inventoryAtributes.valItemNumber] <= 0) {cpInventoryHelperClearSlot(v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5]);}
+								v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5] = -1;
+								v_slot[v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5], e_inventoryAtributes.valItemNumber] -= v_recieptItemSlot[v_craftItemSelected, (6 * j) + 2];
 							}
 							
-							v_slot[v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5], e_inventoryAtributes.valItemNumber] -= v_recieptItemSlot[v_craftItemSelected, (6 * j) + 2];
+							if (j < v_recieptItem[v_craftItemSelected, 3])
+							{							
+								if (v_slot[v_recieptItemSlotOptional[v_craftItemSelected, (6 * j) + 5], e_inventoryAtributes.valItemNumber] <= 0) {cpInventoryHelperClearSlot(v_recieptItemSlotOptional[v_craftItemSelected, (6 * j) + 5]);}
+								v_recieptItemSlotOptional[v_craftItemSelected, (6 * j) + 5] = -1;
+								v_slot[v_recieptItemSlotOptional[v_craftItemSelected, (6 * j) + 5], e_inventoryAtributes.valItemNumber] -= v_recieptItemSlotOptional[v_craftItemSelected, (6 * j) + 2];
+							}
 							
-							if (v_slot[v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5], e_inventoryAtributes.valItemNumber] <= 0) {cpInventoryHelperClearSlot(v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5]);}
-							
-							v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5] = -1;
 						}
 					}					
 				}
 			}
 		}
 		
+		// Exit crafting
 		tmp_rec = libDrawTextStylized(v_formBaseMaxX + (v_slotOffsetX * v_slotsPerRow) / 2 + (v_slotSize * 4.5) + v_previewAlpha * (v_slotSize / 2) + 295, v_drawStartY + 260, _sc(__("Quit")), min(v_craftAlpha, tmp_alpha, v_previewAlpha), true, 20, fntPixelSmall);
 	
 		if (point_in_rectangle(mouse_x, mouse_y, tmp_rec[0], tmp_rec[1], tmp_rec[2], tmp_rec[3]))
@@ -605,51 +715,91 @@ if (v_craftAlpha > 0.05)
 	
 	if (tmp_flag) {v_tooltipAlpha = lerp(v_tooltipAlpha, 1, 0.1);} else {v_tooltipAlpha = 0;}
 	
-	for (var i = 0; i < v_recieptItem[v_craftItemSelected, 3]; i++)
-	{
-		draw_sprite_part(v_inventorySprite, 0, 30, 370, 40, 40, tmp_sx + (46 * 4), tmp_sy + (i * 46));
-	}
-	
-	if (tmp_drawTooltip != -1)
+	if (tmp_drawTooltip != -1 || tmp_drawTooltipOpt != -1)
 	{
 		// Check if we hold needed item
 		var tmp_color, tmp_string, tmp_array;
 		tmp_color = c_white;
 		tmp_string = "";
 		
-		if (v_recieptItemSlot[v_craftItemSelected, (6 * tmp_drawTooltip) + 5] != -1) {tmp_color = c_lime;}
+		if (tmp_drawTooltipOpt == -1)
+		{
+			if (v_recieptItemSlot[v_craftItemSelected, (6 * tmp_drawTooltip) + 5] != -1) {tmp_color = c_lime;}
+		}
+		else
+		{
+			if (v_recieptItemSlotOptional[v_craftItemSelected, (6 * tmp_drawTooltipOpt) + 5] != -1) {tmp_color = c_lime;}
+		}
 		
-		v_actualIndex = v_recieptItemSlot[v_craftItemSelected, (6 * tmp_drawTooltip) + 3];
-		//v_entireText = v_actualIndex + v_recieptItemSlot[v_craftItemSelected, (5 * tmp_drawTooltip) + 4];
-		v_midText = libUtilityParseTextColored("#" + v_recieptItemSlot[v_craftItemSelected, (6 * tmp_drawTooltip) + 4]);
-		v_entireText = libUtilityParseTextColored(v_actualIndex) + v_midText;
+		if (tmp_drawTooltipOpt == -1)
+		{		
+			v_actualIndex = v_recieptItemSlot[v_craftItemSelected, (6 * tmp_drawTooltip) + 3];
+			v_midText = libUtilityParseTextColored("#" + v_recieptItemSlot[v_craftItemSelected, (6 * tmp_drawTooltip) + 4]);
+		}
+		else
+		{
+			v_actualIndex = v_recieptItemSlotOptional[v_craftItemSelected, (6 * tmp_drawTooltipOpt) + 3];
+			v_midText = libUtilityParseTextColored("#" + v_recieptItemSlotOptional[v_craftItemSelected, (6 * tmp_drawTooltipOpt) + 4]);
+		}
 		
+		v_entireText = libUtilityParseTextColored(v_actualIndex) + v_midText;	
 		tmp_textClean = libUtilityParseTextColored(v_entireText, fntPixel);
 		
-		if (v_recieptItemSlot[v_craftItemSelected, (6 * tmp_drawTooltip)] != -1)
-		{
-			if (tmp_color == c_white) {tmp_infoText =  _sc(__("Requires")) + ": " + __(libUtilityItemToString(v_recieptItemSlot[v_craftItemSelected, (6 * tmp_drawTooltip)])) + " x" + string(v_recieptItemSlot[v_craftItemSelected, (6 * tmp_drawTooltip) + 2]) + "#";}
+		if (tmp_drawTooltipOpt == -1)
+		{	
+			if (v_recieptItemSlot[v_craftItemSelected, (6 * tmp_drawTooltip)] != -1)
+			{
+				if (tmp_color == c_white) {tmp_infoText =  _sc(__("Requires")) + ": " + __(libUtilityItemToString(v_recieptItemSlot[v_craftItemSelected, (6 * tmp_drawTooltip)])) + " x" + string(v_recieptItemSlot[v_craftItemSelected, (6 * tmp_drawTooltip) + 2]) + "#";}
+				else
+				{
+					// Build info string
+					tmp_string = "Slot bonus:#";
+				
+					for (var i = 0; i < mcInventoryProperties; i++)
+					{
+						tmp_array = libUtilityPropertyToString(i);
+			
+						if (tmp_array[1] == 0 && v_slotProperty[v_recieptItemSlot[v_craftItemSelected, (6 * tmp_drawTooltip) + 5], i] != 0)
+						{
+							tmp_string += tmp_array[0] + ": " + _sc(string(v_slotProperty[v_recieptItemSlot[v_craftItemSelected, (6 * tmp_drawTooltip) + 5], i])) + "#";
+						}			
+					}
+				
+					tmp_infoText = tmp_string;
+				}
+			}
 			else
 			{
-				// Build info string
-				tmp_string = "Slot bonus:#";
-				
-				for (var i = 0; i < mcInventoryProperties; i++)
-				{
-					tmp_array = libUtilityPropertyToString(i);
-			
-					if (tmp_array[1] == 0 && v_slotProperty[v_recieptItemSlot[v_craftItemSelected, (6 * tmp_drawTooltip) + 5], i] != 0)
-					{
-						tmp_string += tmp_array[0] + ": " + _sc(string(v_slotProperty[v_recieptItemSlot[v_craftItemSelected, (6 * tmp_drawTooltip) + 5], i])) + "#";
-					}			
-				}
-				
-				tmp_infoText = tmp_string;
+				tmp_infoText = "";
 			}
 		}
 		else
 		{
-			tmp_infoText = "";
+			if (v_recieptItemSlotOptional[v_craftItemSelected, (6 * tmp_drawTooltipOpt)] != -1)
+			{
+				if (tmp_color == c_white) {tmp_infoText =  _sc(__("Requires")) + ": " + __(string(libUtilityItemToString(v_recieptItemSlotOptional[v_craftItemSelected, (6 * tmp_drawTooltipOpt)]))) + " x" + string(v_recieptItemSlotOptional[v_craftItemSelected, (6 * tmp_drawTooltipOpt) + 2]) + "#";}
+				else
+				{
+					// Build info string
+					tmp_string = "Slot bonus:#";
+				
+					for (var i = 0; i < mcInventoryProperties; i++)
+					{
+						tmp_array = libUtilityPropertyToString(i);
+			
+						if (tmp_array[1] == 0 && v_slotProperty[v_recieptItemSlotOptional[v_craftItemSelected, (6 * tmp_drawTooltipOpt) + 5], i] != 0)
+						{
+							tmp_string += tmp_array[0] + ": " + _sc(string(v_slotProperty[v_recieptItemSlotOptional[v_craftItemSelected, (6 * tmp_drawTooltipOpt) + 5], i])) + "#";
+						}			
+					}
+				
+					tmp_infoText = tmp_string;
+				}
+			}
+			else
+			{
+				tmp_infoText = "";
+			}			
 		}
 
 		 fnt(fntPixel);

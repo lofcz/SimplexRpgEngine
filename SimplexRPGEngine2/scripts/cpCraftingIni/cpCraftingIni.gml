@@ -96,6 +96,8 @@ for (var j = 0; j < 2; j++)
 	}
 }
 
+
+
 // Bound slots to reciept [reciept_id, {neededItem, materialType, numberOfNeededItems, SlotName, slotDesc, actualItemInSlot}]
 v_recieptItemSlot[0, 0] = e_items.valSwordWooden;
 v_recieptItemSlot[0, 1] = -1;
@@ -198,11 +200,18 @@ v_recieptItemSlot[1, 11] = -1;
 // crafting slots optional
 for (var j = 0; j < 2; j++)
 {
-	for (var i = 0; i < 3 * v_recieptItem[j, 3]; i++)
+	for (var i = 0; i < 7 * v_recieptItem[j, 3]; i++)
 	{
 		v_recieptItemSlotOptional[j, i] = 0;
 	}
 }
+
+v_recieptItemSlotOptional[1, 0] = e_items.valPearlGreen; // Item we need (-1 if we want material slot)
+v_recieptItemSlotOptional[1, 1] = -1; // Material type we need (-1 if we want item specific slot)
+v_recieptItemSlotOptional[1, 2] = 1; // How many times we need item to be placed in slot
+v_recieptItemSlotOptional[1, 3] = "Pearl"; // Slot title
+v_recieptItemSlotOptional[1, 4] = "Enchant blade with a pearl"; // Slot description
+v_recieptItemSlotOptional[1, 5] = -1; // Always -1 (current item in slot)
 
 ds_list_add(g_itemsList, 1);
 ds_list_add(g_itemsList, 0);
