@@ -531,7 +531,6 @@ if (v_craftAlpha > 0.05)
 			
 			v_drawPreview = true;
 		}
-		else {tmp_ready = false;}
 		
 		tmp_ly += 46;
 	}	
@@ -654,35 +653,30 @@ if (v_craftAlpha > 0.05)
 					if (tmp_freeSlot != -1)
 					{
 						var input_slot;
-						input_slot = cpContainerAdd(v_recieptItem[v_craftItemSelected, 4], 1);
-					
-						for (var j = 0; j < max(v_recieptItem[v_craftItemSelected, 2], v_recieptItem[v_craftItemSelected, 3]); j++)
+						input_slot = cpContainerAdd(v_recieptItem[v_craftItemSelected, 4], 1, id, false);
+						
+						for (var i = 0; i < mcInventoryProperties; i++)
 						{
-							for (var i = 0; i < mcInventoryProperties; i++)
-							{
-								if (j < v_recieptItem[v_craftItemSelected, 2])
-								{								
-									v_slotProperty[input_slot, i] += v_slotProperty[v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5], i];	
-								}
-								
-								if (j < v_recieptItem[v_craftItemSelected, 3])
-								{								
-									v_slotProperty[input_slot, i] += v_slotProperty[v_recieptItemSlotOptional[v_craftItemSelected, (6 * j) + 5], i];	
-								}								
-							}
-														
+							v_slotProperty[input_slot, i] = tmp_propertiesArray[i];
+						}		
+						
+						for (var j = 0; j < max(v_recieptItem[v_craftItemSelected, 2], v_recieptItem[v_craftItemSelected, 3]); j++)
+						{						
 							if (j < v_recieptItem[v_craftItemSelected, 2])
 							{
+								v_slot[v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5], e_inventoryAtributes.valItemNumber] -= v_recieptItemSlot[v_craftItemSelected, (6 * j) + 2];
 								if (v_slot[v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5], e_inventoryAtributes.valItemNumber] <= 0) {cpInventoryHelperClearSlot(v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5]);}
 								v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5] = -1;
-								v_slot[v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5], e_inventoryAtributes.valItemNumber] -= v_recieptItemSlot[v_craftItemSelected, (6 * j) + 2];
 							}
 							
 							if (j < v_recieptItem[v_craftItemSelected, 3])
-							{							
-								if (v_slot[v_recieptItemSlotOptional[v_craftItemSelected, (6 * j) + 5], e_inventoryAtributes.valItemNumber] <= 0) {cpInventoryHelperClearSlot(v_recieptItemSlotOptional[v_craftItemSelected, (6 * j) + 5]);}
-								v_recieptItemSlotOptional[v_craftItemSelected, (6 * j) + 5] = -1;
-								v_slot[v_recieptItemSlotOptional[v_craftItemSelected, (6 * j) + 5], e_inventoryAtributes.valItemNumber] -= v_recieptItemSlotOptional[v_craftItemSelected, (6 * j) + 2];
+							{		
+								if (v_recieptItemSlotOptional[v_craftItemSelected, (6 * j) + 5] != -1)
+								{
+									v_slot[v_recieptItemSlotOptional[v_craftItemSelected, (6 * j) + 5], e_inventoryAtributes.valItemNumber] -= v_recieptItemSlotOptional[v_craftItemSelected, (6 * j) + 2];
+									if (v_slot[v_recieptItemSlotOptional[v_craftItemSelected, (6 * j) + 5], e_inventoryAtributes.valItemNumber] <= 0) {cpInventoryHelperClearSlot(v_recieptItemSlotOptional[v_craftItemSelected, (6 * j) + 5]);}
+									v_recieptItemSlotOptional[v_craftItemSelected, (6 * j) + 5] = -1;
+								}
 							}
 							
 						}
@@ -705,7 +699,16 @@ if (v_craftAlpha > 0.05)
 						v_slot[v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5], e_inventoryAtributes.valBeingUsed] = false;
 						v_recieptItemSlot[v_craftItemSelected, (6 * j) + 5] = -1;
 					}
-				}				
+				}	
+				
+				for (var j = 0; j < v_recieptItem[v_craftItemSelected, 3]; j++)
+				{						
+					if (v_recieptItemSlotOptional[v_craftItemSelected, (6 * j) + 5] != -1)
+					{
+						v_slot[v_recieptItemSlotOptional[v_craftItemSelected, (6 * j) + 5], e_inventoryAtributes.valBeingUsed] = false;
+						v_recieptItemSlotOptional[v_craftItemSelected, (6 * j) + 5] = -1;
+					}
+				}
 			}
 		}
 	}
