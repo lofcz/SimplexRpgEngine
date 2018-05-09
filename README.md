@@ -1,6 +1,6 @@
 <img src="https://img.shields.io/badge/Verze-1.0%20RC1-brightgreen.svg"> <img src="https://img.shields.io/badge/Status-V%20po%C5%99%C3%A1dku-green.svg"> <img src="https://img.shields.io/badge/License-LGPL2.1-blue.svg">
 <br><br>
-<img align="middle" src="https://s17.postimg.org/hxjpe7lsv/Logomakr_6_U3cls.png">
+<img align="middle" src="https://s17.postimg.cc/hxjpe7lsv/Logomakr_6_U3cls.png">
 <br>
 
 ## Moderní RPG Engine, redefinující JRPG žánr.
@@ -16,29 +16,29 @@
 * Zcela zdarma, otevřený zrojový kód, LGPL2.1 licence.
 
 ## Podporované vývojové prostředí:
-<img align="middle" width="128" height="128" src="https://s21.postimg.org/vghqza03r/rounded_corners.png">
-<img align="middle" src="https://s10.postimg.org/tvc4uhp3t/Lateralgmlogo.png">
-<img align="middle" width="128" height="128" src="https://s15.postimg.org/jrlizdqor/rounded_corners.jpg">
+<img align="middle" width="128" height="128" src="https://s21.postimg.cc/vghqza03r/rounded_corners.png">
+<img align="middle" src="https://s10.postimg.cc/tvc4uhp3t/Lateralgmlogo.png">
+<img align="middle" width="128" height="128" src="https://s15.postimg.cc/jrlizdqor/rounded_corners.jpg">
 
 ## Výběr z úspěšných projektů, poháněných Simplex RPG Enginem:
 **Fate of Hero** (Kedarsoft)  
 *Úspěšná kampaň na startovac.cz, vybraná částka: 10 000 czk*   
-<a href="https://www.startovac.cz/projekty/fate-of-hero/">![](http://s13.postimg.org/u6dvlctif/5303_aaaa_png_200x113.png)</a>
+<a href="https://www.startovac.cz/projekty/fate-of-hero/">![](http://s13.postimg.cc/u6dvlctif/5303_aaaa_png_200x113.png)</a>
 
 **Shuups** (K&P Games)  
 *Zveřejněno na Google Play*   
-<a href="https://play.google.com/store/apps/details?id=sk.KandPGames.Shuups">![](http://s21.postimg.org/wpxsja7o7/Noname.png)</a>
+<a href="https://play.google.com/store/apps/details?id=sk.KandPGames.Shuups">![](http://s21.postimg.cc/wpxsja7o7/Noname.png)</a>
 
 ## Engine preview 
-<img align="middle" width="256" height="196" src="https://s11.postimg.org/45t1jf2kz/Noname1.png">
-<img align="middle" width="256" height="196" src="https://s9.postimg.org/4mce74ohb/Noname.png">
-<img align="middle" width="256" height="196" src="https://s11.postimg.org/5b7gc0l03/Noname3.png">
-<img align="middle" width="256" height="196" src="https://s16.postimg.org/sqa4kye1x/Noname4.png">
-<img align="middle" width="256" height="196" src="https://s16.postimg.org/lu7br103p/Noname5.png">
-<img align="middle" width="256" height="196" src="https://s16.postimg.org/mlgwuy7yt/Noname6.png">
-<img align="middle" width="256" height="196" src="https://s17.postimg.org/4j0stsy8f/Noname7.png">
-<img align="middle" width="256" height="196" src="https://s18.postimg.org/em61b12d5/Noname8.png">
-<img align="middle" width="256" height="196" src="https://s15.postimg.org/up5oq2nsr/Noname9.png">
+<img align="middle" width="256" height="196" src="https://s11.postimg.cc/45t1jf2kz/Noname1.png">
+<img align="middle" width="256" height="196" src="https://s9.postimg.cc/4mce74ohb/Noname.png">
+<img align="middle" width="256" height="196" src="https://s11.postimg.cc/5b7gc0l03/Noname3.png">
+<img align="middle" width="256" height="196" src="https://s16.postimg.cc/sqa4kye1x/Noname4.png">
+<img align="middle" width="256" height="196" src="https://s16.postimg.cc/lu7br103p/Noname5.png">
+<img align="middle" width="256" height="196" src="https://s16.postimg.cc/mlgwuy7yt/Noname6.png">
+<img align="middle" width="256" height="196" src="https://s17.postimg.cc/4j0stsy8f/Noname7.png">
+<img align="middle" width="256" height="196" src="https://s18.postimg.cc/em61b12d5/Noname8.png">
+<img align="middle" width="256" height="196" src="https://s15.postimg.cc/up5oq2nsr/Noname9.png">
 
 
 
