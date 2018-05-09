@@ -1,6 +1,6 @@
 <img src="https://img.shields.io/badge/version-2.0%20P--DEV-brightgreen.svg"> <img src="https://img.shields.io/shippable/5444c5ecb904a4b21567b0ff.svg"> <img src="https://img.shields.io/badge/license-GPL3-blue.svg">
 <br><br>
-<img align="middle" src="https://s15.postimg.org/hb1fpm51n/logo.png">
+<img align="middle" src="https://s15.postimg.cc/hb1fpm51n/logo.png">
 <br>
 
 ## Modern RPG Engine that redifines the JRPG genre.
@@ -27,12 +27,12 @@
 
 
 ## Supported IDEs:
-<img align="middle" width="128" height="128" src="https://s21.postimg.org/vghqza03r/rounded_corners.png"> <img align="middle" src="https://s10.postimg.org/tvc4uhp3t/Lateralgmlogo.png"> <img align="middle" width="128" height="128" src="https://s15.postimg.org/jrlizdqor/rounded_corners.jpg"> <img align="middle" width="128" height="128" src="https://s21.postimg.org/pisaduls7/rounded_corners.png">  
+<img align="middle" width="128" height="128" src="https://s21.postimg.cc/vghqza03r/rounded_corners.png"> <img align="middle" src="https://s10.postimg.cc/tvc4uhp3t/Lateralgmlogo.png"> <img align="middle" width="128" height="128" src="https://s15.postimg.cc/jrlizdqor/rounded_corners.jpg"> <img align="middle" width="128" height="128" src="https://s21.postimg.cc/pisaduls7/rounded_corners.png">  
   
 *Note: Simplex RPG Engine 2 is build for GMS2 & SimplexIDE only. For usage on GMS1.4 or LateralGM head back to the Simplex1 branch.*
 
 ## Engine awards:
-<img align="middle" width="30%" height="30%" src="https://s15.postimg.org/w42yaw8rv/image.jpg"> <img align="middle" width="30%" height="30%" src="https://s15.postimg.org/xbwp07xez/image.jpg">
+<img align="middle" width="30%" height="30%" src="https://s15.postimg.cc/w42yaw8rv/image.jpg"> <img align="middle" width="30%" height="30%" src="https://s15.postimg.cc/xbwp07xez/image.jpg">
 
 **Winner of national and regional round of the SOČ competition.**  
 <a href="http://www.soc.cz/">Website</a>
@@ -41,21 +41,21 @@
 ## A handful of commercially successful projects powered by the Simplex RPG Engine:
 **Fate of Hero** (Kedarsoft)  
 *A successful crowdfunding campaign on Startovac.cz, 10 000 CZK (370 EUR) raised.*   
-<a href="https://www.startovac.cz/projekty/fate-of-hero/">![](https://s27.postimg.org/u9agoid37/image.png)</a>
+<a href="https://www.startovac.cz/projekty/fate-of-hero/">![](https://s27.postimg.cc/u9agoid37/image.png)</a>
 
 **Shuups** (K&P Games)  
 *Published on the Google Play*   
-<a href="https://play.google.com/store/apps/details?id=sk.KandPGames.Shuups">![](http://s21.postimg.org/wpxsja7o7/Noname.png)</a>
+<a href="https://play.google.com/store/apps/details?id=sk.KandPGames.Shuups">![](http://s21.postimg.cc/wpxsja7o7/Noname.png)</a>
 
 **Fire Braid** (Studio Camo)  
 *In dev, to be published on the Google play*  
-<img  width="30%" height="30%" src="https://s10.postimg.org/pto7gbtqx/image.png">
+<img  width="30%" height="30%" src="https://s10.postimg.cc/pto7gbtqx/image.png">
 
 
 ## Engine preview: 
-<img align="middle" width="256" height="196" src="https://s28.postimg.org/5wf0fchkt/image.png"> <img align="middle" width="256" height="196" src="https://s23.postimg.org/v8wvav5vv/image.png"> <img align="middle" width="256" height="196" src="https://s23.postimg.org/gmorl1uez/image.png">
-<img align="middle" width="256" height="196" src="https://s27.postimg.org/9bdyorsr7/image.png"> <img align="middle" width="256" height="196" src="https://s27.postimg.org/m03kjchur/image.png"> <img align="middle" width="256" height="196" src="https://s27.postimg.org/4jgle4ir7/image.png">
-<img align="middle" width="256" height="196" src="https://s23.postimg.org/m7jo1ymdn/image.png"> <img align="middle" width="256" height="196" src="https://s30.postimg.org/lj5rlrzcx/image.png"> <img align="middle" width="256" height="196" src="https://s23.postimg.org/itbvdjtsr/image.png">
+<img align="middle" width="256" height="196" src="https://s28.postimg.cc/5wf0fchkt/image.png"> <img align="middle" width="256" height="196" src="https://s23.postimg.cc/v8wvav5vv/image.png"> <img align="middle" width="256" height="196" src="https://s23.postimg.cc/gmorl1uez/image.png">
+<img align="middle" width="256" height="196" src="https://s27.postimg.cc/9bdyorsr7/image.png"> <img align="middle" width="256" height="196" src="https://s27.postimg.cc/m03kjchur/image.png"> <img align="middle" width="256" height="196" src="https://s27.postimg.cc/4jgle4ir7/image.png">
+<img align="middle" width="256" height="196" src="https://s23.postimg.cc/m7jo1ymdn/image.png"> <img align="middle" width="256" height="196" src="https://s30.postimg.cc/lj5rlrzcx/image.png"> <img align="middle" width="256" height="196" src="https://s23.postimg.cc/itbvdjtsr/image.png">
 
 ## The future is within your grasp. Start [here](https://github.com/lofcz/SimplexRpgEngine/wiki).
 
@@ -66,4 +66,4 @@ Do you have any questions, or have you created a game using Simplex and you want
 <sub><sup>Copyright © 2017 Matěj Štágl.</sup></sub>  
 <sub><sup><a href="https://github.com/lofcz/SimplexRpgEngine/wiki/Development-team">Development team</a></sup></sub>  
 <sub><sup>[Read the license, under which the project is available.](https://github.com/lofcz/SimplexRpgEngine/blob/master/license.md)</sup></sub>  
-<img src="https://s27.postimg.org/g2927jc2b/16426542_1438670869499293_2087437131_n.jpg" width="40" height="38"/>
+<img src="https://s27.postimg.cc/g2927jc2b/16426542_1438670869499293_2087437131_n.jpg" width="40" height="38"/>
