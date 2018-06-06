@@ -1,4 +1,4 @@
-/// @function draw_text_colored(x, y, text, w, font, baseColor)
+/// @function draw_text_colored(x, y, text, w, font, baseColor, scale)
 /// @desc Draws text using bbcode flags: _sc(color, string), _sb(string) [bold], _si(string) [italic], _sp(sprite, image, text)
 /// @arg {int} x X
 /// @arg {int} y Y
@@ -6,8 +6,9 @@
 /// @arg {int} w Max line width, simulating gm draw_ext format
 /// @arg {font} font Font to use
 /// @arg {color} baseColor Base color
+/// @arg {float} scale Text scale
 
-var tmp_input, tmp_sequenceState, tmp_currentColor, tmp_x, tmp_y, tmp_flagString, tmp_baseColor, tmp_startX, tmp_startY, tmp_flagActiveBold, tmp_boldDifY, tmp_flagActiveItalic, tmp_w, tmp_cW, tmp_font, tmp_flagSmall, tmp_flagSmallN;
+var tmp_input, tmp_sequenceState, tmp_currentColor, tmp_x, tmp_y, tmp_flagString, tmp_scale, tmp_baseColor, tmp_startX, tmp_startY, tmp_flagActiveBold, tmp_boldDifY, tmp_flagActiveItalic, tmp_w, tmp_cW, tmp_font, tmp_flagSmall, tmp_flagSmallN;
 tmp_baseColor = c_white;
 tmp_input = "This is [bold][color=" +string(c_yellow) + "]text[/color][/bold], bold and colored. #This is newline.#[italic]This is italic text[/italic]##And look, cute [icon=sItems,4] icon";
 tmp_sequenceState = "print";
@@ -22,6 +23,7 @@ tmp_w = -1;
 tmp_font = fntPixel;
 tmp_flagSmall = false;
 tmp_flagSmallN = false;
+tmp_scale = 1;
 
 if (argument_count > 0) {tmp_x = argument[0];}
 if (argument_count > 1) {tmp_y = argument[1];}
@@ -29,6 +31,7 @@ if (argument_count > 2) {tmp_input = argument[2];}
 if (argument_count > 3) {tmp_w = argument[3];}
 if (argument_count > 4) {tmp_font = argument[4];}
 if (argument_count > 5) {tmp_currentColor = argument[5]; tmp_baseColor = tmp_currentColor;}
+if (argument_count > 6) {tmp_scale = argument[6];}
 
 tmp_startX = tmp_x;
 tmp_startY = tmp_y;
@@ -42,16 +45,20 @@ if (tmp_w != -1)
 }
 
 tmp_sequenceState = "print";
+
+// If text is ending with a newline, remove it
+if (string_char_at(tmp_input, string_length(tmp_input)) == "#") {tmp_input = string_delete(tmp_input, string_length(tmp_input), 1); } 
+
 for (var i = 1; i <= string_length(tmp_input); i++)
 {
 	var tmp_char;
 	tmp_char = string_char_at(tmp_input, i);
 	
-	if (tmp_char == "#") {tmp_y += ((string_height("#") / 3) * 2) + 2; tmp_x = tmp_startX; continue;}
+	if (tmp_char == "#") {tmp_y += (((string_height("#") / 3) * 2) + 2) * tmp_scale; tmp_x = tmp_startX; continue;}
 	else if (tmp_char == "[") {tmp_sequenceState = "parseFlag"; continue;}
 	else if (tmp_char == "]") 
 	{
-		// First we deside if flag is closing or opening
+		// First we decide if flag is closing or opening
 		if (string_count("/", tmp_flagString) > 0)
 		{
 			if (string_count("color", tmp_flagString) > 0)
@@ -130,8 +137,8 @@ for (var i = 1; i <= string_length(tmp_input); i++)
 			if (tmp_flagSmall) {fnt(fntPixelTiny); if (!tmp_flagSmallN) {tmp_x -= fnt(tmp_font); tmp_w = string_width(tmp_char); fnt(fntPixelTiny);  tmp_x -= tmp_w - 2;} tmp_flagSmallN = true;}
 			else {tmp_flagSmallN = false;}
 			
-			draw_text_transformed(tmp_x, tmp_y - tmp_boldDifY / 2, tmp_char, 1, 1, -(tmp_flagActiveItalic * 5));
-			tmp_x += string_width(tmp_char);
+			draw_text_transformed(tmp_x, tmp_y - tmp_boldDifY / 2, tmp_char, tmp_scale, tmp_scale, -(tmp_flagActiveItalic * 5));
+			tmp_x += string_width(tmp_char) * tmp_scale;
 		}
 		
 		if (tmp_sequenceState == "parseFlag")
@@ -139,7 +146,6 @@ for (var i = 1; i <= string_length(tmp_input); i++)
 			tmp_flagString 	+= tmp_char;
 		}
 	}
-	
 }
 
 clr();
