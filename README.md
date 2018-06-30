@@ -16,7 +16,7 @@ as a result of winning an Intel ISEF-affiliated fair at a national level.**  
 
 _Note: All financial prizes are used to further improve quality of Simplex. For details about marketing see below._ 
   
-<img align="middle" src="https://s22.postimg.cc/53y5sjj0h/isef_logo.png"> <img align="middle" width="30%" height="30%" src="https://s1.postimg.cc/5lui02d0in/eucys-logo.jpg"> <img align="middle" width="20%" height="20%" src="https://s1.postimg.cc/7ee9l4xnkf/Bezejmenn.png"> <img align="middle" width="512" height="196" src="https://s1.postimg.cc/9s745xg9v3/20160118b.gif">
+<img align="middle" width="30%" height="30%" src="https://s22.postimg.cc/53y5sjj0h/isef_logo.png"> <img align="middle" width="30%" height="30%" src="https://s1.postimg.cc/5lui02d0in/eucys-logo.jpg"> <img align="middle" width="20%" height="20%" src="https://s1.postimg.cc/7ee9l4xnkf/Bezejmenn.png"> <img align="middle" width="512" height="196" src="https://s1.postimg.cc/9s745xg9v3/20160118b.gif">
 
 ## A handful of commercially successful projects powered by Simplex RPG Engine:
 **Fate of Hero** (Kedarsoft)  
