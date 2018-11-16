@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/lof/source/repos/SimplexRpgEngine3/SimplexRpgEngine3/Content/Sprites/DA_male1.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File>Sprites/elves.png</File>
+  </DestFiles>
+</SourceFileCollection>

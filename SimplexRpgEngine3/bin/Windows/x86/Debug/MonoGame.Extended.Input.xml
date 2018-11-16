@@ -1,0 +1,363 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MonoGame.Extended.Input</name>
+    </assembly>
+    <members>
+        <member name="T:MonoGame.Extended.Input.ExtendedPlayerIndex">
+            <summary>Player index enumeration with slots for 8 players</summary>
+        </member>
+        <member name="F:MonoGame.Extended.Input.ExtendedPlayerIndex.One">
+            <summary>First player</summary>
+        </member>
+        <member name="F:MonoGame.Extended.Input.ExtendedPlayerIndex.Two">
+            <summary>Second player</summary>
+        </member>
+        <member name="F:MonoGame.Extended.Input.ExtendedPlayerIndex.Three">
+            <summary>Third player</summary>
+        </member>
+        <member name="F:MonoGame.Extended.Input.ExtendedPlayerIndex.Four">
+            <summary>Fourth player</summary>
+        </member>
+        <member name="F:MonoGame.Extended.Input.ExtendedPlayerIndex.Five">
+            <summary>Fifth player</summary>
+        </member>
+        <member name="F:MonoGame.Extended.Input.ExtendedPlayerIndex.Six">
+            <summary>Sixth player</summary>
+        </member>
+        <member name="F:MonoGame.Extended.Input.ExtendedPlayerIndex.Seven">
+            <summary>Seventh player</summary>
+        </member>
+        <member name="F:MonoGame.Extended.Input.ExtendedPlayerIndex.Eight">
+            <summary>Eigth player</summary>
+        </member>
+        <member name="T:MonoGame.Extended.Input.InputListeners.GamePadEventArgs">
+            <summary>
+                This class contains all information resulting from events fired by
+                <see cref="T:MonoGame.Extended.Input.InputListeners.GamePadListener" />.
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.Input.InputListeners.GamePadEventArgs.PlayerIndex">
+            <summary>
+                The index of the controller.
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.Input.InputListeners.GamePadEventArgs.PreviousState">
+            <summary>
+                The state of the controller in the previous update.
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.Input.InputListeners.GamePadEventArgs.CurrentState">
+            <summary>
+                The state of the controller in this update.
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.Input.InputListeners.GamePadEventArgs.Button">
+            <summary>
+                The button that triggered this event, if appliable.
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.Input.InputListeners.GamePadEventArgs.ElapsedTime">
+            <summary>
+                The time elapsed since last event.
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.Input.InputListeners.GamePadEventArgs.TriggerState">
+            <summary>
+                If a TriggerMoved event, displays the responsible trigger's position.
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.Input.InputListeners.GamePadEventArgs.ThumbStickState">
+            <summary>
+                If a ThumbStickMoved event, displays the responsible stick's position.
+            </summary>
+        </member>
+        <member name="T:MonoGame.Extended.Input.InputListeners.GamePadListener">
+            <summary>
+                This is a listener that exposes several events for easier handling of gamepads.
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.Input.InputListeners.GamePadListener.CheckControllerConnections">
+            <summary>
+                If set to true, the static event <see cref="E:MonoGame.Extended.Input.InputListeners.GamePadListener.ControllerConnectionChanged" />
+                will fire when any controller changes in connectivity status.
+                <para>
+                    This functionality requires that you have one actively updating
+                    <see cref="!:InputListenerManager" />.
+                </para>
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.Input.InputListeners.GamePadListener.PlayerIndex">
+            <summary>
+                The index of the controller.
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.Input.InputListeners.GamePadListener.RepeatDelay">
+            <summary>
+                When a button is held down, the interval in which
+                ButtonRepeated fires. Value in milliseconds.
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.Input.InputListeners.GamePadListener.RepeatInitialDelay">
+            <summary>
+                The amount of time a button has to be held down
+                in order to fire ButtonRepeated the first time.
+                Value in milliseconds.
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.Input.InputListeners.GamePadListener.VibrationEnabled">
+            <summary>
+                Whether vibration is enabled for this controller.
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.Input.InputListeners.GamePadListener.VibrationStrengthLeft">
+            <summary>
+                General setting for the strength of the left motor.
+                This motor has a slow, deep, powerful rumble.
+                <para>
+                    This setting will modify all future vibrations
+                    through this listener.
+                </para>
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.Input.InputListeners.GamePadListener.VibrationStrengthRight">
+            <summary>
+                General setting for the strength of the right motor.
+                This motor has a snappy, quick, high-pitched rumble.
+                <para>
+                    This setting will modify all future vibrations
+                    through this listener.
+                </para>
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.Input.InputListeners.GamePadListener.TriggerDeltaTreshold">
+            <summary>
+                The treshold of movement that has to be met in order
+                for the listener to fire an event with the trigger's
+                updated position.
+                <para>
+                    In essence this defines the event's
+                    resolution.
+                </para>
+                At a value of 0 this will fire every time
+                the trigger's position is not 0f.
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.Input.InputListeners.GamePadListener.ThumbStickDeltaTreshold">
+            <summary>
+                The treshold of movement that has to be met in order
+                for the listener to fire an event with the thumbstick's
+                updated position.
+                <para>
+                    In essence this defines the event's
+                    resolution.
+                </para>
+                At a value of 0 this will fire every time
+                the thumbstick's position is not {x:0, y:0}.
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.Input.InputListeners.GamePadListener.TriggerDownTreshold">
+            <summary>
+                How deep the triggers have to be depressed in order to
+                register as a ButtonDown event.
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.Input.InputListeners.GamePadListener.ThumbstickDownTreshold">
+            <summary>
+                How deep the triggers have to be depressed in order to
+                register as a ButtonDown event.
+            </summary>
+        </member>
+        <member name="E:MonoGame.Extended.Input.InputListeners.GamePadListener.ControllerConnectionChanged">
+            <summary>
+                This event fires whenever a controller connects or disconnects.
+                <para>
+                    In order
+                    for it to work, the <see cref="P:MonoGame.Extended.Input.InputListeners.GamePadListener.CheckControllerConnections" /> property must
+                    be set to true.
+                </para>
+            </summary>
+        </member>
+        <member name="E:MonoGame.Extended.Input.InputListeners.GamePadListener.ButtonDown">
+            <summary>
+                This event fires whenever a button changes from the Up
+                to the Down state.
+            </summary>
+        </member>
+        <member name="E:MonoGame.Extended.Input.InputListeners.GamePadListener.ButtonUp">
+            <summary>
+                This event fires whenever a button changes from the Down
+                to the Up state.
+            </summary>
+        </member>
+        <member name="E:MonoGame.Extended.Input.InputListeners.GamePadListener.ButtonRepeated">
+            <summary>
+                This event fires repeatedly whenever a button is held sufficiently
+                long. Use this for things like menu navigation.
+            </summary>
+        </member>
+        <member name="E:MonoGame.Extended.Input.InputListeners.GamePadListener.ThumbStickMoved">
+            <summary>
+                This event fires whenever a thumbstick changes position.
+                <para>
+                    The parameter governing the sensitivity of this functionality
+                    is <see cref="P:MonoGame.Extended.Input.InputListeners.GamePadListenerSettings.ThumbStickDeltaTreshold" />.
+                </para>
+            </summary>
+        </member>
+        <member name="E:MonoGame.Extended.Input.InputListeners.GamePadListener.TriggerMoved">
+            <summary>
+                This event fires whenever a trigger changes position.
+                <para>
+                    The parameter governing the sensitivity of this functionality
+                    is <see cref="P:MonoGame.Extended.Input.InputListeners.GamePadListenerSettings.TriggerDeltaTreshold" />.
+                </para>
+            </summary>
+        </member>
+        <member name="M:MonoGame.Extended.Input.InputListeners.GamePadListener.Vibrate(System.Int32,System.Single,System.Single)">
+            <summary>
+                Send a vibration command to the controller.
+                Returns true if the operation succeeded.
+                <para>
+                    Motor values that are unset preserve
+                    their current vibration strength and duration.
+                </para>
+                Note: Vibration currently only works on select platforms,
+                like Monogame.Windows.
+            </summary>
+            <param name="durationMs">Duration of the vibration in milliseconds.</param>
+            <param name="leftStrength">
+                The strength of the left motor.
+                This motor has a slow, deep, powerful rumble.
+            </param>
+            <param name="rightStrength">
+                The strength of the right motor.
+                This motor has a snappy, quick, high-pitched rumble.
+            </param>
+            <returns>Returns true if the operation succeeded.</returns>
+        </member>
+        <member name="T:MonoGame.Extended.Input.InputListeners.GamePadListenerSettings">
+            <summary>
+                This is a class that contains settings to be used to initialise a <see cref="T:MonoGame.Extended.Input.InputListeners.GamePadListener" />.
+            </summary>
+            <seealso cref="!:InputListenerManager" />
+        </member>
+        <member name="M:MonoGame.Extended.Input.InputListeners.GamePadListenerSettings.#ctor(Microsoft.Xna.Framework.PlayerIndex,System.Boolean,System.Single,System.Single)">
+            <summary>
+                This is a class that contains settings to be used to initialise a <see cref="T:MonoGame.Extended.Input.InputListeners.GamePadListener" />.
+                <para>Note: There are a number of extra settings that are settable properties.</para>
+            </summary>
+            <param name="playerIndex">The index of the controller the listener will be tied to.</param>
+            <param name="vibrationEnabled">Whether vibration is enabled on the controller.</param>
+            <param name="vibrationStrengthLeft">
+                General setting for the strength of the left motor.
+                This motor has a slow, deep, powerful rumble.
+                This setting will modify all future vibrations
+                through this listener.
+            </param>
+            <param name="vibrationStrengthRight">
+                General setting for the strength of the right motor.
+                This motor has a snappy, quick, high-pitched rumble.
+                This setting will modify all future vibrations
+                through this listener.
+            </param>
+        </member>
+        <member name="P:MonoGame.Extended.Input.InputListeners.GamePadListenerSettings.PlayerIndex">
+            <summary>
+                The index of the controller.
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.Input.InputListeners.GamePadListenerSettings.RepeatDelay">
+            <summary>
+                When a button is held down, the interval in which
+                ButtonRepeated fires. Value in milliseconds.
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.Input.InputListeners.GamePadListenerSettings.RepeatInitialDelay">
+            <summary>
+                The amount of time a button has to be held down
+                in order to fire ButtonRepeated the first time.
+                Value in milliseconds.
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.Input.InputListeners.GamePadListenerSettings.VibrationEnabled">
+            <summary>
+                Whether vibration is enabled for this controller.
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.Input.InputListeners.GamePadListenerSettings.VibrationStrengthLeft">
+            <summary>
+                General setting for the strength of the left motor.
+                This motor has a slow, deep, powerful rumble.
+                <para>
+                    This setting will modify all future vibrations
+                    through this listener.
+                </para>
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.Input.InputListeners.GamePadListenerSettings.VibrationStrengthRight">
+            <summary>
+                General setting for the strength of the right motor.
+                This motor has a snappy, quick, high-pitched rumble.
+                <para>
+                    This setting will modify all future vibrations
+                    through this listener.
+                </para>
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.Input.InputListeners.GamePadListenerSettings.TriggerDeltaTreshold">
+            <summary>
+                The treshold of movement that has to be met in order
+                for the listener to fire an event with the trigger's
+                updated position.
+                <para>
+                    In essence this defines the event's
+                    resolution.
+                </para>
+                At a value of 0 this will fire every time
+                the trigger's position is not 0f.
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.Input.InputListeners.GamePadListenerSettings.ThumbStickDeltaTreshold">
+            <summary>
+                The treshold of movement that has to be met in order
+                for the listener to fire an event with the thumbstick's
+                updated position.
+                <para>
+                    In essence this defines the event's
+                    resolution.
+                </para>
+                At a value of 0 this will fire every time
+                the thumbstick's position is not {x:0, y:0}.
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.Input.InputListeners.GamePadListenerSettings.TriggerDownTreshold">
+            <summary>
+                How deep the triggers have to be depressed in order to
+                register as a ButtonDown event.
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.Input.InputListeners.GamePadListenerSettings.ThumbstickDownTreshold">
+            <summary>
+                How deep the triggers have to be depressed in order to
+                register as a ButtonDown event.
+            </summary>
+        </member>
+        <member name="T:MonoGame.Extended.Input.InputListeners.MouseListener">
+            <summary>
+                Handles mouse input.
+            </summary>
+            <remarks>
+                Due to nature of the listener, even when game is not in focus, listener will continue to be updated.
+                To avoid that, manual pause of Update() method is required whenever game loses focus.
+                To avoid having to do it manually, register listener to <see cref="T:MonoGame.Extended.Input.InputListeners.InputListenerComponent" />
+            </remarks>
+        </member>
+        <member name="P:MonoGame.Extended.Input.InputListeners.MouseListener.HasMouseMoved">
+            <summary>
+                Returns true if the mouse has moved between the current and previous frames.
+            </summary>
+            <value><c>true</c> if the mouse has moved; otherwise, <c>false</c>.</value>
+        </member>
+    </members>
+</doc>

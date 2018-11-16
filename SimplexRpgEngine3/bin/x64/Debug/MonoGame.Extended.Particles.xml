@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MonoGame.Extended.Particles</name>
+    </assembly>
+    <members>
+        <member name="T:MonoGame.Extended.Particles.LineSegment">
+            <summary>
+                Defines a part of a line that is bounded by two distinct end points.
+            </summary>
+        </member>
+        <member name="M:MonoGame.Extended.Particles.LineSegment.#ctor(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2)">
+            <summary>
+                Initializes a new instance of the <see cref="T:MonoGame.Extended.Particles.LineSegment" /> structure.
+            </summary>
+            <param name="point1"></param>
+            <param name="point2"></param>
+        </member>
+        <member name="T:MonoGame.Extended.Particles.Modifiers.Interpolators.ColorInterpolator">
+            <summary>
+            Defines a modifier which interpolates the color of a particle over the course of its lifetime.
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.Particles.Modifiers.Interpolators.Interpolator`1.StartValue">
+            <summary>
+            Gets or sets the intial value when the particles are created.
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.Particles.Modifiers.Interpolators.Interpolator`1.EndValue">
+            <summary>
+            Gets or sets the final value when the particles are retired.
+            </summary>
+        </member>
+        <member name="M:MonoGame.Extended.Particles.ParticleBuffer.Release(System.Int32)">
+            <summary>
+                Release the given number of particles or the most available.
+                Returns a started iterator to iterate over the new particles.
+            </summary>
+        </member>
+    </members>
+</doc>
