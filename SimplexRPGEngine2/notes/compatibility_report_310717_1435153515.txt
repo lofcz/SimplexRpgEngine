@@ -1,22 +1,0 @@
-Converting GML script : ${project_dir}\scripts\fnt\fnt.gml
-Converted description : /// @description  fnt(font)/// @function  fnt
-/// @param font
-
-Converting GML script : ${project_dir}\scripts\alg\alg.gml
-Converted description : /// @description  alg(halign / mode, valign / font)/// @function  alg
-/// @param halign / mode
-/// @param  valign / font
-
-Converting GML script : ${project_dir}\scripts\scl\scl.gml
-Converted description : /// @description  scl(xscale, yscale)/// @function  scl
-/// @param xscale
-/// @param  yscale
-
-Converting GML script : ${project_dir}\scripts\clr\clr.gml
-Converted description : /// @description  clr(color, alpha)/// @function  clr
-/// @param color
-/// @param  alpha
-
-Converting GML script : ${project_dir}\scripts\sfx\sfx.gml
-Converted description : /// @description  sfx(sound)/// @function  sfx
-/// @param sound

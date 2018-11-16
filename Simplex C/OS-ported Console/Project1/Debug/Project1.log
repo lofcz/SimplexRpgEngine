@@ -1,9 +1,0 @@
-﻿  Project1.cpp
-c:\users\lof\source\repos\project1\project1\project1.cpp(17): warning C4005: '_WIN32_WINNT': macro redefinition
-  c:\program files (x86)\windows kits\10\include\10.0.15063.0\shared\sdkddkver.h(213): note: see previous definition of '_WIN32_WINNT'
-c:\users\lof\source\repos\project1\project1\project1.cpp(63): warning C4172: returning address of local variable or temporary: id
-c:\users\lof\source\repos\project1\project1\project1.cpp(85): warning C4172: returning address of local variable or temporary: CPUBrandString
-  LINK : C:\Users\lof\source\repos\Project1\Debug\Project1.dll not found or not built by the last incremental link; performing full link
-     Creating library C:\Users\lof\source\repos\Project1\Debug\Project1.lib and object C:\Users\lof\source\repos\Project1\Debug\Project1.exp
-  Project1.vcxproj -> C:\Users\lof\source\repos\Project1\Debug\Project1.dll
-  Project1.vcxproj -> C:\Users\lof\source\repos\Project1\Debug\Project1.pdb (Partial PDB)

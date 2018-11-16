@@ -1,9 +1,0 @@
-﻿  Project1.cpp
-Project1.cpp(106): warning C4018: '<': signed/unsigned mismatch
-Project1.cpp(108): warning C4018: '<': signed/unsigned mismatch
-Project1.cpp(152): warning C4101: 'bSuccess': unreferenced local variable
-  .NETFramework,Version=v4.0.AssemblyAttributes.cpp
-  dllmain.obj : /DEBUG:FASTLINK is not supported when managed code is present; restarting link with /DEBUG:FULL
-     Creating library C:\Users\lof\source\repos\Project1\x64\Debug\Project1.lib and object C:\Users\lof\source\repos\Project1\x64\Debug\Project1.exp
-  Project1.vcxproj -> C:\Users\lof\source\repos\Project1\x64\Debug\Project1.dll
-  Project1.vcxproj -> C:\Users\lof\source\repos\Project1\x64\Debug\Project1.pdb (Partial PDB)

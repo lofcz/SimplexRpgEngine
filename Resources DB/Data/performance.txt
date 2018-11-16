@@ -1,2 +1,0 @@
-7a1e60e:              MIN | MAX | AVG    
-960gtx / 8 / win10:   7     227   207
