@@ -43,3 +43,7 @@ Events are aiming to imitate GMS native events while introducing some newcomers 
 - OnDraw - Equal to draw
 - OnEditorDraw - Occurs when object is drawn in room editor
 
+### Ported namespaces/functions
+- GameSave() - WIP
+- GameLoad() - WIP
+
