@@ -3,16 +3,21 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
+using SimplexCore;
 
 namespace SimplexIde
 {
+
     public partial class Form1 : Form
     {
+        Type selectedObject = null;
+
         public Form1()
         {
             InitializeComponent();
@@ -20,7 +25,7 @@ namespace SimplexIde
 
         private void drawTest1_Click(object sender, EventArgs e)
         {
-
+           
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -42,6 +47,22 @@ namespace SimplexIde
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            selectedObject = Type.GetType("SimplexResources.Objects." + e.Node.Text);
+            drawTest1.SelectedObject = selectedObject;
+        }
+
+        private void drawTest1_MouseClick(object sender, MouseEventArgs e)
+        {
+            drawTest1.GameClicked(e);
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            drawTest1.SaveGame(Path.Combine(Environment.CurrentDirectory, @"Data/save1.sav"));
         }
     }
 }

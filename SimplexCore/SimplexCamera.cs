@@ -7,6 +7,7 @@ using System.Text;
 
 namespace SimplexCore
 {
+    [Serializable]
     public class SimplexCamera
     {
         public Camera2D Camera;

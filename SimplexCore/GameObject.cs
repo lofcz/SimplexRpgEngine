@@ -1,14 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Serialization;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using SimplexResources.Objects;
 
 namespace SimplexCore
 {
+    [Serializable]
+    [XmlInclude(typeof(SampleObject))]
     public class GameObject
     {
         public Sprite Sprite;
         public Vector2 Position;
+
+        [XmlIgnore]
+        public Type OriginalType;
+
+        public string TypeString;
+
 
         public float ImageIndex
         {
@@ -52,10 +63,32 @@ namespace SimplexCore
             ImageScale = new Vector2(SimplexMath.Lerp(ImageScale.X, ImageScaleTarget.X, TransformSpeed), SimplexMath.Lerp(ImageScale.Y, ImageScaleTarget.Y, TransformSpeed));
         }
 
+        public virtual void DrawNode(SpriteBatch s, SpriteFont f)
+        {
+            s.DrawString(f, "1", Position, Color.White);
+        }
+
         public void UpdateState()
         {
             UpdateImageScale();
             UpdateImageAngle();
+        }
+
+
+        // Events
+        public virtual void OnCreate()
+        {
+
+        }
+
+        public virtual void OnStep()
+        {
+
+        }
+
+        public virtual void OnDraw()
+        {
+
         }
     }
 }

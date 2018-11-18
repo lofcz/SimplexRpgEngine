@@ -3,13 +3,19 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using System.Xml.Serialization;
 using Microsoft.Xna.Framework;
 
 namespace SimplexCore
 {
+    [Serializable]
     public class Sprite
     {
+        [XmlIgnore]
         public Texture2D Texture { get; set; }
+
+        public string TextureSource { get; set; }
+
         public int TextureRows { get; set; }
         public int TextureCellsPerRow { get; set; }
         public float ImageSpeed;
