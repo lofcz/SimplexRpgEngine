@@ -34,8 +34,8 @@
     </ImageRectangle>
     <FramesCount>0</FramesCount>
     <TextureSource>Sprites/elves</TextureSource>
-    <TextureRows>0</TextureRows>
-    <TextureCellsPerRow>0</TextureCellsPerRow>
+    <TextureRows>4</TextureRows>
+    <TextureCellsPerRow>7</TextureCellsPerRow>
     <ImageIndex>0</ImageIndex>
   </Sprite>
   <Position>

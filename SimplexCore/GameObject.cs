@@ -49,6 +49,7 @@ namespace SimplexCore
             ImageAngleTarget = 0;
             ImageIndex = 0;
             TransformSpeed = 0.2f;
+            Sprite = new Sprite();
         }
 
 

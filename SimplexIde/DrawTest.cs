@@ -51,7 +51,6 @@ namespace SimplexIde
                 o.Position = new Vector2(e.X, e.Y);
                 o.OriginalType = SelectedObject;
                 o.TypeString = SelectedObject.ToString();
-                o.Sprite = new Sprite();
 
                 SceneObjects.Add(o);
                 Debug.WriteLine("Scene object added");

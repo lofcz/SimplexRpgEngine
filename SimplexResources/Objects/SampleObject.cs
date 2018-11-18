@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics.PerformanceData;
 using System.Runtime.CompilerServices;
 using System.Text;
-using System.Windows.Forms;
 using System.Xml.Serialization;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -14,6 +13,11 @@ namespace SimplexResources.Objects
     [Serializable]
     public class SampleObject : GameObject
     {
+        public SampleObject()
+        {
+            Sprite.TextureSource = "Sprites/elves";
+        }
+
         public override void DrawNode(SpriteBatch s, SpriteFont f)
         {
             s.DrawString(f, "2", Position, Color.White);

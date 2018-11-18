@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using MonoGame.Extended.Gui;
 using MonoGame.Extended.Input.InputListeners;
+using MonoGame.Extended.Particles;
 using MonoGame.Extended.Screens;
 using MonoGame.Extended.ViewportAdapters;
 using SimplexCore;
@@ -26,6 +29,7 @@ namespace SimplexRpgEngine3
         KeyboardState prevState;
         SpriteFont sf;
 
+        List<GameObject> GameObjects = new List<GameObject>();
 
         public Game1()
         {
@@ -67,11 +71,26 @@ namespace SimplexRpgEngine3
             s.TextureRows = 2;
             s.FramesCount = s.GetFramesCount();
             sf = Content.Load<SpriteFont>("Fonts/font1");
-            // TODO: use this.Content to load your game content here
 
 
-        
-    }
+
+            XmlManager<GameObject> xml = new XmlManager<GameObject>();
+            xml.Type = typeof(GameObject);
+
+            GameObject go = xml.Load(Path.Combine(Environment.CurrentDirectory, @"Data/save1.sav"));
+            GameObjects.Add(go);
+
+            // We neeed to load back Textures2D (fucking bastards sitting in ram)
+            foreach (GameObject g in GameObjects)
+            {
+                if (!string.IsNullOrEmpty(g.Sprite.TextureSource))
+                {
+                    g.Sprite.Texture = Content.Load<Texture2D>(g.Sprite.TextureSource);
+                    g.Sprite.ImageSize = new Vector2(64, 64);
+                    g.Sprite.FramesCount = g.Sprite.GetFramesCount();
+                }
+            }
+        }
 
 
 
@@ -99,13 +118,16 @@ namespace SimplexRpgEngine3
 
             if (keyboardState.IsKeyDown(Keys.Down) & !prevState.IsKeyDown(Keys.Down))
             {
-                s.ImageIndex++;
-                Debug.WriteLine(s.ImageIndex);
+                GameObjects[0].Sprite.ImageIndex++;
             }
 
-            s.UpdateImageAngle();
-            s.UpdateImageScale();
-            s.UpdateImageRectangle();
+            foreach (GameObject g in GameObjects)
+            {
+                g.Sprite.UpdateImageAngle();
+                g.Sprite.UpdateImageScale();
+                g.Sprite.UpdateImageRectangle();
+            }
+
             cam.UpdatePosition();
             // TODO: Add your update logic here
 
@@ -121,7 +143,12 @@ namespace SimplexRpgEngine3
             Matrix transformMatrix = cam.Camera.GetViewMatrix();
 
             spriteBatch.Begin(transformMatrix: transformMatrix);
-            spriteBatch.Draw(s.Texture, new Vector2(400, 200), s.ImageRectangle, Color.White, s.ImageAngle, new Vector2(0, 0),  s.ImageScale, SpriteEffects.None, 1);
+            //spriteBatch.Draw(s.Texture, new Vector2(400, 200), s.ImageRectangle, Color.White, s.ImageAngle, new Vector2(0, 0),  s.ImageScale, SpriteEffects.None, 1);
+
+            foreach (GameObject g in GameObjects)
+            {
+                spriteBatch.Draw(g.Sprite.Texture, g.Position, g.Sprite.ImageRectangle, Color.White, s.ImageAngle, new Vector2(0, 0), g.Sprite.ImageScale, SpriteEffects.None, 1);
+            }
 
             spriteBatch.DrawString(sf, "Hello world", new Vector2(100, 100), Color.White);
             spriteBatch.End();
