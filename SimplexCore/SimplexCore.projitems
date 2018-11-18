@@ -9,7 +9,8 @@
     <Import_RootNamespace>SimplexCore</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Game1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SimplexCamera.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SimplexMath.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sprite.cs" />
   </ItemGroup>
