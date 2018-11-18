@@ -91,3 +91,6 @@ C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexRpgEngine3\obj\x64\Debug\S
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexRpgEngine3\obj\x64\Debug\SimplexRpgEngine3.exe
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexRpgEngine3\obj\x64\Debug\SimplexRpgEngine3.pdb
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexRpgEngine3\bin\x64\Debug\Content\Fonts\font1.xnb
+C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexRpgEngine3\bin\x64\Debug\MonoGame.Extended.NuclexGui.dll
+C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexRpgEngine3\bin\x64\Debug\MonoGame.Extended.NuclexGui.pdb
+C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexRpgEngine3\bin\x64\Debug\MonoGame.Extended.NuclexGui.xml

@@ -78,6 +78,9 @@
     <Reference Include="MonoGame.Extended.Input, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MonoGame.Extended.Input.1.1.0\lib\portable-net45+win8+wpa81\MonoGame.Extended.Input.dll</HintPath>
     </Reference>
+    <Reference Include="MonoGame.Extended.NuclexGui, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MonoGame.Extended.NuclexGui.1.1.0\lib\portable-net45+win8+wpa81\MonoGame.Extended.NuclexGui.dll</HintPath>
+    </Reference>
     <Reference Include="MonoGame.Extended.Particles, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MonoGame.Extended.Particles.1.1.0\lib\portable-net45+win8+wpa81\MonoGame.Extended.Particles.dll</HintPath>
     </Reference>

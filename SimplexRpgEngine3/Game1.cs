@@ -4,7 +4,9 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
+using MonoGame.Extended.Gui;
 using MonoGame.Extended.Input.InputListeners;
+using MonoGame.Extended.Screens;
 using MonoGame.Extended.ViewportAdapters;
 using SimplexCore;
 using Sprite = SimplexCore.Sprite;
@@ -24,8 +26,11 @@ namespace SimplexRpgEngine3
         KeyboardState prevState;
         SpriteFont sf;
 
+
         public Game1()
         {
+            IsMouseVisible = true;
+
             graphics = new GraphicsDeviceManager(this);
             graphics.PreferredBackBufferWidth = 1024;  
             graphics.PreferredBackBufferHeight = 768;   
@@ -53,6 +58,7 @@ namespace SimplexRpgEngine3
 
         protected override void LoadContent()
         {
+
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             s.Texture = Content.Load<Texture2D>("Sprites/elves");
@@ -62,7 +68,12 @@ namespace SimplexRpgEngine3
             s.FramesCount = s.GetFramesCount();
             sf = Content.Load<SpriteFont>("Fonts/font1");
             // TODO: use this.Content to load your game content here
-        }
+
+
+        
+    }
+
+
 
         protected override void UnloadContent()
         {
@@ -99,6 +110,7 @@ namespace SimplexRpgEngine3
             // TODO: Add your update logic here
 
             prevState = keyboardState;
+
             base.Update(gameTime);
         }
 
@@ -113,7 +125,7 @@ namespace SimplexRpgEngine3
 
             spriteBatch.DrawString(sf, "Hello world", new Vector2(100, 100), Color.White);
             spriteBatch.End();
-            
+
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);

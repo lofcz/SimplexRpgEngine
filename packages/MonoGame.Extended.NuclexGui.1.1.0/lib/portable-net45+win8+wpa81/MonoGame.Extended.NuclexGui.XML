@@ -1,0 +1,2775 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MonoGame.Extended.NuclexGui</name>
+    </assembly>
+    <members>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiButtonControl.Text">
+            <summary>Text that will be shown on the button</summary>
+        </member>
+        <member name="E:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiButtonControl.Pressed">
+            <summary>Will be triggered when the button is pressed</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiButtonControl.OnPressed">
+            <summary>Called when the button is pressed</summary>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiChoiceControl">
+            <summary>Control displaying an exclusive choice the user can select</summary>
+            <remarks>
+                The choice control is equivalent to a radio button - if more than one
+                choice control is on a dialog, only one can be selected at a time.
+                To have several choice groups on a dialog, use panels to group them.
+            </remarks>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiChoiceControl.Selected">
+            <summary>Whether the choice is currently selected</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiChoiceControl.Text">
+            <summary>Text that will be shown on the button</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiChoiceControl.DescriptionPosition">
+            <summary>Determines where text or image will be shown relative to control</summary>
+        </member>
+        <member name="E:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiChoiceControl.Changed">
+            <summary>Will be triggered when the choice is changed</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiChoiceControl.OnPressed">
+            <summary>Called when the button is pressed</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiChoiceControl.OnChanged">
+            <summary>Triggers the changed event</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiChoiceControl.UnselectSiblings">
+            <summary>Disables all sibling choices on the same level</summary>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiCloseWindowButtonControl">
+            <summary>Control for the X button in the top right corner of a window</summary>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiDraggableControl">
+            <summary>Control the user can drag around with the mouse</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiDraggableControl._beingDragged">
+            <summary>Whether the control is currently being dragged</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiDraggableControl._enableDragging">
+            <summary>Whether the control can be dragged</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiDraggableControl._pickupX">
+            <summary>X coordinate at which the control was picked up</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiDraggableControl._pickupY">
+            <summary>Y coordinate at which the control was picked up</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiDraggableControl.#ctor">
+            <summary>Initializes a new draggable control</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiDraggableControl.#ctor(System.Boolean)">
+            <summary>Initializes a new draggable control</summary>
+            <param name="canGetFocus">Whether the control can obtain the input focus</param>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiDraggableControl.EnableDragging">
+            <summary>Whether the control can be dragged with the mouse</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiDraggableControl.OnMouseMoved(System.Single,System.Single)">
+            <summary>Called when the mouse position is updated</summary>
+            <param name="x">X coordinate of the mouse cursor on the GUI</param>
+            <param name="y">Y coordinate of the mouse cursor on the GUI</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiDraggableControl.OnMousePressed(MonoGame.Extended.Input.InputListeners.MouseButton)">
+            <summary>Called when a mouse button has been pressed down</summary>
+            <param name="button">Index of the button that has been pressed</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiDraggableControl.OnMouseReleased(MonoGame.Extended.Input.InputListeners.MouseButton)">
+            <summary>Called when a mouse button has been released again</summary>
+            <param name="button">Index of the button that has been released</param>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiHorizontalSliderControl">
+            <summary>Horizontal slider that can be moved using the mouse</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiHorizontalSliderControl.GetThumbRegion">
+            <summary>Obtains the region covered by the slider's thumb</summary>
+            <returns>The region covered by the slider's thumb</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiHorizontalSliderControl.MoveThumb(System.Single,System.Single)">
+            <summary>Moves the thumb to the specified location</summary>
+            <returns>Location the thumb will be moved to</returns>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiInputControl">
+            <summary>Control through which the user can enter text</summary>
+            <remarks>
+                <para>
+                    Through this control, users can be asked to enter an arbitrary string
+                    of characters, their name for example. Desktop users can enter text through
+                    their normal keyboard where Windows' own key translation is used to
+                    support regional settings and custom keyboard layouts.
+                </para>
+                <para>
+                    XBox 360 users will open the virtual keyboard when the input box gets
+                    the input focus and can add characters by selecting them from the virtual
+                    keyboard's character matrix.
+                </para>
+            </remarks>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiInputControl._caretPosition">
+            <summary>Position of the cursor within the text</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiInputControl._lastCaretMovementTicks">
+            <summary>Tick count at the time the caret was last moved</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiInputControl._mouseX">
+            <summary>X coordinate of the last known mouse position</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiInputControl._mouseY">
+            <summary>Y coordinate of the last known mouse position</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiInputControl._singleCharArray">
+            <summary>Array used to store characters before they are appended</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiInputControl._text">
+            <summary>Text the user has entered into the text input control</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiInputControl.Enabled">
+            <summary>Whether user interaction with the control is allowed</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiInputControl.GuideDescription">
+            <summary>Description to be displayed in the on-screen keyboard</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiInputControl.GuideTitle">
+            <summary>Title to be displayed in the on-screen keyboard</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiInputControl.OpeningLocator">
+            <summary>
+                Can be set by renderers to enable cursor positioning by the mouse
+            </summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiInputControl.#ctor">
+            <summary>Initializes a new text input control</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiInputControl.CaretPosition">
+            <summary>Position of the cursor within the text</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiInputControl.HasFocus">
+            <summary>Whether the control currently has the input focus</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiInputControl.MillisecondsSinceLastCaretMovement">
+            <summary>Elapsed milliseconds since the user last moved the caret</summary>
+            <remarks>
+                This is an unusual property for an input box to have. It is retrieved by
+                the renderer and could be used for several purposes, such as lighting up
+                a control when text is entered to provide better visual tracking or
+                preventing the cursor from blinking whilst the user is typing.
+            </remarks>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiInputControl.Text">
+            <summary>Text that is being displayed on the control</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiInputControl.MonoGame#Extended#NuclexGui#Controls#IWritable#OnCharacterEntered(System.Char)">
+            <summary>Called when the user has entered a character</summary>
+            <param name="character">Character that has been entered</param>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiInputControl.MonoGame#Extended#NuclexGui#Controls#IFocusable#CanGetFocus">
+            <summary>Whether the control can currently obtain the input focus</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiInputControl.MonoGame#Extended#NuclexGui#Controls#IWritable#GuideTitle">
+            <summary>Title to be displayed in the on-screen keyboard</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiInputControl.MonoGame#Extended#NuclexGui#Controls#IWritable#GuideDescription">
+            <summary>Description to be displayed in the on-screen keyboard</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiInputControl.OnCharacterEntered(System.Char)">
+            <summary>Called when the user has entered a character</summary>
+            <param name="character">Character that has been entered</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiInputControl.OnKeyPressed(Microsoft.Xna.Framework.Input.Keys)">
+            <summary>Called when a key on the keyboard has been pressed down</summary>
+            <param name="keyCode">Code of the key that was pressed</param>
+            <returns>
+                True if the key press was handles by the control, otherwise false.
+            </returns>
+            <remarks>
+                If the control indicates that it didn't handle the key press, it will not
+                receive the associated key release notification.
+            </remarks>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiInputControl.OnMouseMoved(System.Single,System.Single)">
+            <summary>Called when the mouse position is updated</summary>
+            <param name="x">X coordinate of the mouse cursor on the control</param>
+            <param name="y">Y coordinate of the mouse cursor on the control</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiInputControl.OnMousePressed(MonoGame.Extended.Input.InputListeners.MouseButton)">
+            <summary>Called when a mouse button has been pressed down</summary>
+            <param name="button">Index of the button that has been pressed</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiInputControl.ProcessCharacter(System.Char)">
+            <summary>Handles user text input by a physical keyboard</summary>
+            <param name="character">Character that has been entered</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiInputControl.MoveCaretToEnd">
+            <summary>Moves the caret to the end of the text</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiInputControl.UpdateLastCaretMovementTicks">
+            <summary>Updates the tick count when the caret was last moved</summary>
+            <remarks>
+                Used to prevent the caret from blinking when
+            </remarks>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Controls.Desktop.ListSelectionMode">
+            <summary>How the list lets the user select items</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.ListSelectionMode.None">
+            <summary>The user is not allowed to select an item</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.ListSelectionMode.Single">
+            <summary>The user can select only one item</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.ListSelectionMode.Multi">
+            <summary>The user can pick any number of items</summary>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiListControl">
+            <summary>List showing a sequence of items</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiListControl._items">
+            <summary>Items contained in the list</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiListControl._listRowLocator">
+            <summary>
+                Row locator through which the list can detect which row the mouse has
+                been pressed down on
+            </summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiListControl._mouseY">
+            <summary>Last known Y coordinate of the mouse</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiListControl._selectedItems">
+            <summary>Items currently selected in the list</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiListControl._selectionMode">
+            <summary>How the list lets the user select from its items</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiListControl._slider">
+            <summary>Slider the lists uses to scroll through its items</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiListControl.SelectionMode">
+            <summary>How the user can select items in the list</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiListControl.Slider">
+            <summary>Slider the list uses to scroll through its items</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiListControl.Items">
+            <summary>Items being displayed in the list</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiListControl.SelectedItems">
+            <summary>Indices of the items current selected in the list</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiListControl.ListRowLocator">
+            <summary>
+                Can be set by renderers to enable selection of list items by mouse
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiListControl.MonoGame#Extended#NuclexGui#Controls#IFocusable#CanGetFocus">
+            <summary>Whether the control can currently obtain the input focus</summary>
+        </member>
+        <member name="E:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiListControl.SelectionChanged">
+            <summary>Triggered when the selected items in list have changed</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiListControl.OnMousePressed(MonoGame.Extended.Input.InputListeners.MouseButton)">
+            <summary>Called when a mouse button has been pressed down</summary>
+            <param name="button">Index of the button that has been pressed</param>
+            <remarks>
+                If this method states that a mouse press is processed by returning
+                true, that means the control did something with it and the mouse press
+                should not be acted upon by any other listener.
+            </remarks>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiListControl.OnRowClicked(System.Int32)">
+            <summary>Called when the user has clicked on a row in the list</summary>
+            <param name="row">Row the user has clicked on</param>
+            <remarks>
+                The default behavior of the list control in multi select mode is to
+                toggle items that are clicked between selected and unselected. If you
+                need different behavior (for example, dragging a selected region or
+                selecting sequences of items by holding the shift key), you can override
+                this method and handle the selection behavior yourself.
+            </remarks>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiListControl.OnMouseWheel(System.Single)">
+            <summary>Called when the mouse wheel has been rotated</summary>
+            <param name="ticks">Number of ticks that the mouse wheel has been rotated</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiListControl.OnMouseMoved(System.Single,System.Single)">
+            <summary>Called when the mouse position is updated</summary>
+            <param name="x">X coordinate of the mouse cursor on the control</param>
+            <param name="y">Y coordinate of the mouse cursor on the control</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiListControl.OnSelectionChanged">
+            <summary>Called when the selected items in the list have changed</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiListControl.ItemRemoved(System.Object,MonoGame.Extended.Collections.ItemEventArgs{System.String})">
+            <summary>Called when an item is removed from the items list</summary>
+            <param name="sender">List the item has been removed from</param>
+            <param name="arguments">Contains the item that has been removed</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiListControl.ItemAdded(System.Object,MonoGame.Extended.Collections.ItemEventArgs{System.String})">
+            <summary>Called when an item is added to the items list</summary>
+            <param name="sender">List the item has been added to</param>
+            <param name="arguments">Contains the item that has been added</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiListControl.ItemsCleared(System.Object,System.EventArgs)">
+            <summary>Called when the items list is about to clear itself</summary>
+            <param name="sender">Items list that is about to clear itself</param>
+            <param name="arguments">Not used</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiListControl.SelectionAdded(System.Object,MonoGame.Extended.Collections.ItemEventArgs{System.Int32})">
+            <summary>Called when an entry is added to the list of selected items</summary>
+            <param name="sender">List to which an item was added to</param>
+            <param name="arguments">Contains the added item</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiListControl.SelectionRemoved(System.Object,MonoGame.Extended.Collections.ItemEventArgs{System.Int32})">
+            <summary>
+                Called when an entry is removed from the list of selected items
+            </summary>
+            <param name="sender">List from which an item was removed</param>
+            <param name="arguments">Contains the removed item</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiListControl.SelectionCleared(System.Object,System.EventArgs)">
+            <summary>Called when the selected items list is about to clear itself</summary>
+            <param name="sender">List that is about to clear itself</param>
+            <param name="arguments">Not Used</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiListControl.UpdateSlider">
+            <summary>Updates the size and position of the list's slider</summary>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiOptionControl">
+            <summary>Control displaying an option the user can toggle on and off</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiOptionControl.Selected">
+            <summary>Whether the option is currently selected</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiOptionControl.Text">
+            <summary>Text that will be shown on the button</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiOptionControl.DescriptionPosition">
+            <summary>Determines where text or image will be shown relative to control</summary>
+        </member>
+        <member name="E:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiOptionControl.Changed">
+            <summary>Will be triggered when the choice is changed</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiOptionControl.OnPressed">
+            <summary>Called when the button is pressed</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiOptionControl.OnChanged">
+            <summary>Triggers the changed event</summary>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiResizableControl">
+            <summary>Control the user can drag around with the mouse</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiResizableControl._resizingSides">
+            <summary>Which sides are being resized</summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiResizableControl._resizingDirections" -->
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiResizableControl._beingResized">
+            <summary>Whether the control is currently being dragged</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiResizableControl._enableResizing">
+            <summary>Whether the control can be dragged</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiResizableControl._grabX">
+            <summary>X coordinate at which the control was grabbed</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiResizableControl._grabY">
+            <summary>Y coordinate at which the control was grabbed</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiResizableControl._borderThickness">
+            <summary>Width of Border</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiResizableControl.#ctor">
+            <summary>Initializes a new draggable control</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiResizableControl.#ctor(System.Boolean)">
+            <summary>Initializes a new draggable control</summary>
+            <param name="canGetFocus">Whether the control can obtain the input focus</param>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiResizableControl.EnableResizing">
+            <summary>Whether the control can be dragged with the mouse</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiResizableControl.OnMouseMoved(System.Single,System.Single)">
+            <summary>Called when the mouse position is updated</summary>
+            <param name="x">X coordinate of the mouse cursor on the GUI</param>
+            <param name="y">Y coordinate of the mouse cursor on the GUI</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiResizableControl.OnMousePressed(MonoGame.Extended.Input.InputListeners.MouseButton)">
+            <summary>Called when a mouse button has been pressed down</summary>
+            <param name="button">Index of the button that has been pressed</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiResizableControl.OnMouseReleased(MonoGame.Extended.Input.InputListeners.MouseButton)">
+            <summary>Called when a mouse button has been released again</summary>
+            <param name="button">Index of the button that has been released</param>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiSliderControl">
+            <summary>Base class for a slider that can be moved using the mouse</summary>
+            <remarks>
+                Implements the common functionality for a slider moving either the direction
+                of the X or the Y axis (but not both). Derive any scroll bar-like controls
+                from this class to simplify their implementation.
+            </remarks>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiSliderControl._mouseOverThumb">
+            <summary>Whether the mouse cursor is hovering over the thumb</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiSliderControl._pickupX">
+            <summary>X coordinate at which the thumb was picked up</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiSliderControl._pickupY">
+            <summary>Y coordinate at which the thumb was picked up</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiSliderControl._pressedDown">
+            <summary>Whether the slider's thumb is currently in the depressed state</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiSliderControl.ThumbLocator">
+            <summary>Can be set by renderers to allow the control to locate its thumb</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiSliderControl.ThumbPosition">
+            <summary>Position of the thumb within the slider (0.0 .. 1.0)</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiSliderControl.ThumbSize">
+            <summary>Fraction of the slider filled by the thumb (0.0 .. 1.0)</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiSliderControl.#ctor">
+            <summary>Initializes a new slider control</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiSliderControl.MouseOverThumb">
+            <summary>whether the mouse is currently hovering over the thumb</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiSliderControl.ThumbDepressed">
+            <summary>Whether the pressable control is in the depressed state</summary>
+        </member>
+        <member name="E:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiSliderControl.Moved">
+            <summary>Triggered when the slider has been moved</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiSliderControl.MoveThumb(System.Single,System.Single)">
+            <summary>Moves the thumb to the specified location</summary>
+            <returns>Location the thumb will be moved to</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiSliderControl.GetThumbRegion">
+            <summary>Obtains the region covered by the slider's thumb</summary>
+            <returns>The region covered by the slider's thumb</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiSliderControl.OnMousePressed(MonoGame.Extended.Input.InputListeners.MouseButton)">
+            <summary>Called when a mouse button has been pressed down</summary>
+            <param name="button">Index of the button that has been pressed</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiSliderControl.OnMouseReleased(MonoGame.Extended.Input.InputListeners.MouseButton)">
+            <summary>Called when a mouse button has been released again</summary>
+            <param name="button">Index of the button that has been released</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiSliderControl.OnMouseMoved(System.Single,System.Single)">
+            <summary>Called when the mouse position is updated</summary>
+            <param name="x">X coordinate of the mouse cursor on the control</param>
+            <param name="y">Y coordinate of the mouse cursor on the control</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiSliderControl.OnMouseLeft(System.Single,System.Single)">
+            <summary>
+                Called when the mouse has left the control and is no longer hovering over it
+            </summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiSliderControl.OnMoved">
+            <summary>Fires the slider's Moved event</summary>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiVerticalSliderControl">
+            <summary>Vertical slider that can be moved using the mouse</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiVerticalSliderControl.GetThumbRegion">
+            <summary>Obtains the region covered by the slider's thumb</summary>
+            <returns>The region covered by the slider's thumb</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiVerticalSliderControl.MoveThumb(System.Single,System.Single)">
+            <summary>Moves the thumb to the specified location</summary>
+            <param name="x">X coordinate for the new left border of the thumb</param>
+            <param name="y">Y coordinate for the new upper border of the thumb</param>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiWindowControl">
+            <summary>A window for hosting other controls</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiWindowControl.Title">
+            <summary>Text in the title bar of the window</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiWindowControl.#ctor">
+            <summary>Initializes a new window control</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiWindowControl.IsOpen">
+            <summary>Whether the window is currently open</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiWindowControl.EnableDragging">
+            <summary>Whether the window can be dragged with the mouse</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiWindowControl.EnableResizing">
+            <summary>Whether the window can be resized with the mouse</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.GuiWindowControl.Close">
+            <summary>Closes the window</summary>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Controls.Desktop.IListRowLocator">
+            <summary>
+                Interface which can be established between a control and its renderer to
+                allow a list control to locate the list row the cursor is in
+            </summary>
+            <remarks>
+                A renderer can implement this interface and assign it to a control that
+                it renders so the control can ask the renderer for extended informations
+                regarding the look of its text. If this interface is provided, certain
+                controls will be able to correctly place the caret in user-editable text
+                when they are clicked by the mouse.
+            </remarks>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.IListRowLocator.GetRow(MonoGame.Extended.RectangleF,System.Single,System.Int32,System.Single)">
+            <summary>Calculates the list row the cursor is in</summary>
+            <param name="bounds">
+                Boundaries of the control, should be in absolute coordinates
+            </param>
+            <param name="thumbPosition">
+                Position of the thumb in the list's slider
+            </param>
+            <param name="itemCount">
+                Number of items contained in the list
+            </param>
+            <param name="y">Vertical position of the cursor</param>
+            <returns>The row the cursor is over</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.IListRowLocator.GetRowHeight(MonoGame.Extended.RectangleF)">
+            <summary>Determines the height of a row displayed in the list</summary>
+            <param name="bounds">
+                Boundaries of the control, should be in absolute coordinates
+            </param>
+            <returns>The height of a single row in the list</returns>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Controls.Desktop.IOpeningLocator">
+            <summary>
+                Interface which can be established between a control and its renderer to
+                allow the control to locate openings between letters
+            </summary>
+            <remarks>
+                A renderer can implement this interface and assign it to a control that
+                it renders so the control can ask the renderer for extended informations
+                regarding the look of its text. If this interface is provided, certain
+                controls will be able to correctly place the caret in user-editable text
+                when they are clicked by the mouse.
+            </remarks>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.IOpeningLocator.GetClosestOpening(MonoGame.Extended.RectangleF,System.String,Microsoft.Xna.Framework.Vector2)">
+            <summary>
+                Calculates which opening between two letters is closest to a position
+            </summary>
+            <param name="bounds">
+                Boundaries of the control, should be in absolute coordinates
+            </param>
+            <param name="text">Text in which the nearest opening will be located</param>
+            <param name="position">
+                Position to which the closest opening will be found,
+                should be in absolute coordinates
+            </param>
+            <returns>The index of the opening closest to the provided position</returns>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Controls.Desktop.IThumbLocator">
+            <summary>
+                Interface which can be established between a control and its renderer to
+                allow a slider control to locate its thumb
+            </summary>
+            <remarks>
+                A renderer can implement this interface and assign it to a control that
+                it renders so the control can ask the renderer for extended informations
+                regarding the look of its text. If this interface is provided, certain
+                controls will be able to correctly place the caret in user-editable text
+                when they are clicked by the mouse.
+            </remarks>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.Desktop.IThumbLocator.GetThumbPosition(MonoGame.Extended.RectangleF,System.Single,System.Single)">
+            <summary>
+                Calculates the position of the thumb on a slider
+            </summary>
+            <param name="bounds">
+                Boundaries of the control, should be in absolute coordinates
+            </param>
+            <param name="thumbPosition">Relative position of the thumb (0.0 .. 1.0)</param>
+            <param name="thumbSize">Relative size of the thumb (0.0 .. 1.0)</param>
+            <returns>The region covered by the slider's thumb</returns>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Controls.GuiControl">
+            <summary>Represents an element in the user interface</summary>
+            <remarks>
+                <para>
+                    Controls are always arranged in a tree where each control except the one at
+                    the root of the tree has exactly one owner (the one at the root has no owner).
+                    The design actively prevents you from assigning a control as child to
+                    multiple parents.
+                </para>
+                <para>
+                    The controls in the Nuclex.UserInterface library are fully independent of
+                    their graphical representation. That means you can construct a dialog
+                    without even having a graphics device in place, that you can move your
+                    dialogs between different graphics devices and that you do not have to
+                    even think about graphics device resets and similar trouble.
+                </para>
+            </remarks>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.GuiControl._affectsOrdering">
+            <summary>Whether this control can obtain the input focus</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.GuiControl._children">
+            <summary>Child controls belonging to this control</summary>
+            <remarks>
+                Child controls are any controls that belong to this control. They don't
+                neccessarily need to be situated in this control's client area, but
+                their positioning will be relative to the parent's location.
+            </remarks>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.GuiControl._name">
+            <summary>Name of the control instance (for programmatic identification)</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.GuiControl._parent">
+            <summary>Control this control is contained in</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.GuiControl._screen">
+            <summary>GUI instance this control has been added to. Can be null.</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiControl.#ctor">
+            <summary>Initializes a new control</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiControl.#ctor(System.Boolean)">
+            <summary>Initializes a new control</summary>
+            <param name="affectsOrdering">
+                Whether the control comes to the top of the hierarchy when clicked
+            </param>
+            <remarks>
+                <para>
+                    The <paramref name="affectsOrdering" /> parameter should be set for windows
+                    and other free-floating panels which exist in parallel and which the user
+                    might want to put on top of their siblings by clicking them. If the user
+                    clicks on a child control of such a panel/window control, the panel/window
+                    control will also be moved into the foreground.
+                </para>
+                <para>
+                    It should not be set for normal controls which usually have no overlap,
+                    like buttons. Otherwise, a button placed on the desktop could overdraw a
+                    window when the button is clicked. The behavior would be well-defined and
+                    controlled, but the user probably doesn't expect this ;-)
+                </para>
+            </remarks>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.GuiControl.Bounds">
+            <summary>Location and extents of the control</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.GuiControl.Children">
+            <summary>Children of the control</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.GuiControl.AffectsOrdering">
+            <summary>
+                True if clicking the control or its children moves the control into
+                the foreground of the drawing hierarchy
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.GuiControl.Parent">
+            <summary>Parent control this control is contained in</summary>
+            <remarks>
+                Can be null, but this is only the case for free-floating controls that have
+                not been added into a Gui. The only control that really keeps this field
+                set to null whilst the Gui is active is the root control in the Gui class.
+            </remarks>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.GuiControl.Name">
+            <summary>Name that can be used to uniquely identify the control</summary>
+            <remarks>
+                This name acts as an unique identifier for a control. It primarily serves
+                as a means to programmatically identify the control and as a debugging aid.
+                Duplicate names are not allowed and will result in an exception being
+                thrown, the only exception is when the control's name is set to null.
+            </remarks>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.GuiControl.Screen">
+            <summary>GUI instance this control belongs to. Can be null.</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.GuiControl.MouseOverControl">
+            <summary>Control the mouse is currently over</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.GuiControl.ActivatedControl">
+            <summary>Control that currently captured incoming input</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiControl.BringToFront">
+            <summary>Moves the control into the foreground</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiControl.GetAbsoluteBounds">
+            <summary>Obtains the absolute boundaries of the control in screen coordinates</summary>
+            <returns>The control's absolute screen coordinate boundaries</returns>
+            <remarks>
+                This method resolves the unified coordinates into absolute screen coordinates
+                that can be used to do hit-testing and rendering. The control is required to
+                be part of a GUI hierarchy that is assigned to a screen for this to work
+                since otherwise, there's no absolute coordinate frame into which the
+                unified coordinates could be resolved.
+            </remarks>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiControl.OnCommand(MonoGame.Extended.NuclexGui.Input.Command)">
+            <summary>Called when an input command was sent to the control</summary>
+            <param name="command">Input command that has been triggered</param>
+            <returns>Whether the command has been processed by the control</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiControl.OnButtonPressed(Microsoft.Xna.Framework.Input.Buttons)">
+            <summary>Called when a button on the gamepad has been pressed</summary>
+            <param name="button">Button that has been pressed</param>
+            <returns>True if the button press was handled by the control, otherwise false.</returns>
+            <remarks>
+                If the control indicates that it didn't handle the key press, it will not
+                receive the associated key release notification.
+            </remarks>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiControl.OnButtonReleased(Microsoft.Xna.Framework.Input.Buttons)">
+            <summary>Called when a button on the gamepad has been released</summary>
+            <param name="button">Button that has been released</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiControl.OnMouseMoved(System.Single,System.Single)">
+            <summary>Called when the mouse position is updated</summary>
+            <param name="x">X coordinate of the mouse cursor on the control</param>
+            <param name="y">Y coordinate of the mouse cursor on the control</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiControl.OnMousePressed(MonoGame.Extended.Input.InputListeners.MouseButton)">
+            <summary>Called when a mouse button has been pressed down</summary>
+            <param name="button">Index of the button that has been pressed</param>
+            <returns>Whether the control has processed the mouse press</returns>
+            <remarks>
+                If this method states that a mouse press is processed by returning
+                true, that means the control did something with it and the mouse press
+                should not be acted upon by any other listener.
+            </remarks>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiControl.OnMouseReleased(MonoGame.Extended.Input.InputListeners.MouseButton)">
+            <summary>Called when a mouse button has been released again</summary>
+            <param name="button">Index of the button that has been released</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiControl.OnMouseLeft(System.Single,System.Single)">
+            <summary>
+                Called when the mouse has left the control and is no longer hovering over it
+            </summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiControl.OnMouseEntered">
+            <summary>
+                Called when the mouse has entered the control and is now hovering over it
+            </summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiControl.OnMouseWheel(System.Single)">
+            <summary>Called when the mouse wheel has been rotated</summary>
+            <param name="ticks">Number of ticks that the mouse wheel has been rotated</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiControl.OnKeyPressed(Microsoft.Xna.Framework.Input.Keys)">
+            <summary>Called when a key on the keyboard has been pressed down</summary>
+            <param name="keyCode">Code of the key that was pressed</param>
+            <returns>
+                True if the key press was handled by the control, otherwise false.
+            </returns>
+            <remarks>
+                If the control indicates that it didn't handle the key press, it will not
+                receive the associated key release notification. This means that if you
+                return false from this method, you should under no circumstances do anything
+                with the information - you will not know when the key is released again
+                and another control might pick it up, causing a second key response.
+            </remarks>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiControl.OnKeyReleased(Microsoft.Xna.Framework.Input.Keys)">
+            <summary>Called when a key on the keyboard has been released again</summary>
+            <param name="keyCode">Code of the key that was released</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiControl.ProcessCommand(MonoGame.Extended.NuclexGui.Input.Command)">
+            <summary>Called when a command was sent to the control</summary>
+            <param name="command">Command to be injected</param>
+            <returns>Whether the command has been processed</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiControl.SetParent(MonoGame.Extended.NuclexGui.Controls.GuiControl)">
+            <summary>Assigns a new parent to the control</summary>
+            <param name="parent">New parent to assign to the control</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiControl.SetScreen(MonoGame.Extended.NuclexGui.GuiScreen)">
+            <summary>Assigns a new GUI to the control</summary>
+            <param name="gui">New GUI to assign to the control</param>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.GuiControl._activatedControl">
+            <summary>Control the mouse was pressed down on</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.GuiControl._heldButtonCount">
+            <summary>Number of game pad buttons being held down</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.GuiControl._heldKeyCount">
+            <summary>Number of keyboard keys being held down</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.GuiControl._heldMouseButtons">
+            <summary>Mouse buttons the user is holding down over the control</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.GuiControl._mouseOverControl">
+            <summary>Control the mouse is currently hovering over</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.GuiControl.AnyKeysOrButtonsPressed">
+            <summary>Whether any keys, mouse buttons or game pad buttons are beind held pressed</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiControl.ProcessButtonPress(Microsoft.Xna.Framework.Input.Buttons)">
+            <summary>Called when a button on the game pad has been pressed</summary>
+            <param name="button">Button that has been pressed</param>
+            <returns>
+                True if the button press was processed by the control and future game pad
+                input belongs to the control until all buttons are released again
+            </returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiControl.ProcessButtonRelease(Microsoft.Xna.Framework.Input.Buttons)">
+            <summary>Called when a button on the game pad has been released</summary>
+            <param name="button">Button that has been released</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiControl.ProcessMouseLeave(System.Single,System.Single)">
+            <summary>
+                Called when the mouse has left the control and is no longer hovering over it
+            </summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiControl.ProcessMousePress(MonoGame.Extended.Input.InputListeners.MouseButton)">
+            <summary>Called when a mouse button has been pressed down</summary>
+            <param name="button">Index of the button that has been pressed</param>
+            <returns>Whether the control has processed the mouse press</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiControl.ProcessMouseRelease(MonoGame.Extended.Input.InputListeners.MouseButton)">
+            <summary>Called when a mouse button has been released again</summary>
+            <param name="button">Index of the button that has been released</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiControl.ProcessMouseMove(System.Single,System.Single,System.Single,System.Single)">
+            <summary>Processes mouse movement notifications</summary>
+            <param name="containerWidth">Absolute width of the control's container</param>
+            <param name="containerHeight">Absolute height of the control's container</param>
+            <param name="x">Absolute X position of the mouse within the container</param>
+            <param name="y">Absolute Y position of the mouse within the container</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiControl.ProcessMouseWheel(System.Single)">
+            <summary>Called when the mouse wheel has been rotated</summary>
+            <param name="ticks">Number of ticks that the mouse wheel has been rotated</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiControl.ProcessKeyPress(Microsoft.Xna.Framework.Input.Keys,System.Boolean)">
+            <summary>Called when a key on the keyboard has been pressed down</summary>
+            <param name="keyCode">Code of the key that was pressed</param>
+            <param name="repetition">Whether the key press is due to the user holding down a key</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiControl.ProcessKeyRelease(Microsoft.Xna.Framework.Input.Keys)">
+            <summary>Called when a key on the keyboard has been released again</summary>
+            <param name="keyCode">Code of the key that was released</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiControl.SwitchMouseOverControl(MonoGame.Extended.NuclexGui.Controls.GuiControl,System.Single,System.Single)">
+            <summary>Switches the mouse over control to a different control</summary>
+            <param name="newMouseOverControl">New control the mouse is hovering over</param>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Controls.ControlEventArgs">
+            <summary>Event argument class that carries a control instance</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.ControlEventArgs._control">
+            <summary>Control that will be accessible to the event subscribers</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.ControlEventArgs.#ctor(MonoGame.Extended.NuclexGui.Controls.GuiControl)">
+            <summary>Initializes a new control event args instance</summary>
+            <param name="control">Control to provide to the subscribers of the event</param>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.ControlEventArgs.Control">
+            <summary>Control that has been provided for the event</summary>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Controls.GuiDesktopControl">
+            <summary>Control used to represent the desktop</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiDesktopControl.#ctor">
+            <summary>Initializes a new control</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.GuiDesktopControl.IsMouseOverGui">
+            <summary>True if the mouse is currently hovering over a GUI element</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.GuiDesktopControl.IsInputCaptured">
+            <summary>Whether the GUI holds ownership of the input devices</summary>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Controls.GuiLabelControl">
+            <summary>Control that draws a block of text</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.GuiLabelControl.Text">
+            <summary>Text to be rendered in the control's frame</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.GuiLabelControl.Style">
+            <summary>
+            Gets or sets the style to be used with this label when drawing.
+            </summary>
+            <remarks>
+                <para>
+                    If you are using the FlatGuiVisualizer, this style
+                    corresponds to the 'Frames' used in 
+                    <see cref="T:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics"/>
+                    The style can be customized in the skin's json file.
+                </para>
+            </remarks>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiLabelControl.#ctor">
+            <summary>Initializes a new label control with an empty string</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiLabelControl.#ctor(System.String)">
+            <summary>Initializes a new label control</summary>
+            <param name="text">Text to be printed at the location of the label control</param>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Controls.GuiPressableDescriptionPosition">
+            <summary>
+            Determines where the text or image describing control will be located.
+            Used primarily for radio button and checkbox.
+            </summary>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Controls.GuiPressableControl">
+            <summary>User interface element the user can push down</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.GuiPressableControl._mouseHovering">
+            <summary>Whether the mouse is hovering over the command</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.GuiPressableControl._pressedDownByGamepadShortcut">
+            <summary>Whether the command is pressed down using the game pad shortcut</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.GuiPressableControl._pressedDownByKeyboard">
+            <summary>Whether the command is pressed down using the space key</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.GuiPressableControl._pressedDownByKeyboardShortcut">
+            <summary>Whether the command is pressed down using the keyboard shortcut</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.GuiPressableControl._pressedDownByMouse">
+            <summary>Whether the command is pressed down using the mouse</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.GuiPressableControl.Enabled">
+            <summary>Whether the user can interact with the choice</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.GuiPressableControl.ShortcutButton">
+            <summary>Button that can be pressed to activate this command</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiPressableControl.#ctor">
+            <summary>Initializes a new command control</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.GuiPressableControl.MouseHovering">
+            <summary>Whether the mouse pointer is hovering over the control</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.GuiPressableControl.Depressed">
+            <summary>Whether the pressable control is in the depressed state</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.GuiPressableControl.HasFocus">
+            <summary>Whether the control currently has the input focus</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.GuiPressableControl.MonoGame#Extended#NuclexGui#Controls#IFocusable#CanGetFocus">
+            <summary>Whether the control can currently obtain the input focus</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiPressableControl.OnMouseEntered">
+            <summary>
+                Called when the mouse has entered the control and is now hovering over it
+            </summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiPressableControl.OnMouseLeft(System.Single,System.Single)">
+            <summary>
+                Called when the mouse has left the control and is no longer hovering over it
+            </summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiPressableControl.OnMousePressed(MonoGame.Extended.Input.InputListeners.MouseButton)">
+            <summary>Called when a mouse button has been pressed down</summary>
+            <param name="button">Index of the button that has been pressed</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiPressableControl.OnMouseReleased(MonoGame.Extended.Input.InputListeners.MouseButton)">
+            <summary>Called when a mouse button has been released again</summary>
+            <param name="button">Index of the button that has been released</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiPressableControl.OnButtonPressed(Microsoft.Xna.Framework.Input.Buttons)">
+            <summary>Called when a button on the gamepad has been pressed</summary>
+            <param name="button">Button that has been pressed</param>
+            <returns>
+                True if the button press was handled by the control, otherwise false.
+            </returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiPressableControl.OnButtonReleased(Microsoft.Xna.Framework.Input.Buttons)">
+            <summary>Called when a button on the gamepad has been released</summary>
+            <param name="button">Button that has been released</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiPressableControl.OnKeyPressed(Microsoft.Xna.Framework.Input.Keys)">
+            <summary>Called when a key on the keyboard has been pressed down</summary>
+            <param name="keyCode">Code of the key that was pressed</param>
+            <returns>
+                True if the key press was handled by the control, otherwise false.
+            </returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiPressableControl.OnKeyReleased(Microsoft.Xna.Framework.Input.Keys)">
+            <summary>Called when a key on the keyboard has been released again</summary>
+            <param name="keyCode">Code of the key that was released</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiPressableControl.OnPressed">
+            <summary>Called when the control is pressed</summary>
+            <remarks>
+                If you were to implement a button, for example, you could trigger a 'Pressed'
+                event here are call a user-provided delegate, depending on your design.
+            </remarks>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.GuiPressableControl.KeyFromButton(Microsoft.Xna.Framework.Input.Buttons)">
+            <summary>Looks up the equivalent key to the gamepad button</summary>
+            <param name="button">
+                Gamepad button for which the equivalent key on the keyboard will be found
+            </param>
+            <returns>The key that is equivalent to the specified gamepad button</returns>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Controls.GuiProgressControl">
+            <summary>Visual indicator for the progress of some operation</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.GuiProgressControl.Progress">
+            <summary>The displayed progress in the range between 0.0 and 1.0</summary>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Controls.IFocusable">
+            <summary>Interface for controls which can obtain the input focus</summary>
+            <remarks>
+                Implement this interface in any control which can obtain the input focus.
+            </remarks>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.IFocusable.CanGetFocus">
+            <summary>Whether the control can currently obtain the input focus</summary>
+            <remarks>
+                Usually returns true. For controls that can be disabled to disallow user
+                interaction, false can be returned to prevent the control from being
+                traversed when the user presses the tab key or uses the cursor / game pad
+                to select a control.
+            </remarks>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Controls.IWritable">
+            <summary>
+                Interface for controls that can be written into using the keyboard
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.IWritable.GuideTitle">
+            <summary>Title to be displayed in the on-screen keyboard</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.IWritable.GuideDescription">
+            <summary>Description to be displayed in the on-screen keyboard</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Controls.IWritable.Text">
+            <summary>Text currently contained in the control</summary>
+            <remarks>
+                Called before the on-screen keyboard is displayed to get the text currently
+                contained in the control and after the on-screen keyboard has been
+                acknowledged to assign the edited text to the control
+            </remarks>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.IWritable.OnCharacterEntered(System.Char)">
+            <summary>Called when the user has entered a character</summary>
+            <param name="character">Character that has been entered</param>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Controls.ParentingControlCollection">
+            <summary>Collection of GUI controls</summary>
+            <remarks>
+                This class is for internal use only. Do not expose it to the user. If it was
+                exposed, the user might decide to use it for storing his own controls, causing
+                exceptions because the collection tries to parent the controls which are already
+                belonging to another collection.
+            </remarks>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.ParentingControlCollection._parent">
+            <summary> Parent control to assign to all controls in this collection. </summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Controls.ParentingControlCollection._screen">
+            <summary> GUI this control is currently assigned to. Can be null. </summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.ParentingControlCollection.#ctor(MonoGame.Extended.NuclexGui.Controls.GuiControl)">
+            <summary> Initializes a new parenting control collection. </summary>
+            <param name="parent">Parent control to assign to all children.</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.ParentingControlCollection.ClearItems">
+            <summary>Clears all elements from the collection</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.ParentingControlCollection.InsertItem(System.Int32,MonoGame.Extended.NuclexGui.Controls.GuiControl)">
+            <summary>Inserts a new element into the collection</summary>
+            <param name="index">Index at which to insert the element</param>
+            <param name="item">Item to be inserted</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.ParentingControlCollection.RemoveItem(System.Int32)">
+            <summary>Removes an element from the collection</summary>
+            <param name="index">Index of the element to remove</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.ParentingControlCollection.SetItem(System.Int32,MonoGame.Extended.NuclexGui.Controls.GuiControl)">
+            <summary>Takes over a new element that is directly assigned</summary>
+            <param name="index">Index of the element that was assigned</param>
+            <param name="item">New item</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.ParentingControlCollection.SetScreen(MonoGame.Extended.NuclexGui.GuiScreen)">
+            <summary>Switches the control to a specific GUI</summary>
+            <param name="screen">Screen that owns the control from now on</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.ParentingControlCollection.MoveToStart(System.Int32)">
+            <summary>Moves the specified control to the start of the list.</summary>
+            <param name="controlIndex">Index of the control that will be moved to the start of the list.</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.ParentingControlCollection.IsNameTaken(System.String)">
+            <summary>Checks whether the provided name is already taken by a control.</summary>
+            <param name="name">Id that will be checked.</param>
+            <returns>True if the id is already taken; otherwise false.</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.ParentingControlCollection.AssignParent(MonoGame.Extended.NuclexGui.Controls.GuiControl)">
+            <summary>Gives up the parentage on the item provided.</summary>
+            <param name="item">Item to be unparented.</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.ParentingControlCollection.UnassignParent(MonoGame.Extended.NuclexGui.Controls.GuiControl)">
+            <summary>Sets up the parentage on the specified item.</summary>
+            <param name="item">Item to be parented.</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.ParentingControlCollection.IsParent(MonoGame.Extended.NuclexGui.Controls.GuiControl)">
+            <summary>Determines whether the provided control is a parent of this control.</summary>
+            <param name="control">Control to check for parentage.</param>
+            <returns>True if the control is one of our parents; otherwise false.</returns>
+            <remarks>This method takes into account all ancestors up to the tree's root.</remarks>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Controls.ParentingControlCollection.EnsureIntegrity(MonoGame.Extended.NuclexGui.Controls.GuiControl)">
+            <summary>Ensures the integrity of the parent/child relationships.</summary>
+            <param name="proposedChild">Control that is to become one of our childs.</param>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.GuiManager._drawOrder">
+            <summary>Draw order rank relative to other game components</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.GuiManager._gameServices">
+            <summary>Game service container the GUI has registered itself in</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.GuiManager._graphicsDeviceService">
+            <summary>Graphics device servide the GUI uses</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.GuiManager._guiVisualizer">
+            <summary>Draws the GUI</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.GuiManager._inputCapturer">
+            <summary>Captures user input for the XNA game</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.GuiManager._inputService">
+            <summary>Input service the GUI uses</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.GuiManager._screen">
+            <summary>The GUI screen representing the desktop</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.GuiManager._updateableGuiVisualizer">
+            <summary>The IGuiVisualizer under its IUpdateable interface, if implemented</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.GuiManager._updateableInputCapturer">
+            <summary>The IInputCapturer under its IUpdateable interface, if implemented</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.GuiManager._updateOrder">
+            <summary>Update order rank relative to other game components</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.GuiManager._visible">
+            <summary>Whether the GUI should be drawn by Game.Draw()</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.GuiManager.#ctor(Microsoft.Xna.Framework.GameServiceContainer,MonoGame.Extended.NuclexGui.IGuiInputService)">
+            <summary>Initializes a new GUI manager using the XNA service container</summary>
+            <param name="gameServices">
+                Game service container the GuiManager will register itself in and
+                to take the services it consumes from.
+            </param>
+            <param name="inputService">The input service used by the GUI</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.GuiManager.#ctor(Microsoft.Xna.Framework.Graphics.IGraphicsDeviceService,MonoGame.Extended.NuclexGui.IGuiInputService)">
+            <summary>Initializes a new GUI manager without using the XNA service container</summary>
+            <param name="graphicsDeviceService">Graphics device service the GUI will be rendered with</param>
+            <param name="inputService">Input service used to read data from the input devices</param>
+            <remarks>This constructor is provided for users of dependency injection frameworks.</remarks>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.GuiManager.#ctor(Microsoft.Xna.Framework.GameServiceContainer,Microsoft.Xna.Framework.Graphics.IGraphicsDeviceService,MonoGame.Extended.NuclexGui.IGuiInputService)">
+            <summary>Initializes a new GUI manager using explicit services</summary>
+            <param name="gameServices">Game service container the GuiManager will register itself in</param>
+            <param name="graphicsDeviceService">Graphics device service the GUI will be rendered with</param>
+            <param name="inputService">Input service used to read data from the input devices</param>
+            <remarks>
+                This constructor is provided for users of dependency injection frameworks
+                or if you just want to be more explicit in stating which manager consumes
+                what services.
+            </remarks>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.GuiManager.InputCapturer">
+            <summary>Input capturer that collects data from the input devices</summary>
+            <remarks>
+                The GuiManager will dispose its input capturer together with itself. If you
+                want to keep the input capturer, unset it before disposing the GuiManager.
+                If you want to replace the GuiManager's input capturer after it has constructed
+                the default one, you should dispose the GuiManager's default input capturer
+                after assigning your own.
+            </remarks>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.GuiManager.Dispose">
+            <summary>Immediately releases all resources used the GUI manager</summary>
+        </member>
+        <member name="E:MonoGame.Extended.NuclexGui.GuiManager.DrawOrderChanged">
+            <summary>Fired when the DrawOrder property changes</summary>
+        </member>
+        <member name="E:MonoGame.Extended.NuclexGui.GuiManager.VisibleChanged">
+            <summary>Fired when the Visible property changes</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.GuiManager.Visible">
+            <summary>Whether the GUI should be drawn during Game.Draw()</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.GuiManager.DrawOrder">
+            <summary>
+                The order in which to draw this object relative to other objects. Objects
+                with a lower value are drawn first.
+            </summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.GuiManager.Draw(Microsoft.Xna.Framework.GameTime)">
+            <summary>Called when the drawable component needs to draw itself.</summary>
+            <param name="gameTime">Provides a snapshot of the game's timing values</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.GuiManager.Initialize">
+            <summary>Handles second-stage initialization of the GUI manager</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.GuiManager.Visualizer">
+            <summary>Visualizer that draws the GUI onto the screen</summary>
+            <remarks>
+                The GuiManager will dispose its visualizer together with itself. If you want
+                to keep the visualizer, unset it before disposing the GuiManager. If you want
+                to replace the GuiManager's visualizer after it has constructed the default
+                one, you should dispose the GuiManager's default visualizer after assigning
+                your own.
+            </remarks>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.GuiManager.Screen">
+            <summary>GUI that is being rendered</summary>
+            <remarks>
+                The GUI manager renders one GUI full-screen onto the primary render target
+                (the backbuffer). This property holds the GUI that is being managed by
+                the GUI manager component. You can replace it at any time, for example,
+                if the player opens or closes your ingame menu.
+            </remarks>
+        </member>
+        <member name="E:MonoGame.Extended.NuclexGui.GuiManager.UpdateOrderChanged">
+            <summary>Fired when the UpdateOrder property changes</summary>
+        </member>
+        <member name="E:MonoGame.Extended.NuclexGui.GuiManager.Microsoft#Xna#Framework#IUpdateable#EnabledChanged">
+            <summary>Fired when the enabled property changes, which is never</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.GuiManager.Microsoft#Xna#Framework#IUpdateable#Enabled">
+            <summary>Whether the component should be updated during Game.Update()</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.GuiManager.UpdateOrder">
+            <summary>
+                Indicates when the game component should be updated relative to other game
+                components. Lower values are updated first.
+            </summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.GuiManager.Update(Microsoft.Xna.Framework.GameTime)">
+            <summary>Called when the component needs to update its state.</summary>
+            <param name="gameTime">Provides a snapshot of the Game's timing values</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.GuiManager.OnUpdateOrderChanged">
+            <summary>Fires the UpdateOrderChanged event</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.GuiManager.OnDrawOrderChanged">
+            <summary>Fires the DrawOrderChanged event</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.GuiManager.OnVisibleChanged">
+            <summary>Fires the VisibleChanged event</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.GuiManager.GetInputService(System.IServiceProvider)">
+            <summary>Retrieves the input service from a service provider</summary>
+            <param name="serviceProvider">Service provider the input service is retrieved from</param>
+            <returns>The retrieved input service</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.GuiManager.GetGraphicsDeviceService(System.IServiceProvider)">
+            <summary>Retrieves the graphics device service from a service provider</summary>
+            <param name="serviceProvider">Service provider the graphics device service is retrieved from</param>
+            <returns>The retrieved graphics device service</returns>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.GuiScreen">
+            <summary>Manages the controls and their state on a GUI screen</summary>
+            <remarks>
+                This class manages the global state of a distinct user interface. Unlike your
+                typical GUI library, the Nuclex.UserInterface library can handle any number of
+                simultaneously active user interfaces at the same time, making the library
+                suitable for usage on virtual ingame computers and multi-client environments
+                such as split-screen games or switchable graphical terminals.
+            </remarks>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.GuiScreen._maxKeyboardKey">
+            <summary>Highest value in the Keys enumeration</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.GuiScreen._desktopControl">
+            <summary>Control responsible for hosting the GUI's top-level controls</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.GuiScreen._focusedControl">
+            <summary>Child that currently has the input focus</summary>
+            <remarks>
+                If this field is non-null, all keyboard input sent to the Gui is handed
+                over to the focused control. Otherwise, keyboard input is discarded.
+            </remarks>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.GuiScreen._heldKeys">
+            <summary>Keys on the keyboard the user is currently holding down</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.GuiScreen._activatedControl">
+            <summary>Control the user has activated through one of the input devices</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.GuiScreen._heldButtons">
+            <summary>Buttons on the game pad the user is currently holding down</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.GuiScreen._heldKeyCount">
+            <summary>Number of keys being held down on the keyboard</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.GuiScreen._heldMouseButtons">
+            <summary>Mouse buttons currently being held down</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.GuiScreen._size">
+            <summary>Size of the GUI area in world units or pixels</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.GuiScreen.#ctor">
+            <summary>Initializes a new GUI</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.GuiScreen.#ctor(System.Single,System.Single)">
+            <summary>Initializes a new GUI</summary>
+            <param name="width">Width of the area the GUI can occupy</param>
+            <param name="height">Height of the area the GUI can occupy</param>
+            <remarks>
+                Width and height should reflect the entire drawable area of your GUI. If you
+                want to limit the region which the GUI is allowed to use (eg. to only use the
+                safe area of a TV) please resize the desktop control accordingly!
+            </remarks>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.GuiScreen.Width">
+            <summary>Width of the screen in pixels</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.GuiScreen.Height">
+            <summary>Height of the screen in pixels</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.GuiScreen.Desktop">
+            <summary>Control responsible for hosting the GUI's top-level controls</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.GuiScreen.AnyKeysOrButtonsPressed">
+            <summary>
+                Whether any keys, mouse buttons or game pad buttons are beind held pressed
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.GuiScreen.IsInputCaptured">
+            <summary>Whether the GUI has currently captured the input devices</summary>
+            <remarks>
+                <para>
+                    When you mix GUIs and gameplay (for example, in a strategy game where the GUI
+                    manages the build menu and the remainder of the screen belongs to the game),
+                    it is important to keep control of who currently owns the input devices.
+                </para>
+                <para>
+                    Assume the player is drawing a selection rectangle around some units using
+                    the mouse. He will press the mouse button outside any GUI elements, keep
+                    holding it down and possibly drag over the GUI. Until the player lets go
+                    of the mouse button, input exclusively belongs to the game. The same goes
+                    vice versa, of course.
+                </para>
+                <para>
+                    This property tells whether the GUI currently thinks that all input belongs
+                    to it. If it is true, the game should not process any input. The GUI will
+                    implement the input model as described here and respect the game's ownership
+                    of the input devices if a mouse button is pressed outside of the GUI. To
+                    correctly handle input device ownership, send all input to the GUI
+                    regardless of this property's value, then check this property and if it
+                    returns false let your game process the input.
+                </para>
+            </remarks>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.GuiScreen.IsMouseOverGui">
+            <summary>True if the mouse is currently hovering over any GUI elements</summary>
+            <remarks>
+                Useful if you mix gameplay with a GUI and use different mouse cursors
+                depending on the location of the mouse. As long as input is not captured
+                (see <see cref="P:MonoGame.Extended.NuclexGui.GuiScreen.IsInputCaptured" />) you can use this property to know
+                whether you should use the standard GUI mouse cursor or let your game
+                decide which cursor to use.
+            </remarks>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.GuiScreen.FocusedControl">
+            <summary>Child control that currently has the input focus</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.GuiScreen.InjectCommand(MonoGame.Extended.NuclexGui.Input.Command)">
+            <summary>Injects a command into the processor</summary>
+            <param name="command">Input command that will be injected</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.GuiScreen.InjectKeyPress(Microsoft.Xna.Framework.Input.Keys)">
+            <summary>Called when a key on the keyboard has been pressed down</summary>
+            <param name="keyCode">Code of the key that was pressed</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.GuiScreen.InjectKeyRelease(Microsoft.Xna.Framework.Input.Keys)">
+            <summary>Called when a key on the keyboard has been released again</summary>
+            <param name="keyCode">Code of the key that was released</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.GuiScreen.InjectCharacter(System.Char)">
+            <summary>Handle user text input by a physical or virtual keyboard</summary>
+            <param name="character">Character that has been entered</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.GuiScreen.InjectButtonPress(Microsoft.Xna.Framework.Input.Buttons)">
+            <summary>Called when a button on the gamepad has been pressed</summary>
+            <param name="button">Button that has been pressed</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.GuiScreen.InjectButtonRelease(Microsoft.Xna.Framework.Input.Buttons)">
+            <summary>Called when a button on the gamepad has been released</summary>
+            <param name="button">Button that has been released</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.GuiScreen.InjectMouseMove(System.Single,System.Single)">
+            <summary>Injects a mouse position update into the GUI</summary>
+            <param name="x">X coordinate of the mouse cursor within the screen</param>
+            <param name="y">Y coordinate of the mouse cursor within the screen</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.GuiScreen.InjectMousePress(MonoGame.Extended.Input.InputListeners.MouseButton)">
+            <summary>Called when a mouse button has been pressed down</summary>
+            <param name="button">Index of the button that has been pressed</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.GuiScreen.InjectMouseRelease(MonoGame.Extended.Input.InputListeners.MouseButton)">
+            <summary>Called when a mouse button has been released again</summary>
+            <param name="button">Index of the button that has been released</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.GuiScreen.InjectMouseWheel(System.Single)">
+            <summary>Called when the mouse wheel has been rotated</summary>
+            <param name="ticks">Number of ticks that the mouse wheel has been rotated</param>
+        </member>
+        <member name="E:MonoGame.Extended.NuclexGui.GuiScreen.FocusChanged">
+            <summary>Triggered when the control in focus changes</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.GuiScreen.OnFocusChanged(MonoGame.Extended.NuclexGui.Controls.GuiControl)">
+            <summary>Triggers the FocusChanged event</summary>
+            <param name="focusedControl">Control that has gotten the input focus</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.GuiScreen.GetDirectionalDistance(MonoGame.Extended.RectangleF@,MonoGame.Extended.RectangleF@,MonoGame.Extended.NuclexGui.Input.Command)">
+            <summary>
+                Determines the distance of one rectangle to the other, also taking direction
+                into account
+            </summary>
+            <param name="ownBounds">Boundaries of the base rectangle</param>
+            <param name="otherBounds">Boundaries of the other rectangle</param>
+            <param name="direction">Direction into which distance will be determined</param>
+            <returns>
+                The direction of the other rectangle of NaN if it didn't lie in that direction
+            </returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.GuiScreen.CanControlGetFocus(MonoGame.Extended.NuclexGui.Controls.GuiControl)">
+            <summary>Determines whether a control can obtain the input focus</summary>
+            <param name="control">Control that will be checked for focusability</param>
+            <returns>True if the specified control can obtain the input focus</returns>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.IGuiService">
+            <summary>Game-wide interface for the GUI manager component</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.IGuiService.Screen">
+            <summary>GUI that is being rendered</summary>
+            <remarks>
+                The GUI manager renders one GUI full-screen onto the primary render target
+                (the backbuffer). This property holds the GUI that is being managed by
+                the GUI manager component. You can replace it at any time, for example,
+                if the player opens or closes your ingame menu.
+            </remarks>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.IGuiService.Visualizer">
+            <summary>
+                Responsible for creating a visual representation of the GUI on the screen
+            </summary>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Input.Command">
+            <summary>Input commands that can be sent to a control</summary>
+            <remarks>
+                <para>
+                    The Nuclex GUI library is designed to work even when none of the usual
+                    input devices are available. In this case, the entire GUI is controlled
+                    through command keys, which might for example directly be linked to
+                    the buttons of a gamepad.
+                </para>
+                <para>
+                    It is, of course, still the responsibility of the developer to design
+                    GUIs in a simple and easy to navigate style. When building GUIs that
+                    are intended be used without a mouse, it is best not to use complex
+                    controls like lists or text input boxes.
+                </para>
+            </remarks>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Input.Command.Accept">
+            <summary>Accept the current selection (Ok button, Enter key)</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Input.Command.Cancel">
+            <summary>Cancel the current selection (Cancel button, Escape key)</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Input.Command.SelectNext">
+            <summary>Advance focus to the next control (Tab key)</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Input.Command.SelectPrevious">
+            <summary>Advance focus to the previous control (Shift+Tab key)</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Input.Command.Up">
+            <summary>Go up or focus control above (Cursor Up key)</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Input.Command.Down">
+            <summary>Go down or focus control below (Cursor Down key)</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Input.Command.Left">
+            <summary>Go left or focus control left (Cursor Left key)</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Input.Command.Right">
+            <summary>Go right or focus control right (Cursor Right key)</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Input.DefaultInputCapturer._inputReceiver">
+            <summary>Current receiver of input events</summary>
+            <remarks>
+                Always valid. If no input receiver is assigned, this field will be set
+                to a dummy receiver.
+            </remarks>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Input.DefaultInputCapturer._inputService">
+            <summary>Input service the capturer is currently subscribed to</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Input.DefaultInputCapturer.#ctor(System.IServiceProvider)">
+            <summary>Initializes a new input capturer, taking the input service from a service provider</summary>
+            <param name="serviceProvider">Service provider the input capturer will take the input service from</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Input.DefaultInputCapturer.#ctor(MonoGame.Extended.NuclexGui.IGuiInputService)">
+            <summary>Initializes a new input capturer using the specified input service</summary>
+            <param name="inputService">Input service the capturer will subscribe to</param>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Input.DefaultInputCapturer.InputReceiver">
+            <summary>Input receiver any captured input will be sent to</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Input.DefaultInputCapturer.GetInputService(System.IServiceProvider)">
+            <summary>Retrieves the input service from a service provider</summary>
+            <param name="serviceProvider">
+                Service provider the service is taken from
+            </param>
+            <returns>The input service stored in the service provider</returns>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Input.DefaultInputCapturer.DummyInputReceiver">
+            <summary>Dummy receiver for input events</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Input.DefaultInputCapturer.DummyInputReceiver.Default">
+            <summary>Default instance of the dummy receiver</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Input.DefaultInputCapturer.DummyInputReceiver.InjectCommand(MonoGame.Extended.NuclexGui.Input.Command)">
+            <summary>Injects an input command into the input receiver</summary>
+            <param name="command">Input command to be injected</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Input.DefaultInputCapturer.DummyInputReceiver.InjectButtonPress(Microsoft.Xna.Framework.Input.Buttons)">
+            <summary>Called when a button on the gamepad has been pressed</summary>
+            <param name="button">Button that has been pressed</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Input.DefaultInputCapturer.DummyInputReceiver.InjectButtonRelease(Microsoft.Xna.Framework.Input.Buttons)">
+            <summary>Called when a button on the gamepad has been released</summary>
+            <param name="button">Button that has been released</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Input.DefaultInputCapturer.DummyInputReceiver.InjectMouseMove(System.Single,System.Single)">
+            <summary>Injects a mouse position update into the receiver</summary>
+            <param name="x">New X coordinate of the mouse cursor on the screen</param>
+            <param name="y">New Y coordinate of the mouse cursor on the screen</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Input.DefaultInputCapturer.DummyInputReceiver.InjectMousePress(MonoGame.Extended.Input.InputListeners.MouseButton)">
+            <summary>Called when a mouse button has been pressed down</summary>
+            <param name="button">Index of the button that has been pressed</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Input.DefaultInputCapturer.DummyInputReceiver.InjectMouseRelease(MonoGame.Extended.Input.InputListeners.MouseButton)">
+            <summary>Called when a mouse button has been released again</summary>
+            <param name="button">Index of the button that has been released</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Input.DefaultInputCapturer.DummyInputReceiver.InjectMouseWheel(System.Single)">
+            <summary>Called when the mouse wheel has been rotated</summary>
+            <param name="ticks">Number of ticks that the mouse wheel has been rotated</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Input.DefaultInputCapturer.DummyInputReceiver.InjectKeyPress(Microsoft.Xna.Framework.Input.Keys)">
+            <summary>Called when a key on the keyboard has been pressed down</summary>
+            <param name="keyCode">Code of the key that was pressed</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Input.DefaultInputCapturer.DummyInputReceiver.InjectKeyRelease(Microsoft.Xna.Framework.Input.Keys)">
+            <summary>Called when a key on the keyboard has been released again</summary>
+            <param name="keyCode">Code of the key that was released</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Input.DefaultInputCapturer.DummyInputReceiver.InjectCharacter(System.Char)">
+            <summary>Handle user text input by a physical or virtual keyboard</summary>
+            <param name="character">Character that has been entered</param>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Input.IInputCapturer">
+            <summary>
+                Interface for input capturers that monitor user input and forward it to
+                a freely settable input receiver
+            </summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Input.IInputCapturer.InputReceiver">
+            <summary>Input receiver any captured input will be sent to</summary>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Input.IInputReceiver">
+            <summary>Interface for classes that can process user input</summary>
+            <remarks>
+                This interface is implemented by any class that can process user input.
+                Normally, user input is directly fed into the <see cref="T:MonoGame.Extended.NuclexGui.GuiScreen" /> class
+                which manages the global state of an isolated GUI system. It is also possible,
+                though not recommended, to use this interface for sending input directly
+                to a control, for example, to simulate text input for an input box.
+            </remarks>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Input.IInputReceiver.InjectCommand(MonoGame.Extended.NuclexGui.Input.Command)">
+            <summary>Injects an input command into the input receiver</summary>
+            <param name="command">Input command to be injected</param>
+            <remarks>
+                <para>
+                    If the GUI is run without the usual GUI input methods (eg. when a GUI is
+                    displayed on a gaming console), this is the sole way to feed input to
+                    the controls.
+                </para>
+                <para>
+                    By default, normal key presses will generate a command in addition to the
+                    KeyPress itself, so unless a control does something very special, it
+                    should respond to this method only and leave the KeyPress method alone ;)
+                </para>
+            </remarks>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Input.IInputReceiver.InjectButtonPress(Microsoft.Xna.Framework.Input.Buttons)">
+            <summary>Called when a button on the gamepad has been pressed</summary>
+            <param name="button">Button that has been pressed</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Input.IInputReceiver.InjectButtonRelease(Microsoft.Xna.Framework.Input.Buttons)">
+            <summary>Called when a button on the gamepad has been released</summary>
+            <param name="button">Button that has been released</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Input.IInputReceiver.InjectMouseMove(System.Single,System.Single)">
+            <summary>Injects a mouse position update into the receiver</summary>
+            <param name="x">New X coordinate of the mouse cursor on the screen</param>
+            <param name="y">New Y coordinate of the mouse cursor on the screen</param>
+            <remarks>
+                When the mouse leaves the valid region (eg. if the game runs in windowed mode
+                and the mouse cursor is moved outside of the window), a final mouse move
+                notification is generated with the coordinates -1, -1
+            </remarks>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Input.IInputReceiver.InjectMousePress(MonoGame.Extended.Input.InputListeners.MouseButton)">
+            <summary>Called when a mouse button has been pressed down</summary>
+            <param name="button">Index of the button that has been pressed</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Input.IInputReceiver.InjectMouseRelease(MonoGame.Extended.Input.InputListeners.MouseButton)">
+            <summary>Called when a mouse button has been released again</summary>
+            <param name="button">Index of the button that has been released</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Input.IInputReceiver.InjectMouseWheel(System.Single)">
+            <summary>Called when the mouse wheel has been rotated</summary>
+            <param name="ticks">Number of ticks that the mouse wheel has been rotated</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Input.IInputReceiver.InjectKeyPress(Microsoft.Xna.Framework.Input.Keys)">
+            <summary>Called when a key on the keyboard has been pressed down</summary>
+            <param name="keyCode">Code of the key that was pressed</param>
+            <remarks>
+                Only handle this if you need it for some special purpose. For standard commands
+                like confirmation and cancellation, simply respond to InjectCommand()
+            </remarks>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Input.IInputReceiver.InjectKeyRelease(Microsoft.Xna.Framework.Input.Keys)">
+            <summary>Called when a key on the keyboard has been released again</summary>
+            <param name="keyCode">Code of the key that was released</param>
+            <remarks>
+                Only handle this if you need it for some special purpose. For standard commands
+                like confirmation and cancellation, simply respond to InjectCommand()
+            </remarks>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Input.IInputReceiver.InjectCharacter(System.Char)">
+            <summary>Handle user text input by a physical or virtual keyboard</summary>
+            <param name="character">Character that has been entered</param>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Support.EnumHelper">
+            <summary>Helper methods for enumerations</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Support.EnumHelper.GetHighestValue``1">
+            <summary>Returns the highest value encountered in an enumeration</summary>
+            <typeparam name="T">
+                Enumeration of which the highest value will be returned
+            </typeparam>
+            <returns>The highest value in the enumeration</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Support.EnumHelper.GetLowestValue``1">
+            <summary>Returns the lowest value encountered in an enumeration</summary>
+            <typeparam name="T">
+                Enumeration of which the lowest value will be returned
+            </typeparam>
+            <returns>The lowest value in the enumeration</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Support.EnumHelper.GetValues``1">
+            <summary>Retrieves a list of all values contained in an enumeration</summary>
+            <typeparam name="T">
+                Type of the enumeration whose values will be returned
+            </typeparam>
+            <returns>All values contained in the specified enumeration</returns>
+            <remarks>
+                This method produces collectable garbage so it's best to only call it once
+                and cache the result.
+            </remarks>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Support.WeakReference`1">
+            <summary>
+                Type-safe weak reference, referencing an object while still allowing
+                that object to be garbage collected.
+            </summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Support.WeakReference`1.#ctor(`0)">
+            <summary>
+                Initializes a new instance of the WeakReference class, referencing
+                the specified object.
+            </summary>
+            <param name="target">The object to track or null.</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Support.WeakReference`1.#ctor(`0,System.Boolean)">
+            <summary>
+                Initializes a new instance of the WeakReference class, referencing
+                the specified object optionally using resurrection tracking.
+            </summary>
+            <param name="target">An object to track.</param>
+            <param name="trackResurrection">
+                Indicates when to stop tracking the object. If true, the object is tracked
+                after finalization; if false, the object is only tracked until finalization.
+            </param>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Support.WeakReference`1.Target">
+            <summary>
+                Initializes a new instance of the WeakReference class, using deserialized
+                data from the specified serialization and stream objects.
+            </summary>
+            <param name="info">
+                An object that holds all the data needed to serialize or deserialize the
+                current System.WeakReference object.
+            </param>
+            <param name="context">
+                (Reserved) Describes the source and destination of the serialized stream
+                specified by info.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+                The info parameter is null.
+            </exception>
+            <summary>
+                Gets or sets the object (the target) referenced by the current WeakReference
+                object.
+            </summary>
+            <remarks>
+                Is null if the object referenced by the current System.WeakReference object
+                has been garbage collected; otherwise, a reference to the object referenced
+                by the current System.WeakReference object.
+            </remarks>
+            <exception cref="T:System.InvalidOperationException">
+                The reference to the target object is invalid. This can occur if the current
+                System.WeakReference object has been finalized
+            </exception>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.UniRectangle">
+            <summary>Two-dimensional rectangle of combined fraction and offset coordinates</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.UniRectangle.Empty">
+            <summary>An empty unified rectangle</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.UniRectangle.Left">
+            <summary>X coordinate of the rectangle's left border</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.UniRectangle.Top">
+            <summary>Y coordinate of the rectangle's upper border</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.UniRectangle.Right">
+            <summary>X coordinate of the rectangle's right border</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.UniRectangle.Bottom">
+            <summary>Y coordinate of the rectangle's lower border</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.UniRectangle.Min">
+            <summary>Point consisting of the lesser coordinates of the rectangle</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.UniRectangle.Max">
+            <summary>Point consisting of the greater coordinates of the rectangle</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.UniRectangle.Location">
+            <summary>The location of the rectangle's upper left corner</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.UniRectangle.Size">
+            <summary>The size of the rectangle</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniRectangle.#ctor(MonoGame.Extended.NuclexGui.UniVector,MonoGame.Extended.NuclexGui.UniVector)">
+            <summary>Initializes a new rectangle from a location and a size</summary>
+            <param name="location">Location of the rectangle's upper left corner</param>
+            <param name="size">Size of the area covered by the rectangle</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniRectangle.#ctor(MonoGame.Extended.NuclexGui.UniScalar,MonoGame.Extended.NuclexGui.UniScalar,MonoGame.Extended.NuclexGui.UniScalar,MonoGame.Extended.NuclexGui.UniScalar)">
+            <summary>Initializes a new rectangle from the provided individual coordinates</summary>
+            <param name="x">X coordinate of the rectangle's left border</param>
+            <param name="y">Y coordinate of the rectangle's upper border</param>
+            <param name="width">Width of the area covered by the rectangle</param>
+            <param name="height">Height of the area covered by the rectangle</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniRectangle.ToOffset(Microsoft.Xna.Framework.Vector2)">
+            <summary>Converts the rectangle into pure offset coordinates</summary>
+            <param name="containerSize">Dimensions of the container the fractional part of the rectangle count for</param>
+            <returns>A rectangle with the pure offset coordinates of the rectangle</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniRectangle.ToOffset(System.Single,System.Single)">
+            <summary>Converts the rectangle into pure offset coordinates</summary>
+            <param name="containerWidth">Width of the container the fractional part of the rectangle counts for</param>
+            <param name="containerHeight">Height of the container the fractional part of the rectangle counts for</param>
+            <returns>A rectangle with the pure offset coordinates of the rectangle</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniRectangle.op_Inequality(MonoGame.Extended.NuclexGui.UniRectangle,MonoGame.Extended.NuclexGui.UniRectangle)">
+            <summary>Checks two rectangles for inequality</summary>
+            <param name="first">First rectangle to be compared</param>
+            <param name="second">Second rectangle to be compared</param>
+            <returns>True if the instances differ or exactly one reference is set to null</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniRectangle.op_Equality(MonoGame.Extended.NuclexGui.UniRectangle,MonoGame.Extended.NuclexGui.UniRectangle)">
+            <summary>Checks two rectangles for equality</summary>
+            <param name="first">First rectangle to be compared</param>
+            <param name="second">Second rectangle to be compared</param>
+            <returns>True if both instances are equal or both references are null</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniRectangle.Equals(System.Object)">
+            <summary>Checks whether another instance is equal to this instance</summary>
+            <param name="other">Other instance to compare to this instance</param>
+            <returns>True if the other instance is equal to this instance</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniRectangle.Equals(MonoGame.Extended.NuclexGui.UniRectangle)">
+            <summary>Checks whether another instance is equal to this instance</summary>
+            <param name="other">Other instance to compare to this instance</param>
+            <returns>True if the other instance is equal to this instance</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniRectangle.GetHashCode">
+            <summary>Obtains a hash code of this instance</summary>
+            <returns>The hash code of the instance</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniRectangle.ToString">
+            <summary>
+                Returns a human-readable string representation for the unified rectangle
+            </summary>
+            <returns>The human-readable string representation of the unified rectangle</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniRectangle.AbsoluteOffset(System.Single,System.Single)">
+            <summary>
+                Moves unified rectangle by the absolute values
+            </summary>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.UniScalar">
+            <summary>Stores a size or location on one axis</summary>
+            <remarks>
+                <para>
+                    Any position or size in GUI uses a combined position consisting
+                    of a fraction and an offset. The fraction specifies the position or size as a
+                    fraction of the parent frame's bounds and usually is in the range between 0.0 and
+                    1.0. The offset simply is the number of pixels to divert from the thusly
+                    determined location.
+                </para>
+                <para>
+                    Through the use of both fraction and offset, any kind of anchoring behavior can be
+                    achieved that normally would require a complex anchoring and docking system as can
+                    be seen in System.Windows.Forms.
+                </para>
+                <para>
+                    If you, for example, wanted to always place a control 20 pixels from the right
+                    border of its parent container, set the fraction of its position to 1.0 (always
+                    on the right border) and the offset to -20.0 (go 20 units to the left from there).
+                </para>
+                <para>
+                    You can achieve traditional absolute positioning by leaving the fraction at 0.0,
+                    which is equivalent to the upper or left border of the parent container.
+                </para>
+            </remarks>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.UniScalar.Zero">
+            <summary>A scalar that has been initialized to zero</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.UniScalar.Fraction">
+            <summary>Position of the scalar as fraction of the parent frame's bounds</summary>
+            <remarks>
+                The relative part is normally in the 0.0 .. 1.0 range, denoting the
+                fraction of the parent container's size the scalar will indicate.
+            </remarks>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.UniScalar.Offset">
+            <summary>Offset of the scalar in pixels relative to its fractional position</summary>
+            <remarks>
+                This part is taken literally without paying attention to the size of
+                the parent container the coordinate is used in.
+            </remarks>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniScalar.#ctor(System.Single)">
+            <summary>Initializes a new scalar from an offset only</summary>
+            <param name="offset">Offset in pixels this scalar indicates</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniScalar.#ctor(System.Single,System.Single)">
+            <summary>Initializes a new dimension from an absolute and a relative part</summary>
+            <param name="fraction">Fractional position within the parent frame</param>
+            <param name="offset">Offset in pixels from the fractional position</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniScalar.op_Implicit(System.Single)~MonoGame.Extended.NuclexGui.UniScalar">
+            <summary>Implicitely constructs a scalar using a float as the absolute part</summary>
+            <param name="offset">Float that will be used for the scalar's absolute value</param>
+            <returns>
+                A new scalar constructed with the original float as its absolute part
+            </returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniScalar.ToOffset(System.Single)">
+            <summary>Converts the scalar into a pure offset position</summary>
+            <param name="containerSize">
+                Absolute dimension of the parent that the relative coordinate relates to
+            </param>
+            <returns>
+                The absolute position in the parent container denoted by the dimension
+            </returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniScalar.op_Addition(MonoGame.Extended.NuclexGui.UniScalar,MonoGame.Extended.NuclexGui.UniScalar)">
+            <summary>Adds one scalar to another</summary>
+            <param name="scalar">Base scalar to add to</param>
+            <param name="summand">Scalar to add to the base</param>
+            <returns>The result of the addition</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniScalar.op_Subtraction(MonoGame.Extended.NuclexGui.UniScalar,MonoGame.Extended.NuclexGui.UniScalar)">
+            <summary>Subtracts one scalar from another</summary>
+            <param name="scalar">Base scalar to subtract from</param>
+            <param name="subtrahend">Scalar to subtract from the base</param>
+            <returns>The result of the subtraction</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniScalar.op_Division(MonoGame.Extended.NuclexGui.UniScalar,MonoGame.Extended.NuclexGui.UniScalar)">
+            <summary>Divides one scalar by another</summary>
+            <param name="scalar">Base scalar to be divided</param>
+            <param name="divisor">Divisor to divide by</param>
+            <returns>The result of the division</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniScalar.op_Multiply(MonoGame.Extended.NuclexGui.UniScalar,MonoGame.Extended.NuclexGui.UniScalar)">
+            <summary>Multiplies one scalar with another</summary>
+            <param name="scalar">Base scalar to be multiplied</param>
+            <param name="factor">Factor to multiply by</param>
+            <returns>The result of the multiplication</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniScalar.op_Inequality(MonoGame.Extended.NuclexGui.UniScalar,MonoGame.Extended.NuclexGui.UniScalar)">
+            <summary>Checks two scalars for inequality</summary>
+            <param name="first">First scalar to be compared</param>
+            <param name="second">Second scalar to be compared</param>
+            <returns>True if the instances differ or exactly one reference is set to null</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniScalar.op_Equality(MonoGame.Extended.NuclexGui.UniScalar,MonoGame.Extended.NuclexGui.UniScalar)">
+            <summary>Checks two scalars for equality</summary>
+            <param name="first">First scalar to be compared</param>
+            <param name="second">Second scalar to be compared</param>
+            <returns>True if both instances are equal or both references are null</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniScalar.Equals(System.Object)">
+            <summary>Checks whether another instance is equal to this instance</summary>
+            <param name="other">Other instance to compare to this instance</param>
+            <returns>True if the other instance is equal to this instance</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniScalar.Equals(MonoGame.Extended.NuclexGui.UniScalar)">
+            <summary>Checks whether another instance is equal to this instance</summary>
+            <param name="other">Other instance to compare to this instance</param>
+            <returns>True if the other instance is equal to this instance</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniScalar.GetHashCode">
+            <summary>Obtains a hash code of this instance</summary>
+            <returns>The hash code of the instance</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniScalar.ToString">
+            <summary>
+                Returns a human-readable string representation for the unified scalar
+            </summary>
+            <returns>The human-readable string representation of the unified scalar</returns>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.UniVector">
+            <summary>Stores a two-dimensional position or size</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.UniVector.Zero">
+            <summary>A vector that has been initialized to zero</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.UniVector.X">
+            <summary>The vector's X coordinate</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.UniVector.Y">
+            <summary>The vector's Y coordinate</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniVector.#ctor(MonoGame.Extended.NuclexGui.UniScalar,MonoGame.Extended.NuclexGui.UniScalar)">
+            <summary>Initializes a new vector from the provided components</summary>
+            <param name="x">Absolute and relative X coordinate of the vector</param>
+            <param name="y">Absolute and relative Y coordinate of the vector</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniVector.ToOffset(Microsoft.Xna.Framework.Vector2)">
+            <summary>Converts the vector into pure offset coordinates</summary>
+            <param name="containerSize">
+                Dimensions of the container the relative part of the vector counts for
+            </param>
+            <returns>An XNA vector with the pure offset coordinates of the vector</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniVector.ToOffset(System.Single,System.Single)">
+            <summary>Converts the vector into pure offset coordinates</summary>
+            <param name="containerWidth">
+                Width of the container the fractional part of the vector counts for
+            </param>
+            <param name="containerHeight">
+                Height of the container the fractional part of the vector counts for
+            </param>
+            <returns>An XNA vector with the pure offset coordinates of the vector</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniVector.op_Addition(MonoGame.Extended.NuclexGui.UniVector,MonoGame.Extended.NuclexGui.UniVector)">
+            <summary>Adds one vector to another</summary>
+            <param name="vector">Base vector to add to</param>
+            <param name="summand">Vector to add to the base</param>
+            <returns>The result of the addition</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniVector.op_Subtraction(MonoGame.Extended.NuclexGui.UniVector,MonoGame.Extended.NuclexGui.UniVector)">
+            <summary>Subtracts one vector from another</summary>
+            <param name="vector">Base vector to subtract from</param>
+            <param name="subtrahend">Vector to subtract from the base</param>
+            <returns>The result of the subtraction</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniVector.op_Division(MonoGame.Extended.NuclexGui.UniVector,MonoGame.Extended.NuclexGui.UniVector)">
+            <summary>Divides one vector by another</summary>
+            <param name="vector">Base vector to be divided</param>
+            <param name="divisor">Divisor to divide by</param>
+            <returns>The result of the division</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniVector.op_Multiply(MonoGame.Extended.NuclexGui.UniVector,MonoGame.Extended.NuclexGui.UniVector)">
+            <summary>Multiplies one vector with another</summary>
+            <param name="vector">Base vector to be multiplied</param>
+            <param name="factor">Factor to multiply by</param>
+            <returns>The result of the multiplication</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniVector.op_Multiply(MonoGame.Extended.NuclexGui.UniScalar,MonoGame.Extended.NuclexGui.UniVector)">
+            <summary>Scales a vector by a scalar factor</summary>
+            <param name="factor">Factor by which to scale the vector</param>
+            <param name="vector">Vector to be Scaled</param>
+            <returns>The result of the multiplication</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniVector.op_Multiply(MonoGame.Extended.NuclexGui.UniVector,MonoGame.Extended.NuclexGui.UniScalar)">
+            <summary>Scales a vector by a scalar factor</summary>
+            <param name="vector">Vector to be Scaled</param>
+            <param name="factor">Factor by which to scale the vector</param>
+            <returns>The result of the multiplication</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniVector.op_Inequality(MonoGame.Extended.NuclexGui.UniVector,MonoGame.Extended.NuclexGui.UniVector)">
+            <summary>Checks two vectors for inequality</summary>
+            <param name="first">First vector to be compared</param>
+            <param name="second">Second vector to be compared</param>
+            <returns>True if the instances differ or exactly one reference is set to null</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniVector.op_Equality(MonoGame.Extended.NuclexGui.UniVector,MonoGame.Extended.NuclexGui.UniVector)">
+            <summary>Checks two vectors for equality</summary>
+            <param name="first">First vector to be compared</param>
+            <param name="second">Second vector to be compared</param>
+            <returns>True if both instances are equal or both references are null</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniVector.Equals(System.Object)">
+            <summary>Checks whether another instance is equal to this instance</summary>
+            <param name="other">Other instance to compare to this instance</param>
+            <returns>True if the other instance is equal to this instance</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniVector.Equals(MonoGame.Extended.NuclexGui.UniVector)">
+            <summary>Checks whether another instance is equal to this instance</summary>
+            <param name="other">Other instance to compare to this instance</param>
+            <returns>True if the other instance is equal to this instance</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniVector.GetHashCode">
+            <summary>Obtains a hash code of this instance</summary>
+            <returns>The hash code of the instance</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.UniVector.ToString">
+            <summary>
+                Returns a human-readable string representation for the unified vector
+            </summary>
+            <returns>The human-readable string representation of the unified vector</returns>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics._caretWidth">
+            <summary>Width of the caret used for text input</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics._bitmaps">
+            <summary>Bitmaps containing resources for the GUI</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics._fonts">
+            <summary>Font styles known to the GUI</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics._frames">
+            <summary>Types of frames the painter can draw</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics._openingLocator">
+            <summary>Locates openings between letters in strings</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics._rasterizerState">
+            <summary>Rasterizer state used for drawing the GUI</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics._scissorManager">
+            <summary>Manages the scissor rectangle and its assignment time</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics._stringBuilder">
+            <summary>String builder used for various purposes in this class</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics._contentManager">
+            <summary>Manages the content used to draw the GUI</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics._spriteBatch">
+            <summary>Batches GUI elements for faster drawing</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics.#ctor(Microsoft.Xna.Framework.Content.ContentManager,System.IO.Stream)">
+            <summary>Initializes a new gui painter</summary>
+            <param name="contentManager">
+                Content manager containing the resources for the GUI. The instance takes
+                ownership of the content manager and will dispose it.
+            </param>
+            <param name="skinStream">
+                Stream from which the skin description will be read
+            </param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics.Dispose">
+            <summary>Immediately releases all resources owned by the instance</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics.PositionText(MonoGame.Extended.NuclexGui.Visuals.Flat.Frame.Text@,MonoGame.Extended.RectangleF,System.String)">
+            <summary>
+                Positions a string within a frame according to the positioning instructions
+                stored in the provided text anchor.
+            </summary>
+            <param name="anchor">Text anchor the string will be positioned for</param>
+            <param name="bounds">Boundaries of the control the string is rendered in</param>
+            <param name="text">String that will be positioned</param>
+            <returns>The position of the string within the control</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics.CalculateDestinationRectangle(MonoGame.Extended.RectangleF@,MonoGame.Extended.NuclexGui.UniRectangle@)">
+            <summary>
+                Calculates the absolute pixel position of a rectangle in unified coordinates
+            </summary>
+            <param name="bounds">Bounds of the drawing area in pixels</param>
+            <param name="destination">Destination rectangle in unified coordinates</param>
+            <returns>
+                The destination rectangle converted to absolute pixel coordinates
+            </returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics.LookupFrame(System.String)">
+            <summary>Looks up the frame with the specified name</summary>
+            <param name="frameName">Frame that will be looked up</param>
+            <returns>The frame with the specified name</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics.Floor(System.Single)">
+            <summary>Removes the fractional part from the floating point value</summary>
+            <param name="value">Value whose fractional part will be removed</param>
+            <returns>The floating point value without its fractional part</returns>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics.ScissorKeeper">
+            <summary>Manages the scissor rectangle for the GUI graphics interface</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics.ScissorKeeper._flatGuiGraphics">
+            <summary>GUI graphics interface for which the scissor rectangle is managed</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics.ScissorKeeper._oldScissorRectangle">
+            <summary>Scissor rectangle that was previously assigned to the graphics device</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics.ScissorKeeper.#ctor(MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics)">
+            <summary>Initializes a new scissor manager</summary>
+            <param name="flatGuiGraphics">GUI graphics interface the scissor rectangle will be managed for</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics.ScissorKeeper.Dispose">
+            <summary>Releases the currently assigned scissor rectangle again</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics.ScissorKeeper.Assign(Microsoft.Xna.Framework.Rectangle@)">
+            <summary>Assigns the scissor rectangle to the graphics device</summary>
+            <param name="clipRegion">Scissor rectangle that will be assigned</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics.SetClipRegion(MonoGame.Extended.RectangleF)">
+            <summary>Sets the clipping region for any future drawing commands</summary>
+            <param name="clipRegion">Clipping region that will be set</param>
+            <returns>
+                An object that will unset the clipping region upon its destruction.
+            </returns>
+            <remarks>
+                Clipping regions can be stacked, though this is not very typical for
+                a game GUI and also not recommended practice due to performance constraints.
+                Unless clipping is implemented in software, setting up a clip region
+                on current hardware requires the drawing queue to be flushed, negatively
+                impacting rendering performance (in technical terms, a clipping region
+                change likely causes 2 more DrawPrimitive() calls from the painter).
+            </remarks>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics.DrawElement(System.String,MonoGame.Extended.RectangleF)">
+            <summary>Draws a GUI element onto the drawing buffer</summary>
+            <param name="frameName">Class of the element to draw</param>
+            <param name="bounds">Region that will be covered by the drawn element</param>
+            <remarks>
+                <para>
+                    GUI elements are the basic building blocks of a GUI:
+                </para>
+            </remarks>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics.DrawString(System.String,MonoGame.Extended.RectangleF,System.String)">
+            <summary>Draws text into the drawing buffer for the specified element</summary>
+            <param name="frameName">Class of the element for which to draw text</param>
+            <param name="bounds">Region that will be covered by the drawn element</param>
+            <param name="text">Text that will be drawn</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics.DrawCaret(System.String,MonoGame.Extended.RectangleF,System.String,System.Int32)">
+            <summary>Draws a caret for text input at the specified index</summary>
+            <param name="frameName">Class of the element for which to draw a caret</param>
+            <param name="bounds">Region that will be covered by the drawn element</param>
+            <param name="text">Text for which a caret will be drawn</param>
+            <param name="caretIndex">Index the caret will be drawn at</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics.MeasureString(System.String,MonoGame.Extended.RectangleF,System.String)">
+            <summary>Measures the extents of a string in the frame's area</summary>
+            <param name="frameName">Class of the element whose text will be measured</param>
+            <param name="bounds">Region that will be covered by the drawn element</param>
+            <param name="text">Text that will be measured</param>
+            <returns>
+                The size and extents of the specified string within the frame
+            </returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics.GetClosestOpening(System.String,MonoGame.Extended.RectangleF,System.String,Microsoft.Xna.Framework.Vector2)">
+            <summary>
+                Locates the closest gap between two letters to the provided position
+            </summary>
+            <param name="frameName">Class of the element in which to find the gap</param>
+            <param name="bounds">Region that will be covered by the drawn element</param>
+            <param name="text">Text in which the closest gap will be found</param>
+            <param name="position">Position of which to determien the closest gap</param>
+            <returns>The index of the gap the position is closest to</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics.BeginDrawing">
+            <summary>Needs to be called before the GUI drawing process begins</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics.EndDrawing">
+            <summary>Needs to be called when the GUI drawing process has ended</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics.BeginSpriteBatch">
+            <summary>Starts drawing on the sprite batch</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiGraphics.EndSpriteBatch">
+            <summary>Stops drawing on the sprite batch</summary>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiVisualizer">
+            <summary>Draws traditional flat GUIs using 2D bitmaps</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiVisualizer._controlStack">
+            <summary>Helps draw the GUI controls in the hierarchically correct order</summary>
+            <remarks>
+                This is a field and not a local variable because the stack allocates
+                heap memory and we don't want that to happen in a frame-by-frame basis on
+                the compact framework. By reusing the same stack over and over, the amount
+                of heap allocations required will amortize itself.
+            </remarks>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiVisualizer._flatGuiGraphics">
+            <summary>Used to draw the individual building elements of the GUI</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiVisualizer._renderers">
+            <summary>Avaiable renderers</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiVisualizer.ExternalAssembliesWithRenderers">
+            <summary>Assemblies which has renderer implementations</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiVisualizer.#ctor(Microsoft.Xna.Framework.Content.ContentManager,System.IO.Stream)">
+            <summary>Initializes a new gui painter for traditional GUIs</summary>
+            <param name="contentManager">Content manager that will be used to load the skin resources</param>
+            <param name="skinStream">Stream from which the GUI Visualizer will read the skin description</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiVisualizer.Dispose">
+            <summary>Immediately releases all resources owned by the instance</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiVisualizer.Draw(MonoGame.Extended.NuclexGui.GuiScreen)">
+            <summary>Draws an entire GUI hierarchy</summary>
+            <param name="screen">Screen containing the GUI that will be drawn</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiVisualizer.RenderControl(MonoGame.Extended.NuclexGui.Controls.GuiControl)">
+            <summary>Renders a single control</summary>
+            <param name="controlToRender">Control that will be rendered</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiVisualizer.FromResource(System.IServiceProvider,System.String)">
+            <summary>Initializes a new gui visualizer from a skin stored as a resource</summary>
+            <param name="serviceProvider">Game service provider containing the graphics device service</param>
+            <param name="skinJsonFile">Name of the Json file containing the skin description</param>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiVisualizer.ControlWithBounds">
+            <summary>Container for a control and its absolute boundaries</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiVisualizer.ControlWithBounds.Control">
+            <summary>Control stored in the container</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiVisualizer.ControlWithBounds.Bounds">
+            <summary>Absolute boundaries of the stored control</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiVisualizer.ControlWithBounds.#ctor(MonoGame.Extended.NuclexGui.Controls.GuiControl,MonoGame.Extended.RectangleF)">
+            <summary>Initializes a new control and absolute boundary container</summary>
+            <param name="control">Control being store in the container</param>
+            <param name="bounds">Absolute boundaries the control lives in</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiVisualizer.ControlWithBounds.FromControl(MonoGame.Extended.NuclexGui.Controls.GuiControl,MonoGame.Extended.RectangleF)">
+            <summary>Builds an absolute boundary container from the provided control</summary>
+            <param name="control">Control from which a container will be created</param>
+            <param name="containerBounds">Absolute boundaries of the control's parent</param>
+            <returns>A new container with the control</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiVisualizer.ControlWithBounds.FromScreen(MonoGame.Extended.NuclexGui.GuiScreen)">
+            <summary>Builds a control and absolute boundary container from a screen</summary>
+            <param name="screen">Screen whose desktop control and absolute boundaries are used to construct the container</param>
+            <returns>A new container with the screen's desktop control</returns>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiVisualizer.IControlRendererAdapter">
+            <summary>Interface for a generic (typeless) control renderer</summary>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiVisualizer.IControlRendererAdapter.AdaptedType">
+            <summary>The type of the control renderer being adapted</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiVisualizer.IControlRendererAdapter.Render(MonoGame.Extended.NuclexGui.Controls.GuiControl,MonoGame.Extended.NuclexGui.Visuals.Flat.IFlatGuiGraphics)">
+            <summary>Renders the specified control using the provided graphics interface</summary>
+            <param name="controlToRender">Control that will be rendered</param>
+            <param name="graphics">Graphics interface that will be used to render the control</param>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiVisualizer.ControlRendererAdapter`1">
+            <summary>
+                Adapter that automatically casts a control down to the renderer's supported
+                control type
+            </summary>
+            <typeparam name="ControlType">
+                Type of control the control renderer casts down to
+            </typeparam>
+            <remarks>
+                This is simply an optimization to avoid invoking the control renderer
+                by reflection (using the Invoke() method) which would require us to construct
+                an object[] array on the heap to pass its arguments.
+            </remarks>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiVisualizer.ControlRendererAdapter`1._controlRenderer">
+            <summary>Control renderer this adapter is performing the downcast for</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiVisualizer.ControlRendererAdapter`1.#ctor(MonoGame.Extended.NuclexGui.Visuals.Flat.IFlatControlRenderer{`0})">
+            <summary>Initializes a new control renderer adapter</summary>
+            <param name="controlRenderer">Control renderer the adapter is used for</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiVisualizer.ControlRendererAdapter`1.Render(MonoGame.Extended.NuclexGui.Controls.GuiControl,MonoGame.Extended.NuclexGui.Visuals.Flat.IFlatGuiGraphics)">
+            <summary>Renders the specified control using the provided graphics interface</summary>
+            <param name="controlToRender">Control that will be rendered</param>
+            <param name="graphics">Graphics interface that will be used to render the control</param>
+        </member>
+        <member name="P:MonoGame.Extended.NuclexGui.Visuals.Flat.FlatGuiVisualizer.ControlRendererAdapter`1.AdaptedType">
+            <summary>The type of the control renderer being adapted</summary>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Visuals.Flat.Frame">
+            <summary>Frame that can be drawn by the GUI painter</summary>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Visuals.Flat.Frame.HorizontalTextAlignment">
+            <summary>Modes in which text can be horizontally aligned</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.Frame.HorizontalTextAlignment.Left">
+            <summary>The text's base offset is placed at the left of the frame</summary>
+            <remarks>
+                The base offset is normally identical to the text's leftmost pixel.
+                However, a glyph may have some eccentrics like an arc that extends to
+                the left over the letter's actual starting position.
+            </remarks>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.Frame.HorizontalTextAlignment.Right">
+            <summary>
+                The text's ending offset is placed at the right of the frame
+            </summary>
+            <remarks>
+                The ending offset is normally identical to the text's rightmost pixel.
+                However, a glyph may have some eccentrics like an arc that extends to
+                the right over the last letter's actual ending position.
+            </remarks>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.Frame.HorizontalTextAlignment.Center">
+            <summary>The text is centered horizontally in the frame</summary>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Visuals.Flat.Frame.VerticalTextAlignment">
+            <summary>Modes in which text can be vertically aligned</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.Frame.VerticalTextAlignment.Top">
+            <summary>The text's baseline is placed at the top of the frame</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.Frame.VerticalTextAlignment.Bottom">
+            <summary>The text's baseline is placed at the bottom of the frame</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.Frame.VerticalTextAlignment.Center">
+            <summary>The text's baseline is centered vertically in the frame</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.Frame.Regions">
+            <summary>Regions that need to be drawn to render the frame</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.Frame.Texts">
+            <summary>Locations where text can be drawn into the frame</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.Frame.#ctor(MonoGame.Extended.NuclexGui.Visuals.Flat.Frame.Region[],MonoGame.Extended.NuclexGui.Visuals.Flat.Frame.Text[])">
+            <summary>Initializes a new frame</summary>
+            <param name="regions">Regions needed to be drawn to render the frame</param>
+            <param name="texts">Location in the frame where text can be drawn</param>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Visuals.Flat.Frame.Region">
+            <summary>Defines a picture region drawn into a frame</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.Frame.Region.Id">
+            <summary>Identification string for the region</summary>
+            <remarks>
+                Used to associate regions with specific behavior
+            </remarks>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.Frame.Region.Texture">
+            <summary>Texture the picture region is taken from</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.Frame.Region.SourceRegion">
+            <summary>Area within the texture containing the picture region</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.Frame.Region.DestinationRegion">
+            <summary>Location in the frame where the picture region will be drawn</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.Frame.Region.Source">
+            <summary>Name of the texture the picture region is taken from</summary>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Visuals.Flat.Frame.Text">
+            <summary>Describes where within the frame text should be drawn</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.Frame.Text.Font">
+            <summary>Font to use for drawing the text</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.Frame.Text.Offset">
+            <summary>Offset of the text relative to its specified placement</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.Frame.Text.HorizontalPlacement">
+            <summary>Horizontal placement of the text within the frame</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.Frame.Text.VerticalPlacement">
+            <summary>Vertical placement of the text within the frame</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.Frame.Text.Color">
+            <summary>Color the text will have</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.Frame.Text.Source">
+            <summary> Name of the font used for drawing the text </summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.GuiSkinJsonConverter._bottomBorderWidth">
+            <summary>Width of the frame's bottom border regions</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.GuiSkinJsonConverter._leftBorderWidth">
+            <summary>Width of the frame's left border regions</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.GuiSkinJsonConverter._rightBorderWidth">
+            <summary>Width of the frame's right border regions</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.GuiSkinJsonConverter._topBorderWidth">
+            <summary>Width of the frame's top border regions</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.GuiSkinJsonConverter.CalculateRegionPlacement(System.Int32,System.Int32,System.Int32,System.Int32,MonoGame.Extended.NuclexGui.UniScalar@,MonoGame.Extended.NuclexGui.UniScalar@)">
+            <summary>
+                Calculates the unified coordinates a region needs to be placed at
+            </summary>
+            <param name="placementIndex">
+                Placement index indicating where in a frame the region will be located
+            </param>
+            <param name="width">Width of the region in pixels</param>
+            <param name="lowBorderWidth">
+                Width of the border on the lower end of the coordinate range
+            </param>
+            <param name="highBorderWidth">
+                Width of the border on the higher end of the coordinate range
+            </param>
+            <param name="location">
+                Receives the target location of the region in unified coordinates
+            </param>
+            <param name="size">
+                Receives the size of the region in unified coordinates
+            </param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.GuiSkinJsonConverter.GetHorizontalPlacementIndex(System.String)">
+            <summary>Converts a horizontal placement string into a placement index</summary>
+            <param name="placement">String containing the horizontal placement</param>
+            <returns>A placement index that is equivalent to the provided string</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.GuiSkinJsonConverter.GetVerticalPlacementIndex(System.String)">
+            <summary>Converts a vertical placement string into a placement index</summary>
+            <param name="placement">String containing the vertical placement</param>
+            <returns>A placement index that is equivalent to the provided string</returns>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Visuals.Flat.IFlatControlRenderer">
+            <summary>Interface for a class that renders a control</summary>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Visuals.Flat.IFlatControlRenderer`1">
+            <summary>Interface for a class responsible to render a specific control type</summary>
+            <typeparam name="ControlType">Type of control the implementation class will render</typeparam>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.IFlatControlRenderer`1.Render(`0,MonoGame.Extended.NuclexGui.Visuals.Flat.IFlatGuiGraphics)">
+            <summary>Renders the specified control using the provided graphics interface</summary>
+            <param name="control">Control that will be rendered</param>
+            <param name="graphics">Graphics interface that will be used to draw the control</param>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Visuals.Flat.IFlatGuiGraphics">
+            <summary>Provides drawing methods for GUI controls</summary>
+            <remarks>
+                Analogous to System.Drawing.Graphics, but provides specialized methods for
+                drawing a GUI with a dynamic, switchable theme.
+            </remarks>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.IFlatGuiGraphics.SetClipRegion(MonoGame.Extended.RectangleF)">
+            <summary>Sets the clipping region for any future drawing commands</summary>
+            <param name="clipRegion">Clipping region that will be set</param>
+            <returns>
+                An object that will unset the clipping region upon its destruction.
+            </returns>
+            <remarks>
+                Clipping regions can be stacked, though this is not very typical for
+                a game GUI and also not recommended practice due to performance constraints.
+                Unless clipping is implemented in software, setting up a clip region
+                on current hardware requires the drawing queue to be flushed, negatively
+                impacting rendering performance (in technical terms, a clipping region
+                change likely causes 2 more DrawPrimitive() calls from the painter).
+            </remarks>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.IFlatGuiGraphics.DrawElement(System.String,MonoGame.Extended.RectangleF)">
+            <summary>Draws a GUI element onto the drawing buffer</summary>
+            <param name="frameName">Class of the element to draw</param>
+            <param name="bounds">Region that will be covered by the drawn element</param>
+            <remarks>
+                <para>
+                    GUI elements are the basic building blocks of a GUI:
+                </para>
+            </remarks>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.IFlatGuiGraphics.DrawString(System.String,MonoGame.Extended.RectangleF,System.String)">
+            <summary>Draws text into the drawing buffer for the specified element</summary>
+            <param name="frameName">Class of the element for which to draw text</param>
+            <param name="bounds">Region that will be covered by the drawn element</param>
+            <param name="text">Text that will be drawn</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.IFlatGuiGraphics.DrawCaret(System.String,MonoGame.Extended.RectangleF,System.String,System.Int32)">
+            <summary>Draws a caret for text input at the specified index</summary>
+            <param name="frameName">Class of the element for which to draw a caret</param>
+            <param name="bounds">Region that will be covered by the drawn element</param>
+            <param name="text">Text for which a caret will be drawn</param>
+            <param name="index">Index the caret will be drawn at</param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.IFlatGuiGraphics.MeasureString(System.String,MonoGame.Extended.RectangleF,System.String)">
+            <summary>Measures the extents of a string in the frame's area</summary>
+            <param name="frameName">Class of the element whose text will be measured</param>
+            <param name="bounds">Region that will be covered by the drawn element</param>
+            <param name="text">Text that will be measured</param>
+            <returns>
+                The size and extents of the specified string within the frame
+            </returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.IFlatGuiGraphics.GetClosestOpening(System.String,MonoGame.Extended.RectangleF,System.String,Microsoft.Xna.Framework.Vector2)">
+            <summary>
+                Locates the closest gap between two letters to the provided position
+            </summary>
+            <param name="frameName">Class of the element in which to find the gap</param>
+            <param name="bounds">Region that will be covered by the drawn element</param>
+            <param name="text">Text in which the closest gap will be found</param>
+            <param name="position">Position of which to determien the closest gap</param>
+            <returns>The index of the gap the position is closest to</returns>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Visuals.Flat.OpeningLocator">
+            <summary>
+                Locates the opening between characters in a string that is nearest
+                to a user-defined location
+            </summary>
+            <remarks>
+                <para>
+                    This is a class rather than a static class to prevent garbage production
+                    which would then have to be cleaned up again by the garbage collector.
+                    If you create an instance of it and keep reusing it, garbage and allocation
+                    will amortize.
+                </para>
+                <para>
+                    The method used to calculate the openings seems to be not terribly accurate.
+                    As of XNA 3.1, SpriteFonts don't do kerning, so the only thing left would be
+                    a variable space appended to the end of characters. This could be compensated
+                    for by always appending character with a known length for which no kerning is
+                    possible, for example, the pipe sign (|).
+                </para>
+            </remarks>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.OpeningLocator._textBuilder">
+            <summary>Used by GetClosestOpening() to avoid garbage production</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.OpeningLocator.#ctor">
+            <summary>Initializes a new text opening locator</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.OpeningLocator.FindClosestOpening(Microsoft.Xna.Framework.Graphics.SpriteFont,System.String,System.Single)">
+            <summary>
+                Locates the opening between two letters that is closest to
+                the specified position
+            </summary>
+            <param name="font">Font that opening search will use</param>
+            <param name="text">Text that will be searched for the opening</param>
+            <param name="x">X coordinate closest to which an opening will be found</param>
+            <returns>The opening closest to the specified X coordinate</returns>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatButtonControlRenderer">
+            <summary>Renders button controls in a traditional flat style</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatButtonControlRenderer._states">
+            <summary>Names of the states the button control can be in</summary>
+            <remarks>
+                Storing this as full strings instead of building them dynamically prevents
+                any garbage from forming during rendering.
+            </remarks>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatButtonControlRenderer.Render(MonoGame.Extended.NuclexGui.Controls.Desktop.GuiButtonControl,MonoGame.Extended.NuclexGui.Visuals.Flat.IFlatGuiGraphics)">
+            <summary>
+                Renders the specified control using the provided graphics interface
+            </summary>
+            <param name="control">Control that will be rendered</param>
+            <param name="graphics">
+                Graphics interface that will be used to draw the control
+            </param>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatChoiceControlRenderer">
+            <summary>Renders choice controls in a traditional flat style</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatChoiceControlRenderer._states">
+            <summary>Names of the states the choice control can be in</summary>
+            <remarks>
+                Storing this as full strings instead of building them dynamically prevents
+                any garbage from forming during rendering.
+            </remarks>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatChoiceControlRenderer.Render(MonoGame.Extended.NuclexGui.Controls.Desktop.GuiChoiceControl,MonoGame.Extended.NuclexGui.Visuals.Flat.IFlatGuiGraphics)">
+            <summary>
+                Renders the specified control using the provided graphics interface
+            </summary>
+            <param name="control">Control that will be rendered</param>
+            <param name="graphics">
+                Graphics interface that will be used to draw the control
+            </param>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatHorizontalSliderControlRenderer">
+            <summary>Renders horizontal sliders in a traditional flat style</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatHorizontalSliderControlRenderer.Render(MonoGame.Extended.NuclexGui.Controls.Desktop.GuiHorizontalSliderControl,MonoGame.Extended.NuclexGui.Visuals.Flat.IFlatGuiGraphics)">
+            <summary>
+                Renders the specified control using the provided graphics interface
+            </summary>
+            <param name="control">Control that will be rendered</param>
+            <param name="graphics">
+                Graphics interface that will be used to draw the control
+            </param>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatInputControlRenderer">
+            <summary>Renders text input controls in a traditional flat style</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatInputControlRenderer._style">
+            <summary>Style from the skin this renderer uses</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatInputControlRenderer._graphics">
+            <summary>Graphics interface we used for the last draw call</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatInputControlRenderer.Render(MonoGame.Extended.NuclexGui.Controls.Desktop.GuiInputControl,MonoGame.Extended.NuclexGui.Visuals.Flat.IFlatGuiGraphics)">
+            <summary>
+                Renders the specified control using the provided graphics interface
+            </summary>
+            <param name="control">Control that will be rendered</param>
+            <param name="graphics">
+                Graphics interface that will be used to draw the control
+            </param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatInputControlRenderer.GetClosestOpening(MonoGame.Extended.RectangleF,System.String,Microsoft.Xna.Framework.Vector2)">
+            <summary>
+                Calculates which opening between two letters is closest to a position
+            </summary>
+            <param name="bounds">
+                Boundaries of the control, should be in absolute coordinates
+            </param>
+            <param name="text">Text in which the opening will be looked for</param>
+            <param name="position">
+                Position to which the closest opening will be found,
+                should be in absolute coordinates
+            </param>
+            <returns>The index of the opening closest to the provided position</returns>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatLabelControlRenderer">
+            <summary>Renders label controls in a traditional flat style</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatLabelControlRenderer.Render(MonoGame.Extended.NuclexGui.Controls.GuiLabelControl,MonoGame.Extended.NuclexGui.Visuals.Flat.IFlatGuiGraphics)">
+            <summary>
+                Renders the specified control using the provided graphics interface
+            </summary>
+            <param name="control">Control that will be rendered</param>
+            <param name="graphics">
+                Graphics interface that will be used to draw the control
+            </param>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatListControlRenderer">
+            <summary>Renders text input controls in a traditional flat style</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatListControlRenderer._style">
+            <summary>Style used to draw this control</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatListControlRenderer._graphics">
+            <summary>Graphics interface we used for the last draw call</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatListControlRenderer._rowHeight">
+            <summary>Height of a single row in the list</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatListControlRenderer.Render(MonoGame.Extended.NuclexGui.Controls.Desktop.GuiListControl,MonoGame.Extended.NuclexGui.Visuals.Flat.IFlatGuiGraphics)">
+            <summary>
+                Renders the specified control using the provided graphics interface
+            </summary>
+            <param name="control">Control that will be rendered</param>
+            <param name="graphics">
+                Graphics interface that will be used to draw the control
+            </param>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatListControlRenderer.GetRow(MonoGame.Extended.RectangleF,System.Single,System.Int32,System.Single)">
+            <summary>Calculates the list row the cursor is in</summary>
+            <param name="bounds">
+                Boundaries of the control, should be in absolute coordinates
+            </param>
+            <param name="thumbPosition">
+                Position of the thumb in the list's slider
+            </param>
+            <param name="itemCount">
+                Number of items contained in the list
+            </param>
+            <param name="y">Vertical position of the cursor</param>
+            <returns>The row the cursor is over</returns>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatListControlRenderer.GetRowHeight(MonoGame.Extended.RectangleF)">
+            <summary>Determines the height of a row displayed in the list</summary>
+            <param name="bounds">
+                Boundaries of the control, should be in absolute coordinates
+            </param>
+            <returns>The height of a single row in the list</returns>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatOptionControlRenderer">
+            <summary>Renders option controls in a traditional flat style</summary>
+        </member>
+        <member name="F:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatOptionControlRenderer._states">
+            <summary>Names of the states the option control can be in</summary>
+            <remarks>
+                Storing this as full strings instead of building them dynamically prevents
+                any garbage from forming during rendering.
+            </remarks>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatOptionControlRenderer.Render(MonoGame.Extended.NuclexGui.Controls.Desktop.GuiOptionControl,MonoGame.Extended.NuclexGui.Visuals.Flat.IFlatGuiGraphics)">
+            <summary>
+                Renders the specified control using the provided graphics interface
+            </summary>
+            <param name="control">Control that will be rendered</param>
+            <param name="graphics">
+                Graphics interface that will be used to draw the control
+            </param>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatProgressControlRenderer">
+            <summary>Renders progress bars in a traditional flat style</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatProgressControlRenderer.Render(MonoGame.Extended.NuclexGui.Controls.GuiProgressControl,MonoGame.Extended.NuclexGui.Visuals.Flat.IFlatGuiGraphics)">
+            <summary>
+                Renders the specified control using the provided graphics interface
+            </summary>
+            <param name="control">Control that will be rendered</param>
+            <param name="graphics">
+                Graphics interface that will be used to draw the control
+            </param>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatVerticalSliderControlRenderer">
+            <summary>Renders sliders in a traditional flat style</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatVerticalSliderControlRenderer.Render(MonoGame.Extended.NuclexGui.Controls.Desktop.GuiVerticalSliderControl,MonoGame.Extended.NuclexGui.Visuals.Flat.IFlatGuiGraphics)">
+            <summary>
+                Renders the specified control using the provided graphics interface
+            </summary>
+            <param name="control">Control that will be rendered</param>
+            <param name="graphics">
+                Graphics interface that will be used to draw the control
+            </param>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatWindowControlRenderer">
+            <summary>Renders window controls in a traditional flat style</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.Flat.Renderers.FlatWindowControlRenderer.Render(MonoGame.Extended.NuclexGui.Controls.Desktop.GuiWindowControl,MonoGame.Extended.NuclexGui.Visuals.Flat.IFlatGuiGraphics)">
+            <summary>
+                Renders the specified control using the provided graphics interface
+            </summary>
+            <param name="control">Control that will be rendered</param>
+            <param name="graphics">
+                Graphics interface that will be used to draw the control
+            </param>
+        </member>
+        <member name="T:MonoGame.Extended.NuclexGui.Visuals.IGuiVisualizer">
+            <summary>Interface for an exchangeable GUI painter</summary>
+        </member>
+        <member name="M:MonoGame.Extended.NuclexGui.Visuals.IGuiVisualizer.Draw(MonoGame.Extended.NuclexGui.GuiScreen)">
+            <summary>Renders an entire control tree starting at the provided control</summary>
+            <param name="screen">Screen containing the GUI that will be drawn</param>
+        </member>
+    </members>
+</doc>
