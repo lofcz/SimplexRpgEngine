@@ -58,7 +58,8 @@ namespace SimplexRpgEngine3
             s.Texture = Content.Load<Texture2D>("Sprites/elves");
             s.ImageSize = new Vector2(64, 64);
             s.TextureCellsPerRow = 7;
-            s.TextureRows = 5;
+            s.TextureRows = 2;
+            s.FramesCount = s.GetFramesCount();
             sf = Content.Load<SpriteFont>("Fonts/font1");
             // TODO: use this.Content to load your game content here
         }
@@ -88,6 +89,7 @@ namespace SimplexRpgEngine3
             if (keyboardState.IsKeyDown(Keys.Down) & !prevState.IsKeyDown(Keys.Down))
             {
                 s.ImageIndex++;
+                Debug.WriteLine(s.ImageIndex);
             }
 
             s.UpdateImageAngle();

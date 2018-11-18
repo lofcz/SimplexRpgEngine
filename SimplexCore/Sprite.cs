@@ -14,7 +14,6 @@ namespace SimplexCore
         public int TextureCellsPerRow { get; set; }
         public float ImageSpeed;
         public int Size;
-        public float ImageIndex;
         public float ImageAngle;
         public float ImageAngleTarget;
         public float TransformSpeed;
@@ -22,7 +21,25 @@ namespace SimplexCore
         public Vector2 ImageScaleTarget;
         public Vector2 ImageSize;
         public Rectangle ImageRectangle;
+        public int FramesCount;
 
+        public float ImageIndex
+        {
+            get => _imageIndex;
+            set
+            {
+                _imageIndex = value;
+
+                if (_imageIndex > FramesCount)
+                {
+                    _imageIndex = 0;
+                }
+                _imageIndex = _imageIndex.Clamp(0, FramesCount);
+            }
+        }
+
+
+        private float _imageIndex;
         public Sprite()
         {
             ImageScale = Vector2.One;
@@ -31,6 +48,13 @@ namespace SimplexCore
             ImageAngleTarget = 0;
             ImageIndex = 0;
             TransformSpeed = 0.2f;
+            FramesCount = 0;
+
+        }
+
+        public int GetFramesCount()
+        {
+            return Math.Max(((TextureCellsPerRow * (int)ImageSize.X) / ((int)ImageSize.X)) * ((TextureRows * (int)ImageSize.Y) / ((int)ImageSize.Y)) - 1, 0);
         }
 
         public void UpdateImageAngle()
@@ -48,7 +72,7 @@ namespace SimplexCore
             int y = ((int)ImageIndex / TextureCellsPerRow);
             int x = ((int)ImageIndex % TextureCellsPerRow);
 
-            Debug.WriteLine("x:" + x + " y: " + y);
+            //Debug.WriteLine("x:" + x + " y: " + y);
 
             ImageRectangle = new Rectangle(x * (int)ImageSize.X, y * (int)ImageSize.Y, (int)ImageSize.X, (int)ImageSize.Y);
         }

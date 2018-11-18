@@ -9,12 +9,26 @@ namespace SimplexCore
     {
         public Sprite Sprite;
         public Vector2 Position;
-        public float ImageIndex;
+
+        public float ImageIndex
+        {
+            get => _imageIndex;
+            set
+            {
+                _imageIndex = value;
+                _imageIndex = _imageIndex.Clamp(0, FramesCount);
+            }
+        }
+
         public float ImageAngle;
         public float ImageAngleTarget;
         public float TransformSpeed;
         public Vector2 ImageScale;
         public Vector2 ImageScaleTarget;
+        public int FramesCount;
+
+
+        private float _imageIndex;
 
         public GameObject()
         {
@@ -25,6 +39,8 @@ namespace SimplexCore
             ImageIndex = 0;
             TransformSpeed = 0.2f;
         }
+
+
 
         public void UpdateImageAngle()
         {
