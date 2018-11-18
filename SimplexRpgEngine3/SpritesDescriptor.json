@@ -1,0 +1,10 @@
+[
+  {
+    "Name": "elves",
+    "Rows": 4,
+    "FramesPerRow": 7,
+    "CellHeight": 64,
+    "CellWidth": 64
+  }
+
+]

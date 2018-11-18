@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Xml;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -12,6 +13,7 @@ using MonoGame.Extended.Input.InputListeners;
 using MonoGame.Extended.Particles;
 using MonoGame.Extended.Screens;
 using MonoGame.Extended.ViewportAdapters;
+using Newtonsoft.Json;
 using SimplexCore;
 using SimplexResources.Sprites;
 using Sprite = SimplexCore.Sprite;
@@ -74,26 +76,27 @@ namespace SimplexRpgEngine3
             s.FramesCount = s.GetFramesCount();
             sf = Content.Load<SpriteFont>("Fonts/font1");
 
-            // Get sprites
-            XmlManager<SpriteDescriptor> spritesXml = new XmlManager<SpriteDescriptor>();
-            spritesXml.Type = typeof(SpriteDescriptor);
-
-            SpriteDescriptor sd = spritesXml.Load("SpritesDefinition.xml");
-
+            List<SpriteDescriptor> sd = JsonConvert.DeserializeObject<List<SpriteDescriptor>>(File.ReadAllText("SpritesDescriptor.json"));
+            
             XmlManager<GameObject> xml = new XmlManager<GameObject>();
-            xml.Type = typeof(GameObject);
+            xml.Type = typeof(List<GameObject>);
 
-            GameObject go = xml.Load(Path.Combine(Environment.CurrentDirectory, @"Data/save1.sav"));
-            GameObjects.Add(go);
+            List<GameObject> goList = xml.LoadList(Path.Combine(Environment.CurrentDirectory, @"Data/save1.sav"));
+            GameObjects.AddRange(goList);
 
             // We neeed to load back Textures2D (fucking bastards sitting in ram)
             foreach (GameObject g in GameObjects)
             {
-                if (!string.IsNullOrEmpty(g.Sprite.TextureSource))
+                SpriteDescriptor s = sd.FirstOrDefault(x => ("Sprites/" + x.Name) ==  g.Sprite.TextureSource);
+
+                if (!string.IsNullOrEmpty(g.Sprite.TextureSource) && s != null)
                 {
                     g.Sprite.Texture = Content.Load<Texture2D>(g.Sprite.TextureSource);
-                    g.Sprite.ImageSize = new Vector2(sd.CellWidth, sd.CellHeight);
+                    g.Sprite.ImageSize = new Vector2(s.CellWidth, s.CellHeight);
+                    g.Sprite.TextureCellsPerRow = s.FramesPerRow;
+                    g.Sprite.TextureRows = s.Rows;
                     g.Sprite.FramesCount = g.Sprite.GetFramesCount();
+                    g.FramesCount = g.Sprite.FramesCount;
                 }
             }
         }

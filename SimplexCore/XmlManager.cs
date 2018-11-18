@@ -23,11 +23,39 @@ namespace SimplexCore
             return instance;
         }
 
+        public List<T> LoadList(string path)
+        {
+            List<T> instance;
+            using (FileStream stream = File.OpenRead(path))
+            {
+                XmlRootAttribute xRoot = new XmlRootAttribute();
+                xRoot.ElementName = "Data";
+
+                XmlSerializer xml = new XmlSerializer(Type, xRoot);
+
+                instance = (List<T>) xml.Deserialize(stream);
+            }
+
+            return instance;
+        }
+
         public void Save(string path, object obj)
         {
             using (TextWriter w = new StreamWriter(path))
             {
                 XmlSerializer xml = new XmlSerializer(Type);
+                xml.Serialize(w, obj);
+            }
+        }
+
+        public void SaveList(string path, List<T> obj)
+        {
+            using (TextWriter w = new StreamWriter(path))
+            {
+                XmlRootAttribute xRoot = new XmlRootAttribute();
+                xRoot.ElementName = "Data";
+
+                XmlSerializer xml = new XmlSerializer(Type, xRoot);
                 xml.Serialize(w, obj);
             }
         }

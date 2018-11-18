@@ -60,12 +60,9 @@ namespace SimplexIde
         public void SaveGame(string path)
         {
             XmlManager<GameObject> xmlManager = new XmlManager<GameObject>();
-            xmlManager.Type = typeof(GameObject);
+            xmlManager.Type = typeof(List<GameObject>);
+            xmlManager.SaveList(path, SceneObjects);
 
-            foreach (GameObject g in SceneObjects)
-            {
-                xmlManager.Save(path, g);
-            }
         }
     }
 }

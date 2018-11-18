@@ -75,12 +75,15 @@ namespace SimplexCore
 
         public void UpdateImageRectangle()
         {
-            int y = ((int)ImageIndex / TextureCellsPerRow);
-            int x = ((int)ImageIndex % TextureCellsPerRow);
+            if (TextureCellsPerRow > 0)
+            { 
+                int y = ((int)ImageIndex / TextureCellsPerRow);
+                int x = ((int)ImageIndex % TextureCellsPerRow);
 
-            //Debug.WriteLine("x:" + x + " y: " + y);
+                //Debug.WriteLine("x:" + x + " y: " + y);
 
-            ImageRectangle = new Rectangle(x * (int)ImageSize.X, y * (int)ImageSize.Y, (int)ImageSize.X, (int)ImageSize.Y);
+                ImageRectangle = new Rectangle(x * (int)ImageSize.X, y * (int)ImageSize.Y, (int)ImageSize.X, (int)ImageSize.Y);
+            }
         }
     }
 }
