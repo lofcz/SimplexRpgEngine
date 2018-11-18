@@ -1,0 +1,7 @@
+﻿<SpriteDescriptor>
+  <Name>elves</Name>
+  <CellWidth>64</CellWidth>
+  <CellHeight>64</CellHeight>
+  <Rows>4</Rows>
+  <FramesPerRow>7</FramesPerRow>
+</SpriteDescriptor>

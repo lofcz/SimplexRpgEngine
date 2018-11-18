@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Xml;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -12,6 +13,7 @@ using MonoGame.Extended.Particles;
 using MonoGame.Extended.Screens;
 using MonoGame.Extended.ViewportAdapters;
 using SimplexCore;
+using SimplexResources.Sprites;
 using Sprite = SimplexCore.Sprite;
 
 namespace SimplexRpgEngine3
@@ -72,7 +74,11 @@ namespace SimplexRpgEngine3
             s.FramesCount = s.GetFramesCount();
             sf = Content.Load<SpriteFont>("Fonts/font1");
 
+            // Get sprites
+            XmlManager<SpriteDescriptor> spritesXml = new XmlManager<SpriteDescriptor>();
+            spritesXml.Type = typeof(SpriteDescriptor);
 
+            SpriteDescriptor sd = spritesXml.Load("SpritesDefinition.xml");
 
             XmlManager<GameObject> xml = new XmlManager<GameObject>();
             xml.Type = typeof(GameObject);
@@ -86,7 +92,7 @@ namespace SimplexRpgEngine3
                 if (!string.IsNullOrEmpty(g.Sprite.TextureSource))
                 {
                     g.Sprite.Texture = Content.Load<Texture2D>(g.Sprite.TextureSource);
-                    g.Sprite.ImageSize = new Vector2(64, 64);
+                    g.Sprite.ImageSize = new Vector2(sd.CellWidth, sd.CellHeight);
                     g.Sprite.FramesCount = g.Sprite.GetFramesCount();
                 }
             }
