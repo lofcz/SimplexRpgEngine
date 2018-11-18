@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Diagnostics.PerformanceData;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Xml.Serialization;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using SimplexCore;
 
 namespace SimplexResources.Objects
@@ -25,7 +27,17 @@ namespace SimplexResources.Objects
 
         public override void OnCreate()
         {
-            ImageScaleTarget = new Vector2(0.5f, 0.5f);
+           // Sprite.ImageScaleTarget = new Vector2(0.5f, 0.5f);
+        }
+
+        public override void OnDraw(SpriteBatch sb)
+        {
+            if (Input.KeyPressed(Keys.W))
+            {
+                Position.Y -= 40;
+            }
+            //Position.Y--;
+            //Debug.WriteLine("Hello" + Id);
         }
     }
 }

@@ -82,11 +82,27 @@ namespace SimplexRpgEngine3
             xml.Type = typeof(List<GameObject>);
 
             List<GameObject> goList = xml.LoadList(Path.Combine(Environment.CurrentDirectory, @"Data/save1.sav"));
-            GameObjects.AddRange(goList);
+            List<GameObject> finalList = new List<GameObject>();
+
+            foreach (GameObject g in goList)
+            {
+                GameObject tempObject = (GameObject)Activator.CreateInstance(Type.GetType(g.TypeString));
+                tempObject.Position = g.Position;
+                tempObject.Sprite = g.Sprite;
+                tempObject.TypeString = g.TypeString;
+                tempObject.OriginalType = GetType();
+                tempObject.TransformSpeed = g.TransformSpeed;
+
+                GameObjects.Add(tempObject);    
+            }
+
+           // GameObjects.AddRange(goList);
 
             // We neeed to load back Textures2D (fucking bastards sitting in ram)
+            int index = 0;
             foreach (GameObject g in GameObjects)
             {
+                g.Id = index;
                 SpriteDescriptor s = sd.FirstOrDefault(x => ("Sprites/" + x.Name) ==  g.Sprite.TextureSource);
 
                 if (!string.IsNullOrEmpty(g.Sprite.TextureSource) && s != null)
@@ -98,6 +114,9 @@ namespace SimplexRpgEngine3
                     g.Sprite.FramesCount = g.Sprite.GetFramesCount();
                     g.FramesCount = g.Sprite.FramesCount;
                 }
+
+                g.OnCreate();
+                index++;
             }
         }
 
@@ -147,6 +166,7 @@ namespace SimplexRpgEngine3
 
         protected override void Draw(GameTime gameTime)
         {
+            Input.KeyboardState = Keyboard.GetState();
 
             GraphicsDevice.Clear(Color.CornflowerBlue);
             Matrix transformMatrix = cam.Camera.GetViewMatrix();
@@ -156,6 +176,7 @@ namespace SimplexRpgEngine3
 
             foreach (GameObject g in GameObjects)
             {
+                g.OnDraw(spriteBatch);
                 spriteBatch.Draw(g.Sprite.Texture, g.Position, g.Sprite.ImageRectangle, Color.White, s.ImageAngle, new Vector2(0, 0), g.Sprite.ImageScale, SpriteEffects.None, 1);
             }
 
@@ -163,7 +184,7 @@ namespace SimplexRpgEngine3
             spriteBatch.End();
 
             // TODO: Add your drawing code here
-
+            Input.KeyboardStatePrevious = Keyboard.GetState();
             base.Draw(gameTime);
         }
     }

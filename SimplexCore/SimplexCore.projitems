@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)GameObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Input.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SimplexCamera.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SimplexMath.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sprite.cs" />

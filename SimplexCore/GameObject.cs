@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Xml.Serialization;
 using Microsoft.Xna.Framework;
@@ -38,6 +39,8 @@ namespace SimplexCore
         public Vector2 ImageScaleTarget;
         public int FramesCount;
 
+        [XmlIgnore]
+        public int Id;
 
         private float _imageIndex;
 
@@ -87,9 +90,9 @@ namespace SimplexCore
 
         }
 
-        public virtual void OnDraw()
+        public virtual void OnDraw(SpriteBatch sb)
         {
-
+           
         }
     }
 }
