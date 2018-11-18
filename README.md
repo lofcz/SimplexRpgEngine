@@ -26,6 +26,7 @@ There are plenty of reasons behind this. But these are the main ones:
 
 **WIP**
 - Object (GameObject)
+- Events
 
 **TBD**
 - Shader
@@ -33,4 +34,12 @@ There are plenty of reasons behind this. But these are the main ones:
 - Path
 - Room
 
+### Object events
+Events are aiming to imitate GMS native events while introducing some newcomers and discarding obsolete overheat. 
+
+- OnSetup - Use to toggle predefined GameObject behavior / custom plugins
+- OnCreate - Equal to create
+- OnStep - Equal to step
+- OnDraw - Equal to draw
+- OnEditorDraw - Occurs when object is drawn in room editor
 
