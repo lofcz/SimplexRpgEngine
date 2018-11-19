@@ -69,7 +69,7 @@ namespace SimplexRpgEngine3
 
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            s.Texture = Content.Load<Texture2D>("/Sprites/elves");
+            s.Texture = Content.Load<Texture2D>("Sprites/elves");
             s.ImageSize = new Vector2(64, 64);
             s.TextureCellsPerRow = 7;
             s.TextureRows = 2;
@@ -79,7 +79,9 @@ namespace SimplexRpgEngine3
             List<SpriteDescriptor> sd = JsonConvert.DeserializeObject<List<SpriteDescriptor>>(File.ReadAllText("SpritesDescriptor.json"));
             
             XmlManager<GameObject> xml = new XmlManager<GameObject>();
-            xml.Type = typeof(List<GameObject>);
+            //xml.Type = typeof(List<GameObject>);
+
+            Root r = xml.LoadRoot(Path.Combine(Environment.CurrentDirectory, @"Data/save1.sav"));
 
             List<GameObject> goList = xml.LoadList(Path.Combine(Environment.CurrentDirectory, @"Data/save1.sav"));
             List<GameObject> finalList = new List<GameObject>();

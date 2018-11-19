@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Text;
 using System.Xml.Serialization;
+using SimplexResources.Objects;
 
 namespace SimplexCore
 {
@@ -37,6 +38,15 @@ namespace SimplexCore
             }
 
             return instance;
+        }
+
+        public Root LoadRoot(string path)
+        {
+            using (FileStream stream = File.OpenRead(path))
+            {
+                XmlSerializer ser = new XmlSerializer(typeof(Root), new Type[] { typeof(SampleObject), typeof(Objekt2) });
+                return (Root)ser.Deserialize(stream);
+            }
         }
 
         public void Save(string path, object obj)

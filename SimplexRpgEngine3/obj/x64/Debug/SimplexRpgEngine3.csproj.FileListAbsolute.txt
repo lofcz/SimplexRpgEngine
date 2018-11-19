@@ -95,3 +95,4 @@ C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexRpgEngine3\bin\x64\Debug\M
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexRpgEngine3\bin\x64\Debug\MonoGame.Extended.NuclexGui.pdb
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexRpgEngine3\bin\x64\Debug\MonoGame.Extended.NuclexGui.xml
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexRpgEngine3\bin\x64\Debug\SpritesDescriptor.json
+C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexRpgEngine3\bin\x64\Debug\Content\Sprites\texture.xnb

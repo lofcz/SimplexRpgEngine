@@ -8,11 +8,13 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Forms.Controls;
 using SimplexCore;
+using SimplexResources.Objects;
 using ButtonState = Microsoft.Xna.Framework.Input.ButtonState;
 
 namespace SimplexIde
@@ -23,7 +25,7 @@ namespace SimplexIde
         public string Name { get; set; }
     }
 
-    public class DrawTest : UpdateWindow
+    public class DrawTest : DrawWindow
     {
         public Type SelectedObject = null;
         public List<GameObject> SceneObjects = new List<GameObject>();
@@ -49,35 +51,8 @@ namespace SimplexIde
             }
         }
 
-        protected override void Update(GameTime gt)
-        {
-            Debug.WriteLine(DateTime.Now);
-        }
-
         protected override void Draw()
         {
-
-            MouseState m = Mouse.GetState();
-
-            if (m.LeftButton == ButtonState.Pressed)
-            {
-                if (SelectedObject != null)
-                {
-                    Vector2 vec = new Vector2(m.X, m.Y);
-
-                    if (DrawGrid)
-                    {
-                        vec = new Vector2(m.X / 32 * 32, m.Y / 32 * 32);
-                    }
-
-                    GameObject o = (GameObject)Activator.CreateInstance(SelectedObject);
-                    o.Position = vec;
-                    o.OriginalType = SelectedObject;
-                    o.TypeString = SelectedObject.ToString();
-
-                    SceneObjects.Add(o);
-                }
-            }
 
             base.Draw();
 
@@ -96,7 +71,7 @@ namespace SimplexIde
         }
 
         public void GameClicked(MouseEventArgs e)
-        {/*
+        {
             if (SelectedObject != null)
             {
                 Vector2 vec = new Vector2(e.X, e.Y);
@@ -112,15 +87,32 @@ namespace SimplexIde
                 o.TypeString = SelectedObject.ToString();
 
                 SceneObjects.Add(o);
-            }*/
+            }
         }
 
         public void SaveGame(string path)
         {
-            XmlManager<GameObject> xmlManager = new XmlManager<GameObject>();
-            xmlManager.Type = typeof(List<GameObject>);
-            xmlManager.SaveList(path, SceneObjects);
+            Root root = new Root();
+
+            foreach (GameObject g in SceneObjects)
+            {
+                root.Objects.Add(g);
+            }
+            //root.Objects.Add(new GameObject { Property1 = 2 });
+            //root.Objects.Add(new SampleObject { Property1 = 5, Property2 = 12 });
+
+            XmlSerializer ser = new XmlSerializer(typeof(Root), new Type[] { typeof(SampleObject), typeof(Objekt2) });
+            using (TextWriter w = new StreamWriter(path))
+            {
+                ser.Serialize(w, root);
+                //stream.Position = 0;
+                //Root deserialized = (Root)ser.Deserialize(stream);
+            }
+
+         //   XmlManager<GameObject> xmlManager = new XmlManager<GameObject>();
+         //   xmlManager.Type = typeof(List<GameObject>);
+         //   xmlManager.SaveList(path, SceneObjects);
 
         }
-    }
+    }  
 }

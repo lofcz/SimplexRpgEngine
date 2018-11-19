@@ -11,6 +11,7 @@ namespace SimplexCore
 {
     [Serializable]
     [XmlInclude(typeof(SampleObject))]
+    [XmlInclude(typeof(Objekt2))]
     public class GameObject
     {
         public Sprite Sprite;
