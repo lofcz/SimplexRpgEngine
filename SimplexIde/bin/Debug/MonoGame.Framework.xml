@@ -2038,12 +2038,6 @@
             Gets or sets a bool that enables usage of Alt+F4 for window closing on desktop platforms. Value is true by default.
             </summary>
         </member>
-        <member name="P:Microsoft.Xna.Framework.GameWindow.Position">
-            <summary>
-            The location of this window on the desktop, eg: global coordinate space
-            which stretches across all screens.
-            </summary>
-        </member>
         <member name="P:Microsoft.Xna.Framework.GameWindow.Title">
             <summary>
             Gets or sets the title of the game window.
@@ -4365,6 +4359,36 @@
             <param name="playerIndex">Player index of the keyboard.</param>
             <returns>Current keyboard state.</returns>
         </member>
+        <member name="M:Microsoft.Xna.Framework.Input.KeyboardInput.Show(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Displays the keyboard input interface asynchronously.
+            </summary>
+            <param name="title">Title of the dialog box.</param>
+            <param name="description">Description of the dialog box.</param>
+            <param name="defaultText">Default text displayed in the input area.</param>
+            <param name="usePasswordMode">If password mode is enabled, the characters entered are not displayed.</param>
+            <returns>Text entered by the player. Null if back was used.</returns>
+            <exception cref="T:System.Exception">Thrown when the message box is already visible</exception>
+            <example>
+            <code>
+            var name = await KeyboardInput.Show("Name", "What's your name?", "Player");
+            </code>
+            </example>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Input.KeyboardInput.Cancel(System.String)">
+            <summary>
+            Hides the keyboard input interface and returns the parameter as the result of <see cref="M:Microsoft.Xna.Framework.Input.KeyboardInput.Show(System.String,System.String,System.String,System.Boolean)"/>
+            </summary>
+            <param name="result">Result to return</param>
+            <exception cref="T:System.Exception">Thrown when the keyboard input is not visible</exception>
+            <example>
+            <code>
+            var nameTask = KeyboardInput.Show("Name", "What's your name?", "Player");
+            KeyboardInput.Cancel("John Doe");
+            var name = await nameTask;
+            </code>
+            </example>
+        </member>
         <member name="T:Microsoft.Xna.Framework.Input.KeyboardState">
             <summary>
             Holds the state of keystrokes by a keyboard.
@@ -5270,6 +5294,35 @@
             Key is pressed.
             </summary>
         </member>
+        <member name="M:Microsoft.Xna.Framework.Input.MessageBox.Show(System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Displays the message box interface asynchronously.
+            </summary>
+            <param name="title">Title of the message box.</param>
+            <param name="description">Description of the message box.</param>
+            <param name="buttons">Captions of the message box buttons. Up to three supported.</param>
+            <returns>Index of button selected by the player. Null if back was used.</returns>
+            <exception cref="T:System.Exception">Thrown when the message box is already visible</exception>
+            <example>
+            <code>
+            var color = await MessageBox.Show("Color", "What's your favorite color?", new[] { "Red", "Green", "Blue" });
+            </code>
+            </example>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Input.MessageBox.Cancel(System.Nullable{System.Int32})">
+            <summary>
+            Hides the message box interface and returns the parameter as the result of <see cref="M:Microsoft.Xna.Framework.Input.MessageBox.Show(System.String,System.String,System.Collections.Generic.IEnumerable{System.String})"/>
+            </summary>
+            <param name="result">Result to return</param>
+            <exception cref="T:System.Exception">Thrown when the message box is not visible</exception>
+            <example>
+            <code>
+            var colorTask = MessageBox.Show("Color", "What's your favorite color?", new[] { "Red", "Green", "Blue" });
+            MessageBox.Cancel(0);
+            var color = await colorTask;
+            </code>
+            </example>
+        </member>
         <member name="T:Microsoft.Xna.Framework.Input.Mouse">
             <summary>
             Allows reading position and button click information from mouse.
@@ -5981,6 +6034,12 @@
             Used to disable emitting of hold gestures.
             </summary>
         </member>
+        <member name="T:Microsoft.Xna.Framework.Input.Touch.TouchQueue">
+            <summary>
+            Stores touches to apply them once a frame for platforms that dispatch touches asynchronously
+            while user code is running.
+            </summary>
+        </member>
         <member name="T:Microsoft.Xna.Framework.Audio.NamespaceDoc">
             <summary>
             Support for playing sound effects and XACT audio.
@@ -6073,20 +6132,6 @@
             <para>Scaled by DopplerScale to calculate the Doppler effect value applied to a Cue.</para>
             <para>This value is only used to calculate Doppler values.</para>
             </remarks>
-        </member>
-        <member name="M:Microsoft.Xna.Framework.Audio.AudioLoader.Load(System.IO.Stream,MonoGame.OpenAL.ALFormat@,System.Int32@,System.Int32@,System.Int32@,System.Int32@,System.Int32@,System.Int32@)">
-            <summary>
-            Load a WAV file from stream.
-            </summary>
-            <param name="stream">The stream positioned at the start of the WAV file.</param>
-            <param name="format">Gets the OpenAL format enumeration value.</param>
-            <param name="frequency">Gets the frequency or sample rate.</param>
-            <param name="channels">Gets the number of channels.</param>
-            <param name="blockAlignment">Gets the block alignment, important for compressed sounds.</param>
-            <param name="bitsPerSample">Gets the number of bits per sample.</param>
-            <param name="samplesPerBlock">Gets the number of samples per block.</param>
-            <param name="sampleCount">Gets the total number of samples.</param>
-            <returns>The byte buffer containing the waveform data or compressed blocks.</returns>
         </member>
         <member name="T:Microsoft.Xna.Framework.Audio.DynamicSoundEffectInstance">
             <summary>
@@ -6215,44 +6260,6 @@
         <member name="M:Microsoft.Xna.Framework.Audio.NoAudioHardwareException.#ctor(System.String,System.Exception)">
             <param name="msg">A message describing the error.</param>
             <param name="innerException">The exception that is the underlying cause of the current exception. If not null, the current exception is raised in a try/catch block that handled the innerException.</param>
-        </member>
-        <member name="M:Microsoft.Xna.Framework.Audio.OpenALSoundController.#ctor">
-            <summary>
-            Sets up the hardware resources used by the controller.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Xna.Framework.Audio.OpenALSoundController.OpenSoundController">
-            <summary>
-            Open the sound device, sets up an audio context, and makes the new context
-            the current context. Note that this method will stop the playback of
-            music that was running prior to the game start. If any error occurs, then
-            the state of the controller is reset.
-            </summary>
-            <returns>True if the sound controller was setup, and false if not.</returns>
-        </member>
-        <member name="M:Microsoft.Xna.Framework.Audio.OpenALSoundController.CleanUpOpenAL">
-            <summary>
-            Destroys the AL context and closes the device, when they exist.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Xna.Framework.Audio.OpenALSoundController.Dispose">
-            <summary>
-            Dispose of the OpenALSoundCOntroller.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Xna.Framework.Audio.OpenALSoundController.Dispose(System.Boolean)">
-            <summary>
-            Dispose of the OpenALSoundCOntroller.
-            </summary>
-            <param name="disposing">If true, the managed resources are to be disposed.</param>
-        </member>
-        <member name="M:Microsoft.Xna.Framework.Audio.OpenALSoundController.ReserveSource">
-            <summary>
-            Reserves a sound buffer and return its identifier. If there are no available sources
-            or the controller was not able to setup the hardware then an
-            <see cref="T:Microsoft.Xna.Framework.Audio.InstancePlayLimitException"/> is thrown.
-            </summary>
-            <returns>The source number of the reserved sound buffer.</returns>
         </member>
         <member name="T:Microsoft.Xna.Framework.Audio.SoundEffect">
             <summary>Represents a loaded sound resource.</summary>
@@ -6418,6 +6425,11 @@
             no managed objects should be touched because we do not know if they are still valid or
             not at that time.  Unmanaged resources should always be released.</remarks>
         </member>
+        <member name="M:Microsoft.Xna.Framework.Audio.SoundEffect.InitializeSoundEffect">
+            <summary>
+            Initializes XAudio.
+            </summary>
+        </member>
         <member name="T:Microsoft.Xna.Framework.Audio.SoundEffectInstance">
             <summary>Represents a single instance of a playing, paused, or stopped sound.</summary>
             <remarks>
@@ -6499,23 +6511,6 @@
             no managed objects should be touched because we do not know if they are still valid or
             not at that time.  Unmanaged resources should always be released.</remarks>
         </member>
-        <member name="M:Microsoft.Xna.Framework.Audio.SoundEffectInstance.PlatformInitialize(System.Byte[],System.Int32,System.Int32)">
-            <summary>
-            Creates a standalone SoundEffectInstance from given wavedata.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Xna.Framework.Audio.SoundEffectInstance.InitializeSound">
-            <summary>
-            Gets the OpenAL sound controller, constructs the sound buffer, and sets up the event delegates for
-            the reserved and recycled events.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Xna.Framework.Audio.SoundEffectInstance.XnaPitchToAlPitch(System.Single)">
-            <summary>
-            Converts the XNA [-1, 1] pitch range to OpenAL pitch (0, INF) or Android SoundPool playback rate [0.5, 2].
-            <param name="xnaPitch">The pitch of the sound in the Microsoft XNA range.</param>
-            </summary>
-        </member>
         <member name="P:Microsoft.Xna.Framework.Audio.SoundEffectInstancePool.SoundsAvailable">
             <summary>
             Gets a value indicating whether the platform has capacity for more sounds to be played at this time.
@@ -6576,8 +6571,8 @@
             Provides microphones capture features. 
             </summary>
             <summary>
-            Provides microphones capture features.  
-            </summary>
+            Provides microphones capture features. 
+            </summary>	
         </member>
         <member name="F:Microsoft.Xna.Framework.Audio.Microphone.Name">
             <summary>
@@ -8050,1306 +8045,9 @@
             <param name="width"></param>
             <param name="height"></param>
         </member>
-        <member name="T:Microsoft.Xna.Framework.SDL.SDLB.ButtonKeyState">
-            <summary>
-            ButtonKeyState
-            </summary>
-            <remarks>/remarks> byte</remarks>
-        </member>
-        <member name="T:Microsoft.Xna.Framework.SDL.SDLB.MouseButton">
-            <summary>
-            MouseButton
-            </summary>
-            <remarks>Byte</remarks>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Unknown">
-             <summary>
-            Unknown
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.First">
-            <summary>
-            first
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Backspace">
-            <summary>
-            backspace. '\b'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Tab">
-            <summary>
-            tab. '\t'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Clear">
-            <summary>
-            clear
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Return">
-            <summary>
-            return. '\r'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Pause">
-            <summary>
-            pause
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Escape">
-            <summary>
-            escape. '^['
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Space">
-            <summary>
-            space. ' '
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.ExclamationPoint">
-            <summary>
-            exclaim. '!'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.DoubleQuote">
-            <summary>
-            quotedbl. '"'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Hash">
-            <summary>
-            hash. '#'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.DollarSign">
-            <summary>
-            dollar. '$'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Ampersand">
-            <summary>
-            ampersand. '&amp;'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Quote">
-            <summary>
-            quote. '''
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.LeftParenthesis">
-            <summary>
-            left parenthesis. '('
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.RightParenthesis">
-            <summary>
-            right parenthesis. ')'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Asterisk">
-            <summary>
-            asterisk. '*'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Plus">
-            <summary>
-            plus sign. '+'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Comma">
-            <summary>
-            comma. ','
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Minus">
-            <summary>
-            minus sign. '-'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Period">
-            <summary>
-            period. '.'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Slash">
-            <summary>
-            forward slash. '/'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Zero">
-            <summary>
-            0
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.One">
-            <summary>
-            1
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Two">
-            <summary>
-            2
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Three">
-            <summary>
-            3
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Four">
-            <summary>
-            4
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Five">
-            <summary>
-            5
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Six">
-            <summary>
-            6
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Seven">
-            <summary>
-            7
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Eight">
-            <summary>
-            8
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Nine">
-            <summary>
-            9
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Colon">
-            <summary>
-            colon. ':'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Semicolon">
-            <summary>
-            semicolon. ';'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.LessThan">
-            <summary>
-            less-than sign. '&lt;'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Equals">
-            <summary>
-            equals sign. '='
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.GreaterThan">
-            <summary>
-            greater-than sign. '&gt;'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.QuestionMark">
-            <summary>
-            question mark. '?'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.At">
-            <summary>
-            at. '@'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.LeftBracket">
-            <summary>
-            left bracket. '['
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Backslash">
-            <summary>
-            backslash. '\'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.RightBracket">
-            <summary>
-            right bracket. ']'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Caret">
-            <summary>
-            caret. '^'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Underscore">
-            <summary>
-            underscore.'_'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.BackQuote">
-            <summary>
-            grave. '`'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.A">
-            <summary>
-            a
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.B">
-            <summary>
-            b
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.C">
-            <summary>
-            c
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.D">
-            <summary>
-            d
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.E">
-            <summary>
-            e
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.F">
-            <summary>
-            f
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.G">
-            <summary>
-            g
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.H">
-            <summary>
-            h
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.I">
-            <summary>
-            i
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.J">
-            <summary>
-            j
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.K">
-            <summary>
-            k
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.L">
-            <summary>
-            l
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.M">
-            <summary>
-            m
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.N">
-            <summary>
-            n
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.O">
-            <summary>
-            o
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.P">
-            <summary>
-            p
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Q">
-            <summary>
-            q
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.R">
-            <summary>
-            r
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.S">
-            <summary>
-            s
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.T">
-            <summary>
-            t
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.U">
-            <summary>
-            u
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.V">
-            <summary>
-            v
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.W">
-            <summary>
-            w
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.X">
-            <summary>
-            x
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Y">
-            <summary>
-            y
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Z">
-            <summary>
-            z
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Delete">
-            <summary>
-            delete. '^?'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World0">
-            <summary>
-            0xA0
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World1">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World2">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World3">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World4">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World5">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World6">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World7">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World8">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World9">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World10">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World11">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World12">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World13">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World14">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World15">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World16">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World17">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World18">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World19">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World20">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World21">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World22">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World23">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World24">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World25">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World26">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World27">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World28">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World29">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World30">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World31">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World32">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World33">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World34">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World35">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World36">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World37">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World38">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World39">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World40">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World41">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World42">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World43">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World44">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World45">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World46">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World47">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World48">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World49">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World50">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World51">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World52">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World53">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World54">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World55">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World56">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World57">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World58">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World59">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World60">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World61">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World62">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World63">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World64">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World65">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World66">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World67">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World68">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World69">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World70">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World71">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World72">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World73">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World74">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World75">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World76">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World77">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World78">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World79">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World80">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World81">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World82">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World83">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World84">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World85">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World86">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World87">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World88">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World89">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World90">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World91">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World92">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World93">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World94">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.World95">
-            <summary>
-            0xFF
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Keypad0">
-            <summary>
-            keypad 0
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Keypad1">
-            <summary>
-            keypad 1
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Keypad2">
-            <summary>
-            keypad 2
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Keypad3">
-            <summary>
-            keypad 3
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Keypad4">
-            <summary>
-            keypad 4
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Keypad5">
-            <summary>
-            keypad 5
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Keypad6">
-            <summary>
-            keypad 6
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Keypad7">
-            <summary>
-            keypad 7
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Keypad8">
-            <summary>
-            keypad 8
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Keypad9">
-            <summary>
-            keypad 9
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.KeypadPeriod">
-            <summary>
-            keypad period. '.'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.KeypadDivide">
-            <summary>
-            keypad divide. '/'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.KeypadMultiply">
-            <summary>
-            keypad multiply. '*'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.KeypadMinus">
-            <summary>
-            keypad minus. '-'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.KeypadPlus">
-            <summary>
-            keypad plus. '+'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.KeypadEnter">
-            <summary>
-            keypad enter. '\r'
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.KeypadEquals">
-            <summary>
-            keypad equals. '='
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.UpArrow">
-            <summary>
-            up arrow
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.DownArrow">
-            <summary>
-            down arrow
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.RightArrow">
-            <summary>
-            right arrow
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.LeftArrow">
-            <summary>
-            left arrow
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Insert">
-            <summary>
-            insert
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Home">
-            <summary>
-            home
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.End">
-            <summary>
-            end
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.PageUp">
-            <summary>
-            page up
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.PageDown">
-            <summary>
-            page down
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.F1">
-            <summary>
-            F1
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.F2">
-            <summary>
-            F2
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.F3">
-            <summary>
-            F3
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.F4">
-            <summary>
-            F4
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.F5">
-            <summary>
-            F5
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.F6">
-            <summary>
-            F6
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.F7">
-            <summary>
-            F7
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.F8">
-            <summary>
-            F8
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.F9">
-            <summary>
-            F9
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.F10">
-            <summary>
-            F10
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.F11">
-            <summary>
-            F11
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.F12">
-            <summary>
-            F12
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.F13">
-            <summary>
-            F13
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.F14">
-            <summary>
-            F14
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.F15">
-            <summary>
-            F15
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.NumLock">
-            <summary>
-            numlock
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.CapsLock">
-            <summary>
-            capslock
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.ScrollLock">
-            <summary>
-            scrollock
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.RightShift">
-            <summary>
-            right shift
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.LeftShift">
-            <summary>
-            left shift
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.RightControl">
-            <summary>
-            right ctrl
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.LeftControl">
-            <summary>
-            left ctrl
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.RightAlt">
-            <summary>
-            right alt
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.LeftAlt">
-            <summary>
-            left alt
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.RightMeta">
-            <summary>
-            right meta
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.LeftMeta">
-            <summary>
-            left meta
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.LeftWindows">
-            <summary>
-            Left "Windows" key
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.RightWindows">
-            <summary>
-            Right "Windows" key
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Mode">
-            <summary>
-            "Alt Gr" key. Mode key
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Compose">
-            <summary>
-            Multi-key compose key
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Help">
-            <summary>
-            help
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Print">
-            <summary>
-            print-screen
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.SysRQ">
-            <summary>
-            SysRq
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Break">
-            <summary>
-            break
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Menu">
-            <summary>
-            menu
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Power">
-            <summary>
-            Power Macintosh power key
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Euro">
-            <summary>
-            Some european keyboards
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Undo">
-            <summary>
-            Atari keyboard has Undo
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.Key.Last">
-             <summary>
-            
-             </summary>
-        </member>
-        <member name="T:Microsoft.Xna.Framework.SDL.SDLK.ModifierKeys">
-            <summary>
-            Enumeration of valid key mods (possibly OR'd together) 
-            </summary>
-            <remarks></remarks>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.ModifierKeys.None">
-            <summary>
-            No modifiers applicable
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.ModifierKeys.LeftShift">
-            <summary>
-            Left Shift is down
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.ModifierKeys.RightShift">
-            <summary>
-            Right Shift is down
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.ModifierKeys.LeftControl">
-            <summary>
-            Left Control is down
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.ModifierKeys.RightControl">
-            <summary>
-            Right Control is down
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.ModifierKeys.LeftAlt">
-            <summary>
-            Left Alt is down
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.ModifierKeys.RightAlt">
-            <summary>
-            Right Alt is down
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.ModifierKeys.LeftMeta">
-            <summary>
-            Left Meta is down
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.ModifierKeys.RightMeta">
-            <summary>
-            Right Meta is down
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.ModifierKeys.NumLock">
-            <summary>
-            Numlock is down
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.ModifierKeys.Caps">
-            <summary>
-            Capslock is down
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.ModifierKeys.Mode">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.ModifierKeys.ReserveKey">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.ModifierKeys.ControlKeys">
-            <summary>
-            Both CTRL Keys
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.ModifierKeys.ShiftKeys">
-            <summary>
-            Both SHIFT keys.
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.ModifierKeys.AltKeys">
-            <summary>
-            Both ALT keys.
-            </summary>
-        </member>
-        <member name="F:Microsoft.Xna.Framework.SDL.SDLK.ModifierKeys.MetaKeys">
-            <summary>
-            Both META keys.
-            </summary>
-        </member>
         <member name="T:Microsoft.Xna.Framework.TextInputEventArgs">
             <summary>
             This class is used for the game window's TextInput event as EventArgs.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Xna.Framework.Threading.IsOnUIThread">
-            <summary>
-            Checks if the code is currently running on the UI thread.
-            </summary>
-            <returns>true if the code is currently running on the UI thread.</returns>
-        </member>
-        <member name="M:Microsoft.Xna.Framework.Threading.EnsureUIThread">
-            <summary>
-            Throws an exception if the code is not currently running on the UI thread.
-            </summary>
-            <exception cref="T:System.InvalidOperationException">Thrown if the code is not currently running on the UI thread.</exception>
-        </member>
-        <member name="M:Microsoft.Xna.Framework.Threading.BlockOnUIThread(System.Action)">
-            <summary>
-            Runs the given action on the UI thread and blocks the current thread while the action is running.
-            If the current thread is the UI thread, the action will run immediately.
-            </summary>
-            <param name="action">The action to be run on the UI thread</param>
-        </member>
-        <member name="M:Microsoft.Xna.Framework.Threading.Run">
-            <summary>
-            Runs all pending actions.  Must be called from the UI thread.
             </summary>
         </member>
         <member name="M:Microsoft.Xna.Framework.TitleContainer.OpenStream(System.String)">
@@ -12499,6 +11197,20 @@
             is created. <see cref="F:Microsoft.Xna.Framework.Graphics.GraphicsAdapter.DriverType.Hardware"/> by default.
             </remarks>
         </member>
+        <member name="P:Microsoft.Xna.Framework.Graphics.GraphicsAdapter.UseDebugLayers">
+            <summary>
+            Used to request the graphics device should be created with debugging
+            features enabled.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Graphics.GraphicsAdapter.IsWideScreen">
+            <summary>
+            Returns true if the <see cref="P:Microsoft.Xna.Framework.Graphics.GraphicsAdapter.CurrentDisplayMode"/> is widescreen.
+            </summary>
+            <remarks>
+            Common widescreen modes include 16:9, 16:10 and 2:1.
+            </remarks>
+        </member>
         <member name="M:Microsoft.Xna.Framework.Graphics.GraphicsAdapter.QueryRenderTargetFormat(Microsoft.Xna.Framework.Graphics.GraphicsProfile,Microsoft.Xna.Framework.Graphics.SurfaceFormat,Microsoft.Xna.Framework.Graphics.DepthFormat,System.Int32,Microsoft.Xna.Framework.Graphics.SurfaceFormat@,Microsoft.Xna.Framework.Graphics.DepthFormat@,System.Int32@)">
             <summary>
             Queries for support of the requested render target format on the adaptor.
@@ -12511,14 +11223,6 @@
             <param name="selectedDepthFormat">Set to the best format supported by the adaptor for the requested depth stencil format.</param>
             <param name="selectedMultiSampleCount">Set to the best count supported by the adaptor for the requested multisample count.</param>
             <returns>True if the requested format is supported by the adaptor. False if one or more of the values was changed.</returns>
-        </member>
-        <member name="P:Microsoft.Xna.Framework.Graphics.GraphicsAdapter.IsWideScreen">
-            <summary>
-            Gets a <see cref="T:System.Boolean"/> indicating whether
-            <see cref="P:Microsoft.Xna.Framework.Graphics.GraphicsAdapter.CurrentDisplayMode"/> has a
-            Width:Height ratio corresponding to a widescreen <see cref="T:Microsoft.Xna.Framework.Graphics.DisplayMode"/>.
-            Common widescreen modes include 16:9, 16:10 and 2:1.
-            </summary>
         </member>
         <member name="T:Microsoft.Xna.Framework.Graphics.GraphicsCapabilities">
             <summary>
@@ -12595,21 +11299,6 @@
             Gets the max texture anisotropy. This value typically lies
             between 0 and 16, where 0 means anisotropic filtering is not
             supported.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Xna.Framework.Graphics.GraphicsCapabilities.SupportsFramebufferObjectARB">
-            <summary>
-            True, if GL_ARB_framebuffer_object is supported; false otherwise.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Xna.Framework.Graphics.GraphicsCapabilities.SupportsFramebufferObjectEXT">
-            <summary>
-            True, if GL_EXT_framebuffer_object is supported; false otherwise.
-            </summary>
-        </member>
-        <member name="P:Microsoft.Xna.Framework.Graphics.GraphicsCapabilities.SupportsFramebufferObjectIMG">
-            <summary>
-            True, if GL_IMG_multisampled_render_to_texture is supported; false otherwise.
             </summary>
         </member>
         <member name="M:Microsoft.Xna.Framework.Graphics.GraphicsDebug.TryDequeueMessage(Microsoft.Xna.Framework.Graphics.GraphicsDebugMessage@)">
@@ -12835,9 +11524,37 @@
             </summary>
             <typeparam name="T">A byte[] of size (ViewPort.Width * ViewPort.Height * 4)</typeparam>
         </member>
-        <member name="M:Microsoft.Xna.Framework.Graphics.GraphicsDevice.ActivateShaderProgram">
+        <member name="P:Microsoft.Xna.Framework.Graphics.GraphicsDevice.Handle">
             <summary>
-            Activates the Current Vertex/Pixel shader pair into a program.         
+            Returns a handle to internal device object. Valid only on DirectX platforms.
+            For usage, convert this to SharpDX.Direct3D11.Device.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.GraphicsDevice.CreateDeviceIndependentResources">
+            <summary>
+            Creates resources not tied the active graphics device.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.GraphicsDevice.CreateDeviceResources">
+            <summary>
+            Create graphics device specific resources.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.GraphicsDevice.GetMultiSamplingQuality(SharpDX.DXGI.Format,System.Int32)">
+            <summary>
+            Get highest multisample quality level for specified format and multisample count.
+            Returns 0 if multisampling is not supported for input parameters.
+            </summary>
+            <param name="format">The texture format.</param>
+            <param name="multiSampleCount">The number of samples during multisampling.</param>
+            <returns>
+            Higher than zero if multiSampleCount is supported. 
+            Zero if multiSampleCount is not supported.
+            </returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.GraphicsDevice.Flush">
+            <summary>
+            Sends queued-up commands in the command buffer to the graphics processing unit (GPU).
             </summary>
         </member>
         <member name="T:Microsoft.Xna.Framework.Graphics.GraphicsDeviceStatus">
@@ -12859,21 +11576,6 @@
             <summary>
             The device has not been reset.
             </summary>
-        </member>
-        <member name="M:Microsoft.Xna.Framework.Graphics.GraphicsExtensions.GetColorFormat(Microsoft.Xna.Framework.Graphics.SurfaceFormat)">
-            <summary>
-            Convert a <see cref="T:Microsoft.Xna.Framework.Graphics.SurfaceFormat"/> to an OpenTK.Graphics.ColorFormat.
-            This is used for setting up the backbuffer format of the OpenGL context.
-            </summary>
-            <returns>An OpenTK.Graphics.ColorFormat instance.</returns>
-            <param name="format">The <see cref="T:Microsoft.Xna.Framework.Graphics.SurfaceFormat"/> to convert.</param>
-        </member>
-        <member name="M:Microsoft.Xna.Framework.Graphics.GraphicsExtensions.GetSwapInterval(Microsoft.Xna.Framework.Graphics.PresentInterval)">
-            <summary>
-            Converts <see cref="T:Microsoft.Xna.Framework.Graphics.PresentInterval"/> to OpenGL swap interval.
-            </summary>
-            <returns>A value according to EXT_swap_control</returns>
-            <param name="interval">The <see cref="T:Microsoft.Xna.Framework.Graphics.PresentInterval"/> to convert.</param>
         </member>
         <member name="T:Microsoft.Xna.Framework.Graphics.GraphicsProfile">
             <summary>
@@ -12927,6 +11629,22 @@
             Gets the usage mode of the render target.
             </summary>
             <value>The usage mode of the render target.</value>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.IRenderTarget.GetRenderTargetView(System.Int32)">
+            <summary>
+            Gets the <see cref="T:SharpDX.Direct3D11.RenderTargetView"/> for the specified array slice.
+            </summary>
+            <param name="arraySlice">The array slice.</param>
+            <returns>The <see cref="T:SharpDX.Direct3D11.RenderTargetView"/>.</returns>
+            <remarks>
+            For texture cubes: The array slice is the index of the cube map face.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.IRenderTarget.GetDepthStencilView">
+            <summary>
+            Gets the <see cref="T:SharpDX.Direct3D11.DepthStencilView"/>.
+            </summary>
+            <returns>The <see cref="T:SharpDX.Direct3D11.DepthStencilView"/>. Can be <see langword="null"/>.</returns>
         </member>
         <member name="T:Microsoft.Xna.Framework.Graphics.ModelBoneCollection">
             <summary>
@@ -14036,6 +12754,12 @@
             <param name="preferredMultiSampleCount">The preferred number of multisample locations.</param>
             <param name="usage">The usage mode of the render target.</param>
         </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.RenderTargetCube.GetRenderTargetView(System.Int32)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.RenderTargetCube.GetDepthStencilView">
+            <inheritdoc/>
+        </member>
         <member name="T:Microsoft.Xna.Framework.Graphics.RenderTargetUsage">
             <summary>
             Defines if the previous content in a render target is preserved when it set on the graphics device.
@@ -14096,11 +12820,6 @@
             The SetData operation will not overwrite existing data. This allows the driver to return immediately from a SetData operation and continue rendering.
             </summary>
         </member>
-        <member name="P:Microsoft.Xna.Framework.Graphics.ConstantBuffer.HashKey">
-            <summary>
-            A hash value which can be used to compare constant buffers.
-            </summary>
-        </member>
         <member name="P:Microsoft.Xna.Framework.Graphics.Shader.Profile">
             <summary>
             Returns the platform specific shader profile identifier.
@@ -14109,18 +12828,6 @@
         <member name="P:Microsoft.Xna.Framework.Graphics.Shader.HashKey">
             <summary>
             A hash value which can be used to compare shaders.
-            </summary>
-        </member>
-        <member name="T:Microsoft.Xna.Framework.Graphics.ShaderProgramCache">
-            <summary>
-            This class is used to Cache the links between Vertex/Pixel Shaders and Constant Buffers.
-            It will be responsible for linking the programs under OpenGL if they have not been linked
-            before. If an existing link exists it will be resused.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Xna.Framework.Graphics.ShaderProgramCache.Clear">
-            <summary>
-            Clear the program cache releasing all shader programs.
             </summary>
         </member>
         <member name="T:Microsoft.Xna.Framework.Graphics.SpriteBatch">
@@ -14975,7 +13682,7 @@
         </member>
         <member name="F:Microsoft.Xna.Framework.Graphics.SurfaceFormat.NormalizedByte4">
             <summary>
-            Signed 16-bit bump-map format for store 8 bits per channel.
+            Signed 32-bit bump-map format for store 8 bits per channel.
             </summary>
         </member>
         <member name="F:Microsoft.Xna.Framework.Graphics.SurfaceFormat.Rgba1010102">
@@ -15333,6 +14040,15 @@
             It is only guaranteed to stay consistent during application lifetime.</para>
             </remarks>
         </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.Texture.GetSharedHandle">
+            <summary>
+            Gets the handle to a shared resource.
+            </summary>
+            <returns>
+            The handle of the shared resource, or <see cref="F:System.IntPtr.Zero"/> if the texture was not
+            created as a shared resource.
+            </returns>
+        </member>
         <member name="P:Microsoft.Xna.Framework.Graphics.TextureCube.Size">
             <summary>
             Gets the width and height of the cube map face in pixels.
@@ -15372,6 +14088,31 @@
             Special offset used internally by GraphicsDevice.DrawUserXXX() methods.
             </summary>
         </member>
+        <member name="T:Microsoft.Xna.Framework.Graphics.ImmutableVertexInputLayout">
+            <summary>
+            Immutable version of <see cref="T:Microsoft.Xna.Framework.Graphics.VertexInputLayout"/>. Can be used as a key in the
+            <see cref="T:Microsoft.Xna.Framework.Graphics.InputLayoutCache"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.ImmutableVertexInputLayout.#ctor(Microsoft.Xna.Framework.Graphics.VertexDeclaration[],System.Int32[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Xna.Framework.Graphics.ImmutableVertexInputLayout"/> class.
+            </summary>
+            <param name="vertexDeclarations">The vertex declarations per resource slot.</param>
+            <param name="instanceFrequencies">The instance frequencies per resource slot.</param>
+            <remarks>
+            The specified arrays are stored internally - the arrays are not copied.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.ImmutableVertexInputLayout.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data
+            structures like a hash table.
+            </returns>
+        </member>
         <member name="M:Microsoft.Xna.Framework.Graphics.IndexBuffer.SizeForType(Microsoft.Xna.Framework.Graphics.GraphicsDevice,System.Type)">
             <summary>
             Gets the relevant IndexElementSize enum value for the given type.
@@ -15383,11 +14124,6 @@
         <member name="M:Microsoft.Xna.Framework.Graphics.IndexBuffer.GraphicsDeviceResetting">
             <summary>
             The GraphicsDevice is resetting, so GPU resources must be recreated.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Xna.Framework.Graphics.IndexBuffer.GenerateIfRequired">
-            <summary>
-            If the IBO does not exist, create it.
             </summary>
         </member>
         <member name="T:Microsoft.Xna.Framework.Graphics.IndexElementSize">
@@ -15404,6 +14140,51 @@
             <summary>
             32-bit int/uint value been used.
             </summary>
+        </member>
+        <member name="T:Microsoft.Xna.Framework.Graphics.InputLayoutCache">
+            <summary>
+            Caches DirectX input layouts for the input assembler stage.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.InputLayoutCache.#ctor(Microsoft.Xna.Framework.Graphics.GraphicsDevice,System.Byte[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Xna.Framework.Graphics.InputLayoutCache"/> class.
+            </summary>
+            <param name="graphicsDevice">The graphics device.</param>
+            <param name="shaderByteCode">The byte code of the vertex shader.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.InputLayoutCache.Dispose">
+            <summary>
+            Releases all resources used by an instance of the <see cref="T:Microsoft.Xna.Framework.Graphics.InputLayoutCache"/> class.
+            </summary>
+            <remarks>
+            This method calls the virtual <see cref="M:Microsoft.Xna.Framework.Graphics.InputLayoutCache.Dispose(System.Boolean)"/> method, passing in
+            <see langword="true"/>, and then suppresses finalization of the instance.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.InputLayoutCache.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources used by an instance of the
+            <see cref="T:Microsoft.Xna.Framework.Graphics.InputLayoutCache"/> class and optionally releases the managed resources.
+            </summary>
+            <param name="disposing">
+            <see langword="true"/> to release both managed and unmanaged resources;
+            <see langword="false"/> to release only unmanaged resources.
+            </param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.InputLayoutCache.GetOrCreate(Microsoft.Xna.Framework.Graphics.VertexBufferBindings)">
+            <summary>
+            Gets or create the DirectX input layout for the specified vertex buffers.
+            </summary>
+            <param name="vertexBuffers">The vertex buffers.</param>
+            <returns>The DirectX input layout.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.InputLayoutCache.GetInvalidArgMessage(SharpDX.Direct3D11.InputElement[])">
+            <summary>
+            Gets a more helpful message for the SharpDX invalid arg error.
+            </summary>
+            <param name="inputElements">The input elements.</param>
+            <returns>The exception message.</returns>
         </member>
         <member name="T:Microsoft.Xna.Framework.Graphics.PrimitiveType">
             <summary>
@@ -15529,11 +14310,6 @@
             <typeparam name="T">Type of elements in the data array.</typeparam>
             <param name="data">Data array.</param>
         </member>
-        <member name="M:Microsoft.Xna.Framework.Graphics.VertexBuffer.GenerateIfRequired">
-            <summary>
-            If the VBO does not exist, create it.
-            </summary>
-        </member>
         <member name="T:Microsoft.Xna.Framework.Graphics.VertexBufferBinding">
             <summary>
             Defines how a vertex buffer is bound to the graphics device for rendering.
@@ -15652,6 +14428,13 @@
             Gets vertex buffers bound to the input slots.
             </summary>
             <returns>The vertex buffer bindings.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.VertexBufferBindings.ToImmutable">
+            <summary>
+            Creates an <see cref="T:Microsoft.Xna.Framework.Graphics.ImmutableVertexInputLayout"/> that can be used as a key in the
+            <see cref="T:Microsoft.Xna.Framework.Graphics.InputLayoutCache"/>.
+            </summary>
+            <returns>The <see cref="T:Microsoft.Xna.Framework.Graphics.ImmutableVertexInputLayout"/>.</returns>
         </member>
         <member name="T:Microsoft.Xna.Framework.Graphics.VertexDeclarationCache`1">
             <summary>
@@ -15774,11 +14557,6 @@
             the different; otherwise, <see langword="false"/>.
             </returns>
         </member>
-        <member name="T:Microsoft.Xna.Framework.Graphics.VertexDeclaration.VertexDeclarationAttributeInfo">
-            <summary>
-            Vertex attribute information for a particular shader/vertex declaration combination.
-            </summary>
-        </member>
         <member name="T:Microsoft.Xna.Framework.Graphics.VertexElement">
             <summary>
             Defines a single element in a vertex.
@@ -15885,6 +14663,21 @@
             <see langword="true"/> if the <paramref name="left"/> and <paramref name="right"/> are
             the different; otherwise, <see langword="false"/>.
             </returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Graphics.VertexElement.GetInputElement(System.Int32,System.Int32)">
+            <summary>
+            Gets the DirectX <see cref="T:SharpDX.Direct3D11.InputElement"/>.
+            </summary>
+            <param name="slot">The input resource slot.</param>
+            <param name="instanceFrequency">
+            The number of instances to draw using the same per-instance data before advancing in the
+            buffer by one element. This value must be 0 for an element that contains per-vertex
+            data.
+            </param>
+            <returns><see cref="T:SharpDX.Direct3D11.InputElement"/>.</returns>
+            <exception cref="T:System.NotSupportedException">
+            Unknown vertex element format or usage!
+            </exception>
         </member>
         <member name="T:Microsoft.Xna.Framework.Graphics.VertexElementFormat">
             <summary>
@@ -16576,6 +15369,111 @@
             This video contains music and dialog.
             </summary>
         </member>
+        <member name="T:Microsoft.Xna.Framework.Media.Video">
+            <summary>
+            Represents a video.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Media.Video.FileName">
+            <summary>
+            I actually think this is a file PATH...
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Media.Video.Duration">
+            <summary>
+            Gets the duration of the Video.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Media.Video.FramesPerSecond">
+            <summary>
+            Gets the frame rate of this video.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Media.Video.Height">
+            <summary>
+            Gets the height of this video, in pixels.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Media.Video.VideoSoundtrackType">
+            <summary>
+            Gets the VideoSoundtrackType for this video.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Media.Video.Width">
+            <summary>
+            Gets the width of this video, in pixels.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Media.VideoPlayer.IsDisposed">
+            <summary>
+            Gets a value that indicates whether the object is disposed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Media.VideoPlayer.IsLooped">
+            <summary>
+            Gets a value that indicates whether the player is playing video in a loop.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Media.VideoPlayer.IsMuted">
+            <summary>
+            Gets or sets the muted setting for the video player.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Media.VideoPlayer.PlayPosition">
+            <summary>
+            Gets the play position within the currently playing video.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Media.VideoPlayer.State">
+            <summary>
+            Gets the media playback state, MediaState.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Media.VideoPlayer.Video">
+            <summary>
+            Gets the Video that is currently playing.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Xna.Framework.Media.VideoPlayer.Volume">
+            <summary>
+            Video player volume, from 0.0f (silence) to 1.0f (full volume relative to the current device volume).
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Media.VideoPlayer.GetTexture">
+            <summary>
+            Retrieves a Texture2D containing the current frame of video being played.
+            </summary>
+            <returns>The current frame of video.</returns>
+            <exception cref="T:System.InvalidOperationException">Thrown if no video is set on the player</exception>
+            <exception cref="T:System.InvalidOperationException">Thrown if the platform was unable to get a texture in a reasonable amount of time. Often the platform specific media code is running
+            in a different thread or process. Note: This may be a change from XNA behaviour</exception>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Media.VideoPlayer.Pause">
+            <summary>
+            Pauses the currently playing video.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Media.VideoPlayer.Play(Microsoft.Xna.Framework.Media.Video)">
+            <summary>
+            Plays a Video.
+            </summary>
+            <param name="video">Video to play.</param>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Media.VideoPlayer.Resume">
+            <summary>
+            Resumes a paused video.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Media.VideoPlayer.Stop">
+            <summary>
+            Stops playing a video.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Media.VideoPlayer.Dispose">
+            <summary>
+            Immediately releases the unmanaged resources used by this object.
+            </summary>
+        </member>
         <member name="M:Microsoft.Xna.Framework.Utilities.FileHelpers.ResolveRelativePath(System.String,System.String)">
             <summary>
             Combines the filePath and relativeFile based on relativeFile being a file in the same location as filePath.
@@ -16634,13 +15532,19 @@
             </summary>
             <param name="buffer"></param>
         </member>
-        <member name="F:MonoGame.Utilities.PlatformParameters.DetectWindowsArchitecture">
+        <member name="M:Microsoft.Xna.Framework.MonoGame_Framework_WindowsUniversal_XamlTypeInfo.XamlMetaDataProvider.GetXamlType(System.Type)">
             <summary>
-            If true, MonoGame will detect the CPU architecture (x86 or x86-64) and add the "./x86" or "./x64" folder to the
-            native DLL resolution paths. This allows MonoGame to work with Any CPU by loading the correct dependencies at runtime.
-            If false, MonoGame will look for native DLLs in the executing folder, which typically is the .exe home.
-            
-            This parameter only works on Windows and doesn't affect other platforms.
+            GetXamlType(Type)
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.MonoGame_Framework_WindowsUniversal_XamlTypeInfo.XamlMetaDataProvider.GetXamlType(System.String)">
+            <summary>
+            GetXamlType(String)
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.MonoGame_Framework_WindowsUniversal_XamlTypeInfo.XamlMetaDataProvider.GetXmlnsDefinitions">
+            <summary>
+            GetXmlnsDefinitions()
             </summary>
         </member>
         <member name="M:MonoGame.Utilities.Hash.ComputeHash(System.Byte[])">
@@ -18874,7 +17778,7 @@
             </summary>
             <remarks>
               <para>
-                Set this at any point before calling <see cref="M:System.IO.Stream.Close"/>.
+                Set this at any point before calling <see cref="!:Stream.Close"/>.
               </para>
             </remarks>
         </member>
@@ -19110,2034 +18014,20 @@
             <param name="exponent"></param>
             <returns></returns>
         </member>
-        <member name="F:Sdl.SDLK_UNKNOWN">
+        <member name="T:MonoGame.Framework.XamlGame`1">
             <summary>
-            
+            Static class for initializing a Game object for a XAML application.
             </summary>
+            <typeparam name="T">A class derived from Game.</typeparam>
         </member>
-        <member name="F:Sdl.SDLK_FIRST">
+        <member name="M:MonoGame.Framework.XamlGame`1.Create(System.String,Windows.UI.Core.CoreWindow,Windows.UI.Xaml.Controls.SwapChainPanel)">
             <summary>
-            
+            Creates your Game class initializing it to work within a XAML application window.
             </summary>
-        </member>
-        <member name="F:Sdl.SDLK_BACKSPACE">
-            <summary>
-            backspace. '\b'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_TAB">
-            <summary>
-            tab. '\t'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_CLEAR">
-            <summary>
-            clear
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_RETURN">
-            <summary>
-            return. '\r' 
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_PAUSE">
-            <summary>
-            pause
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_ESCAPE">
-            <summary>
-            escape. '^['
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_SPACE">
-            <summary>
-            space. ' '
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_EXCLAIM">
-            <summary>
-            exclaim. '!'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_QUOTEDBL">
-            <summary>
-            quotedbl. '"'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_HASH">
-            <summary>
-            hash. '#'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_DOLLAR">
-            <summary>
-            dollar. '$'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_AMPERSAND">
-            <summary>
-            ampersand. '&amp;'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_QUOTE">
-            <summary>
-            quote. '''
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_LEFTPAREN">
-            <summary>
-            left parenthesis. '('
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_RIGHTPAREN">
-            <summary>
-            right parenthesis. ')'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_ASTERISK">
-            <summary>
-            asterisk. '*'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_PLUS">
-            <summary>
-            plus sign. '+'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_COMMA">
-            <summary>
-            comma. ';'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_MINUS">
-            <summary>
-            minus sign. '-'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_PERIOD">
-            <summary>
-            period. '.'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_SLASH">
-            <summary>
-            forward slash. '/'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_0">
-            <summary>
-            0
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_1">
-            <summary>
-            1
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_2">
-            <summary>
-            2
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_3">
-            <summary>
-            3
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_4">
-            <summary>
-            4
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_5">
-            <summary>
-            5
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_6">
-            <summary>
-            6
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_7">
-            <summary>
-            7
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_8">
-            <summary>
-            8
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_9">
-            <summary>
-            9
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_COLON">
-            <summary>
-            colon. ':'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_SEMICOLON">
-            <summary>
-            semicolon. ';'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_LESS">
-            <summary>
-            less-than sign. '&lt;'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_EQUALS">
-            <summary>
-            equals sign. '='
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_GREATER">
-            <summary>
-            greater-than sign. '&gt;'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_QUESTION">
-            <summary>
-            question mark. '?'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_AT">
-            <summary>
-            at. '@'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_LEFTBRACKET">
-            <summary>
-            left bracket. '['
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_BACKSLASH">
-            <summary>
-            backslash. '\'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_RIGHTBRACKET">
-            <summary>
-            right bracket. ']'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_CARET">
-            <summary>
-            caret. '^'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_UNDERSCORE">
-            <summary>
-            underscore.'_'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_BACKQUOTE">
-            <summary>
-            grave. '`'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_a">
-            <summary>
-            a
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_b">
-            <summary>
-            b
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_c">
-            <summary>
-            c
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_d">
-            <summary>
-            d
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_e">
-            <summary>
-            e
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_f">
-            <summary>
-            f
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_g">
-            <summary>
-            g
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_h">
-            <summary>
-            h
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_i">
-            <summary>
-            i
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_j">
-            <summary>
-            j
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_k">
-            <summary>
-            k
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_l">
-            <summary>
-            l
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_m">
-            <summary>
-            m
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_n">
-            <summary>
-            n
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_o">
-            <summary>
-            o
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_p">
-            <summary>
-            p
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_q">
-            <summary>
-            q
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_r">
-            <summary>
-            r
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_s">
-            <summary>
-            s
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_t">
-            <summary>
-            t
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_u">
-            <summary>
-            u
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_v">
-            <summary>
-            v
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_w">
-            <summary>
-            w
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_x">
-            <summary>
-            x
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_y">
-            <summary>
-            y
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_z">
-            <summary>
-            z
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_DELETE">
-            <summary>
-            delete. '^?'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_0">
-            <summary>
-            0xA0
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_1">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_2">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_3">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_4">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_5">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_6">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_7">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_8">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_9">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_10">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_11">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_12">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_13">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_14">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_15">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_16">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_17">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_18">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_19">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_20">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_21">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_22">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_23">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_24">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_25">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_26">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_27">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_28">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_29">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_30">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_31">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_32">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_33">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_34">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_35">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_36">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_37">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_38">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_39">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_40">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_41">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_42">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_43">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_44">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_45">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_46">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_47">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_48">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_49">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_50">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_51">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_52">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_53">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_54">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_55">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_56">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_57">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_58">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_59">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_60">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_61">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_62">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_63">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_64">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_65">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_66">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_67">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_68">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_69">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_70">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_71">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_72">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_73">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_74">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_75">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_76">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_77">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_78">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_79">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_80">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_81">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_82">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_83">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_84">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_85">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_86">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_87">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_88">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_89">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_90">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_91">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_92">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_93">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_94">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_WORLD_95">
-            <summary>
-            0xFF
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_KP0">
-            <summary>
-            keypad 0
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_KP1">
-            <summary>
-            keypad 1
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_KP2">
-            <summary>
-            keypad 2
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_KP3">
-            <summary>
-            keypad 3
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_KP4">
-            <summary>
-            keypad 4
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_KP5">
-            <summary>
-            keypad 5
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_KP6">
-            <summary>
-            keypad 6
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_KP7">
-            <summary>
-            keypad 7
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_KP8">
-            <summary>
-            keypad 8
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_KP9">
-            <summary>
-            keypad 9
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_KP_PERIOD">
-            <summary>
-            keypad period. '.'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_KP_DIVIDE">
-            <summary>
-            keypad divide. '/'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_KP_MULTIPLY">
-            <summary>
-            keypad multiply. '*'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_KP_MINUS">
-            <summary>
-            keypad minus. '-'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_KP_PLUS">
-            <summary>
-            keypad plus. '+'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_KP_ENTER">
-            <summary>
-            keypad enter. '\r'
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_KP_EQUALS">
-            <summary>
-            keypad equals. '='
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_UP">
-            <summary>
-            up arrow
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_DOWN">
-            <summary>
-            down arrow
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_RIGHT">
-            <summary>
-            right arrow
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_LEFT">
-            <summary>
-            left arrow
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_INSERT">
-            <summary>
-            insert
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_HOME">
-            <summary>
-            home
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_END">
-            <summary>
-            end
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_PAGEUP">
-            <summary>
-            page up
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_PAGEDOWN">
-            <summary>
-            page down
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_F1">
-            <summary>
-            F1
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_F2">
-            <summary>
-            F2
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_F3">
-            <summary>
-            F3
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_F4">
-            <summary>
-            F4
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_F5">
-            <summary>
-            F5
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_F6">
-            <summary>
-            F6
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_F7">
-            <summary>
-            F7
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_F8">
-            <summary>
-            F8
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_F9">
-            <summary>
-            F9
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_F10">
-            <summary>
-            F10
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_F11">
-            <summary>
-            F11
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_F12">
-            <summary>
-            F12
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_F13">
-            <summary>
-            F13
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_F14">
-            <summary>
-            F14
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_F15">
-            <summary>
-            F15
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_NUMLOCK">
-            <summary>
-            numlock
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_CAPSLOCK">
-            <summary>
-            capslock
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_SCROLLOCK">
-            <summary>
-            scrollock
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_RSHIFT">
-            <summary>
-            right shift
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_LSHIFT">
-            <summary>
-            left shift
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_RCTRL">
-            <summary>
-            right ctrl
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_LCTRL">
-            <summary>
-            left ctrl
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_RALT">
-            <summary>
-            right alt
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_LALT">
-            <summary>
-            left alt
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_RMETA">
-            <summary>
-            right meta
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_LMETA">
-            <summary>
-            left meta
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_LSUPER">
-            <summary>
-            Left "Windows" key
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_RSUPER">
-            <summary>
-            Right "Windows" key
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_MODE">
-            <summary>
-            "Alt Gr" key. Mode key
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_COMPOSE">
-            <summary>
-            Multi-key compose key
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_HELP">
-            <summary>
-            help
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_PRINT">
-            <summary>
-            print-screen
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_SYSREQ">
-            <summary>
-            SysRq
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_BREAK">
-            <summary>
-            break
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_MENU">
-            <summary>
-            menu
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_POWER">
-            <summary>
-            Power Macintosh power key
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_EURO">
-            <summary>
-            Some european keyboards
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_UNDO">
-            <summary>
-            Atari keyboard has Undo
-            </summary>
-        </member>
-        <member name="F:Sdl.SDLK_LAST">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.KMOD_NONE">
-            <summary>
-            No modifiers applicable
-            </summary>
-            <remarks>
-            Enumeration of valid key mods (possibly OR'd together) 
-            </remarks>
-        </member>
-        <member name="F:Sdl.KMOD_LSHIFT">
-            <summary>
-            Left Shift is down
-            </summary>
-            <remarks>
-            Enumeration of valid key mods (possibly OR'd together) 
-            </remarks>
-        </member>
-        <member name="F:Sdl.KMOD_RSHIFT">
-            <summary>
-            Right Shift is down
-            </summary>
-            <remarks>
-            Enumeration of valid key mods (possibly OR'd together) 
-            </remarks>
-        </member>
-        <member name="F:Sdl.KMOD_LCTRL">
-            <summary>
-            Left Control is down
-            </summary>
-            <remarks>
-            Enumeration of valid key mods (possibly OR'd together) 
-            </remarks>
-        </member>
-        <member name="F:Sdl.KMOD_RCTRL">
-            <summary>
-            Right Control is down
-            </summary>
-            <remarks>
-            Enumeration of valid key mods (possibly OR'd together) 
-            </remarks>
-        </member>
-        <member name="F:Sdl.KMOD_LALT">
-            <summary>
-            Left Alt is down
-            </summary>
-            <remarks>
-            Enumeration of valid key mods (possibly OR'd together) 
-            </remarks>
-        </member>
-        <member name="F:Sdl.KMOD_RALT">
-            <summary>
-            Right Alt is down
-            </summary>
-            <remarks>
-            Enumeration of valid key mods (possibly OR'd together) 
-            </remarks>
-        </member>
-        <member name="F:Sdl.KMOD_LMETA">
-            <summary>
-            Left Meta is down
-            </summary>
-            <remarks>
-            Enumeration of valid key mods (possibly OR'd together) 
-            </remarks>
-        </member>
-        <member name="F:Sdl.KMOD_RMETA">
-            <summary>
-            Right Meta is down
-            </summary>
-            <remarks>
-            Enumeration of valid key mods (possibly OR'd together) 
-            </remarks>
-        </member>
-        <member name="F:Sdl.KMOD_NUM">
-            <summary>
-            Numlock is down
-            </summary>
-            <remarks>
-            Enumeration of valid key mods (possibly OR'd together) 
-            </remarks>
-        </member>
-        <member name="F:Sdl.KMOD_CAPS">
-            <summary>
-            Capslock is down
-            </summary>
-            <remarks>
-            Enumeration of valid key mods (possibly OR'd together) 
-            </remarks>
-        </member>
-        <member name="F:Sdl.KMOD_MODE">
-            <summary>
-            
-            </summary>
-            <remarks>
-            Enumeration of valid key mods (possibly OR'd together) 
-            </remarks>
-        </member>
-        <member name="F:Sdl.KMOD_RESERVED">
-            <summary>
-            
-            </summary>
-            <remarks>
-            Enumeration of valid key mods (possibly OR'd together) 
-            </remarks>
-        </member>
-        <member name="F:Sdl.SDL_BUTTON_LEFT">
-            <summary>
-            Used as a mask when testing buttons in buttonstate
-            Button 1:	Left mouse button
-            </summary>
-        </member>
-        <member name="F:Sdl.SDL_BUTTON_MIDDLE">
-            <summary>
-            Button 2:	Middle mouse button
-            </summary>
-        </member>
-        <member name="F:Sdl.SDL_BUTTON_RIGHT">
-            <summary>
-            Button 3:	Right mouse button
-            </summary>
-        </member>
-        <member name="F:Sdl.SDL_BUTTON_WHEELUP">
-            <summary>
-            Button 4:	Mouse wheel up	 (may also be a real button)
-            </summary>
-        </member>
-        <member name="F:Sdl.SDL_BUTTON_WHEELDOWN">
-            <summary>
-            Button 5:	Mouse wheel down (may also be a real button)
-            </summary>
-        </member>
-        <member name="F:Sdl.SDL_BUTTON_LMASK">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDL_BUTTON_MMASK">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDL_BUTTON_RMASK">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDL_PRESSED">
-            <summary>
-            Button in pressed state.
-            </summary>
-            <remarks>
-            SDL_events.h defines SDL_PRESSED and <see cref="F:Sdl.SDL_RELEASED"/>
-             in a nameless enum. Defining SDL_PRESSED as a const works 
-             better for Tao.SDL purposes</remarks>
-             <seealso cref="F:Sdl.SDL_RELEASED"/>
-        </member>
-        <member name="F:Sdl.SDL_RELEASED">
-            <summary>
-            Button in released state.
-            </summary>
-            <remarks>
-            SDL_events.h defines <see cref="F:Sdl.SDL_PRESSED"/> and SDL_RELEASED
-             in a nameless enum. Defining SDL_RELEASED as a const works 
-             better for Tao.SDL purposes</remarks>
-             <seealso cref="F:Sdl.SDL_PRESSED"/>
-        </member>
-        <member name="F:Sdl.SDL_ALLEVENTS">
-            <summary>
-            This is the mask which refers to all hotkey bindings.
-            </summary>
-        </member>
-        <member name="F:Sdl.SDL_QUERY">
-            <summary>
-            If 'state' is set to SDL_QUERY, SDL_EventState() 
-            will return the 
-            current processing state of the specified event.
-            </summary>
-        </member>
-        <member name="F:Sdl.SDL_IGNORE">
-            <summary>
-            If 'state' is set to SDL_IGNORE, that event will be 
-            automatically dropped
-            from the event queue and will not event be filtered.
-            </summary>
-        </member>
-        <member name="F:Sdl.SDL_DISABLE">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="F:Sdl.SDL_ENABLE">
-            <summary>
-            If 'state' is set to SDL_ENABLE, that event will 
-            be processed normally.
-            </summary>
-        </member>
-        <member name="T:NVorbis.BufferedReadStream">
-            <summary>
-            A thread-safe, read-only, buffering stream wrapper.
-            </summary>
-        </member>
-        <member name="T:NVorbis.DataPacket">
-            <summary>
-            A single data packet from a logical Vorbis stream.
-            </summary>
-        </member>
-        <member name="T:NVorbis.DataPacket.PacketFlags">
-            <summary>
-            Defines flags to apply to the current packet
-            </summary>
-        </member>
-        <member name="F:NVorbis.DataPacket.PacketFlags.IsResync">
-            <summary>
-            Packet is first since reader had to resync with stream.
-            </summary>
-        </member>
-        <member name="F:NVorbis.DataPacket.PacketFlags.IsEndOfStream">
-            <summary>
-            Packet is the last in the logical stream.
-            </summary>
-        </member>
-        <member name="F:NVorbis.DataPacket.PacketFlags.IsShort">
-            <summary>
-            Packet does not have all its data available.
-            </summary>
-        </member>
-        <member name="F:NVorbis.DataPacket.PacketFlags.HasGranuleCount">
-            <summary>
-            Packet has a granule count defined.
-            </summary>
-        </member>
-        <member name="F:NVorbis.DataPacket.PacketFlags.User1">
-            <summary>
-            Flag for use by inheritors.
-            </summary>
-        </member>
-        <member name="F:NVorbis.DataPacket.PacketFlags.User2">
-            <summary>
-            Flag for use by inheritors.
-            </summary>
-        </member>
-        <member name="F:NVorbis.DataPacket.PacketFlags.User3">
-            <summary>
-            Flag for use by inheritors.
-            </summary>
-        </member>
-        <member name="F:NVorbis.DataPacket.PacketFlags.User4">
-            <summary>
-            Flag for use by inheritors.
-            </summary>
-        </member>
-        <member name="M:NVorbis.DataPacket.GetFlag(NVorbis.DataPacket.PacketFlags)">
-            <summary>
-            Gets the value of the specified flag.
-            </summary>
-        </member>
-        <member name="M:NVorbis.DataPacket.SetFlag(NVorbis.DataPacket.PacketFlags,System.Boolean)">
-            <summary>
-            Sets the value of the specified flag.
-            </summary>
-        </member>
-        <member name="M:NVorbis.DataPacket.#ctor(System.Int32)">
-            <summary>
-            Creates a new instance with the specified length.
-            </summary>
-            <param name="length">The length of the packet.</param>
-        </member>
-        <member name="M:NVorbis.DataPacket.ReadNextByte">
-            <summary>
-            Reads the next byte of the packet.
-            </summary>
-            <returns>The next byte if available, otherwise -1.</returns>
-        </member>
-        <member name="M:NVorbis.DataPacket.Done">
-            <summary>
-            Indicates that the packet has been read and its data is no longer needed.
-            </summary>
-        </member>
-        <member name="M:NVorbis.DataPacket.TryPeekBits(System.Int32,System.Int32@)">
-            <summary>
-            Attempts to read the specified number of bits from the packet, but may return fewer.  Does not advance the position counter.
-            </summary>
-            <param name="count">The number of bits to attempt to read.</param>
-            <param name="bitsRead">The number of bits actually read.</param>
-            <returns>The value of the bits read.</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="count"/> is not between 0 and 64.</exception>
-        </member>
-        <member name="M:NVorbis.DataPacket.SkipBits(System.Int32)">
-            <summary>
-            Advances the position counter by the specified number of bits.
-            </summary>
-            <param name="count">The number of bits to advance.</param>
-        </member>
-        <member name="M:NVorbis.DataPacket.ResetBitReader">
-            <summary>
-            Resets the bit reader.
-            </summary>
-        </member>
-        <member name="P:NVorbis.DataPacket.IsResync">
-            <summary>
-            Gets whether the packet was found after a stream resync.
-            </summary>
-        </member>
-        <member name="P:NVorbis.DataPacket.GranulePosition">
-            <summary>
-            Gets the position of the last granule in the packet.
-            </summary>
-        </member>
-        <member name="P:NVorbis.DataPacket.PageGranulePosition">
-            <summary>
-            Gets the position of the last granule in the page the packet is in.
-            </summary>
-        </member>
-        <member name="P:NVorbis.DataPacket.Length">
-            <summary>
-            Gets the length of the packet.
-            </summary>
-        </member>
-        <member name="P:NVorbis.DataPacket.IsEndOfStream">
-            <summary>
-            Gets whether the packet is the last one in the logical stream.
-            </summary>
-        </member>
-        <member name="P:NVorbis.DataPacket.BitsRead">
-            <summary>
-            Gets the number of bits read from the packet.
-            </summary>
-        </member>
-        <member name="P:NVorbis.DataPacket.GranuleCount">
-            <summary>
-            Gets the number of granules in the packet.  If <c>null</c>, the packet has not been decoded yet.
-            </summary>
-        </member>
-        <member name="M:NVorbis.DataPacket.ReadBits(System.Int32)">
-            <summary>
-            Reads the specified number of bits from the packet and advances the position counter.
-            </summary>
-            <param name="count">The number of bits to read.</param>
-            <returns>The value of the bits read.</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException">The number of bits specified is not between 0 and 64.</exception>
-        </member>
-        <member name="M:NVorbis.DataPacket.PeekByte">
-            <summary>
-            Reads the next byte from the packet.  Does not advance the position counter.
-            </summary>
-            <returns>The byte read from the packet.</returns>
-        </member>
-        <member name="M:NVorbis.DataPacket.ReadByte">
-            <summary>
-            Reads the next byte from the packet and advances the position counter.
-            </summary>
-            <returns>The byte read from the packet.</returns>
-        </member>
-        <member name="M:NVorbis.DataPacket.ReadBytes(System.Int32)">
-            <summary>
-            Reads the specified number of bytes from the packet and advances the position counter.
-            </summary>
-            <param name="count">The number of bytes to read.</param>
-            <returns>A byte array holding the data read.</returns>
-        </member>
-        <member name="M:NVorbis.DataPacket.Read(System.Byte[],System.Int32,System.Int32)">
-            <summary>
-            Reads the specified number of bytes from the packet into the buffer specified and advances the position counter.
-            </summary>
-            <param name="buffer">The buffer to read into.</param>
-            <param name="index">The index into the buffer to start placing the read data.</param>
-            <param name="count">The number of bytes to read.</param>
-            <returns>The number of bytes read.</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="index"/> is less than 0 or <paramref name="index"/> + <paramref name="count"/> is past the end of <paramref name="buffer"/>.</exception>
-        </member>
-        <member name="M:NVorbis.DataPacket.ReadBit">
-            <summary>
-            Reads the next bit from the packet and advances the position counter.
-            </summary>
-            <returns>The value of the bit read.</returns>
-        </member>
-        <member name="M:NVorbis.DataPacket.ReadInt16">
-            <summary>
-            Retrieves the next 16 bits from the packet as a <see cref="T:System.Int16"/> and advances the position counter.
-            </summary>
-            <returns>The value of the next 16 bits.</returns>
-        </member>
-        <member name="M:NVorbis.DataPacket.ReadInt32">
-            <summary>
-            Retrieves the next 32 bits from the packet as a <see cref="T:System.Int32"/> and advances the position counter.
-            </summary>
-            <returns>The value of the next 32 bits.</returns>
-        </member>
-        <member name="M:NVorbis.DataPacket.ReadInt64">
-            <summary>
-            Retrieves the next 64 bits from the packet as a <see cref="T:System.Int64"/> and advances the position counter.
-            </summary>
-            <returns>The value of the next 64 bits.</returns>
-        </member>
-        <member name="M:NVorbis.DataPacket.ReadUInt16">
-            <summary>
-            Retrieves the next 16 bits from the packet as a <see cref="T:System.UInt16"/> and advances the position counter.
-            </summary>
-            <returns>The value of the next 16 bits.</returns>
-        </member>
-        <member name="M:NVorbis.DataPacket.ReadUInt32">
-            <summary>
-            Retrieves the next 32 bits from the packet as a <see cref="T:System.UInt32"/> and advances the position counter.
-            </summary>
-            <returns>The value of the next 32 bits.</returns>
-        </member>
-        <member name="M:NVorbis.DataPacket.ReadUInt64">
-            <summary>
-            Retrieves the next 64 bits from the packet as a <see cref="T:System.UInt64"/> and advances the position counter.
-            </summary>
-            <returns>The value of the next 64 bits.</returns>
-        </member>
-        <member name="M:NVorbis.DataPacket.SkipBytes(System.Int32)">
-            <summary>
-            Advances the position counter by the specified number of bytes.
-            </summary>
-            <param name="count">The number of bytes to advance.</param>
-        </member>
-        <member name="T:NVorbis.IContainerReader">
-            <summary>
-            Provides a interface for a Vorbis logical stream container.
-            </summary>
-        </member>
-        <member name="P:NVorbis.IContainerReader.StreamSerials">
-            <summary>
-            Gets the list of stream serials found in the container so far.
-            </summary>
-        </member>
-        <member name="P:NVorbis.IContainerReader.CanSeek">
-            <summary>
-            Gets whether the container supports seeking.
-            </summary>
-        </member>
-        <member name="P:NVorbis.IContainerReader.WasteBits">
-            <summary>
-            Gets the number of bits in the container that are not associated with a logical stream.
-            </summary>
-        </member>
-        <member name="P:NVorbis.IContainerReader.PagesRead">
-            <summary>
-            Gets the number of pages that have been read in the container.
-            </summary>
-        </member>
-        <member name="E:NVorbis.IContainerReader.NewStream">
-            <summary>
-            Event raised when a new logical stream is found in the container.
-            </summary>
-        </member>
-        <member name="M:NVorbis.IContainerReader.Init">
-            <summary>
-            Initializes the container and finds the first stream.
-            </summary>
-            <returns><c>True</c> if a valid logical stream is found, otherwise <c>False</c>.</returns>
-        </member>
-        <member name="M:NVorbis.IContainerReader.FindNextStream">
-            <summary>
-            Finds the next new stream in the container.
-            </summary>
-            <returns><c>True</c> if a new stream was found, otherwise <c>False</c>.</returns>
-            <exception cref="T:System.InvalidOperationException"><see cref="P:NVorbis.IContainerReader.CanSeek"/> is <c>False</c>.</exception>
-        </member>
-        <member name="M:NVorbis.IContainerReader.GetTotalPageCount">
-            <summary>
-            Retrieves the total number of pages in the container.
-            </summary>
-            <returns>The total number of pages.</returns>
-            <exception cref="T:System.InvalidOperationException"><see cref="P:NVorbis.IContainerReader.CanSeek"/> is <c>False</c>.</exception>
-        </member>
-        <member name="T:NVorbis.IPacketProvider">
-            <summary>
-            Provides packets on-demand for the Vorbis stream decoder.
-            </summary>
-        </member>
-        <member name="P:NVorbis.IPacketProvider.StreamSerial">
-            <summary>
-            Gets the serial number associated with this stream.
-            </summary>
-        </member>
-        <member name="P:NVorbis.IPacketProvider.CanSeek">
-            <summary>
-            Gets whether seeking is supported on this stream.
-            </summary>
-        </member>
-        <member name="P:NVorbis.IPacketProvider.ContainerBits">
-            <summary>
-            Gets the number of bits of overhead in this stream's container.
-            </summary>
-        </member>
-        <member name="M:NVorbis.IPacketProvider.GetTotalPageCount">
-            <summary>
-            Retrieves the total number of pages (or frames) this stream uses.
-            </summary>
-            <returns>The page count.</returns>
-            <exception cref="T:System.InvalidOperationException"><see cref="P:NVorbis.IPacketProvider.CanSeek"/> is <c>False</c>.</exception>
-        </member>
-        <member name="M:NVorbis.IPacketProvider.GetNextPacket">
-            <summary>
-            Retrieves the next packet in the stream.
-            </summary>
-            <returns>The next packet in the stream or <c>null</c> if no more packets.</returns>
-        </member>
-        <member name="M:NVorbis.IPacketProvider.PeekNextPacket">
-            <summary>
-            Retrieves the next packet in the stream but does not advance to the following packet.
-            </summary>
-            <returns>The next packet in the stream or <c>null</c> if no more packets.</returns>
-        </member>
-        <member name="M:NVorbis.IPacketProvider.GetPacket(System.Int32)">
-            <summary>
-            Retrieves the packet specified from the stream.
-            </summary>
-            <param name="packetIndex">The index of the packet to retrieve.</param>
-            <returns>The specified packet.</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="packetIndex"/> is less than 0 or past the end of the stream.</exception>
-            <exception cref="T:System.InvalidOperationException"><see cref="P:NVorbis.IPacketProvider.CanSeek"/> is <c>False</c>.</exception>
-        </member>
-        <member name="M:NVorbis.IPacketProvider.GetGranuleCount">
-            <summary>
-            Retrieves the total number of granules in this Vorbis stream.
-            </summary>
-            <returns>The number of samples</returns>
-            <exception cref="T:System.InvalidOperationException"><see cref="P:NVorbis.IPacketProvider.CanSeek"/> is <c>False</c>.</exception>
-        </member>
-        <member name="M:NVorbis.IPacketProvider.FindPacket(System.Int64,System.Func{NVorbis.DataPacket,NVorbis.DataPacket,System.Int32})">
-            <summary>
-            Finds the packet index to the granule position specified in the current stream.
-            </summary>
-            <param name="granulePos">The granule position to seek to.</param>
-            <param name="packetGranuleCountCallback">A callback method that takes the current and previous packets and returns the number of granules in the current packet.</param>
-            <returns>The index of the packet that includes the specified granule position or -1 if none found.</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="granulePos"/> is less than 0 or is after the last granule.</exception>
-        </member>
-        <member name="M:NVorbis.IPacketProvider.SeekToPacket(NVorbis.DataPacket,System.Int32)">
-            <summary>
-            Sets the next packet to be returned, applying a pre-roll as necessary.
-            </summary>
-            <param name="packet">The packet to key from.</param>
-            <param name="preRoll">The number of packets to return before the indicated packet.</param>
-        </member>
-        <member name="E:NVorbis.IPacketProvider.ParameterChange">
-            <summary>
-            Occurs when the stream is about to change parameters.
-            </summary>
-        </member>
-        <member name="M:NVorbis.IVorbisStreamStatus.ResetStats">
-            <summary>
-            Gets the counters for latency and bitrate calculations, as well as overall bit counts
-            </summary>
-        </member>
-        <member name="P:NVorbis.IVorbisStreamStatus.EffectiveBitRate">
-            <summary>
-            Gets the calculated bit rate of audio stream data for the everything decoded so far
-            </summary>
-        </member>
-        <member name="P:NVorbis.IVorbisStreamStatus.InstantBitRate">
-            <summary>
-            Gets the calculated bit rate for the last ~1 second of audio
-            </summary>
-        </member>
-        <member name="P:NVorbis.IVorbisStreamStatus.PageLatency">
-            <summary>
-            Gets the calculated latency per page
-            </summary>
-        </member>
-        <member name="P:NVorbis.IVorbisStreamStatus.PacketLatency">
-            <summary>
-            Gets the calculated latency per packet
-            </summary>
-        </member>
-        <member name="P:NVorbis.IVorbisStreamStatus.SecondLatency">
-            <summary>
-            Gets the calculated latency per second of output
-            </summary>
-        </member>
-        <member name="P:NVorbis.IVorbisStreamStatus.OverheadBits">
-            <summary>
-            Gets the number of bits read that do not contribute to the output audio
-            </summary>
-        </member>
-        <member name="P:NVorbis.IVorbisStreamStatus.AudioBits">
-            <summary>
-            Gets the number of bits read that contribute to the output audio
-            </summary>
-        </member>
-        <member name="P:NVorbis.IVorbisStreamStatus.PagesRead">
-            <summary>
-            Gets the number of pages read so far in the current stream
-            </summary>
-        </member>
-        <member name="P:NVorbis.IVorbisStreamStatus.TotalPages">
-            <summary>
-            Gets the total number of pages in the current stream
-            </summary>
-        </member>
-        <member name="P:NVorbis.IVorbisStreamStatus.Clipped">
-            <summary>
-            Gets whether the stream has been clipped since the last reset
-            </summary>
-        </member>
-        <member name="T:NVorbis.NewStreamEventArgs">
-            <summary>
-            Event data for when a new logical stream is found in a container.
-            </summary>
-        </member>
-        <member name="M:NVorbis.NewStreamEventArgs.#ctor(NVorbis.IPacketProvider)">
-            <summary>
-            Creates a new instance of <see cref="T:NVorbis.NewStreamEventArgs"/> with the specified <see cref="T:NVorbis.IPacketProvider"/>.
-            </summary>
-            <param name="packetProvider">An <see cref="T:NVorbis.IPacketProvider"/> instance.</param>
-        </member>
-        <member name="P:NVorbis.NewStreamEventArgs.PacketProvider">
-            <summary>
-            Gets new the <see cref="T:NVorbis.IPacketProvider"/> instance.
-            </summary>
-        </member>
-        <member name="P:NVorbis.NewStreamEventArgs.IgnoreStream">
-            <summary>
-            Gets or sets whether to ignore the logical stream associated with the packet provider.
-            </summary>
-        </member>
-        <member name="T:NVorbis.ParameterChangeEventArgs">
-            <summary>
-            Event data for when a logical stream has a parameter change.
-            </summary>
-        </member>
-        <member name="M:NVorbis.ParameterChangeEventArgs.#ctor(NVorbis.DataPacket)">
-            <summary>
-            Creates a new instance of <see cref="T:NVorbis.ParameterChangeEventArgs"/>.
-            </summary>
-            <param name="firstPacket">The first packet after the parameter change.</param>
-        </member>
-        <member name="P:NVorbis.ParameterChangeEventArgs.FirstPacket">
-            <summary>
-            Gets the first packet after the parameter change.  This would typically be the parameters packet.
-            </summary>
-        </member>
-        <member name="P:NVorbis.StreamReadBuffer.MinimalRead">
-            <summary>
-            Gets or Sets whether to limit reads to the smallest size possible.
-            </summary>
-        </member>
-        <member name="P:NVorbis.StreamReadBuffer.MaxSize">
-            <summary>
-            Gets or Sets the maximum size of the buffer.  This is not a hard limit.
-            </summary>
-        </member>
-        <member name="P:NVorbis.StreamReadBuffer.BaseOffset">
-            <summary>
-            Gets the offset of the start of the buffered data.  Reads to offsets before this are likely to require a seek.
-            </summary>
-        </member>
-        <member name="P:NVorbis.StreamReadBuffer.BytesFilled">
-            <summary>
-            Gets the number of bytes currently buffered.
-            </summary>
-        </member>
-        <member name="P:NVorbis.StreamReadBuffer.Length">
-            <summary>
-            Gets the number of bytes the buffer can hold.
-            </summary>
-        </member>
-        <member name="M:NVorbis.StreamReadBuffer.Read(System.Int64,System.Byte[],System.Int32,System.Int32)">
-            <summary>
-            Reads the number of bytes specified into the buffer given, starting with the offset indicated.
-            </summary>
-            <param name="offset">The offset into the stream to start reading.</param>
-            <param name="buffer">The buffer to read to.</param>
-            <param name="index">The index into the buffer to start writing to.</param>
-            <param name="count">The number of bytes to read.</param>
-            <returns>The number of bytes read.</returns>
-        </member>
-        <member name="M:NVorbis.StreamReadBuffer.DiscardThrough(System.Int64)">
-            <summary>
-            Tells the buffer that it no longer needs to maintain any bytes before the indicated offset.
-            </summary>
-            <param name="offset">The offset to discard through.</param>
-        </member>
-        <member name="P:NVorbis.VorbisReader.Channels">
-            <summary>
-            Gets the number of channels in the current selected Vorbis stream
-            </summary>
-        </member>
-        <member name="P:NVorbis.VorbisReader.SampleRate">
-            <summary>
-            Gets the sample rate of the current selected Vorbis stream
-            </summary>
-        </member>
-        <member name="P:NVorbis.VorbisReader.UpperBitrate">
-            <summary>
-            Gets the encoder's upper bitrate of the current selected Vorbis stream
-            </summary>
-        </member>
-        <member name="P:NVorbis.VorbisReader.NominalBitrate">
-            <summary>
-            Gets the encoder's nominal bitrate of the current selected Vorbis stream
-            </summary>
-        </member>
-        <member name="P:NVorbis.VorbisReader.LowerBitrate">
-            <summary>
-            Gets the encoder's lower bitrate of the current selected Vorbis stream
-            </summary>
-        </member>
-        <member name="P:NVorbis.VorbisReader.Vendor">
-            <summary>
-            Gets the encoder's vendor string for the current selected Vorbis stream
-            </summary>
-        </member>
-        <member name="P:NVorbis.VorbisReader.Comments">
-            <summary>
-            Gets the comments in the current selected Vorbis stream
-            </summary>
-        </member>
-        <member name="P:NVorbis.VorbisReader.IsParameterChange">
-            <summary>
-            Gets whether the previous short sample count was due to a parameter change in the stream.
-            </summary>
-        </member>
-        <member name="P:NVorbis.VorbisReader.ContainerOverheadBits">
-            <summary>
-            Gets the number of bits read that are related to framing and transport alone
-            </summary>
-        </member>
-        <member name="P:NVorbis.VorbisReader.ClipSamples">
-            <summary>
-            Gets or sets whether to automatically apply clipping to samples returned by <see cref="M:NVorbis.VorbisReader.ReadSamples(System.Single[],System.Int32,System.Int32)"/>.
-            </summary>
-        </member>
-        <member name="P:NVorbis.VorbisReader.Stats">
-            <summary>
-            Gets stats from each decoder stream available
-            </summary>
-        </member>
-        <member name="P:NVorbis.VorbisReader.StreamIndex">
-            <summary>
-            Gets the currently-selected stream's index
-            </summary>
-        </member>
-        <member name="M:NVorbis.VorbisReader.ReadSamples(System.Single[],System.Int32,System.Int32)">
-            <summary>
-            Reads decoded samples from the current logical stream
-            </summary>
-            <param name="buffer">The buffer to write the samples to</param>
-            <param name="offset">The offset into the buffer to write the samples to</param>
-            <param name="count">The number of samples to write</param>
-            <returns>The number of samples written</returns>
-        </member>
-        <member name="M:NVorbis.VorbisReader.ClearParameterChange">
-            <summary>
-            Clears the parameter change flag so further samples can be requested.
-            </summary>
-        </member>
-        <member name="P:NVorbis.VorbisReader.StreamCount">
-            <summary>
-            Returns the number of logical streams found so far in the physical container
-            </summary>
-        </member>
-        <member name="M:NVorbis.VorbisReader.FindNextStream">
-            <summary>
-            Searches for the next stream in a concatenated file
-            </summary>
-            <returns><c>True</c> if a new stream was found, otherwise <c>false</c>.</returns>
-        </member>
-        <member name="M:NVorbis.VorbisReader.SwitchStreams(System.Int32)">
-            <summary>
-            Switches to an alternate logical stream.
-            </summary>
-            <param name="index">The logical stream index to switch to</param>
-            <returns><c>True</c> if the properties of the logical stream differ from those of the one previously being decoded. Otherwise, <c>False</c>.</returns>
-        </member>
-        <member name="P:NVorbis.VorbisReader.DecodedTime">
-            <summary>
-            Gets or Sets the current timestamp of the decoder.  Is the timestamp before the next sample to be decoded
-            </summary>
-        </member>
-        <member name="P:NVorbis.VorbisReader.DecodedPosition">
-            <summary>
-            Gets or Sets the current position of the next sample to be decoded.
-            </summary>
-        </member>
-        <member name="P:NVorbis.VorbisReader.TotalTime">
-            <summary>
-            Gets the total length of the current logical stream
-            </summary>
-        </member>
-        <member name="T:NVorbis.Ogg.ContainerReader">
-            <summary>
-            Provides an <see cref="T:NVorbis.IContainerReader"/> implementation for basic Ogg files.
-            </summary>
-        </member>
-        <member name="P:NVorbis.Ogg.ContainerReader.StreamSerials">
-            <summary>
-            Gets the list of stream serials found in the container so far.
-            </summary>
-        </member>
-        <member name="E:NVorbis.Ogg.ContainerReader.NewStream">
-            <summary>
-            Event raised when a new logical stream is found in the container.
-            </summary>
-        </member>
-        <member name="M:NVorbis.Ogg.ContainerReader.#ctor(System.String)">
-            <summary>
-            Creates a new instance with the specified file.
-            </summary>
-            <param name="path">The full path to the file.</param>
-        </member>
-        <member name="M:NVorbis.Ogg.ContainerReader.#ctor(System.IO.Stream,System.Boolean)">
-            <summary>
-            Creates a new instance with the specified stream.  Optionally sets to close the stream when disposed.
-            </summary>
-            <param name="stream">The stream to read.</param>
-            <param name="closeOnDispose"><c>True</c> to close the stream when <see cref="M:NVorbis.Ogg.ContainerReader.Dispose"/> is called, otherwise <c>False</c>.</param>
-        </member>
-        <member name="M:NVorbis.Ogg.ContainerReader.Init">
-            <summary>
-            Initializes the container and finds the first stream.
-            </summary>
-            <returns><c>True</c> if a valid logical stream is found, otherwise <c>False</c>.</returns>
-        </member>
-        <member name="M:NVorbis.Ogg.ContainerReader.Dispose">
-            <summary>
-            Disposes this instance.
-            </summary>
-        </member>
-        <member name="M:NVorbis.Ogg.ContainerReader.GetStream(System.Int32)">
-            <summary>
-            Gets the <see cref="T:NVorbis.IPacketProvider"/> instance for the specified stream serial.
-            </summary>
-            <param name="streamSerial">The stream serial to look for.</param>
-            <returns>An <see cref="T:NVorbis.IPacketProvider"/> instance.</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException">The specified stream serial was not found.</exception>
-        </member>
-        <member name="M:NVorbis.Ogg.ContainerReader.FindNextStream">
-            <summary>
-            Finds the next new stream in the container.
-            </summary>
-            <returns><c>True</c> if a new stream was found, otherwise <c>False</c>.</returns>
-            <exception cref="T:System.InvalidOperationException"><see cref="P:NVorbis.Ogg.ContainerReader.CanSeek"/> is <c>False</c>.</exception>
-        </member>
-        <member name="P:NVorbis.Ogg.ContainerReader.PagesRead">
-            <summary>
-            Gets the number of pages that have been read in the container.
-            </summary>
-        </member>
-        <member name="M:NVorbis.Ogg.ContainerReader.GetTotalPageCount">
-            <summary>
-            Retrieves the total number of pages in the container.
-            </summary>
-            <returns>The total number of pages.</returns>
-            <exception cref="T:System.InvalidOperationException"><see cref="P:NVorbis.Ogg.ContainerReader.CanSeek"/> is <c>False</c>.</exception>
-        </member>
-        <member name="P:NVorbis.Ogg.ContainerReader.CanSeek">
-            <summary>
-            Gets whether the container supports seeking.
-            </summary>
-        </member>
-        <member name="P:NVorbis.Ogg.ContainerReader.WasteBits">
-            <summary>
-            Gets the number of bits in the container that are not associated with a logical stream.
-            </summary>
+            <param name="launchParameters">The command line arguments from launch.</param>
+            <param name="window">The core window object.</param>
+            <param name="swapChainPanel">The XAML SwapChainPanel to which we render the scene and receive input events.</param>
+            <returns></returns>
         </member>
     </members>
 </doc>

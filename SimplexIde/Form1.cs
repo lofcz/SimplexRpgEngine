@@ -79,5 +79,10 @@ namespace SimplexIde
                 drawTest1.GameClicked(e);
             }
         }
+
+        private void drawTest1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

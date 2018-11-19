@@ -98,13 +98,13 @@
             this.drawTest1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.drawTest1.DrawInterval = 100;
             this.drawTest1.GraphicsProfile = Microsoft.Xna.Framework.Graphics.GraphicsProfile.HiDef;
             this.drawTest1.Location = new System.Drawing.Point(304, 67);
             this.drawTest1.Name = "drawTest1";
             this.drawTest1.Size = new System.Drawing.Size(1183, 684);
             this.drawTest1.TabIndex = 0;
             this.drawTest1.Text = "MainRenderer";
+            this.drawTest1.Click += new System.EventHandler(this.drawTest1_Click_1);
             this.drawTest1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.drawTest1_MouseClick);
             // 
             // Form1
@@ -116,7 +116,6 @@
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.drawTest1);
             this.Controls.Add(this.menuStrip1);
-            this.DoubleBuffered = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Simplex RPG Engine";
