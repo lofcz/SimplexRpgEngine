@@ -42,6 +42,8 @@ namespace SimplexIde
             {
                 treeView1.Nodes.Add(t.Name);
             }
+
+            drawTest1.InitializeNodes(treeView1.Nodes);
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -63,6 +65,19 @@ namespace SimplexIde
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             drawTest1.SaveGame(Path.Combine(Environment.CurrentDirectory, @"Data/save1.sav"));
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            drawTest1.ToggleGrid(checkBox1.Checked);
+        }
+
+        private void drawTest1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                drawTest1.GameClicked(e);
+            }
         }
     }
 }

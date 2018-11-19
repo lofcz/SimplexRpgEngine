@@ -8,6 +8,7 @@ using System.Xml.Serialization;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MonoGame.Extended.Sprites;
 using SimplexCore;
 
 namespace SimplexResources.Objects
@@ -18,12 +19,13 @@ namespace SimplexResources.Objects
         public SampleObject()
         {
             Sprite.TextureSource = "Sprites/elves";
+            
         }
-
-        public override void DrawNode(SpriteBatch s, SpriteFont f)
+        /*
+        public override void DrawNode(SpriteBatch s, SpriteFont f, Texture2D objectTexture)
         {
             s.DrawString(f, "2", Position, Color.White);
-        }
+        }*/
 
         public override void OnCreate()
         {

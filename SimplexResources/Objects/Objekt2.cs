@@ -11,5 +11,9 @@ namespace SimplexResources.Objects
 {
     public class Objekt2 : GameObject
     {
+        public Objekt2()
+        {
+            Sprite.TextureSource = "Sprites/texture";
+        }
     }
 }

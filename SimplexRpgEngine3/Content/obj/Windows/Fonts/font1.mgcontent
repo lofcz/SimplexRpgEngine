@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/lof/Documents/GitHub/SimplexRpgEngine/SimplexRpgEngine3/Content/Fonts/File.spritefont</SourceFile>
-  <SourceTime>2018-11-17T11:26:37.7172757+01:00</SourceTime>
+  <SourceTime>2018-11-17T11:30:08.0174309+01:00</SourceTime>
   <DestFile>C:/Users/lof/Documents/GitHub/SimplexRpgEngine/SimplexRpgEngine3/Content/bin/Windows/Fonts/font1.xnb</DestFile>
-  <DestTime>2018-11-17T11:29:44.3322913+01:00</DestTime>
+  <DestTime>2018-11-18T22:10:44.2064176+01:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2018-09-23T23:55:52+02:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>

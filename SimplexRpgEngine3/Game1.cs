@@ -69,7 +69,7 @@ namespace SimplexRpgEngine3
 
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            s.Texture = Content.Load<Texture2D>("Sprites/elves");
+            s.Texture = Content.Load<Texture2D>("/Sprites/elves");
             s.ImageSize = new Vector2(64, 64);
             s.TextureCellsPerRow = 7;
             s.TextureRows = 2;

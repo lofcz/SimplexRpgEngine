@@ -67,9 +67,9 @@ namespace SimplexCore
             ImageScale = new Vector2(SimplexMath.Lerp(ImageScale.X, ImageScaleTarget.X, TransformSpeed), SimplexMath.Lerp(ImageScale.Y, ImageScaleTarget.Y, TransformSpeed));
         }
 
-        public virtual void DrawNode(SpriteBatch s, SpriteFont f)
+        public virtual void DrawNode(SpriteBatch s, SpriteFont f, Texture2D objectTexture)
         {
-            s.DrawString(f, "1", Position, Color.White);
+            s.Draw(objectTexture, Position, Color.White);
         }
 
         public void UpdateState()
