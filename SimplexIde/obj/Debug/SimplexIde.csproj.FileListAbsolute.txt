@@ -26,7 +26,6 @@ C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\SharpDX.Dire
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\SharpDX.XAudio2.xml
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\SharpDX.XInput.xml
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\obj\Debug\SimplexIde.csprojAssemblyReference.cache
-C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\obj\Debug\SimplexIde.exe.config
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\obj\Debug\SimplexIde.Form1.resources
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\obj\Debug\SimplexIde.Properties.Resources.resources
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\obj\Debug\SimplexIde.csproj.GenerateResource.cache
@@ -34,3 +33,7 @@ C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\obj\Debug\SimplexIde.c
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\obj\Debug\SimplexIde.csproj.CopyComplete
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\obj\Debug\SimplexIde.exe
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\obj\Debug\SimplexIde.pdb
+C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\SharpDX.Direct3D9.dll
+C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\SharpDX.Mathematics.dll
+C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\SharpDX.Direct3D9.xml
+C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\SharpDX.Mathematics.xml

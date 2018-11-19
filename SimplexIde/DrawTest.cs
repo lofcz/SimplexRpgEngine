@@ -25,12 +25,19 @@ namespace SimplexIde
         public string Name { get; set; }
     }
 
-    public class DrawTest : DrawWindow
+    public class DrawTest : UpdateWindow
     {
         public Type SelectedObject = null;
         public List<GameObject> SceneObjects = new List<GameObject>();
         public List<TextureReference> Textures = new List<TextureReference>();
-        public bool DrawGrid;  
+        public bool DrawGrid;
+        GameTime g = new GameTime();
+
+        protected override void Update(GameTime gameTime)
+        {
+            g = gameTime;
+            base.Update(gameTime);
+        }
 
         public void ToggleGrid(bool toggle)
         {
@@ -53,6 +60,7 @@ namespace SimplexIde
 
         protected override void Draw()
         {
+            double framerate = (1 / g.ElapsedGameTime.TotalSeconds);
 
             base.Draw();
 
@@ -65,7 +73,7 @@ namespace SimplexIde
              //   Editor.spriteBatch.DrawString(Editor.Font, "Hello IDE",  o.Position, Color.White);
             }
 
-            Editor.spriteBatch.DrawString(Editor.Font, "Hello IDE", new Vector2(100, 100), Color.White);
+            Editor.spriteBatch.DrawString(Editor.Font, framerate.ToString("F1"), new Vector2(100, 100), Color.White);
             Editor.spriteBatch.End();
 
         }
