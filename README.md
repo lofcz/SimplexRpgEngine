@@ -41,7 +41,15 @@ Events are aiming to imitate GMS native events while introducing some newcomers 
 - OnCreate - Equal to create
 - OnStep - Equal to step
 - OnDraw - Equal to draw
-- OnEditorDraw - Occurs when object is drawn in room editor
+
+### Editor events
+These are defined in the same way like classic events but occur on room editor events
+
+- EvtCreate - Once object is placed in game
+- EvtLoad - When project is loaded and instance gets deserialized
+- EvtDelete - When object is removed from a room 
+- EvtDraw - Occurs when object is drawn in room editor
+
 
 ### Ported namespaces/functions
 - GameSave() - WIP
