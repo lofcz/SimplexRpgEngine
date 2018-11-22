@@ -27,12 +27,17 @@ There are plenty of reasons behind this. But these are the main ones:
 **WIP**
 - Object (GameObject)
 - Events
+- Room
 
 **TBD**
 - Shader
 - Timeline
 - Path
-- Room
+
+### Big deals along the way
+- Creation code (roslyn)
+- Collision detection (quadtrees) 
+- Physics
 
 ### Object events
 Events are aiming to imitate GMS native events while introducing some newcomers and discarding obsolete overheat. 
