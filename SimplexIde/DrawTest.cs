@@ -34,6 +34,15 @@ namespace SimplexIde
         public bool DrawGrid;
         GameTime g = new GameTime();
 
+        protected override void Initialize()
+        {
+            base.Initialize();
+
+            Sgml.SceneObjects = SceneObjects;
+            Sgml.Textures = Textures;
+        }
+
+
         protected override void Update(GameTime gameTime)
         {
             g = gameTime;
@@ -84,7 +93,7 @@ namespace SimplexIde
             if (mb == MouseButtons.Left)
             {
                 if (SelectedObject != null)
-                {
+                {                 
                     Vector2 vec = new Vector2(e.X, e.Y);
 
                     if (DrawGrid)
@@ -92,12 +101,15 @@ namespace SimplexIde
                         vec = new Vector2(e.X / 32 * 32, e.Y / 32 * 32);
                     }
 
-                    GameObject o = (GameObject) Activator.CreateInstance(SelectedObject);
-                    o.Position = vec;
-                    o.OriginalType = SelectedObject;
-                    o.TypeString = SelectedObject.ToString();
+                    if (Sgml.PlaceEmpty(vec))
+                    {
+                        GameObject o = (GameObject)Activator.CreateInstance(SelectedObject);
+                        o.Position = vec;
+                        o.OriginalType = SelectedObject;
+                        o.TypeString = SelectedObject.ToString();
 
-                    SceneObjects.Add(o);
+                        SceneObjects.Add(o);
+                    }
                 }
             }
             else if (mb == MouseButtons.Right)
