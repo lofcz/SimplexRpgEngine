@@ -47,6 +47,7 @@ These are defined in the same way like classic events but occur on room editor e
 
 - EvtCreate - Once object is placed in game
 - EvtLoad - When project is loaded and instance gets deserialized
+- EvtSave - Before instance gets serialized
 - EvtDelete - When object is removed from a room 
 - EvtDraw - Occurs when object is drawn in room editor
 
@@ -55,4 +56,7 @@ These are defined in the same way like classic events but occur on room editor e
 - GameSave() - WIP
 - GameLoad() - WIP
 - PlaceEmpty()
+
+### SGML extra functions
+- RandomColor()
 
