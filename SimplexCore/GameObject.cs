@@ -14,6 +14,7 @@ namespace SimplexCore
     [XmlInclude(typeof(Objekt2))]
     public class GameObject
     {
+        [XmlIgnore]
         public Sprite Sprite;
         public Vector2 Position;
 
@@ -38,6 +39,8 @@ namespace SimplexCore
         public float TransformSpeed;
         public Vector2 ImageScale;
         public Vector2 ImageScaleTarget;
+
+        [XmlIgnore]
         public int FramesCount;
 
         [XmlIgnore]

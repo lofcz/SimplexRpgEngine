@@ -16,6 +16,7 @@ using MonoGame.Forms.Controls;
 using SimplexCore;
 using SimplexResources.Objects;
 using ButtonState = Microsoft.Xna.Framework.Input.ButtonState;
+using Rectangle = SharpDX.Rectangle;
 
 namespace SimplexIde
 {
@@ -78,23 +79,46 @@ namespace SimplexIde
 
         }
 
-        public void GameClicked(MouseEventArgs e)
+        public void GameClicked(MouseEventArgs e, MouseButtons mb)
         {
-            if (SelectedObject != null)
+            if (mb == MouseButtons.Left)
+            {
+                if (SelectedObject != null)
+                {
+                    Vector2 vec = new Vector2(e.X, e.Y);
+
+                    if (DrawGrid)
+                    {
+                        vec = new Vector2(e.X / 32 * 32, e.Y / 32 * 32);
+                    }
+
+                    GameObject o = (GameObject) Activator.CreateInstance(SelectedObject);
+                    o.Position = vec;
+                    o.OriginalType = SelectedObject;
+                    o.TypeString = SelectedObject.ToString();
+
+                    SceneObjects.Add(o);
+                }
+            }
+            else if (mb == MouseButtons.Right)
             {
                 Vector2 vec = new Vector2(e.X, e.Y);
-
                 if (DrawGrid)
                 {
                     vec = new Vector2(e.X / 32 * 32, e.Y / 32 * 32);
                 }
 
-                GameObject o = (GameObject) Activator.CreateInstance(SelectedObject);
-                o.Position = vec;
-                o.OriginalType = SelectedObject;
-                o.TypeString = SelectedObject.ToString();
+                for (var i = 0; i < SceneObjects.Count; i++)
+                {
+                    Texture2D texture = Textures.FirstOrDefault(x => x.Name == SceneObjects[i].Sprite.TextureSource).Texture;
+                    Microsoft.Xna.Framework.Rectangle r = new Microsoft.Xna.Framework.Rectangle((int)SceneObjects[i].Position.X, (int)SceneObjects[i].Position.Y, texture.Width, texture.Height);
 
-                SceneObjects.Add(o);
+                    if (r.Contains(vec))
+                    {
+                        Debug.WriteLine("kokot");
+                        SceneObjects.Remove(SceneObjects[i]);
+                    }
+                }
             }
         }
 
@@ -120,6 +144,28 @@ namespace SimplexIde
          //   XmlManager<GameObject> xmlManager = new XmlManager<GameObject>();
          //   xmlManager.Type = typeof(List<GameObject>);
          //   xmlManager.SaveList(path, SceneObjects);
+
+        }
+
+        public void LoadGame(string path)
+        {
+            // First we fuck current scene
+            SceneObjects.Clear();
+
+            // Then we load raw data
+            Root root = new Root();
+            XmlSerializer ser = new XmlSerializer(typeof(Root), new Type[] { typeof(SampleObject), typeof(Objekt2) });
+            using (StreamReader w = new StreamReader(path))
+            {
+                Root rawData = (Root)ser.Deserialize(w);
+
+
+                // Time to load babies
+                foreach (GameObject g in rawData.Objects)
+                {
+                    SceneObjects.Add(g);
+                }
+            }
 
         }
     }  

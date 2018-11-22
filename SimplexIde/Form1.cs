@@ -59,7 +59,7 @@ namespace SimplexIde
 
         private void drawTest1_MouseClick(object sender, MouseEventArgs e)
         {
-            drawTest1.GameClicked(e);
+            drawTest1.GameClicked(e, e.Button);
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -76,13 +76,31 @@ namespace SimplexIde
         {
             if (e.Button == MouseButtons.Left)
             {
-                drawTest1.GameClicked(e);
+              //  drawTest1.GameClicked(e);
             }
         }
 
         private void drawTest1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void drawTest1_MouseMove_1(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                drawTest1.GameClicked(e, MouseButtons.Left);
+            }
+            else if (e.Button == MouseButtons.Right)
+            {
+                drawTest1.GameClicked(e, MouseButtons.Right);
+            }
+        }
+
+        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // load last game
+            drawTest1.LoadGame(Path.Combine(Environment.CurrentDirectory, @"Data/save1.sav"));
         }
     }
 }
