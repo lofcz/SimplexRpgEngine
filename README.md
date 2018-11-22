@@ -46,4 +46,5 @@ Events are aiming to imitate GMS native events while introducing some newcomers 
 ### Ported namespaces/functions
 - GameSave() - WIP
 - GameLoad() - WIP
+- PlaceEmpty()
 
