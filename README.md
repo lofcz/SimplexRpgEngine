@@ -14,7 +14,7 @@ There are plenty of reasons behind this. But these are the main ones:
 ### Aim of v3
 
 - Engine build on top of MonoGame FW
-- Tiled serves as primary room editor
+- Room editor works as 60 fps GameWindow, thus allowing for editor events
 - Implement as much of GMS pipeline into C# as possible
 - Upgrade outdated concepts of GMS
 
