@@ -71,11 +71,34 @@ namespace SimplexCore
             ImageScale = new Vector2(SimplexMath.Lerp(ImageScale.X, ImageScaleTarget.X, TransformSpeed), SimplexMath.Lerp(ImageScale.Y, ImageScaleTarget.Y, TransformSpeed));
         }
 
+
+        // Editor events
         public virtual void DrawNode(SpriteBatch s, SpriteFont f, Texture2D objectTexture)
         {
             s.Draw(objectTexture, Position, Color.White);
         }
 
+        public virtual void EvtCreate()
+        {
+
+        }
+
+        public virtual void EvtLoad()
+        {
+
+        }
+
+        public virtual void EvtSave()
+        {
+
+        }
+
+        public virtual void EvtDelete()
+        {
+
+        }
+
+        // Public state events  
         public void UpdateState()
         {
             UpdateImageScale();

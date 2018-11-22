@@ -12,6 +12,7 @@ namespace SimplexCore
     {
         public static List<GameObject> SceneObjects = new List<GameObject>();
         public static List<TextureReference> Textures = new List<TextureReference>();
+        public static Random Random = new Random();
 
         public static bool PlaceEmpty(Vector2 position)
         {
@@ -26,6 +27,11 @@ namespace SimplexCore
                }
             }
             return true;
+        }
+
+        public static Color RandomColor()
+        {
+            return new Color(Random.Next(255), Random.Next(255), Random.Next(255));
         }
     }
 }

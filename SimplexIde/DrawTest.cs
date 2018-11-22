@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,7 +15,6 @@ using MonoGame.Forms.Controls;
 using SimplexCore;
 using SimplexResources.Objects;
 using ButtonState = Microsoft.Xna.Framework.Input.ButtonState;
-using Rectangle = SharpDX.Rectangle;
 
 namespace SimplexIde
 {
@@ -33,6 +31,7 @@ namespace SimplexIde
         public List<TextureReference> Textures = new List<TextureReference>();
         public bool DrawGrid;
         GameTime g = new GameTime();
+        public static Color BackgroundColor = Color.CornflowerBlue;
 
         protected override void Initialize()
         {
@@ -71,9 +70,10 @@ namespace SimplexIde
         protected override void Draw()
         {
             double framerate = (1 / g.ElapsedGameTime.TotalSeconds);
-
+            
             base.Draw();
 
+            Editor.graphics.Clear(BackgroundColor);
             Editor.spriteBatch.Begin();
 
             foreach (GameObject o in SceneObjects)
@@ -107,6 +107,7 @@ namespace SimplexIde
                         o.Position = vec;
                         o.OriginalType = SelectedObject;
                         o.TypeString = SelectedObject.ToString();
+                        o.EvtCreate();
 
                         SceneObjects.Add(o);
                     }
@@ -127,7 +128,7 @@ namespace SimplexIde
 
                     if (r.Contains(vec))
                     {
-                        Debug.WriteLine("kokot");
+                        SceneObjects[i].EvtDelete();
                         SceneObjects.Remove(SceneObjects[i]);
                     }
                 }
@@ -140,6 +141,7 @@ namespace SimplexIde
 
             foreach (GameObject g in SceneObjects)
             {
+                g.EvtSave();
                 root.Objects.Add(g);
             }
             //root.Objects.Add(new GameObject { Property1 = 2 });
@@ -175,6 +177,7 @@ namespace SimplexIde
                 // Time to load babies
                 foreach (GameObject g in rawData.Objects)
                 {
+                    g.EvtLoad();
                     SceneObjects.Add(g);
                 }
             }
