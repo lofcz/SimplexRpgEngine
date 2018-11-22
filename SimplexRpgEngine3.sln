@@ -7,9 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplexRpgEngine3", "Simple
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SimplexCore", "SimplexCore\SimplexCore.shproj", "{A0CDBD0E-3A41-42B7-9425-A838BC2C7383}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplexIde", "SimplexIde\SimplexIde.csproj", "{6947B6D5-6EBC-49D0-A880-0F9DE3C670F6}"
-EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SimplexResources", "SimplexResources\SimplexResources.shproj", "{C814330A-B072-47F7-8B8D-EA04244D0E56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplexIde", "SimplexIde\SimplexIde.csproj", "{6947B6D5-6EBC-49D0-A880-0F9DE3C670F6}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution

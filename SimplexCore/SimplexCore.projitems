@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)GameObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameRoom.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Input.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Root.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SGML.cs" />
@@ -17,6 +18,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)SimplexMath.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sprite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SpriteDescriptor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Spritesheet.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TextureReference.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)XmlManager.cs" />
   </ItemGroup>
   <ItemGroup>

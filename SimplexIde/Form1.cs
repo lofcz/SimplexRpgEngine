@@ -17,6 +17,8 @@ namespace SimplexIde
     public partial class Form1 : Form
     {
         Type selectedObject = null;
+        public static int width;
+        public static int height;
 
         public Form1()
         {
@@ -101,6 +103,36 @@ namespace SimplexIde
         {
             // load last game
             drawTest1.LoadGame(Path.Combine(Environment.CurrentDirectory, @"Data/save1.sav"));
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            width = (int)numericUpDown1.Value;
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+            height = (int)numericUpDown2.Value;
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

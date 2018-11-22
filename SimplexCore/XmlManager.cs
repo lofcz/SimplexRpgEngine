@@ -44,7 +44,7 @@ namespace SimplexCore
         {
             using (FileStream stream = File.OpenRead(path))
             {
-                XmlSerializer ser = new XmlSerializer(typeof(Root), new Type[] { typeof(SampleObject), typeof(Objekt2) });
+                XmlSerializer ser = new XmlSerializer(typeof(Root), new Type[] { typeof(SampleObject), typeof(Object2) });
                 return (Root)ser.Deserialize(stream);
             }
         }

@@ -5,6 +5,12 @@
     "FramesPerRow": 7,
     "CellHeight": 64,
     "CellWidth": 64
+  },
+  {
+    "Name": "texture",
+    "Rows": 1,
+    "CellHeight": 32,
+    "CellWidth":  32 
   }
 
 ]

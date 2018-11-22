@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
-using SimplexIde;
 
 namespace SimplexCore
 {
@@ -18,8 +17,8 @@ namespace SimplexCore
         {
             foreach (GameObject g in SceneObjects)
             {
-               Texture2D texture = Textures.FirstOrDefault(x => x.Name == g.Sprite.TextureSource).Texture;
-               Rectangle r = new Rectangle((int)g.Position.X, (int)g.Position.Y, texture.Width, texture.Height);
+               //Texture2D texture = Textures.FirstOrDefault(x => x.Name == g.Sprite.TextureSource).Texture;
+               Rectangle r = new Rectangle((int)g.Position.X, (int)g.Position.Y, g.Sprite.ImageRectangle.Width, g.Sprite.ImageRectangle.Height);
 
                if (r.Contains(position))
                {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -11,19 +12,17 @@ using System.Xml.Serialization;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MonoGame.Extended;
 using MonoGame.Forms.Controls;
+using Newtonsoft.Json;
 using SimplexCore;
 using SimplexResources.Objects;
 using ButtonState = Microsoft.Xna.Framework.Input.ButtonState;
+using Color = Microsoft.Xna.Framework.Color;
+using RectangleF = MonoGame.Extended.RectangleF;
 
 namespace SimplexIde
 {
-    public class TextureReference
-    {
-        public Texture2D Texture { get; set; }
-        public string Name { get; set; }
-    }
-
     public class DrawTest : UpdateWindow
     {
         public Type SelectedObject = null;
@@ -32,6 +31,7 @@ namespace SimplexIde
         public bool DrawGrid;
         GameTime g = new GameTime();
         public static Color BackgroundColor = Color.CornflowerBlue;
+        public List<Spritesheet> Sprites = new List<Spritesheet>();
 
         protected override void Initialize()
         {
@@ -55,15 +55,12 @@ namespace SimplexIde
 
         public void InitializeNodes(TreeNodeCollection tnc)
         {
-            foreach (TreeNode tn in tnc)
-            {
-                GameObject g = (GameObject)Activator.CreateInstance(Type.GetType("SimplexResources.Objects." + tn.Text));
-                Texture2D tex = Editor.Content.Load<Texture2D>(@"C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexRpgEngine3\Content\bin\Windows\" + g.Sprite.TextureSource);
+            Sprites = JsonConvert.DeserializeObject<List<Spritesheet>>(new StreamReader("../../../SimplexRpgEngine3/SpritesDescriptor.json").ReadToEnd());
 
-                TextureReference tr = new TextureReference();
-                tr.Texture = tex;
-                tr.Name = g.Sprite.TextureSource;
-                Textures.Add(tr);
+            foreach (Spritesheet s in Sprites)
+            {
+                Texture2D tex = Editor.Content.Load<Texture2D>(Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/" + s.Name));
+                s.Texture = tex;
             }
         }
 
@@ -72,13 +69,16 @@ namespace SimplexIde
             double framerate = (1 / g.ElapsedGameTime.TotalSeconds);
             
             base.Draw();
-
+      
             Editor.graphics.Clear(BackgroundColor);
             Editor.spriteBatch.Begin();
 
+            Editor.spriteBatch.DrawRectangle(new RectangleF(new Point2(0, 0), new Size2(Form1.width, Form1.height)), Color.White);
+
             foreach (GameObject o in SceneObjects)
             {
-                o.DrawNode(Editor.spriteBatch, Editor.Font, Textures.FirstOrDefault(x => x.Name == o.Sprite.TextureSource).Texture);
+                o.DrawNode(Editor.spriteBatch, Editor.Font, o.Sprite.Texture);
+             //   o.DrawNode(Editor.spriteBatch, Editor.Font, Textures.FirstOrDefault(x => x.Name == o.Sprite.TextureSource).Texture);
 
              //   Editor.spriteBatch.DrawString(Editor.Font, "Hello IDE",  o.Position, Color.White);
             }
@@ -104,10 +104,16 @@ namespace SimplexIde
                     if (Sgml.PlaceEmpty(vec))
                     {
                         GameObject o = (GameObject)Activator.CreateInstance(SelectedObject);
+                        Spritesheet s = Sprites.FirstOrDefault(x => x.Name == o.Sprite.TextureSource);
+
+
                         o.Position = vec;
                         o.OriginalType = SelectedObject;
                         o.TypeString = SelectedObject.ToString();
+                        o.Sprite.Texture = s.Texture;
+                        o.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
                         o.EvtCreate();
+
 
                         SceneObjects.Add(o);
                     }
@@ -123,8 +129,7 @@ namespace SimplexIde
 
                 for (var i = 0; i < SceneObjects.Count; i++)
                 {
-                    Texture2D texture = Textures.FirstOrDefault(x => x.Name == SceneObjects[i].Sprite.TextureSource).Texture;
-                    Microsoft.Xna.Framework.Rectangle r = new Microsoft.Xna.Framework.Rectangle((int)SceneObjects[i].Position.X, (int)SceneObjects[i].Position.Y, texture.Width, texture.Height);
+                    Microsoft.Xna.Framework.Rectangle r = new Microsoft.Xna.Framework.Rectangle((int)SceneObjects[i].Position.X, (int)SceneObjects[i].Position.Y, SceneObjects[i].Sprite.ImageRectangle.Width, SceneObjects[i].Sprite.ImageRectangle.Height);
 
                     if (r.Contains(vec))
                     {
@@ -147,7 +152,7 @@ namespace SimplexIde
             //root.Objects.Add(new GameObject { Property1 = 2 });
             //root.Objects.Add(new SampleObject { Property1 = 5, Property2 = 12 });
 
-            XmlSerializer ser = new XmlSerializer(typeof(Root), new Type[] { typeof(SampleObject), typeof(Objekt2) });
+            XmlSerializer ser = new XmlSerializer(typeof(Root), new Type[] { typeof(SampleObject), typeof(Object2) });
             using (TextWriter w = new StreamWriter(path))
             {
                 ser.Serialize(w, root);
@@ -168,7 +173,7 @@ namespace SimplexIde
 
             // Then we load raw data
             Root root = new Root();
-            XmlSerializer ser = new XmlSerializer(typeof(Root), new Type[] { typeof(SampleObject), typeof(Objekt2) });
+            XmlSerializer ser = new XmlSerializer(typeof(Root), new Type[] { typeof(SampleObject), typeof(Object2) });
             using (StreamReader w = new StreamReader(path))
             {
                 Root rawData = (Root)ser.Deserialize(w);
@@ -177,7 +182,11 @@ namespace SimplexIde
                 // Time to load babies
                 foreach (GameObject g in rawData.Objects)
                 {
+                    Spritesheet s = Sprites.FirstOrDefault(x => x.Name == g.Sprite.TextureSource);
+
                     g.EvtLoad();
+                    g.Sprite.Texture = s.Texture;
+                    g.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
                     SceneObjects.Add(g);
                 }
             }

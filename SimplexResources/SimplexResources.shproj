@@ -9,4 +9,5 @@
   <PropertyGroup />
   <Import Project="SimplexResources.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\CodeSharing\Microsoft.CodeSharing.CSharp.targets" />
+  <Import Project="..\SimplexIde\SimplexIde.projitems" Label="Shared" />
 </Project>

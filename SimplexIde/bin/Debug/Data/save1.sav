@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <GameObject xsi:type="Objekt2">
+  <GameObject xsi:type="Object2">
     <Position>
-      <X>192</X>
-      <Y>128</Y>
+      <X>211</X>
+      <Y>166</Y>
     </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
+    <TypeString>SimplexResources.Objects.Object2</TypeString>
     <ImageAngle>0</ImageAngle>
     <ImageAngleTarget>0</ImageAngleTarget>
     <TransformSpeed>0.2</TransformSpeed>
@@ -19,12 +19,12 @@
     </ImageScaleTarget>
     <ImageIndex>0</ImageIndex>
   </GameObject>
-  <GameObject xsi:type="Objekt2">
+  <GameObject xsi:type="Object2">
     <Position>
-      <X>192</X>
-      <Y>160</Y>
+      <X>209</X>
+      <Y>188</Y>
     </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
+    <TypeString>SimplexResources.Objects.Object2</TypeString>
     <ImageAngle>0</ImageAngle>
     <ImageAngleTarget>0</ImageAngleTarget>
     <TransformSpeed>0.2</TransformSpeed>
@@ -38,12 +38,12 @@
     </ImageScaleTarget>
     <ImageIndex>0</ImageIndex>
   </GameObject>
-  <GameObject xsi:type="Objekt2">
+  <GameObject xsi:type="Object2">
     <Position>
-      <X>192</X>
-      <Y>192</Y>
+      <X>205</X>
+      <Y>202</Y>
     </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
+    <TypeString>SimplexResources.Objects.Object2</TypeString>
     <ImageAngle>0</ImageAngle>
     <ImageAngleTarget>0</ImageAngleTarget>
     <TransformSpeed>0.2</TransformSpeed>
@@ -57,12 +57,12 @@
     </ImageScaleTarget>
     <ImageIndex>0</ImageIndex>
   </GameObject>
-  <GameObject xsi:type="Objekt2">
+  <GameObject xsi:type="Object2">
     <Position>
-      <X>192</X>
-      <Y>224</Y>
+      <X>204</X>
+      <Y>205</Y>
     </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
+    <TypeString>SimplexResources.Objects.Object2</TypeString>
     <ImageAngle>0</ImageAngle>
     <ImageAngleTarget>0</ImageAngleTarget>
     <TransformSpeed>0.2</TransformSpeed>
@@ -76,12 +76,12 @@
     </ImageScaleTarget>
     <ImageIndex>0</ImageIndex>
   </GameObject>
-  <GameObject xsi:type="Objekt2">
+  <GameObject xsi:type="Object2">
     <Position>
-      <X>192</X>
+      <X>320</X>
       <Y>256</Y>
     </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
+    <TypeString>SimplexResources.Objects.Object2</TypeString>
     <ImageAngle>0</ImageAngle>
     <ImageAngleTarget>0</ImageAngleTarget>
     <TransformSpeed>0.2</TransformSpeed>
@@ -95,12 +95,12 @@
     </ImageScaleTarget>
     <ImageIndex>0</ImageIndex>
   </GameObject>
-  <GameObject xsi:type="Objekt2">
+  <GameObject xsi:type="Object2">
     <Position>
-      <X>192</X>
+      <X>320</X>
       <Y>288</Y>
     </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
+    <TypeString>SimplexResources.Objects.Object2</TypeString>
     <ImageAngle>0</ImageAngle>
     <ImageAngleTarget>0</ImageAngleTarget>
     <TransformSpeed>0.2</TransformSpeed>
@@ -114,12 +114,12 @@
     </ImageScaleTarget>
     <ImageIndex>0</ImageIndex>
   </GameObject>
-  <GameObject xsi:type="Objekt2">
+  <GameObject xsi:type="Object2">
     <Position>
-      <X>192</X>
+      <X>320</X>
       <Y>320</Y>
     </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
+    <TypeString>SimplexResources.Objects.Object2</TypeString>
     <ImageAngle>0</ImageAngle>
     <ImageAngleTarget>0</ImageAngleTarget>
     <TransformSpeed>0.2</TransformSpeed>
@@ -133,12 +133,12 @@
     </ImageScaleTarget>
     <ImageIndex>0</ImageIndex>
   </GameObject>
-  <GameObject xsi:type="Objekt2">
+  <GameObject xsi:type="Object2">
     <Position>
-      <X>192</X>
+      <X>320</X>
       <Y>352</Y>
     </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
+    <TypeString>SimplexResources.Objects.Object2</TypeString>
     <ImageAngle>0</ImageAngle>
     <ImageAngleTarget>0</ImageAngleTarget>
     <TransformSpeed>0.2</TransformSpeed>
@@ -152,12 +152,12 @@
     </ImageScaleTarget>
     <ImageIndex>0</ImageIndex>
   </GameObject>
-  <GameObject xsi:type="Objekt2">
+  <GameObject xsi:type="Object2">
     <Position>
-      <X>192</X>
-      <Y>384</Y>
+      <X>288</X>
+      <Y>352</Y>
     </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
+    <TypeString>SimplexResources.Objects.Object2</TypeString>
     <ImageAngle>0</ImageAngle>
     <ImageAngleTarget>0</ImageAngleTarget>
     <TransformSpeed>0.2</TransformSpeed>
@@ -171,50 +171,12 @@
     </ImageScaleTarget>
     <ImageIndex>0</ImageIndex>
   </GameObject>
-  <GameObject xsi:type="Objekt2">
-    <Position>
-      <X>224</X>
-      <Y>384</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="Objekt2">
-    <Position>
-      <X>256</X>
-      <Y>384</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="Objekt2">
+  <GameObject xsi:type="Object2">
     <Position>
       <X>288</X>
       <Y>384</Y>
     </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
+    <TypeString>SimplexResources.Objects.Object2</TypeString>
     <ImageAngle>0</ImageAngle>
     <ImageAngleTarget>0</ImageAngleTarget>
     <TransformSpeed>0.2</TransformSpeed>
@@ -228,525 +190,69 @@
     </ImageScaleTarget>
     <ImageIndex>0</ImageIndex>
   </GameObject>
-  <GameObject xsi:type="Objekt2">
-    <Position>
-      <X>320</X>
-      <Y>384</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="Objekt2">
-    <Position>
-      <X>352</X>
-      <Y>384</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="Objekt2">
-    <Position>
-      <X>384</X>
-      <Y>384</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="Objekt2">
-    <Position>
-      <X>416</X>
-      <Y>384</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="Objekt2">
-    <Position>
-      <X>416</X>
-      <Y>352</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="Objekt2">
-    <Position>
-      <X>416</X>
-      <Y>224</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="Objekt2">
-    <Position>
-      <X>416</X>
-      <Y>192</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="Objekt2">
-    <Position>
-      <X>416</X>
-      <Y>160</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="Objekt2">
-    <Position>
-      <X>416</X>
-      <Y>128</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="Objekt2">
-    <Position>
-      <X>384</X>
-      <Y>128</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="Objekt2">
-    <Position>
-      <X>352</X>
-      <Y>128</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="Objekt2">
-    <Position>
-      <X>320</X>
-      <Y>128</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="Objekt2">
+  <GameObject xsi:type="Object2">
     <Position>
       <X>288</X>
-      <Y>128</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="Objekt2">
-    <Position>
-      <X>256</X>
-      <Y>128</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="Objekt2">
-    <Position>
-      <X>224</X>
-      <Y>128</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="Objekt2">
-    <Position>
-      <X>480</X>
-      <Y>224</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="Objekt2">
-    <Position>
-      <X>512</X>
-      <Y>224</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="Objekt2">
-    <Position>
-      <X>544</X>
-      <Y>224</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="Objekt2">
-    <Position>
-      <X>576</X>
-      <Y>224</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="Objekt2">
-    <Position>
-      <X>608</X>
-      <Y>224</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="Objekt2">
-    <Position>
-      <X>640</X>
-      <Y>224</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="Objekt2">
-    <Position>
-      <X>672</X>
-      <Y>224</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="Objekt2">
-    <Position>
-      <X>448</X>
-      <Y>224</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="Objekt2">
-    <Position>
-      <X>448</X>
-      <Y>352</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="Objekt2">
-    <Position>
-      <X>480</X>
-      <Y>352</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="Objekt2">
-    <Position>
-      <X>512</X>
-      <Y>352</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="Objekt2">
-    <Position>
-      <X>512</X>
-      <Y>384</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="Objekt2">
-    <Position>
-      <X>512</X>
       <Y>416</Y>
     </Position>
-    <TypeString>SimplexResources.Objects.Objekt2</TypeString>
+    <TypeString>SimplexResources.Objects.Object2</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object2">
+    <Position>
+      <X>288</X>
+      <Y>448</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object2</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object2">
+    <Position>
+      <X>288</X>
+      <Y>480</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object2</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object2">
+    <Position>
+      <X>288</X>
+      <Y>512</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object2</TypeString>
     <ImageAngle>0</ImageAngle>
     <ImageAngleTarget>0</ImageAngleTarget>
     <TransformSpeed>0.2</TransformSpeed>

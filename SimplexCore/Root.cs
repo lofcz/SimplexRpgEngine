@@ -22,9 +22,13 @@ namespace SimplexCore
         public Root()
         {
             Objects = new List<GameObject>();
+          //  Rooms = new List<GameRoom>();
         }
 
         [XmlElement("GameObject")]
         public List<GameObject> Objects { get; set; }
+
+      //  [XmlElement("GameRoom")]
+      //  public List<GameRoom> Rooms { get; set; }
     }
 }
