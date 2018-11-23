@@ -34,6 +34,11 @@ There are plenty of reasons behind this. But these are the main ones:
 - Timeline
 - Path
 
+### Room editor
+- 60 fps monoForm
+- allows to manage multiple rooms
+- supports grid
+
 ### Big deals along the way
 - Creation code (roslyn)
 - Collision detection (quadtrees) 
