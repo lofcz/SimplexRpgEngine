@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
+using Microsoft.Xna.Framework.Input;
 using SimplexCore;
 
 namespace SimplexIde
@@ -63,6 +64,8 @@ namespace SimplexIde
 
             activeRoom = null;
             drawTest1.InitializeNodes(treeView1.Nodes);
+
+
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -83,6 +86,10 @@ namespace SimplexIde
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (activeRoom == null)
+            {
+                activeRoom = treeView2.TopNode;
+            }
             drawTest1.SaveGame(Path.Combine(Environment.CurrentDirectory, @"Data/" + activeRoom.Text));
         }
 

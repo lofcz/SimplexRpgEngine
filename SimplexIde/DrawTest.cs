@@ -8,11 +8,13 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using System.Xml.Serialization;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
+using MonoGame.Extended.ViewportAdapters;
 using MonoGame.Forms.Controls;
 using Newtonsoft.Json;
 using SimplexCore;
@@ -20,6 +22,7 @@ using SimplexResources.Objects;
 using SimplexResources.Rooms;
 using ButtonState = Microsoft.Xna.Framework.Input.ButtonState;
 using Color = Microsoft.Xna.Framework.Color;
+using Keys = Microsoft.Xna.Framework.Input.Keys;
 using RectangleF = MonoGame.Extended.RectangleF;
 
 namespace SimplexIde
@@ -33,6 +36,9 @@ namespace SimplexIde
         GameTime g = new GameTime();
         public static Color BackgroundColor = Color.CornflowerBlue;
         public List<Spritesheet> Sprites = new List<Spritesheet>();
+        Camera2D camera;
+        SimplexCamera cam = new SimplexCamera();
+        KeyboardState prevState;
 
         protected override void Initialize()
         {
@@ -40,13 +46,37 @@ namespace SimplexIde
 
             Sgml.SceneObjects = SceneObjects;
             Sgml.Textures = Textures;
+            
+            camera = new Camera2D(Editor.graphics);
+
+            cam.Camera = camera;
+            cam.Position = Vector2.Zero;
+            cam.TargetPosition = Vector2.Zero;
+            cam.TransformSpeed = 0.1f;
+
+            prevState = Keyboard.GetState();
         }
 
 
         protected override void Update(GameTime gameTime)
         {
+            Input.KeyboardState = Keyboard.GetState();
             g = gameTime;
             base.Update(gameTime);
+
+            cam.UpdatePosition();
+
+            if (Input.KeyPressed(Keys.W))
+            {
+                cam.TargetPosition.Y -= 100;
+            }
+
+            if (Input.KeyPressed(Keys.Q))
+            {
+                cam.ZoomTarget -= 0.1f;
+            }
+
+            Input.KeyboardStatePrevious = Keyboard.GetState();
         }
 
         public void ToggleGrid(bool toggle)
@@ -70,9 +100,9 @@ namespace SimplexIde
             double framerate = (1 / g.ElapsedGameTime.TotalSeconds);
             
             base.Draw();
-      
+            Matrix transformMatrix = cam.Camera.GetViewMatrix();
             Editor.graphics.Clear(BackgroundColor);
-            Editor.spriteBatch.Begin();
+            Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
 
             Editor.spriteBatch.DrawRectangle(new RectangleF(new Point2(0, 0), new Size2(Form1.width, Form1.height)), Color.White);
 
