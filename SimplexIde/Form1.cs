@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using SimplexCore;
 
@@ -113,6 +114,8 @@ namespace SimplexIde
 
         private void drawTest1_MouseMove_1(object sender, MouseEventArgs e)
         {
+            drawTest1.MousePosition = new Vector2(e.X, e.Y);
+
             if (e.Button == MouseButtons.Left)
             {
                 drawTest1.GameClicked(e, MouseButtons.Left);
@@ -120,7 +123,7 @@ namespace SimplexIde
             else if (e.Button == MouseButtons.Right)
             {
                 drawTest1.GameClicked(e, MouseButtons.Right);
-            }
+            }          
         }
 
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -177,6 +180,26 @@ namespace SimplexIde
             {
                 drawTest1.ClearAll();
             }
+        }
+
+        private void drawTest1_OnMouseWheelDownwards(MouseEventArgs e)
+        {
+            drawTest1.WheelDown();
+        }
+
+        private void drawTest1_MouseUp(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void drawTest1_OnMouseWheelUpwards(MouseEventArgs e)
+        {
+            drawTest1.WheelUp();
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            drawTest1.ClearAll();
         }
     }
 }

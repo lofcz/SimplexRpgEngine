@@ -15,13 +15,14 @@ namespace SimplexCore
         public Vector2 Position;
         public float TransformSpeed;
         public float Zoom;
-        public float ZoomTarget;
+        public float TargetZoom;
+        public float Rotation;
 
         public void UpdatePosition()
         {
             float newX = SimplexMath.Lerp(Position.X, TargetPosition.X, TransformSpeed);
             float newY = SimplexMath.Lerp(Position.Y, TargetPosition.Y, TransformSpeed);
-            float newZoom = SimplexMath.Lerp(Zoom, ZoomTarget, TransformSpeed);
+            float newZoom = SimplexMath.Lerp(Zoom, TargetZoom, TransformSpeed);
 
             Position.X = newX;
             Position.Y = newY;
@@ -29,12 +30,13 @@ namespace SimplexCore
 
             Camera.Position = new Vector2(newX, newY);
             Camera.Zoom = Zoom;
+            Camera.Rotation = Rotation;
         }
 
         public SimplexCamera()
         {
             Zoom = 1;
-            ZoomTarget = 1;
+            TargetZoom = 1;
         }
     }
 }

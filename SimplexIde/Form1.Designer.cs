@@ -50,8 +50,8 @@
             this.treeView2 = new System.Windows.Forms.TreeView();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.drawTest1 = new SimplexIde.DrawTest();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.drawTest1 = new SimplexIde.DrawTest();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -93,13 +93,14 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newToolStripMenuItem.Text = "New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem.Tag = "saveAs";
             this.saveToolStripMenuItem.Text = "Save as";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
@@ -107,7 +108,7 @@
             // loadToolStripMenuItem
             // 
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            this.loadToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.loadToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.loadToolStripMenuItem.Text = "Load";
             this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
             // 
@@ -307,21 +308,6 @@
             this.button4.Text = "Layers";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // drawTest1
-            // 
-            this.drawTest1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.drawTest1.GraphicsProfile = Microsoft.Xna.Framework.Graphics.GraphicsProfile.HiDef;
-            this.drawTest1.Location = new System.Drawing.Point(312, 67);
-            this.drawTest1.Name = "drawTest1";
-            this.drawTest1.Size = new System.Drawing.Size(1278, 699);
-            this.drawTest1.TabIndex = 0;
-            this.drawTest1.Text = "MainRenderer";
-            this.drawTest1.Click += new System.EventHandler(this.drawTest1_Click_1);
-            this.drawTest1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.drawTest1_MouseClick);
-            this.drawTest1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.drawTest1_MouseMove_1);
-            // 
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
@@ -333,6 +319,24 @@
             this.checkBox2.TabIndex = 19;
             this.checkBox2.Text = "Live updates";
             this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // drawTest1
+            // 
+            this.drawTest1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.drawTest1.GraphicsProfile = Microsoft.Xna.Framework.Graphics.GraphicsProfile.HiDef;
+            this.drawTest1.Location = new System.Drawing.Point(312, 67);
+            this.drawTest1.Name = "drawTest1";
+            this.drawTest1.Size = new System.Drawing.Size(1278, 699);
+            this.drawTest1.TabIndex = 0;
+            this.drawTest1.Text = "MainRenderer";
+            this.drawTest1.OnMouseWheelUpwards += new MonoGame.Forms.Controls.GraphicsDeviceControl.MouseWheelUpwardsEvent(this.drawTest1_OnMouseWheelUpwards);
+            this.drawTest1.OnMouseWheelDownwards += new MonoGame.Forms.Controls.GraphicsDeviceControl.MouseWheelDownwardsEvent(this.drawTest1_OnMouseWheelDownwards);
+            this.drawTest1.Click += new System.EventHandler(this.drawTest1_Click_1);
+            this.drawTest1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.drawTest1_MouseClick);
+            this.drawTest1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.drawTest1_MouseMove_1);
+            this.drawTest1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.drawTest1_MouseUp);
             // 
             // Form1
             // 

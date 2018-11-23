@@ -23,7 +23,7 @@ namespace SimplexResources.Objects
         // Defines what happens once instance is placed in the room editor
         public override void EvtCreate()
         {
-            DrawTest.BackgroundColor = Color.White; //RandomColor();
+           // DrawTest.BackgroundColor = Color.White; //RandomColor();
            
         }
 

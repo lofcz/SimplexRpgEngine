@@ -39,7 +39,8 @@ namespace SimplexIde
         Camera2D camera;
         SimplexCamera cam = new SimplexCamera();
         KeyboardState prevState;
-
+        public Vector2 MousePosition;
+        public Vector2 MousePositionTranslated;
         protected override void Initialize()
         {
             base.Initialize();
@@ -60,6 +61,9 @@ namespace SimplexIde
 
         protected override void Update(GameTime gameTime)
         {
+            MousePositionTranslated = cam.Camera.ScreenToWorld(MousePosition);
+
+
             Input.KeyboardState = Keyboard.GetState();
             g = gameTime;
             base.Update(gameTime);
@@ -71,9 +75,10 @@ namespace SimplexIde
                 cam.TargetPosition.Y -= 100;
             }
 
+           
             if (Input.KeyPressed(Keys.Q))
             {
-                cam.ZoomTarget -= 0.1f;
+                cam.TargetZoom -= 0.1f;
             }
 
             Input.KeyboardStatePrevious = Keyboard.GetState();
@@ -104,32 +109,46 @@ namespace SimplexIde
             Editor.graphics.Clear(BackgroundColor);
             Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
 
-            Editor.spriteBatch.DrawRectangle(new RectangleF(new Point2(0, 0), new Size2(Form1.width, Form1.height)), Color.White);
+            Editor.spriteBatch.DrawRectangle(new RectangleF(new Point2(0, 0), new Size2(Form1.width, Form1.height)), Color.White, 2);
 
             foreach (GameObject o in SceneObjects)
             {
                 o.DrawNode(Editor.spriteBatch, Editor.Font, o.Sprite.Texture);
              //   o.DrawNode(Editor.spriteBatch, Editor.Font, Textures.FirstOrDefault(x => x.Name == o.Sprite.TextureSource).Texture);
 
-             //   Editor.spriteBatch.DrawString(Editor.Font, "Hello IDE",  o.Position, Color.White);
+               
             }
+            
+            Editor.spriteBatch.DrawString(Editor.Font, "Mouse X: " +Math.Round(MousePositionTranslated.X) + "\nMouse Y: " + Math.Round(MousePositionTranslated.Y), new Vector2(200, 200), Color.White);
 
             Editor.spriteBatch.DrawString(Editor.Font, framerate.ToString("F1"), new Vector2(100, 100), Color.White);
             Editor.spriteBatch.End();
 
         }
 
+        public void WheelDown()
+        {
+            cam.TargetZoom -= 0.1f;
+        }
+
+        public void WheelUp()
+        {
+            cam.TargetZoom += 0.1f;
+        }
+
         public void GameClicked(MouseEventArgs e, MouseButtons mb)
         {
+            MousePositionTranslated = cam.Camera.ScreenToWorld(MousePosition);
+
             if (mb == MouseButtons.Left)
             {
                 if (SelectedObject != null)
-                {                 
-                    Vector2 vec = new Vector2(e.X, e.Y);
+                {
+                    Vector2 vec = MousePositionTranslated;
 
                     if (DrawGrid)
                     {
-                        vec = new Vector2(e.X / 32 * 32, e.Y / 32 * 32);
+                        vec = new Vector2((int)vec.X / 32 * 32, (int)vec.Y / 32 * 32);
                     }
 
                     if (Sgml.PlaceEmpty(vec))
@@ -152,10 +171,10 @@ namespace SimplexIde
             }
             else if (mb == MouseButtons.Right)
             {
-                Vector2 vec = new Vector2(e.X, e.Y);
+                Vector2 vec = MousePositionTranslated;
                 if (DrawGrid)
                 {
-                    vec = new Vector2(e.X / 32 * 32, e.Y / 32 * 32);
+                    vec = new Vector2((int)vec.X / 32 * 32, (int)vec.Y / 32 * 32);
                 }
 
                 for (var i = 0; i < SceneObjects.Count; i++)
