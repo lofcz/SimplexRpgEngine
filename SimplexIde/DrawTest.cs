@@ -155,7 +155,7 @@ namespace SimplexIde
             GameRoom gr = (GameRoom) Activator.CreateInstance(Type.GetType(("SimplexResources.Rooms." + Form1.activeRoom.Text)));
             root.Room = gr;
 
-            XmlSerializer ser = new XmlSerializer(typeof(Root), new Type[] { typeof(SampleObject), typeof(Object2), typeof(Room1), typeof(Room2) });
+            XmlSerializer ser = new XmlSerializer(typeof(Root), Form1.reflectedTypes.ToArray());
             using (TextWriter w = new StreamWriter(path))
             {
                 ser.Serialize(w, root);
@@ -181,7 +181,7 @@ namespace SimplexIde
 
             // Then we load raw data
             Root root = new Root();
-            XmlSerializer ser = new XmlSerializer(typeof(Root), new Type[] { typeof(SampleObject), typeof(Object2), typeof(Room1), typeof(Room2) });
+            XmlSerializer ser = new XmlSerializer(typeof(Root), Form1.reflectedTypes.ToArray());
             using (StreamReader w = new StreamReader(path))
             {
                 Root rawData = (Root)ser.Deserialize(w);

@@ -21,6 +21,7 @@ namespace SimplexIde
         public static int width;
         public static int height;
         public static TreeNode activeRoom;
+        public static List<Type> reflectedTypes = new List<Type>();
 
         public Form1()
         {
@@ -45,6 +46,7 @@ namespace SimplexIde
             foreach (Type t in classList)
             {
                 treeView1.Nodes.Add(t.Name);
+                reflectedTypes.Add(t);
             }
 
             nspace = "SimplexResources.Rooms";
@@ -56,6 +58,7 @@ namespace SimplexIde
             foreach (Type t in classList)
             {
                 treeView2.Nodes.Add(t.Name);
+                reflectedTypes.Add(t);
             }
 
             activeRoom = null;
