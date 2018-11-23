@@ -25,6 +25,10 @@ namespace SimplexCore
           //  Rooms = new List<GameRoom>();
         }
 
+
+        [XmlElement]
+        public string Room { get; set; }
+
         [XmlElement("GameObject")]
         public List<GameObject> Objects { get; set; }
 

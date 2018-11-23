@@ -151,6 +151,7 @@ namespace SimplexIde
             }
             //root.Objects.Add(new GameObject { Property1 = 2 });
             //root.Objects.Add(new SampleObject { Property1 = 5, Property2 = 12 });
+            root.Room = Form1.activeRoom.Text;
 
             XmlSerializer ser = new XmlSerializer(typeof(Root), new Type[] { typeof(SampleObject), typeof(Object2) });
             using (TextWriter w = new StreamWriter(path))
@@ -163,13 +164,18 @@ namespace SimplexIde
          //   XmlManager<GameObject> xmlManager = new XmlManager<GameObject>();
          //   xmlManager.Type = typeof(List<GameObject>);
          //   xmlManager.SaveList(path, SceneObjects);
+          Debug.WriteLine("Save OK");
+        }
 
+        public void ClearAll()
+        {
+            SceneObjects.Clear();
         }
 
         public void LoadGame(string path)
         {
             // First we fuck current scene
-            SceneObjects.Clear();
+            ClearAll();
 
             // Then we load raw data
             Root root = new Root();

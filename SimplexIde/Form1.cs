@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,6 +20,7 @@ namespace SimplexIde
         Type selectedObject = null;
         public static int width;
         public static int height;
+        public static TreeNode activeRoom;
 
         public Form1()
         {
@@ -45,6 +47,18 @@ namespace SimplexIde
                 treeView1.Nodes.Add(t.Name);
             }
 
+            nspace = "SimplexResources.Rooms";
+            q = from t in Assembly.GetExecutingAssembly().GetTypes()
+                where t.IsClass && t.Namespace == nspace
+                select t;
+            classList = q.ToList().ToList();
+
+            foreach (Type t in classList)
+            {
+                treeView2.Nodes.Add(t.Name);
+            }
+
+            activeRoom = null;
             drawTest1.InitializeNodes(treeView1.Nodes);
         }
 
@@ -66,7 +80,7 @@ namespace SimplexIde
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            drawTest1.SaveGame(Path.Combine(Environment.CurrentDirectory, @"Data/save1.sav"));
+            drawTest1.SaveGame(Path.Combine(Environment.CurrentDirectory, @"Data/" + activeRoom.Text));
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -102,7 +116,7 @@ namespace SimplexIde
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // load last game
-            drawTest1.LoadGame(Path.Combine(Environment.CurrentDirectory, @"Data/save1.sav"));
+            drawTest1.LoadGame(Path.Combine(Environment.CurrentDirectory, @"Data/" + activeRoom.Text));
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -133,6 +147,26 @@ namespace SimplexIde
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        // Change active room here
+        private void treeView2_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if (activeRoom != null)
+            {
+                drawTest1.SaveGame(Path.Combine(Environment.CurrentDirectory, @"Data/" + activeRoom.Text));
+            }
+
+            activeRoom = treeView2.SelectedNode;
+
+            if (File.Exists(Path.Combine(Environment.CurrentDirectory, @"Data/" + activeRoom.Text)))
+            {
+                drawTest1.LoadGame(Path.Combine(Environment.CurrentDirectory, @"Data/" + activeRoom.Text));
+            }
+            else
+            {
+                drawTest1.ClearAll();
+            }
         }
     }
 }

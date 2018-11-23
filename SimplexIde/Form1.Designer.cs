@@ -286,6 +286,7 @@
             this.treeView2.Name = "treeView2";
             this.treeView2.Size = new System.Drawing.Size(155, 699);
             this.treeView2.TabIndex = 16;
+            this.treeView2.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView2_AfterSelect);
             // 
             // button3
             // 
