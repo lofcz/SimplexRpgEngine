@@ -17,6 +17,7 @@ using MonoGame.Forms.Controls;
 using Newtonsoft.Json;
 using SimplexCore;
 using SimplexResources.Objects;
+using SimplexResources.Rooms;
 using ButtonState = Microsoft.Xna.Framework.Input.ButtonState;
 using Color = Microsoft.Xna.Framework.Color;
 using RectangleF = MonoGame.Extended.RectangleF;
@@ -151,9 +152,10 @@ namespace SimplexIde
             }
             //root.Objects.Add(new GameObject { Property1 = 2 });
             //root.Objects.Add(new SampleObject { Property1 = 5, Property2 = 12 });
-            root.Room = Form1.activeRoom.Text;
+            GameRoom gr = (GameRoom) Activator.CreateInstance(Type.GetType(("SimplexResources.Rooms." + Form1.activeRoom.Text)));
+            root.Room = gr;
 
-            XmlSerializer ser = new XmlSerializer(typeof(Root), new Type[] { typeof(SampleObject), typeof(Object2) });
+            XmlSerializer ser = new XmlSerializer(typeof(Root), new Type[] { typeof(SampleObject), typeof(Object2), typeof(Room1), typeof(Room2) });
             using (TextWriter w = new StreamWriter(path))
             {
                 ser.Serialize(w, root);
@@ -179,10 +181,15 @@ namespace SimplexIde
 
             // Then we load raw data
             Root root = new Root();
-            XmlSerializer ser = new XmlSerializer(typeof(Root), new Type[] { typeof(SampleObject), typeof(Object2) });
+            XmlSerializer ser = new XmlSerializer(typeof(Root), new Type[] { typeof(SampleObject), typeof(Object2), typeof(Room1), typeof(Room2) });
             using (StreamReader w = new StreamReader(path))
             {
                 Root rawData = (Root)ser.Deserialize(w);
+
+                // First load back room itself
+                Form1.width = (int)rawData.Room.Size.X;
+                Form1.height = (int)rawData.Room.Size.Y;
+                Form1.ActiveForm.Text = "Simplex RPG Engine / " + rawData.Room.Name;
 
 
                 // Time to load babies
