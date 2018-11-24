@@ -51,9 +51,10 @@ namespace SimplexResources.Objects
         public override void DrawNode(SpriteBatch s, SpriteFont f, Texture2D objectTexture)
         {
             Sgml.sb = s;
-            
-            s.Draw(objectTexture, Position, new Rectangle(0, 0, 64, 64), Color.White);
-          //  DrawRectangle(Position, new Vector2(64, 64), false, 2, 1);
+
+           DrawSetAlpha(0.5f);
+           DrawRectangle(Position, new Vector2(64, 64), false, 1);
+           DrawSetAlpha(1);
 
         }
     }

@@ -14,7 +14,21 @@ namespace SimplexCore
         public static List<TextureReference> Textures = new List<TextureReference>();
         public static Random Random = new Random();
         public static SpriteBatch sb;
-        public static Color DrawColor = Color.White;
+        private static Color _color = Color.White;
+
+        public static Color DrawColor
+        {
+            get { return FinalizeColor(_color); }
+            set { _color = value; }
+        }
+
+        private static float drawAlpha = 1;
+
+        private static Color FinalizeColor(Color c)
+        {
+            c *= drawAlpha;
+            return c;
+        }
 
         public static bool PlaceEmpty(Vector2 position)
         {
@@ -32,13 +46,13 @@ namespace SimplexCore
 
         public static GameObject InstancePlace(Vector2 vec)
         {
-            foreach (GameObject g in SceneObjects)
+            for (int i = SceneObjects.Count - 1; i >= 0; i--)
             {
-                Rectangle r = new Rectangle((int)g.Position.X, (int)g.Position.Y, g.Sprite.ImageRectangle.Width, g.Sprite.ImageRectangle.Height);
+                Rectangle r = new Rectangle((int)SceneObjects[i].Position.X, (int)SceneObjects[i].Position.Y, SceneObjects[i].Sprite.ImageRectangle.Width, SceneObjects[i].Sprite.ImageRectangle.Height);
 
                 if (r.Contains(vec))
                 {
-                    return g;
+                    return SceneObjects[i];
                 }
             }
             return null;
@@ -84,6 +98,27 @@ namespace SimplexCore
             {
                 sb.DrawRectangle(new RectangleF(position.X, position.Y, size.X, size.Y), DrawColor, lineThickness);
             }
+        }
+
+        public static void DrawSetAlpha(float alpha)
+        {
+            alpha = alpha.Clamp(0, 1);
+            drawAlpha = alpha;
+        }
+
+        public static void DrawSetColor(Color c)
+        {
+            DrawColor = c;
+        }
+
+        public static double DrawGetAlpha()
+        {
+            return drawAlpha;
+        }
+
+        public static Color DrawGetColor()
+        {
+            return DrawColor;
         }
 
     }
