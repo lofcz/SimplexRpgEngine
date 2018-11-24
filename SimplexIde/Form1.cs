@@ -37,6 +37,8 @@ namespace SimplexIde
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Invalidate();
+
             // load list of all defined objects
             string nspace = "SimplexResources.Objects";
 
@@ -123,7 +125,12 @@ namespace SimplexIde
             else if (e.Button == MouseButtons.Right)
             {
                 drawTest1.GameClicked(e, MouseButtons.Right);
-            }          
+            }
+            else if (e.Button == MouseButtons.Middle)
+            {
+                drawTest1.MoveView();
+            }
+
         }
 
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -189,7 +196,7 @@ namespace SimplexIde
 
         private void drawTest1_MouseUp(object sender, MouseEventArgs e)
         {
-            
+            drawTest1.ClickRelease();
         }
 
         private void drawTest1_OnMouseWheelUpwards(MouseEventArgs e)
@@ -200,6 +207,21 @@ namespace SimplexIde
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             drawTest1.ClearAll();
+        }
+
+        private void drawTest1_MouseDown(object sender, MouseEventArgs e)
+        {
+            drawTest1.ClickLock(e.Button);
+        }
+
+        private void numericUpDown5_ValueChanged(object sender, EventArgs e)
+        {
+            drawTest1.GridSize = new Vector2((int)numericUpDown5.Value, (int)numericUpDown6.Value);
+        }
+
+        private void numericUpDown6_ValueChanged(object sender, EventArgs e)
+        {
+            numericUpDown5_ValueChanged(sender, e);
         }
     }
 }

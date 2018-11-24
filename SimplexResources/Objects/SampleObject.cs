@@ -12,12 +12,15 @@ using MonoGame.Extended.Sprites;
 using MonoGame.Extended.TextureAtlases;
 using SimplexCore;
 using SimplexIde;
+using static SimplexCore.Sgml;
 
 namespace SimplexResources.Objects
 {
     [Serializable]
     public class SampleObject : GameObject
     {
+        private float lineThickness = 0;
+        private float time = 0;
         public SampleObject()
         {
             Sprite.TextureSource = "elves";
@@ -33,7 +36,7 @@ namespace SimplexResources.Objects
         public override void OnDraw(SpriteBatch sb)
         {
             // We move up
-            if (Input.KeyPressed(Keys.W))
+            if (Input.KeyPressed(Keys.W) && PlaceEmpty(Position))
             {
                 Position.Y -= 40;
             }
@@ -41,11 +44,17 @@ namespace SimplexResources.Objects
             // Draw
             sb.Draw(Sprite.Texture, Position, new Rectangle(0, 0, 64, 64) , Color.White);
 
+            DrawRectangle(Position, new Vector2(64, 64), true);
+
         }
 
         public override void DrawNode(SpriteBatch s, SpriteFont f, Texture2D objectTexture)
         {
+            Sgml.sb = s;
+            
             s.Draw(objectTexture, Position, new Rectangle(0, 0, 64, 64), Color.White);
+          //  DrawRectangle(Position, new Vector2(64, 64), false, 2, 1);
+
         }
     }
 }

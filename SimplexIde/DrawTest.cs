@@ -41,6 +41,15 @@ namespace SimplexIde
         KeyboardState prevState;
         public Vector2 MousePosition;
         public Vector2 MousePositionTranslated;
+        public GameObject clickedObject = null;
+        private bool mouseLocked = false;
+        private Vector2 helpVec;
+        private Vector2 clickedVec;
+        private bool panView = false;
+
+        public Vector2 GridSize = new Vector2(32, 32);
+        public Vector2 GridSizeRender = new Vector2(32, 32);
+
         protected override void Initialize()
         {
             base.Initialize();
@@ -63,6 +72,8 @@ namespace SimplexIde
         {
             MousePositionTranslated = cam.Camera.ScreenToWorld(MousePosition);
 
+
+            GridSizeRender = new Vector2(SimplexMath.Lerp(GridSizeRender.X, GridSize.X, 0.2f), SimplexMath.Lerp(GridSizeRender.Y, GridSize.Y, 0.2f));
 
             Input.KeyboardState = Keyboard.GetState();
             g = gameTime;
@@ -89,6 +100,24 @@ namespace SimplexIde
             DrawGrid = toggle;
         }
 
+        public void ClickRelease()
+        {
+            mouseLocked = false;
+            clickedObject = null;
+            panView = false;
+        }
+
+        public void ClickLock(MouseButtons btn)
+        {
+            mouseLocked = true;
+
+            if (btn == MouseButtons.Middle)
+            {
+                panView = true;
+                helpVec = cam.Camera.ScreenToWorld(MousePosition);
+            }
+        }
+
         public void InitializeNodes(TreeNodeCollection tnc)
         {
             Sprites = JsonConvert.DeserializeObject<List<Spritesheet>>(new StreamReader("../../../SimplexRpgEngine3/SpritesDescriptor.json").ReadToEnd());
@@ -102,12 +131,27 @@ namespace SimplexIde
 
         protected override void Draw()
         {
-            double framerate = (1 / g.ElapsedGameTime.TotalSeconds);
+            double framerate = Editor.GetFrameRate;
             
             base.Draw();
             Matrix transformMatrix = cam.Camera.GetViewMatrix();
             Editor.graphics.Clear(BackgroundColor);
             Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
+
+            if (DrawGrid)
+            {
+                Color c = Color.Black;
+                c.A = 128;
+                for (float i = 0; i < 768; i += GridSizeRender.Y)
+                {
+                    for (float j = 0; j < 1024; j += GridSizeRender.X)
+                    {
+                        i = (float)Math.Round(i);
+                        j = (float)Math.Round(j);
+                        Editor.spriteBatch.DrawRectangle(new RectangleF(j, i, GridSizeRender.X, GridSizeRender.Y), c, 1 );
+                    }
+                }
+            }
 
             Editor.spriteBatch.DrawRectangle(new RectangleF(new Point2(0, 0), new Size2(Form1.width, Form1.height)), Color.White, 2);
 
@@ -116,7 +160,10 @@ namespace SimplexIde
                 o.DrawNode(Editor.spriteBatch, Editor.Font, o.Sprite.Texture);
              //   o.DrawNode(Editor.spriteBatch, Editor.Font, Textures.FirstOrDefault(x => x.Name == o.Sprite.TextureSource).Texture);
 
-               
+             if (o == clickedObject)
+             {
+                 Editor.spriteBatch.DrawRectangle(new RectangleF(o.Position, new Size2(o.Sprite.ImageRectangle.Width, o.Sprite.ImageRectangle.Height)),Color.White, 2);
+             }
             }
             
             Editor.spriteBatch.DrawString(Editor.Font, "Mouse X: " +Math.Round(MousePositionTranslated.X) + "\nMouse Y: " + Math.Round(MousePositionTranslated.Y), new Vector2(200, 200), Color.White);
@@ -142,31 +189,69 @@ namespace SimplexIde
 
             if (mb == MouseButtons.Left)
             {
-                if (SelectedObject != null)
+                if (clickedObject == null)
+                {
+                    if (SelectedObject != null)
+                    {                       
+                        Vector2 vec = MousePositionTranslated;
+
+                        if (DrawGrid)
+                        {
+                            vec = new Vector2((int) vec.X / 32 * 32, (int) vec.Y / 32 * 32);
+                        }
+
+                        if (Sgml.PlaceEmpty(vec))
+                        {
+                            GameObject o = (GameObject) Activator.CreateInstance(SelectedObject);
+                            Spritesheet s = Sprites.FirstOrDefault(x => x.Name == o.Sprite.TextureSource);
+
+
+                            o.Position = vec;
+                            o.OriginalType = SelectedObject;
+                            o.TypeString = SelectedObject.ToString();
+                            o.Sprite.Texture = s.Texture;
+                            o.Sprite.ImageRectangle =
+                                new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
+                            o.EvtCreate();
+
+
+                            SceneObjects.Add(o);
+                        }
+                        else
+                        {
+                            // there's something cool at the position already, time to grab it
+                            GameObject collidingObject = Sgml.InstancePlace(vec);
+
+                            if (collidingObject != null)
+                            {
+                                clickedObject = collidingObject;
+                                helpVec = new Vector2(-MousePositionTranslated.X + collidingObject.Position.X, -MousePositionTranslated.Y + collidingObject.Position.Y);
+                                clickedVec = MousePositionTranslated;
+                            }
+                        }
+                    }
+                }
+                else
                 {
                     Vector2 vec = MousePositionTranslated;
+                    vec = new Vector2(vec.X + helpVec.X, vec.Y + helpVec.Y);
 
                     if (DrawGrid)
                     {
-                        vec = new Vector2((int)vec.X / 32 * 32, (int)vec.Y / 32 * 32);
+                        vec = MousePositionTranslated;
+                        vec.X -= (int)(clickedObject.Sprite.ImageRectangle.Width - 32) / 2;//16;
+                        vec.Y -= (int)(clickedObject.Sprite.ImageRectangle.Height - 32) / 2;
+                        //  vec += -new Vector2(vec.X % 32, vec.Y % 32);
+                        //vec.Y += clickedObject.Sprite.ImageRectangle.Height / 2;
+                        // vec.X += clickedObject.Sprite.ImageRectangle.Width / 2;
+                        //  vec = new Vector2(vec.X + helpVec.X, vec.Y + helpVec.Y);
+                        // vec = MousePositionTranslated;
+                        // vec.X += Math.Abs(clickedObject.Sprite.ImageRectangle.Width - clickedObject.Sprite.ImageRectangle.Width / 32 * 32) / 2;
+                        //vec.Y += Math.Abs(clickedObject.Sprite.ImageRectangle.Height - clickedObject.Sprite.ImageRectangle.Height / 32 * 32) / 2;
+                        // vec = new Vector2((MousePositionTranslated.X - clickedVec.X));
+                        vec = new Vector2((int)vec.X / 32  * 32, (int)vec.Y / 32 * 32);
                     }
-
-                    if (Sgml.PlaceEmpty(vec))
-                    {
-                        GameObject o = (GameObject)Activator.CreateInstance(SelectedObject);
-                        Spritesheet s = Sprites.FirstOrDefault(x => x.Name == o.Sprite.TextureSource);
-
-
-                        o.Position = vec;
-                        o.OriginalType = SelectedObject;
-                        o.TypeString = SelectedObject.ToString();
-                        o.Sprite.Texture = s.Texture;
-                        o.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
-                        o.EvtCreate();
-
-
-                        SceneObjects.Add(o);
-                    }
+                    clickedObject.Position = vec;
                 }
             }
             else if (mb == MouseButtons.Right)
@@ -187,6 +272,14 @@ namespace SimplexIde
                         SceneObjects.Remove(SceneObjects[i]);
                     }
                 }
+            }
+        }
+
+        public void MoveView()
+        {
+            if (panView)
+            {
+                cam.TargetPosition = new Vector2(cam.Position.X + helpVec.X - MousePositionTranslated.X, cam.Position.Y + helpVec.Y - MousePositionTranslated.Y);
             }
         }
 
