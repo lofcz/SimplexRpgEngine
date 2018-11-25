@@ -10,6 +10,8 @@ using SimplexResources.Objects;
 namespace SimplexCore
 {
     [Serializable]
+    [XmlInclude(typeof(SampleObject))]
+    [XmlInclude(typeof(Object2))]
     public class GameObject : IDisposable
     {
         [XmlIgnore]
@@ -18,9 +20,6 @@ namespace SimplexCore
 
         [XmlIgnore]
         public Type OriginalType;
-
-        [XmlIgnore]
-        public string EditorPath;
 
         public string TypeString;
 
@@ -40,6 +39,9 @@ namespace SimplexCore
         public float TransformSpeed;
         public Vector2 ImageScale;
         public Vector2 ImageScaleTarget;
+
+        [XmlIgnore]
+        public string EditorPath;
 
         [XmlIgnore]
         public int FramesCount;

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Objects");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Objects", 1, 1);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -72,27 +72,23 @@
             // 
             // treeView1
             // 
-            this.treeView1.AllowDrop = true;
             this.treeView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.treeView1.HideSelection = false;
-            this.treeView1.HotTracking = true;
-            this.treeView1.ImageIndex = 1;
+            this.treeView1.ImageIndex = 0;
             this.treeView1.ImageList = this.imageList1;
             this.treeView1.Location = new System.Drawing.Point(12, 67);
             this.treeView1.Name = "treeView1";
-            treeNode1.ImageIndex = 0;
-            treeNode1.Name = "Root";
-            treeNode1.SelectedImageKey = "folder-icon.png";
+            treeNode1.ImageIndex = 1;
+            treeNode1.Name = "Node0";
+            treeNode1.SelectedImageIndex = 1;
             treeNode1.Text = "Objects";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode1});
-            this.treeView1.SelectedImageKey = "imgingest-7969078144006596641.png";
+            this.treeView1.SelectedImageIndex = 0;
             this.treeView1.ShowLines = false;
             this.treeView1.Size = new System.Drawing.Size(285, 469);
             this.treeView1.TabIndex = 1;
             this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
-            this.treeView1.DragDrop += new System.Windows.Forms.DragEventHandler(this.treeView1_DragDrop);
             // 
             // menuStrip1
             // 
@@ -417,8 +413,8 @@
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "folder-icon.png");
-            this.imageList1.Images.SetKeyName(1, "imgingest-7969078144006596641.png");
+            this.imageList1.Images.SetKeyName(0, "imgingest-7969078144006596641.png");
+            this.imageList1.Images.SetKeyName(1, "folder-icon.png");
             // 
             // drawTest1
             // 

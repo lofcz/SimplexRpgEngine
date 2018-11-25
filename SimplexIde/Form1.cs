@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -47,11 +46,10 @@ namespace SimplexIde
                 where t.IsClass && t.Namespace == nspace
                 select t;
             List<Type> classList = q.ToList().ToList();
-            classList = classList.OrderByDescending(x => x.Name).ToList();
 
             foreach (Type t in classList)
             {
-                using (GameObject o = (GameObject) Activator.CreateInstance(t))
+                using (GameObject o = (GameObject)Activator.CreateInstance(t))
                 {
                     TreeNode tn = new TreeNode();
                     tn.Text = t.Name;
@@ -95,7 +93,7 @@ namespace SimplexIde
                         }
                     }
                 }
-                
+
                 reflectedTypes.Add(t);
             }
 
@@ -268,11 +266,6 @@ namespace SimplexIde
         private void numericUpDown6_ValueChanged(object sender, EventArgs e)
         {
             numericUpDown5_ValueChanged(sender, e);
-        }
-
-        private void treeView1_DragDrop(object sender, DragEventArgs e)
-        {
-
         }
     }
 }
