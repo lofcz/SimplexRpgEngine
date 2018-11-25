@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended.TextureAtlases;
 using SimplexCore;
@@ -20,7 +21,9 @@ namespace SimplexResources.Objects
 
         public override void DrawNode(SpriteBatch s, SpriteFont f, Texture2D objectTexture)
         {
-          //s.Draw(objectTexture, Position, Color.White);
+            Sgml.sb = s;
+
+            DrawRectangle(Position, new Vector2(32, 32), true, 3);
         }
     }
 }
