@@ -1,10 +1,14 @@
-﻿using Microsoft.Xna.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
+using SharpDX;
+using Color = Microsoft.Xna.Framework.Color;
+using Rectangle = Microsoft.Xna.Framework.Rectangle;
+using RectangleF = MonoGame.Extended.RectangleF;
+using Vector2 = Microsoft.Xna.Framework.Vector2;
 
 namespace SimplexCore
 {
@@ -12,7 +16,9 @@ namespace SimplexCore
     {
         public static List<GameObject> SceneObjects = new List<GameObject>();
         public static List<TextureReference> Textures = new List<TextureReference>();
-        public static Random Random = new Random();
+        private static int _randomSeed = DateTime.Now.Millisecond;
+        public static Random _random = new Random();
+
         public static SpriteBatch sb;
         private static Color _color = Color.White;
 
@@ -60,7 +66,7 @@ namespace SimplexCore
 
         public static Color RandomColor()
         {
-            return new Color(Random.Next(255), Random.Next(255), Random.Next(255));
+            return new Color(_random.Next(255), _random.Next(255), _random.Next(255));
         }
 
         public static void DrawRectangle(float x1, float y1, float x2, float y2, bool outline)
@@ -121,5 +127,51 @@ namespace SimplexCore
             return DrawColor;
         }
 
+        /* ----------------------------------------------------------------------------------------------------
+         * Math
+         * ----------------------------------------------------------------------------------------------------
+         */
+
+        public static T Choose<T>(params T[] items)
+        {
+            return items[_random.Next(0, items.Length)];
+        }
+
+        public static double Random(double n)
+        {
+            return _random.NextDouble() * n;
+        }
+
+        public static double RandomRange(double n1, double n2)
+        {
+            return _random.NextDouble(n1, n2);
+        }
+
+        public static int Irandom(int n)
+        {
+            return _random.Next(n);
+        }
+
+        public static int IrandomRange(int n1, int n2)
+        {
+            return _random.Next(n1, n2);
+        }
+
+        public static void RandomSetSeed(int seed)
+        {
+            _randomSeed = seed;
+            _random = new Random(_randomSeed);
+        }
+
+        public static int RandomGetSeed()
+        {
+            return _randomSeed;
+        }
+
+        public static void Randomize()
+        {
+            _randomSeed = DateTime.Now.Millisecond;
+            _random = new Random(_randomSeed);
+        }
     }
 }
