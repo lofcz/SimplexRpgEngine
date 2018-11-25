@@ -9,15 +9,15 @@
     <Import_RootNamespace>SimplexResources</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Game1.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Objects\Object2.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Objects\Object3.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Objects\SampleObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Objects\Colliders\Object2.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Objects\Colliders\Object3.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Objects\Actors\SampleObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Rooms\Room1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Rooms\Room2.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Content\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Objects\Colliders\" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="$(MSBuildThisFileDirectory)Content\Content.mgcb" />

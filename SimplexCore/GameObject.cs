@@ -10,8 +10,6 @@ using SimplexResources.Objects;
 namespace SimplexCore
 {
     [Serializable]
-    [XmlInclude(typeof(SampleObject))]
-    [XmlInclude(typeof(Object2))]
     public class GameObject : IDisposable
     {
         [XmlIgnore]
@@ -20,6 +18,9 @@ namespace SimplexCore
 
         [XmlIgnore]
         public Type OriginalType;
+
+        [XmlIgnore]
+        public string EditorPath;
 
         public string TypeString;
 

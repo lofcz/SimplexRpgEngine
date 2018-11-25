@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -46,10 +47,55 @@ namespace SimplexIde
                 where t.IsClass && t.Namespace == nspace
                 select t;
             List<Type> classList = q.ToList().ToList();
+            classList = classList.OrderByDescending(x => x.Name).ToList();
 
             foreach (Type t in classList)
             {
-                treeView1.Nodes.Add(t.Name);
+                using (GameObject o = (GameObject) Activator.CreateInstance(t))
+                {
+                    TreeNode tn = new TreeNode();
+                    tn.Text = t.Name;
+                    tn.SelectedImageIndex = 1;
+                    tn.ImageIndex = 1;
+                    tn.Name = t.Name;
+
+                    if (string.IsNullOrEmpty(o.EditorPath))
+                    {
+                        treeView1.Nodes[0].Nodes.Add(t.Name);
+                    }
+                    else
+                    {
+                        string[] pathTokens = o.EditorPath.Split('/');
+                        TreeNode currentNode = treeView1.Nodes[0];
+
+                        foreach (string s in pathTokens)
+                        {
+                            if (!currentNode.Nodes.ContainsKey(s))
+                            {
+                                TreeNode folderNode = new TreeNode();
+                                folderNode.Text = s;
+                                folderNode.ImageIndex = 0;
+                                folderNode.SelectedImageIndex = 0;
+                                folderNode.Name = s;
+
+                                currentNode.Nodes.Add(folderNode);
+                                currentNode = folderNode;
+                            }
+                            else
+                            {
+                                currentNode = currentNode.Nodes.Find(s, false).FirstOrDefault();
+                                currentNode?.Nodes.Add(tn);
+                                break;
+                            }
+
+                            if (s == pathTokens[pathTokens.Length - 1])
+                            {
+                                currentNode?.Nodes.Add(tn);
+                            }
+                        }
+                    }
+                }
+                
                 reflectedTypes.Add(t);
             }
 
@@ -222,6 +268,11 @@ namespace SimplexIde
         private void numericUpDown6_ValueChanged(object sender, EventArgs e)
         {
             numericUpDown5_ValueChanged(sender, e);
+        }
+
+        private void treeView1_DragDrop(object sender, DragEventArgs e)
+        {
+
         }
     }
 }
