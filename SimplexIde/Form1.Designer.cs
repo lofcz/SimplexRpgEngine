@@ -61,8 +61,6 @@
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.drawTest1 = new SimplexIde.DrawTest();
             this.menuStrip1.SuspendLayout();
@@ -72,7 +70,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // treeView1
@@ -296,7 +293,6 @@
             // 
             // button2
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.Location = new System.Drawing.Point(159, 39);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(73, 23);
@@ -308,7 +304,7 @@
             // treeView2
             // 
             this.treeView2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.treeView2.ImageIndex = 0;
             this.treeView2.ImageList = this.imageList1;
             this.treeView2.Location = new System.Drawing.Point(159, 67);
@@ -327,7 +323,6 @@
             // 
             // button4
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.Location = new System.Drawing.Point(238, 39);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(68, 23);
@@ -424,26 +419,17 @@
             // 
             // contextMenuStrip1
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem2});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(144, 48);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(143, 22);
-            this.toolStripMenuItem1.Text = "Send to front";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(143, 22);
-            this.toolStripMenuItem2.Text = "Send to back";
+            this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.contextMenuStrip1.Closed += new System.Windows.Forms.ToolStripDropDownClosedEventHandler(this.contextMenuStrip1_Closed);
+            this.contextMenuStrip1.Opened += new System.EventHandler(this.contextMenuStrip1_Opened);
+            this.contextMenuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.contextMenuStrip1_ItemClicked);
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Location = new System.Drawing.Point(1596, 67);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(146, 699);
@@ -511,7 +497,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -549,8 +534,6 @@
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.GroupBox groupBox1;
     }
 }

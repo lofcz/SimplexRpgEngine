@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using System.Windows.Forms;
 using System.Xml.Serialization;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SimplexResources.Objects;
+using SimplexIde;
 
 namespace SimplexCore
 {
@@ -18,6 +20,10 @@ namespace SimplexCore
 
         [XmlIgnore]
         public Type OriginalType;
+
+
+        [XmlIgnore]
+        public ToolStripItemCollection EditorOptions = new ToolStripItemCollection(new ToolStrip(), new ToolStripItem[] {new ToolStripMenuItem("Kill1")});
 
         public string TypeString;
 
@@ -95,6 +101,11 @@ namespace SimplexCore
         }
 
         public virtual void EvtDelete()
+        {
+
+        }
+
+        public virtual void EvtContextMenuSelected(ToolStripItem e)
         {
 
         }

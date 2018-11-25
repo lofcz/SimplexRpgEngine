@@ -39,7 +39,7 @@ namespace SimplexIde
         {
             Invalidate();
             drawTest1.cms = contextMenuStrip1;
-
+            
             // load list of all defined objects
             string nspace = "SimplexResources.Objects";
 
@@ -160,7 +160,9 @@ namespace SimplexIde
         }
 
         private void drawTest1_MouseMove_1(object sender, MouseEventArgs e)
-        {
+        {;
+            drawTest1.PreCheckMouse(e);
+
             drawTest1.MousePosition = new Vector2(e.X, e.Y);
 
             if (e.Button == MouseButtons.Left)
@@ -267,6 +269,21 @@ namespace SimplexIde
         private void numericUpDown6_ValueChanged(object sender, EventArgs e)
         {
             numericUpDown5_ValueChanged(sender, e);
+        }
+
+        private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            drawTest1.RightClickMenuSelected(e);
+        }
+
+        private void contextMenuStrip1_Closed(object sender, ToolStripDropDownClosedEventArgs e)
+        {
+            drawTest1.cmsClosed();
+        }
+
+        private void contextMenuStrip1_Opened(object sender, EventArgs e)
+        {
+            drawTest1.cmsOpened();
         }
     }
 }

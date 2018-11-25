@@ -48,6 +48,9 @@ namespace SimplexIde
         private Vector2 clickedVec;
         private bool panView = false;
         public ContextMenuStrip cms;
+        private bool killClick = false;
+        private bool cmsOpen = false;
+        private bool goodBoy = false;
 
         public Vector2 GridSize = new Vector2(32, 32);
         public Vector2 GridSizeRender = new Vector2(32, 32);
@@ -105,7 +108,12 @@ namespace SimplexIde
         public void ClickRelease()
         {
             mouseLocked = false;
-            clickedObject = null;
+
+            if (!cms.Visible)
+            {
+                clickedObject = null;
+            }
+
             panView = false;
         }
 
@@ -117,6 +125,42 @@ namespace SimplexIde
             {
                 panView = true;
                 helpVec = cam.Camera.ScreenToWorld(MousePosition);
+            }
+
+            if (btn == MouseButtons.Right && !Input.KeyboardState.IsKeyDown(Keys.LeftShift))
+            {
+                Vector2 vec = MousePositionTranslated;
+                if (DrawGrid)
+                {
+                    vec = new Vector2((int)vec.X / 32 * 32, (int)vec.Y / 32 * 32);
+                }
+
+                for (var i = SceneObjects.Count - 1; i >= 0; i--)
+                {
+                    Microsoft.Xna.Framework.Rectangle r = new Microsoft.Xna.Framework.Rectangle((int)SceneObjects[i].Position.X, (int)SceneObjects[i].Position.Y, SceneObjects[i].Sprite.ImageRectangle.Width, SceneObjects[i].Sprite.ImageRectangle.Height);
+
+                    if (r.Contains(vec))
+                    {
+                        if (goodBoy)
+                        {
+                            cms.Items.Clear();
+                            cms.Items.AddRange(SceneObjects[i].EditorOptions);
+                            cms.Invalidate();
+                            cms.Size = GetPreferredSize(ClientSize);
+                            cms.Show(Cursor.Position);
+
+                            clickedObject = SceneObjects[i];
+                            goodBoy = false;
+                           
+                        }
+                        else
+                        {
+                            goodBoy = true;
+                        }
+
+                        break;
+                    }
+                }
             }
         }
 
@@ -160,7 +204,6 @@ namespace SimplexIde
             foreach (GameObject o in SceneObjects)
             {
                 o.DrawNode(Editor.spriteBatch, Editor.Font, o.Sprite.Texture);
-             //   o.DrawNode(Editor.spriteBatch, Editor.Font, Textures.FirstOrDefault(x => x.Name == o.Sprite.TextureSource).Texture);
 
              if (o == clickedObject)
              {
@@ -172,6 +215,11 @@ namespace SimplexIde
 
             Editor.spriteBatch.DrawString(Editor.Font, framerate.ToString("F1"), new Vector2(100, 100), Color.White);
             Editor.spriteBatch.End();
+            killClick = false;
+        }
+
+        public void PreCheckMouse(MouseEventArgs e)
+        {
 
         }
 
@@ -191,6 +239,7 @@ namespace SimplexIde
 
             if (mb == MouseButtons.Left)
             {
+                goodBoy = true;
                 if (clickedObject == null)
                 {
                     if (SelectedObject != null)
@@ -202,24 +251,35 @@ namespace SimplexIde
                             vec = new Vector2((int) vec.X / 32 * 32, (int) vec.Y / 32 * 32);
                         }
 
-                        if (Sgml.PlaceEmpty(vec))
+                        if (!Input.KeyboardState.IsKeyDown(Keys.LeftShift) || Sgml.PlaceEmpty(vec))
                         {
-                            GameObject o = (GameObject) Activator.CreateInstance(SelectedObject);
-                            Spritesheet s = Sprites.FirstOrDefault(x => x.Name == o.Sprite.TextureSource);
+                            if (Sgml.PlaceEmpty(vec))
+                            {
+                                GameObject o = (GameObject) Activator.CreateInstance(SelectedObject);
+                                Spritesheet s = Sprites.FirstOrDefault(x => x.Name == o.Sprite.TextureSource);
+
+                                if (!cmsOpen && SelectedObject != null)
+                                {
+                                    o.OriginalType = SelectedObject;
+                                    o.TypeString = SelectedObject.ToString();
+                                    o.Sprite.Texture = s.Texture;
+                                    o.Position = vec;
+                                    o.Sprite.ImageRectangle =
+                                        new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
+                                    o.EvtCreate();
 
 
-                            o.Position = vec;
-                            o.OriginalType = SelectedObject;
-                            o.TypeString = SelectedObject.ToString();
-                            o.Sprite.Texture = s.Texture;
-                            o.Sprite.ImageRectangle =
-                                new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
-                            o.EvtCreate();
+                                    SceneObjects.Add(o);
+                                }
 
-
-                            SceneObjects.Add(o);
+                                if (!Input.KeyboardState.IsKeyDown(Keys.LeftShift))
+                                {
+                                    clickedObject = o;
+                                }
+                            }
                         }
-                        else
+
+                        if (!Sgml.PlaceEmpty(vec) && !Input.KeyboardState.IsKeyDown(Keys.LeftShift))
                         {
                             // there's something cool at the position already, time to grab it
                             GameObject collidingObject = Sgml.InstancePlace(vec);
@@ -243,17 +303,14 @@ namespace SimplexIde
                         vec = MousePositionTranslated;
                         vec.X -= (int)(clickedObject.Sprite.ImageRectangle.Width - 32) / 2;//16;
                         vec.Y -= (int)(clickedObject.Sprite.ImageRectangle.Height - 32) / 2;
-                        //  vec += -new Vector2(vec.X % 32, vec.Y % 32);
-                        //vec.Y += clickedObject.Sprite.ImageRectangle.Height / 2;
-                        // vec.X += clickedObject.Sprite.ImageRectangle.Width / 2;
-                        //  vec = new Vector2(vec.X + helpVec.X, vec.Y + helpVec.Y);
-                        // vec = MousePositionTranslated;
-                        // vec.X += Math.Abs(clickedObject.Sprite.ImageRectangle.Width - clickedObject.Sprite.ImageRectangle.Width / 32 * 32) / 2;
-                        //vec.Y += Math.Abs(clickedObject.Sprite.ImageRectangle.Height - clickedObject.Sprite.ImageRectangle.Height / 32 * 32) / 2;
-                        // vec = new Vector2((MousePositionTranslated.X - clickedVec.X));
+
                         vec = new Vector2((int)vec.X / 32  * 32, (int)vec.Y / 32 * 32);
                     }
-                    clickedObject.Position = vec;
+
+                    if (!cmsOpen)
+                    {
+                        clickedObject.Position = vec;
+                    }
                 }
             }
             else if (mb == MouseButtons.Right)
@@ -268,14 +325,22 @@ namespace SimplexIde
                 {
                     Microsoft.Xna.Framework.Rectangle r = new Microsoft.Xna.Framework.Rectangle((int)SceneObjects[i].Position.X, (int)SceneObjects[i].Position.Y, SceneObjects[i].Sprite.ImageRectangle.Width, SceneObjects[i].Sprite.ImageRectangle.Height);
 
-                    if (r.Contains(vec))
+                    if (r.Contains(vec) && Input.KeyboardState.IsKeyDown(Keys.LeftShift))
                     {
-                        //SceneObjects[i].EvtDelete();
-                        //SceneObjects.Remove(SceneObjects[i]);
-
-                        cms.Show(Cursor.Position);
+                        SceneObjects[i].EvtDelete();
+                        SceneObjects.Remove(SceneObjects[i]);
                     }
                 }
+            }
+        }
+
+        public void RightClickMenuSelected(ToolStripItemClickedEventArgs e)
+        {
+            goodBoy = true;
+            if (clickedObject != null)
+            {
+                clickedObject.EvtContextMenuSelected(e.ClickedItem);
+                clickedObject = null;
             }
         }
 
@@ -350,6 +415,17 @@ namespace SimplexIde
                 }
             }
 
+        }
+
+        public void cmsClosed()
+        {
+            cmsOpen = false;
+            clickedObject = null;
+        }
+
+        public void cmsOpened()
+        {
+            cmsOpen = true;
         }
     }  
 }
