@@ -30,9 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Objects", 1, 1);
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Rooms", 1, 1);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Rooms", 1, 1);
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,9 +60,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
             this.drawTest1 = new SimplexIde.DrawTest();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -91,6 +95,15 @@
             this.treeView1.Size = new System.Drawing.Size(141, 469);
             this.treeView1.TabIndex = 1;
             this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "imgingest-7969078144006596641.png");
+            this.imageList1.Images.SetKeyName(1, "folder-icon.png");
+            this.imageList1.Images.SetKeyName(2, "undo-6.png");
+            this.imageList1.Images.SetKeyName(3, "redo-6.png");
             // 
             // menuStrip1
             // 
@@ -138,7 +151,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(312, 41);
+            this.checkBox1.Location = new System.Drawing.Point(508, 42);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(45, 17);
             this.checkBox1.TabIndex = 3;
@@ -345,7 +358,7 @@
             // 
             // numericUpDown5
             // 
-            this.numericUpDown5.Location = new System.Drawing.Point(396, 38);
+            this.numericUpDown5.Location = new System.Drawing.Point(671, 39);
             this.numericUpDown5.Maximum = new decimal(new int[] {
             1024,
             0,
@@ -363,7 +376,7 @@
             // 
             // numericUpDown6
             // 
-            this.numericUpDown6.Location = new System.Drawing.Point(493, 38);
+            this.numericUpDown6.Location = new System.Drawing.Point(768, 39);
             this.numericUpDown6.Maximum = new decimal(new int[] {
             1024,
             0,
@@ -382,7 +395,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(373, 41);
+            this.label7.Location = new System.Drawing.Point(648, 42);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(17, 13);
             this.label7.TabIndex = 22;
@@ -391,7 +404,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(470, 41);
+            this.label8.Location = new System.Drawing.Point(745, 42);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(17, 13);
             this.label8.TabIndex = 23;
@@ -409,13 +422,6 @@
             this.checkBox3.TabIndex = 24;
             this.checkBox3.Text = "Animations";
             this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "imgingest-7969078144006596641.png");
-            this.imageList1.Images.SetKeyName(1, "folder-icon.png");
             // 
             // contextMenuStrip1
             // 
@@ -436,6 +442,52 @@
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Properties";
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(559, 42);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(83, 17);
+            this.checkBox4.TabIndex = 27;
+            this.checkBox4.Text = "Snap to grid";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.AutoEllipsis = true;
+            this.button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button3.ImageKey = "undo-6.png";
+            this.button3.ImageList = this.imageList1;
+            this.button3.Location = new System.Drawing.Point(312, 40);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(33, 23);
+            this.button3.TabIndex = 28;
+            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button5
+            // 
+            this.button5.AutoEllipsis = true;
+            this.button5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.button5.ImageIndex = 3;
+            this.button5.ImageList = this.imageList1;
+            this.button5.Location = new System.Drawing.Point(351, 41);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(33, 23);
+            this.button5.TabIndex = 29;
+            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(391, 43);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(87, 13);
+            this.label9.TabIndex = 30;
+            this.label9.Text = "Steps stacked: 0";
             // 
             // drawTest1
             // 
@@ -460,6 +512,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1754, 778);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.checkBox4);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.label8);
@@ -535,6 +591,10 @@
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label9;
     }
 }
 

@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SimplexResources.Objects;
 using SimplexIde;
+using Color = System.Drawing.Color;
 
 namespace SimplexCore
 {
@@ -43,6 +44,7 @@ namespace SimplexCore
         public float TransformSpeed;
         public Vector2 ImageScale;
         public Vector2 ImageScaleTarget;
+        public float ImageAlpha;
 
         [XmlIgnore]
         public string EditorPath;
@@ -64,6 +66,7 @@ namespace SimplexCore
             ImageIndex = 0;
             TransformSpeed = 0.2f;
             Sprite = new Sprite();
+            ImageAlpha = 1;
         }
 
 
@@ -82,7 +85,7 @@ namespace SimplexCore
         // Editor events
         public virtual void DrawNode(SpriteBatch s, SpriteFont f, Texture2D objectTexture)
         {
-            s.Draw(objectTexture, Position, Color.White);
+            s.Draw(objectTexture, Position, Microsoft.Xna.Framework.Color.White * ImageAlpha);
         }
 
         public virtual void EvtCreate()

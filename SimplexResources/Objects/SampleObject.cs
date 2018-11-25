@@ -22,6 +22,7 @@ namespace SimplexResources.Objects
     {
         private float lineThickness = 0;
         private float time = 0;
+        private float alpha = 0;
         public SampleObject()
         {
             Sprite.TextureSource = "elves";
@@ -67,8 +68,10 @@ namespace SimplexResources.Objects
         public override void DrawNode(SpriteBatch s, SpriteFont f, Texture2D objectTexture)
         {
             Sgml.sb = s;
+           time++;
+           ImageAlpha = Math.Abs((float)Math.Sin(MathHelper.ToRadians(time)));
 
-           DrawSetAlpha(0.5f);
+           DrawSetAlpha(ImageAlpha);
            DrawRectangle(Position, new Vector2(64, 64), false, 1);
            DrawSetAlpha(1);
 

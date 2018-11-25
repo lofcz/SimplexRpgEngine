@@ -19,6 +19,7 @@ namespace SimplexResources.Objects
         {
             Sprite.TextureSource = "texture";
             EditorPath = "Colliders";
+           // ImageAlpha = 0.9f;
         }
         
         // Defines what happens once instance is placed in the room editor

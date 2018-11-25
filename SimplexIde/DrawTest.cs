@@ -51,9 +51,11 @@ namespace SimplexIde
         private bool killClick = false;
         private bool cmsOpen = false;
         private bool goodBoy = false;
+        Stack<List<GameObject>> stackedSteps = new Stack<List<GameObject>>(32);
 
         public Vector2 GridSize = new Vector2(32, 32);
         public Vector2 GridSizeRender = new Vector2(32, 32);
+        public Form1 editorForm;
 
         protected override void Initialize()
         {
@@ -233,6 +235,15 @@ namespace SimplexIde
             cam.TargetZoom += 0.1f;
         }
 
+        public void Undo()
+        {
+            if (stackedSteps.Count > 0)
+            {
+                SceneObjects = stackedSteps.Pop();
+                editorForm.updateStack(stackedSteps.Count);
+            }
+        }
+
         public void GameClicked(MouseEventArgs e, MouseButtons mb)
         {
             MousePositionTranslated = cam.Camera.ScreenToWorld(MousePosition);
@@ -260,6 +271,13 @@ namespace SimplexIde
 
                                 if (!cmsOpen && SelectedObject != null)
                                 {
+                                    if (stackedSteps.Count > 31)
+                                    {
+                                        stackedSteps.Pop();
+                                    }
+                                    stackedSteps.Push(SceneObjects.ToList());
+                                    editorForm.updateStack(stackedSteps.Count);
+
                                     o.OriginalType = SelectedObject;
                                     o.TypeString = SelectedObject.ToString();
                                     o.Sprite.Texture = s.Texture;

@@ -39,7 +39,8 @@ namespace SimplexIde
         {
             Invalidate();
             drawTest1.cms = contextMenuStrip1;
-            
+            drawTest1.editorForm = this;
+
             // load list of all defined objects
             string nspace = "SimplexResources.Objects";
 
@@ -114,6 +115,11 @@ namespace SimplexIde
             drawTest1.InitializeNodes(treeView1.Nodes);
 
 
+        }
+
+        public void updateStack(int steps)
+        {
+            label9.Text = "Steps stacked: " + steps;
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -284,6 +290,11 @@ namespace SimplexIde
         private void contextMenuStrip1_Opened(object sender, EventArgs e)
         {
             drawTest1.cmsOpened();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            drawTest1.Undo();
         }
     }
 }
