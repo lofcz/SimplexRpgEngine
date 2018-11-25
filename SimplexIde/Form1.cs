@@ -38,6 +38,7 @@ namespace SimplexIde
         private void Form1_Load(object sender, EventArgs e)
         {
             Invalidate();
+            drawTest1.cms = contextMenuStrip1;
 
             // load list of all defined objects
             string nspace = "SimplexResources.Objects";
@@ -53,8 +54,8 @@ namespace SimplexIde
                 {
                     TreeNode tn = new TreeNode();
                     tn.Text = t.Name;
-                    tn.SelectedImageIndex = 1;
-                    tn.ImageIndex = 1;
+                    tn.SelectedImageIndex = 0;
+                    tn.ImageIndex = 0;
                     tn.Name = t.Name;
 
                     if (string.IsNullOrEmpty(o.EditorPath))
@@ -72,8 +73,8 @@ namespace SimplexIde
                             {
                                 TreeNode folderNode = new TreeNode();
                                 folderNode.Text = s;
-                                folderNode.ImageIndex = 0;
-                                folderNode.SelectedImageIndex = 0;
+                                folderNode.ImageIndex = 1;
+                                folderNode.SelectedImageIndex = 1;
                                 folderNode.Name = s;
 
                                 currentNode.Nodes.Add(folderNode);
@@ -105,7 +106,7 @@ namespace SimplexIde
 
             foreach (Type t in classList)
             {
-                treeView2.Nodes.Add(t.Name);
+                treeView2.Nodes[0].Nodes.Add(t.Name);
                 reflectedTypes.Add(t);
             }
 

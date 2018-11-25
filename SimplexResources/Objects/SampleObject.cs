@@ -25,6 +25,7 @@ namespace SimplexResources.Objects
         {
             Sprite.TextureSource = "elves";
             Sprite.ImageRectangle = new Rectangle(0, 0, 64, 64);
+            EditorPath = "Actors";
         }
         
 

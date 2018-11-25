@@ -23,6 +23,7 @@ using SimplexResources.Rooms;
 using ButtonState = Microsoft.Xna.Framework.Input.ButtonState;
 using Color = Microsoft.Xna.Framework.Color;
 using Keys = Microsoft.Xna.Framework.Input.Keys;
+using Point = SharpDX.Point;
 using RectangleF = MonoGame.Extended.RectangleF;
 
 namespace SimplexIde
@@ -46,6 +47,7 @@ namespace SimplexIde
         private Vector2 helpVec;
         private Vector2 clickedVec;
         private bool panView = false;
+        public ContextMenuStrip cms;
 
         public Vector2 GridSize = new Vector2(32, 32);
         public Vector2 GridSizeRender = new Vector2(32, 32);
@@ -268,8 +270,10 @@ namespace SimplexIde
 
                     if (r.Contains(vec))
                     {
-                        SceneObjects[i].EvtDelete();
-                        SceneObjects.Remove(SceneObjects[i]);
+                        //SceneObjects[i].EvtDelete();
+                        //SceneObjects.Remove(SceneObjects[i]);
+
+                        cms.Show(Cursor.Position);
                     }
                 }
             }

@@ -16,7 +16,7 @@ namespace SimplexResources.Objects
         public Object3()
         {
             Sprite.TextureSource = "elves";
-
+            EditorPath = "Colliders";
         }
 
         public override void DrawNode(SpriteBatch s, SpriteFont f, Texture2D objectTexture)

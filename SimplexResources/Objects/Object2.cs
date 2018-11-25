@@ -18,13 +18,14 @@ namespace SimplexResources.Objects
         public Object2()
         {
             Sprite.TextureSource = "texture";
+            EditorPath = "Colliders";
         }
         
         // Defines what happens once instance is placed in the room editor
         public override void EvtCreate()
         {
-           // DrawTest.BackgroundColor = Color.White; //RandomColor();
-           
+            // DrawTest.BackgroundColor = Color.White; //RandomColor();
+            
         }
 
         // This actual GMS-like Create event
