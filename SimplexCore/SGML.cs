@@ -22,6 +22,7 @@ namespace SimplexCore
         private static double _epsilon = 0.000001;
         public static SpriteBatch sb;
         private static Color _color = Color.White;
+        private static SpriteFont drawFont;
 
         public static Color DrawColor
         {

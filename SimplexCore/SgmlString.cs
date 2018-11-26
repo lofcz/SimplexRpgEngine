@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace SimplexCore
 {
@@ -144,6 +147,11 @@ namespace SimplexCore
             return str.ToLower();
         }
 
+        public static string string_upper(string str)
+        {
+            return str.ToUpper();
+        }
+
         public static int string_pos(string sub, string str)
         {
             return str.IndexOf(sub);
@@ -163,9 +171,71 @@ namespace SimplexCore
 
         public static string string_replace(string str, string sub, string newstr)
         {
-            var newText = Regex.Replace("Hello World", "Foo", 1).ToString();
+            int pos = str.IndexOf(sub);
+            if (pos < 0)
+            {
+                return str;
+            }
+            return str.Substring(0, pos) + newstr + str.Substring(pos + sub.Length);
+        }
 
-            
+        public static string string_replace_all(string str, string sub, string newstr)
+        {
+            return str.Replace(sub, newstr);
+        }
+
+        public static double string_height(string str)
+        {
+            return drawFont.MeasureString(str).Y;
+        }
+
+        public static double string_width(string str)
+        {
+            return drawFont.MeasureString(str).X;
+        }
+
+        public static double string_width_ext(string str, int sep, double w)
+        {
+            var oS = drawFont.LineSpacing;
+            drawFont.LineSpacing = sep;
+            str = WrapText(drawFont, str, (float)w);
+            drawFont.LineSpacing = oS;
+            return drawFont.MeasureString(str).X;
+        }
+
+        public static double string_height_ext(string str, int sep, double w)
+        {
+            var oS = drawFont.LineSpacing;
+            drawFont.LineSpacing = sep;
+            str = WrapText(drawFont, str, (float)w);
+            drawFont.LineSpacing = oS;
+            return drawFont.MeasureString(str).Y;
+        }
+
+        private static string WrapText(SpriteFont spriteFont, string text, float maxLineWidth)
+        {
+            string[] words = text.Split(' ');
+            StringBuilder sb = new StringBuilder();
+            float lineWidth = 0f;
+            float spaceWidth = spriteFont.MeasureString(" ").X;
+
+            foreach (string word in words)
+            {
+                Vector2 size = spriteFont.MeasureString(word);
+
+                if (lineWidth + size.X < maxLineWidth)
+                {
+                    sb.Append(word + " ");
+                    lineWidth += size.X + spaceWidth;
+                }
+                else
+                {
+                    sb.Append("\n" + word + " ");
+                    lineWidth = size.X + spaceWidth;
+                }
+            }
+
+            return sb.ToString();
         }
     }
 }
