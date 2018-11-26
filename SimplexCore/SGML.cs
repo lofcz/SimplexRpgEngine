@@ -380,8 +380,79 @@ namespace SimplexCore
             return ApplyEpsilon(Math.Log(val, n));
         }
 
+        /*
+         *  ------------------------------------- Vector ------------------------------------
+         */
 
+        public static double point_direction(double x1, double y1, double x2, double y2)
+        {
+            double xDiff = x2 - x1;
+            double yDiff = y2 - y1;
+            return ApplyEpsilon(360 - (Math.Atan2(yDiff, xDiff) * 180.0 / Math.PI));
+        }
 
+        public static double point_direction(Vector2 point1, Vector2 point2)
+        {
+            double xDiff = point2.X - point1.Y;
+            double yDiff = point2.Y - point1.Y;
+            return ApplyEpsilon(360 - (Math.Atan2(yDiff, xDiff) * 180.0 / Math.PI));
+        }
+
+        public static double point_distance(double x1, double y1, double x2, double y2)
+        {
+            return ApplyEpsilon((Math.Pow(x1 - x2, 2) + Math.Pow(y1 - y2, 2)));
+        }
+
+        public static double point_distance(Vector2 point1, Vector2 point2)
+        {
+            return ApplyEpsilon((Math.Pow(point1.X - point2.X, 2) + Math.Pow(point1.Y - point2.Y, 2)));
+        }
+
+        public static double dot_product(double x1, double y1, double x2, double y2)
+        {
+            return ApplyEpsilon((x1 * x2) + (y1 * y2));
+        }
+
+        public static double dot_product(Vector2 point1, Vector2 point2)
+        {
+            return ApplyEpsilon(point1.Dot(point2));
+        }
+
+        public static double dot_product_normalised(double x1, double y1, double x2, double y2)
+        {
+            double dotProduct = dot_product(x1, y1, x2, y2);
+            double mag1 = sqrt(x1 * x1 + y1 * y1);
+            double mag2 = sqrt(x2 * x2 + y2 * y2);
+            return ApplyEpsilon((dotProduct) / (mag1 * mag2));
+        }
+
+        public static double dot_product_normalised(Vector2 point1, Vector2 point2)
+        {
+            double dotProduct = dot_product(point1, point2);
+            double mag1 = sqrt(point1.X * point1.X + point1.Y * point1.Y);
+            double mag2 = sqrt(point2.X * point2.X + point2.Y * point2.Y);
+            return ApplyEpsilon((dotProduct) / (mag1 * mag2));
+        }
+
+        public static double angle_difference(double src, double dest)
+        {
+            dest %= 360;
+            src %= 360;
+            return src - dest;
+        }
+
+        /*
+         *  ------------------------------------- Epsilon ------------------------------------
+         */
+        public static void math_set_epsilon(double epsilon)
+        {
+            _epsilon = epsilon;
+        }
+
+        public static double math_get_epsilon()
+        {
+            return ApplyEpsilon(_epsilon);
+        }
 
         private static double ApplyEpsilon(double x)
         {
