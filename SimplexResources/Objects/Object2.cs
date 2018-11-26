@@ -26,7 +26,7 @@ namespace SimplexResources.Objects
         public override void EvtCreate()
         {
             // DrawTest.BackgroundColor = Color.White; //RandomColor();
-            Debug.WriteLine(angle_difference(20, 360));
+            Debug.WriteLine(string_digits("kokot123kokot"));
         }
 
         // This actual GMS-like Create event
