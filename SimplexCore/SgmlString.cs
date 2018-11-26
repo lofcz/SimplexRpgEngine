@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -236,6 +237,21 @@ namespace SimplexCore
             }
 
             return sb.ToString();
+        }
+
+        public static void clipboard_set_text(string text)
+        {
+            Clipboard.SetText("Hello, clipboard");
+        }
+
+        public static string clipboard_get_text()
+        {
+            return Clipboard.GetText();
+        }
+
+        public static bool clipboard_has_text()
+        {
+            return Clipboard.ContainsText();
         }
     }
 }
