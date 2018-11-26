@@ -119,7 +119,53 @@ namespace SimplexCore
             return str;
         }
 
+        public static string string_insert(string sub, string str, int index)
+        {
+            return str.Insert(index, sub);
+        }
 
+        public static int string_length(string str)
+        {
+            return str.Length;
+        }
 
+        public static string string_letters(string str)
+        {
+            return new string(str.Where(char.IsLetter).ToArray());
+        }
+
+        public static string string_lettersdigits(string str)
+        {
+            return new string(str.Where(char.IsLetterOrDigit).ToArray());
+        }
+
+        public static string string_lower(string str)
+        {
+            return str.ToLower();
+        }
+
+        public static int string_pos(string sub, string str)
+        {
+            return str.IndexOf(sub);
+        }
+
+        public static string string_repeat(string s, int times)
+        {
+            string ss = s;
+
+            for (var i = 0; i < times; i++)
+            {
+                ss += s;
+            }
+
+            return ss;
+        }
+
+        public static string string_replace(string str, string sub, string newstr)
+        {
+            var newText = Regex.Replace("Hello World", "Foo", 1).ToString();
+
+            
+        }
     }
 }
