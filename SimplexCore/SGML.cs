@@ -13,7 +13,7 @@ using Vector2 = Microsoft.Xna.Framework.Vector2;
 
 namespace SimplexCore
 {
-    public static class Sgml
+    public static partial class Sgml
     {
         public static List<GameObject> SceneObjects = new List<GameObject>();
         public static List<TextureReference> Textures = new List<TextureReference>();
@@ -64,7 +64,7 @@ namespace SimplexCore
             }
             return null;
         }
-
+        
         public static Color RandomColor()
         {
             return new Color(_random.Next(255), _random.Next(255), _random.Next(255));

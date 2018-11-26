@@ -41,7 +41,9 @@ namespace SimplexResources.Objects
         {
             if (e.Text == "Oh you can overload this?")
             {
-                Debug.WriteLine("Yes you can");
+                Debug.WriteLine(is_string("Kokot"));
+                Debug.WriteLine(is_string(123));
+
             }
         }
 
