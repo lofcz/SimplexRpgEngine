@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
 using SharpDX;
@@ -18,7 +19,7 @@ namespace SimplexCore
         public static List<TextureReference> Textures = new List<TextureReference>();
         private static int _randomSeed = DateTime.Now.Millisecond;
         public static Random _random = new Random();
-
+        private static double _epsilon = 0.000001;
         public static SpriteBatch sb;
         private static Color _color = Color.White;
 
@@ -132,46 +133,259 @@ namespace SimplexCore
          * ----------------------------------------------------------------------------------------------------
          */
 
-        public static T Choose<T>(params T[] items)
+
+        /*
+         *  ------------------------------------- Random ------------------------------------
+         */
+        public static T choose<T>(params T[] items)
         {
             return items[_random.Next(0, items.Length)];
         }
 
-        public static double Random(double n)
+        public static double random(double n)
         {
             return _random.NextDouble() * n;
         }
 
-        public static double RandomRange(double n1, double n2)
+        public static double random_range(double n1, double n2)
         {
             return _random.NextDouble(n1, n2);
         }
 
-        public static int Irandom(int n)
+        public static int irandom(int n)
         {
             return _random.Next(n);
         }
 
-        public static int IrandomRange(int n1, int n2)
+        public static int irandom_range(int n1, int n2)
         {
             return _random.Next(n1, n2);
         }
 
-        public static void RandomSetSeed(int seed)
+        public static void random_set_seed(int seed)
         {
             _randomSeed = seed;
             _random = new Random(_randomSeed);
         }
 
-        public static int RandomGetSeed()
+        public static int random_get_seed()
         {
             return _randomSeed;
         }
 
-        public static void Randomize()
+        public static void randomize()
         {
             _randomSeed = DateTime.Now.Millisecond;
             _random = new Random(_randomSeed);
+        }
+
+        /*
+         *  ------------------------------------- Trigonometry ------------------------------------
+         */
+        public static double arccos(double x)
+        {
+            return ApplyEpsilon(Math.Acos(x));
+        }
+
+        public static double arcsin(double x)
+        {
+            return ApplyEpsilon(Math.Asin(x));
+        }
+
+        public static double arctan(double x)
+        {
+            return ApplyEpsilon(Math.Atan(x));
+        }
+
+        public static double arctan2(double x, double y)
+        {
+            return ApplyEpsilon(Math.Atan2(x, y));
+        }
+
+        public static double sin(double x)
+        {
+            return ApplyEpsilon(Math.Sin(x));
+        }
+
+        public static double cos(double x)
+        {
+            return ApplyEpsilon(Math.Cos(x));
+        }
+
+        public static double tan(double x)
+        {
+            return ApplyEpsilon(Math.Tan(x));
+        }
+
+        public static double dsin(double x)
+        {
+            return ApplyEpsilon(Math.Sin(MathHelper.ToRadians((float)x)) * (1 / _epsilon));
+        }
+
+        public static double dcos(double x)
+        {
+            return ApplyEpsilon(Math.Cos(MathHelper.ToRadians((float)x)) * (1 / _epsilon));
+        }
+
+        public static double dtan(double x)
+        {
+            return ApplyEpsilon(Math.Tan(MathHelper.ToRadians((float)x)) * (1 / _epsilon));
+        }
+
+        public static double darcsin(double x)
+        {
+            return ApplyEpsilon(Math.Asin(MathHelper.ToRadians((float)x)) * (1 / _epsilon));
+        }
+
+        public static double darccos(double x)
+        {
+            return ApplyEpsilon(Math.Acos(MathHelper.ToRadians((float)x)) * (1 / _epsilon));
+        }
+
+        public static double darctan(double x)
+        {
+            return ApplyEpsilon(Math.Atan(MathHelper.ToRadians((float)x)) * (1 / _epsilon));
+        }
+
+        public static double darctan2(double y, double x)
+        {
+            return ApplyEpsilon(Math.Atan2(MathHelper.ToRadians((float)y), MathHelper.ToRadians((float)x)) * (1 / _epsilon));
+        }
+
+        /*
+         *  ------------------------------------- Rounding ------------------------------------
+         */
+        public static double degtorad(double x)
+        {
+            return ApplyEpsilon(MathHelper.ToRadians((float)x));
+        }
+
+        public static double radtodeg(double x)
+        {
+            return ApplyEpsilon(MathHelper.ToDegrees((float)x));
+        }
+
+        public static double lengthdir_x(double len, double dir)
+        {
+            return ApplyEpsilon(Math.Cos(dir * Math.PI / 180) * len);
+        }
+
+        public static double lengthdir_y(double len, double dir)
+        {
+            return ApplyEpsilon(Math.Sin(dir * Math.PI / 180) * len);
+        }
+
+        public static double round(double n)
+        {
+            return ApplyEpsilon(Math.Round(n));
+        }
+
+        public static double floor(double n)
+        {
+            return ApplyEpsilon(Math.Floor(n));
+        }
+
+        public static double frac(double n)
+        {
+            return ApplyEpsilon(n - Math.Truncate(n));
+        }
+
+        public static double abs(double n)
+        {
+            return ApplyEpsilon(Math.Abs(n));
+        }
+
+        public static int sign(double n)
+        {
+            return Math.Sign(n);
+        }
+
+        public static double ceil(double n)
+        {
+            return ApplyEpsilon(Math.Ceiling(n));
+        }
+
+        public static T max<T>(params T[] items)
+        {
+            return items.Max();
+        }
+
+        public static double mean(params double[] items)
+        {
+            return ApplyEpsilon(items.Average());
+        }
+
+        public static double median(params double[] items)
+        {
+            Array.Sort(items);
+            return items[items.Length / 2];
+        }
+
+        public static T min<T>(params T[] items)
+        {
+            return items.Min();
+        }
+
+        public static double lerp(double a, double b, double amt)
+        {
+            return ApplyEpsilon(MathHelper.Lerp((float)a, (float)b, (float)amt));
+        }
+
+        public static double clamp(double val, double min, double max)
+        {
+            return ApplyEpsilon(MathHelper.Clamp((float) val, (float) min, (float) max));
+        }
+
+        /*
+         *  ------------------------------------- Misc ------------------------------------
+         */
+
+        public static double exp(double n)
+        {
+            return ApplyEpsilon(Math.Pow(Math.E, n));
+        }
+
+        public static double ln(double n)
+        {
+            return ApplyEpsilon(Math.Log(n, Math.E));
+        }
+
+        public static double power(double x, int n)
+        {
+            return ApplyEpsilon(Math.Pow(x, n));
+        }
+
+        public static double sqr(double x)
+        {
+            return ApplyEpsilon(Math.Pow(x, 2));
+        }
+
+        public static double sqrt(double x)
+        {
+            return ApplyEpsilon(Math.Sqrt(x));
+        }
+
+        public static double log2(double n)
+        {
+            return ApplyEpsilon(Math.Log(n, 2));
+        }
+
+        public static double log10(double n)
+        {
+            return ApplyEpsilon(Math.Log(n, 10));
+        }
+
+        public static double logn(double n, double val)
+        {
+            return ApplyEpsilon(Math.Log(val, n));
+        }
+
+
+
+
+        private static double ApplyEpsilon(double x)
+        {
+            return Math.Ceiling(x * (1 / _epsilon)) / (1 / _epsilon);
         }
     }
 }

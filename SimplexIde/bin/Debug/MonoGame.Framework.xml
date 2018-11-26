@@ -12495,6 +12495,26 @@
             <param name="deadZoneMode">Enumerated value that specifies what dead zone type to use.</param>
             <returns>The state of the controller.</returns>
         </member>
+        <member name="M:Microsoft.Xna.Framework.Input.GamePad.GetState(Microsoft.Xna.Framework.PlayerIndex,Microsoft.Xna.Framework.Input.GamePadDeadZone,Microsoft.Xna.Framework.Input.GamePadDeadZone)">
+            <summary>
+            Gets the current state of a game pad controller, using a specified dead zone
+            on analog stick positions.
+            </summary>
+            <param name="playerIndex">Player index for the controller you want to query.</param>
+            <param name="leftDeadZoneMode">Enumerated value that specifies what dead zone type to use for the left stick.</param>
+            <param name="rightDeadZoneMode">Enumerated value that specifies what dead zone type to use for the right stick.</param>
+            <returns>The state of the controller.</returns>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Input.GamePad.GetState(System.Int32,Microsoft.Xna.Framework.Input.GamePadDeadZone,Microsoft.Xna.Framework.Input.GamePadDeadZone)">
+            <summary>
+            Gets the current state of a game pad controller, using a specified dead zone
+            on analog stick positions.
+            </summary>
+            <param name="index">Index for the controller you want to query.</param>
+            <param name="leftDeadZoneMode">Enumerated value that specifies what dead zone type to use for the left stick.</param>
+            <param name="rightDeadZoneMode">Enumerated value that specifies what dead zone type to use for the right stick.</param>
+            <returns>The state of the controller.</returns>
+        </member>
         <member name="M:Microsoft.Xna.Framework.Input.GamePad.SetVibration(Microsoft.Xna.Framework.PlayerIndex,System.Single,System.Single)">
             <summary>
             Sets the vibration motor speeds on the controller device if supported.
@@ -15517,7 +15537,7 @@
             http://stackoverflow.com/a/468084
             </remarks>
         </member>
-        <member name="M:Microsoft.Xna.Framework.Utilities.FileHelpers.ResolveRelativePath(System.String,System.String)">
+        <member name="M:MonoGame.Utilities.FileHelpers.ResolveRelativePath(System.String,System.String)">
             <summary>
             Combines the filePath and relativeFile based on relativeFile being a file in the same location as filePath.
             Relative directory operators (..) are also resolved
@@ -15527,41 +15547,51 @@
             <param name="filePath">Path to the file we are starting from</param>
             <param name="relativeFile">Relative location of another file to resolve the path to</param>
         </member>
-        <member name="M:Microsoft.Xna.Framework.Utilities.ReflectionHelpers.GetAssembly(System.Type)">
+        <member name="M:MonoGame.Utilities.ReflectionHelpers.GetAssembly(System.Type)">
             <summary>
             Returns the Assembly of a Type
             </summary>
         </member>
-        <member name="M:Microsoft.Xna.Framework.Utilities.ReflectionHelpers.IsConcreteClass(System.Type)">
+        <member name="M:MonoGame.Utilities.ReflectionHelpers.IsConcreteClass(System.Type)">
             <summary>
             Returns true if the given type represents a non-object type that is not abstract.
             </summary>
         </member>
-        <member name="M:Microsoft.Xna.Framework.Utilities.ReflectionHelpers.PropertyIsPublic(System.Reflection.PropertyInfo)">
+        <member name="M:MonoGame.Utilities.ReflectionHelpers.PropertyIsPublic(System.Reflection.PropertyInfo)">
             <summary>
             Returns true if the get method of the given property exist and are public.
             Note that we allow a getter-only property to be serialized (and deserialized),
             *if* CanDeserializeIntoExistingObject is true for the property type.
             </summary>
         </member>
-        <member name="M:Microsoft.Xna.Framework.Utilities.ReflectionHelpers.IsAssignableFrom(System.Type,System.Object)">
+        <member name="M:MonoGame.Utilities.ReflectionHelpers.IsAssignableFrom(System.Type,System.Object)">
             <summary>
             Returns true if the given type can be assigned the given value
             </summary>
         </member>
-        <member name="M:Microsoft.Xna.Framework.Utilities.ReflectionHelpers.IsAssignableFromType(System.Type,System.Type)">
+        <member name="M:MonoGame.Utilities.ReflectionHelpers.IsAssignableFromType(System.Type,System.Type)">
             <summary>
             Returns true if the given type can be assigned a value with the given object type
             </summary>
         </member>
-        <member name="M:Microsoft.Xna.Framework.Utilities.ReflectionHelpers.ManagedSizeOf(System.Type)">
+        <member name="M:MonoGame.Utilities.ReflectionHelpers.ManagedSizeOf(System.Type)">
             <summary>
             Fallback handler for Marshal.SizeOf(type)
             </summary>
         </member>
-        <member name="T:Microsoft.Xna.Framework.Utilities.ReflectionHelpers.SizeOf`1">
+        <member name="T:MonoGame.Utilities.ReflectionHelpers.SizeOf`1">
             <summary>
             Generics handler for Marshal.SizeOf
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Utilities.TimerHelper.GetCurrentResolution">
+            <summary>
+            Returns the current timer resolution in milliseconds
+            </summary>
+        </member>
+        <member name="M:Microsoft.Xna.Framework.Utilities.TimerHelper.SleepForNoMoreThan(System.Double)">
+            <summary>
+            Sleeps as long as possible without exceeding the specified period
             </summary>
         </member>
         <member name="T:MonoGame.Utilities.ZlibStream">
@@ -17997,12 +18027,12 @@
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:Microsoft.Xna.Framework.Utilities.ByteBufferPool.Get(System.Int32)">
+        <member name="M:MonoGame.Utilities.ByteBufferPool.Get(System.Int32)">
             <summary>
             Get a buffer that is at least as big as size.
             </summary>
         </member>
-        <member name="M:Microsoft.Xna.Framework.Utilities.ByteBufferPool.Return(System.Byte[])">
+        <member name="M:MonoGame.Utilities.ByteBufferPool.Return(System.Byte[])">
             <summary>
             Return the given buffer to the pool.
             </summary>
