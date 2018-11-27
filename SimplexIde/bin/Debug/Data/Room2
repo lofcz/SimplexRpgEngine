@@ -28,6 +28,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -47,6 +48,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -66,6 +68,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -85,6 +88,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -104,6 +108,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -123,6 +128,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -142,6 +148,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -161,6 +168,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -180,6 +188,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -199,6 +208,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -218,6 +228,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -237,6 +248,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -256,6 +268,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -275,6 +288,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -294,6 +308,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -313,6 +328,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -332,6 +348,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -351,6 +368,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -370,6 +388,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -389,6 +408,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -408,6 +428,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -427,6 +448,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -446,6 +468,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -465,6 +488,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -484,6 +508,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -503,6 +528,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -522,6 +548,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -541,6 +568,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -560,6 +588,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -579,6 +608,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -598,6 +628,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -617,6 +648,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -636,6 +668,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -655,6 +688,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -674,6 +708,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -693,6 +728,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -712,6 +748,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -731,6 +768,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -750,6 +788,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -769,6 +808,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -788,6 +828,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -807,6 +848,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -826,6 +868,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -845,6 +888,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -864,6 +908,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -883,6 +928,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -902,6 +948,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -921,6 +968,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -940,6 +988,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -959,6 +1008,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -978,6 +1028,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -997,6 +1048,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -1016,6 +1068,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -1035,6 +1088,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -1054,6 +1108,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -1073,6 +1128,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -1092,6 +1148,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -1111,6 +1168,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -1130,6 +1188,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -1149,6 +1208,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -1168,6 +1228,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -1187,6 +1248,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -1206,6 +1268,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="SampleObject">
@@ -1225,6 +1288,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>0.997564</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -1244,6 +1308,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -1263,6 +1328,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -1282,6 +1348,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -1301,6 +1368,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -1320,6 +1388,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -1339,6 +1408,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -1358,6 +1428,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -1377,6 +1448,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -1396,6 +1468,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -1415,6 +1488,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -1434,6 +1508,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
@@ -1453,6 +1528,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="SampleObject">
@@ -1472,6 +1548,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>0.997564</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object3">
@@ -1491,6 +1568,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object3">
@@ -1510,6 +1588,7 @@
       <X>1</X>
       <Y>1</Y>
     </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
     <ImageIndex>0</ImageIndex>
   </GameObject>
 </Root>

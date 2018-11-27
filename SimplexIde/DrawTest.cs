@@ -15,8 +15,10 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using MonoGame.Extended.ViewportAdapters;
+using MonoGame.Extended.Shapes;
 using MonoGame.Forms.Controls;
 using Newtonsoft.Json;
+using SharpDX.Direct2D1;
 using SimplexCore;
 using SimplexResources.Objects;
 using SimplexResources.Rooms;
@@ -25,6 +27,8 @@ using Color = Microsoft.Xna.Framework.Color;
 using Keys = Microsoft.Xna.Framework.Input.Keys;
 using Point = SharpDX.Point;
 using RectangleF = MonoGame.Extended.RectangleF;
+using VertexBuffer = Microsoft.Xna.Framework.Graphics.VertexBuffer;
+
 
 namespace SimplexIde
 {
@@ -52,6 +56,11 @@ namespace SimplexIde
         private bool cmsOpen = false;
         private bool goodBoy = false;
         Stack<List<GameObject>> stackedSteps = new Stack<List<GameObject>>(32);
+        VertexBuffer vertexBuffer;
+        BasicEffect basicEffect;
+        private float k = 0;
+        private VertexPositionColor[] _vertexPositionColors;
+
 
         public Vector2 GridSize = new Vector2(32, 32);
         public Vector2 GridSizeRender = new Vector2(32, 32);
@@ -65,6 +74,7 @@ namespace SimplexIde
             Sgml.Textures = Textures;
             
             camera = new Camera2D(Editor.graphics);
+            basicEffect = new BasicEffect(Editor.graphics);
 
             cam.Camera = camera;
             cam.Position = Vector2.Zero;
@@ -72,6 +82,17 @@ namespace SimplexIde
             cam.TransformSpeed = 0.1f;
 
             prevState = Keyboard.GetState();
+
+
+            basicEffect = new BasicEffect(GraphicsDevice);
+
+            VertexPositionColor[] vertices = new VertexPositionColor[3];
+            vertices[0] = new VertexPositionColor(new Vector3(100, 100, 0), Color.Red);
+            vertices[1] = new VertexPositionColor(new Vector3(200, 100, 0), Color.Green);
+            vertices[2] = new VertexPositionColor(new Vector3(150, 150, 0), Color.Blue);
+
+            vertexBuffer = new VertexBuffer(GraphicsDevice, typeof(VertexPositionColor), 3, BufferUsage.WriteOnly);
+            vertexBuffer.SetData<VertexPositionColor>(vertices);
         }
 
 
@@ -93,7 +114,11 @@ namespace SimplexIde
                 cam.TargetPosition.Y -= 100;
             }
 
-           
+            if (Input.KeyPressed(Keys.D))
+            {
+                k += 1;
+            }
+
             if (Input.KeyPressed(Keys.Q))
             {
                 cam.TargetZoom -= 0.1f;
@@ -183,6 +208,7 @@ namespace SimplexIde
             
             base.Draw();
             Matrix transformMatrix = cam.Camera.GetViewMatrix();
+
             Editor.graphics.Clear(BackgroundColor);
             Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
 
@@ -216,7 +242,30 @@ namespace SimplexIde
             Editor.spriteBatch.DrawString(Editor.Font, "Mouse X: " +Math.Round(MousePositionTranslated.X) + "\nMouse Y: " + Math.Round(MousePositionTranslated.Y), new Vector2(200, 200), Color.White);
 
             Editor.spriteBatch.DrawString(Editor.Font, framerate.ToString("F1"), new Vector2(100, 100), Color.White);
+
+            Matrix world = Matrix.Identity;
+            Matrix view = cam.Camera.GetViewMatrix();
+            Matrix projection = Matrix.CreateOrthographicOffCenter(0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 0, 0, -1);
+
+            basicEffect.World = world;
+            basicEffect.View = view;
+            basicEffect.Projection = projection;
+            basicEffect.VertexColorEnabled = true;
+
+            GraphicsDevice.SetVertexBuffer(vertexBuffer);
+
+            RasterizerState rasterizerState = new RasterizerState();
+            rasterizerState.CullMode = CullMode.None;
+            GraphicsDevice.RasterizerState = rasterizerState;
+
+            foreach (EffectPass pass in basicEffect.CurrentTechnique.Passes)
+            {
+                pass.Apply();
+                GraphicsDevice.DrawPrimitives(PrimitiveType.TriangleList, 0, 1);
+            }
+
             Editor.spriteBatch.End();
+
             killClick = false;
         }
 

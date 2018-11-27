@@ -31,6 +31,7 @@ namespace SimplexCore
         }
 
         private static float drawAlpha = 1;
+        private static int drawCirclePrecision = 32;
 
         private static Color FinalizeColor(Color c)
         {

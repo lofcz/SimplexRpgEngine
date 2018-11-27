@@ -37,3 +37,6 @@ C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\SharpDX.Dire
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\SharpDX.Mathematics.dll
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\SharpDX.Direct3D9.xml
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\SharpDX.Mathematics.xml
+C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\MonoGame.Extended.Graphics.dll
+C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\MonoGame.Extended.Graphics.pdb
+C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\MonoGame.Extended.Graphics.xml
