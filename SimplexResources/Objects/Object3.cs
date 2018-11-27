@@ -19,7 +19,7 @@ namespace SimplexResources.Objects
             EditorPath = "Colliders";
         }
 
-        public override void DrawNode(SpriteBatch s, SpriteFont f, Texture2D objectTexture)
+        public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, VertexBuffer vb, BasicEffect be)
         {
             Sgml.sb = s;
 

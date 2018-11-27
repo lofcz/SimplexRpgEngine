@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
 using MonoGame.Extended.TextureAtlases;
-using SharpDX.Direct3D11;
 using Color = System.Drawing.Color;
 using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 
@@ -14,6 +13,7 @@ namespace SimplexCore
     public static partial class Sgml
     {
         static Texture2D pixel;
+        private static VertexPositionColor[] vertices;
 
         public static void draw_circle(double x, double y, double r, bool outline, double thickness = 1)
         {
@@ -64,6 +64,34 @@ namespace SimplexCore
                 }
             }*/
         }
+
+        public static void draw_triangle(double x1, double y1, double x2, double y2, double x3, double y3, bool outline)
+        {
+            vertices = new VertexPositionColor[3];
+            vertices[0] = new VertexPositionColor(new Vector3((float)x1, (float)y1, 0), Microsoft.Xna.Framework.Color.Red);
+            vertices[1] = new VertexPositionColor(new Vector3((float)x2, (float)y2, 0), Microsoft.Xna.Framework.Color.Green);
+            vertices[2] = new VertexPositionColor(new Vector3((float)x3, (float)y3, 0), Microsoft.Xna.Framework.Color.Blue);
+
+            vb = new VertexBuffer(sb.GraphicsDevice, typeof(VertexPositionColor), 3, BufferUsage.WriteOnly);
+            vb.SetData<VertexPositionColor>(vertices);
+
+
+            sb.GraphicsDevice.SetVertexBuffer(vb);
+
+            RasterizerState rasterizerState = new RasterizerState();
+            rasterizerState.CullMode = CullMode.None;
+            rasterizerState.MultiSampleAntiAlias = true;
+            sb.GraphicsDevice.RasterizerState = rasterizerState;
+
+            foreach (EffectPass pass in be.CurrentTechnique.Passes)
+            {
+                pass.Apply();
+                sb.GraphicsDevice.DrawPrimitives(PrimitiveType.TriangleList, 0, 1);
+            }
+
+            vb.Dispose();
+            rasterizerState.Dispose();
+        } 
 
 
 

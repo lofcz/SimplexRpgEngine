@@ -24,6 +24,7 @@ using SimplexResources.Objects;
 using SimplexResources.Rooms;
 using ButtonState = Microsoft.Xna.Framework.Input.ButtonState;
 using Color = Microsoft.Xna.Framework.Color;
+using FillMode = Microsoft.Xna.Framework.Graphics.FillMode;
 using Keys = Microsoft.Xna.Framework.Input.Keys;
 using Point = SharpDX.Point;
 using RectangleF = MonoGame.Extended.RectangleF;
@@ -56,10 +57,12 @@ namespace SimplexIde
         private bool cmsOpen = false;
         private bool goodBoy = false;
         Stack<List<GameObject>> stackedSteps = new Stack<List<GameObject>>(32);
-        VertexBuffer vertexBuffer;
-        BasicEffect basicEffect;
+        public static VertexBuffer vertexBuffer;
+        public static BasicEffect basicEffect;
         private float k = 0;
         private VertexPositionColor[] _vertexPositionColors;
+        Matrix world = Matrix.Identity;
+        private Matrix m;
 
 
         public Vector2 GridSize = new Vector2(32, 32);
@@ -93,6 +96,8 @@ namespace SimplexIde
 
             vertexBuffer = new VertexBuffer(GraphicsDevice, typeof(VertexPositionColor), 3, BufferUsage.WriteOnly);
             vertexBuffer.SetData<VertexPositionColor>(vertices);
+
+            m = Matrix.CreateOrthographicOffCenter(0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 0, 0, -1);
         }
 
 
@@ -229,9 +234,17 @@ namespace SimplexIde
 
             Editor.spriteBatch.DrawRectangle(new RectangleF(new Point2(0, 0), new Size2(Form1.width, Form1.height)), Color.White, 2);
 
+            Matrix view = cam.Camera.GetViewMatrix();
+            Matrix projection = m;
+
+            basicEffect.World = world;
+            basicEffect.View = view;
+            basicEffect.Projection = projection;
+            basicEffect.VertexColorEnabled = true;
+
             foreach (GameObject o in SceneObjects)
             {
-                o.DrawNode(Editor.spriteBatch, Editor.Font, o.Sprite.Texture);
+                o.EvtDraw(Editor.spriteBatch, Editor.Font, o.Sprite.Texture, vertexBuffer, basicEffect);
 
              if (o == clickedObject)
              {
@@ -243,26 +256,7 @@ namespace SimplexIde
 
             Editor.spriteBatch.DrawString(Editor.Font, framerate.ToString("F1"), new Vector2(100, 100), Color.White);
 
-            Matrix world = Matrix.Identity;
-            Matrix view = cam.Camera.GetViewMatrix();
-            Matrix projection = Matrix.CreateOrthographicOffCenter(0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 0, 0, -1);
 
-            basicEffect.World = world;
-            basicEffect.View = view;
-            basicEffect.Projection = projection;
-            basicEffect.VertexColorEnabled = true;
-
-            GraphicsDevice.SetVertexBuffer(vertexBuffer);
-
-            RasterizerState rasterizerState = new RasterizerState();
-            rasterizerState.CullMode = CullMode.None;
-            GraphicsDevice.RasterizerState = rasterizerState;
-
-            foreach (EffectPass pass in basicEffect.CurrentTechnique.Passes)
-            {
-                pass.Apply();
-                GraphicsDevice.DrawPrimitives(PrimitiveType.TriangleList, 0, 1);
-            }
 
             Editor.spriteBatch.End();
 

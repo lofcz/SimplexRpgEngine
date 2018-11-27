@@ -23,6 +23,8 @@ namespace SimplexCore
         public static SpriteBatch sb;
         private static Color _color = Color.White;
         private static SpriteFont drawFont;
+        public static VertexBuffer vb;
+        public static BasicEffect be;
 
         public static Color DrawColor
         {

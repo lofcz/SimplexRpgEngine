@@ -83,7 +83,7 @@ namespace SimplexCore
 
 
         // Editor events
-        public virtual void DrawNode(SpriteBatch s, SpriteFont f, Texture2D objectTexture)
+        public virtual void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, VertexBuffer vb, BasicEffect be)
         {
             s.Draw(objectTexture, Position, Microsoft.Xna.Framework.Color.White * ImageAlpha);
         }

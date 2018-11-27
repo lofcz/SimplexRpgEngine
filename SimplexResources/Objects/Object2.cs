@@ -39,24 +39,13 @@ namespace SimplexResources.Objects
             Debug.WriteLine("Hello c#");
         }
 
-        public override void DrawNode(SpriteBatch s, SpriteFont f, Texture2D objectTexture)
+        public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, VertexBuffer vb, BasicEffect be)
         {
             sb = s;
+            Sgml.vb = vb;
+            Sgml.be = be;
 
-            DrawSetAlpha(0.5f);
-
-            IEnumerable<Vector2> vertices = new List<Vector2>();
-            vertices.Append(new Vector2(0, 0));
-            vertices.Append(new Vector2(10, 100));
-            vertices.Append(new Vector2(90, 10));
-            vertices.Append(new Vector2(0, 40));
-            vertices.Append(new Vector2(0, 0));
-            Polygon p = new Polygon(vertices);
-
-            sb.DrawPolygon(Position, p, DrawColor);
-           // draw_circle(Position, 24, true, Microsoft.Xna.Framework.Color.Red, 1);
-           
-           
+            draw_triangle(Position.X, Position.Y, Position.X + 100, Position.Y, Position.X + 50, Position.Y + 50, false);
         }
     }
 }
