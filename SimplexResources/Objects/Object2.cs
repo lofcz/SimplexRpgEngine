@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
 using MonoGame.Extended.Shapes;
+using MonoGame.Extended.TextureAtlases;
 using SimplexCore;
 using SimplexIde;
 using static SimplexCore.Sgml;
@@ -41,10 +42,15 @@ namespace SimplexResources.Objects
 
         public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, VertexBuffer vb, BasicEffect be)
         {
+            // Initialize render engine for this instance
             DrawStart(s, vb, be);
+        //    s.Draw(objectTexture, Position, DrawColor);
+            // Actual code starts here
+           // draw_set_alpha(0.5);
+            // draw_triangle(Position.X, Position.Y, Position.X + 100, Position.Y, Position.X + 50, Position.Y + 50, false);
 
-            draw_set_alpha(0.5);
-            draw_triangle(Position.X, Position.Y, Position.X + 100, Position.Y, Position.X + 50, Position.Y + 50, false);
+           draw_set_alpha(0.5);
+           draw_circle(Position, 32, true);
         }
     }
 }
