@@ -41,10 +41,9 @@ namespace SimplexResources.Objects
 
         public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, VertexBuffer vb, BasicEffect be)
         {
-            sb = s;
-            Sgml.vb = vb;
-            Sgml.be = be;
+            DrawStart(s, vb, be);
 
+            draw_set_alpha(0.5);
             draw_triangle(Position.X, Position.Y, Position.X + 100, Position.Y, Position.X + 50, Position.Y + 50, false);
         }
     }

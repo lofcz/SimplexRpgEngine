@@ -73,9 +73,9 @@ namespace SimplexResources.Objects
            time++;
            ImageAlpha = Math.Abs((float)Math.Sin(MathHelper.ToRadians(time)));
 
-           DrawSetAlpha(ImageAlpha);
+           draw_set_alpha(ImageAlpha);
            DrawRectangle(Position, new Vector2(64, 64), false, 1);
-           DrawSetAlpha(1);
+           draw_set_alpha(1);
 
         }
     }

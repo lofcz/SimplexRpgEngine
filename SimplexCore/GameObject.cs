@@ -81,10 +81,19 @@ namespace SimplexCore
             ImageScale = new Vector2(SimplexMath.Lerp(ImageScale.X, ImageScaleTarget.X, TransformSpeed), SimplexMath.Lerp(ImageScale.Y, ImageScaleTarget.Y, TransformSpeed));
         }
 
+        public void DrawStart(SpriteBatch s, VertexBuffer vb, BasicEffect be)
+        {
+            Sgml.sb = s;
+            Sgml.vb = vb;
+            Sgml.be = be;
+        }
 
         // Editor events
         public virtual void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, VertexBuffer vb, BasicEffect be)
         {
+            Sgml.sb = s;
+            Sgml.vb = vb;
+            Sgml.be = be;
             s.Draw(objectTexture, Position, Microsoft.Xna.Framework.Color.White * ImageAlpha);
         }
 

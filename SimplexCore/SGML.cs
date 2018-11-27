@@ -111,10 +111,10 @@ namespace SimplexCore
             }
         }
 
-        public static void DrawSetAlpha(float alpha)
+        public static void draw_set_alpha(double alpha)
         {
             alpha = alpha.Clamp(0, 1);
-            drawAlpha = alpha;
+            drawAlpha = (float)alpha;
         }
 
         public static void DrawSetColor(Color c)

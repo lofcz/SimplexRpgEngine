@@ -67,10 +67,12 @@ namespace SimplexCore
 
         public static void draw_triangle(double x1, double y1, double x2, double y2, double x3, double y3, bool outline)
         {
+            Microsoft.Xna.Framework.Color fc = FinalizeColor(DrawColor);
+
             vertices = new VertexPositionColor[3];
-            vertices[0] = new VertexPositionColor(new Vector3((float)x1, (float)y1, 0), Microsoft.Xna.Framework.Color.Red);
-            vertices[1] = new VertexPositionColor(new Vector3((float)x2, (float)y2, 0), Microsoft.Xna.Framework.Color.Green);
-            vertices[2] = new VertexPositionColor(new Vector3((float)x3, (float)y3, 0), Microsoft.Xna.Framework.Color.Blue);
+            vertices[0] = new VertexPositionColor(new Vector3((float)x1, (float)y1, 0), fc);
+            vertices[1] = new VertexPositionColor(new Vector3((float)x2, (float)y2, 0), fc);
+            vertices[2] = new VertexPositionColor(new Vector3((float)x3, (float)y3, 0), fc);
 
             vb = new VertexBuffer(sb.GraphicsDevice, typeof(VertexPositionColor), 3, BufferUsage.WriteOnly);
             vb.SetData<VertexPositionColor>(vertices);
@@ -80,7 +82,13 @@ namespace SimplexCore
 
             RasterizerState rasterizerState = new RasterizerState();
             rasterizerState.CullMode = CullMode.None;
-            rasterizerState.MultiSampleAntiAlias = true;
+            rasterizerState.MultiSampleAntiAlias = false;
+
+            if (outline)
+            {
+                rasterizerState.FillMode = FillMode.WireFrame;
+            }
+
             sb.GraphicsDevice.RasterizerState = rasterizerState;
 
             foreach (EffectPass pass in be.CurrentTechnique.Passes)
