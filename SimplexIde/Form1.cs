@@ -13,6 +13,7 @@ using System.Reflection;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using SimplexCore;
+using MessageBox = Microsoft.Xna.Framework.Input.MessageBox;
 
 namespace SimplexIde
 {
@@ -295,6 +296,11 @@ namespace SimplexIde
         private void button3_Click(object sender, EventArgs e)
         {
             drawTest1.Undo();
+        }
+
+        private void drawTest1_SizeChanged(object sender, EventArgs e)
+        {
+            drawTest1.Rsize();
         }
     }
 }

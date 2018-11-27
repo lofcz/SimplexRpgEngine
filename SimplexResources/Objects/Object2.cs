@@ -50,7 +50,7 @@ namespace SimplexResources.Objects
             // draw_triangle(Position.X, Position.Y, Position.X + 100, Position.Y, Position.X + 50, Position.Y + 50, false);
 
            draw_set_alpha(0.5);
-           draw_circle(Position, 32, true);
+           draw_circle(new Vector2(Position.X + 16, Position.Y + 16), 32, false);
         }
     }
 }

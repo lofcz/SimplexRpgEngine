@@ -501,6 +501,7 @@
             this.drawTest1.Text = "MainRenderer";
             this.drawTest1.OnMouseWheelUpwards += new MonoGame.Forms.Controls.GraphicsDeviceControl.MouseWheelUpwardsEvent(this.drawTest1_OnMouseWheelUpwards);
             this.drawTest1.OnMouseWheelDownwards += new MonoGame.Forms.Controls.GraphicsDeviceControl.MouseWheelDownwardsEvent(this.drawTest1_OnMouseWheelDownwards);
+            this.drawTest1.SizeChanged += new System.EventHandler(this.drawTest1_SizeChanged);
             this.drawTest1.Click += new System.EventHandler(this.drawTest1_Click_1);
             this.drawTest1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.drawTest1_MouseClick);
             this.drawTest1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.drawTest1_MouseDown);

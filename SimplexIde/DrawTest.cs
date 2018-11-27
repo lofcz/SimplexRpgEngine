@@ -98,8 +98,17 @@ namespace SimplexIde
             vertexBuffer.SetData<VertexPositionColor>(vertices);
 
             m = Matrix.CreateOrthographicOffCenter(0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 0, 0, -1);
+            Debug.WriteLine(GraphicsDevice.Viewport.Height);
         }
 
+
+        public void Rsize()
+        {
+            Editor.graphics.Viewport = new Viewport(0, 0, this.Width, this.Height);
+            
+            m = Matrix.CreateOrthographicOffCenter(0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 0, 0, -1);
+            Debug.WriteLine(GraphicsDevice.Viewport.Height);
+        }
 
         protected override void Update(GameTime gameTime)
         {
