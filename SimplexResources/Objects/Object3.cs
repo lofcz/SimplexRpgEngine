@@ -19,11 +19,11 @@ namespace SimplexResources.Objects
             EditorPath = "Colliders";
         }
 
-        public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, VertexBuffer vb, BasicEffect be)
+        public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, VertexBuffer vb, BasicEffect be, Matrix m)
         {
             Sgml.sb = s;
 
-            DrawRectangle(Position, new Vector2(32, 32), true, 3);
+           // DrawRectangle(Position, new Vector2(32, 32), true, 3);
         }
     }
 }

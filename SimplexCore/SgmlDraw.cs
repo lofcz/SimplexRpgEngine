@@ -4,6 +4,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
+using MonoGame.Extended.Sprites;
 using MonoGame.Extended.TextureAtlases;
 using Color = System.Drawing.Color;
 using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
@@ -99,6 +100,13 @@ namespace SimplexCore
 
             vb.Dispose();
             rasterizerState.Dispose();
+        }
+
+        public static void draw_sprite(Texture2D sprite, double subimg, Vector2 position)
+        {
+            sb.Begin(transformMatrix: m);
+            sb.Draw(sprite, position, FinalizeColor(DrawColor));
+            sb.End();
         }
 
         public static void draw_circle(Vector2 pos, int r, bool outline, int startAngle = 0, int totalAngle = 360, int distance = 0)

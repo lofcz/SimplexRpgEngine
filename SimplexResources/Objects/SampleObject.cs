@@ -67,14 +67,14 @@ namespace SimplexResources.Objects
 
         }
 
-        public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, VertexBuffer vb, BasicEffect be)
+        public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, VertexBuffer vb, BasicEffect be, Matrix m)
         {
             Sgml.sb = s;
            time++;
            ImageAlpha = Math.Abs((float)Math.Sin(MathHelper.ToRadians(time)));
 
            draw_set_alpha(ImageAlpha);
-           DrawRectangle(Position, new Vector2(64, 64), false, 1);
+          // DrawRectangle(Position, new Vector2(64, 64), false, 1);
            draw_set_alpha(1);
 
         }

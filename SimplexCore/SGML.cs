@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
 using SharpDX;
 using Color = Microsoft.Xna.Framework.Color;
+using Matrix = System.Drawing.Drawing2D.Matrix;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
 using RectangleF = MonoGame.Extended.RectangleF;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
@@ -25,6 +26,7 @@ namespace SimplexCore
         private static SpriteFont drawFont;
         public static VertexBuffer vb;
         public static BasicEffect be;
+        public static Microsoft.Xna.Framework.Matrix m;
 
         public static Color DrawColor
         {

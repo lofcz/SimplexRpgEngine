@@ -227,7 +227,7 @@ namespace SimplexIde
             Matrix transformMatrix = cam.Camera.GetViewMatrix();
             BackgroundColor = Color.Black;
             Editor.graphics.Clear(BackgroundColor);
-            Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
+           // Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
 
             if (DrawGrid)
             {
@@ -244,7 +244,7 @@ namespace SimplexIde
                 }
             }
 
-            Editor.spriteBatch.DrawRectangle(new RectangleF(new Point2(0, 0), new Size2(Form1.width, Form1.height)), Color.White, 2);
+            //Editor.spriteBatch.DrawRectangle(new RectangleF(new Point2(0, 0), new Size2(Form1.width, Form1.height)), Color.White, 2);
 
             Matrix view = cam.Camera.GetViewMatrix();
             Matrix projection = m;
@@ -256,22 +256,24 @@ namespace SimplexIde
 
             foreach (GameObject o in SceneObjects)
             {
-                 o.EvtDraw(Editor.spriteBatch, Editor.Font, o.Sprite.Texture, vertexBuffer, basicEffect);
+                 o.EvtDraw(Editor.spriteBatch, Editor.Font, o.Sprite.Texture, vertexBuffer, basicEffect, transformMatrix);
 
                  if (o == clickedObject)
                  {
-                     Editor.spriteBatch.DrawRectangle(new RectangleF(o.Position, new Size2(o.Sprite.ImageRectangle.Width, o.Sprite.ImageRectangle.Height)),Color.White, 2);
+                    Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
+                    Editor.spriteBatch.DrawRectangle(new RectangleF(o.Position, new Size2(o.Sprite.ImageRectangle.Width, o.Sprite.ImageRectangle.Height)),Color.White, 2);
+                    Editor.spriteBatch.End();
                  }
             }
 
   
-            Editor.spriteBatch.DrawString(Editor.Font, "Mouse X: " +Math.Round(MousePositionTranslated.X) + "\nMouse Y: " + Math.Round(MousePositionTranslated.Y), new Vector2(200, 200), Color.White);
+            //Editor.spriteBatch.DrawString(Editor.Font, "Mouse X: " +Math.Round(MousePositionTranslated.X) + "\nMouse Y: " + Math.Round(MousePositionTranslated.Y), new Vector2(200, 200), Color.White);
 
-            Editor.spriteBatch.DrawString(Editor.Font, framerate.ToString("F1"), new Vector2(100, 100), Color.White);
+            //Editor.spriteBatch.DrawString(Editor.Font, framerate.ToString("F1"), new Vector2(100, 100), Color.White);
 
 
 
-            Editor.spriteBatch.End();
+           // Editor.spriteBatch.End();
 
           //  mpb.world = world;
           //  mpb.view = view;

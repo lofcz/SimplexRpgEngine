@@ -14,8 +14,6 @@ using MonoGame.Extended.TextureAtlases;
 using SimplexCore;
 using SimplexIde;
 using static SimplexCore.Sgml;
-using Color = System.Drawing.Color;
-
 
 namespace SimplexResources.Objects
 {
@@ -48,19 +46,23 @@ namespace SimplexResources.Objects
             Debug.WriteLine("Hello c#");
         }
 
-        public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, VertexBuffer vb, BasicEffect be)
+        public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, VertexBuffer vb, BasicEffect be, Matrix transform)
         {
             time++;
             // Initialize render engine for this instance
-            DrawStart(s, vb, be);
-        //    s.Draw(objectTexture, Position, DrawColor);
+            DrawStart(s, vb, be, transform);
+            //    s.Draw(objectTexture, Position, DrawColor);
             // Actual code starts here
-           // draw_set_alpha(0.5);
+            // draw_set_alpha(0.5);
             // draw_triangle(Position.X, Position.Y, Position.X + 100, Position.Y, Position.X + 50, Position.Y + 50, false);
 
-           draw_set_alpha(abs(sin(degtorad(time))));
-           //draw_circle(new Vector2(Position.X + 16, Position.Y + 16), 64, false, 140, 420, 4);
-           draw_circle_color(Position, 128 + (int)(128 * abs(sin(degtorad(time)))), false, c1, Microsoft.Xna.Framework.Color.Transparent);
+            draw_set_alpha(0.5);
+            draw_sprite(objectTexture, ImageIndex, Position);
+            draw_set_alpha(abs(sin(degtorad(time))));
+            draw_circle_color(Position, 128 + (int)(128 * abs(sin(degtorad(time)))), false, c1, Microsoft.Xna.Framework.Color.Transparent);
+
+            //draw_set_alpha(1);
+            // sb.Draw(objectTexture, Position, Color.White);
         }
     }
 }
