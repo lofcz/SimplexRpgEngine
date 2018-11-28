@@ -101,13 +101,17 @@ namespace SimplexCore
             rasterizerState.Dispose();
         }
 
-        public static void draw_circle(Vector2 pos, int r, bool outline)
+        public static void draw_circle(Vector2 pos, int r, bool outline, int startAngle = 0, int totalAngle = 360, int distance = 0)
         {
             Microsoft.Xna.Framework.Color fc = FinalizeColor(DrawColor);
 
-            if (!outline)
+            if (outline)
             {
-                List<VertexPositionColor> circle = new List<VertexPositionColor>();
+                outline = false;
+                distance = r - 4;
+            }
+
+            List<VertexPositionColor> circle = new List<VertexPositionColor>();
                 //Center of the circle
                 float xPos = pos.X;
                 float yPos = pos.Y;
@@ -116,15 +120,39 @@ namespace SimplexCore
                 float y1 = yPos;
 
                 float angle = 0;
-                for (int i = 0; i <= 360; i += 3)
+                for (int i = startAngle; i <= totalAngle; i += 10)
                 {
                     angle = (i / 57.3f);
                     //angle += (363f / 3f) * ((float)Math.PI / 180f);
                     float x2 = xPos + ((r / 2f) * (float) Math.Sin(angle));
                     float y2 = yPos + ((r / 2f) * (float) Math.Cos(angle));
-                    circle.Add(new VertexPositionColor(new Vector3(xPos, yPos, 0), fc));
-                    circle.Add(new VertexPositionColor(new Vector3(x1, y1, 0), fc));
-                    circle.Add(new VertexPositionColor(new Vector3(x2, y2, 0), fc));
+
+                    float x3 = xPos + ((distance / 2f) * (float)Math.Sin(angle));
+                    float y3 = yPos + ((distance / 2f) * (float)Math.Cos(angle));
+
+                    if (distance == 0)
+                    {
+                        circle.Add(new VertexPositionColor(new Vector3(x3, y3, 0), fc));
+
+                        circle.Add(new VertexPositionColor(new Vector3(x1, y1, 0), fc));
+                        circle.Add(new VertexPositionColor(new Vector3(x2, y2, 0), fc));
+                    }
+                    else
+                    {
+                        circle.Add(new VertexPositionColor(new Vector3(x3, y3, 0), fc));
+
+                        circle.Add(new VertexPositionColor(new Vector3(x1, y1, 0), fc));
+                        circle.Add(new VertexPositionColor(new Vector3(x2, y2, 0), fc));
+
+
+                        circle.Add(new VertexPositionColor(new Vector3(x2, y2, 0), fc));
+                        circle.Add(new VertexPositionColor(new Vector3(x3, y3, 0), fc));
+
+                        angle = ((i + 10)/ 57.3f);
+                        x3 = xPos + ((distance / 2f) * (float)Math.Sin(angle));
+                        y3 = yPos + ((distance / 2f) * (float)Math.Cos(angle));
+                        circle.Add(new VertexPositionColor(new Vector3(x3, y3, 0), fc));
+                    }
 
                     y1 = y2;
                     x1 = x2;
@@ -153,14 +181,89 @@ namespace SimplexCore
                 vb.Dispose();
                 rasterizerState.Dispose();
             }
-            else
+
+        public static void draw_circle_color(Vector2 pos, int r, bool outline, Microsoft.Xna.Framework.Color c1, Microsoft.Xna.Framework.Color c2, int startAngle = 0, int totalAngle = 360, int distance = 0)
+        {
+            Microsoft.Xna.Framework.Color fc1 = FinalizeColor(c1);
+            Microsoft.Xna.Framework.Color fc2 = FinalizeColor(c2);
+
+            if (outline)
             {
-                sb.DrawCircle(pos, r / 2f, 32, fc);
+                outline = false;
+                distance = r - 4;
             }
 
-            
+            List<VertexPositionColor> circle = new List<VertexPositionColor>();
+            //Center of the circle
+            float xPos = pos.X;
+            float yPos = pos.Y;
+
+            float x1 = xPos;
+            float y1 = yPos;
+
+            float angle = 0;
+            for (int i = startAngle; i <= totalAngle; i += 10)
+            {
+                angle = (i / 57.3f);
+                //angle += (363f / 3f) * ((float)Math.PI / 180f);
+                float x2 = xPos + ((r / 2f) * (float)Math.Sin(angle));
+                float y2 = yPos + ((r / 2f) * (float)Math.Cos(angle));
+
+                float x3 = xPos + ((distance / 2f) * (float)Math.Sin(angle));
+                float y3 = yPos + ((distance / 2f) * (float)Math.Cos(angle));
+
+                if (distance == 0)
+                {
+                    circle.Add(new VertexPositionColor(new Vector3(x3, y3, 0), fc1));
+
+                    circle.Add(new VertexPositionColor(new Vector3(x1, y1, 0), fc2));
+                    circle.Add(new VertexPositionColor(new Vector3(x2, y2, 0), fc2));
+                }
+                else
+                {
+                    circle.Add(new VertexPositionColor(new Vector3(x3, y3, 0), fc1));
+
+                    circle.Add(new VertexPositionColor(new Vector3(x1, y1, 0), fc2));
+                    circle.Add(new VertexPositionColor(new Vector3(x2, y2, 0), fc2));
+
+
+                    circle.Add(new VertexPositionColor(new Vector3(x2, y2, 0), fc2));
+                    circle.Add(new VertexPositionColor(new Vector3(x3, y3, 0), fc1));
+
+                    angle = ((i + 10) / 57.3f);
+                    x3 = xPos + ((distance / 2f) * (float)Math.Sin(angle));
+                    y3 = yPos + ((distance / 2f) * (float)Math.Cos(angle));
+                    circle.Add(new VertexPositionColor(new Vector3(x3, y3, 0), fc1));
+                }
+
+                y1 = y2;
+                x1 = x2;
+            }
+
+            vb = new VertexBuffer(sb.GraphicsDevice, typeof(VertexPositionColor), circle.Count,
+                BufferUsage.WriteOnly);
+            vb.SetData<VertexPositionColor>(circle.ToArray());
+
+
+            sb.GraphicsDevice.SetVertexBuffer(vb);
+
+            RasterizerState rasterizerState = new RasterizerState();
+            rasterizerState.CullMode = CullMode.None;
+            rasterizerState.MultiSampleAntiAlias = true;
+            rasterizerState.FillMode = FillMode.Solid;
+
+            sb.GraphicsDevice.RasterizerState = rasterizerState;
+
+            sb.GraphicsDevice.BlendState = BlendState.Additive;
+            foreach (EffectPass pass in be.CurrentTechnique.Passes)
+            {
+                pass.Apply();
+                sb.GraphicsDevice.DrawPrimitives(PrimitiveType.TriangleList, 0, (circle.Count / 3));
+               
+            }
+
+            vb.Dispose();
+            rasterizerState.Dispose();
         }
-
-
     }
 }

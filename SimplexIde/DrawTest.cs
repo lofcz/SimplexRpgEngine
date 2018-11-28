@@ -20,6 +20,7 @@ using MonoGame.Forms.Controls;
 using Newtonsoft.Json;
 using SharpDX.Direct2D1;
 using SimplexCore;
+using SimplexCore.Ext;
 using SimplexResources.Objects;
 using SimplexResources.Rooms;
 using ButtonState = Microsoft.Xna.Framework.Input.ButtonState;
@@ -63,7 +64,7 @@ namespace SimplexIde
         private VertexPositionColor[] _vertexPositionColors;
         Matrix world = Matrix.Identity;
         private Matrix m;
-
+        private SimplexCore.Ext.MgPrimitiveBatcher mpb;
 
         public Vector2 GridSize = new Vector2(32, 32);
         public Vector2 GridSizeRender = new Vector2(32, 32);
@@ -98,7 +99,9 @@ namespace SimplexIde
             vertexBuffer.SetData<VertexPositionColor>(vertices);
 
             m = Matrix.CreateOrthographicOffCenter(0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 0, 0, -1);
-            Debug.WriteLine(GraphicsDevice.Viewport.Height);
+
+            mpb = new MgPrimitiveBatcher(Editor.graphics, Editor.Font);
+           // Editor.spriteBatch = mpb;
         }
 
 
@@ -222,7 +225,7 @@ namespace SimplexIde
             
             base.Draw();
             Matrix transformMatrix = cam.Camera.GetViewMatrix();
-
+            BackgroundColor = Color.Black;
             Editor.graphics.Clear(BackgroundColor);
             Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
 
@@ -246,21 +249,22 @@ namespace SimplexIde
             Matrix view = cam.Camera.GetViewMatrix();
             Matrix projection = m;
 
-            basicEffect.World = world;
+           basicEffect.World = world;
             basicEffect.View = view;
             basicEffect.Projection = projection;
             basicEffect.VertexColorEnabled = true;
 
             foreach (GameObject o in SceneObjects)
             {
-                o.EvtDraw(Editor.spriteBatch, Editor.Font, o.Sprite.Texture, vertexBuffer, basicEffect);
+                 o.EvtDraw(Editor.spriteBatch, Editor.Font, o.Sprite.Texture, vertexBuffer, basicEffect);
 
-             if (o == clickedObject)
-             {
-                 Editor.spriteBatch.DrawRectangle(new RectangleF(o.Position, new Size2(o.Sprite.ImageRectangle.Width, o.Sprite.ImageRectangle.Height)),Color.White, 2);
-             }
+                 if (o == clickedObject)
+                 {
+                     Editor.spriteBatch.DrawRectangle(new RectangleF(o.Position, new Size2(o.Sprite.ImageRectangle.Width, o.Sprite.ImageRectangle.Height)),Color.White, 2);
+                 }
             }
-            
+
+  
             Editor.spriteBatch.DrawString(Editor.Font, "Mouse X: " +Math.Round(MousePositionTranslated.X) + "\nMouse Y: " + Math.Round(MousePositionTranslated.Y), new Vector2(200, 200), Color.White);
 
             Editor.spriteBatch.DrawString(Editor.Font, framerate.ToString("F1"), new Vector2(100, 100), Color.White);
@@ -268,6 +272,17 @@ namespace SimplexIde
 
 
             Editor.spriteBatch.End();
+
+          //  mpb.world = world;
+          //  mpb.view = view;
+          //  mpb.projection = projection;
+         // mpb.TransformMatrix = transformMatrix;
+            
+         //   mpb.TransformMatrix = transformMatrix;
+          //  mpb.DrawString(new StringBuilder("Kokot"), new Vector2(100, 100), 15, Color.White);
+         //   mpb.DrawCircle(new Vector2(100, 100), 64, Color.White, 64);
+           // mpb.Flush();
+            //mpb.Clear();
 
             killClick = false;
         }

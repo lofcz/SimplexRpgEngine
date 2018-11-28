@@ -9,6 +9,9 @@
     <Import_RootNamespace>SimplexCore</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Ext\IPrimitiveBatcher.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Ext\MgPrimitiveBatcher.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Ext\PrimitiveBatcherBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameRoom.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Input.cs" />
