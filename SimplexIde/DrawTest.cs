@@ -497,6 +497,7 @@ namespace SimplexIde
 
         public void LoadGame(string path)
         {
+            bool flag = false;
             // First we fuck current scene
             ClearAll();
 
@@ -533,6 +534,10 @@ namespace SimplexIde
                     lt?.dtv.Nodes[0].Nodes.Add(dtn);
                 }
             }
+            else
+            {
+                flag = true;
+            }
 
             // Then we load raw data
             Root root = new Root();
@@ -560,6 +565,36 @@ namespace SimplexIde
                     SceneObjects.Add(g);
                 }
 
+            }
+
+            if (flag)
+            {
+                if (currentRoom != null)
+                {
+                    GameRoom gr = (GameRoom)Activator.CreateInstance(currentRoom.GetType());
+                    selectedLayer = gr.Layers[0];
+                    foreach (RoomLayer rl in gr.Layers)
+                    {
+                        DarkTreeNode dtn = new DarkTreeNode(rl.Name);
+                        dtn.Tag = dtn;
+                        dtn.Tag = "";
+
+                        if (rl.LayerType == RoomLayer.LayerTypes.typeObject)
+                        {
+                            dtn.Icon = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("WorldLocal_16x");
+                        }
+                        else if (rl.LayerType == RoomLayer.LayerTypes.typeAsset)
+                        {
+                            dtn.Icon = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("Image_16x");
+                        }
+                        else
+                        {
+                            dtn.Icon = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("MapLineLayer_16x");
+                        }
+
+                        lt?.dtv.Nodes[0].Nodes.Add(dtn);
+                    }
+                }
             }
         }
 
