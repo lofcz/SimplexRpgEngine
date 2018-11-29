@@ -65,6 +65,7 @@ namespace SimplexIde
         Matrix world = Matrix.Identity;
         private Matrix m;
         private SimplexCore.Ext.MgPrimitiveBatcher mpb;
+        private GameRoom currentRoom;
 
         public Vector2 GridSize = new Vector2(32, 32);
         public Vector2 GridSizeRender = new Vector2(32, 32);
@@ -104,6 +105,20 @@ namespace SimplexIde
            // Editor.spriteBatch = mpb;
         }
 
+        public void RenderLayers(TreeView tv)
+        {          
+            tv.Nodes[0].Nodes.Clear();
+
+            if (currentRoom != null)
+            {
+                GameRoom gr = (GameRoom) Activator.CreateInstance(currentRoom.GetType());
+
+                foreach (RoomLayer rl in gr.Layers)
+                {
+                    tv.Nodes[0].Nodes.Add(new TreeNode(rl.Name));
+                }
+            }
+        }
 
         public void Rsize()
         {
@@ -233,6 +248,7 @@ namespace SimplexIde
             {
                 Color c = Color.Black;
                 c.A = 128;
+                Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
                 for (float i = 0; i < 768; i += GridSizeRender.Y)
                 {
                     for (float j = 0; j < 1024; j += GridSizeRender.X)
@@ -242,6 +258,8 @@ namespace SimplexIde
                         Editor.spriteBatch.DrawRectangle(new RectangleF(j, i, GridSizeRender.X, GridSizeRender.Y), c, 1 );
                     }
                 }
+
+                Editor.spriteBatch.End();
             }
 
             //Editor.spriteBatch.DrawRectangle(new RectangleF(new Point2(0, 0), new Size2(Form1.width, Form1.height)), Color.White, 2);
@@ -500,6 +518,8 @@ namespace SimplexIde
                     g.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
                     SceneObjects.Add(g);
                 }
+
+                currentRoom = rawData.Room;
             }
 
         }

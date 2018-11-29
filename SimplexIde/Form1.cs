@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
+using DarkUI.Docking;
+using DarkUI.Forms;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using SimplexCore;
@@ -18,7 +20,7 @@ using MessageBox = Microsoft.Xna.Framework.Input.MessageBox;
 namespace SimplexIde
 {
 
-    public partial class Form1 : Form
+    public partial class Form1 : DarkForm
     {
         Type selectedObject = null;
         public static int width;
@@ -38,6 +40,15 @@ namespace SimplexIde
 
         private void Form1_Load(object sender, EventArgs e)
         {
+           // Application.AddMessageFilter(darkDockPanel2.DockContentDragFilter);
+            Application.AddMessageFilter(darkDockPanel2.DockResizeFilter);
+            Application.AddMessageFilter(darkDockPanel1.DockResizeFilter);
+            Application.AddMessageFilter(darkDockPanel1.DockContentDragFilter);
+            Application.AddMessageFilter(darkDockPanel3.DockResizeFilter);
+            Application.AddMessageFilter(darkDockPanel3.DockContentDragFilter);
+            Application.AddMessageFilter(darkDockPanel4.DockResizeFilter);
+            Application.AddMessageFilter(darkDockPanel4.DockContentDragFilter);
+
             Invalidate();
             drawTest1.cms = contextMenuStrip1;
             drawTest1.editorForm = this;
@@ -301,6 +312,59 @@ namespace SimplexIde
         private void drawTest1_SizeChanged(object sender, EventArgs e)
         {
             drawTest1.Rsize();
+        }
+
+        private void darkMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void darkMenuStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void darkSectionPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void darkDockPanel1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void darkDockPanel2_Load(object sender, EventArgs e)
+        {
+            ToolWindow w = new ToolWindow();
+            w.Dock = DockStyle.Fill;
+            darkDockPanel2.AddContent(w);
+        }
+
+        private void darkToolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void darkDockPanel3_Load(object sender, EventArgs e)
+        {
+            ControlInterface w = new ControlInterface();
+            ControlInterface ww = new ControlInterface();
+            ww.DockText = "Tiles";
+            darkDockPanel3.AddContent(w);
+            darkDockPanel3.AddContent(ww);
+
+        }
+
+        private void darkDockPanel4_Load(object sender, EventArgs e)
+        {
+            LayerTool w = new LayerTool();
+            darkDockPanel4.AddContent(w);
         }
     }
 }

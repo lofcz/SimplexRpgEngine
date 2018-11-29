@@ -22,11 +22,11 @@ namespace SimplexResources.Objects
         private Microsoft.Xna.Framework.Color c1;
         private Microsoft.Xna.Framework.Color c2;
         private int time;
+
         public Object2()
         {
             Sprite.TextureSource = "texture";
             EditorPath = "Colliders";
-           // ImageAlpha = 0.9f;
         }
         
         // Defines what happens once instance is placed in the room editor
@@ -36,8 +36,14 @@ namespace SimplexResources.Objects
             c2 = RandomColor();
 
             time = 0;
-            // DrawTest.BackgroundColor = Color.White; //RandomColor();
-            Debug.WriteLine(string_digits("kokot123kokot"));
+        }
+
+        public override void EvtLoad()
+        {
+            c1 = RandomColor();
+            c2 = RandomColor();
+
+            time = 0;
         }
 
         // This actual GMS-like Create event

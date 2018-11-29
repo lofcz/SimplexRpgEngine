@@ -40,3 +40,6 @@ C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\SharpDX.Math
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\MonoGame.Extended.Graphics.dll
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\MonoGame.Extended.Graphics.pdb
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\MonoGame.Extended.Graphics.xml
+C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\obj\Debug\SimplexIde.ToolWindow.resources
+C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\obj\Debug\SimplexIde.ControlInterface.resources
+C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\obj\Debug\SimplexIde.LayerTool.resources

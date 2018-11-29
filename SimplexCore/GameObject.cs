@@ -45,6 +45,7 @@ namespace SimplexCore
         public Vector2 ImageScale;
         public Vector2 ImageScaleTarget;
         public float ImageAlpha;
+        public RoomLayer Layer;
 
         [XmlIgnore]
         public string EditorPath;

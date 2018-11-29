@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DarkUI">
+      <HintPath>..\..\..\..\Desktop\DarkUI.dll</HintPath>
+    </Reference>
     <Reference Include="MonoGame.Extended, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MonoGame.Extended.1.1.0\lib\portable-net45+win8+wpa81\MonoGame.Extended.dll</HintPath>
     </Reference>
@@ -90,6 +93,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlInterface.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlInterface.Designer.cs">
+      <DependentUpon>ControlInterface.cs</DependentUpon>
+    </Compile>
     <Compile Include="DrawTest.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -99,10 +108,28 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="LayerTool.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LayerTool.Designer.cs">
+      <DependentUpon>LayerTool.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ToolWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ToolWindow.Designer.cs">
+      <DependentUpon>ToolWindow.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ControlInterface.resx">
+      <DependentUpon>ControlInterface.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LayerTool.resx">
+      <DependentUpon>LayerTool.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -114,6 +141,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ToolWindow.resx">
+      <DependentUpon>ToolWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -133,6 +163,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Noname.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Folder_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Run_16xMD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stop_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Property_left_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LayerTool_16x1.png" />
   </ItemGroup>
   <Import Project="..\SimplexCore\SimplexCore.projitems" Label="Shared" />
   <Import Project="..\SimplexResources\SimplexResources.projitems" Label="Shared" />

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Serialization;
 using Microsoft.Xna.Framework;
 
 namespace SimplexCore
@@ -11,7 +12,9 @@ namespace SimplexCore
         public Vector2 Size { get; set; }
         public string Name { get; set; }
         public Vector2 ViewSize { get; set; }
-        public List<RoomLayer> Layers { get; set; }
+
+        [XmlIgnore]
+        public List<RoomLayer> Layers;
 
         public GameRoom()
         {
