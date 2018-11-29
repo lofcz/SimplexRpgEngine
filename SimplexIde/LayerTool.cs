@@ -16,18 +16,21 @@ namespace SimplexIde
     {
         public DarkTreeView dtv = null;
 
-        public LayerTool()
+        public LayerTool(DrawTest f)
         {         
             InitializeComponent();
-        }
 
-        private void LayerTool_Load(object sender, EventArgs e)
-        {
             dtv = darkTreeView1;
 
             DarkTreeNode dtn = new DarkTreeNode("Layers");
             dtn.Icon = (Bitmap)Properties.Resources.ResourceManager.GetObject("Folder_16x");
             darkTreeView1.Nodes.Add(dtn);
+            f.lt = this;
+        }
+
+        private void LayerTool_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void darkTreeView1_Click(object sender, EventArgs e)

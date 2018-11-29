@@ -526,7 +526,7 @@ namespace SimplexIde
             }
 
             // Load layers
-            if (lt?.dtv.Nodes.Count > 0)
+            if (lt.dtv.Nodes.Count > 0)
             {
                 lt.dtv.Nodes[0].Nodes.Clear();
             }

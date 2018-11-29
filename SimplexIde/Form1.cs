@@ -373,7 +373,7 @@ namespace SimplexIde
 
         private void darkDockPanel4_Load(object sender, EventArgs e)
         {
-            LayerTool w = new LayerTool();
+            LayerTool w = new LayerTool(drawTest1);
             darkDockPanel4.AddContent(w);
 
             RoomsControl r = new RoomsControl();
