@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <GameRoom xsi:type="Room1">
+    <Layers>
+      <RoomLayer>
+        <Name>Object layer 1</Name>
+        <LayerType>typeObject</LayerType>
+        <Position>0</Position>
+        <Depth>0</Depth>
+      </RoomLayer>
+      <RoomLayer>
+        <Name>Tile layer 1</Name>
+        <LayerType>typeTile</LayerType>
+        <Position>0</Position>
+        <Depth>0</Depth>
+      </RoomLayer>
+    </Layers>
     <Size>
       <X>1024</X>
       <Y>768</Y>
@@ -13,8 +27,8 @@
   </GameRoom>
   <GameObject xsi:type="Object2">
     <Position>
-      <X>192</X>
-      <Y>174</Y>
+      <X>482</X>
+      <Y>157</Y>
     </Position>
     <TypeString>SimplexResources.Objects.Object2</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -29,52 +43,13 @@
       <Y>1</Y>
     </ImageScaleTarget>
     <ImageAlpha>1</ImageAlpha>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="Object3">
-    <Position>
-      <X>525</X>
-      <Y>214</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.Object3</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageAlpha>1</ImageAlpha>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="SampleObject">
-    <Position>
-      <X>919</X>
-      <Y>231</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.SampleObject</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageAlpha>0.275637358</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
     <Position>
-      <X>516</X>
-      <Y>350</Y>
+      <X>336</X>
+      <Y>151</Y>
     </Position>
     <TypeString>SimplexResources.Objects.Object2</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -89,12 +64,13 @@
       <Y>1</Y>
     </ImageScaleTarget>
     <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
     <Position>
-      <X>637</X>
-      <Y>353</Y>
+      <X>470</X>
+      <Y>358</Y>
     </Position>
     <TypeString>SimplexResources.Objects.Object2</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -109,12 +85,13 @@
       <Y>1</Y>
     </ImageScaleTarget>
     <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
     <ImageIndex>0</ImageIndex>
   </GameObject>
   <GameObject xsi:type="Object2">
     <Position>
-      <X>692</X>
-      <Y>436</Y>
+      <X>768</X>
+      <Y>347</Y>
     </Position>
     <TypeString>SimplexResources.Objects.Object2</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -129,6 +106,7 @@
       <Y>1</Y>
     </ImageScaleTarget>
     <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
     <ImageIndex>0</ImageIndex>
   </GameObject>
 </Root>

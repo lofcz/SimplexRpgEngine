@@ -67,8 +67,9 @@ namespace SimplexIde
         Matrix world = Matrix.Identity;
         private Matrix m;
         private SimplexCore.Ext.MgPrimitiveBatcher mpb;
-        private GameRoom currentRoom;
+        public GameRoom currentRoom;
         public LayerTool lt;
+        public RoomLayer selectedLayer;
 
         public Vector2 GridSize = new Vector2(32, 32);
         public Vector2 GridSizeRender = new Vector2(32, 32);
@@ -372,8 +373,9 @@ namespace SimplexIde
                                     o.TypeString = SelectedObject.ToString();
                                     o.Sprite.Texture = s.Texture;
                                     o.Position = vec;
-                                    o.Sprite.ImageRectangle =
-                                        new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
+                                    o.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
+                                    o.LayerName = selectedLayer.Name;
+                                    o.Layer = selectedLayer;
                                     o.EvtCreate();
 
 
@@ -498,33 +500,6 @@ namespace SimplexIde
             // First we fuck current scene
             ClearAll();
 
-            // Then we load raw data
-            Root root = new Root();
-            XmlSerializer ser = new XmlSerializer(typeof(Root), Form1.reflectedTypes.ToArray());
-            using (StreamReader w = new StreamReader(path))
-            {
-                Root rawData = (Root)ser.Deserialize(w);
-
-                // First load back room itself
-                Form1.width = (int)rawData.Room.Size.X;
-                Form1.height = (int)rawData.Room.Size.Y;
-                Form1.ActiveForm.Text = "Simplex RPG Engine / " + rawData.Room.Name;
-
-
-                // Time to load babies
-                foreach (GameObject g in rawData.Objects)
-                {
-                    Spritesheet s = Sprites.FirstOrDefault(x => x.Name == g.Sprite.TextureSource);
-
-                    g.EvtLoad();
-                    g.Sprite.Texture = s.Texture;
-                    g.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
-                    SceneObjects.Add(g);
-                }
-
-                currentRoom = rawData.Room;
-            }
-
             // Load layers
             if (lt.dtv.Nodes.Count > 0)
             {
@@ -535,10 +510,12 @@ namespace SimplexIde
             if (currentRoom != null)
             {
                 GameRoom gr = (GameRoom)Activator.CreateInstance(currentRoom.GetType());
-
+                selectedLayer = gr.Layers[0];
                 foreach (RoomLayer rl in gr.Layers)
                 {
                     DarkTreeNode dtn = new DarkTreeNode(rl.Name);
+                    dtn.Tag = dtn;
+                    dtn.Tag = "";
 
                     if (rl.LayerType == RoomLayer.LayerTypes.typeObject)
                     {
@@ -555,6 +532,34 @@ namespace SimplexIde
 
                     lt?.dtv.Nodes[0].Nodes.Add(dtn);
                 }
+            }
+
+            // Then we load raw data
+            Root root = new Root();
+            XmlSerializer ser = new XmlSerializer(typeof(Root), Form1.reflectedTypes.ToArray());
+            using (StreamReader w = new StreamReader(path))
+            {
+                Root rawData = (Root)ser.Deserialize(w);
+
+                // First load back room itself
+                Form1.width = (int)rawData.Room.Size.X;
+                Form1.height = (int)rawData.Room.Size.Y;
+                Form1.ActiveForm.Text = "Simplex RPG Engine / " + rawData.Room.Name;
+
+                currentRoom = rawData.Room;
+
+                // Time to load babies
+                foreach (GameObject g in rawData.Objects)
+                {
+                    Spritesheet s = Sprites.FirstOrDefault(x => x.Name == g.Sprite.TextureSource);
+
+                    g.EvtLoad();
+                    g.Sprite.Texture = s.Texture;
+                    g.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
+                    g.Layer = currentRoom.Layers.FirstOrDefault(x => x.Name == g.LayerName);
+                    SceneObjects.Add(g);
+                }
+
             }
         }
 

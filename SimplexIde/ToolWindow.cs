@@ -16,6 +16,8 @@ namespace SimplexIde
     public partial class ToolWindow : DarkToolWindow
     {
         public DarkTreeView dtv = null;
+        public DrawTest main = null;
+
         public ToolWindow()
         {
             InitializeComponent();
@@ -41,6 +43,15 @@ namespace SimplexIde
         private void darkTreeView1_Click(object sender, EventArgs e)
         {
            
+        }
+
+        private void darkTreeView1_SelectedNodesChanged(object sender, EventArgs e)
+        {
+            if (darkTreeView1.SelectedNodes.Count > 0)
+            {
+                DarkTreeNode dtn = darkTreeView1.SelectedNodes[0];
+                main.SelectedObject = Type.GetType("SimplexResources.Objects." + dtn.Text);
+            }
         }
     }
 }

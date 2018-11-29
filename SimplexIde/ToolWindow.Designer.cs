@@ -50,6 +50,7 @@
             this.darkTreeView1.Size = new System.Drawing.Size(298, 395);
             this.darkTreeView1.TabIndex = 0;
             this.darkTreeView1.Text = "darkTreeView1";
+            this.darkTreeView1.SelectedNodesChanged += new System.EventHandler(this.darkTreeView1_SelectedNodesChanged);
             this.darkTreeView1.Click += new System.EventHandler(this.darkTreeView1_Click);
             // 
             // darkToolStrip1
@@ -81,7 +82,7 @@
             this.toolStripTextBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.toolStripTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.toolStripTextBox2.Name = "toolStripTextBox2";
-            this.toolStripTextBox2.Size = new System.Drawing.Size(180, 28);
+            this.toolStripTextBox2.Size = new System.Drawing.Size(180, 23);
             // 
             // ToolWindow
             // 

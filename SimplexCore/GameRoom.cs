@@ -12,8 +12,6 @@ namespace SimplexCore
         public Vector2 Size { get; set; }
         public string Name { get; set; }
         public Vector2 ViewSize { get; set; }
-
-        [XmlIgnore]
         public List<RoomLayer> Layers;
 
         public GameRoom()

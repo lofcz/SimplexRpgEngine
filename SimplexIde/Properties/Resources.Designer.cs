@@ -273,6 +273,16 @@ namespace SimplexIde.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Visible_16xSM {
+            get {
+                object obj = ResourceManager.GetObject("Visible_16xSM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap WorldLocal_16x {
             get {
                 object obj = ResourceManager.GetObject("WorldLocal_16x", resourceCulture);

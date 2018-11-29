@@ -239,6 +239,9 @@
   <ItemGroup>
     <None Include="Resources\Undo_16x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Visible_16xSM.png" />
+  </ItemGroup>
   <Import Project="..\SimplexCore\SimplexCore.projitems" Label="Shared" />
   <Import Project="..\SimplexResources\SimplexResources.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

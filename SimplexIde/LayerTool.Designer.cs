@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.darkTreeView1 = new DarkUI.Controls.DarkTreeView();
+            this.darkContextMenu1 = new DarkUI.Controls.DarkContextMenu();
+            this.toggleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.darkContextMenu1.SuspendLayout();
             this.SuspendLayout();
             // 
             // darkTreeView1
@@ -41,7 +44,27 @@
             this.darkTreeView1.Size = new System.Drawing.Size(301, 306);
             this.darkTreeView1.TabIndex = 0;
             this.darkTreeView1.Text = "darkTreeView1";
+            this.darkTreeView1.SelectedNodesChanged += new System.EventHandler(this.darkTreeView1_SelectedNodesChanged);
             this.darkTreeView1.Click += new System.EventHandler(this.darkTreeView1_Click);
+            this.darkTreeView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.darkTreeView1_MouseClick);
+            // 
+            // darkContextMenu1
+            // 
+            this.darkContextMenu1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.darkContextMenu1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.darkContextMenu1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toggleToolStripMenuItem});
+            this.darkContextMenu1.Name = "darkContextMenu1";
+            this.darkContextMenu1.Size = new System.Drawing.Size(111, 26);
+            this.darkContextMenu1.Closed += new System.Windows.Forms.ToolStripDropDownClosedEventHandler(this.darkContextMenu1_Closed);
+            // 
+            // toggleToolStripMenuItem
+            // 
+            this.toggleToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.toggleToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.toggleToolStripMenuItem.Name = "toggleToolStripMenuItem";
+            this.toggleToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.toggleToolStripMenuItem.Text = "Toggle";
             // 
             // LayerTool
             // 
@@ -54,6 +77,7 @@
             this.Name = "LayerTool";
             this.Size = new System.Drawing.Size(301, 331);
             this.Load += new System.EventHandler(this.LayerTool_Load);
+            this.darkContextMenu1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -61,5 +85,7 @@
         #endregion
 
         private DarkUI.Controls.DarkTreeView darkTreeView1;
+        private DarkUI.Controls.DarkContextMenu darkContextMenu1;
+        private System.Windows.Forms.ToolStripMenuItem toggleToolStripMenuItem;
     }
 }

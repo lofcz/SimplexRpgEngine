@@ -273,6 +273,7 @@ namespace SimplexIde
         {
             ToolWindow w = new ToolWindow();
             w.Dock = DockStyle.Fill;
+            w.main = drawTest1;
             objects = w.dtv;
             darkDockPanel2.AddContent(w);
 
@@ -393,6 +394,16 @@ namespace SimplexIde
         }
 
         private void darkToolStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void saveToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            drawTest1.SaveGame("Data/" + activeRoom.Text);
+        }
+
+        private void newToolStripMenuItem1_Click(object sender, EventArgs e)
         {
 
         }
