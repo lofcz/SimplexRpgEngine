@@ -43,3 +43,4 @@ C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\MonoGame.Ext
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\obj\Debug\SimplexIde.ToolWindow.resources
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\obj\Debug\SimplexIde.ControlInterface.resources
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\obj\Debug\SimplexIde.LayerTool.resources
+C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\obj\Debug\SimplexIde.RoomsControl.resources

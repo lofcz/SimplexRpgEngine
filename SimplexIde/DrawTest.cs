@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using System.Xml.Serialization;
+using DarkUI.Collections;
+using DarkUI.Controls;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -66,6 +68,7 @@ namespace SimplexIde
         private Matrix m;
         private SimplexCore.Ext.MgPrimitiveBatcher mpb;
         private GameRoom currentRoom;
+        public LayerTool lt;
 
         public Vector2 GridSize = new Vector2(32, 32);
         public Vector2 GridSizeRender = new Vector2(32, 32);
@@ -223,7 +226,7 @@ namespace SimplexIde
             }
         }
 
-        public void InitializeNodes(TreeNodeCollection tnc)
+        public void InitializeNodes(ObservableList<DarkTreeNode> nodes)
         {
             Sprites = JsonConvert.DeserializeObject<List<Spritesheet>>(new StreamReader("../../../SimplexRpgEngine3/SpritesDescriptor.json").ReadToEnd());
 
@@ -522,6 +525,37 @@ namespace SimplexIde
                 currentRoom = rawData.Room;
             }
 
+            // Load layers
+            if (lt?.dtv.Nodes.Count > 0)
+            {
+                lt.dtv.Nodes[0].Nodes.Clear();
+            }
+
+
+            if (currentRoom != null)
+            {
+                GameRoom gr = (GameRoom)Activator.CreateInstance(currentRoom.GetType());
+
+                foreach (RoomLayer rl in gr.Layers)
+                {
+                    DarkTreeNode dtn = new DarkTreeNode(rl.Name);
+
+                    if (rl.LayerType == RoomLayer.LayerTypes.typeObject)
+                    {
+                        dtn.Icon = (System.Drawing.Bitmap) Properties.Resources.ResourceManager.GetObject("WorldLocal_16x");
+                    }
+                    else if (rl.LayerType == RoomLayer.LayerTypes.typeAsset)
+                    {
+                        dtn.Icon = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("Image_16x");
+                    }
+                    else
+                    {
+                        dtn.Icon = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("MapLineLayer_16x");
+                    }
+
+                    lt?.dtv.Nodes[0].Nodes.Add(dtn);
+                }
+            }
         }
 
         public void cmsClosed()

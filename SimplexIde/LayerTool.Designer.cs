@@ -37,9 +37,11 @@
             this.darkTreeView1.Location = new System.Drawing.Point(0, 25);
             this.darkTreeView1.MaxDragChange = 20;
             this.darkTreeView1.Name = "darkTreeView1";
+            this.darkTreeView1.ShowIcons = true;
             this.darkTreeView1.Size = new System.Drawing.Size(301, 306);
             this.darkTreeView1.TabIndex = 0;
             this.darkTreeView1.Text = "darkTreeView1";
+            this.darkTreeView1.Click += new System.EventHandler(this.darkTreeView1_Click);
             // 
             // LayerTool
             // 

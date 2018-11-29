@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Reflection;
+using DarkUI.Controls;
 using DarkUI.Docking;
 using DarkUI.Forms;
 using Microsoft.Xna.Framework;
@@ -25,8 +26,10 @@ namespace SimplexIde
         Type selectedObject = null;
         public static int width;
         public static int height;
-        public static TreeNode activeRoom;
+        public static DarkTreeNode activeRoom;
         public static List<Type> reflectedTypes = new List<Type>();
+        public DarkTreeView objects;
+        public DarkTreeView rooms;
 
         public Form1()
         {
@@ -52,81 +55,8 @@ namespace SimplexIde
             Invalidate();
             drawTest1.cms = contextMenuStrip1;
             drawTest1.editorForm = this;
-
+            //drawTest1.lt = darkDockPanel4.
             // load list of all defined objects
-            string nspace = "SimplexResources.Objects";
-
-            var q = from t in Assembly.GetExecutingAssembly().GetTypes()
-                where t.IsClass && t.Namespace == nspace
-                select t;
-            List<Type> classList = q.ToList().ToList();
-
-            foreach (Type t in classList)
-            {
-                using (GameObject o = (GameObject)Activator.CreateInstance(t))
-                {
-                    TreeNode tn = new TreeNode();
-                    tn.Text = t.Name;
-                    tn.SelectedImageIndex = 0;
-                    tn.ImageIndex = 0;
-                    tn.Name = t.Name;
-
-                    if (string.IsNullOrEmpty(o.EditorPath))
-                    {
-                        treeView1.Nodes[0].Nodes.Add(t.Name);
-                    }
-                    else
-                    {
-                        string[] pathTokens = o.EditorPath.Split('/');
-                        TreeNode currentNode = treeView1.Nodes[0];
-
-                        foreach (string s in pathTokens)
-                        {
-                            if (!currentNode.Nodes.ContainsKey(s))
-                            {
-                                TreeNode folderNode = new TreeNode();
-                                folderNode.Text = s;
-                                folderNode.ImageIndex = 1;
-                                folderNode.SelectedImageIndex = 1;
-                                folderNode.Name = s;
-
-                                currentNode.Nodes.Add(folderNode);
-                                currentNode = folderNode;
-                            }
-                            else
-                            {
-                                currentNode = currentNode.Nodes.Find(s, false).FirstOrDefault();
-                                currentNode?.Nodes.Add(tn);
-                                break;
-                            }
-
-                            if (s == pathTokens[pathTokens.Length - 1])
-                            {
-                                currentNode?.Nodes.Add(tn);
-                            }
-                        }
-                    }
-                }
-
-                reflectedTypes.Add(t);
-            }
-
-            nspace = "SimplexResources.Rooms";
-            q = from t in Assembly.GetExecutingAssembly().GetTypes()
-                where t.IsClass && t.Namespace == nspace
-                select t;
-            classList = q.ToList().ToList();
-
-            foreach (Type t in classList)
-            {
-                treeView2.Nodes[0].Nodes.Add(t.Name);
-                reflectedTypes.Add(t);
-            }
-
-            activeRoom = null;
-            drawTest1.InitializeNodes(treeView1.Nodes);
-
-
         }
 
         public void updateStack(int steps)
@@ -154,14 +84,14 @@ namespace SimplexIde
         {
             if (activeRoom == null)
             {
-                activeRoom = treeView2.TopNode;
+               // activeRoom = treeView2.TopNode;
             }
             drawTest1.SaveGame(Path.Combine(Environment.CurrentDirectory, @"Data/" + activeRoom.Text));
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            drawTest1.ToggleGrid(checkBox1.Checked);
+            //drawTest1.ToggleGrid(checkBox1.Checked);
         }
 
         private void drawTest1_MouseMove(object sender, MouseEventArgs e)
@@ -216,12 +146,12 @@ namespace SimplexIde
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            width = (int)numericUpDown1.Value;
+           // width = (int)numericUpDown1.Value;
         }
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
-            height = (int)numericUpDown2.Value;
+          //  height = (int)numericUpDown2.Value;
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -242,7 +172,7 @@ namespace SimplexIde
                 drawTest1.SaveGame(Path.Combine(Environment.CurrentDirectory, @"Data/" + activeRoom.Text));
             }
 
-            activeRoom = treeView2.SelectedNode;
+          //  activeRoom = treeView2.SelectedNode;
 
             if (File.Exists(Path.Combine(Environment.CurrentDirectory, @"Data/" + activeRoom.Text)))
             {
@@ -281,7 +211,7 @@ namespace SimplexIde
 
         private void numericUpDown5_ValueChanged(object sender, EventArgs e)
         {
-            drawTest1.GridSize = new Vector2((int)numericUpDown5.Value, (int)numericUpDown6.Value);
+         //   drawTest1.GridSize = new Vector2((int)numericUpDown5.Value, (int)numericUpDown6.Value);
         }
 
         private void numericUpDown6_ValueChanged(object sender, EventArgs e)
@@ -343,7 +273,87 @@ namespace SimplexIde
         {
             ToolWindow w = new ToolWindow();
             w.Dock = DockStyle.Fill;
+            objects = w.dtv;
             darkDockPanel2.AddContent(w);
+
+            loadResources();
+        }
+
+        void loadResources()
+        {
+            string nspace = "SimplexResources.Objects";
+
+            var q = from t in Assembly.GetExecutingAssembly().GetTypes()
+                    where t.IsClass && t.Namespace == nspace
+                    select t;
+            List<Type> classList = q.ToList().ToList();
+
+            foreach (Type t in classList)
+            {
+                using (GameObject o = (GameObject)Activator.CreateInstance(t))
+                {
+                    DarkTreeNode tn = new DarkTreeNode();
+                    tn.Text = t.Name;
+                    tn.Tag = t.Name;
+                    tn.Icon = Properties.Resources.AzureDefaultResource_16x;
+
+                    if (string.IsNullOrEmpty(o.EditorPath))
+                    {
+                        tn.Icon = Properties.Resources.Folder_16x;
+
+                        objects.Nodes[0].Nodes.Add(tn);
+                    }
+                    else
+                    {
+                        string[] pathTokens = o.EditorPath.Split('/');
+                        DarkTreeNode currentNode = objects.Nodes[0];
+
+                        foreach (string s in pathTokens)
+                        {
+                            if (currentNode.Nodes.FindIndex(x => (string)x.Tag == s) == -1)
+                            {
+                                DarkTreeNode folderNode = new DarkTreeNode();
+                                folderNode.Text = s;
+                                folderNode.Tag = s;
+                                folderNode.Icon = Properties.Resources.Folder_16x;
+
+                                currentNode.Nodes.Add(folderNode);
+                                currentNode = folderNode;
+                            }
+                            else
+                            {
+                                currentNode = currentNode.Nodes.Find(x => x.Text == s);
+                                currentNode?.Nodes.Add(tn);
+                                break;
+                            }
+
+                            if (s == pathTokens[pathTokens.Length - 1])
+                            {
+                                currentNode?.Nodes.Add(tn);
+                            }
+                        }
+                    }
+                }
+
+                reflectedTypes.Add(t);
+            }
+
+            nspace = "SimplexResources.Rooms";
+            q = from t in Assembly.GetExecutingAssembly().GetTypes()
+                where t.IsClass && t.Namespace == nspace
+                select t;
+            classList = q.ToList().ToList();
+
+            foreach (Type t in classList)
+            {
+                rooms.Nodes[0].Nodes.Add(new DarkTreeNode(t.Name) {Icon = Properties.Resources.MapTileLayer_16x});
+                reflectedTypes.Add(t);
+            }
+
+            activeRoom = null;
+            drawTest1.InitializeNodes(objects.Nodes);
+
+
         }
 
         private void darkToolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -365,6 +375,26 @@ namespace SimplexIde
         {
             LayerTool w = new LayerTool();
             darkDockPanel4.AddContent(w);
+
+            RoomsControl r = new RoomsControl();
+            r.drawTest1 = drawTest1;
+            darkDockPanel4.AddContent(r);
+            rooms = r.dtv;
+        }
+
+        private void darkToolStrip3_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void toolStripTextBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void darkToolStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }
