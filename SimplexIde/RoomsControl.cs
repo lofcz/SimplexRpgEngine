@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DarkUI.Controls;
 using DarkUI.Docking;
+using DarkUI.Forms;
 
 namespace SimplexIde
 {
@@ -26,6 +27,7 @@ namespace SimplexIde
             dtv = darkTreeView1;
 
             DarkTreeNode dtn = new DarkTreeNode("Rooms");
+            dtn.Tag = "folder";
             dtn.Icon = (Bitmap)Properties.Resources.ResourceManager.GetObject("Folder_16x");
             darkTreeView1.Nodes.Add(dtn);
         }
@@ -37,36 +39,39 @@ namespace SimplexIde
 
         private void darkTreeView1_Click(object sender, EventArgs e)
         {
-
+           
         }
 
         private void darkTreeView1_SelectedNodesChanged(object sender, EventArgs e)
         {
+            if (dtv.SelectedNodes.Count > 0)
+            {
+                if ((string)dtv.SelectedNodes[0].Tag != "folder")
+                {
+                    if (Form1.activeRoom != null)
+                    {
+                        drawTest1.SaveGame(Path.Combine(Environment.CurrentDirectory,
+                            @"Data/" + Form1.activeRoom.Text));
+                    }
 
+                    Form1.activeRoom = dtv.SelectedNodes[0];
+
+                    if (File.Exists(Path.Combine(Environment.CurrentDirectory, @"Data/" + Form1.activeRoom.Text)))
+                    {
+                        drawTest1.LoadGame(Path.Combine(Environment.CurrentDirectory,
+                            @"Data/" + Form1.activeRoom.Text));
+                    }
+                    else
+                    {
+                        drawTest1.ClearAll();
+                    }
+                }
+            }
         }
 
         private void darkTreeView1_DoubleClick(object sender, EventArgs e)
         {
-            var k = darkTreeView1.SelectedNodes.Count;
-
-            if (k > 0)
-            {
-                if (Form1.activeRoom != null)
-                {
-                    drawTest1.SaveGame(Path.Combine(Environment.CurrentDirectory, @"Data/" + Form1.activeRoom.Text));
-                }
-
-                Form1.activeRoom = dtv.SelectedNodes[0];
-
-                if (File.Exists(Path.Combine(Environment.CurrentDirectory, @"Data/" + Form1.activeRoom.Text)))
-                {
-                    drawTest1.LoadGame(Path.Combine(Environment.CurrentDirectory, @"Data/" + Form1.activeRoom.Text));
-                }
-                else
-                {
-                    drawTest1.ClearAll();
-                }
-            }
+            
         }
     }
 }
