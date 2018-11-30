@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
@@ -19,9 +20,12 @@ namespace SimplexResources.Objects
 {
     public class Object2 : GameObject
     {
-        private Microsoft.Xna.Framework.Color c1;
-        private Microsoft.Xna.Framework.Color c2;
-        private int time;
+        public Microsoft.Xna.Framework.Color c1;
+        public Microsoft.Xna.Framework.Color c2;
+
+
+        // all variables to be serialized have to be public
+        public int time;
 
         public Object2()
         {
@@ -40,10 +44,7 @@ namespace SimplexResources.Objects
 
         public override void EvtLoad()
         {
-            c1 = RandomColor();
-            c2 = RandomColor();
-
-            time = 0;
+            //time = 0;
         }
 
         // This actual GMS-like Create event
