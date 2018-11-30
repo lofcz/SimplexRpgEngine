@@ -61,6 +61,7 @@ These are defined in the same way like classic events but occur on room editor e
 - EvtSave - Before instance gets serialized
 - EvtDelete - When object is removed from a room 
 - EvtDraw - Occurs when object is drawn in room editor
+- EvtStep - Occurs on each tick (60x per second)
 - EvtContextMenuSelected - Once an item is selected from a right-click context menu
 
 ### Ported namespaces/functions
