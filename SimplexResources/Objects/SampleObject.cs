@@ -17,7 +17,6 @@ using Keys = Microsoft.Xna.Framework.Input.Keys;
 
 namespace SimplexResources.Objects
 {
-    [Serializable]
     public class SampleObject : GameObject
     {
         private float lineThickness = 0;

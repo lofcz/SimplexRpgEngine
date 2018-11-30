@@ -20,8 +20,8 @@ namespace SimplexResources.Objects
 {
     public class Object2 : GameObject
     {
-        public Microsoft.Xna.Framework.Color c1;
-        public Microsoft.Xna.Framework.Color c2;
+        public Color c1;
+        public Color c2;
 
 
         // all variables to be serialized have to be public

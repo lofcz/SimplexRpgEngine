@@ -29,6 +29,7 @@ using ButtonState = Microsoft.Xna.Framework.Input.ButtonState;
 using Color = Microsoft.Xna.Framework.Color;
 using FillMode = Microsoft.Xna.Framework.Graphics.FillMode;
 using Keys = Microsoft.Xna.Framework.Input.Keys;
+using MessageBox = System.Windows.Forms.MessageBox;
 using Point = SharpDX.Point;
 using RectangleF = MonoGame.Extended.RectangleF;
 using VertexBuffer = Microsoft.Xna.Framework.Graphics.VertexBuffer;
@@ -70,6 +71,7 @@ namespace SimplexIde
         public GameRoom currentRoom;
         public LayerTool lt;
         public RoomLayer selectedLayer;
+        public List<RoomLayer> roomLayers = new List<RoomLayer>();
 
         public Vector2 GridSize = new Vector2(32, 32);
         public Vector2 GridSizeRender = new Vector2(32, 32);
@@ -278,14 +280,25 @@ namespace SimplexIde
 
             foreach (GameObject o in SceneObjects)
             {
-                 o.EvtDraw(Editor.spriteBatch, Editor.Font, o.Sprite.Texture, vertexBuffer, basicEffect, transformMatrix);
+                if (o.Layer != null)
+                {
+                    if (o.Layer.Visible)
+                    {
+                        o.EvtDraw(Editor.spriteBatch, Editor.Font, o.Sprite.Texture, vertexBuffer, basicEffect,
+                            transformMatrix);
 
-                 if (o == clickedObject)
-                 {
-                    Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
-                    Editor.spriteBatch.DrawRectangle(new RectangleF(o.Position, new Size2(o.Sprite.ImageRectangle.Width, o.Sprite.ImageRectangle.Height)),Color.White, 2);
-                    Editor.spriteBatch.End();
-                 }
+                        if (o == clickedObject)
+                        {
+                            Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
+                            Editor.spriteBatch.DrawRectangle(
+                                new RectangleF(o.Position,
+                                    new Size2(o.Sprite.ImageRectangle.Width, o.Sprite.ImageRectangle.Height)),
+                                Color.White,
+                                2);
+                            Editor.spriteBatch.End();
+                        }
+                    }
+                }
             }
 
   
@@ -493,6 +506,8 @@ namespace SimplexIde
         public void ClearAll()
         {
             SceneObjects.Clear();
+            roomLayers.Clear();
+            
         }
 
         public void LoadGame(string path)
@@ -531,6 +546,7 @@ namespace SimplexIde
                         dtn.Icon = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("MapLineLayer_16x");
                     }
 
+                    roomLayers.Add(rl);
                     lt?.dtv.Nodes[0].Nodes.Add(dtn);
                 }
             }
@@ -561,7 +577,8 @@ namespace SimplexIde
                     g.EvtLoad();
                     g.Sprite.Texture = s.Texture;
                     g.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
-                    g.Layer = currentRoom.Layers.FirstOrDefault(x => x.Name == g.LayerName);
+                    g.Layer = roomLayers.FirstOrDefault(x => x.Name == g.LayerName);
+
                     SceneObjects.Add(g);
                 }
 

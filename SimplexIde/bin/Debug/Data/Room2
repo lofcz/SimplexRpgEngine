@@ -3,6 +3,7 @@
   <GameRoom xsi:type="Room2">
     <Layers>
       <RoomLayer>
+        <Visible>true</Visible>
         <Name>Object layer 69</Name>
         <LayerType>typeObject</LayerType>
         <Position>0</Position>

@@ -55,16 +55,18 @@
             this.darkContextMenu1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toggleToolStripMenuItem});
             this.darkContextMenu1.Name = "darkContextMenu1";
-            this.darkContextMenu1.Size = new System.Drawing.Size(111, 26);
+            this.darkContextMenu1.Size = new System.Drawing.Size(181, 48);
             this.darkContextMenu1.Closed += new System.Windows.Forms.ToolStripDropDownClosedEventHandler(this.darkContextMenu1_Closed);
+            this.darkContextMenu1.Opening += new System.ComponentModel.CancelEventHandler(this.darkContextMenu1_Opening);
             // 
             // toggleToolStripMenuItem
             // 
             this.toggleToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.toggleToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.toggleToolStripMenuItem.Name = "toggleToolStripMenuItem";
-            this.toggleToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.toggleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.toggleToolStripMenuItem.Text = "Toggle";
+            this.toggleToolStripMenuItem.Click += new System.EventHandler(this.toggleToolStripMenuItem_Click);
             // 
             // LayerTool
             // 

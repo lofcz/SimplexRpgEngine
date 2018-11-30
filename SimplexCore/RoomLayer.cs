@@ -19,5 +19,11 @@ namespace SimplexCore
         public LayerTypes LayerType { get; set; }
         public int Position { get; set; }
         public int Depth { get; set; }
+        public bool Visible;
+
+        public RoomLayer()
+        {
+            Visible = true;
+        }
     }
 }
