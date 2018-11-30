@@ -67,9 +67,14 @@ namespace SimplexResources.Objects
             // draw_set_alpha(0.5);
             // draw_triangle(Position.X, Position.Y, Position.X + 100, Position.Y, Position.X + 50, Position.Y + 50, false);
 
+            draw_set_alpha(1);
             draw_sprite(objectTexture, ImageIndex, Position);
-            draw_set_alpha(abs(sin(degtorad(time))));
-            draw_circle_color(Position, 128 + (int)(128 * abs(sin(degtorad(time)))), false, c1, Microsoft.Xna.Framework.Color.Transparent);
+
+            s.Begin(transformMatrix: transform);
+            s.DrawString(f, Sprite.ImageRectangle.Width.ToString(), Position, Color.White);
+            s.End();
+           // draw_set_alpha(abs(sin(degtorad(time))));
+           // draw_circle_color(Position, 128 + (int)(128 * abs(sin(degtorad(time)))), false, c1, Microsoft.Xna.Framework.Color.Transparent);
 
             //draw_set_alpha(1);
             // sb.Draw(objectTexture, Position, Color.White);

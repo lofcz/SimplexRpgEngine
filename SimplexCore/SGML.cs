@@ -45,29 +45,40 @@ namespace SimplexCore
 
         public static bool PlaceEmpty(Vector2 position)
         {
-            foreach (GameObject g in SceneObjects)
+            if (SceneObjects.Count > 0)
             {
-               Rectangle r = new Rectangle((int)g.Position.X, (int)g.Position.Y, g.Sprite.ImageRectangle.Width, g.Sprite.ImageRectangle.Height);
+                foreach (GameObject g in SceneObjects)
+                {
+                    Rectangle r = new Rectangle((int) g.Position.X, (int) g.Position.Y, g.Sprite.ImageRectangle.Width,
+                        g.Sprite.ImageRectangle.Height);
 
-               if (r.Contains(position))
-               {
-                   return false;
-               }
+                    if (r.Contains(position))
+                    {
+                        return false;
+                    }
+                }
             }
+
             return true;
         }
 
         public static GameObject InstancePlace(Vector2 vec)
         {
-            for (int i = SceneObjects.Count - 1; i >= 0; i--)
+            if (SceneObjects.Count > 0)
             {
-                Rectangle r = new Rectangle((int)SceneObjects[i].Position.X, (int)SceneObjects[i].Position.Y, SceneObjects[i].Sprite.ImageRectangle.Width, SceneObjects[i].Sprite.ImageRectangle.Height);
-
-                if (r.Contains(vec))
+                List<GameObject> sortedObjects = SceneObjects.OrderBy(x => x.Layer.Depth).ToList();
+                for (int i = sortedObjects.Count - 1; i >= 0; i--)
                 {
-                    return SceneObjects[i];
+                    Rectangle r = new Rectangle((int)sortedObjects[i].Position.X, (int)sortedObjects[i].Position.Y,
+                        sortedObjects[i].Sprite.ImageRectangle.Width, sortedObjects[i].Sprite.ImageRectangle.Height);
+
+                    if (r.Contains(vec))
+                    {
+                        return SceneObjects.FirstOrDefault(x => x.Equals(sortedObjects[i]));
+                    }
                 }
             }
+
             return null;
         }
         

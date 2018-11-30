@@ -346,8 +346,8 @@ namespace SimplexIde
             basicEffect.Projection = projection;
             basicEffect.VertexColorEnabled = true;
 
-           
-            foreach (GameObject o in SceneObjects)
+            List<GameObject> sortedObjects = SceneObjects.OrderBy(x => x.Layer.Depth).ToList();
+            foreach (GameObject o in sortedObjects)
             {
                 if (o.Layer != null)
                 {
@@ -518,12 +518,12 @@ namespace SimplexIde
 
                                             o.Sprite = new Sprite();
                                             o.Sprite.Texture = tx;
-                                            o.Sprite.ImageRectangle =
-                                                new Microsoft.Xna.Framework.Rectangle(0, 0, 16, 16);
+                                            o.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, 16, 16);
                                         }
                                         else
                                         {
                                             o.Sprite.Texture = s.Texture;
+                                            o.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
                                         }
 
                                         o.Position = new Vector2(vec.X - s.CellWidth / 2f, vec.Y - s.CellHeight / 2f);
@@ -535,6 +535,8 @@ namespace SimplexIde
 
 
                                         SceneObjects.Add(o);
+
+                                      //  SceneObjects = SceneObjects.OrderBy(x => x.Layer.Depth).ToList();
                                     }
 
                                     if (!Input.KeyboardState.IsKeyDown(Keys.LeftShift))
@@ -672,6 +674,7 @@ namespace SimplexIde
             {
                 GameRoom gr = (GameRoom)Activator.CreateInstance(currentRoom.GetType());
                 selectedLayer = gr.Layers[0];
+                int currentDepth = 0;
                 foreach (RoomLayer rl in gr.Layers)
                 {
                     DarkTreeNode dtn = new DarkTreeNode(rl.Name);
@@ -691,6 +694,8 @@ namespace SimplexIde
                         dtn.Icon = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("MapLineLayer_16x");
                     }
 
+                    rl.Depth = currentDepth;
+                    currentDepth += 100;
                     roomLayers.Add(rl);
                     lt?.dtv.Nodes[0].Nodes.Add(dtn);
                 }
