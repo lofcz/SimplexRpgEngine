@@ -1,5 +1,12 @@
 [
   {
+    "Name": "unknown",
+    "Rows": 1,
+    "FramesPerRow": 1,
+    "CellHeight": 16,
+    "CellWidth": 16
+  },
+  {
     "Name": "elves",
     "Rows": 4,
     "FramesPerRow": 7,
@@ -10,7 +17,7 @@
     "Name": "texture",
     "Rows": 1,
     "CellHeight": 32,
-    "CellWidth":  32 
+    "CellWidth": 32
   }
 
 ]

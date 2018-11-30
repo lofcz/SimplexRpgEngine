@@ -70,6 +70,7 @@ namespace SimplexCore
             ImageIndex = 0;
             TransformSpeed = 0.2f;
             Sprite = new Sprite();
+            Sprite.TextureSource = "unknown";
             ImageAlpha = 1;
         }
 
@@ -118,6 +119,11 @@ namespace SimplexCore
         }
 
         public virtual void EvtDelete()
+        {
+
+        }
+
+        public virtual void EvtStep()
         {
 
         }

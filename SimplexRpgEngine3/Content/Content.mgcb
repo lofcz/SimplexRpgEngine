@@ -33,6 +33,18 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/DA_male1.png;Sprites/elves.png
 
+#begin Sprites/Question_16x.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Question_16x.png;Sprites/unknown.png
+
 #begin Sprites/texture.png
 /importer:TextureImporter
 /processor:TextureProcessor

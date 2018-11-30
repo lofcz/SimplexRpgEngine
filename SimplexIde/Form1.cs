@@ -30,7 +30,7 @@ namespace SimplexIde
         public static List<Type> reflectedTypes = new List<Type>();
         public DarkTreeView objects;
         public DarkTreeView rooms;
-
+        
         public Form1()
         {
             InitializeComponent();
@@ -67,6 +67,11 @@ namespace SimplexIde
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        public void setStatusBottom(string text)
+        {
+            toolStripStatusLabel1.Text = text;
         }
 
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -379,6 +384,7 @@ namespace SimplexIde
 
             RoomsControl r = new RoomsControl();
             r.drawTest1 = drawTest1;
+            r.form1 = this;
             darkDockPanel4.AddContent(r);
             rooms = r.dtv;
         }
@@ -406,6 +412,16 @@ namespace SimplexIde
         private void newToolStripMenuItem1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            drawTest1.GameRunning = true;
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            drawTest1.GameRunning = false;
         }
     }
 }

@@ -55,6 +55,8 @@ namespace SimplexIde
                     }
 
                     Form1.activeRoom = dtv.SelectedNodes[0];
+                    form1.setStatusBottom("Editing " + Form1.activeRoom.Text);
+
 
                     if (File.Exists(Path.Combine(Environment.CurrentDirectory, @"Data/" + Form1.activeRoom.Text)))
                     {

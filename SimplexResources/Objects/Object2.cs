@@ -53,9 +53,13 @@ namespace SimplexResources.Objects
             Debug.WriteLine("Hello c#");
         }
 
-        public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, VertexBuffer vb, BasicEffect be, Matrix transform)
+        public override void EvtStep()
         {
             time++;
+        }
+
+        public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, VertexBuffer vb, BasicEffect be, Matrix transform)
+        {
             // Initialize render engine for this instance
             DrawStart(s, vb, be, transform);
             //    s.Draw(objectTexture, Position, DrawColor);

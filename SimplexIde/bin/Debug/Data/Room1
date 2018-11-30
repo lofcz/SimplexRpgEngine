@@ -61,7 +61,7 @@
       <A>255</A>
       <PackedValue>4285546110</PackedValue>
     </c2>
-    <time>1302</time>
+    <time>5383</time>
   </GameObject>
   <GameObject xsi:type="Object2">
     <Position>
@@ -97,7 +97,7 @@
       <A>255</A>
       <PackedValue>4283566990</PackedValue>
     </c2>
-    <time>1240</time>
+    <time>5321</time>
   </GameObject>
   <GameObject xsi:type="Object2">
     <Position>
@@ -133,7 +133,7 @@
       <A>255</A>
       <PackedValue>4293254831</PackedValue>
     </c2>
-    <time>1005</time>
+    <time>5086</time>
   </GameObject>
   <GameObject xsi:type="Object2">
     <Position>
@@ -169,7 +169,7 @@
       <A>255</A>
       <PackedValue>4279502952</PackedValue>
     </c2>
-    <time>916</time>
+    <time>4997</time>
   </GameObject>
   <GameObject xsi:type="Object2">
     <Position>
@@ -205,7 +205,7 @@
       <A>255</A>
       <PackedValue>4285575711</PackedValue>
     </c2>
-    <time>852</time>
+    <time>4933</time>
   </GameObject>
   <GameObject xsi:type="Object2">
     <Position>
@@ -241,7 +241,7 @@
       <A>255</A>
       <PackedValue>4286023544</PackedValue>
     </c2>
-    <time>163</time>
+    <time>4925</time>
   </GameObject>
   <GameObject xsi:type="Object2">
     <Position>
@@ -277,6 +277,438 @@
       <A>255</A>
       <PackedValue>4289814064</PackedValue>
     </c2>
-    <time>125</time>
+    <time>4887</time>
+  </GameObject>
+  <GameObject xsi:type="Object2">
+    <Position>
+      <X>242.704071</X>
+      <Y>19.6539516</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object2</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageIndex>0</ImageIndex>
+    <c1>
+      <B>204</B>
+      <G>252</G>
+      <R>79</R>
+      <A>255</A>
+      <PackedValue>4291624015</PackedValue>
+    </c1>
+    <c2>
+      <B>220</B>
+      <G>241</G>
+      <R>230</R>
+      <A>255</A>
+      <PackedValue>4292669926</PackedValue>
+    </c2>
+    <time>2438</time>
+  </GameObject>
+  <GameObject xsi:type="Object2">
+    <Position>
+      <X>386.704</X>
+      <Y>-21.3460274</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object2</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageIndex>0</ImageIndex>
+    <c1>
+      <B>57</B>
+      <G>13</G>
+      <R>239</R>
+      <A>255</A>
+      <PackedValue>4281929199</PackedValue>
+    </c1>
+    <c2>
+      <B>37</B>
+      <G>147</G>
+      <R>134</R>
+      <A>255</A>
+      <PackedValue>4280652678</PackedValue>
+    </c2>
+    <time>2442</time>
+  </GameObject>
+  <GameObject xsi:type="Object2">
+    <Position>
+      <X>66.704155</X>
+      <Y>-21.3460274</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object2</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageIndex>0</ImageIndex>
+    <c1>
+      <B>132</B>
+      <G>219</G>
+      <R>216</R>
+      <A>255</A>
+      <PackedValue>4286897112</PackedValue>
+    </c1>
+    <c2>
+      <B>80</B>
+      <G>114</G>
+      <R>199</R>
+      <A>255</A>
+      <PackedValue>4283462343</PackedValue>
+    </c2>
+    <time>2443</time>
+  </GameObject>
+  <GameObject xsi:type="Object2">
+    <Position>
+      <X>370.704</X>
+      <Y>-42.34602</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object2</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageIndex>0</ImageIndex>
+    <c1>
+      <B>187</B>
+      <G>55</G>
+      <R>45</R>
+      <A>255</A>
+      <PackedValue>4290459437</PackedValue>
+    </c1>
+    <c2>
+      <B>237</B>
+      <G>107</G>
+      <R>237</R>
+      <A>255</A>
+      <PackedValue>4293749741</PackedValue>
+    </c2>
+    <time>2473</time>
+  </GameObject>
+  <GameObject xsi:type="Object2">
+    <Position>
+      <X>-93.29577</X>
+      <Y>94.6539154</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object2</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageIndex>0</ImageIndex>
+    <c1>
+      <B>205</B>
+      <G>37</G>
+      <R>227</R>
+      <A>255</A>
+      <PackedValue>4291634659</PackedValue>
+    </c1>
+    <c2>
+      <B>118</B>
+      <G>243</G>
+      <R>50</R>
+      <A>255</A>
+      <PackedValue>4285985586</PackedValue>
+    </c2>
+    <time>2458</time>
+  </GameObject>
+  <GameObject xsi:type="Object2">
+    <Position>
+      <X>146.704117</X>
+      <Y>73.65392</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object2</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageIndex>0</ImageIndex>
+    <c1>
+      <B>16</B>
+      <G>141</G>
+      <R>190</R>
+      <A>255</A>
+      <PackedValue>4279274942</PackedValue>
+    </c1>
+    <c2>
+      <B>3</B>
+      <G>32</G>
+      <R>158</R>
+      <A>255</A>
+      <PackedValue>4278395038</PackedValue>
+    </c2>
+    <time>2449</time>
+  </GameObject>
+  <GameObject xsi:type="Object2">
+    <Position>
+      <X>483.703949</X>
+      <Y>311.6538</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object2</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Tile layer 1</LayerName>
+    <ImageIndex>0</ImageIndex>
+    <c1>
+      <B>228</B>
+      <G>40</G>
+      <R>237</R>
+      <A>255</A>
+      <PackedValue>4293142765</PackedValue>
+    </c1>
+    <c2>
+      <B>195</B>
+      <G>106</G>
+      <R>65</R>
+      <A>255</A>
+      <PackedValue>4290996801</PackedValue>
+    </c2>
+    <time>994</time>
+  </GameObject>
+  <GameObject xsi:type="Object2">
+    <Position>
+      <X>399.703979</X>
+      <Y>98.6539154</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object2</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Tile layer 1</LayerName>
+    <ImageIndex>0</ImageIndex>
+    <c1>
+      <B>201</B>
+      <G>215</G>
+      <R>241</R>
+      <A>255</A>
+      <PackedValue>4291418097</PackedValue>
+    </c1>
+    <c2>
+      <B>50</B>
+      <G>88</G>
+      <R>21</R>
+      <A>255</A>
+      <PackedValue>4281489429</PackedValue>
+    </c2>
+    <time>955</time>
+  </GameObject>
+  <GameObject xsi:type="Object2">
+    <Position>
+      <X>380.704</X>
+      <Y>461.653748</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object2</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Tile layer 1</LayerName>
+    <ImageIndex>0</ImageIndex>
+    <c1>
+      <B>157</B>
+      <G>232</G>
+      <R>244</R>
+      <A>255</A>
+      <PackedValue>4288538868</PackedValue>
+    </c1>
+    <c2>
+      <B>185</B>
+      <G>184</G>
+      <R>85</R>
+      <A>255</A>
+      <PackedValue>4290361429</PackedValue>
+    </c2>
+    <time>933</time>
+  </GameObject>
+  <GameObject xsi:type="Object2">
+    <Position>
+      <X>147.704117</X>
+      <Y>562.6537</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object2</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Tile layer 1</LayerName>
+    <ImageIndex>0</ImageIndex>
+    <c1>
+      <B>161</B>
+      <G>1</G>
+      <R>33</R>
+      <A>255</A>
+      <PackedValue>4288741665</PackedValue>
+    </c1>
+    <c2>
+      <B>110</B>
+      <G>162</G>
+      <R>74</R>
+      <A>255</A>
+      <PackedValue>4285440586</PackedValue>
+    </c2>
+    <time>899</time>
+  </GameObject>
+  <GameObject xsi:type="Object2">
+    <Position>
+      <X>683.703857</X>
+      <Y>558.6537</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object2</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Tile layer 1</LayerName>
+    <ImageIndex>0</ImageIndex>
+    <c1>
+      <B>230</B>
+      <G>166</G>
+      <R>87</R>
+      <A>255</A>
+      <PackedValue>4293305943</PackedValue>
+    </c1>
+    <c2>
+      <B>227</B>
+      <G>8</G>
+      <R>13</R>
+      <A>255</A>
+      <PackedValue>4293068813</PackedValue>
+    </c2>
+    <time>823</time>
+  </GameObject>
+  <GameObject xsi:type="Object2">
+    <Position>
+      <X>827.7038</X>
+      <Y>247.653839</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object2</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Tile layer 1</LayerName>
+    <ImageIndex>0</ImageIndex>
+    <c1>
+      <B>104</B>
+      <G>133</G>
+      <R>64</R>
+      <A>255</A>
+      <PackedValue>4285039936</PackedValue>
+    </c1>
+    <c2>
+      <B>54</B>
+      <G>119</G>
+      <R>108</R>
+      <A>255</A>
+      <PackedValue>4281759596</PackedValue>
+    </c2>
+    <time>784</time>
   </GameObject>
 </Root>

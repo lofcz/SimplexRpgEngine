@@ -6,11 +6,13 @@
   <SourceFiles>
     <File>C:/Users/lof/Documents/GitHub/SimplexRpgEngine/SimplexRpgEngine3/Content/Fonts/File.spritefont</File>
     <File>C:/Users/lof/Documents/GitHub/SimplexRpgEngine/SimplexRpgEngine3/Content/Sprites/DA_male1.png</File>
+    <File>C:/Users/lof/Documents/GitHub/SimplexRpgEngine/SimplexRpgEngine3/Content/Sprites/Question_16x.png</File>
     <File>C:/Users/lof/Documents/GitHub/SimplexRpgEngine/SimplexRpgEngine3/Content/Sprites/texture.png</File>
   </SourceFiles>
   <DestFiles>
     <File>Fonts/font1.spritefont</File>
     <File>Sprites/elves.png</File>
+    <File>Sprites/unknown.png</File>
     <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>

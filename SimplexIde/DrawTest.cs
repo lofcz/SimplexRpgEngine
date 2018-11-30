@@ -25,6 +25,7 @@ using SimplexCore;
 using SimplexCore.Ext;
 using SimplexResources.Objects;
 using SimplexResources.Rooms;
+using Bitmap = System.Drawing.Bitmap;
 using ButtonState = Microsoft.Xna.Framework.Input.ButtonState;
 using Color = Microsoft.Xna.Framework.Color;
 using FillMode = Microsoft.Xna.Framework.Graphics.FillMode;
@@ -76,6 +77,7 @@ namespace SimplexIde
         public Vector2 GridSize = new Vector2(32, 32);
         public Vector2 GridSizeRender = new Vector2(32, 32);
         public Form1 editorForm;
+        public bool GameRunning = true;
 
         protected override void Initialize()
         {
@@ -160,6 +162,20 @@ namespace SimplexIde
             if (Input.KeyPressed(Keys.Q))
             {
                 cam.TargetZoom -= 0.1f;
+            }
+
+            foreach (GameObject o in SceneObjects)
+            {
+                if (o.Layer != null)
+                {
+                    if (o.Layer.Visible)
+                    {
+                        if (GameRunning || o == clickedObject)
+                        {
+                            o.EvtStep();
+                        }
+                    }
+                }
             }
 
             Input.KeyboardStatePrevious = Keyboard.GetState();
@@ -284,18 +300,21 @@ namespace SimplexIde
                 {
                     if (o.Layer.Visible)
                     {
-                        o.EvtDraw(Editor.spriteBatch, Editor.Font, o.Sprite.Texture, vertexBuffer, basicEffect,
-                            transformMatrix);
-
-                        if (o == clickedObject)
+                        //if (GameRunning || o == clickedObject)
                         {
-                            Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
-                            Editor.spriteBatch.DrawRectangle(
-                                new RectangleF(o.Position,
-                                    new Size2(o.Sprite.ImageRectangle.Width, o.Sprite.ImageRectangle.Height)),
-                                Color.White,
-                                2);
-                            Editor.spriteBatch.End();
+                            o.EvtDraw(Editor.spriteBatch, Editor.Font, o.Sprite.Texture, vertexBuffer, basicEffect,
+                                transformMatrix);
+
+                            if (o == clickedObject)
+                            {
+                                Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
+                                Editor.spriteBatch.DrawRectangle(
+                                    new RectangleF(o.Position,
+                                        new Size2(o.Sprite.ImageRectangle.Width, o.Sprite.ImageRectangle.Height)),
+                                    Color.White,
+                                    2);
+                                Editor.spriteBatch.End();
+                            }
                         }
                     }
                 }
@@ -348,6 +367,17 @@ namespace SimplexIde
             }
         }
 
+        public static Texture2D ConvertToTexture(System.Drawing.Bitmap b, GraphicsDevice graphicsDevice)
+        {
+            Texture2D tx = null;
+            using (MemoryStream s = new MemoryStream())
+            {
+                b.Save(s, System.Drawing.Imaging.ImageFormat.Png);
+                s.Seek(0, SeekOrigin.Begin);
+                tx = Texture2D.FromStream(graphicsDevice, s);
+            }
+            return tx;
+        }
         public void GameClicked(MouseEventArgs e, MouseButtons mb)
         {
             MousePositionTranslated = cam.Camera.ScreenToWorld(MousePosition);
@@ -371,7 +401,12 @@ namespace SimplexIde
                             if (Sgml.PlaceEmpty(vec))
                             {
                                 GameObject o = (GameObject) Activator.CreateInstance(SelectedObject);
-                                Spritesheet s = Sprites.FirstOrDefault(x => x.Name == o.Sprite.TextureSource);
+
+                                Spritesheet s = new Spritesheet();
+                                if (o.Sprite != null)
+                                {
+                                    s = Sprites.FirstOrDefault(x => x.Name == o.Sprite.TextureSource);
+                                }
 
                                 if (!cmsOpen && SelectedObject != null)
                                 {
@@ -384,7 +419,21 @@ namespace SimplexIde
 
                                     o.OriginalType = SelectedObject;
                                     o.TypeString = SelectedObject.ToString();
-                                    o.Sprite.Texture = s.Texture;
+ 
+                                    if (s == null)
+                                    {
+                                        Texture2D tx = ConvertToTexture(Properties.Resources.Question_16x, GraphicsDevice);
+
+
+                                        o.Sprite = new Sprite();
+                                        o.Sprite.Texture = tx;
+                                        o.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, 16, 16);
+                                    }
+                                    else
+                                    {
+                                        o.Sprite.Texture = s.Texture;
+                                    }
+
                                     o.Position = vec;
                                     o.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
                                     o.LayerName = selectedLayer.Name;
