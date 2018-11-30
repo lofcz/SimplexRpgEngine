@@ -61,6 +61,9 @@ namespace SimplexCore
 
         private float _imageIndex;
 
+        [XmlIgnore]
+        public Vector2 TempPosition = Vector2.Zero;
+
         public GameObject()
         {
             ImageScale = Vector2.One;

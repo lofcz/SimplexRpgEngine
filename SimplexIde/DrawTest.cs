@@ -32,6 +32,7 @@ using FillMode = Microsoft.Xna.Framework.Graphics.FillMode;
 using Keys = Microsoft.Xna.Framework.Input.Keys;
 using MessageBox = System.Windows.Forms.MessageBox;
 using Point = SharpDX.Point;
+using Rectangle = System.Drawing.Rectangle;
 using RectangleF = MonoGame.Extended.RectangleF;
 using VertexBuffer = Microsoft.Xna.Framework.Graphics.VertexBuffer;
 
@@ -53,6 +54,7 @@ namespace SimplexIde
         public Vector2 MousePosition;
         public Vector2 MousePositionTranslated;
         public GameObject clickedObject = null;
+        public List<GameObject> selectedRectangleObjects = new List<GameObject>();
         private bool mouseLocked = false;
         private Vector2 helpVec;
         private Vector2 clickedVec;
@@ -73,11 +75,13 @@ namespace SimplexIde
         public LayerTool lt;
         public RoomLayer selectedLayer;
         public List<RoomLayer> roomLayers = new List<RoomLayer>();
+        public RectangleF selectionRectangle = new RectangleF();
 
         public Vector2 GridSize = new Vector2(32, 32);
         public Vector2 GridSizeRender = new Vector2(32, 32);
         public Form1 editorForm;
         public bool GameRunning = true;
+        public Vector2 MousePrevious = new Vector2();
 
         protected override void Initialize()
         {
@@ -190,6 +194,26 @@ namespace SimplexIde
         {
             mouseLocked = false;
 
+
+
+            if (Input.KeyboardState.IsKeyDown(Keys.LeftControl))
+            {
+                selectedRectangleObjects.Clear();
+
+                foreach (GameObject o in SceneObjects)
+                {
+                    RectangleF r = new RectangleF(o.Position, new Size2(o.Sprite.ImageRectangle.Width, o.Sprite.ImageRectangle.Height));
+
+                    if (r.Intersects(selectionRectangle))
+                    {
+                        o.TempPosition = new Vector2(o.Position.X - MousePositionTranslated.X, o.Position.Y  - MousePositionTranslated.Y);
+                        selectedRectangleObjects.Add(o);
+                    }
+                }
+            }
+
+            selectionRectangle = RectangleF.Empty;
+
             if (!cms.Visible)
             {
                 clickedObject = null;
@@ -201,6 +225,34 @@ namespace SimplexIde
         public void ClickLock(MouseButtons btn)
         {
             mouseLocked = true;
+            MousePrevious = MousePositionTranslated;
+
+            if (selectedRectangleObjects.Count > 0)
+            {
+                bool flag = false;
+                foreach (GameObject o in selectedRectangleObjects)
+                {
+                    RectangleF r = new RectangleF(o.Position,
+                        new Size2(o.Sprite.ImageRectangle.Width, o.Sprite.ImageRectangle.Height));
+                    if (r.Intersects(new RectangleF(MousePositionTranslated.X, MousePositionTranslated.Y, 4, 4)))
+                    {
+                        flag = true;
+                        break;
+                    }
+                }
+
+                if (!flag)
+                {
+                    selectedRectangleObjects.Clear();
+                }
+            }
+
+            if (btn == MouseButtons.Left && Input.KeyboardState.IsKeyDown(Keys.LeftControl))
+            {
+                Vector2 vec = MousePositionTranslated;
+                selectionRectangle.X = vec.X;
+                selectionRectangle.Y = vec.Y;
+            }
 
             if (btn == MouseButtons.Middle)
             {
@@ -294,6 +346,7 @@ namespace SimplexIde
             basicEffect.Projection = projection;
             basicEffect.VertexColorEnabled = true;
 
+           
             foreach (GameObject o in SceneObjects)
             {
                 if (o.Layer != null)
@@ -305,7 +358,9 @@ namespace SimplexIde
                             o.EvtDraw(Editor.spriteBatch, Editor.Font, o.Sprite.Texture, vertexBuffer, basicEffect,
                                 transformMatrix);
 
-                            if (o == clickedObject)
+                            RectangleF r = new RectangleF(o.Position, new Size2(o.Sprite.ImageRectangle.Width, o.Sprite.ImageRectangle.Height));
+
+                            if (o == clickedObject || r.Intersects(selectionRectangle) || selectedRectangleObjects.Contains(o))
                             {
                                 Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
                                 Editor.spriteBatch.DrawRectangle(
@@ -320,7 +375,12 @@ namespace SimplexIde
                 }
             }
 
-  
+            if (Input.KeyboardState.IsKeyDown(Keys.LeftControl))
+            {
+                Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
+                Editor.spriteBatch.DrawRectangle(selectionRectangle, Color.White, 2);
+                Editor.spriteBatch.End();
+            }
             //Editor.spriteBatch.DrawString(Editor.Font, "Mouse X: " +Math.Round(MousePositionTranslated.X) + "\nMouse Y: " + Math.Round(MousePositionTranslated.Y), new Vector2(200, 200), Color.White);
 
             //Editor.spriteBatch.DrawString(Editor.Font, framerate.ToString("F1"), new Vector2(100, 100), Color.White);
@@ -378,6 +438,7 @@ namespace SimplexIde
             }
             return tx;
         }
+
         public void GameClicked(MouseEventArgs e, MouseButtons mb)
         {
             MousePositionTranslated = cam.Camera.ScreenToWorld(MousePosition);
@@ -385,17 +446,43 @@ namespace SimplexIde
             if (mb == MouseButtons.Left)
             {
                 goodBoy = true;
-                if (clickedObject == null)
+                Vector2 vec = MousePositionTranslated;
+
+
+                if (DrawGrid)
                 {
-                    if (SelectedObject != null)
-                    {                       
-                        Vector2 vec = MousePositionTranslated;
+                    vec = new Vector2((int)vec.X / 32 * 32, (int)vec.Y / 32 * 32);
+                }
 
-                        if (DrawGrid)
+                if (Input.KeyboardState.IsKeyDown(Keys.LeftControl))
+                {
+                    selectionRectangle.Width = -selectionRectangle.X + vec.X;
+                    selectionRectangle.Height = -selectionRectangle.Y + vec.Y;
+                }
+                else if (clickedObject == null)
+                {
+                    if (selectedRectangleObjects.Count > 0)
+                    {
+                        bool flag = true;
+
+                        if (flag)
                         {
-                            vec = new Vector2((int) vec.X / 32 * 32, (int) vec.Y / 32 * 32);
+                            if (selectedRectangleObjects.Count > 0)
+                            {
+                                foreach (GameObject o in selectedRectangleObjects)
+                                {
+                                    o.Position += new Vector2(vec.X - MousePrevious.X, vec.Y - MousePrevious.Y);
+                                }
+                            }
                         }
-
+                        else
+                        {
+                            selectedRectangleObjects.Clear();
+                            
+                        }
+                    }
+                    else if (SelectedObject != null)
+                    {                       
                         if (!Input.KeyboardState.IsKeyDown(Keys.LeftShift) || Sgml.PlaceEmpty(vec))
                         {
                             if (Sgml.PlaceEmpty(vec))
@@ -467,7 +554,7 @@ namespace SimplexIde
                 }
                 else
                 {
-                    Vector2 vec = MousePositionTranslated;
+                    vec = MousePositionTranslated;
                     vec = new Vector2(vec.X + helpVec.X, vec.Y + helpVec.Y);
 
                     if (DrawGrid)
@@ -504,6 +591,8 @@ namespace SimplexIde
                     }
                 }
             }
+
+            MousePrevious = MousePositionTranslated;
         }
 
         public void RightClickMenuSelected(ToolStripItemClickedEventArgs e)
