@@ -481,59 +481,66 @@ namespace SimplexIde
                             
                         }
                     }
-                    else if (SelectedObject != null)
+                    else
                     {                       
                         if (!Input.KeyboardState.IsKeyDown(Keys.LeftShift) || Sgml.PlaceEmpty(vec))
                         {
                             if (Sgml.PlaceEmpty(vec))
                             {
-                                GameObject o = (GameObject) Activator.CreateInstance(SelectedObject);
-
-                                Spritesheet s = new Spritesheet();
-                                if (o.Sprite != null)
+                                if (SelectedObject != null)
                                 {
-                                    s = Sprites.FirstOrDefault(x => x.Name == o.Sprite.TextureSource);
-                                }
+                                    GameObject o = (GameObject) Activator.CreateInstance(SelectedObject);
 
-                                if (!cmsOpen && SelectedObject != null)
-                                {
-                                    if (stackedSteps.Count > 31)
+                                    Spritesheet s = new Spritesheet();
+                                    if (o.Sprite != null)
                                     {
-                                        stackedSteps.Pop();
-                                    }
-                                    stackedSteps.Push(SceneObjects.ToList());
-                                    editorForm.updateStack(stackedSteps.Count);
-
-                                    o.OriginalType = SelectedObject;
-                                    o.TypeString = SelectedObject.ToString();
- 
-                                    if (s == null)
-                                    {
-                                        Texture2D tx = ConvertToTexture(Properties.Resources.Question_16x, GraphicsDevice);
-
-
-                                        o.Sprite = new Sprite();
-                                        o.Sprite.Texture = tx;
-                                        o.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, 16, 16);
-                                    }
-                                    else
-                                    {
-                                        o.Sprite.Texture = s.Texture;
+                                        s = Sprites.FirstOrDefault(x => x.Name == o.Sprite.TextureSource);
                                     }
 
-                                    o.Position = vec;
-                                    o.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
-                                    o.LayerName = selectedLayer.Name;
-                                    o.Layer = selectedLayer;
-                                    o.EvtCreate();
+                                    if (!cmsOpen && SelectedObject != null)
+                                    {
+                                        if (stackedSteps.Count > 31)
+                                        {
+                                            stackedSteps.Pop();
+                                        }
+
+                                        stackedSteps.Push(SceneObjects.ToList());
+                                        editorForm.updateStack(stackedSteps.Count);
+
+                                        o.OriginalType = SelectedObject;
+                                        o.TypeString = SelectedObject.ToString();
+
+                                        if (s == null)
+                                        {
+                                            Texture2D tx = ConvertToTexture(Properties.Resources.Question_16x,
+                                                GraphicsDevice);
 
 
-                                    SceneObjects.Add(o);
-                                }
+                                            o.Sprite = new Sprite();
+                                            o.Sprite.Texture = tx;
+                                            o.Sprite.ImageRectangle =
+                                                new Microsoft.Xna.Framework.Rectangle(0, 0, 16, 16);
+                                        }
+                                        else
+                                        {
+                                            o.Sprite.Texture = s.Texture;
+                                        }
 
-                                if (!Input.KeyboardState.IsKeyDown(Keys.LeftShift))
-                                {
-                                    clickedObject = o;
+                                        o.Position = new Vector2(vec.X - s.CellWidth / 2f, vec.Y - s.CellHeight / 2f);
+                                        o.Sprite.ImageRectangle =
+                                            new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
+                                        o.LayerName = selectedLayer.Name;
+                                        o.Layer = selectedLayer;
+                                        o.EvtCreate();
+
+
+                                        SceneObjects.Add(o);
+                                    }
+
+                                    if (!Input.KeyboardState.IsKeyDown(Keys.LeftShift))
+                                    {
+                                        clickedObject = o;
+                                    }
                                 }
                             }
                         }

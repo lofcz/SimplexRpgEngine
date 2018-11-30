@@ -29,8 +29,8 @@
   </GameRoom>
   <GameObject xsi:type="Object2">
     <Position>
-      <X>466</X>
-      <Y>222</Y>
+      <X>419.75</X>
+      <Y>191.999969</Y>
     </Position>
     <TypeString>SimplexResources.Objects.Object2</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -61,7 +61,7 @@
       <A>255</A>
       <PackedValue>4285546110</PackedValue>
     </c2>
-    <time>5406</time>
+    <time>8370</time>
   </GameObject>
   <GameObject xsi:type="Object2">
     <Position>
@@ -97,12 +97,12 @@
       <A>255</A>
       <PackedValue>4283566990</PackedValue>
     </c2>
-    <time>5344</time>
+    <time>8308</time>
   </GameObject>
   <GameObject xsi:type="Object2">
     <Position>
-      <X>859</X>
-      <Y>267</Y>
+      <X>793.999939</X>
+      <Y>71.99994</Y>
     </Position>
     <TypeString>SimplexResources.Objects.Object2</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -133,7 +133,7 @@
       <A>255</A>
       <PackedValue>4293254831</PackedValue>
     </c2>
-    <time>5109</time>
+    <time>8073</time>
   </GameObject>
   <GameObject xsi:type="Object2">
     <Position>
@@ -169,7 +169,7 @@
       <A>255</A>
       <PackedValue>4279502952</PackedValue>
     </c2>
-    <time>5020</time>
+    <time>7984</time>
   </GameObject>
   <GameObject xsi:type="Object2">
     <Position>
@@ -205,7 +205,7 @@
       <A>255</A>
       <PackedValue>4285575711</PackedValue>
     </c2>
-    <time>4956</time>
+    <time>7920</time>
   </GameObject>
   <GameObject xsi:type="Object2">
     <Position>
@@ -241,7 +241,7 @@
       <A>255</A>
       <PackedValue>4286023544</PackedValue>
     </c2>
-    <time>4948</time>
+    <time>7912</time>
   </GameObject>
   <GameObject xsi:type="Object2">
     <Position>
@@ -277,7 +277,7 @@
       <A>255</A>
       <PackedValue>4289814064</PackedValue>
     </c2>
-    <time>4910</time>
+    <time>7874</time>
   </GameObject>
   <GameObject xsi:type="Object2">
     <Position>
@@ -313,7 +313,7 @@
       <A>255</A>
       <PackedValue>4292669926</PackedValue>
     </c2>
-    <time>2461</time>
+    <time>5425</time>
   </GameObject>
   <GameObject xsi:type="Object2">
     <Position>
@@ -349,7 +349,7 @@
       <A>255</A>
       <PackedValue>4280652678</PackedValue>
     </c2>
-    <time>2465</time>
+    <time>5429</time>
   </GameObject>
   <GameObject xsi:type="Object2">
     <Position>
@@ -385,7 +385,7 @@
       <A>255</A>
       <PackedValue>4283462343</PackedValue>
     </c2>
-    <time>2466</time>
+    <time>5430</time>
   </GameObject>
   <GameObject xsi:type="Object2">
     <Position>
@@ -421,7 +421,7 @@
       <A>255</A>
       <PackedValue>4293749741</PackedValue>
     </c2>
-    <time>2496</time>
+    <time>5460</time>
   </GameObject>
   <GameObject xsi:type="Object2">
     <Position>
@@ -457,7 +457,7 @@
       <A>255</A>
       <PackedValue>4285985586</PackedValue>
     </c2>
-    <time>2481</time>
+    <time>5445</time>
   </GameObject>
   <GameObject xsi:type="Object2">
     <Position>
@@ -493,7 +493,7 @@
       <A>255</A>
       <PackedValue>4278395038</PackedValue>
     </c2>
-    <time>2472</time>
+    <time>5436</time>
   </GameObject>
   <GameObject xsi:type="Object2">
     <Position>
@@ -529,7 +529,7 @@
       <A>255</A>
       <PackedValue>4290996801</PackedValue>
     </c2>
-    <time>1017</time>
+    <time>3981</time>
   </GameObject>
   <GameObject xsi:type="Object2">
     <Position>
@@ -565,7 +565,7 @@
       <A>255</A>
       <PackedValue>4281489429</PackedValue>
     </c2>
-    <time>978</time>
+    <time>3942</time>
   </GameObject>
   <GameObject xsi:type="Object2">
     <Position>
@@ -601,7 +601,7 @@
       <A>255</A>
       <PackedValue>4290361429</PackedValue>
     </c2>
-    <time>956</time>
+    <time>3920</time>
   </GameObject>
   <GameObject xsi:type="Object2">
     <Position>
@@ -637,7 +637,7 @@
       <A>255</A>
       <PackedValue>4285440586</PackedValue>
     </c2>
-    <time>922</time>
+    <time>3886</time>
   </GameObject>
   <GameObject xsi:type="Object2">
     <Position>
@@ -673,12 +673,12 @@
       <A>255</A>
       <PackedValue>4293068813</PackedValue>
     </c2>
-    <time>846</time>
+    <time>3810</time>
   </GameObject>
   <GameObject xsi:type="Object2">
     <Position>
-      <X>827.7038</X>
-      <Y>247.653839</Y>
+      <X>732.703735</X>
+      <Y>286.403839</Y>
     </Position>
     <TypeString>SimplexResources.Objects.Object2</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -709,6 +709,78 @@
       <A>255</A>
       <PackedValue>4281759596</PackedValue>
     </c2>
-    <time>807</time>
+    <time>3771</time>
+  </GameObject>
+  <GameObject xsi:type="Object2">
+    <Position>
+      <X>282.624878</X>
+      <Y>303.875</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object2</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageIndex>0</ImageIndex>
+    <c1>
+      <B>58</B>
+      <G>67</G>
+      <R>90</R>
+      <A>255</A>
+      <PackedValue>4282008410</PackedValue>
+    </c1>
+    <c2>
+      <B>162</B>
+      <G>14</G>
+      <R>59</R>
+      <A>255</A>
+      <PackedValue>4288810555</PackedValue>
+    </c2>
+    <time>2411</time>
+  </GameObject>
+  <GameObject xsi:type="Object2">
+    <Position>
+      <X>628.875</X>
+      <Y>197.624969</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object2</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageIndex>0</ImageIndex>
+    <c1>
+      <B>88</B>
+      <G>96</G>
+      <R>193</R>
+      <A>255</A>
+      <PackedValue>4283982017</PackedValue>
+    </c1>
+    <c2>
+      <B>233</B>
+      <G>144</G>
+      <R>37</R>
+      <A>255</A>
+      <PackedValue>4293496869</PackedValue>
+    </c2>
+    <time>2281</time>
   </GameObject>
 </Root>
