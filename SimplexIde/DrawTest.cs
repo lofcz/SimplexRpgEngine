@@ -538,8 +538,8 @@ namespace SimplexIde
                                         o.Sprite.TextureRows = s.Rows;
                                         o.Sprite.TextureCellsPerRow = s.Texture.Width / s.CellWidth;
                                         o.Sprite.ImageSize = new Vector2(s.CellWidth, s.CellHeight);
-                                        o.Sprite.FramesCount = (s.Texture.Width / s.CellWidth) * (s.Texture.Height / s.CellHeight) - 1;
-                                        o.FramesCount = o.Sprite.FramesCount - 1;
+                                        o.Sprite.FramesCount = Math.Max((s.Texture.Width / s.CellWidth) * (s.Texture.Height / s.CellHeight) - 1, 1);
+                                        o.FramesCount = Math.Max(o.Sprite.FramesCount - 1, 1);
                                         o.Sprite.cellW = s.CellHeight;
                                         o.Sprite.cellH = s.CellWidth;
 

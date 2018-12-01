@@ -36,6 +36,8 @@ namespace SimplexResources.Objects
             Sprite.TextureSource = "elves2";
             EditorPath = "Colliders";
             ImageSpeed = 0.01;
+
+            Colliders.Add(new ColliderRectangle() {Collision = new RectangleF(16, 48, 32, 16)});
         }
         
         // Defines what happens once instance is placed in the room editor
@@ -64,6 +66,7 @@ namespace SimplexResources.Objects
             this.Sprite.UpdateImageAngle();
             this.Sprite.UpdateImageScale();
             this.Sprite.UpdateImageRectangle();
+            UpdateColliders();
 
             if (Input.KeyboardState.IsKeyDown(Keys.D) || Input.KeyboardState.IsKeyDown(Keys.W) || Input.KeyboardState.IsKeyDown(Keys.S) || Input.KeyboardState.IsKeyDown(Keys.A))
             {
@@ -78,28 +81,56 @@ namespace SimplexResources.Objects
             if (Input.KeyboardState.IsKeyDown(Keys.D))
             {
                 ImageIndex = (float)clamp(ImageIndex, 27, 36);
-                Position.X += (float)speed;
+
+                RectangleF bR = (Colliders[0] as ColliderRectangle).CollisionTransformed;
+                bR.X += (float)speed;
+                if (PlaceEmptyRectangle(bR))
+                {
+                    Position.X += (float) speed;
+                }
+
                 LastImageIndex = ImageIndex;
             }
             else if (Input.KeyboardState.IsKeyDown(Keys.A))
             {
                 ImageIndex = (float)clamp(ImageIndex, 9, 18);
                 if (ImageIndex == 18) { ImageIndex = 9;}
-                Position.X -= (float)speed;
+
+                RectangleF bR = (Colliders[0] as ColliderRectangle).CollisionTransformed;
+                bR.X -= (float)speed;
+                if (PlaceEmptyRectangle(bR))
+                {
+                    Position.X -= (float) speed;
+                }
+
                 LastImageIndex = ImageIndex;
             }
             else if (Input.KeyboardState.IsKeyDown(Keys.W))
             {
                 ImageIndex = (float)clamp(ImageIndex, 0, 9);
                 if (ImageIndex == 9) { ImageIndex = 0; }
-                Position.Y -= (float)speed;
+
+                RectangleF bR = (Colliders[0] as ColliderRectangle).CollisionTransformed;
+                bR.Y -= (float)speed;
+                if (PlaceEmptyRectangle(bR))
+                {
+                    Position.Y -= (float) speed;
+                }
+
                 LastImageIndex = ImageIndex;
             }
             else if (Input.KeyboardState.IsKeyDown(Keys.S))
             {
                 ImageIndex = (float)clamp(ImageIndex, 18, 27);
                 if (ImageIndex == 27) { ImageIndex = 18; }
-                Position.Y += (float)speed;
+
+                RectangleF bR = (Colliders[0] as ColliderRectangle).CollisionTransformed;
+                bR.Y += (float)speed;
+                if (PlaceEmptyRectangle(bR))
+                {
+                    Position.Y += (float) speed;
+                }
+
                 LastImageIndex = ImageIndex;
             }
         }
@@ -117,12 +148,13 @@ namespace SimplexResources.Objects
             draw_sprite(objectTexture, ImageIndex, Position);
 
             s.Begin(transformMatrix: transform);
-
+            //s.DrawLine(Position.X, Position.Y, Position.X - 4, Position.Y, Color.Aqua);
+           // s.DrawRectangle((Colliders[0] as ColliderRectangle).CollisionTransformed, Color.Aqua);
             //s.DrawString(f, ImageIndex.ToString(), Position, Color.White);
             s.End();
             draw_set_alpha(abs(sin(degtorad(time))));
             draw_circle_color(new Vector2(Position.X + 32, Position.Y + 32), 128 + (int)(128 * abs(sin(degtorad(time)))), false, c1, Microsoft.Xna.Framework.Color.Transparent);
-
+            draw_set_alpha(1);
             //draw_set_alpha(1);
             // sb.Draw(objectTexture, Position, Color.White);
         }

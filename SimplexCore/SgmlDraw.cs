@@ -105,16 +105,19 @@ namespace SimplexCore
 
         public static void draw_sprite(Texture2D sprite, double subimg, Vector2 position)
         {
-            int y = ((int)subimg / currentObject.Sprite.TextureCellsPerRow);
-            int x = ((int)subimg % currentObject.Sprite.TextureCellsPerRow);
+                int y = ((int) subimg / currentObject.Sprite.TextureCellsPerRow);
+                int x = ((int) subimg % currentObject.Sprite.TextureCellsPerRow);
 
-            //Debug.WriteLine("x:" + x + " y: " + y);
+                //Debug.WriteLine("x:" + x + " y: " + y);
 
-            Rectangle ImageRectangle = new Rectangle(x * currentObject.Sprite.cellW, y * (int)currentObject.Sprite.cellH, (int)currentObject.Sprite.cellW, (int)currentObject.Sprite.cellH);
+                Rectangle ImageRectangle = new Rectangle(x * currentObject.Sprite.cellW,
+                    y * (int) currentObject.Sprite.cellH, (int) currentObject.Sprite.cellW,
+                    (int) currentObject.Sprite.cellH);
 
-            sb.Begin(transformMatrix: m);
-            sb.Draw(sprite, position, ImageRectangle, FinalizeColor(DrawColor), currentObject.Sprite.ImageAngle, new Vector2(0, 0), currentObject.Sprite.ImageScale, SpriteEffects.None, 1);
-            sb.End();
+                sb.Begin(transformMatrix: m);
+                sb.Draw(sprite, position, ImageRectangle, FinalizeColor(DrawColor), currentObject.Sprite.ImageAngle, new Vector2(0, 0), currentObject.Sprite.ImageScale, SpriteEffects.None, 1);
+                sb.End();
+
         }
 
         public static void draw_circle(Vector2 pos, int r, bool outline, int startAngle = 0, int totalAngle = 360, int distance = 0)

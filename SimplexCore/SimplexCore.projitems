@@ -9,6 +9,8 @@
     <Import_RootNamespace>SimplexCore</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ColliderBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ColliderRectangle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Ext\IPrimitiveBatcher.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Ext\MgPrimitiveBatcher.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Ext\PrimitiveBatcherBase.cs" />

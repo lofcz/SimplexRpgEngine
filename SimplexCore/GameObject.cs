@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MonoGame.Extended;
 using SimplexResources.Objects;
 using SimplexIde;
 using Color = System.Drawing.Color;
@@ -55,6 +56,9 @@ namespace SimplexCore
         public double ImageSpeed;
 
         [XmlIgnore]
+        public List<ColliderBase> Colliders = new List<ColliderBase>();
+
+        [XmlIgnore]
         public RoomLayer Layer;
 
         [XmlIgnore]
@@ -95,6 +99,18 @@ namespace SimplexCore
         public void UpdateImageScale()
         {
             ImageScale = new Vector2(SimplexMath.Lerp(ImageScale.X, ImageScaleTarget.X, TransformSpeed), SimplexMath.Lerp(ImageScale.Y, ImageScaleTarget.Y, TransformSpeed));
+        }
+
+        public void UpdateColliders()
+        {
+            foreach (var c in Colliders)
+            {
+                if (c is ColliderRectangle)
+                {
+                    ColliderRectangle cr = c as ColliderRectangle;
+                    cr.CollisionTransformed = new RectangleF(Position.X + cr.Collision.X, Position.Y + cr.Collision.Y, cr.Collision.Width, cr.Collision.Height);
+                }
+            }
         }
 
         public void DrawStart(SpriteBatch s, VertexBuffer vb, BasicEffect be, Matrix m, GameObject currentObject)

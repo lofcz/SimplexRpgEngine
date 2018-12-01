@@ -62,6 +62,30 @@ namespace SimplexCore
             return true;
         }
 
+        public static bool PlaceEmptyRectangle(RectangleF rr)
+        {
+            if (SceneObjects.Count > 0)
+            {
+                foreach (GameObject g in SceneObjects)
+                {
+                    if (g == currentObject)
+                    {
+                        continue;                       
+                    }
+
+                    RectangleF r = new RectangleF((int)g.Position.X, (int)g.Position.Y, g.Sprite.ImageRectangle.Width,
+                        g.Sprite.ImageRectangle.Height);
+
+                    if (r.Intersects(rr))
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
         public static GameObject InstancePlace(Vector2 vec)
         {
             if (SceneObjects.Count > 0)
