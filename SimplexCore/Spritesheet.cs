@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework.Graphics;
+using Newtonsoft.Json;
 
 namespace SimplexCore
 {
@@ -11,6 +12,8 @@ namespace SimplexCore
         public int CellWidth { get; set; }
         public int CellHeight { get; set; }
         public int Rows { get; set; }
+
+        [JsonIgnore]
         public Texture2D Texture { get; set; }
     }
 }

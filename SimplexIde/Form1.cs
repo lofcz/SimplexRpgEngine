@@ -30,6 +30,7 @@ namespace SimplexIde
         public static List<Type> reflectedTypes = new List<Type>();
         public DarkTreeView objects;
         public DarkTreeView rooms;
+        public Sprites_manager SpritesManager = null;
         
         public Form1()
         {
@@ -422,6 +423,21 @@ namespace SimplexIde
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
             drawTest1.GameRunning = false;
+        }
+
+        private void spritesManagerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // open sprites manager
+            if (SpritesManager != null)
+            {
+                SpritesManager.Close();
+            }
+
+            SpritesManager = new Sprites_manager();
+            SpritesManager.Owner = this;
+            SpritesManager.owner = this;
+            SpritesManager.StartPosition = FormStartPosition.CenterScreen;
+            SpritesManager.Show();
         }
     }
 }

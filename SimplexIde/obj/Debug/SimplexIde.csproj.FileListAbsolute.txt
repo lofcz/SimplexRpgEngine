@@ -44,3 +44,4 @@ C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\obj\Debug\SimplexIde.T
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\obj\Debug\SimplexIde.ControlInterface.resources
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\obj\Debug\SimplexIde.LayerTool.resources
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\obj\Debug\SimplexIde.RoomsControl.resources
+C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\obj\Debug\SimplexIde.Sprites_manager.resources

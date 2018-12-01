@@ -123,6 +123,12 @@
     <Compile Include="RoomsControl.Designer.cs">
       <DependentUpon>RoomsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Sprites manager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sprites manager.Designer.cs">
+      <DependentUpon>Sprites manager.cs</DependentUpon>
+    </Compile>
     <Compile Include="ToolWindow.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -150,6 +156,9 @@
     </Compile>
     <EmbeddedResource Include="RoomsControl.resx">
       <DependentUpon>RoomsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sprites manager.resx">
+      <DependentUpon>Sprites manager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ToolWindow.resx">
       <DependentUpon>ToolWindow.cs</DependentUpon>
@@ -245,6 +254,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Question_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EditCommandColumn_ActionGray_16x_32.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Checkmark_16x.png" />
   </ItemGroup>
   <Import Project="..\SimplexCore\SimplexCore.projitems" Label="Shared" />
   <Import Project="..\SimplexResources\SimplexResources.projitems" Label="Shared" />
