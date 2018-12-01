@@ -155,17 +155,17 @@ namespace SimplexIde
 
             if (Input.KeyPressed(Keys.W))
             {
-                cam.TargetPosition.Y -= 100;
+                //cam.TargetPosition.Y -= 100;
             }
 
             if (Input.KeyPressed(Keys.D))
             {
-                k += 1;
+              //  k += 1;
             }
 
             if (Input.KeyPressed(Keys.Q))
             {
-                cam.TargetZoom -= 0.1f;
+               // cam.TargetZoom -= 0.1f;
             }
 
             foreach (GameObject o in SceneObjects)

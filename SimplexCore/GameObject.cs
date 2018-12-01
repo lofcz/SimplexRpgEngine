@@ -52,6 +52,7 @@ namespace SimplexCore
         public Vector2 ImageScaleTarget;
         public float ImageAlpha;
         public string LayerName;
+        public double ImageSpeed;
 
         [XmlIgnore]
         public RoomLayer Layer;
@@ -81,6 +82,7 @@ namespace SimplexCore
             Sprite = new Sprite();
             Sprite.TextureSource = "unknown";
             ImageAlpha = 1;
+            ImageSpeed = 1;
         }
 
 

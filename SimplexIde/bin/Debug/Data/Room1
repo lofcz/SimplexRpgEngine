@@ -27,12 +27,12 @@
       <Y>768</Y>
     </ViewSize>
   </GameRoom>
-  <GameObject xsi:type="Object2">
+  <GameObject xsi:type="oPlayer">
     <Position>
-      <X>339.438446</X>
-      <Y>-37.8526764</Y>
+      <X>449</X>
+      <Y>155</Y>
     </Position>
-    <TypeString>SimplexResources.Objects.Object2</TypeString>
+    <TypeString>SimplexResources.Objects.oPlayer</TypeString>
     <ImageAngle>0</ImageAngle>
     <ImageAngleTarget>0</ImageAngleTarget>
     <TransformSpeed>0.2</TransformSpeed>
@@ -46,21 +46,24 @@
     </ImageScaleTarget>
     <ImageAlpha>1</ImageAlpha>
     <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>0.5</ImageSpeed>
     <ImageIndex>0</ImageIndex>
     <c1>
-      <B>59</B>
-      <G>23</G>
-      <R>63</R>
+      <B>36</B>
+      <G>78</G>
+      <R>71</R>
       <A>255</A>
-      <PackedValue>4282062655</PackedValue>
+      <PackedValue>4280569415</PackedValue>
     </c1>
     <c2>
-      <B>197</B>
-      <G>209</G>
-      <R>105</R>
+      <B>124</B>
+      <G>19</G>
+      <R>125</R>
       <A>255</A>
-      <PackedValue>4291154281</PackedValue>
+      <PackedValue>4286321533</PackedValue>
     </c2>
-    <time>467</time>
+    <speed>4</speed>
+    <LastImageIndex>0</LastImageIndex>
+    <time>161</time>
   </GameObject>
 </Root>

@@ -19,19 +19,23 @@ using static SimplexCore.Sgml;
 
 namespace SimplexResources.Objects
 {
-    public class Object2 : GameObject
+    public class oPlayer : GameObject
     {
         public Color c1;
         public Color c2;
 
+        public double speed = 4;
+
+        public float LastImageIndex = 0;
 
         // all variables to be serialized have to be public
         public int time;
 
-        public Object2()
+        public oPlayer()
         {
-            Sprite.TextureSource = "elves0";
+            Sprite.TextureSource = "elves2";
             EditorPath = "Colliders";
+            ImageSpeed = 0.01;
         }
         
         // Defines what happens once instance is placed in the room editor
@@ -61,10 +65,42 @@ namespace SimplexResources.Objects
             this.Sprite.UpdateImageScale();
             this.Sprite.UpdateImageRectangle();
 
-            if (Input.KeyPressed(Keys.D))
+            if (Input.KeyboardState.IsKeyDown(Keys.D) || Input.KeyboardState.IsKeyDown(Keys.W) || Input.KeyboardState.IsKeyDown(Keys.S) || Input.KeyboardState.IsKeyDown(Keys.A))
             {
-                ImageIndex += 1;
-               // MessageBox.Show("kkt", "kokot", new []{"end"});
+                ImageSpeed = 0.3;
+                ImageIndex += (float)ImageSpeed;             
+            }
+            else
+            {
+                ImageIndex = ((int)LastImageIndex / 9) * 9;
+            }
+
+            if (Input.KeyboardState.IsKeyDown(Keys.D))
+            {
+                ImageIndex = (float)clamp(ImageIndex, 27, 36);
+                Position.X += (float)speed;
+                LastImageIndex = ImageIndex;
+            }
+            else if (Input.KeyboardState.IsKeyDown(Keys.A))
+            {
+                ImageIndex = (float)clamp(ImageIndex, 9, 18);
+                if (ImageIndex == 18) { ImageIndex = 9;}
+                Position.X -= (float)speed;
+                LastImageIndex = ImageIndex;
+            }
+            else if (Input.KeyboardState.IsKeyDown(Keys.W))
+            {
+                ImageIndex = (float)clamp(ImageIndex, 0, 9);
+                if (ImageIndex == 9) { ImageIndex = 0; }
+                Position.Y -= (float)speed;
+                LastImageIndex = ImageIndex;
+            }
+            else if (Input.KeyboardState.IsKeyDown(Keys.S))
+            {
+                ImageIndex = (float)clamp(ImageIndex, 18, 27);
+                if (ImageIndex == 27) { ImageIndex = 18; }
+                Position.Y += (float)speed;
+                LastImageIndex = ImageIndex;
             }
         }
 
@@ -82,10 +118,10 @@ namespace SimplexResources.Objects
 
             s.Begin(transformMatrix: transform);
 
-            s.DrawString(f, ImageIndex.ToString(), Position, Color.White);
+            //s.DrawString(f, ImageIndex.ToString(), Position, Color.White);
             s.End();
             draw_set_alpha(abs(sin(degtorad(time))));
-            draw_circle_color(Position, 128 + (int)(128 * abs(sin(degtorad(time)))), false, c1, Microsoft.Xna.Framework.Color.Transparent);
+            draw_circle_color(new Vector2(Position.X + 32, Position.Y + 32), 128 + (int)(128 * abs(sin(degtorad(time)))), false, c1, Microsoft.Xna.Framework.Color.Transparent);
 
             //draw_set_alpha(1);
             // sb.Draw(objectTexture, Position, Color.White);
