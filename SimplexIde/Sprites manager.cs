@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,10 +11,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DarkUI.Controls;
 using DarkUI.Forms;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Newtonsoft.Json;
 using SimplexCore;
 using Color = System.Drawing.Color;
+using Rectangle = System.Drawing.Rectangle;
+using static SimplexCore.Sgml;
 
 namespace SimplexIde
 {
@@ -28,9 +32,17 @@ namespace SimplexIde
         public List<string> okEntries = new List<string>();
         public List<string> badEntries = new List<string>();
         Pen p = new Pen(Color.White);
+        SolidBrush b = new SolidBrush(Color.FromArgb(64, Color.White));
+        public double zoom = 1;
+        int _totalDelta = 0;
+        Vector2 mouse = Vector2.Zero;
+        List<Subsprite> subsprites = new List<Subsprite>();
+        private Subsprite selectedSub = null;
+
         public Sprites_manager()
         {
             InitializeComponent();
+            this.MouseWheel += Form_MouseWheel;
         }
 
         private void Sprites_manager_Load(object sender, EventArgs e)
@@ -132,24 +144,78 @@ namespace SimplexIde
                 cellW = (int)darkNumericUpDown1.Value;
                 cellH = (int)darkNumericUpDown2.Value;
 
-                e.Graphics.DrawImage(lastImage, new System.Drawing.Point(darkSectionPanel1.Location.X + darkSectionPanel1.Width + 20, darkSectionPanel1.Location.Y));
+                e.Graphics.DrawImage(lastImage, new RectangleF(darkSectionPanel1.Location.X + darkSectionPanel1.Width + 20, darkSectionPanel1.Location.Y, lastImage.Width * (float)zoom, lastImage.Height * (float)zoom));
 
                 int cx, cy;
                 cx = darkSectionPanel1.Location.X + darkSectionPanel1.Width + 20;
                 cy = darkSectionPanel1.Location.Y;
 
+                int xIndex = 0;
+                int yIndex = 0;
                 if (rows > 0 && cellH > 0 && cellW > 0)
                 {
                     for (var i = 0; i < rows; i++)
                     {
                         for (var j = 0; j < lastImage.Width / cellW; j++)
                         {
-                            e.Graphics.DrawRectangle(p, new Rectangle(cx, cy, cellW, cellH));
-                            cx += cellW;
+                            bool hit = false;
+
+                            Rectangle r = new Rectangle((int)(cx * 1), (int)(cy * 1), (int)(cellW * zoom), (int)(cellH * zoom));
+
+                            if (r.Contains(new System.Drawing.Point((int)mouse.X, (int)mouse.Y)))
+                            {
+                                hit = true;
+                            }
+                            
+                            if (hit)
+                            {
+                                e.Graphics.FillRectangle(b, r);
+                            }
+
+                            e.Graphics.DrawRectangle(p, r);
+                            cx += (int) (cellW * zoom);
+                            xIndex++;
                         }
 
-                        cy += cellH;
+                        cy += (int)Math.Round(cellH * zoom);
+                        yIndex++;
+                        xIndex = 0;
                         cx = darkSectionPanel1.Location.X + darkSectionPanel1.Width + 20;
+                    }
+
+                    foreach (Subsprite ss in subsprites)
+                    {
+                        xIndex = 0;
+                        yIndex = 0;
+                        cx = darkSectionPanel1.Location.X + darkSectionPanel1.Width + 20;
+                        cy = darkSectionPanel1.Location.Y;
+                        for (var i = 0; i < rows; i++)
+                        {
+                            for (var j = 0; j < lastImage.Width / cellW; j++)
+                            {
+                                bool hit = false;
+
+                                Rectangle r = new Rectangle((int)(cx * 1), (int)(cy * 1), (int)(cellW * zoom), (int)(cellH * zoom));
+
+                                if (r.Contains(new System.Drawing.Point((int)mouse.X, (int)mouse.Y)))
+                                {
+                                    hit = true;
+                                }
+
+                                if (xIndex >= ss.cellX && xIndex <= ss.cellW + ss.cellX && yIndex >= ss.cellY && yIndex <= ss.cellH + ss.cellY)
+                                {
+                                    e.Graphics.FillRectangle(ss.sb, r);
+                                }
+
+                                cx += (int)(cellW * zoom);
+                                xIndex++;
+                            }
+
+                            cy += (int)Math.Round(cellH * zoom);
+                            yIndex++;
+                            xIndex = 0;
+                            cx = darkSectionPanel1.Location.X + darkSectionPanel1.Width + 20;
+                        }
                     }
                 }
             }
@@ -195,6 +261,127 @@ namespace SimplexIde
                 writer.Close();
             }
 
+        }
+
+        private void Sprites_manager_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                if (rows > 0 && cellH > 0 && cellW > 0)
+                {
+                    int cx, cy;
+                    cx = darkSectionPanel1.Location.X + darkSectionPanel1.Width + 20;
+                    cy = darkSectionPanel1.Location.Y;
+
+                    int xIndex = 0;
+                    int yIndex = 0;
+                    for (var i = 0; i < rows; i++)
+                    {
+                        for (var j = 0; j < lastImage.Width / cellW; j++)
+                        {
+                            bool hit = false;
+
+                            Rectangle r = new Rectangle((int)(cx * 1), (int)(cy * 1), (int)(cellW * zoom), (int)(cellH * zoom));
+
+                            if (r.Contains(new System.Drawing.Point((int)mouse.X, (int)mouse.Y)))
+                            {
+                                hit = true;
+                            }
+
+                            if (hit)
+                            {
+                                if (selectedSub == null)
+                                {
+                                    Subsprite s = new Subsprite();
+                                    s.cellX = xIndex;
+                                    s.cellY = yIndex;
+
+                                    subsprites.Add(s);
+                                    selectedSub = s;
+
+                                    darkButton2.Visible = true;
+                                }
+                                else
+                                {
+                                    selectedSub.cellW = xIndex - selectedSub.cellX;
+                                    selectedSub.cellH = yIndex - selectedSub.cellY;
+                                    selectedSub = null;
+                                }
+                            }
+
+                            cx += (int)(cellW * zoom);
+                            xIndex++;
+                        }
+
+                        yIndex++;
+                        xIndex = 0;
+                        cy += (int)Math.Round(cellH * zoom);
+                        cx = darkSectionPanel1.Location.X + darkSectionPanel1.Width + 20;
+                    }
+                }
+            }
+        }
+
+        void Form_MouseWheel(object sender, MouseEventArgs e)
+        {
+            _totalDelta = _totalDelta + e.Delta;
+
+            if (e.Delta > 0)
+            {
+                zoom += 0.11;;
+            }
+            else if (e.Delta < 0)
+            {
+                zoom -= 0.11;
+            }
+        }
+
+        private void Sprites_manager_MouseMove(object sender, MouseEventArgs e)
+        {
+            mouse = new Vector2(e.X, e.Y);
+        }
+
+        private void darkButton2_Click(object sender, EventArgs e)
+        {
+            // save all subsprites
+            int index = 0;
+            foreach (Subsprite s in subsprites)
+            {
+                SavePartialBitmap(lastImage, selectedNode.Text + index + ".png", s.cellX * cellW, s.cellY * cellH, (s.cellW + 1) * cellW, (s.cellH + 1) * cellH, ImageFormat.Png);
+                index++;
+            }
+
+            MessageBox.Show("Saved " + index + " subsprites");
+        }
+
+        public static void SavePartialBitmap(Bitmap b, string filename, int x, int y, int w, int h, System.Drawing.Imaging.ImageFormat format)
+        {  
+             Bitmap C = new Bitmap(w, h);  
+             Graphics G = Graphics.FromImage(C);  
+             Rectangle src = new Rectangle(x, y, w, h);  
+             Rectangle dst = new Rectangle(0, 0, w, h);  
+             G.DrawImage(b, dst, src, GraphicsUnit.Pixel);  
+             G.Dispose();  
+             C.Save(filename, format);  
+             C.Dispose();  
+        }
+}
+
+    public class Subsprite
+    {
+        public int cellX;
+        public int cellY;
+        public int cellW;
+        public int cellH;
+        public string name;
+        public SolidBrush sb;
+
+        public Subsprite()
+        {
+            cellW = 0;
+            cellH = 0;
+            Random r = new Random();
+            sb = new SolidBrush(Color.FromArgb(64, r.Next(255), r.Next(255), r.Next(255)));
         }
     }
 }

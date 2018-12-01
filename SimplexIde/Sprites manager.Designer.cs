@@ -37,6 +37,7 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darkTreeView1 = new DarkUI.Controls.DarkTreeView();
             this.darkSectionPanel1 = new DarkUI.Controls.DarkSectionPanel();
+            this.darkButton2 = new DarkUI.Controls.DarkButton();
             this.darkButton1 = new DarkUI.Controls.DarkButton();
             this.darkNumericUpDown3 = new DarkUI.Controls.DarkNumericUpDown();
             this.darkLabel3 = new DarkUI.Controls.DarkLabel();
@@ -108,6 +109,7 @@
             // 
             this.darkSectionPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.darkSectionPanel1.Controls.Add(this.darkButton2);
             this.darkSectionPanel1.Controls.Add(this.darkButton1);
             this.darkSectionPanel1.Controls.Add(this.darkNumericUpDown3);
             this.darkSectionPanel1.Controls.Add(this.darkLabel3);
@@ -120,6 +122,17 @@
             this.darkSectionPanel1.SectionHeader = null;
             this.darkSectionPanel1.Size = new System.Drawing.Size(185, 577);
             this.darkSectionPanel1.TabIndex = 4;
+            // 
+            // darkButton2
+            // 
+            this.darkButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.darkButton2.Location = new System.Drawing.Point(14, 504);
+            this.darkButton2.Name = "darkButton2";
+            this.darkButton2.Size = new System.Drawing.Size(159, 23);
+            this.darkButton2.TabIndex = 7;
+            this.darkButton2.Text = "Convert subsprites";
+            this.darkButton2.Visible = false;
+            this.darkButton2.Click += new System.EventHandler(this.darkButton2_Click);
             // 
             // darkButton1
             // 
@@ -253,6 +266,8 @@
             this.Text = "Sprites Manager";
             this.Load += new System.EventHandler(this.Sprites_manager_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Sprites_manager_Paint);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Sprites_manager_MouseClick);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Sprites_manager_MouseMove);
             this.darkMenuStrip1.ResumeLayout(false);
             this.darkMenuStrip1.PerformLayout();
             this.darkSectionPanel1.ResumeLayout(false);
@@ -281,5 +296,6 @@
         private DarkUI.Controls.DarkLabel darkLabel3;
         private DarkUI.Controls.DarkButton darkButton1;
         private System.Windows.Forms.Timer timer1;
+        private DarkUI.Controls.DarkButton darkButton2;
     }
 }
