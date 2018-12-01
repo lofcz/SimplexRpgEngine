@@ -34,6 +34,7 @@
             this.darkMenuStrip1 = new DarkUI.Controls.DarkMenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importSpriteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importTilesetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darkTreeView1 = new DarkUI.Controls.DarkTreeView();
@@ -74,7 +75,8 @@
             // 
             this.fileToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.importSpriteToolStripMenuItem});
+            this.importSpriteToolStripMenuItem,
+            this.importTilesetToolStripMenuItem});
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -88,6 +90,15 @@
             this.importSpriteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.importSpriteToolStripMenuItem.Text = "Import sprite";
             this.importSpriteToolStripMenuItem.Click += new System.EventHandler(this.importSpriteToolStripMenuItem_Click);
+            // 
+            // importTilesetToolStripMenuItem
+            // 
+            this.importTilesetToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.importTilesetToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.importTilesetToolStripMenuItem.Name = "importTilesetToolStripMenuItem";
+            this.importTilesetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.importTilesetToolStripMenuItem.Text = "Import tileset";
+            this.importTilesetToolStripMenuItem.Click += new System.EventHandler(this.importTilesetToolStripMenuItem_Click);
             // 
             // actionsToolStripMenuItem
             // 
@@ -203,6 +214,11 @@
             0,
             65536});
             this.darkNumericUpDown2.Location = new System.Drawing.Point(73, 100);
+            this.darkNumericUpDown2.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.darkNumericUpDown2.MousewheelSingleIncrement = true;
             this.darkNumericUpDown2.Name = "darkNumericUpDown2";
             this.darkNumericUpDown2.Size = new System.Drawing.Size(100, 20);
@@ -225,6 +241,11 @@
             0,
             65536});
             this.darkNumericUpDown1.Location = new System.Drawing.Point(73, 65);
+            this.darkNumericUpDown1.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.darkNumericUpDown1.MousewheelSingleIncrement = true;
             this.darkNumericUpDown1.Name = "darkNumericUpDown1";
             this.darkNumericUpDown1.Size = new System.Drawing.Size(100, 20);
@@ -317,5 +338,6 @@
         private DarkUI.Controls.DarkButton darkButton2;
         private System.Windows.Forms.ToolStripMenuItem importSpriteToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ToolStripMenuItem importTilesetToolStripMenuItem;
     }
 }

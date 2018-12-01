@@ -38,6 +38,7 @@ namespace SimplexIde
         Vector2 mouse = Vector2.Zero;
         List<Subsprite> subsprites = new List<Subsprite>();
         private Subsprite selectedSub = null;
+        private int toolMode = 0;
 
         public Sprites_manager()
         {
@@ -69,6 +70,11 @@ namespace SimplexIde
             dtn.Icon = (Bitmap) Properties.Resources.Folder_16x;
             dtn.Tag = "folder";
             darkTreeView1.Nodes.Add(dtn);
+
+            DarkTreeNode dtn2 = new DarkTreeNode("Tilesets");
+            dtn2.Icon = (Bitmap)Properties.Resources.Folder_16x;
+            dtn2.Tag = "folder";
+            darkTreeView1.Nodes.Add(dtn2);
 
             var newList = okEntries.Concat(badEntries);
             foreach (string s in newList)
@@ -224,43 +230,45 @@ namespace SimplexIde
         private void darkButton1_Click(object sender, EventArgs e)
         {
             // save descriptor
-            StreamReader sw = new StreamReader("../../../SimplexRpgEngine3/SpritesDescriptor.json");
-            List<Spritesheet> current = JsonConvert.DeserializeObject<List<Spritesheet>>(sw.ReadToEnd());
-            sw.Close();
-
-            Spritesheet overwrite = current.FirstOrDefault(x => x.Name == selectedNode.Text);
-
-            if (overwrite != null)
+            if (toolMode == 0)
             {
-                overwrite.CellHeight = cellH;
-                overwrite.CellWidth = cellW;
-                overwrite.Rows = rows;
+                StreamReader sw = new StreamReader("../../../SimplexRpgEngine3/SpritesDescriptor.json");
+                List<Spritesheet> current = JsonConvert.DeserializeObject<List<Spritesheet>>(sw.ReadToEnd());
+                sw.Close();
+
+                Spritesheet overwrite = current.FirstOrDefault(x => x.Name == selectedNode.Text);
+
+                if (overwrite != null)
+                {
+                    overwrite.CellHeight = cellH;
+                    overwrite.CellWidth = cellW;
+                    overwrite.Rows = rows;
+                }
+                else
+                {
+                    Spritesheet s = new Spritesheet();
+                    s.Name = selectedNode.Text;
+                    s.CellHeight = cellH;
+                    s.CellWidth = cellW;
+                    s.Rows = rows;
+
+                    okEntries.Add(s.Name);
+                    badEntries.Remove(s.Name);
+
+                    selectedNode.Icon = (Bitmap) Properties.Resources.Checkmark_16x;
+                    darkTreeView1.Invalidate();
+
+                    current.Add(s);
+                }
+
+                string json = JsonConvert.SerializeObject(current);
+
+                using (StreamWriter writer = new StreamWriter("../../../SimplexRpgEngine3/SpritesDescriptor.json"))
+                {
+                    writer.WriteLine(json);
+                    writer.Close();
+                }
             }
-            else
-            {
-                Spritesheet s = new Spritesheet();
-                s.Name = selectedNode.Text;
-                s.CellHeight = cellH;
-                s.CellWidth = cellW;
-                s.Rows = rows;
-
-                okEntries.Add(s.Name);
-                badEntries.Remove(s.Name);
-
-                selectedNode.Icon = (Bitmap)Properties.Resources.Checkmark_16x;
-                darkTreeView1.Invalidate();
-
-                current.Add(s);
-            }
-
-            string json = JsonConvert.SerializeObject(current);
-
-            using (StreamWriter writer = new StreamWriter("../../../SimplexRpgEngine3/SpritesDescriptor.json"))
-            {
-                writer.WriteLine(json);
-                writer.Close();
-            }
-
         }
 
         private void Sprites_manager_MouseClick(object sender, MouseEventArgs e)
@@ -290,22 +298,205 @@ namespace SimplexIde
 
                             if (hit)
                             {
-                                if (selectedSub == null)
+                                if (toolMode == 0)
                                 {
-                                    Subsprite s = new Subsprite();
-                                    s.cellX = xIndex;
-                                    s.cellY = yIndex;
+                                    if (selectedSub == null)
+                                    {
+                                        Subsprite s = new Subsprite();
+                                        s.cellX = xIndex;
+                                        s.cellY = yIndex;
 
-                                    subsprites.Add(s);
-                                    selectedSub = s;
+                                        subsprites.Add(s);
+                                        selectedSub = s;
 
-                                    darkButton2.Visible = true;
+                                        darkButton2.Visible = true;
+                                    }
+                                    else
+                                    {
+                                        selectedSub.cellW = xIndex - selectedSub.cellX;
+                                        selectedSub.cellH = yIndex - selectedSub.cellY;
+                                        selectedSub = null;
+                                    }
                                 }
-                                else
+
+                                if (toolMode == 1)
                                 {
-                                    selectedSub.cellW = xIndex - selectedSub.cellX;
-                                    selectedSub.cellH = yIndex - selectedSub.cellY;
-                                    selectedSub = null;
+                                    SavePartialBitmap(lastImage, Path.GetFullPath("../../../SimplexRpgEngine3/Content/Sprites/Tilesets/tileset0.png"), xIndex * cellW, yIndex * cellH, cellW, cellH, ImageFormat.Png);
+
+                                    using (StreamWriter w = File.AppendText("../../../SimplexRpgEngine3/Content/Content.mgcb"))
+                                    {
+
+                                            w.WriteLine("#begin Sprites/Tilesets/" + "tileset0.png");
+                                            w.WriteLine("/importer:TextureImporter");
+                                            w.WriteLine("/processor:TextureProcessor");
+                                            w.WriteLine("/processorParam:ColorKeyColor=255,0,255,255");
+                                            w.WriteLine("/processorParam:ColorKeyEnabled=True");
+                                            w.WriteLine("/processorParam:GenerateMipmaps=False");
+                                            w.WriteLine("/processorParam:PremultiplyAlpha=True");
+                                            w.WriteLine("/processorParam:ResizeToPowerOfTwo=False");
+                                            w.WriteLine("/processorParam:MakeSquare=False");
+                                            w.WriteLine("/processorParam:TextureFormat=Color");
+                                            w.WriteLine("/build:Sprites/Tilesets/" + "tileset0.png");
+                                            w.WriteLine("");
+                                    }
+
+                                    lastImage = new Bitmap(Path.GetFullPath("../../../SimplexRpgEngine3/Content/Sprites/Tilesets/tileset0.png"));
+                                    toolMode = 2;
+
+                                    Bitmap convertedImage = new Bitmap(256, 192);
+                                    #region Algorithm logic
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(16, 48, 32, 32), ref convertedImage, new Rectangle(0, 0, 32, 32));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(16, 48, 32, 32), ref convertedImage, new Rectangle(32, 0, 32, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 0, 16, 16), ref convertedImage, new Rectangle(32, 0, 16, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(16, 48, 32, 32), ref convertedImage, new Rectangle(64, 0, 32, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(48, 0, 16, 16), ref convertedImage, new Rectangle(80, 0, 16, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(16, 48, 32, 32), ref convertedImage, new Rectangle(96, 0, 32, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 0, 16, 16), ref convertedImage, new Rectangle(96, 0, 16, 16));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(48, 0, 16, 16), ref convertedImage, new Rectangle(112, 0, 16, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(16, 48, 32, 32), ref convertedImage, new Rectangle(128, 0, 32, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(48, 16, 16, 16), ref convertedImage, new Rectangle(144, 16, 16, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(16, 48, 32, 32), ref convertedImage, new Rectangle(160, 0, 32, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(48, 16, 16, 16), ref convertedImage, new Rectangle(176, 16, 16, 16));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 0, 16, 16), ref convertedImage, new Rectangle(160, 0, 16, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(16, 48, 32, 32), ref convertedImage, new Rectangle(192, 0, 32, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(48, 0, 16, 16), ref convertedImage, new Rectangle(208, 0, 16, 16));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(48, 16, 16, 16), ref convertedImage, new Rectangle(208, 16, 16, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(16, 48, 32, 32), ref convertedImage, new Rectangle(224, 0, 32, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(48, 0, 16, 16), ref convertedImage, new Rectangle(240, 0, 16, 16));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(48, 16, 16, 16), ref convertedImage, new Rectangle(240, 16, 16, 16));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 0, 16, 16), ref convertedImage, new Rectangle(224, 0, 16, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(16, 48, 32, 32), ref convertedImage, new Rectangle(0, 32, 32, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 16, 16, 16), ref convertedImage, new Rectangle(0, 48, 16, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(16, 48, 32, 32), ref convertedImage, new Rectangle(32, 32, 32, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 0, 16, 32), ref convertedImage, new Rectangle(32, 32, 16, 32));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(16, 48, 32, 32), ref convertedImage, new Rectangle(64, 32, 32, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(48, 0, 16, 16), ref convertedImage, new Rectangle(80, 32, 16, 16));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 16, 16, 16), ref convertedImage, new Rectangle(64, 48, 16, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(16, 48, 32, 32), ref convertedImage, new Rectangle(96, 32, 32, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(48, 0, 16, 16), ref convertedImage, new Rectangle(112, 32, 16, 16));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 16, 16, 16), ref convertedImage, new Rectangle(96, 48, 16, 16));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 0, 16, 16), ref convertedImage, new Rectangle(96, 32, 16, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(16, 48, 32, 32), ref convertedImage, new Rectangle(128, 32, 32, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 16, 32, 16), ref convertedImage, new Rectangle(128, 48, 32, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(16, 48, 32, 32), ref convertedImage, new Rectangle(160, 32, 32, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 16, 32, 16), ref convertedImage, new Rectangle(160, 48, 32, 16));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 0, 16, 16), ref convertedImage, new Rectangle(160, 32, 16, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(16, 48, 32, 32), ref convertedImage, new Rectangle(192, 32, 32, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 16, 32, 16), ref convertedImage, new Rectangle(192, 48, 32, 16));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(48, 0, 16, 16), ref convertedImage, new Rectangle(208, 32, 16, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 0, 32, 32), ref convertedImage, new Rectangle(224, 32, 32, 32));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(0, 48, 32, 32), ref convertedImage, new Rectangle(0, 64, 32, 32));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(0, 48, 32, 32), ref convertedImage, new Rectangle(32, 64, 32, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(48, 0, 16, 16), ref convertedImage, new Rectangle(48, 64, 16, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(0, 48, 32, 32), ref convertedImage, new Rectangle(64, 64, 32, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(48, 16, 16, 16), ref convertedImage, new Rectangle(80, 80, 16, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(0, 48, 32, 32), ref convertedImage, new Rectangle(96, 64, 32, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(48, 16, 16, 16), ref convertedImage, new Rectangle(112, 80, 16, 16));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(48, 0, 16, 16), ref convertedImage, new Rectangle(112, 64, 16, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(16, 32, 32, 32), ref convertedImage, new Rectangle(128, 64, 32, 32));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(16, 32, 32, 32), ref convertedImage, new Rectangle(160, 64, 32, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(48, 16, 16, 16), ref convertedImage, new Rectangle(176, 80, 16, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(16, 32, 32, 32), ref convertedImage, new Rectangle(192, 64, 32, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 16, 16, 16), ref convertedImage, new Rectangle(192, 80, 16, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(16, 32, 32, 32), ref convertedImage, new Rectangle(224, 64, 32, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(48, 16, 16, 16), ref convertedImage, new Rectangle(240, 80, 16, 16));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 16, 16, 16), ref convertedImage, new Rectangle(224, 80, 16, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 48, 32, 32), ref convertedImage, new Rectangle(0, 96, 32, 32));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 48, 32, 32), ref convertedImage, new Rectangle(32, 96, 32, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 16, 16, 16), ref convertedImage, new Rectangle(32, 112, 16, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 48, 32, 32), ref convertedImage, new Rectangle(64, 96, 32, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 0, 16, 16), ref convertedImage, new Rectangle(64, 96, 16, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 48, 32, 32), ref convertedImage, new Rectangle(96, 96, 32, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 16, 16, 16), ref convertedImage, new Rectangle(96, 112, 16, 16));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 0, 16, 16), ref convertedImage, new Rectangle(96, 96, 16, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(16, 64, 32, 32), ref convertedImage, new Rectangle(128, 96, 32, 32));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(16, 64, 32, 32), ref convertedImage, new Rectangle(160, 96, 32, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 0, 16, 16), ref convertedImage, new Rectangle(160, 96, 16, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(16, 64, 32, 32), ref convertedImage, new Rectangle(192, 96, 32, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(48, 0, 16, 16), ref convertedImage, new Rectangle(208, 96, 16, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(16, 64, 32, 32), ref convertedImage, new Rectangle(224, 96, 32, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 0, 16, 16), ref convertedImage, new Rectangle(224, 96, 16, 16));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(48, 0, 16, 16), ref convertedImage, new Rectangle(240, 96, 16, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(0, 48, 16, 32), ref convertedImage, new Rectangle(0, 128, 16, 32));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(48, 48, 16, 32), ref convertedImage, new Rectangle(16, 128, 16, 32));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(16, 32, 32, 16), ref convertedImage, new Rectangle(32, 128, 32, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(16, 80, 32, 16), ref convertedImage, new Rectangle(32, 144, 32, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(0, 32, 32, 32), ref convertedImage, new Rectangle(64, 128, 32, 32));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(0, 32, 32, 32), ref convertedImage, new Rectangle(96, 128, 32, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(48, 16, 16, 16), ref convertedImage, new Rectangle(96 + 16, 128 + 16, 16, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 32, 32, 32), ref convertedImage, new Rectangle(128, 128, 32, 32));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 32, 32, 32), ref convertedImage, new Rectangle(160, 128, 32, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 16, 16, 16), ref convertedImage, new Rectangle(160, 128 + 16, 16, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 64, 32, 32), ref convertedImage, new Rectangle(192, 128, 32, 32));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 64, 32, 32), ref convertedImage, new Rectangle(224, 128, 32, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 0, 16, 16), ref convertedImage, new Rectangle(224, 128, 16, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(0, 64, 32, 32), ref convertedImage, new Rectangle(0, 160, 32, 32));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(0, 64, 32, 32), ref convertedImage, new Rectangle(32, 160, 32, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(48, 0, 16, 16), ref convertedImage, new Rectangle(48, 160, 16, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(0, 32, 16, 32), ref convertedImage, new Rectangle(64, 160, 16, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(48, 32, 16, 32), ref convertedImage, new Rectangle(80, 160, 16, 32));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(0, 32, 32, 16), ref convertedImage, new Rectangle(96, 160, 32, 16));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(0, 80, 32, 16), ref convertedImage, new Rectangle(96, 176, 32, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(0, 64, 16, 32), ref convertedImage, new Rectangle(128, 160, 16, 32));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(48, 64, 16, 32), ref convertedImage, new Rectangle(144, 160, 16, 32));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 32, 32, 16), ref convertedImage, new Rectangle(160, 160, 32, 16));
+                                    CopyRegionIntoImage(lastImage, new Rectangle(32, 80, 32, 16), ref convertedImage, new Rectangle(160, 176, 32, 16));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(0, 0, 32, 32), ref convertedImage, new Rectangle(192, 160, 32, 32));
+
+                                    CopyRegionIntoImage(lastImage, new Rectangle(16, 48, 32, 32), ref convertedImage, new Rectangle(224, 160, 32, 32));
+                                    #endregion
+
+
+                                    lastImage = convertedImage;
                                 }
                             }
 
@@ -388,15 +579,17 @@ namespace SimplexIde
         }
 
         public static void SavePartialBitmap(Bitmap b, string filename, int x, int y, int w, int h, System.Drawing.Imaging.ImageFormat format)
-        {  
-             Bitmap C = new Bitmap(w, h, PixelFormat.Format32bppArgb);  
-             Graphics G = Graphics.FromImage(C);  
-             Rectangle src = new Rectangle(x, y, w, h);  
-             Rectangle dst = new Rectangle(0, 0, w, h);  
-             G.DrawImage(b, dst, src, GraphicsUnit.Pixel);  
-             G.Dispose();  
-             C.Save(filename, format);  
-             C.Dispose();  
+        {
+            using (Bitmap C = new Bitmap(w, h, PixelFormat.Format32bppArgb))
+            {
+                Graphics G = Graphics.FromImage(C);
+                Rectangle src = new Rectangle(x, y, w, h);
+                Rectangle dst = new Rectangle(0, 0, w, h);
+                G.DrawImage(b, dst, src, GraphicsUnit.Pixel);
+                G.Dispose();
+                C.Save(filename, format);
+                C.Dispose();
+            }
         }
 
         private void importSpriteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -406,6 +599,27 @@ namespace SimplexIde
             {
                 string path = openFileDialog1.FileName;
 
+            }
+        }
+
+        private void importTilesetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // import tileset
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string path = openFileDialog1.FileName;
+                Bitmap bitmap = new Bitmap(path);
+
+                lastImage = bitmap;
+                toolMode = 1;
+            }
+        }
+
+        public static void CopyRegionIntoImage(Bitmap srcBitmap, Rectangle srcRegion, ref Bitmap destBitmap, Rectangle destRegion)
+        {
+            using (Graphics grD = Graphics.FromImage(destBitmap))
+            {
+                grD.DrawImage(srcBitmap, destRegion, srcRegion, GraphicsUnit.Pixel);
             }
         }
     }
