@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using System.Windows.Forms;
 using System.Xml.Serialization;
 using Microsoft.Xna.Framework;
 
@@ -28,6 +29,8 @@ namespace SimplexCore
         public Vector2 ImageSize;
         public Rectangle ImageRectangle;
         public int FramesCount;
+        public int cellW;
+        public int cellH;
 
         public float ImageIndex
         {
@@ -35,8 +38,8 @@ namespace SimplexCore
             set
             {
                 _imageIndex = value;
-
-                if (_imageIndex > FramesCount)
+               
+                if (_imageIndex >= FramesCount)
                 {
                     _imageIndex = 0;
                 }

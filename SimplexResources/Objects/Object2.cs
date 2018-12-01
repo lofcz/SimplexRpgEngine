@@ -9,6 +9,7 @@ using System.Xml.Linq;
 using System.Xml.Serialization;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using MonoGame.Extended.Shapes;
 using MonoGame.Extended.TextureAtlases;
@@ -29,7 +30,7 @@ namespace SimplexResources.Objects
 
         public Object2()
         {
-            Sprite.TextureSource = "texture";
+            Sprite.TextureSource = "elves0";
             EditorPath = "Colliders";
         }
         
@@ -56,25 +57,35 @@ namespace SimplexResources.Objects
         public override void EvtStep()
         {
             time++;
+            this.Sprite.UpdateImageAngle();
+            this.Sprite.UpdateImageScale();
+            this.Sprite.UpdateImageRectangle();
+
+            if (Input.KeyPressed(Keys.D))
+            {
+                ImageIndex += 1;
+               // MessageBox.Show("kkt", "kokot", new []{"end"});
+            }
         }
 
         public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, VertexBuffer vb, BasicEffect be, Matrix transform)
         {
             // Initialize render engine for this instance
-            DrawStart(s, vb, be, transform);
+            DrawStart(s, vb, be, transform, this);
             //    s.Draw(objectTexture, Position, DrawColor);
             // Actual code starts here
             // draw_set_alpha(0.5);
             // draw_triangle(Position.X, Position.Y, Position.X + 100, Position.Y, Position.X + 50, Position.Y + 50, false);
-
+  
             draw_set_alpha(1);
             draw_sprite(objectTexture, ImageIndex, Position);
 
             s.Begin(transformMatrix: transform);
-            s.DrawString(f, Sprite.ImageRectangle.Width.ToString(), Position, Color.White);
+
+            s.DrawString(f, ImageIndex.ToString(), Position, Color.White);
             s.End();
-           // draw_set_alpha(abs(sin(degtorad(time))));
-           // draw_circle_color(Position, 128 + (int)(128 * abs(sin(degtorad(time)))), false, c1, Microsoft.Xna.Framework.Color.Transparent);
+            draw_set_alpha(abs(sin(degtorad(time))));
+            draw_circle_color(Position, 128 + (int)(128 * abs(sin(degtorad(time)))), false, c1, Microsoft.Xna.Framework.Color.Transparent);
 
             //draw_set_alpha(1);
             // sb.Draw(objectTexture, Position, Color.White);

@@ -15,6 +15,7 @@ namespace SimplexCore
     {
         static Texture2D pixel;
         private static VertexPositionColor[] vertices;
+        public static GameObject currentObject;
 
        /* public static void draw_circle(double x, double y, double r, bool outline, double thickness = 1)
         {
@@ -104,8 +105,15 @@ namespace SimplexCore
 
         public static void draw_sprite(Texture2D sprite, double subimg, Vector2 position)
         {
+            int y = ((int)subimg / currentObject.Sprite.TextureCellsPerRow);
+            int x = ((int)subimg % currentObject.Sprite.TextureCellsPerRow);
+
+            //Debug.WriteLine("x:" + x + " y: " + y);
+
+            Rectangle ImageRectangle = new Rectangle(x * currentObject.Sprite.cellW, y * (int)currentObject.Sprite.cellH, (int)currentObject.Sprite.cellW, (int)currentObject.Sprite.cellH);
+
             sb.Begin(transformMatrix: m);
-            sb.Draw(sprite, position, FinalizeColor(DrawColor));
+            sb.Draw(sprite, position, ImageRectangle, FinalizeColor(DrawColor), currentObject.Sprite.ImageAngle, new Vector2(0, 0), currentObject.Sprite.ImageScale, SpriteEffects.None, 1);
             sb.End();
         }
 

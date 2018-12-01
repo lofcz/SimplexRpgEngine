@@ -347,16 +347,49 @@ namespace SimplexIde
             int index = 0;
             foreach (Subsprite s in subsprites)
             {
-                SavePartialBitmap(lastImage, selectedNode.Text + index + ".png", s.cellX * cellW, s.cellY * cellH, (s.cellW + 1) * cellW, (s.cellH + 1) * cellH, ImageFormat.Png);
+                SavePartialBitmap(lastImage, "../../../SimplexRpgEngine3/Content/Sprites/" + selectedNode.Text + index + ".png", s.cellX * cellW, s.cellY * cellH, (s.cellW + 1) * cellW, (s.cellH + 1) * cellH, ImageFormat.Png);
                 index++;
             }
 
+            // all sprites are saved where they need to be
+            // now we import them to mgcb
+            using (StreamWriter w = File.AppendText("../../../SimplexRpgEngine3/Content/Content.mgcb"))
+            {
+                index = 0;
+                foreach (Subsprite s in subsprites)
+                {
+                    w.WriteLine("#begin Sprites/" + selectedNode.Text + index + ".png");
+                    w.WriteLine("/importer:TextureImporter");
+                    w.WriteLine("/processor:TextureProcessor");
+                    w.WriteLine("/processorParam:ColorKeyColor=255,0,255,255");
+                    w.WriteLine("/processorParam:ColorKeyEnabled=True");
+                    w.WriteLine("/processorParam:GenerateMipmaps=False");
+                    w.WriteLine("/processorParam:PremultiplyAlpha=True");
+                    w.WriteLine("/processorParam:ResizeToPowerOfTwo=False");
+                    w.WriteLine("/processorParam:MakeSquare=False");
+                    w.WriteLine("/processorParam:TextureFormat=Color");
+                    w.WriteLine("/build:Sprites/" + selectedNode.Text + index + ".png");
+                    w.WriteLine("");
+                    index++;
+                }
+
+            }
+
+            // then we build content
+       /*    string filename = "../../../SimplexRpgEngine3/Content/SimplexBuild/Tools/MGCB.exe";
+           string filenameOutput = "../../../SimplexRpgEngine3/Content/";
+            string absolute = Path.GetFullPath(filename);
+            string absolute2 = Path.GetFullPath(filenameOutput);
+            var proc = System.Diagnostics.Process.Start(absolute, "/outputDir:" + absolute2 + " /rebuild");*/
+         //   proc.Close();
+
+            // all good
             MessageBox.Show("Saved " + index + " subsprites");
         }
 
         public static void SavePartialBitmap(Bitmap b, string filename, int x, int y, int w, int h, System.Drawing.Imaging.ImageFormat format)
         {  
-             Bitmap C = new Bitmap(w, h);  
+             Bitmap C = new Bitmap(w, h, PixelFormat.Format32bppArgb);  
              Graphics G = Graphics.FromImage(C);  
              Rectangle src = new Rectangle(x, y, w, h);  
              Rectangle dst = new Rectangle(0, 0, w, h);  
@@ -365,7 +398,17 @@ namespace SimplexIde
              C.Save(filename, format);  
              C.Dispose();  
         }
-}
+
+        private void importSpriteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // import sprite
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string path = openFileDialog1.FileName;
+
+            }
+        }
+    }
 
     public class Subsprite
     {

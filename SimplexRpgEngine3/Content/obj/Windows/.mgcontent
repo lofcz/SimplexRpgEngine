@@ -8,11 +8,23 @@
     <File>C:/Users/lof/Documents/GitHub/SimplexRpgEngine/SimplexRpgEngine3/Content/Sprites/DA_male1.png</File>
     <File>C:/Users/lof/Documents/GitHub/SimplexRpgEngine/SimplexRpgEngine3/Content/Sprites/Question_16x.png</File>
     <File>C:/Users/lof/Documents/GitHub/SimplexRpgEngine/SimplexRpgEngine3/Content/Sprites/texture.png</File>
+    <File>C:/Users/lof/Documents/GitHub/SimplexRpgEngine/SimplexRpgEngine3/Content/Sprites/elves0.png</File>
+    <File>C:/Users/lof/Documents/GitHub/SimplexRpgEngine/SimplexRpgEngine3/Content/Sprites/elves1.png</File>
+    <File>C:/Users/lof/Documents/GitHub/SimplexRpgEngine/SimplexRpgEngine3/Content/Sprites/elves2.png</File>
+    <File>C:/Users/lof/Documents/GitHub/SimplexRpgEngine/SimplexRpgEngine3/Content/Sprites/elves3.png</File>
+    <File>C:/Users/lof/Documents/GitHub/SimplexRpgEngine/SimplexRpgEngine3/Content/Sprites/elves4.png</File>
+    <File>C:/Users/lof/Documents/GitHub/SimplexRpgEngine/SimplexRpgEngine3/Content/Sprites/elves5.png</File>
   </SourceFiles>
   <DestFiles>
     <File>Fonts/font1.spritefont</File>
     <File>Sprites/elves.png</File>
     <File>Sprites/unknown.png</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>

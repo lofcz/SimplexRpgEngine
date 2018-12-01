@@ -346,33 +346,42 @@ namespace SimplexIde
             basicEffect.Projection = projection;
             basicEffect.VertexColorEnabled = true;
 
-            List<GameObject> sortedObjects = SceneObjects.OrderBy(x => x.Layer.Depth).ToList();
-            foreach (GameObject o in sortedObjects)
+            try
             {
-                if (o.Layer != null)
+                List<GameObject> sortedObjects = SceneObjects.OrderBy(x => x.Layer.Depth).ToList();
+                foreach (GameObject o in sortedObjects)
                 {
-                    if (o.Layer.Visible)
+                    if (o.Layer != null)
                     {
-                        //if (GameRunning || o == clickedObject)
+                        if (o.Layer.Visible)
                         {
-                            o.EvtDraw(Editor.spriteBatch, Editor.Font, o.Sprite.Texture, vertexBuffer, basicEffect,
-                                transformMatrix);
-
-                            RectangleF r = new RectangleF(o.Position, new Size2(o.Sprite.ImageRectangle.Width, o.Sprite.ImageRectangle.Height));
-
-                            if (o == clickedObject || r.Intersects(selectionRectangle) || selectedRectangleObjects.Contains(o))
+                            //if (GameRunning || o == clickedObject)
                             {
-                                Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
-                                Editor.spriteBatch.DrawRectangle(
-                                    new RectangleF(o.Position,
-                                        new Size2(o.Sprite.ImageRectangle.Width, o.Sprite.ImageRectangle.Height)),
-                                    Color.White,
-                                    2);
-                                Editor.spriteBatch.End();
+                                o.EvtDraw(Editor.spriteBatch, Editor.Font, o.Sprite.Texture, vertexBuffer, basicEffect,
+                                    transformMatrix);
+
+                                RectangleF r = new RectangleF(o.Position,
+                                    new Size2(o.Sprite.ImageRectangle.Width, o.Sprite.ImageRectangle.Height));
+
+                                if (o == clickedObject || r.Intersects(selectionRectangle) ||
+                                    selectedRectangleObjects.Contains(o))
+                                {
+                                    Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
+                                    Editor.spriteBatch.DrawRectangle(
+                                        new RectangleF(o.Position,
+                                            new Size2(o.Sprite.ImageRectangle.Width, o.Sprite.ImageRectangle.Height)),
+                                        Color.White,
+                                        2);
+                                    Editor.spriteBatch.End();
+                                }
                             }
                         }
                     }
                 }
+            }
+            catch (Exception e)
+            {
+
             }
 
             if (Input.KeyboardState.IsKeyDown(Keys.LeftControl))
@@ -525,6 +534,14 @@ namespace SimplexIde
                                             o.Sprite.Texture = s.Texture;
                                             o.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
                                         }
+
+                                        o.Sprite.TextureRows = s.Rows;
+                                        o.Sprite.TextureCellsPerRow = s.Texture.Width / s.CellWidth;
+                                        o.Sprite.ImageSize = new Vector2(s.CellWidth, s.CellHeight);
+                                        o.Sprite.FramesCount = (s.Texture.Width / s.CellWidth) * (s.Texture.Height / s.CellHeight) - 1;
+                                        o.FramesCount = o.Sprite.FramesCount - 1;
+                                        o.Sprite.cellW = s.CellHeight;
+                                        o.Sprite.cellH = s.CellWidth;
 
                                         o.Position = new Vector2(vec.X - s.CellWidth / 2f, vec.Y - s.CellHeight / 2f);
                                         o.Sprite.ImageRectangle =
@@ -727,6 +744,14 @@ namespace SimplexIde
                     g.EvtLoad();
                     g.Sprite.Texture = s.Texture;
                     g.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
+                    g.Sprite.TextureRows = s.Rows;
+                    g.Sprite.TextureCellsPerRow = s.Texture.Width / s.CellWidth;
+                    g.Sprite.ImageSize = new Vector2(s.CellWidth, s.CellHeight);
+                    g.Sprite.FramesCount = (s.Texture.Width / s.CellWidth) * (s.Texture.Height / s.CellHeight) - 1;
+                    g.FramesCount = g.Sprite.FramesCount - 1;
+                    g.Sprite.cellW = s.CellHeight;
+                    g.Sprite.cellH = s.CellWidth;
+
                     g.Layer = roomLayers.FirstOrDefault(x => x.Name == g.LayerName);
 
                     SceneObjects.Add(g);

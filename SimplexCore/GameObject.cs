@@ -35,6 +35,12 @@ namespace SimplexCore
             set
             {
                 _imageIndex = value;
+
+                if (_imageIndex > FramesCount)
+                {
+                    _imageIndex = 0;
+                }
+
                 _imageIndex = _imageIndex.Clamp(0, FramesCount);
             }
         }
@@ -89,12 +95,13 @@ namespace SimplexCore
             ImageScale = new Vector2(SimplexMath.Lerp(ImageScale.X, ImageScaleTarget.X, TransformSpeed), SimplexMath.Lerp(ImageScale.Y, ImageScaleTarget.Y, TransformSpeed));
         }
 
-        public void DrawStart(SpriteBatch s, VertexBuffer vb, BasicEffect be, Matrix m)
+        public void DrawStart(SpriteBatch s, VertexBuffer vb, BasicEffect be, Matrix m, GameObject currentObject)
         {
             Sgml.sb = s;
             Sgml.vb = vb;
             Sgml.be = be;
             Sgml.m = m;
+            Sgml.currentObject = currentObject;
         }
 
         // Editor events

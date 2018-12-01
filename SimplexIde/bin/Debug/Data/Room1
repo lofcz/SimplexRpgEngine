@@ -27,4 +27,40 @@
       <Y>768</Y>
     </ViewSize>
   </GameRoom>
+  <GameObject xsi:type="Object2">
+    <Position>
+      <X>339.438446</X>
+      <Y>-37.8526764</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object2</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageIndex>0</ImageIndex>
+    <c1>
+      <B>59</B>
+      <G>23</G>
+      <R>63</R>
+      <A>255</A>
+      <PackedValue>4282062655</PackedValue>
+    </c1>
+    <c2>
+      <B>197</B>
+      <G>209</G>
+      <R>105</R>
+      <A>255</A>
+      <PackedValue>4291154281</PackedValue>
+    </c2>
+    <time>467</time>
+  </GameObject>
 </Root>

@@ -17,7 +17,7 @@ namespace SimplexResources.Objects
 
         public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, VertexBuffer vb, BasicEffect be, Matrix m)
         {
-            DrawStart(s, vb, be, m);
+            DrawStart(s, vb, be, m, this);
 
             draw_set_alpha(1);
             draw_sprite(objectTexture, ImageIndex, Position);
