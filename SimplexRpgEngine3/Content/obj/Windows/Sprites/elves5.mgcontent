@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/lof/Documents/GitHub/SimplexRpgEngine/SimplexRpgEngine3/Content/Sprites/elves5.png</SourceFile>
-  <SourceTime>2018-12-01T13:25:25.1780138+01:00</SourceTime>
+  <SourceTime>2018-12-02T11:31:09+01:00</SourceTime>
   <DestFile>C:/Users/lof/Documents/GitHub/SimplexRpgEngine/SimplexRpgEngine3/Content/bin/Windows/Sprites/elves5.xnb</DestFile>
-  <DestTime>2018-12-01T13:46:53.3389664+01:00</DestTime>
+  <DestTime>2018-12-03T00:03:25.089499+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-09-23T23:55:52+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

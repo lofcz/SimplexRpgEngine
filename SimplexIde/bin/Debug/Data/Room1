@@ -9,12 +9,14 @@
         <Position>0</Position>
         <Depth>0</Depth>
       </RoomLayer>
-      <RoomLayer>
+      <RoomLayer xsi:type="TileLayer">
         <Visible>true</Visible>
         <Name>Tile layer 1</Name>
         <LayerType>typeTile</LayerType>
         <Position>0</Position>
         <Depth>0</Depth>
+        <Tiles />
+        <TilelistName>tileset0</TilelistName>
       </RoomLayer>
     </Layers>
     <Size>
@@ -108,6 +110,6 @@
     </c2>
     <speed>4</speed>
     <LastImageIndex>0</LastImageIndex>
-    <time>475</time>
+    <time>3828</time>
   </GameObject>
 </Root>

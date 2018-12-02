@@ -62,6 +62,8 @@ namespace SimplexResources.Objects
 
         public override void EvtStep()
         {
+            currentObject = this;
+
             time++;
             this.Sprite.UpdateImageAngle();
             this.Sprite.UpdateImageScale();
@@ -137,6 +139,8 @@ namespace SimplexResources.Objects
 
         public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, VertexBuffer vb, BasicEffect be, Matrix transform)
         {
+            currentObject = this;
+
             // Initialize render engine for this instance
             DrawStart(s, vb, be, transform, this);
             //    s.Draw(objectTexture, Position, DrawColor);

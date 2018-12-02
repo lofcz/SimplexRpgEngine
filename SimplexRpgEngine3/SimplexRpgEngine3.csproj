@@ -109,6 +109,7 @@
     <None Include="SpritesDescriptor.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="TilesetsDescriptor.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />

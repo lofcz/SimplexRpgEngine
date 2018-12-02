@@ -17,7 +17,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using SimplexCore;
 using Color = System.Drawing.Color;
-using MessageBox = Microsoft.Xna.Framework.Input.MessageBox;
 
 namespace SimplexIde
 {
@@ -32,7 +31,9 @@ namespace SimplexIde
         public DarkTreeView objects;
         public DarkTreeView rooms;
         public Sprites_manager SpritesManager = null;
-        
+        public TilesetControl ww = null;
+        public ToolWindow w = null;
+
         public Form1()
         {
             InitializeComponent();
@@ -40,12 +41,12 @@ namespace SimplexIde
 
         private void drawTest1_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           // Application.AddMessageFilter(darkDockPanel2.DockContentDragFilter);
+            // Application.AddMessageFilter(darkDockPanel2.DockContentDragFilter);
             Application.AddMessageFilter(darkDockPanel2.DockResizeFilter);
             Application.AddMessageFilter(darkDockPanel1.DockResizeFilter);
             Application.AddMessageFilter(darkDockPanel1.DockContentDragFilter);
@@ -91,7 +92,7 @@ namespace SimplexIde
         {
             if (activeRoom == null)
             {
-               // activeRoom = treeView2.TopNode;
+                // activeRoom = treeView2.TopNode;
             }
             drawTest1.SaveGame(Path.Combine(Environment.CurrentDirectory, @"Data/" + activeRoom.Text));
         }
@@ -105,7 +106,7 @@ namespace SimplexIde
         {
             if (e.Button == MouseButtons.Left)
             {
-              //  drawTest1.GameClicked(e);
+                //  drawTest1.GameClicked(e);
             }
         }
 
@@ -115,7 +116,8 @@ namespace SimplexIde
         }
 
         private void drawTest1_MouseMove_1(object sender, MouseEventArgs e)
-        {;
+        {
+            ;
             drawTest1.PreCheckMouse(e);
 
             drawTest1.MousePosition = new Vector2(e.X, e.Y);
@@ -153,12 +155,12 @@ namespace SimplexIde
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-           // width = (int)numericUpDown1.Value;
+            // width = (int)numericUpDown1.Value;
         }
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
-          //  height = (int)numericUpDown2.Value;
+            //  height = (int)numericUpDown2.Value;
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -179,7 +181,7 @@ namespace SimplexIde
                 drawTest1.SaveGame(Path.Combine(Environment.CurrentDirectory, @"Data/" + activeRoom.Text));
             }
 
-          //  activeRoom = treeView2.SelectedNode;
+            //  activeRoom = treeView2.SelectedNode;
 
             if (File.Exists(Path.Combine(Environment.CurrentDirectory, @"Data/" + activeRoom.Text)))
             {
@@ -218,7 +220,7 @@ namespace SimplexIde
 
         private void numericUpDown5_ValueChanged(object sender, EventArgs e)
         {
-         //   drawTest1.GridSize = new Vector2((int)numericUpDown5.Value, (int)numericUpDown6.Value);
+            //   drawTest1.GridSize = new Vector2((int)numericUpDown5.Value, (int)numericUpDown6.Value);
         }
 
         private void numericUpDown6_ValueChanged(object sender, EventArgs e)
@@ -278,7 +280,7 @@ namespace SimplexIde
 
         private void darkDockPanel2_Load(object sender, EventArgs e)
         {
-            ToolWindow w = new ToolWindow();
+            w = new ToolWindow();
             w.Dock = DockStyle.Fill;
             w.main = drawTest1;
             objects = w.dtv;
@@ -346,6 +348,9 @@ namespace SimplexIde
                 reflectedTypes.Add(t);
             }
 
+            reflectedTypes.Add(typeof(RoomLayer));
+            reflectedTypes.Add(typeof(TileLayer));
+
             nspace = "SimplexResources.Rooms";
             q = from t in Assembly.GetExecutingAssembly().GetTypes()
                 where t.IsClass && t.Namespace == nspace
@@ -354,7 +359,7 @@ namespace SimplexIde
 
             foreach (Type t in classList)
             {
-                rooms.Nodes[0].Nodes.Add(new DarkTreeNode(t.Name) {Icon = Properties.Resources.MapTileLayer_16x});
+                rooms.Nodes[0].Nodes.Add(new DarkTreeNode(t.Name) { Icon = Properties.Resources.MapTileLayer_16x });
                 reflectedTypes.Add(t);
             }
 
@@ -372,8 +377,9 @@ namespace SimplexIde
         private void darkDockPanel3_Load(object sender, EventArgs e)
         {
             ControlInterface w = new ControlInterface();
-            TilesetControl ww = new TilesetControl();
+            ww = new TilesetControl();
             ww.DockText = "Tiles";
+            ww.form = this;
             darkDockPanel3.AddContent(w);
             darkDockPanel3.AddContent(ww);
             ResizeRedraw = true;
@@ -382,6 +388,7 @@ namespace SimplexIde
         private void darkDockPanel4_Load(object sender, EventArgs e)
         {
             LayerTool w = new LayerTool(drawTest1);
+            w.form = this;
             darkDockPanel4.AddContent(w);
 
             RoomsControl r = new RoomsControl();

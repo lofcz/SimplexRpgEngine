@@ -20,7 +20,6 @@ using MonoGame.Extended.ViewportAdapters;
 using MonoGame.Extended.Shapes;
 using MonoGame.Forms.Controls;
 using Newtonsoft.Json;
-using SharpDX.Direct2D1;
 using SimplexCore;
 using SimplexCore.Ext;
 using SimplexResources.Objects;
@@ -82,6 +81,9 @@ namespace SimplexIde
         public Form1 editorForm;
         public bool GameRunning = true;
         public Vector2 MousePrevious = new Vector2();
+        public AutotileDefinition currentAutotile = null;
+        public TileLayer currentTileLayer = null;
+        public RoomLayer lastLayer = null;
 
         protected override void Initialize()
         {
@@ -89,7 +91,7 @@ namespace SimplexIde
 
             Sgml.SceneObjects = SceneObjects;
             Sgml.Textures = Textures;
-            
+
             camera = new Camera2D(Editor.graphics);
             basicEffect = new BasicEffect(Editor.graphics);
 
@@ -114,16 +116,16 @@ namespace SimplexIde
             m = Matrix.CreateOrthographicOffCenter(0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 0, 0, -1);
 
             mpb = new MgPrimitiveBatcher(Editor.graphics, Editor.Font);
-           // Editor.spriteBatch = mpb;
+            // Editor.spriteBatch = mpb;
         }
 
         public void RenderLayers(TreeView tv)
-        {          
+        {
             tv.Nodes[0].Nodes.Clear();
 
             if (currentRoom != null)
             {
-                GameRoom gr = (GameRoom) Activator.CreateInstance(currentRoom.GetType());
+                GameRoom gr = (GameRoom)Activator.CreateInstance(currentRoom.GetType());
 
                 foreach (RoomLayer rl in gr.Layers)
                 {
@@ -135,7 +137,7 @@ namespace SimplexIde
         public void Rsize()
         {
             Editor.graphics.Viewport = new Viewport(0, 0, this.Width, this.Height);
-            
+
             m = Matrix.CreateOrthographicOffCenter(0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 0, 0, -1);
             Debug.WriteLine(GraphicsDevice.Viewport.Height);
         }
@@ -160,12 +162,12 @@ namespace SimplexIde
 
             if (Input.KeyPressed(Keys.D))
             {
-              //  k += 1;
+                //  k += 1;
             }
 
             if (Input.KeyPressed(Keys.Q))
             {
-               // cam.TargetZoom -= 0.1f;
+                // cam.TargetZoom -= 0.1f;
             }
 
             foreach (GameObject o in SceneObjects)
@@ -206,7 +208,7 @@ namespace SimplexIde
 
                     if (r.Intersects(selectionRectangle))
                     {
-                        o.TempPosition = new Vector2(o.Position.X - MousePositionTranslated.X, o.Position.Y  - MousePositionTranslated.Y);
+                        o.TempPosition = new Vector2(o.Position.X - MousePositionTranslated.X, o.Position.Y - MousePositionTranslated.Y);
                         selectedRectangleObjects.Add(o);
                     }
                 }
@@ -284,7 +286,7 @@ namespace SimplexIde
 
                             clickedObject = SceneObjects[i];
                             goodBoy = false;
-                           
+
                         }
                         else
                         {
@@ -311,12 +313,12 @@ namespace SimplexIde
         protected override void Draw()
         {
             double framerate = Editor.GetFrameRate;
-            
+
             base.Draw();
             Matrix transformMatrix = cam.Camera.GetViewMatrix();
             BackgroundColor = Color.Black;
             Editor.graphics.Clear(BackgroundColor);
-           // Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
+            // Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
 
             if (DrawGrid)
             {
@@ -329,7 +331,7 @@ namespace SimplexIde
                     {
                         i = (float)Math.Round(i);
                         j = (float)Math.Round(j);
-                        Editor.spriteBatch.DrawRectangle(new RectangleF(j, i, GridSizeRender.X, GridSizeRender.Y), c, 1 );
+                        Editor.spriteBatch.DrawRectangle(new RectangleF(j, i, GridSizeRender.X, GridSizeRender.Y), c, 1);
                     }
                 }
 
@@ -343,14 +345,28 @@ namespace SimplexIde
                     Color c = Color.White;
                     c.A = 128;
                     Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
+                    int xIndex = 0;
+                    int yIndex = 0;
                     for (float i = 0; i < 768; i += GridSizeRender.Y)
                     {
                         for (float j = 0; j < 1024; j += GridSizeRender.X)
                         {
+
+                            xIndex++;
                             i = (float)Math.Round(i);
                             j = (float)Math.Round(j);
-                            Editor.spriteBatch.DrawRectangle(new RectangleF(j, i, GridSizeRender.X, GridSizeRender.Y), c, 1);
+                          //  Editor.spriteBatch.DrawRectangle(new RectangleF(j, i, GridSizeRender.X, GridSizeRender.Y), c * 0.2f, 1);
+                            
                         }
+
+                        yIndex++;
+                        xIndex = 0;
+                    }
+
+                    foreach (Tile t in ((TileLayer)rl).Tiles)
+                    {
+                        Editor.spriteBatch.Draw(t.SourceTexture, new Vector2(t.PosX * 32, t.PosY * 32), t.DrawRectangle, Color.White);
+                       // Editor.spriteBatch.DrawString(Editor.Font, t.Score.ToString(), new Vector2(t.PosX * 32, t.PosY * 32), Color.Black);
                     }
 
                     Editor.spriteBatch.End();
@@ -417,17 +433,17 @@ namespace SimplexIde
 
 
 
-           // Editor.spriteBatch.End();
+            // Editor.spriteBatch.End();
 
-          //  mpb.world = world;
-          //  mpb.view = view;
-          //  mpb.projection = projection;
-         // mpb.TransformMatrix = transformMatrix;
-            
-         //   mpb.TransformMatrix = transformMatrix;
-          //  mpb.DrawString(new StringBuilder("Kokot"), new Vector2(100, 100), 15, Color.White);
-         //   mpb.DrawCircle(new Vector2(100, 100), 64, Color.White, 64);
-           // mpb.Flush();
+            //  mpb.world = world;
+            //  mpb.view = view;
+            //  mpb.projection = projection;
+            // mpb.TransformMatrix = transformMatrix;
+
+            //   mpb.TransformMatrix = transformMatrix;
+            //  mpb.DrawString(new StringBuilder("Kokot"), new Vector2(100, 100), 15, Color.White);
+            //   mpb.DrawCircle(new Vector2(100, 100), 64, Color.White, 64);
+            // mpb.Flush();
             //mpb.Clear();
 
             killClick = false;
@@ -491,111 +507,156 @@ namespace SimplexIde
                 }
                 else if (clickedObject == null)
                 {
-                    if (selectedRectangleObjects.Count > 0)
+                    if (currentAutotile == null)
                     {
-                        bool flag = true;
-
-                        if (flag)
+                        if (selectedRectangleObjects.Count > 0)
                         {
-                            if (selectedRectangleObjects.Count > 0)
+                            bool flag = true;
+
+                            if (flag)
                             {
-                                foreach (GameObject o in selectedRectangleObjects)
+                                if (selectedRectangleObjects.Count > 0)
                                 {
-                                    o.Position += new Vector2(vec.X - MousePrevious.X, vec.Y - MousePrevious.Y);
+                                    foreach (GameObject o in selectedRectangleObjects)
+                                    {
+                                        o.Position += new Vector2(vec.X - MousePrevious.X, vec.Y - MousePrevious.Y);
+                                    }
                                 }
+                            }
+                            else
+                            {
+                                selectedRectangleObjects.Clear();
+
                             }
                         }
                         else
                         {
-                            selectedRectangleObjects.Clear();
-                            
-                        }
-                    }
-                    else
-                    {                       
-                        if (!Input.KeyboardState.IsKeyDown(Keys.LeftShift) || Sgml.PlaceEmpty(vec))
-                        {
-                            if (Sgml.PlaceEmpty(vec))
+                            if (!Input.KeyboardState.IsKeyDown(Keys.LeftShift) || Sgml.PlaceEmpty(vec))
                             {
-                                if (SelectedObject != null)
+                                if (Sgml.PlaceEmpty(vec))
                                 {
-                                    GameObject o = (GameObject) Activator.CreateInstance(SelectedObject);
-
-                                    Spritesheet s = new Spritesheet();
-                                    if (o.Sprite != null)
+                                    if (SelectedObject != null)
                                     {
-                                        s = Sprites.FirstOrDefault(x => x.Name == o.Sprite.TextureSource);
-                                    }
+                                        GameObject o = (GameObject)Activator.CreateInstance(SelectedObject);
 
-                                    if (!cmsOpen && SelectedObject != null)
-                                    {
-                                        if (stackedSteps.Count > 31)
+                                        Spritesheet s = new Spritesheet();
+                                        if (o.Sprite != null)
                                         {
-                                            stackedSteps.Pop();
+                                            s = Sprites.FirstOrDefault(x => x.Name == o.Sprite.TextureSource);
                                         }
 
-                                        stackedSteps.Push(SceneObjects.ToList());
-                                        editorForm.updateStack(stackedSteps.Count);
-
-                                        o.OriginalType = SelectedObject;
-                                        o.TypeString = SelectedObject.ToString();
-
-                                        if (s == null)
+                                        if (!cmsOpen && SelectedObject != null)
                                         {
-                                            Texture2D tx = ConvertToTexture(Properties.Resources.Question_16x,
-                                                GraphicsDevice);
+                                            if (stackedSteps.Count > 31)
+                                            {
+                                                stackedSteps.Pop();
+                                            }
+
+                                            stackedSteps.Push(SceneObjects.ToList());
+                                            editorForm.updateStack(stackedSteps.Count);
+
+                                            o.OriginalType = SelectedObject;
+                                            o.TypeString = SelectedObject.ToString();
+
+                                            if (s == null)
+                                            {
+                                                Texture2D tx = ConvertToTexture(Properties.Resources.Question_16x,
+                                                    GraphicsDevice);
 
 
-                                            o.Sprite = new Sprite();
-                                            o.Sprite.Texture = tx;
-                                            o.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, 16, 16);
+                                                o.Sprite = new Sprite();
+                                                o.Sprite.Texture = tx;
+                                                o.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, 16, 16);
+                                            }
+                                            else
+                                            {
+                                                o.Sprite.Texture = s.Texture;
+                                                o.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
+                                            }
+
+                                            o.Sprite.TextureRows = s.Rows;
+                                            o.Sprite.TextureCellsPerRow = s.Texture.Width / s.CellWidth;
+                                            o.Sprite.ImageSize = new Vector2(s.CellWidth, s.CellHeight);
+                                            o.Sprite.FramesCount = Math.Max((s.Texture.Width / s.CellWidth) * (s.Texture.Height / s.CellHeight) - 1, 1);
+                                            o.FramesCount = Math.Max(o.Sprite.FramesCount - 1, 1);
+                                            o.Sprite.cellW = s.CellHeight;
+                                            o.Sprite.cellH = s.CellWidth;
+
+                                            o.Position = new Vector2(vec.X - s.CellWidth / 2f, vec.Y - s.CellHeight / 2f);
+                                            o.Sprite.ImageRectangle =
+                                                new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
+                                            o.LayerName = selectedLayer.Name;
+                                            o.Layer = selectedLayer;
+                                            o.EvtCreate();
+
+
+                                            SceneObjects.Add(o);
+
+                                            //  SceneObjects = SceneObjects.OrderBy(x => x.Layer.Depth).ToList();
                                         }
-                                        else
+
+                                        if (!Input.KeyboardState.IsKeyDown(Keys.LeftShift))
                                         {
-                                            o.Sprite.Texture = s.Texture;
-                                            o.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
+                                            clickedObject = o;
                                         }
-
-                                        o.Sprite.TextureRows = s.Rows;
-                                        o.Sprite.TextureCellsPerRow = s.Texture.Width / s.CellWidth;
-                                        o.Sprite.ImageSize = new Vector2(s.CellWidth, s.CellHeight);
-                                        o.Sprite.FramesCount = Math.Max((s.Texture.Width / s.CellWidth) * (s.Texture.Height / s.CellHeight) - 1, 1);
-                                        o.FramesCount = Math.Max(o.Sprite.FramesCount - 1, 1);
-                                        o.Sprite.cellW = s.CellHeight;
-                                        o.Sprite.cellH = s.CellWidth;
-
-                                        o.Position = new Vector2(vec.X - s.CellWidth / 2f, vec.Y - s.CellHeight / 2f);
-                                        o.Sprite.ImageRectangle =
-                                            new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
-                                        o.LayerName = selectedLayer.Name;
-                                        o.Layer = selectedLayer;
-                                        o.EvtCreate();
-
-
-                                        SceneObjects.Add(o);
-
-                                      //  SceneObjects = SceneObjects.OrderBy(x => x.Layer.Depth).ToList();
-                                    }
-
-                                    if (!Input.KeyboardState.IsKeyDown(Keys.LeftShift))
-                                    {
-                                        clickedObject = o;
                                     }
                                 }
                             }
-                        }
 
-                        if (!Sgml.PlaceEmpty(vec) && !Input.KeyboardState.IsKeyDown(Keys.LeftShift))
-                        {
-                            // there's something cool at the position already, time to grab it
-                            GameObject collidingObject = Sgml.InstancePlace(vec);
-
-                            if (collidingObject != null)
+                            if (!Sgml.PlaceEmpty(vec) && !Input.KeyboardState.IsKeyDown(Keys.LeftShift))
                             {
-                                clickedObject = collidingObject;
-                                helpVec = new Vector2(-MousePositionTranslated.X + collidingObject.Position.X, -MousePositionTranslated.Y + collidingObject.Position.Y);
-                                clickedVec = MousePositionTranslated;
+                                // there's something cool at the position already, time to grab it
+                                GameObject collidingObject = Sgml.InstancePlace(vec);
+
+                                if (collidingObject != null)
+                                {
+                                    clickedObject = collidingObject;
+                                    helpVec = new Vector2(-MousePositionTranslated.X + collidingObject.Position.X, -MousePositionTranslated.Y + collidingObject.Position.Y);
+                                    clickedVec = MousePositionTranslated;
+                                }
                             }
+                        }
+                    }
+                    else
+                    {
+                        Vector2 m = MousePositionTranslated;
+
+                        Tile alreadyT = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == (int)m.X / 32 && x.PosY == (int)m.Y / 32);
+
+                        if (alreadyT == null)
+                        { 
+                            Tile t = new Tile();
+                            t.Bits = 16;
+                            t.DrawRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, 32, 32);
+                            t.SourceTexture = currentAutotile.Texture;
+                            t.PosX = (int) m.X / 32;
+                            t.PosY = (int) m.Y / 32;
+
+                            currentTileLayer.Tiles.Add(t);
+
+                            t = Autotile.UpdateTile(t, currentTileLayer);
+
+                            // basic 4
+                            Tile t1 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX && x.PosY == t.PosY - 1); // N // 2
+                            Tile t2 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX && x.PosY == t.PosY + 1); // S // 64
+                            Tile t3 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX + 1 && x.PosY == t.PosY); // W // 16
+                            Tile t4 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX - 1 && x.PosY == t.PosY); // S // 8
+
+                            // extended 4
+                            Tile t5 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX - 1 && x.PosY == t.PosY - 1); // EN // 1
+                            Tile t6 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX + 1 && x.PosY == t.PosY - 1); // WN // 4
+                            Tile t7 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX - 1 && x.PosY == t.PosY + 1); // ES // 32
+                            Tile t8 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX + 1 && x.PosY == t.PosY + 1); // WS // 128
+
+                            if (t1 != null) { Autotile.UpdateTile(t1, currentTileLayer); }
+                            if (t2 != null) { Autotile.UpdateTile(t2, currentTileLayer); }
+                            if (t3 != null) { Autotile.UpdateTile(t3, currentTileLayer); }
+                            if (t4 != null) { Autotile.UpdateTile(t4, currentTileLayer); }
+
+                            if (t5 != null) { Autotile.UpdateTile(t5, currentTileLayer); }
+                            if (t6 != null) { Autotile.UpdateTile(t6, currentTileLayer); }
+                            if (t7 != null) { Autotile.UpdateTile(t7, currentTileLayer); }
+                            if (t8 != null) { Autotile.UpdateTile(t8, currentTileLayer); }
                         }
                     }
                 }
@@ -610,7 +671,7 @@ namespace SimplexIde
                         vec.X -= (int)(clickedObject.Sprite.ImageRectangle.Width - 32) / 2;//16;
                         vec.Y -= (int)(clickedObject.Sprite.ImageRectangle.Height - 32) / 2;
 
-                        vec = new Vector2((int)vec.X / 32  * 32, (int)vec.Y / 32 * 32);
+                        vec = new Vector2((int)vec.X / 32 * 32, (int)vec.Y / 32 * 32);
                     }
 
                     if (!cmsOpen)
@@ -671,7 +732,7 @@ namespace SimplexIde
             }
             //root.Objects.Add(new GameObject { Property1 = 2 });
             //root.Objects.Add(new SampleObject { Property1 = 5, Property2 = 12 });
-            GameRoom gr = (GameRoom) Activator.CreateInstance(Type.GetType(("SimplexResources.Rooms." + Form1.activeRoom.Text)));
+            GameRoom gr = (GameRoom)Activator.CreateInstance(Type.GetType(("SimplexResources.Rooms." + Form1.activeRoom.Text)));
             root.Room = gr;
 
             XmlSerializer ser = new XmlSerializer(typeof(Root), Form1.reflectedTypes.ToArray());
@@ -682,17 +743,17 @@ namespace SimplexIde
                 //Root deserialized = (Root)ser.Deserialize(stream);
             }
 
-         //   XmlManager<GameObject> xmlManager = new XmlManager<GameObject>();
-         //   xmlManager.Type = typeof(List<GameObject>);
-         //   xmlManager.SaveList(path, SceneObjects);
-          Debug.WriteLine("Save OK");
+            //   XmlManager<GameObject> xmlManager = new XmlManager<GameObject>();
+            //   xmlManager.Type = typeof(List<GameObject>);
+            //   xmlManager.SaveList(path, SceneObjects);
+            Debug.WriteLine("Save OK");
         }
 
         public void ClearAll()
         {
             SceneObjects.Clear();
             roomLayers.Clear();
-            
+
         }
 
         public void LoadGame(string path)
@@ -700,6 +761,9 @@ namespace SimplexIde
             bool flag = false;
             // First we fuck current scene
             ClearAll();
+
+            // Before loading layers, we load tilesets descriptor
+            List<Tileset> tilesets = JsonConvert.DeserializeObject<List<Tileset>>(File.ReadAllText("../../../SimplexRpgEngine3/TilesetsDescriptor.json"));
 
             // Load layers
             if (lt.dtv.Nodes.Count > 0)
@@ -721,7 +785,7 @@ namespace SimplexIde
 
                     if (rl.LayerType == RoomLayer.LayerTypes.typeObject)
                     {
-                        dtn.Icon = (System.Drawing.Bitmap) Properties.Resources.ResourceManager.GetObject("WorldLocal_16x");
+                        dtn.Icon = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("WorldLocal_16x");
                     }
                     else if (rl.LayerType == RoomLayer.LayerTypes.typeAsset)
                     {
@@ -748,7 +812,18 @@ namespace SimplexIde
             {
                 if (rl.LayerType == RoomLayer.LayerTypes.typeTile)
                 {
-                    rl.Data = new int[(int)currentRoom.Size.X / 32, (int)currentRoom.Size.Y / 32];
+                    // Start with empty cell data and load stuff later on
+                    ((TileLayer)rl).Data = new int[(int)currentRoom.Size.X / 32, (int)currentRoom.Size.Y / 32];
+
+                    // Now select correct tileset and assign it to this.. well tileset
+                    Tileset tl = tilesets.FirstOrDefault(x => x.Name == ((TileLayer)rl).TilelistName);
+
+                    // this can fail so check for that
+                    if (tl != null)
+                    {
+                        // all good
+                        ((TileLayer)rl).Tileset = tl;
+                    }
                 }
             }
 
@@ -830,5 +905,5 @@ namespace SimplexIde
         {
             cmsOpen = true;
         }
-    }  
+    }
 }

@@ -1,11 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace SimplexCore
 {
     public static class Autotile
     {
+        public static Tile UpdateTile(Tile t, TileLayer currentTileLayer)
+        {
+            // basic 4
+            Tile t1 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX && x.PosY == t.PosY - 1); // N // 2
+            Tile t2 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX && x.PosY == t.PosY + 1); // S // 64
+            Tile t3 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX + 1 && x.PosY == t.PosY); // W // 16
+            Tile t4 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX - 1 && x.PosY == t.PosY); // E // 8
+
+            // extended 4
+            Tile t5 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX - 1 && x.PosY == t.PosY - 1); // EN // 1
+            Tile t6 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX + 1 && x.PosY == t.PosY - 1); // WN // 4
+            Tile t7 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX - 1 && x.PosY == t.PosY + 1); // ES // 32
+            Tile t8 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX + 1 && x.PosY == t.PosY + 1); // WS // 128
+
+            int score = 0;
+            if (t1 != null) { score += 2; }
+            if (t2 != null) { score += 64; }
+            if (t3 != null) { score += 16; }
+            if (t4 != null) { score += 8; }
+
+            if (t5 != null && t1 != null && t4 != null) { score += 1; } // EN
+            if (t6 != null && t1 != null && t3 != null) { score += 4; } // WN
+            if (t7 != null && t2 != null && t4 != null) { score += 32; } // ES
+            if (t8 != null && t2 != null && t3 != null) { score += 128; } // WS
+
+            score = Bitmask16(score);
+
+            int rY = score / 8;
+            int rX = score % 8;
+
+            t.DrawRectangle = new Microsoft.Xna.Framework.Rectangle(rX * 32, rY * 32, 32, 32);
+            t.Score = score;
+            return t;
+        }
+
         public static int Bitmask16(int value)
         {
             switch (value)
