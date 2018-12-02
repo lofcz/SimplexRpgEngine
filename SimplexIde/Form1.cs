@@ -17,7 +17,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using SimplexCore;
 using Color = System.Drawing.Color;
-using MessageBox = Microsoft.Xna.Framework.Input.MessageBox;
 
 namespace SimplexIde
 {
@@ -32,7 +31,8 @@ namespace SimplexIde
         public DarkTreeView objects;
         public DarkTreeView rooms;
         public Sprites_manager SpritesManager = null;
-        
+        public TilesetControl ww = null;
+
         public Form1()
         {
             InitializeComponent();
@@ -375,7 +375,7 @@ namespace SimplexIde
         private void darkDockPanel3_Load(object sender, EventArgs e)
         {
             ControlInterface w = new ControlInterface();
-            TilesetControl ww = new TilesetControl();
+            ww = new TilesetControl();
             ww.DockText = "Tiles";
             darkDockPanel3.AddContent(w);
             darkDockPanel3.AddContent(ww);
@@ -385,6 +385,7 @@ namespace SimplexIde
         private void darkDockPanel4_Load(object sender, EventArgs e)
         {
             LayerTool w = new LayerTool(drawTest1);
+            w.form = this;
             darkDockPanel4.AddContent(w);
 
             RoomsControl r = new RoomsControl();

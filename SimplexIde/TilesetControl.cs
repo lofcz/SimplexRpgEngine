@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DarkUI.Docking;
+using SimplexCore;
 
 namespace SimplexIde
 {
     public partial class TilesetControl : DarkToolWindow
     {
-        public Bitmap currentTileset;
+        public Tileset currentTileset;
+        public Bitmap currentTilesetBitmap;
         public int mode = 0;
 
         public TilesetControl()
@@ -31,9 +33,9 @@ namespace SimplexIde
             // Draw entire tileset
             if (mode == 0)
             {
-                if (currentTileset != null)
+                if (currentTilesetBitmap != null)
                 {
-                    e.Graphics.DrawImage(currentTileset, new PointF(0, 50));
+                    e.Graphics.DrawImage(currentTilesetBitmap, new PointF(0, 50));
                 }
             }
         }

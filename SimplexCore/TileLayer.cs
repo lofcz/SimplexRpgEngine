@@ -13,6 +13,10 @@ namespace SimplexCore
         public int[,] Data;
 
         public List<Tile> Tiles;
+        public string TilelistName;
+
+        [XmlIgnore]
+        public Tileset Tileset;
 
         public TileLayer()
         {

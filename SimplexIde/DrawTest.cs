@@ -20,7 +20,6 @@ using MonoGame.Extended.ViewportAdapters;
 using MonoGame.Extended.Shapes;
 using MonoGame.Forms.Controls;
 using Newtonsoft.Json;
-using SharpDX.Direct2D1;
 using SimplexCore;
 using SimplexCore.Ext;
 using SimplexResources.Objects;
@@ -701,6 +700,9 @@ namespace SimplexIde
             // First we fuck current scene
             ClearAll();
 
+            // Before loading layers, we load tilesets descriptor
+            List<Tileset> tilesets = JsonConvert.DeserializeObject<List<Tileset>>(File.ReadAllText("../../../SimplexRpgEngine3/TilesetsDescriptor.json"));
+
             // Load layers
             if (lt.dtv.Nodes.Count > 0)
             {
@@ -748,7 +750,18 @@ namespace SimplexIde
             {
                 if (rl.LayerType == RoomLayer.LayerTypes.typeTile)
                 {                 
+                    // Start with empty cell data and load stuff later on
                     ((TileLayer)rl).Data = new int[(int)currentRoom.Size.X / 32, (int)currentRoom.Size.Y / 32];
+
+                    // Now select correct tileset and assign it to this.. well tileset
+                    Tileset tl = tilesets.FirstOrDefault(x => x.Name == ((TileLayer) rl).TilelistName);
+
+                    // this can fail so check for that
+                    if (tl != null)
+                    {
+                        // all good
+                        ((TileLayer) rl).Tileset = tl;
+                    }
                 }
             }
 
