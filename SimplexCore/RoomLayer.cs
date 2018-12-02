@@ -7,7 +7,6 @@ namespace SimplexCore
 {
 
     [Serializable]
-    [XmlInclude(typeof(TileLayer))]
     public class RoomLayer
     {
         public enum LayerTypes
@@ -22,6 +21,11 @@ namespace SimplexCore
         public int Position { get; set; }
         public int Depth { get; set; }
         public bool Visible;
+
+        [XmlIgnore]
+        public int[,] Data;
+
+        public List<Tile> Tiles;
 
         public RoomLayer()
         {

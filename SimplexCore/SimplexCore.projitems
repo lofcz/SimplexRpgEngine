@@ -10,7 +10,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Autotile.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)AutotileDefinition.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ColliderBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ColliderRectangle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Ext\IPrimitiveBatcher.cs" />
@@ -32,8 +31,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Spritesheet.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TextureReference.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tile.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)TileLayer.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tileset.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)XmlManager.cs" />
   </ItemGroup>
   <ItemGroup>

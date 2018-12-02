@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DarkUI.Controls;
 using DarkUI.Docking;
-using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using SimplexCore;
 using MessageBox = System.Windows.Forms.MessageBox;
@@ -22,7 +20,6 @@ namespace SimplexIde
         public DarkTreeView dtv = null;
         public DarkTreeNode selectedNode = null;
         public DrawTest f = null;
-        public Form1 form;
 
         public LayerTool(DrawTest f)
         {         
@@ -56,18 +53,6 @@ namespace SimplexIde
                 if (dtn.Tag != null && (string) dtn?.Tag != "folder")
                 {
                     f.selectedLayer = f.roomLayers.FirstOrDefault(x => x.Name == dtn.Text);
-
-                    // Activate / deactive tile tool now
-                    RoomLayer l = f.selectedLayer;
-
-                    if (l.LayerType == RoomLayer.LayerTypes.typeTile)
-                    {
-                         // give him a tileset
-                         form.ww.currentTileset = ((TileLayer) l).Tileset;
-
-                         // also give hime a bitmap which we need to get first
-                         Texture2D tex = form.drawTest1.Editor.Content.Load<Texture2D>(Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/Tilesets" + ((TileLayer)l).Tileset.Name));
-                    }
                 }
             }
         }

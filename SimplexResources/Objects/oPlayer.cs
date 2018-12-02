@@ -62,8 +62,6 @@ namespace SimplexResources.Objects
 
         public override void EvtStep()
         {
-            Sgml.currentObject = this;
-
             time++;
             this.Sprite.UpdateImageAngle();
             this.Sprite.UpdateImageScale();

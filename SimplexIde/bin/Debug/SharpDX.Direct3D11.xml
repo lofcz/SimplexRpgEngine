@@ -1348,6 +1348,11 @@
             The highest supported hardware feature level.
             </returns>
         </member>
+        <member name="P:SharpDX.Direct3D11.Device.IsReferenceDevice">
+            <summary>
+            Gets a value indicating whether the current device is using the reference rasterizer.
+            </summary>
+        </member>
         <member name="P:SharpDX.Direct3D11.Device.DebugName">
             <summary>
             Gets or sets the debug-name for this object.

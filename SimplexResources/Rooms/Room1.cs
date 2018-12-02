@@ -10,7 +10,7 @@ namespace SimplexResources.Rooms
         public Room1()
         {
             Layers.Add(new RoomLayer() {Name = "Object layer 1", LayerType = RoomLayer.LayerTypes.typeObject});
-            Layers.Add(new TileLayer() { Name = "Tile layer 1", TilelistName = "tileset0" });
+            Layers.Add(new RoomLayer() { Name = "Tile layer 1", LayerType = RoomLayer.LayerTypes.typeTile });
         }
     }
 }

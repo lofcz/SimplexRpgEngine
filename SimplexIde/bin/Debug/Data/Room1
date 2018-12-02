@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <GameRoom xsi:type="Room1">
+    <Layers>
+      <RoomLayer>
+        <Visible>true</Visible>
+        <Name>Object layer 1</Name>
+        <LayerType>typeObject</LayerType>
+        <Position>0</Position>
+        <Depth>0</Depth>
+      </RoomLayer>
+      <RoomLayer>
+        <Visible>true</Visible>
+        <Name>Tile layer 1</Name>
+        <LayerType>typeTile</LayerType>
+        <Position>0</Position>
+        <Depth>0</Depth>
+      </RoomLayer>
+    </Layers>
+    <Size>
+      <X>1024</X>
+      <Y>768</Y>
+    </Size>
+    <Name>Unnamed room</Name>
+    <ViewSize>
+      <X>1024</X>
+      <Y>768</Y>
+    </ViewSize>
+  </GameRoom>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>450.914124</X>
+      <Y>259.32428</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>449.5808</X>
+      <Y>306.657623</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="oPlayer">
+    <Position>
+      <X>516.1269</X>
+      <Y>262.836731</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.oPlayer</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Tile layer 1</LayerName>
+    <ImageSpeed>0.01</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+    <c1>
+      <B>35</B>
+      <G>242</G>
+      <R>160</R>
+      <A>255</A>
+      <PackedValue>4280545952</PackedValue>
+    </c1>
+    <c2>
+      <B>73</B>
+      <G>150</G>
+      <R>188</R>
+      <A>255</A>
+      <PackedValue>4283012796</PackedValue>
+    </c2>
+    <speed>4</speed>
+    <LastImageIndex>0</LastImageIndex>
+    <time>475</time>
+  </GameObject>
+</Root>
