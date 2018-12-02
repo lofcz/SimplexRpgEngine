@@ -16,6 +16,7 @@ using DarkUI.Forms;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using SimplexCore;
+using Color = System.Drawing.Color;
 using MessageBox = Microsoft.Xna.Framework.Input.MessageBox;
 
 namespace SimplexIde
@@ -371,11 +372,11 @@ namespace SimplexIde
         private void darkDockPanel3_Load(object sender, EventArgs e)
         {
             ControlInterface w = new ControlInterface();
-            ControlInterface ww = new ControlInterface();
+            TilesetControl ww = new TilesetControl();
             ww.DockText = "Tiles";
             darkDockPanel3.AddContent(w);
             darkDockPanel3.AddContent(ww);
-
+            ResizeRedraw = true;
         }
 
         private void darkDockPanel4_Load(object sender, EventArgs e)
@@ -438,6 +439,26 @@ namespace SimplexIde
             SpritesManager.owner = this;
             SpritesManager.StartPosition = FormStartPosition.CenterScreen;
             SpritesManager.Show();
+        }
+
+        private void darkDockPanel3_Paint(object sender, PaintEventArgs e)
+        {
+            base.OnPaint(e);
+        }
+
+        private void darkButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void darkButton1_ForeColorChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void darkButton1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

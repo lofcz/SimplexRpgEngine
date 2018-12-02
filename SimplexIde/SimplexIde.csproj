@@ -129,6 +129,12 @@
     <Compile Include="Sprites manager.Designer.cs">
       <DependentUpon>Sprites manager.cs</DependentUpon>
     </Compile>
+    <Compile Include="TilesetControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TilesetControl.Designer.cs">
+      <DependentUpon>TilesetControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="ToolWindow.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -159,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sprites manager.resx">
       <DependentUpon>Sprites manager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TilesetControl.resx">
+      <DependentUpon>TilesetControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ToolWindow.resx">
       <DependentUpon>ToolWindow.cs</DependentUpon>
@@ -260,6 +269,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Checkmark_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ViewTop_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Resize_16x.png" />
   </ItemGroup>
   <Import Project="..\SimplexCore\SimplexCore.projitems" Label="Shared" />
   <Import Project="..\SimplexResources\SimplexResources.projitems" Label="Shared" />

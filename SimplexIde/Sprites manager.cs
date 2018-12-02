@@ -321,26 +321,9 @@ namespace SimplexIde
 
                                 if (toolMode == 1)
                                 {
-                                    SavePartialBitmap(lastImage, Path.GetFullPath("../../../SimplexRpgEngine3/Content/Sprites/Tilesets/tileset0.png"), xIndex * cellW, yIndex * cellH, cellW, cellH, ImageFormat.Png);
+                                    SavePartialBitmap(lastImage, Path.GetFullPath("../../../SimplexRpgEngine3/Content/Sprites/Tilesets/tilesetSource0.png"), xIndex * cellW, yIndex * cellH, cellW, cellH, ImageFormat.Png);
 
-                                    using (StreamWriter w = File.AppendText("../../../SimplexRpgEngine3/Content/Content.mgcb"))
-                                    {
-
-                                            w.WriteLine("#begin Sprites/Tilesets/" + "tileset0.png");
-                                            w.WriteLine("/importer:TextureImporter");
-                                            w.WriteLine("/processor:TextureProcessor");
-                                            w.WriteLine("/processorParam:ColorKeyColor=255,0,255,255");
-                                            w.WriteLine("/processorParam:ColorKeyEnabled=True");
-                                            w.WriteLine("/processorParam:GenerateMipmaps=False");
-                                            w.WriteLine("/processorParam:PremultiplyAlpha=True");
-                                            w.WriteLine("/processorParam:ResizeToPowerOfTwo=False");
-                                            w.WriteLine("/processorParam:MakeSquare=False");
-                                            w.WriteLine("/processorParam:TextureFormat=Color");
-                                            w.WriteLine("/build:Sprites/Tilesets/" + "tileset0.png");
-                                            w.WriteLine("");
-                                    }
-
-                                    lastImage = new Bitmap(Path.GetFullPath("../../../SimplexRpgEngine3/Content/Sprites/Tilesets/tileset0.png"));
+                                    lastImage = new Bitmap(Path.GetFullPath("../../../SimplexRpgEngine3/Content/Sprites/Tilesets/tilesetSource0.png"));
                                     toolMode = 2;
 
                                     Bitmap convertedImage = new Bitmap(256, 192);
@@ -497,6 +480,23 @@ namespace SimplexIde
 
 
                                     lastImage = convertedImage;
+                                    lastImage.Save(Path.GetFullPath("../../../SimplexRpgEngine3/Content/Sprites/Tilesets/tileset0.png"));
+                                    using (StreamWriter w = File.AppendText("../../../SimplexRpgEngine3/Content/Content.mgcb"))
+                                    {
+
+                                        w.WriteLine("#begin Sprites/Tilesets/" + "tileset0.png");
+                                        w.WriteLine("/importer:TextureImporter");
+                                        w.WriteLine("/processor:TextureProcessor");
+                                        w.WriteLine("/processorParam:ColorKeyColor=255,0,255,255");
+                                        w.WriteLine("/processorParam:ColorKeyEnabled=True");
+                                        w.WriteLine("/processorParam:GenerateMipmaps=False");
+                                        w.WriteLine("/processorParam:PremultiplyAlpha=True");
+                                        w.WriteLine("/processorParam:ResizeToPowerOfTwo=False");
+                                        w.WriteLine("/processorParam:MakeSquare=False");
+                                        w.WriteLine("/processorParam:TextureFormat=Color");
+                                        w.WriteLine("/build:Sprites/Tilesets/" + "tileset0.png");
+                                        w.WriteLine("");
+                                    }
                                 }
                             }
 

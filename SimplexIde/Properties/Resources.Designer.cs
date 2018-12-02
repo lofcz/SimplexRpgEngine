@@ -233,6 +233,16 @@ namespace SimplexIde.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Resize_16x {
+            get {
+                object obj = ResourceManager.GetObject("Resize_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Run_16xMD {
             get {
                 object obj = ResourceManager.GetObject("Run_16xMD", resourceCulture);
@@ -296,6 +306,16 @@ namespace SimplexIde.Properties {
         internal static System.Drawing.Bitmap Undo_16x {
             get {
                 object obj = ResourceManager.GetObject("Undo_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ViewTop_16x {
+            get {
+                object obj = ResourceManager.GetObject("ViewTop_16x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
