@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace SimplexCore
 {
@@ -20,6 +21,11 @@ namespace SimplexCore
         public int Position { get; set; }
         public int Depth { get; set; }
         public bool Visible;
+
+        [XmlIgnore]
+        public int[,] Data;
+
+        public List<Tile> Tiles;
 
         public RoomLayer()
         {

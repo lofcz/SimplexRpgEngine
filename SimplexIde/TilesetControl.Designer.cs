@@ -1,4 +1,6 @@
-﻿namespace SimplexIde
+﻿using System.Drawing;
+
+namespace SimplexIde
 {
     partial class TilesetControl
     {
@@ -33,6 +35,8 @@
             this.autotilingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prefabsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darkMenuStrip1.SuspendLayout();
+
+            
             this.SuspendLayout();
             // 
             // darkMenuStrip1
@@ -48,7 +52,7 @@
             this.darkMenuStrip1.Margin = new System.Windows.Forms.Padding(100, 0, 0, 0);
             this.darkMenuStrip1.Name = "darkMenuStrip1";
             this.darkMenuStrip1.Padding = new System.Windows.Forms.Padding(3, 2, 0, 2);
-            this.darkMenuStrip1.Size = new System.Drawing.Size(320, 24);
+            this.darkMenuStrip1.Size = new System.Drawing.Size(296, 24);
             this.darkMenuStrip1.TabIndex = 0;
             this.darkMenuStrip1.Text = "darkMenuStrip1";
             // 
@@ -85,20 +89,24 @@
             this.DockText = "Tilesets";
             this.Icon = global::SimplexIde.Properties.Resources.ViewTop_16x;
             this.Name = "TilesetControl";
-            this.Size = new System.Drawing.Size(320, 377);
+            this.Size = new System.Drawing.Size(296, 385);
             this.Load += new System.EventHandler(this.TilesetControl_Load);
             this.darkMenuStrip1.ResumeLayout(false);
             this.darkMenuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
+
+
         }
 
         #endregion
+
 
         private DarkUI.Controls.DarkMenuStrip darkMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tilesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem autotilingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem prefabsToolStripMenuItem;
+
     }
 }

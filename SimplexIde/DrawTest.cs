@@ -336,12 +336,33 @@ namespace SimplexIde
                 Editor.spriteBatch.End();
             }
 
+            foreach (RoomLayer rl in roomLayers)
+            {
+                if (rl.LayerType == RoomLayer.LayerTypes.typeTile)
+                {
+                    Color c = Color.White;
+                    c.A = 128;
+                    Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
+                    for (float i = 0; i < 768; i += GridSizeRender.Y)
+                    {
+                        for (float j = 0; j < 1024; j += GridSizeRender.X)
+                        {
+                            i = (float)Math.Round(i);
+                            j = (float)Math.Round(j);
+                            Editor.spriteBatch.DrawRectangle(new RectangleF(j, i, GridSizeRender.X, GridSizeRender.Y), c, 1);
+                        }
+                    }
+
+                    Editor.spriteBatch.End();
+                }
+            }
+
             //Editor.spriteBatch.DrawRectangle(new RectangleF(new Point2(0, 0), new Size2(Form1.width, Form1.height)), Color.White, 2);
 
             Matrix view = cam.Camera.GetViewMatrix();
             Matrix projection = m;
 
-           basicEffect.World = world;
+            basicEffect.World = world;
             basicEffect.View = view;
             basicEffect.Projection = projection;
             basicEffect.VertexColorEnabled = true;
@@ -720,6 +741,15 @@ namespace SimplexIde
             else
             {
                 flag = true;
+            }
+
+            // we need to initialize layers by type
+            foreach (RoomLayer rl in roomLayers)
+            {
+                if (rl.LayerType == RoomLayer.LayerTypes.typeTile)
+                {
+                    rl.Data = new int[(int)currentRoom.Size.X / 32, (int)currentRoom.Size.Y / 32];
+                }
             }
 
             // Then we load raw data
