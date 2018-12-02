@@ -18,7 +18,6 @@ C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\MonoGame.For
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\MonoGame.Framework.xml
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\Newtonsoft.Json.pdb
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\Newtonsoft.Json.xml
-C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\SharpDX.xml
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\SharpDX.Direct3D11.xml
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\SharpDX.DXGI.xml
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\SharpDX.MediaFoundation.xml
@@ -46,3 +45,12 @@ C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\obj\Debug\SimplexIde.L
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\obj\Debug\SimplexIde.RoomsControl.resources
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\obj\Debug\SimplexIde.Sprites_manager.resources
 C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\obj\Debug\SimplexIde.TilesetControl.resources
+C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\SharpDX.pdb
+C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\SharpDX.Direct2D1.pdb
+C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\SharpDX.Direct3D11.pdb
+C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\SharpDX.Direct3D9.pdb
+C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\SharpDX.DXGI.pdb
+C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\SharpDX.Mathematics.pdb
+C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\SharpDX.MediaFoundation.pdb
+C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\SharpDX.XAudio2.pdb
+C:\Users\lof\Documents\GitHub\SimplexRpgEngine\SimplexIde\bin\Debug\SharpDX.XInput.pdb
