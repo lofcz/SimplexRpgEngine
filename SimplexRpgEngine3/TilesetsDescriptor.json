@@ -1,0 +1,12 @@
+[
+  {
+    "Name": "tileset0",
+    "TileSize": 32,
+    "AutotileLib": [
+      {
+        "Name": "grass",
+        "Bits":  16 
+      }
+    ] 
+  }
+]

@@ -747,8 +747,8 @@ namespace SimplexIde
             foreach (RoomLayer rl in roomLayers)
             {
                 if (rl.LayerType == RoomLayer.LayerTypes.typeTile)
-                {
-                    rl.Data = new int[(int)currentRoom.Size.X / 32, (int)currentRoom.Size.Y / 32];
+                {                 
+                    ((TileLayer)rl).Data = new int[(int)currentRoom.Size.X / 32, (int)currentRoom.Size.Y / 32];
                 }
             }
 

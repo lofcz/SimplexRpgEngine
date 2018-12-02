@@ -346,6 +346,9 @@ namespace SimplexIde
                 reflectedTypes.Add(t);
             }
 
+            reflectedTypes.Add(typeof(RoomLayer));
+            reflectedTypes.Add(typeof(TileLayer));
+
             nspace = "SimplexResources.Rooms";
             q = from t in Assembly.GetExecutingAssembly().GetTypes()
                 where t.IsClass && t.Namespace == nspace

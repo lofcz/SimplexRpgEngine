@@ -35,8 +35,6 @@ namespace SimplexIde
             this.autotilingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prefabsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darkMenuStrip1.SuspendLayout();
-
-            
             this.SuspendLayout();
             // 
             // darkMenuStrip1
@@ -91,12 +89,11 @@ namespace SimplexIde
             this.Name = "TilesetControl";
             this.Size = new System.Drawing.Size(296, 385);
             this.Load += new System.EventHandler(this.TilesetControl_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.TilesetControl_Paint);
             this.darkMenuStrip1.ResumeLayout(false);
             this.darkMenuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
-
 
         }
 
