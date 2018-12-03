@@ -47,6 +47,8 @@ namespace SimplexResources.Objects
             c2 = RandomColor();
 
             time = 0;
+
+           
         }
 
         public override void EvtLoad()
@@ -62,15 +64,29 @@ namespace SimplexResources.Objects
 
         public override void EvtStep()
         {
+            Gravity.X = 1;
             currentObject = this;
+            Velocity.Y = min(Velocity.Y, 60);
 
+           
             time++;
-            this.Sprite.UpdateImageAngle();
-            this.Sprite.UpdateImageScale();
-            this.Sprite.UpdateImageRectangle();
+            //this.Sprite.UpdateImageAngle();
+            //this.Sprite.UpdateImageScale();
+           
             UpdateColliders();
+            UpdateState();
+            Sprite.UpdateImageRectangle();
 
-            if (Input.KeyboardState.IsKeyDown(Keys.D) || Input.KeyboardState.IsKeyDown(Keys.W) || Input.KeyboardState.IsKeyDown(Keys.S) || Input.KeyboardState.IsKeyDown(Keys.A))
+            RectangleF bRR = (Colliders[0] as ColliderRectangle).CollisionTransformed;
+            if (!PlaceEmptyRectangle(bRR))
+            {
+               // Speed.Y *= -0.5f;
+                Velocity.Y *= -0.9f;
+                Position.Y -= 32;
+
+            }
+
+                if (Input.KeyboardState.IsKeyDown(Keys.D) || Input.KeyboardState.IsKeyDown(Keys.W) || Input.KeyboardState.IsKeyDown(Keys.S) || Input.KeyboardState.IsKeyDown(Keys.A))
             {
                 ImageSpeed = 0.3;
                 ImageIndex += (float)ImageSpeed;             
@@ -149,7 +165,7 @@ namespace SimplexResources.Objects
             // draw_triangle(Position.X, Position.Y, Position.X + 100, Position.Y, Position.X + 50, Position.Y + 50, false);
   
             draw_set_alpha(1);
-            draw_sprite(objectTexture, ImageIndex, Position);
+           // draw_sprite(objectTexture, ImageIndex, Position);
 
             s.Begin(transformMatrix: transform);
             //s.DrawLine(Position.X, Position.Y, Position.X - 4, Position.Y, Color.Aqua);

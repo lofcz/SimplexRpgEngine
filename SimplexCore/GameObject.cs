@@ -10,6 +10,7 @@ using MonoGame.Extended;
 using SimplexResources.Objects;
 using SimplexIde;
 using Color = System.Drawing.Color;
+using static SimplexCore.Sgml;
 
 namespace SimplexCore
 {
@@ -54,6 +55,13 @@ namespace SimplexCore
         public float ImageAlpha;
         public string LayerName;
         public double ImageSpeed;
+        public double Direction;
+        public Vector2 PostionStart;
+        public Vector2 PositionPrevious;
+        public Vector2 Speed;
+        public double Friction;
+        public Vector2 Gravity;
+        public Vector2 Velocity;
 
         [XmlIgnore]
         public List<ColliderBase> Colliders = new List<ColliderBase>();
@@ -87,6 +95,11 @@ namespace SimplexCore
             Sprite.TextureSource = "unknown";
             ImageAlpha = 1;
             ImageSpeed = 1;
+            Gravity = new Vector2(0, 270);
+            Speed = Vector2.Zero;
+            Velocity = Vector2.Zero;
+            Friction = 0;
+            Direction = 0;
         }
 
 
@@ -166,6 +179,10 @@ namespace SimplexCore
         {
             UpdateImageScale();
             UpdateImageAngle();
+
+            // Update velocity
+            Position = new Vector2(Position.X + Velocity.X, Position.Y + Velocity.Y);
+            Velocity = new Vector2(Velocity.X + (float)lengthdir_x(-Gravity.X, Gravity.Y), Velocity.Y + (float)lengthdir_y(-Gravity.X, Gravity.Y));
         }
 
 
