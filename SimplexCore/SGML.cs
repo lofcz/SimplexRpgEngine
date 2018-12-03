@@ -128,6 +128,36 @@ namespace SimplexCore
             roomLayers.Reverse();
             return null;
         }
+
+        public static GameObject instance_place(Vector2 vec, Type go)
+        {
+            //roomLayers.Reverse();
+            foreach (RoomLayer rl in roomLayers)
+            {
+                if (rl.Visible)
+                {
+                    if (rl is ObjectLayer)
+                    {
+                        ObjectLayer ol = (ObjectLayer)rl;
+                        for (int i = ol.Objects.Count - 1; i >= 0; i--)
+                        {
+                            RectangleF r = new Rectangle((int)ol.Objects[i].Position.X, (int)ol.Objects[i].Position.Y, ol.Objects[i].Sprite.ImageRectangle.Width, ol.Objects[i].Sprite.ImageRectangle.Height);
+                            if (r.Contains(vec))
+                            {
+                                if (ol.Objects[i].GetType() == go)
+                                {
+                                    //roomLayers.Reverse();
+                                    return ol.Objects[i];
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+           // roomLayers.Reverse();
+            return null;
+        }
         
         public static Color RandomColor()
         {

@@ -78,12 +78,14 @@ namespace SimplexResources.Objects
             Sprite.UpdateImageRectangle();
 
             RectangleF bRR = (Colliders[0] as ColliderRectangle).CollisionTransformed;
-            if (!PlaceEmptyRectangle(bRR))
+            if (instance_place(new Vector2(bRR.X + 32, bRR.Y + 68), typeof(Object3)) != null)
             {
-               // Speed.Y *= -0.5f;
-                Velocity.Y *= -0.9f;
-                Position.Y -= 32;
-
+                if (Velocity.Y > 0)
+                {
+                    // Speed.Y *= -0.5f;
+                    Velocity.Y *= -0.5f;
+                    //Position.Y -= 32;
+                }
             }
 
                 if (Input.KeyboardState.IsKeyDown(Keys.D) || Input.KeyboardState.IsKeyDown(Keys.W) || Input.KeyboardState.IsKeyDown(Keys.S) || Input.KeyboardState.IsKeyDown(Keys.A))
