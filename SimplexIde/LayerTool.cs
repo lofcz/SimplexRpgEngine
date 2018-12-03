@@ -80,6 +80,13 @@ namespace SimplexIde
 
                         form.drawTest1.lastLayer = l;
                     }
+
+                    if (l.LayerType == RoomLayer.LayerTypes.typeObject)
+                    {
+                        form.ww.currentTileset = null;
+                        form.w.Enabled = true;
+                        form.drawTest1.currentAutotile = null;
+                    }
                 }
             }
         }

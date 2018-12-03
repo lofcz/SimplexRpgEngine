@@ -2,13 +2,6 @@
 <Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <GameRoom xsi:type="Room1">
     <Layers>
-      <RoomLayer>
-        <Visible>true</Visible>
-        <Name>Object layer 1</Name>
-        <LayerType>typeObject</LayerType>
-        <Position>0</Position>
-        <Depth>0</Depth>
-      </RoomLayer>
       <RoomLayer xsi:type="TileLayer">
         <Visible>true</Visible>
         <Name>Tile layer 1</Name>
@@ -17,6 +10,22 @@
         <Depth>0</Depth>
         <Tiles />
         <TilelistName>tileset0</TilelistName>
+      </RoomLayer>
+      <RoomLayer xsi:type="ObjectLayer">
+        <Visible>true</Visible>
+        <Name>Object layer 1</Name>
+        <LayerType>typeObject</LayerType>
+        <Position>0</Position>
+        <Depth>0</Depth>
+        <Objects />
+      </RoomLayer>
+      <RoomLayer xsi:type="ObjectLayer">
+        <Visible>true</Visible>
+        <Name>Object layer 2</Name>
+        <LayerType>typeObject</LayerType>
+        <Position>0</Position>
+        <Depth>0</Depth>
+        <Objects />
       </RoomLayer>
     </Layers>
     <Size>
@@ -31,8 +40,8 @@
   </GameRoom>
   <GameObject xsi:type="Object3">
     <Position>
-      <X>450.914124</X>
-      <Y>259.32428</Y>
+      <X>167</X>
+      <Y>82</Y>
     </Position>
     <TypeString>SimplexResources.Objects.Object3</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -53,8 +62,668 @@
   </GameObject>
   <GameObject xsi:type="Object3">
     <Position>
-      <X>449.5808</X>
-      <Y>306.657623</Y>
+      <X>183</X>
+      <Y>95</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>199</X>
+      <Y>109</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>215</X>
+      <Y>121</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>231</X>
+      <Y>129</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>247</X>
+      <Y>139</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>263</X>
+      <Y>147</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>279</X>
+      <Y>152</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>301</X>
+      <Y>155</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>319</X>
+      <Y>157</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>335</X>
+      <Y>157</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>352</X>
+      <Y>156</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>369</X>
+      <Y>148</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>388</X>
+      <Y>136</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>404</X>
+      <Y>125</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>414</X>
+      <Y>108</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>253</X>
+      <Y>45</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>269</X>
+      <Y>55</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>341</X>
+      <Y>46</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>357</X>
+      <Y>49</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>412.970642</X>
+      <Y>320.504547</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>453.87973</X>
+      <Y>254.140869</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>476.607025</X>
+      <Y>269.595428</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>493.879761</X>
+      <Y>293.231781</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>497.5161</X>
+      <Y>322.322723</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>506.607056</X>
+      <Y>341.413635</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>524.7889</X>
+      <Y>355.9591</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>543.879761</X>
+      <Y>364.1409</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>554.7889</X>
+      <Y>384.14093</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>570.2434</X>
+      <Y>400.504578</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>590.2434</X>
+      <Y>413.231842</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>625.698</X>
+      <Y>574.141</Y>
     </Position>
     <TypeString>SimplexResources.Objects.Object3</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -75,8 +744,8 @@
   </GameObject>
   <GameObject xsi:type="oPlayer">
     <Position>
-      <X>516.1269</X>
-      <Y>262.836731</Y>
+      <X>761</X>
+      <Y>447</Y>
     </Position>
     <TypeString>SimplexResources.Objects.oPlayer</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -91,25 +760,1129 @@
       <Y>1</Y>
     </ImageScaleTarget>
     <ImageAlpha>1</ImageAlpha>
-    <LayerName>Tile layer 1</LayerName>
-    <ImageSpeed>0.01</ImageSpeed>
+    <LayerName>Object layer 2</LayerName>
+    <ImageSpeed>0.3</ImageSpeed>
     <ImageIndex>0</ImageIndex>
     <c1>
-      <B>35</B>
-      <G>242</G>
-      <R>160</R>
+      <B>18</B>
+      <G>104</G>
+      <R>93</R>
       <A>255</A>
-      <PackedValue>4280545952</PackedValue>
+      <PackedValue>4279396445</PackedValue>
     </c1>
     <c2>
-      <B>73</B>
-      <G>150</G>
-      <R>188</R>
+      <B>223</B>
+      <G>99</G>
+      <R>31</R>
       <A>255</A>
-      <PackedValue>4283012796</PackedValue>
+      <PackedValue>4292829983</PackedValue>
     </c2>
     <speed>4</speed>
-    <LastImageIndex>0</LastImageIndex>
-    <time>3828</time>
+    <LastImageIndex>25.7999821</LastImageIndex>
+    <time>5474</time>
   </GameObject>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>21</PosX>
+    <PosY>3</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>20</PosX>
+    <PosY>4</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>20</PosX>
+    <PosY>5</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>19</PosX>
+    <PosY>6</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>19</PosX>
+    <PosY>7</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>20</PosX>
+    <PosY>7</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>20</PosX>
+    <PosY>8</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>21</PosX>
+    <PosY>8</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>22</PosX>
+    <PosY>8</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>23</PosX>
+    <PosY>7</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>23</PosX>
+    <PosY>6</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>24</PosX>
+    <PosY>6</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>24</PosX>
+    <PosY>5</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>24</PosX>
+    <PosY>4</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>23</PosX>
+    <PosY>4</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>23</PosX>
+    <PosY>5</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>22</PosX>
+    <PosY>5</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>22</PosX>
+    <PosY>6</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>21</PosX>
+    <PosY>6</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>21</PosX>
+    <PosY>5</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>22</PosX>
+    <PosY>4</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>20</PosX>
+    <PosY>6</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>23</PosX>
+    <PosY>3</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>21</PosX>
+    <PosY>7</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>22</PosX>
+    <PosY>7</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>24</PosX>
+    <PosY>7</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>22</PosX>
+    <PosY>3</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>21</PosX>
+    <PosY>4</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>19</PosX>
+    <PosY>5</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>18</PosX>
+    <PosY>5</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>18</PosX>
+    <PosY>4</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>17</PosX>
+    <PosY>4</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>16</PosX>
+    <PosY>4</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>16</PosX>
+    <PosY>5</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>15</PosX>
+    <PosY>5</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>25</PosX>
+    <PosY>7</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>25</PosX>
+    <PosY>8</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>26</PosX>
+    <PosY>8</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>27</PosX>
+    <PosY>8</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>24</PosX>
+    <PosY>8</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>23</PosX>
+    <PosY>9</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>24</PosX>
+    <PosY>9</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>21</PosX>
+    <PosY>9</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>20</PosX>
+    <PosY>9</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>20</PosX>
+    <PosY>10</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>20</PosX>
+    <PosY>11</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>19</PosX>
+    <PosY>12</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>18</PosX>
+    <PosY>12</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>25</PosX>
+    <PosY>5</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>26</PosX>
+    <PosY>4</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>27</PosX>
+    <PosY>4</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>28</PosX>
+    <PosY>3</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>29</PosX>
+    <PosY>3</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>30</PosX>
+    <PosY>3</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>30</PosX>
+    <PosY>2</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>22</PosX>
+    <PosY>2</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>21</PosX>
+    <PosY>2</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>21</PosX>
+    <PosY>1</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>20</PosX>
+    <PosY>1</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>20</PosX>
+    <PosY>0</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>19</PosX>
+    <PosY>0</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>26</PosX>
+    <PosY>9</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>27</PosX>
+    <PosY>9</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>27</PosX>
+    <PosY>10</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>28</PosX>
+    <PosY>11</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>29</PosX>
+    <PosY>11</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>30</PosX>
+    <PosY>11</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>31</PosX>
+    <PosY>11</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>32</PosX>
+    <PosY>12</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>32</PosX>
+    <PosY>13</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>31</PosX>
+    <PosY>3</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>31</PosX>
+    <PosY>4</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>31</PosX>
+    <PosY>5</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>31</PosX>
+    <PosY>6</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>32</PosX>
+    <PosY>6</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>33</PosX>
+    <PosY>6</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>33</PosX>
+    <PosY>7</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>33</PosX>
+    <PosY>8</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>33</PosX>
+    <PosY>9</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>34</PosX>
+    <PosY>9</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>34</PosX>
+    <PosY>10</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>23</PosX>
+    <PosY>14</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>23</PosX>
+    <PosY>15</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>22</PosX>
+    <PosY>15</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>24</PosX>
+    <PosY>16</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>25</PosX>
+    <PosY>16</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>25</PosX>
+    <PosY>17</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>25</PosX>
+    <PosY>18</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>26</PosX>
+    <PosY>18</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>26</PosX>
+    <PosY>19</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>27</PosX>
+    <PosY>19</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
+  <Tiles>
+    <Alpha>0</Alpha>
+    <Scale>
+      <X>1</X>
+      <Y>1</Y>
+    </Scale>
+    <Index>0</Index>
+    <Bits>16</Bits>
+    <PosX>27</PosX>
+    <PosY>20</PosY>
+    <TileLayerName>Tile layer 1</TileLayerName>
+  </Tiles>
 </Root>

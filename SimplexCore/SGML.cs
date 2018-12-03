@@ -27,6 +27,7 @@ namespace SimplexCore
         public static VertexBuffer vb;
         public static BasicEffect be;
         public static Microsoft.Xna.Framework.Matrix m;
+        public static List<RoomLayer> roomLayers = new List<RoomLayer>();
 
         public static Color DrawColor
         {
@@ -45,16 +46,26 @@ namespace SimplexCore
 
         public static bool PlaceEmpty(Vector2 position)
         {
-            if (SceneObjects.Count > 0)
+            foreach (RoomLayer rl in roomLayers)
             {
-                foreach (GameObject g in SceneObjects)
+                if (rl.Visible)
                 {
-                    Rectangle r = new Rectangle((int) g.Position.X, (int) g.Position.Y, g.Sprite.ImageRectangle.Width,
-                        g.Sprite.ImageRectangle.Height);
-
-                    if (r.Contains(position))
+                    if (rl is ObjectLayer)
                     {
-                        return false;
+                        ObjectLayer ol = (ObjectLayer)rl;
+                        foreach (GameObject g in ol.Objects)
+                        {
+                            Rectangle r = new Rectangle((int)g.Position.X, (int)g.Position.Y, g.Sprite.ImageRectangle.Width, g.Sprite.ImageRectangle.Height);
+                            if (r.Contains(position))
+                            {
+                                return false;
+                            }
+
+                            if (g == currentObject)
+                            {
+                                continue;
+                            }
+                        }
                     }
                 }
             }
@@ -64,21 +75,26 @@ namespace SimplexCore
 
         public static bool PlaceEmptyRectangle(RectangleF rr)
         {
-            if (SceneObjects.Count > 0)
+            foreach (RoomLayer rl in roomLayers)
             {
-                foreach (GameObject g in SceneObjects)
+                if (rl.Visible)
                 {
-                    if (g == currentObject)
+                    if (rl is ObjectLayer)
                     {
-                        continue;                       
-                    }
+                        ObjectLayer ol = (ObjectLayer)rl;
+                        foreach (GameObject g in ol.Objects)
+                        {
+                            if (g == currentObject)
+                            {
+                                continue;
+                            }
 
-                    RectangleF r = new RectangleF((int)g.Position.X, (int)g.Position.Y, g.Sprite.ImageRectangle.Width,
-                        g.Sprite.ImageRectangle.Height);
-
-                    if (r.Intersects(rr))
-                    {
-                        return false;
+                            RectangleF r = new Rectangle((int)g.Position.X, (int)g.Position.Y, g.Sprite.ImageRectangle.Width, g.Sprite.ImageRectangle.Height);
+                            if (r.Intersects(rr))
+                            {
+                                return false;
+                            }
+                        }
                     }
                 }
             }
@@ -88,21 +104,28 @@ namespace SimplexCore
 
         public static GameObject InstancePlace(Vector2 vec)
         {
-            if (SceneObjects.Count > 0)
+            roomLayers.Reverse();
+            foreach (RoomLayer rl in roomLayers)
             {
-                List<GameObject> sortedObjects = SceneObjects.OrderBy(x => x.Layer.Depth).ToList();
-                for (int i = sortedObjects.Count - 1; i >= 0; i--)
+                if (rl.Visible)
                 {
-                    Rectangle r = new Rectangle((int)sortedObjects[i].Position.X, (int)sortedObjects[i].Position.Y,
-                        sortedObjects[i].Sprite.ImageRectangle.Width, sortedObjects[i].Sprite.ImageRectangle.Height);
-
-                    if (r.Contains(vec))
+                    if (rl is ObjectLayer)
                     {
-                        return SceneObjects.FirstOrDefault(x => x.Equals(sortedObjects[i]));
+                        ObjectLayer ol = (ObjectLayer) rl;
+                        for (int i = ol.Objects.Count - 1; i >= 0; i--)
+                        {
+                            RectangleF r = new Rectangle((int) ol.Objects[i].Position.X, (int) ol.Objects[i].Position.Y, ol.Objects[i].Sprite.ImageRectangle.Width, ol.Objects[i].Sprite.ImageRectangle.Height);
+                            if (r.Contains(vec))
+                            {
+                                roomLayers.Reverse();
+                                return ol.Objects[i];
+                            }
+                        }
                     }
                 }
             }
 
+            roomLayers.Reverse();
             return null;
         }
         

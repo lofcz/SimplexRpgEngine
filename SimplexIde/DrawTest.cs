@@ -90,6 +90,7 @@ namespace SimplexIde
             base.Initialize();
 
             Sgml.SceneObjects = SceneObjects;
+            Sgml.roomLayers = roomLayers;
             Sgml.Textures = Textures;
 
             camera = new Camera2D(Editor.graphics);
@@ -170,6 +171,22 @@ namespace SimplexIde
                 // cam.TargetZoom -= 0.1f;
             }
 
+            foreach (RoomLayer rl in roomLayers)
+            {
+                if (rl.Visible)
+                {
+                    if (rl is ObjectLayer)
+                    {
+                        foreach (GameObject o in ((ObjectLayer)rl).Objects)
+                        {
+                            if (GameRunning || o == clickedObject)
+                            {
+                                o.EvtStep();
+                            }
+                        }
+                    }
+                }
+            }
             foreach (GameObject o in SceneObjects)
             {
                 if (o.Layer != null)
@@ -219,6 +236,7 @@ namespace SimplexIde
             if (!cms.Visible)
             {
                 clickedObject = null;
+
             }
 
             panView = false;
@@ -329,9 +347,10 @@ namespace SimplexIde
                 {
                     for (float j = 0; j < 1024; j += GridSizeRender.X)
                     {
-                        i = (float)Math.Round(i);
-                        j = (float)Math.Round(j);
-                        Editor.spriteBatch.DrawRectangle(new RectangleF(j, i, GridSizeRender.X, GridSizeRender.Y), c, 1);
+                        i = (float) Math.Round(i);
+                        j = (float) Math.Round(j);
+                        Editor.spriteBatch.DrawRectangle(new RectangleF(j, i, GridSizeRender.X, GridSizeRender.Y), c,
+                            1);
                     }
                 }
 
@@ -353,20 +372,21 @@ namespace SimplexIde
                         {
 
                             xIndex++;
-                            i = (float)Math.Round(i);
-                            j = (float)Math.Round(j);
-                          //  Editor.spriteBatch.DrawRectangle(new RectangleF(j, i, GridSizeRender.X, GridSizeRender.Y), c * 0.2f, 1);
-                            
+                            i = (float) Math.Round(i);
+                            j = (float) Math.Round(j);
+                            //  Editor.spriteBatch.DrawRectangle(new RectangleF(j, i, GridSizeRender.X, GridSizeRender.Y), c * 0.2f, 1);
+
                         }
 
                         yIndex++;
                         xIndex = 0;
                     }
 
-                    foreach (Tile t in ((TileLayer)rl).Tiles)
+                    foreach (Tile t in ((TileLayer) rl).Tiles)
                     {
-                        Editor.spriteBatch.Draw(t.SourceTexture, new Vector2(t.PosX * 32, t.PosY * 32), t.DrawRectangle, Color.White);
-                       // Editor.spriteBatch.DrawString(Editor.Font, t.Score.ToString(), new Vector2(t.PosX * 32, t.PosY * 32), Color.Black);
+                        Editor.spriteBatch.Draw(t.SourceTexture, new Vector2(t.PosX * 32, t.PosY * 32), t.DrawRectangle,
+                            Color.White);
+                        // Editor.spriteBatch.DrawString(Editor.Font, t.Score.ToString(), new Vector2(t.PosX * 32, t.PosY * 32), Color.Black);
                     }
 
                     Editor.spriteBatch.End();
@@ -383,10 +403,55 @@ namespace SimplexIde
             basicEffect.Projection = projection;
             basicEffect.VertexColorEnabled = true;
 
-            try
+            foreach (RoomLayer rl in roomLayers)
             {
-                List<GameObject> sortedObjects = SceneObjects.OrderBy(x => x.Layer.Depth).ToList();
-                foreach (GameObject o in sortedObjects)
+                if (rl.Visible)
+                {
+                    // ------------ positions doesn't matter here -------------
+                    // Layer is tile
+                    if (rl is TileLayer)
+                    {
+                        Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
+                        foreach (Tile t in ((TileLayer) rl).Tiles)
+                        {
+                            Editor.spriteBatch.Draw(t.SourceTexture, new Vector2(t.PosX * 32, t.PosY * 32), t.DrawRectangle, Color.White);
+                            // Editor.spriteBatch.DrawString(Editor.Font, t.Score.ToString(), new Vector2(t.PosX * 32, t.PosY * 32), Color.Black);
+                        }
+
+                        Editor.spriteBatch.End();
+                    }
+
+                    // Layer is object
+                    if (rl is ObjectLayer)
+                    {
+                        foreach (GameObject o in ((ObjectLayer) rl).Objects)
+                        {
+                            o.EvtDraw(Editor.spriteBatch, Editor.Font, o.Sprite.Texture, vertexBuffer, basicEffect,
+                                transformMatrix);
+
+                            RectangleF r = new RectangleF(o.Position,
+                                new Size2(o.Sprite.ImageRectangle.Width, o.Sprite.ImageRectangle.Height));
+
+                            if (o == clickedObject || r.Intersects(selectionRectangle) ||
+                                selectedRectangleObjects.Contains(o))
+                            {
+                                Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
+                                Editor.spriteBatch.DrawRectangle(
+                                    new RectangleF(o.Position,
+                                        new Size2(o.Sprite.ImageRectangle.Width, o.Sprite.ImageRectangle.Height)),
+                                    Color.White,
+                                    2);
+                                Editor.spriteBatch.End();
+                            }
+                        }
+                    }
+                }
+            }
+
+          //  try
+          //  {
+            //    List<GameObject> sortedObjects = SceneObjects.OrderBy(x => x.Layer.Depth).ToList();
+                /*foreach (GameObject o in sortedObjects)
                 {
                     if (o.Layer != null)
                     {
@@ -419,34 +484,35 @@ namespace SimplexIde
             catch (Exception e)
             {
 
-            }
+            }*/
 
-            if (Input.KeyboardState.IsKeyDown(Keys.LeftControl))
-            {
-                Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
-                Editor.spriteBatch.DrawRectangle(selectionRectangle, Color.White, 2);
-                Editor.spriteBatch.End();
-            }
-            //Editor.spriteBatch.DrawString(Editor.Font, "Mouse X: " +Math.Round(MousePositionTranslated.X) + "\nMouse Y: " + Math.Round(MousePositionTranslated.Y), new Vector2(200, 200), Color.White);
+                if (Input.KeyboardState.IsKeyDown(Keys.LeftControl))
+                {
+                    Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
+                    Editor.spriteBatch.DrawRectangle(selectionRectangle, Color.White, 2);
+                    Editor.spriteBatch.End();
+                }
+                //Editor.spriteBatch.DrawString(Editor.Font, "Mouse X: " +Math.Round(MousePositionTranslated.X) + "\nMouse Y: " + Math.Round(MousePositionTranslated.Y), new Vector2(200, 200), Color.White);
 
-            //Editor.spriteBatch.DrawString(Editor.Font, framerate.ToString("F1"), new Vector2(100, 100), Color.White);
+                //Editor.spriteBatch.DrawString(Editor.Font, framerate.ToString("F1"), new Vector2(100, 100), Color.White);
 
 
 
-            // Editor.spriteBatch.End();
+                // Editor.spriteBatch.End();
 
-            //  mpb.world = world;
-            //  mpb.view = view;
-            //  mpb.projection = projection;
-            // mpb.TransformMatrix = transformMatrix;
+                //  mpb.world = world;
+                //  mpb.view = view;
+                //  mpb.projection = projection;
+                // mpb.TransformMatrix = transformMatrix;
 
-            //   mpb.TransformMatrix = transformMatrix;
-            //  mpb.DrawString(new StringBuilder("Kokot"), new Vector2(100, 100), 15, Color.White);
-            //   mpb.DrawCircle(new Vector2(100, 100), 64, Color.White, 64);
-            // mpb.Flush();
-            //mpb.Clear();
+                //   mpb.TransformMatrix = transformMatrix;
+                //  mpb.DrawString(new StringBuilder("Kokot"), new Vector2(100, 100), 15, Color.White);
+                //   mpb.DrawCircle(new Vector2(100, 100), 64, Color.White, 64);
+                // mpb.Flush();
+                //mpb.Clear();
 
-            killClick = false;
+                killClick = false;
+            
         }
 
         public void PreCheckMouse(MouseEventArgs e)
@@ -583,14 +649,13 @@ namespace SimplexIde
                                             o.Sprite.cellH = s.CellWidth;
 
                                             o.Position = new Vector2(vec.X - s.CellWidth / 2f, vec.Y - s.CellHeight / 2f);
-                                            o.Sprite.ImageRectangle =
-                                                new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
+                                            o.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
                                             o.LayerName = selectedLayer.Name;
-                                            o.Layer = selectedLayer;
+                                            o.Layer = (ObjectLayer)selectedLayer;
                                             o.EvtCreate();
 
 
-                                            SceneObjects.Add(o);
+                                            o.Layer.Objects.Add(o);
 
                                             //  SceneObjects = SceneObjects.OrderBy(x => x.Layer.Depth).ToList();
                                         }
@@ -631,6 +696,8 @@ namespace SimplexIde
                             t.SourceTexture = currentAutotile.Texture;
                             t.PosX = (int) m.X / 32;
                             t.PosY = (int) m.Y / 32;
+                            t.TileLayer = currentTileLayer;
+                            t.TileLayerName = t.TileLayer.Name;
 
                             currentTileLayer.Tiles.Add(t);
 
@@ -688,7 +755,27 @@ namespace SimplexIde
                     vec = new Vector2((int)vec.X / 32 * 32, (int)vec.Y / 32 * 32);
                 }
 
-                for (var i = 0; i < SceneObjects.Count; i++)
+                foreach (RoomLayer rl in roomLayers)
+                {
+                    if (rl.Visible)
+                    {
+                        if (rl is ObjectLayer)
+                        {
+                            ObjectLayer ol = (ObjectLayer) rl;
+                            for (var i = ol.Objects.Count - 1; i >= 0; i--)
+                            {
+                                Microsoft.Xna.Framework.Rectangle r = new Microsoft.Xna.Framework.Rectangle((int)ol.Objects[i].Position.X, (int)ol.Objects[i].Position.Y, ol.Objects[i].Sprite.ImageRectangle.Width, ol.Objects[i].Sprite.ImageRectangle.Height);
+
+                                if (r.Contains(vec) && Input.KeyboardState.IsKeyDown(Keys.LeftShift))
+                                {
+                                    ol.Objects[i].EvtDelete();
+                                    ol.Objects.Remove(ol.Objects[i]);
+                                }
+                            }
+                        }
+                    }
+                }
+              /*  for (var i = 0; i < SceneObjects.Count; i++)
                 {
                     Microsoft.Xna.Framework.Rectangle r = new Microsoft.Xna.Framework.Rectangle((int)SceneObjects[i].Position.X, (int)SceneObjects[i].Position.Y, SceneObjects[i].Sprite.ImageRectangle.Width, SceneObjects[i].Sprite.ImageRectangle.Height);
 
@@ -697,7 +784,7 @@ namespace SimplexIde
                         SceneObjects[i].EvtDelete();
                         SceneObjects.Remove(SceneObjects[i]);
                     }
-                }
+                }*/
             }
 
             MousePrevious = MousePositionTranslated;
@@ -725,13 +812,26 @@ namespace SimplexIde
         {
             Root root = new Root();
 
-            foreach (GameObject g in SceneObjects)
+            foreach (RoomLayer r in roomLayers)
             {
-                g.EvtSave();
-                root.Objects.Add(g);
+                if (r is ObjectLayer)
+                {
+                    foreach (GameObject go in ((ObjectLayer)r).Objects)
+                    {
+                        go.EvtSave();
+                        root.Objects.Add(go);
+                    }
+                }
+
+                if (r is TileLayer)
+                {
+                    foreach (Tile t in ((TileLayer)r).Tiles)
+                    {
+                        root.Tiles.Add(t);
+                    }
+                }
             }
-            //root.Objects.Add(new GameObject { Property1 = 2 });
-            //root.Objects.Add(new SampleObject { Property1 = 5, Property2 = 12 });
+
             GameRoom gr = (GameRoom)Activator.CreateInstance(Type.GetType(("SimplexResources.Rooms." + Form1.activeRoom.Text)));
             root.Room = gr;
 
@@ -739,13 +839,8 @@ namespace SimplexIde
             using (TextWriter w = new StreamWriter(path))
             {
                 ser.Serialize(w, root);
-                //stream.Position = 0;
-                //Root deserialized = (Root)ser.Deserialize(stream);
             }
 
-            //   XmlManager<GameObject> xmlManager = new XmlManager<GameObject>();
-            //   xmlManager.Type = typeof(List<GameObject>);
-            //   xmlManager.SaveList(path, SceneObjects);
             Debug.WriteLine("Save OK");
         }
 
@@ -759,6 +854,7 @@ namespace SimplexIde
         public void LoadGame(string path)
         {
             bool flag = false;
+
             // First we fuck current scene
             ClearAll();
 
@@ -771,41 +867,55 @@ namespace SimplexIde
                 lt.dtv.Nodes[0].Nodes.Clear();
             }
 
+            // Prepare XML serializer
+            // Then we load raw data
+            Root root = new Root();
+            XmlSerializer ser = new XmlSerializer(typeof(Root), Form1.reflectedTypes.ToArray());
+            StreamReader w = new StreamReader(path);
+            Root rawData = (Root)ser.Deserialize(w);
 
-            if (currentRoom != null)
+            // First load back room itself
+            Form1.width = (int)rawData.Room.Size.X;
+            Form1.height = (int)rawData.Room.Size.Y;
+            Form1.ActiveForm.Text = "Simplex RPG Engine / " + rawData.Room.Name;
+
+            currentRoom = rawData.Room;
+
+            // if (currentRoom != null)
+            // {
+            GameRoom gr = (GameRoom)Activator.CreateInstance(currentRoom.GetType());
+            selectedLayer = gr.Layers[0];
+            int currentDepth = 0;
+            foreach (RoomLayer rl in gr.Layers)
             {
-                GameRoom gr = (GameRoom)Activator.CreateInstance(currentRoom.GetType());
-                selectedLayer = gr.Layers[0];
-                int currentDepth = 0;
-                foreach (RoomLayer rl in gr.Layers)
+                DarkTreeNode dtn = new DarkTreeNode(rl.Name);
+                dtn.Tag = dtn;
+                dtn.Tag = "";
+
+                if (rl.LayerType == RoomLayer.LayerTypes.typeObject)
                 {
-                    DarkTreeNode dtn = new DarkTreeNode(rl.Name);
-                    dtn.Tag = dtn;
-                    dtn.Tag = "";
-
-                    if (rl.LayerType == RoomLayer.LayerTypes.typeObject)
-                    {
-                        dtn.Icon = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("WorldLocal_16x");
-                    }
-                    else if (rl.LayerType == RoomLayer.LayerTypes.typeAsset)
-                    {
-                        dtn.Icon = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("Image_16x");
-                    }
-                    else
-                    {
-                        dtn.Icon = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("MapLineLayer_16x");
-                    }
-
-                    rl.Depth = currentDepth;
-                    currentDepth += 100;
-                    roomLayers.Add(rl);
-                    lt?.dtv.Nodes[0].Nodes.Add(dtn);
+                    dtn.Icon = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("WorldLocal_16x");
                 }
+                else if (rl.LayerType == RoomLayer.LayerTypes.typeAsset)
+                {
+                    dtn.Icon = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("Image_16x");
+                }
+                else
+                {
+                    dtn.Icon = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("MapLineLayer_16x");
+                }
+
+                rl.Depth = currentDepth;
+                currentDepth += 100;
+                roomLayers.Add(rl);
+                lt?.dtv.Nodes[0].Nodes.Add(dtn);
             }
-            else
-            {
-                flag = true;
-            }
+
+          //  }
+          //  else
+          //  {
+          //      flag = true;
+         //   }
 
             // we need to initialize layers by type
             foreach (RoomLayer rl in roomLayers)
@@ -821,25 +931,15 @@ namespace SimplexIde
                     // this can fail so check for that
                     if (tl != null)
                     {
+                        // also we need to load textures for the tileset
+                       // tl.AutotileLib = 
+
                         // all good
                         ((TileLayer)rl).Tileset = tl;
                     }
                 }
             }
 
-            // Then we load raw data
-            Root root = new Root();
-            XmlSerializer ser = new XmlSerializer(typeof(Root), Form1.reflectedTypes.ToArray());
-            using (StreamReader w = new StreamReader(path))
-            {
-                Root rawData = (Root)ser.Deserialize(w);
-
-                // First load back room itself
-                Form1.width = (int)rawData.Room.Size.X;
-                Form1.height = (int)rawData.Room.Size.Y;
-                Form1.ActiveForm.Text = "Simplex RPG Engine / " + rawData.Room.Name;
-
-                currentRoom = rawData.Room;
 
                 // Time to load babies
                 foreach (GameObject g in rawData.Objects)
@@ -857,14 +957,47 @@ namespace SimplexIde
                     g.Sprite.cellW = s.CellHeight;
                     g.Sprite.cellH = s.CellWidth;
 
-                    g.Layer = roomLayers.FirstOrDefault(x => x.Name == g.LayerName);
+                    RoomLayer rt = roomLayers.FirstOrDefault(x => x.Name == g.LayerName);
+                    g.Layer = (ObjectLayer) rt;
 
-                    SceneObjects.Add(g);
+                    g.Layer.Objects.Add(g);
                 }
 
-            }
+                // Load tiles
+                foreach (Tile t in rawData.Tiles)
+                {
+                    RoomLayer correctLayer = roomLayers.FirstOrDefault(x => x.Name == t.TileLayerName);
 
-            if (flag)
+                    if (correctLayer != null)
+                    {
+                        TileLayer crt = (TileLayer) correctLayer;
+                        t.TileLayer = crt;
+                        crt.Tiles.Add(t);
+                    }
+                    else
+                    {
+                        Debug.WriteLine("Tile could not be loaded - TileLayerName is wrong");
+                    }
+                }
+
+                // Now update all tiles
+                Texture2D ttt = Editor.Content.Load<Texture2D>(Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/Tilesets/" + "tileset0"));
+
+                foreach (RoomLayer rl in roomLayers)
+                {
+                    if (rl is TileLayer)
+                    {
+                        TileLayer crt = (TileLayer)rl;
+
+                        foreach (Tile t in crt.Tiles)
+                        {
+                          t.SourceTexture = ttt;
+                          Autotile.UpdateTile(t, crt);
+                        }
+                    }
+                }
+
+           /* if (flag)
             {
                 if (currentRoom != null)
                 {
@@ -892,7 +1025,9 @@ namespace SimplexIde
                         lt?.dtv.Nodes[0].Nodes.Add(dtn);
                     }
                 }
-            }
+            }*/
+
+           w.Close();
         }
 
         public void cmsClosed()

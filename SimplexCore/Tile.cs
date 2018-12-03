@@ -14,11 +14,27 @@ namespace SimplexCore
         [XmlIgnore]
         public Texture2D SourceTexture { get; set; }
 
+        [XmlIgnore]
         public Rectangle DrawRectangle { get; set; }
+
         public int Index { get; set; }
         public int Bits { get; set; }
         public int PosX { get; set; }
         public int PosY { get; set; }
+        public double Alpha;
+        public Vector2 Scale;
+
+        [XmlIgnore]
         public int Score { get; set; }
+
+        [XmlIgnore]
+        public TileLayer TileLayer { get; set; }
+
+        public string TileLayerName { get; set; }
+
+        public Tile()
+        {
+            Scale = Vector2.One;
+        }
     }
 }

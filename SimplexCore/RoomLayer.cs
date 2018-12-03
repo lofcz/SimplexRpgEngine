@@ -8,6 +8,7 @@ namespace SimplexCore
 
     [Serializable]
     [XmlInclude(typeof(TileLayer))]
+    [XmlInclude(typeof(ObjectLayer))]
     public class RoomLayer
     {
         public enum LayerTypes

@@ -59,7 +59,7 @@ namespace SimplexCore
         public List<ColliderBase> Colliders = new List<ColliderBase>();
 
         [XmlIgnore]
-        public RoomLayer Layer;
+        public ObjectLayer Layer;
 
         [XmlIgnore]
         public string EditorPath;

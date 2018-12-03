@@ -20,6 +20,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)GameRoom.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Global.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Input.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ObjectLayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RoomLayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Root.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SGML.cs" />

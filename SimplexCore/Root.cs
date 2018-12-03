@@ -22,6 +22,7 @@ namespace SimplexCore
         public Root()
         {
             Objects = new List<GameObject>();
+            Tiles = new List<Tile>();
           //  Rooms = new List<GameRoom>();
         }
 
@@ -31,6 +32,9 @@ namespace SimplexCore
 
         [XmlElement("GameObject")]
         public List<GameObject> Objects { get; set; }
+
+        [XmlElement("Tiles")]
+        public List<Tile> Tiles { get; set; }
 
       //  [XmlElement("GameRoom")]
       //  public List<GameRoom> Rooms { get; set; }
