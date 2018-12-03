@@ -29,6 +29,7 @@ There are plenty of reasons behind this. But these are the main ones:
 - Events
 - Room
 - Layer
+- Tile + Autotile
 
 **TBD**
 - Shader
