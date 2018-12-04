@@ -190,6 +190,58 @@ namespace SimplexCore
 
         }
 
+        public static void draw_fluid(Spring[] springs)
+        {
+            List<VertexPositionColor> verticles = new List<VertexPositionColor>();
+
+            // stretch the springs' x positions to take up the entire window
+            float scale = 800 / (springs.Length - 1f); // be sure to use float division
+
+            for (int i = 1; i < springs.Length; i++)
+            {
+                // create the four corners of our triangle.
+                Vector2 p1 = new Vector2((i - 1) * scale, springs[i - 1].Height);
+                Vector2 p2 = new Vector2(i * scale, springs[i].Height);
+                Vector2 p3 = new Vector2(p2.X, 400);
+                Vector2 p4 = new Vector2(p1.X, 400);
+
+                VertexPositionColor v1 = new VertexPositionColor(new Vector3(p1, 0), FinalizeColor(DrawColor));
+                VertexPositionColor v2 = new VertexPositionColor(new Vector3(p2, 0), FinalizeColor(DrawColor));
+                VertexPositionColor v3 = new VertexPositionColor(new Vector3(p3, 0), FinalizeColor(DrawColor));
+                VertexPositionColor v4 = new VertexPositionColor(new Vector3(p4, 0), FinalizeColor(DrawColor));
+
+                verticles.Add(v1);
+                verticles.Add(v2);
+                verticles.Add(v3);
+
+                verticles.Add(v1);
+                verticles.Add(v3);
+                verticles.Add(v4);
+            }
+
+            vb = new VertexBuffer(sb.GraphicsDevice, typeof(VertexPositionColor), verticles.Count, BufferUsage.WriteOnly);
+            vb.SetData<VertexPositionColor>(verticles.ToArray());
+
+            sb.GraphicsDevice.SetVertexBuffer(vb);
+
+            RasterizerState rasterizerState = new RasterizerState();
+            rasterizerState.CullMode = CullMode.None;
+            rasterizerState.MultiSampleAntiAlias = true;
+            rasterizerState.FillMode = FillMode.Solid;
+
+            sb.GraphicsDevice.RasterizerState = rasterizerState;
+
+            foreach (EffectPass pass in be.CurrentTechnique.Passes)
+            {
+                pass.Apply();
+                sb.GraphicsDevice.DrawPrimitives(PrimitiveType.TriangleList, 0, verticles.Count / 3);
+            }
+
+            vb.Dispose();
+            rasterizerState.Dispose();
+
+        }
+
         public static void draw_roundrect(Vector2 pos1, Vector2 pos2, bool outline, int r = 32)
         {
             List<VertexPositionColor> verticles = new List<VertexPositionColor>();

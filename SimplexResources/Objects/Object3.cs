@@ -17,10 +17,20 @@ namespace SimplexResources.Objects
     {
         double r = 0;
         private bool flag = false;
+        List<Spring> springs = new List<Spring>();
+
         public Object3()
         {
             Sprite.TextureSource = "texture";
             EditorPath = "Colliders";
+
+            for (int i = 0; i < 50; i++)
+            {
+                springs.Add(new Spring());
+            }
+
+            int index = irandom(50);
+            //springs[index].Splash(10);
         }
 
         public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, VertexBuffer vb, BasicEffect be, Matrix m)
@@ -58,7 +68,16 @@ namespace SimplexResources.Objects
                 r = lerp(r, 0, 0.1);
             }
 
-            draw_roundrect(Position, new Vector2(Position.X + 200, Position.Y + 200), false, (int)r);
+            if (Input.KeyboardState.IsKeyDown(Keys.D))
+            {
+                int index = irandom(50);
+                springs[index].Height = 400;
+
+
+            }
+            draw_fluid(Spring.UpdateSprings(springs.ToArray()).ToArray());
+
+            //  draw_roundrect(Position, new Vector2(Position.X + 200, Position.Y + 200), false, (int)r);
         }
     }
 }

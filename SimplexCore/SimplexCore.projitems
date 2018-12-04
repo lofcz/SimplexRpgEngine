@@ -28,6 +28,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)SgmlString.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SimplexCamera.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SimplexMath.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Spring.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sprite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SpriteDescriptor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Spritesheet.cs" />
