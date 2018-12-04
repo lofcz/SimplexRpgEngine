@@ -30,6 +30,9 @@ namespace SimplexResources.Objects
            // sb.DrawString(f, Sprite.cellW.ToString(), Position, Color.Chartreuse);
             sb.End();
             // DrawRectangle(Position, new Vector2(32, 32), true, 3);
+
+            draw_line(Position, new Vector2(Position.X, Position.Y - 100));
+            draw_line_width_color(Position, new Vector2(Position.X, Position.Y - 100), 4, Color.Orange, Color.Lime, Color.Red, Color.Gold);
         }
     }
 }

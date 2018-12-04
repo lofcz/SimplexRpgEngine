@@ -83,7 +83,7 @@ namespace SimplexResources.Objects
                 if (Velocity.Y > 0)
                 {
                     // Speed.Y *= -0.5f;
-                    Velocity.Y *= -0.5f;
+                    Velocity.Y *= -0.9f;
                     //Position.Y -= 32;
                 }
             }

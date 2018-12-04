@@ -120,6 +120,116 @@ namespace SimplexCore
 
         }
 
+        public static void draw_line(Vector2 pos1, Vector2 pos2)
+        {
+            VertexPositionColor v1 = new VertexPositionColor(new Vector3(pos1, 0), FinalizeColor(DrawColor));
+            VertexPositionColor v2 = new VertexPositionColor(new Vector3(pos2, 0), FinalizeColor(DrawColor));
+
+            vb = new VertexBuffer(sb.GraphicsDevice, typeof(VertexPositionColor), 2, BufferUsage.WriteOnly);
+            vb.SetData<VertexPositionColor>(new []{v1, v2});
+
+            sb.GraphicsDevice.SetVertexBuffer(vb);
+
+            RasterizerState rasterizerState = new RasterizerState();
+            rasterizerState.CullMode = CullMode.None;
+            rasterizerState.MultiSampleAntiAlias = true;
+            rasterizerState.FillMode = FillMode.Solid;
+
+            sb.GraphicsDevice.RasterizerState = rasterizerState;
+
+            foreach (EffectPass pass in be.CurrentTechnique.Passes)
+            {
+                pass.Apply();
+                sb.GraphicsDevice.DrawPrimitives(PrimitiveType.LineList, 0, 1);
+            }
+
+            vb.Dispose();
+            rasterizerState.Dispose();
+
+        }
+
+        public static void draw_line_width(Vector2 pos1, Vector2 pos2, int width)
+        {
+            Vector2 newVec = pos2 - pos1;
+            Vector3 newVector = Vector3.Cross(new Vector3(newVec, 0), Vector3.Forward);
+            newVector.Normalize();
+            newVec.X = newVector.X;
+            newVec.Y = newVector.Y;
+
+            Vector2 x1 = width * newVec + pos2;
+            Vector2 x2 = -width * newVec + pos1;
+            Vector2 x3 = -width * newVec + pos2;
+            Vector2 x4 = width * newVec + pos1;
+
+            VertexPositionColor v1 = new VertexPositionColor(new Vector3(x1, 0), FinalizeColor(DrawColor));
+            VertexPositionColor v2 = new VertexPositionColor(new Vector3(x2, 0), FinalizeColor(DrawColor));
+            VertexPositionColor v3 = new VertexPositionColor(new Vector3(x3, 0), FinalizeColor(DrawColor));
+            VertexPositionColor v4 = new VertexPositionColor(new Vector3(x4, 0), FinalizeColor(DrawColor));
+
+            vb = new VertexBuffer(sb.GraphicsDevice, typeof(VertexPositionColor), 6, BufferUsage.WriteOnly);
+            vb.SetData<VertexPositionColor>(new[] { v1, v3, v2, v2, v4, v1 });
+
+            sb.GraphicsDevice.SetVertexBuffer(vb);
+
+            RasterizerState rasterizerState = new RasterizerState();
+            rasterizerState.CullMode = CullMode.None;
+            rasterizerState.MultiSampleAntiAlias = true;
+            rasterizerState.FillMode = FillMode.Solid;
+
+            sb.GraphicsDevice.RasterizerState = rasterizerState;
+
+            foreach (EffectPass pass in be.CurrentTechnique.Passes)
+            {
+                pass.Apply();
+                sb.GraphicsDevice.DrawPrimitives(PrimitiveType.TriangleList, 0, 2);
+            }
+
+            vb.Dispose();
+            rasterizerState.Dispose();
+
+        }
+
+        public static void draw_line_width_color(Vector2 pos1, Vector2 pos2, int width, Microsoft.Xna.Framework.Color c1, Microsoft.Xna.Framework.Color c2, Microsoft.Xna.Framework.Color c3, Microsoft.Xna.Framework.Color c4)
+        {
+            Vector2 newVec = pos2 - pos1;
+            Vector3 newVector = Vector3.Cross(new Vector3(newVec, 0), Vector3.Forward);
+            newVector.Normalize();
+            newVec.X = newVector.X;
+            newVec.Y = newVector.Y;
+
+            Vector2 x1 = width * newVec + pos2;
+            Vector2 x2 = -width * newVec + pos1;
+            Vector2 x3 = -width * newVec + pos2;
+            Vector2 x4 = width * newVec + pos1;
+
+            VertexPositionColor v1 = new VertexPositionColor(new Vector3(x1, 0), FinalizeColor(c1));
+            VertexPositionColor v2 = new VertexPositionColor(new Vector3(x2, 0), FinalizeColor(c2));
+            VertexPositionColor v3 = new VertexPositionColor(new Vector3(x3, 0), FinalizeColor(c3));
+            VertexPositionColor v4 = new VertexPositionColor(new Vector3(x4, 0), FinalizeColor(c4));
+
+            vb = new VertexBuffer(sb.GraphicsDevice, typeof(VertexPositionColor), 6, BufferUsage.WriteOnly);
+            vb.SetData<VertexPositionColor>(new[] { v1, v3, v2, v2, v4, v1 });
+
+            sb.GraphicsDevice.SetVertexBuffer(vb);
+
+            RasterizerState rasterizerState = new RasterizerState();
+            rasterizerState.CullMode = CullMode.None;
+            rasterizerState.MultiSampleAntiAlias = true;
+            rasterizerState.FillMode = FillMode.Solid;
+
+            sb.GraphicsDevice.RasterizerState = rasterizerState;
+
+            foreach (EffectPass pass in be.CurrentTechnique.Passes)
+            {
+                pass.Apply();
+                sb.GraphicsDevice.DrawPrimitives(PrimitiveType.TriangleList, 0, 2);
+            }
+
+            vb.Dispose();
+            rasterizerState.Dispose();
+
+        }
+
         public static void draw_circle(Vector2 pos, int r, bool outline, int startAngle = 0, int totalAngle = 360, int distance = 0)
         {
             Microsoft.Xna.Framework.Color fc = FinalizeColor(DrawColor);
