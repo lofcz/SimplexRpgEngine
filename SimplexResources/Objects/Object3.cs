@@ -35,7 +35,7 @@ namespace SimplexResources.Objects
             //springs[index].Splash(10);
         }
 
-        public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, VertexBuffer vb, BasicEffect be, Matrix m)
+        public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, DynamicVertexBuffer vb, BasicEffect be, Matrix m)
         {
             DrawStart(s, vb, be, m, this);
 
@@ -83,7 +83,7 @@ namespace SimplexResources.Objects
  
 
             //draw_ellipse(Position, new Vector2(50, 100), (float)r);
-            // draw_fluid(Spring.UpdateSprings(springs.ToArray()).ToArray());
+           //  draw_fluid(Spring.UpdateSprings(springs.ToArray()).ToArray());
             //draw_circle(Position, 64, false);
             // draw_roundrect(Position, new Vector2(Position.X + 200, Position.Y + 200), false, (int)r);
         }

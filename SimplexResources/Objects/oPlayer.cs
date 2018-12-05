@@ -155,7 +155,7 @@ namespace SimplexResources.Objects
             }
         }
 
-        public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, VertexBuffer vb, BasicEffect be, Matrix transform)
+        public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, DynamicVertexBuffer vb, BasicEffect be, Matrix transform)
         {
             currentObject = this;
 
@@ -175,7 +175,7 @@ namespace SimplexResources.Objects
             //s.DrawString(f, ImageIndex.ToString(), Position, Color.White);
             s.End();
             draw_set_alpha(abs(sin(degtorad(time))));
-            draw_circle_color(new Vector2(Position.X + 32, Position.Y + 32), 128 + (int)(128 * abs(sin(degtorad(time)))), false, c1, Microsoft.Xna.Framework.Color.Transparent);
+          //  draw_circle_color(new Vector2(Position.X + 32, Position.Y + 32), 128 + (int)(128 * abs(sin(degtorad(time)))), false, c1, Microsoft.Xna.Framework.Color.Transparent);
             draw_set_alpha(1);
             //draw_set_alpha(1);
             // sb.Draw(objectTexture, Position, Color.White);

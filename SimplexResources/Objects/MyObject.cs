@@ -15,7 +15,7 @@ namespace SimplexResources.Objects
             EditorPath = "SampleFolder/Subfolder";         
         }
 
-        public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, VertexBuffer vb, BasicEffect be, Matrix m)
+        public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, DynamicVertexBuffer vb, BasicEffect be, Matrix m)
         {
             DrawStart(s, vb, be, m, this);
 

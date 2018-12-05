@@ -33,8 +33,6 @@ using MessageBox = System.Windows.Forms.MessageBox;
 using Point = SharpDX.Point;
 using Rectangle = System.Drawing.Rectangle;
 using RectangleF = MonoGame.Extended.RectangleF;
-using VertexBuffer = Microsoft.Xna.Framework.Graphics.VertexBuffer;
-
 
 namespace SimplexIde
 {
@@ -63,7 +61,7 @@ namespace SimplexIde
         private bool cmsOpen = false;
         private bool goodBoy = false;
         Stack<List<GameObject>> stackedSteps = new Stack<List<GameObject>>(32);
-        public static VertexBuffer vertexBuffer;
+        public static DynamicVertexBuffer vertexBuffer;
         public static BasicEffect basicEffect;
         private float k = 0;
         private VertexPositionColor[] _vertexPositionColors;
@@ -111,8 +109,8 @@ namespace SimplexIde
             vertices[1] = new VertexPositionColor(new Vector3(200, 100, 0), Color.Green);
             vertices[2] = new VertexPositionColor(new Vector3(150, 150, 0), Color.Blue);
 
-            vertexBuffer = new VertexBuffer(GraphicsDevice, typeof(VertexPositionColor), 3, BufferUsage.WriteOnly);
-            vertexBuffer.SetData<VertexPositionColor>(vertices);
+            vertexBuffer = new DynamicVertexBuffer(GraphicsDevice, typeof(VertexPositionColor), 1000, BufferUsage.WriteOnly);
+            //vertexBuffer.SetData<VertexPositionColor>(vertices);
 
             m = Matrix.CreateOrthographicOffCenter(0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 0, 0, -1);
 

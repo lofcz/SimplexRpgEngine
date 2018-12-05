@@ -126,7 +126,7 @@ namespace SimplexCore
             }
         }
 
-        public void DrawStart(SpriteBatch s, VertexBuffer vb, BasicEffect be, Matrix m, GameObject currentObject)
+        public void DrawStart(SpriteBatch s, DynamicVertexBuffer vb, BasicEffect be, Matrix m, GameObject currentObject)
         {
             Sgml.sb = s;
             Sgml.vb = vb;
@@ -136,7 +136,7 @@ namespace SimplexCore
         }
 
         // Editor events
-        public virtual void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, VertexBuffer vb, BasicEffect be, Matrix m)
+        public virtual void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, DynamicVertexBuffer vb, BasicEffect be, Matrix m)
         {
             Sgml.sb = s;
             Sgml.vb = vb;
