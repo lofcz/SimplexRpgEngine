@@ -471,7 +471,7 @@ namespace SimplexCore
             if (outline)
             {
                 outline = false;
-                distance = r - 4;
+                distance = (int)r - 4;
             }
 
             List<VertexPositionColor> circle = new List<VertexPositionColor>();
@@ -485,10 +485,10 @@ namespace SimplexCore
                 float angle = 0;
                 for (int i = startAngle; i <= totalAngle; i += 10)
                 {
-                    angle = (i / 57.3f);
+                    angle = (i / 57.2961161551924f);
 
-                    float x2 = xPos + ((r / 2f) * (float) Math.Sin(angle));
-                    float y2 = yPos + ((r / 2f) * (float) Math.Cos(angle));
+                    float x2 = xPos + (((int)r / 2f) * (float) Math.Sin(angle));
+                    float y2 = yPos + (((int)r / 2f) * (float) Math.Cos(angle));
 
                     float x3 = xPos + ((distance / 2f) * (float)Math.Sin(angle));
                     float y3 = yPos + ((distance / 2f) * (float)Math.Cos(angle));

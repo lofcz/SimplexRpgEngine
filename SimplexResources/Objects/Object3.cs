@@ -75,9 +75,9 @@ namespace SimplexResources.Objects
 
 
             }
-            draw_fluid(Spring.UpdateSprings(springs.ToArray()).ToArray());
-
-            //  draw_roundrect(Position, new Vector2(Position.X + 200, Position.Y + 200), false, (int)r);
+           // draw_fluid(Spring.UpdateSprings(springs.ToArray()).ToArray());
+           draw_circle(Position, 64, false);
+             // draw_roundrect(Position, new Vector2(Position.X + 200, Position.Y + 200), false, (int)r);
         }
     }
 }

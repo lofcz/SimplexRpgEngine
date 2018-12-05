@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Text;
 
 namespace SimplexCore.Ext
 {
@@ -18,14 +17,11 @@ namespace SimplexCore.Ext
         private readonly VertexBuffer _vb;
         private readonly IndexBuffer _ib;
 
-        public Matrix world;
-        public Matrix view;
-        public Matrix projection;
-
         public Texture2D BlankTexture { get; }
 
         public MgPrimitiveBatcher(GraphicsDevice gd, SpriteFont font)
         {
+
             _graphicsDevice = gd ?? throw new ArgumentNullException(nameof(gd));
             _font = font ?? throw new ArgumentNullException(nameof(font));
 
@@ -76,9 +72,9 @@ namespace SimplexCore.Ext
             _graphicsDevice.RasterizerState = RasterizerState.CullNone;
             _graphicsDevice.SamplerStates[0] = SamplerState.LinearWrap;
 
-           // _basicEffect.World = world;
-          //  _basicEffect.View = view;
-           // _basicEffect.Projection = projection;
+            // _basicEffect.World = world;
+            //  _basicEffect.View = view;
+            // _basicEffect.Projection = projection;
 
             _vb.SetData(vertices, 0, vertexCount);
             _ib.SetData(indices, 0, indexCount);
