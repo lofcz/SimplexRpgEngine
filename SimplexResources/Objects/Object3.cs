@@ -5,10 +5,12 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MonoGame.Extended;
 using MonoGame.Extended.TextureAtlases;
 using SimplexCore;
 using static SimplexCore.Sgml;
 using Color = Microsoft.Xna.Framework.Color;
+using Point = Microsoft.Xna.Framework.Point;
 
 
 namespace SimplexResources.Objects
@@ -76,10 +78,14 @@ namespace SimplexResources.Objects
 
             }
             
-            draw_ellipse(Position, new Vector2(50, 100), (float)r);
-           // draw_fluid(Spring.UpdateSprings(springs.ToArray()).ToArray());
-           //draw_circle(Position, 64, false);
-             // draw_roundrect(Position, new Vector2(Position.X + 200, Position.Y + 200), false, (int)r);
+ 
+            draw_triangle(Position.X, Position.Y, Position.X + 100, Position.Y, Position.X + 50, Position.Y + 50, true, r);
+ 
+
+            //draw_ellipse(Position, new Vector2(50, 100), (float)r);
+            // draw_fluid(Spring.UpdateSprings(springs.ToArray()).ToArray());
+            //draw_circle(Position, 64, false);
+            // draw_roundrect(Position, new Vector2(Position.X + 200, Position.Y + 200), false, (int)r);
         }
     }
 }

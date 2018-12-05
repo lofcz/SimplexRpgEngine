@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
@@ -8,6 +9,8 @@ using MonoGame.Extended;
 using MonoGame.Extended.Sprites;
 using MonoGame.Extended.TextureAtlases;
 using Color = System.Drawing.Color;
+using Point = Microsoft.Xna.Framework.Point;
+using Rectangle = Microsoft.Xna.Framework.Rectangle;
 using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 
 namespace SimplexCore
@@ -18,57 +21,97 @@ namespace SimplexCore
         private static VertexPositionColor[] vertices;
         public static GameObject currentObject;
 
-       /* public static void draw_circle(double x, double y, double r, bool outline, double thickness = 1)
+        /* public static void draw_circle(double x, double y, double r, bool outline, double thickness = 1)
+         {
+             if (outline)
+             {
+                 sb.DrawCircle((float)x, (float)y, (float)r, drawCirclePrecision, DrawColor, (float)thickness);
+             }
+             else
+             {
+                 sb.DrawCircle((float)x, (float)y, (float)r, drawCirclePrecision, DrawColor, (float)r);
+             }
+         }
+
+         public static void draw_circle(Vector2 position, double r, bool outline, double thickness = 1)
+         {
+             if (outline)
+             {
+                 sb.DrawCircle((float)position.X, (float)position.Y, (float)r, drawCirclePrecision, DrawColor, (float)thickness);
+             }
+             else
+             {
+                 sb.DrawCircle((float)position.X, (float)position.Y, (float)r, drawCirclePrecision, DrawColor, (float)r);
+             }
+         }
+
+         public static void draw_circle(Vector2 position, int r, bool outline, Microsoft.Xna.Framework.Color c, double thickness = 1)
+         {
+             if (outline)
+             {
+                 sb.DrawCircle((float)position.X, (float)position.Y, (float)r, drawCirclePrecision, FinalizeColor(c), (float)thickness);
+             }
+             else
+             {
+                 sb.DrawCircle((float)position.X, (float)position.Y, (float)r, drawCirclePrecision, FinalizeColor(c), (float)r);
+             }
+
+
+             /*
+             Microsoft.Xna.Framework.Color cc = FinalizeColor(c);
+             for (int y = -r; y <= r; y++)
+             {
+                 for (int x = -r; x <= r; x++)
+                 {
+                     if (x * x + y * y <= r * r)
+                     {
+                         sb.DrawPoint(position.X + x, position.Y + y, cc, 1);
+                     }                
+                 }
+             }*/
+        // }
+        // */
+        public static Vector2 GetCentroid(Vector3[] nodes)
         {
-            if (outline)
+            float x = 0, y = 0, area = 0, k;
+            PointF a, b = new PointF(nodes[nodes.Length - 1].X, nodes[nodes.Length - 1].Y);
+
+            for (int i = 0; i < nodes.Length; i++)
             {
-                sb.DrawCircle((float)x, (float)y, (float)r, drawCirclePrecision, DrawColor, (float)thickness);
+                a = new PointF(nodes[i].X, nodes[i].Y);
+
+                k = a.Y * b.X - a.X * b.Y;
+                area += k;
+                x += (a.X + b.X) * k;
+                y += (a.Y + b.Y) * k;
+
+                b = a;
             }
-            else
-            {
-                sb.DrawCircle((float)x, (float)y, (float)r, drawCirclePrecision, DrawColor, (float)r);
-            }
+            area *= 3;
+
+            return (area == 0) ? Vector2.Zero : new Vector2(x /= area, y /= area);
         }
 
-        public static void draw_circle(Vector2 position, double r, bool outline, double thickness = 1)
+        static Vector3 RotateVec3(Vector3 pointToRotate, Vector3 centerPoint, double angleInDegrees)
         {
-            if (outline)
+            double angleInRadians = angleInDegrees * (Math.PI / 180);
+            double cosTheta = Math.Cos(angleInRadians);
+            double sinTheta = Math.Sin(angleInRadians);
+            return new Vector3
             {
-                sb.DrawCircle((float)position.X, (float)position.Y, (float)r, drawCirclePrecision, DrawColor, (float)thickness);
-            }
-            else
-            {
-                sb.DrawCircle((float)position.X, (float)position.Y, (float)r, drawCirclePrecision, DrawColor, (float)r);
-            }
+                X =
+                    (float)
+                    (cosTheta * (pointToRotate.X - centerPoint.X) -
+                     sinTheta * (pointToRotate.Y - centerPoint.Y) + centerPoint.X),
+                Y =
+                    (float)
+                    (sinTheta * (pointToRotate.X - centerPoint.X) +
+                     cosTheta * (pointToRotate.Y - centerPoint.Y) + centerPoint.Y),
+                Z = 0
+            };
         }
 
-        public static void draw_circle(Vector2 position, int r, bool outline, Microsoft.Xna.Framework.Color c, double thickness = 1)
-        {
-            if (outline)
-            {
-                sb.DrawCircle((float)position.X, (float)position.Y, (float)r, drawCirclePrecision, FinalizeColor(c), (float)thickness);
-            }
-            else
-            {
-                sb.DrawCircle((float)position.X, (float)position.Y, (float)r, drawCirclePrecision, FinalizeColor(c), (float)r);
-            }
-
-
-            /*
-            Microsoft.Xna.Framework.Color cc = FinalizeColor(c);
-            for (int y = -r; y <= r; y++)
-            {
-                for (int x = -r; x <= r; x++)
-                {
-                    if (x * x + y * y <= r * r)
-                    {
-                        sb.DrawPoint(position.X + x, position.Y + y, cc, 1);
-                    }                
-                }
-            }*/
-       // }
-   // */
-        public static void draw_triangle(double x1, double y1, double x2, double y2, double x3, double y3, bool outline)
+        public static void draw_triangle(double x1, double y1, double x2, double y2, double x3, double y3, bool outline, double angle = 0)
         {
             Microsoft.Xna.Framework.Color fc = FinalizeColor(DrawColor);
 
@@ -76,6 +119,16 @@ namespace SimplexCore
             vertices[0] = new VertexPositionColor(new Vector3((float)x1, (float)y1, 0), fc);
             vertices[1] = new VertexPositionColor(new Vector3((float)x2, (float)y2, 0), fc);
             vertices[2] = new VertexPositionColor(new Vector3((float)x3, (float)y3, 0), fc);
+
+            if (Math.Abs(angle) > 0.001)
+            {
+                Vector2 pp = GetCentroid(new Vector3[] { vertices[0].Position, vertices[1].Position, vertices[2].Position });
+
+                vertices[0].Position = RotateVec3(vertices[0].Position, new Vector3(pp, 0), angle);
+                vertices[1].Position = RotateVec3(vertices[1].Position, new Vector3(pp, 0), angle);
+                vertices[2].Position = RotateVec3(vertices[2].Position, new Vector3(pp, 0), angle);
+            }
+
 
             vb = new VertexBuffer(sb.GraphicsDevice, typeof(VertexPositionColor), 3, BufferUsage.WriteOnly);
             vb.SetData<VertexPositionColor>(vertices);
