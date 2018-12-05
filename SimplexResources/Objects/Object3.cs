@@ -61,7 +61,7 @@ namespace SimplexResources.Objects
 
             if (flag)
             {
-                r = lerp(r, 64, 0.1);
+                r = lerp(r, 180, 0.1);
             }
             else
             {
@@ -75,8 +75,10 @@ namespace SimplexResources.Objects
 
 
             }
+            
+            draw_ellipse(Position, new Vector2(50, 100), (float)r);
            // draw_fluid(Spring.UpdateSprings(springs.ToArray()).ToArray());
-           draw_circle(Position, 64, false);
+           //draw_circle(Position, 64, false);
              // draw_roundrect(Position, new Vector2(Position.X + 200, Position.Y + 200), false, (int)r);
         }
     }
