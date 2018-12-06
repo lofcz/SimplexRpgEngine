@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
 using MonoGame.Extended.Sprites;
 using MonoGame.Extended.TextureAtlases;
-using Color = System.Drawing.Color;
+using Color = Microsoft.Xna.Framework.Color;
 using Point = Microsoft.Xna.Framework.Point;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
 using RectangleF = System.Drawing.RectangleF;
@@ -66,7 +68,6 @@ namespace SimplexCore
                 Z = 0
             };
         }
-
         static void RenderVertices(PrimitiveType pt = PrimitiveType.TriangleList, bool outline = false)
         {
             vb.SetData(vertices.ToArray());
@@ -120,6 +121,39 @@ namespace SimplexCore
             RenderVertices(PrimitiveType.TriangleList, outline);
         }
 
+        public static void draw_rectangle(Vector2 p1, Vector2 p2, bool outline, double angle = 0)
+        {
+            Microsoft.Xna.Framework.Color fc = FinalizeColor(DrawColor);
+            vertices.Clear();
+
+            VertexPositionColor v0 = new VertexPositionColor(new Vector3((float)p1.X, (float)p1.Y, 0), fc);
+            VertexPositionColor v1 = new VertexPositionColor(new Vector3((float)p1.X, (float)p2.Y, 0), fc);
+            VertexPositionColor v2 = new VertexPositionColor(new Vector3((float)p2.X, (float)p1.Y, 0), fc);
+            VertexPositionColor v3 = new VertexPositionColor(new Vector3((float)p2.X, (float)p2.Y, 0), fc);
+
+            angle = ApplyEpsilon(angle);
+            if (angle != 0)
+            {              
+                Vector3 v = new Vector3(p1.X + (p2.X - p1.X) / 2, p1.Y + (p2.Y - p1.Y) / 2, 0);
+
+                v0.Position = RotateVec3(v0.Position, v, angle);
+                v1.Position = RotateVec3(v1.Position, v, angle);
+                v2.Position = RotateVec3(v2.Position, v, angle);
+                v3.Position = RotateVec3(v3.Position, v, angle);
+            }
+     
+            if (!outline)
+            {
+                vertices.AddRange(new[] { v0, v1, v3, v0, v3, v2 });
+                RenderVertices();
+            }
+            else
+            {
+                vertices.AddRange(new[] { v0, v1, v1, v3, v3, v2, v2, v0 });
+                RenderVertices(PrimitiveType.LineList, true);
+            }
+        }
+
         public static void draw_sprite(Texture2D sprite, double subimg, Vector2 position)
         {
             int y = ((int) subimg / currentObject.Sprite.TextureCellsPerRow);
@@ -140,6 +174,40 @@ namespace SimplexCore
 
             vertices.Add(v1);
             vertices.Add(v2);
+
+            RenderVertices(PrimitiveType.LineList);
+        }
+
+        public static void draw_line_color(Vector2 pos1, Vector2 pos2, Color c1, Color c2)
+        {
+            vertices.Clear();
+            VertexPositionColor v1 = new VertexPositionColor(new Vector3(pos1, 0), FinalizeColor(c1));
+            VertexPositionColor v2 = new VertexPositionColor(new Vector3(pos2, 0), FinalizeColor(c2));
+
+            vertices.Add(v1);
+            vertices.Add(v2);
+
+            RenderVertices(PrimitiveType.LineList);
+        }
+
+        public static void draw_point(Vector2 p)
+        {
+            vertices.Clear();
+            VertexPositionColor v1 = new VertexPositionColor(new Vector3(p, 0), FinalizeColor(DrawColor));
+
+            vertices.Add(v1);
+            vertices.Add(v1);
+
+            RenderVertices(PrimitiveType.LineList);
+        }
+
+        public static void draw_point_color(Vector2 p, Color c)
+        {
+            vertices.Clear();
+            VertexPositionColor v1 = new VertexPositionColor(new Vector3(p, 0), FinalizeColor(c));
+
+            vertices.Add(v1);
+            vertices.Add(v1);
 
             RenderVertices(PrimitiveType.LineList);
         }
@@ -177,6 +245,32 @@ namespace SimplexCore
             vertices.AddRange(new []{v1, v3, v2, v2, v4, v1});
            
             RenderVertices();
+        }
+
+        public static void draw_arrow(Vector2 p1, Vector2 p2, int size)
+        {
+            Vector2 newVec = p2 - p1;
+            Vector3 newVector = Vector3.Cross(new Vector3(newVec, 0), Vector3.Forward);
+            newVector.Normalize();
+            newVec.X = newVector.X;
+            newVec.Y = newVector.Y;
+
+            Vector2 x1 = size * newVec + p2;
+            Vector2 x2 = -size * newVec + p1;
+            Vector2 x3 = -size * newVec + p2;
+            Vector2 x4 = size * newVec + p1;
+
+            Vector2 vv = newVec * size;
+
+            double dir = point_direction(p1.X, p1.Y, p2.X, p2.Y);
+
+            if (p1.X > p2.X) { dir = -dir; }
+            else if (p1.Y > p2.Y) { dir = -dir; }
+
+            if (p1.X < p2.X && p1.Y < p2.Y) { dir = point_direction(p1.X, p2.Y, p2.X, p1.Y); }
+
+            draw_line(p1, p2);
+            draw_triangle(x1.X, x1.Y, x3.X, x3.Y, p2.X + lengthdir_x(size, dir), p2.Y + lengthdir_y(size, dir), false);
         }
 
         // todo reowrk
@@ -391,7 +485,6 @@ namespace SimplexCore
              draw_circle(new Vector2(pos2.X - r, pos2.Y - r), r * 2, false, 0, 90);
         }
 
-        // todo
         public static void draw_line_width_color(Vector2 pos1, Vector2 pos2, int width, Microsoft.Xna.Framework.Color c1, Microsoft.Xna.Framework.Color c2, Microsoft.Xna.Framework.Color c3, Microsoft.Xna.Framework.Color c4, double angle = 0)
         {
             vertices.Clear();

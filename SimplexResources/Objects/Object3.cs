@@ -18,9 +18,11 @@ namespace SimplexResources.Objects
     public class Object3 : GameObject
     {
         double r = 0;
+        private double scale = 1;
         private bool flag = false;
         List<Spring> springs = new List<Spring>();
-
+        private int time = 0;
+        private Vector2 endPos;
         public Object3()
         {
             Sprite.TextureSource = "texture";
@@ -33,13 +35,14 @@ namespace SimplexResources.Objects
 
             int index = irandom(50);
             //springs[index].Splash(10);
+            endPos = new Vector2(irandom_range(-100, 100), irandom_range(-100, 100));
         }
 
         public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, DynamicVertexBuffer vb, BasicEffect be, Matrix m)
         {
             DrawStart(s, vb, be, m, this);
 
-
+            time++;
           //  draw_sprite(objectTexture, 0, Position);
             sb.Begin(transformMatrix: m);
            // sb.DrawString(f, Sprite.cellW.ToString(), Position, Color.Chartreuse);
@@ -63,7 +66,7 @@ namespace SimplexResources.Objects
 
             if (flag)
             {
-                r = lerp(r, 64, 0.1);
+                r = lerp(r, 180, 0.1);
             }
             else
             {
@@ -84,7 +87,9 @@ namespace SimplexResources.Objects
             //  draw_fluid(Spring.UpdateSprings(springs.ToArray()).ToArray());
             //  draw_circle(Position, 64, false);
             //  draw_roundrect(Position, new Vector2(Position.X + 200, Position.Y + 200), false, (int)r);
-            draw_line_width_color(Position, new Vector2(Position.X, Position.Y - 100), 5, Color.Red, Color.Lime, Color.DarkRed, Color.Yellow, r);
+            //  draw_line_width_color(Position, new Vector2(Position.X, Position.Y - 100), 5, Color.Red, Color.Lime, Color.DarkRed, Color.Yellow, r);
+            //  draw_rectangle(Position, new Vector2(Position.X + 100, Position.Y + 100), true, r); // scale * (abs(sin(degtorad(time))) * .1)
+            draw_arrow(Position, Position + endPos, 16);
         }
     }
 }
