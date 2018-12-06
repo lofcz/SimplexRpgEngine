@@ -63,7 +63,7 @@ namespace SimplexResources.Objects
 
             if (flag)
             {
-                r = lerp(r, 180, 0.1);
+                r = lerp(r, 64, 0.1);
             }
             else
             {
@@ -74,18 +74,17 @@ namespace SimplexResources.Objects
             {
                 int index = irandom(50);
                 springs[index].Height = 400;
-
-
             }
-            
- 
-            draw_triangle(Position.X, Position.Y, Position.X + 100, Position.Y, Position.X + 50, Position.Y + 50, true, r);
- 
 
-            //draw_ellipse(Position, new Vector2(50, 100), (float)r);
-           //  draw_fluid(Spring.UpdateSprings(springs.ToArray()).ToArray());
-            //draw_circle(Position, 64, false);
-            // draw_roundrect(Position, new Vector2(Position.X + 200, Position.Y + 200), false, (int)r);
+
+            //  draw_triangle(Position.X, Position.Y, Position.X + 100, Position.Y, Position.X + 50, Position.Y + 50, true, r);
+            //  draw_line(Position, new Vector2(Position.X, Position.Y - 100));
+            //  draw_line_width(Position, new Vector2(Position.X, Position.Y - 100), 5, r);
+            //  draw_ellipse(Position, new Vector2(50, 100), (float)r);
+            //  draw_fluid(Spring.UpdateSprings(springs.ToArray()).ToArray());
+            //  draw_circle(Position, 64, false);
+            //  draw_roundrect(Position, new Vector2(Position.X + 200, Position.Y + 200), false, (int)r);
+            draw_line_width_color(Position, new Vector2(Position.X, Position.Y - 100), 5, Color.Red, Color.Lime, Color.DarkRed, Color.Yellow, r);
         }
     }
 }
