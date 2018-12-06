@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 
 namespace SimplexCore
@@ -9,6 +10,7 @@ namespace SimplexCore
     {
         public static KeyboardState KeyboardState;
         public static KeyboardState KeyboardStatePrevious;
+        public static Vector2 MousePosition;
 
         public static bool KeyPressed(Keys key)
         {

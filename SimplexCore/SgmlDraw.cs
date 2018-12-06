@@ -582,6 +582,7 @@ namespace SimplexCore
         //
         public static void draw_circle(Vector2 pos, int r, bool outline, int startAngle = 0, int totalAngle = 360, int distance = 0)
         {
+            r *= 2;
             Microsoft.Xna.Framework.Color fc = FinalizeColor(DrawColor);
             totalAngle += startAngle;
 
@@ -635,6 +636,7 @@ namespace SimplexCore
 
         public static void draw_circle_color(Vector2 pos, int r, bool outline, Microsoft.Xna.Framework.Color c1, Microsoft.Xna.Framework.Color c2, int startAngle = 0, int totalAngle = 360, int distance = 0)
         {
+            r *= 2;
             Microsoft.Xna.Framework.Color fc1 = FinalizeColor(c1);
             Microsoft.Xna.Framework.Color fc2 = FinalizeColor(c2);
 

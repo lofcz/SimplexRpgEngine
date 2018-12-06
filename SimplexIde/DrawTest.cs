@@ -335,6 +335,7 @@ namespace SimplexIde
             BackgroundColor = Color.Black;
             Editor.graphics.Clear(BackgroundColor);
             // Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
+            Input.MousePosition = MousePositionTranslated;
 
             if (DrawGrid)
             {
@@ -943,7 +944,7 @@ namespace SimplexIde
                 {
                     Spritesheet s = Sprites.FirstOrDefault(x => x.Name == g.Sprite.TextureSource);
 
-                    g.EvtLoad();
+                   
                     g.Sprite.Texture = s.Texture;
                     g.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
                     g.Sprite.TextureRows = s.Rows;
@@ -956,6 +957,9 @@ namespace SimplexIde
 
                     RoomLayer rt = roomLayers.FirstOrDefault(x => x.Name == g.LayerName);
                     g.Layer = (ObjectLayer) rt;
+
+                    g.EvtCreate();
+                    g.EvtLoad();
 
                     g.Layer.Objects.Add(g);
                 }

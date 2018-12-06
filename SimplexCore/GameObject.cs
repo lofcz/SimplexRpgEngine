@@ -58,7 +58,7 @@ namespace SimplexCore
         public double Direction;
         public Vector2 PostionStart;
         public Vector2 PositionPrevious;
-        public Vector2 Speed;
+        public double Speed;
         public double Friction;
         public Vector2 Gravity;
         public Vector2 Velocity;
@@ -96,7 +96,7 @@ namespace SimplexCore
             ImageAlpha = 1;
             ImageSpeed = 1;
             Gravity = new Vector2(0, 270);
-            Speed = Vector2.Zero;
+            Speed = 0;
             Velocity = Vector2.Zero;
             Friction = 0;
             Direction = 0;
@@ -180,9 +180,27 @@ namespace SimplexCore
             UpdateImageScale();
             UpdateImageAngle();
 
+            // Apply friction
+            if (abs(Speed) > 0)
+            {
+                if (Speed > 0)
+                {
+                    Speed -= Friction;
+                }
+                else
+                {
+                    Speed += Friction;
+                }
+
+                if (abs(Speed) < Friction)
+                {
+                    Speed = 0;
+                }
+            }
             // Update velocity
-            Position = new Vector2(Position.X + Velocity.X, Position.Y + Velocity.Y);
             Velocity = new Vector2(Velocity.X + (float)lengthdir_x(-Gravity.X, Gravity.Y), Velocity.Y + (float)lengthdir_y(-Gravity.X, Gravity.Y));
+
+            Position = new Vector2(Position.X + Velocity.X + (float)lengthdir_x(Speed, Direction), Position.Y + Velocity.Y + (float)lengthdir_y(Speed, Direction));
         }
 
 

@@ -361,11 +361,13 @@ namespace SimplexCore
 
         public static double lengthdir_x(double len, double dir)
         {
+            dir = 360 - dir;
             return ApplyEpsilon(Math.Cos(dir * Math.PI / 180) * len);
         }
 
         public static double lengthdir_y(double len, double dir)
         {
+            dir = 360 - dir;
             return ApplyEpsilon(Math.Sin(dir * Math.PI / 180) * len);
         }
 
@@ -477,19 +479,33 @@ namespace SimplexCore
         /*
          *  ------------------------------------- Vector ------------------------------------
          */
+        // helper
+        static double nDir(double a)
+        {
+            while (a < 0)
+            {
+                a += Math.PI * 2;
+            }
+
+            return a;
+        }
 
         public static double point_direction(double x1, double y1, double x2, double y2)
         {
-            double xDiff = x2 - x1;
-            double yDiff = y2 - y1;
-            return ApplyEpsilon(360 - (Math.Atan2(yDiff, xDiff) * 180.0 / Math.PI));
+            double xDiff = 0;
+           // xDiff = x2 - x1;
+
+            double yDiff = 0; //y2 - y1;
+            return ApplyEpsilon((Math.Atan2(xDiff, yDiff) * 180.0 / Math.PI));
         }
 
         public static double point_direction(Vector2 point1, Vector2 point2)
         {
-            double xDiff = point2.X - point1.Y;
+            double xDiff = point2.X - point1.X;
             double yDiff = point2.Y - point1.Y;
-            return ApplyEpsilon(360 - (Math.Atan2(yDiff, xDiff) * 180.0 / Math.PI));
+            double d = ApplyEpsilon( (360 - (nDir(Math.Atan2(yDiff, xDiff)) * 180.0 / Math.PI)));
+
+            return d;
         }
 
         public static double point_distance(double x1, double y1, double x2, double y2)

@@ -23,6 +23,7 @@ namespace SimplexResources.Objects
         List<Spring> springs = new List<Spring>();
         private int time = 0;
         private Vector2 endPos;
+        private ColliderCircle cc;
         public Object3()
         {
             Sprite.TextureSource = "texture";
@@ -30,16 +31,41 @@ namespace SimplexResources.Objects
 
             for (int i = 0; i < 50; i++)
             {
-                springs.Add(new Spring());
+                //springs.Add(new Spring());
             }
+
+            Speed = random_range(0.5, 2);
+            Friction = 0.05;
 
             int index = irandom(50);
             //springs[index].Splash(10);
             endPos = new Vector2(irandom_range(-100, 100), irandom_range(-100, 100));
+
+            // This creates a new circle collider
+            // setting some properties
+            cc = new ColliderCircle();
+            cc.Radius = 64;
+            cc.Name = "main";
+            cc.GameObject = this;
+
+            // Add collider to the list of active colliders
+            Colliders.Add(cc);
+
+            // This will trigger script "MyCollision" when our collider main collides with collider "main" of any "Object3"
+            ColliderBase.RegisterCollider("main", typeof(Object3), "main", MyCollision);          
+        }
+
+        // "other" is the collider we've hit it contains reference to object it belongs to
+        void MyCollision(ColliderBase other)
+        {
+
         }
 
         public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, DynamicVertexBuffer vb, BasicEffect be, Matrix m)
         {
+            UpdateState();
+            UpdateColliders();
+
             DrawStart(s, vb, be, m, this);
 
             time++;
@@ -89,7 +115,15 @@ namespace SimplexResources.Objects
             //  draw_roundrect(Position, new Vector2(Position.X + 200, Position.Y + 200), false, (int)r);
             //  draw_line_width_color(Position, new Vector2(Position.X, Position.Y - 100), 5, Color.Red, Color.Lime, Color.DarkRed, Color.Yellow, r);
             //  draw_rectangle(Position, new Vector2(Position.X + 100, Position.Y + 100), true, r); // scale * (abs(sin(degtorad(time))) * .1)
-            draw_arrow(Position, Position + endPos, 16);
+            //  draw_arrow(Position, Position + endPos, 16);
+            //  Speed = 1;
+            Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, 64, 64);
+
+            draw_circle(new Vector2(Position.X + 32, Position.Y + 32), 32, true);
+            Direction = point_direction(new Vector2(Position.X + 32, Position.Y + 32), Input.MousePosition);
+            draw_line(new Vector2(Position.X + 32, Position.Y + 32), new Vector2(Position.X + 32 + (float)lengthdir_x(32, Direction), Position.Y + 32 + (float)lengthdir_y(32, Direction)));
+
+           // ((ColliderCircle)Colliders[0])
         }
     }
 }
