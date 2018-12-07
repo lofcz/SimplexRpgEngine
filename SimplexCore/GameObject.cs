@@ -78,6 +78,9 @@ namespace SimplexCore
         [XmlIgnore]
         public int Id;
 
+        [XmlIgnore]
+        public List<ColliderDescriptor> CollidersActive = new List<ColliderDescriptor>();
+
         private float _imageIndex;
 
         [XmlIgnore]
@@ -124,6 +127,21 @@ namespace SimplexCore
                     cr.CollisionTransformed = new RectangleF(Position.X + cr.Collision.X, Position.Y + cr.Collision.Y, cr.Collision.Width, cr.Collision.Height);
                 }
             }
+        }
+
+        public void RegisterCollider(ColliderBase c, Type gT, string n, Type cT, Action<ColliderBase> method, bool eachFrame = true)
+        {
+            ColliderDescriptor cd = new ColliderDescriptor();
+            cd.Collider1 = c;
+            cd.ColliderType1 = c.GetType();
+            cd.ColliderName = c.Name;
+            cd.ColliderName2 = n;
+            cd.ColliderType2 = cT;
+            cd.EachFrame = eachFrame;
+            cd.TargetObject = gT;
+            cd.Method = method;
+
+            CollidersActive.Add(cd);
         }
 
         public void DrawStart(SpriteBatch s, DynamicVertexBuffer vb, BasicEffect be, Matrix m, GameObject currentObject)

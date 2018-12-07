@@ -52,10 +52,11 @@ namespace SimplexResources.Objects
             Colliders.Add(cc);
 
             // This will trigger script "MyCollision" when our collider main collides with collider "main" of any "Object3"
-            ColliderBase.RegisterCollider("main", typeof(Object3), "main", MyCollision);          
+            // last arg ensures that the check will be triggered on each frame without explicit ask for it
+            RegisterCollider(cc, typeof(Object3), "main", typeof(ColliderRectangle), MyCollision, true);          
         }
 
-        // "other" is the collider we've hit it contains reference to object it belongs to
+        // "other" is the collider we've hit and contains reference to the object it belongs to
         void MyCollision(ColliderBase other)
         {
 

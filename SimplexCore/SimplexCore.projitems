@@ -13,6 +13,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)AutotileDefinition.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ColliderBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ColliderCircle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ColliderDescriptor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ColliderRectangle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CollisionInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Ext\IPrimitiveBatcher.cs" />

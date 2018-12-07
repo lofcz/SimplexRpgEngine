@@ -422,9 +422,30 @@ namespace SimplexIde
 
                     // Layer is object
                     if (rl is ObjectLayer)
-                    {
+                    { 
                         foreach (GameObject o in ((ObjectLayer) rl).Objects)
                         {
+                            // Trigger collisions on demand
+                            foreach (ColliderDescriptor cd in o.CollidersActive)
+                            {
+                                foreach (RoomLayer rl2 in roomLayers)
+                                {
+                                    if (rl2 is ObjectLayer)
+                                    {
+                                        foreach (GameObject g2 in ((ObjectLayer)rl2).Objects)
+                                        {
+                                            if (g2.GetType() == cd.TargetObject)
+                                            {
+                                               // if (ColliderCircle.CircleInCircle((ColliderCircle) g2.Colliders[0], (ColliderCircle) cd.Collider1))
+                                                {
+                                                  //  Debug.WriteLine("kokot");
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            
                             o.EvtDraw(Editor.spriteBatch, Editor.Font, o.Sprite.Texture, vertexBuffer, basicEffect,
                                 transformMatrix);
 
