@@ -24,6 +24,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Global.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Input.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ObjectLayer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Quadtree.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RoomLayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Root.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SGML.cs" />
@@ -31,6 +32,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)SgmlString.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SimplexCamera.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SimplexMath.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SpatialHash.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Spring.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Sprite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SpriteDescriptor.cs" />

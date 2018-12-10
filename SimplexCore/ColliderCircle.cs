@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Forms;
 using Microsoft.Xna.Framework;
 using static SimplexCore.Sgml;
 
@@ -14,8 +15,10 @@ namespace SimplexCore
         public static bool CircleInCircle(ColliderCircle a, ColliderCircle b)
         {
             double r = a.Radius + b.Radius;
-            r *= r;
-            return r < (((a.Position.X + b.Position.X) * (a.Position.X + b.Position.X)) + ((a.Position.Y + b.Position.Y) * (a.Position.Y + b.Position.Y)));
+
+            var k = r < Math.Sqrt(((a.Position.X - b.Position.X) * (a.Position.X - b.Position.X)) + ((a.Position.Y - b.Position.Y) * (a.Position.Y - b.Position.Y)));
+
+            return k;
         }
 
         public static CollisionInfo CircleCircleCollision(ColliderCircle a, ColliderCircle b)

@@ -83,6 +83,10 @@ namespace SimplexIde
         public TileLayer currentTileLayer = null;
         public RoomLayer lastLayer = null;
 
+        Quadtree quad = new Quadtree(0, new Microsoft.Xna.Framework.Rectangle(0, 0, 1024, 768));
+        SpatialHash sh = new SpatialHash() {CellSize = 128, Cols = 20, Rows = 20};
+        
+
         protected override void Initialize()
         {
             base.Initialize();
@@ -143,6 +147,8 @@ namespace SimplexIde
 
         protected override void Update(GameTime gameTime)
         {
+            quad.Clear();
+
             MousePositionTranslated = cam.Camera.ScreenToWorld(MousePosition);
 
 
@@ -189,6 +195,8 @@ namespace SimplexIde
             {
                 if (o.Layer != null)
                 {
+                    quad.Insert(o, o.Sprite.ImageRectangle);
+
                     if (o.Layer.Visible)
                     {
                         if (GameRunning || o == clickedObject)
@@ -301,6 +309,7 @@ namespace SimplexIde
                             cms.Show(Cursor.Position);
 
                             clickedObject = SceneObjects[i];
+
                             goodBoy = false;
 
                         }
@@ -436,9 +445,9 @@ namespace SimplexIde
                                         {
                                             if (g2.GetType() == cd.TargetObject)
                                             {
-                                               // if (ColliderCircle.CircleInCircle((ColliderCircle) g2.Colliders[0], (ColliderCircle) cd.Collider1))
+                                                if (ColliderCircle.CircleInCircle((ColliderCircle) g2.Colliders[0], (ColliderCircle) cd.Collider1))
                                                 {
-                                                  //  Debug.WriteLine("kokot");
+                                                    //Debug.WriteLine("kokot");
                                                 }
                                             }
                                         }
@@ -455,6 +464,7 @@ namespace SimplexIde
                             if (o == clickedObject || r.Intersects(selectionRectangle) ||
                                 selectedRectangleObjects.Contains(o))
                             {
+
                                 Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
                                 Editor.spriteBatch.DrawRectangle(
                                     new RectangleF(o.Position,
@@ -763,6 +773,11 @@ namespace SimplexIde
                     if (!cmsOpen)
                     {
                         clickedObject.Position = vec;
+
+                        if (clickedObject != null)
+                        {
+                            Debug.WriteLine(sh.ObjectsNearby(clickedObject).Count.ToString());
+                        }
                     }
                 }
             }
@@ -979,10 +994,17 @@ namespace SimplexIde
                     RoomLayer rt = roomLayers.FirstOrDefault(x => x.Name == g.LayerName);
                     g.Layer = (ObjectLayer) rt;
 
+                    g.Sprite.UpdateImageRectangle();
+                    g.UpdateState();               
+                    g.UpdateColliders();
+
+
                     g.EvtCreate();
                     g.EvtLoad();
 
                     g.Layer.Objects.Add(g);
+                    sh.RegisterObject(g);
+                    
                 }
 
                 // Load tiles

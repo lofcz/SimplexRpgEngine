@@ -120,9 +120,9 @@ namespace SimplexResources.Objects
             //  Speed = 1;
             Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, 64, 64);
 
-            draw_circle(new Vector2(Position.X + 32, Position.Y + 32), 32, true);
-            Direction = point_direction(new Vector2(Position.X + 32, Position.Y + 32), Input.MousePosition);
-            draw_line(new Vector2(Position.X + 32, Position.Y + 32), new Vector2(Position.X + 32 + (float)lengthdir_x(32, Direction), Position.Y + 32 + (float)lengthdir_y(32, Direction)));
+          draw_circle(new Vector2(Position.X + 32, Position.Y + 32), 32, true);
+          Direction = point_direction(new Vector2(Position.X + 32, Position.Y + 32), Input.MousePosition);
+          draw_line(new Vector2(Position.X + 32, Position.Y + 32), new Vector2(Position.X + 32 + (float)lengthdir_x(32, Direction), Position.Y + 32 + (float)lengthdir_y(32, Direction)));
 
            // ((ColliderCircle)Colliders[0])
         }

@@ -126,6 +126,12 @@ namespace SimplexCore
                     ColliderRectangle cr = c as ColliderRectangle;
                     cr.CollisionTransformed = new RectangleF(Position.X + cr.Collision.X, Position.Y + cr.Collision.Y, cr.Collision.Width, cr.Collision.Height);
                 }
+
+                if (c is ColliderCircle)
+                {
+                    ColliderCircle cr = c as ColliderCircle;
+                    cr.Position = new Vector2(Position.X, Position.Y);            
+                }
             }
         }
 
