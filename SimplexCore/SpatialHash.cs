@@ -54,7 +54,7 @@ namespace SimplexCore
             for (int i = 0; i < Cols * Rows; i++)
             {
                 
-                var kk = new Rectangle((int)go.Position.X - 32, (int)go.Position.Y - 32, 64, 64);
+                var kk = new Rectangle((int)go.Position.X - 64, (int)go.Position.Y - 64, 128, 128);
 
                 if (kk.Intersects(new Rectangle(x, y, CellSize, CellSize)))
                 {

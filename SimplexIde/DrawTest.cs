@@ -83,7 +83,6 @@ namespace SimplexIde
         public TileLayer currentTileLayer = null;
         public RoomLayer lastLayer = null;
 
-        Quadtree quad = new Quadtree(0, new Microsoft.Xna.Framework.Rectangle(0, 0, 1024, 768));
         SpatialHash sh = new SpatialHash() {CellSize = 128, Cols = 20, Rows = 20};
         
 
@@ -147,8 +146,6 @@ namespace SimplexIde
 
         protected override void Update(GameTime gameTime)
         {
-            quad.Clear();
-
             MousePositionTranslated = cam.Camera.ScreenToWorld(MousePosition);
 
 
@@ -175,6 +172,7 @@ namespace SimplexIde
                 // cam.TargetZoom -= 0.1f;
             }
 
+            sh.Clear();
             foreach (RoomLayer rl in roomLayers)
             {
                 if (rl.Visible)
@@ -183,6 +181,7 @@ namespace SimplexIde
                     {
                         foreach (GameObject o in ((ObjectLayer)rl).Objects)
                         {
+                            sh.RegisterObject(o);
                             if (GameRunning || o == clickedObject)
                             {
                                 o.EvtStep();
@@ -195,8 +194,6 @@ namespace SimplexIde
             {
                 if (o.Layer != null)
                 {
-                    quad.Insert(o, o.Sprite.ImageRectangle);
-
                     if (o.Layer.Visible)
                     {
                         if (GameRunning || o == clickedObject)
@@ -433,28 +430,32 @@ namespace SimplexIde
                     if (rl is ObjectLayer)
                     { 
                        foreach (GameObject o in ((ObjectLayer) rl).Objects)
-                        {/*
-                            // Trigger collisions on demand
-                            foreach (ColliderDescriptor cd in o.CollidersActive)
+                       {
+                           List<GameObject> possibleColliders = sh.ObjectsNearby(o); // already works for bruteforce
+
+                            foreach (GameObject g2 in possibleColliders)
                             {
-                                foreach (RoomLayer rl2 in roomLayers)
+                                if (g2 == o)
                                 {
-                                    if (rl2 is ObjectLayer)
+                                    continue;
+                                }
+
+                                if (g2.GetType() == typeof(Object3))
+                                {
+                                    if (ColliderCircle.CircleInCircle((ColliderCircle)g2.Colliders[0], (ColliderCircle)o.Colliders[0]))
                                     {
-                                        foreach (GameObject g2 in ((ObjectLayer)rl2).Objects)
+                                        if (g2 != o && (o.Colliders[0] as ColliderCircle).Position.X != 0 && (g2.Colliders[0] as ColliderCircle).Position.X != 0) 
                                         {
-                                            if (g2.GetType() == cd.TargetObject)
-                                            {
-                                                if (ColliderCircle.CircleInCircle((ColliderCircle) g2.Colliders[0], (ColliderCircle) cd.Collider1))
-                                                {
-                                                    //Debug.WriteLine("kokot");
-                                                }
-                                            }
+                                            ((Object3) g2).color = Color.Red;
                                         }
                                     }
+                                    else
+                                    {
+                                        //((Object3)g2).color = Color.White;
+                                    }
                                 }
-                            }*/
-                            
+                            }
+
                             o.EvtDraw(Editor.spriteBatch, Editor.Font, o.Sprite.Texture, vertexBuffer, basicEffect,
                                 transformMatrix);
 
@@ -580,6 +581,20 @@ namespace SimplexIde
             return tx;
         }
 
+        public void DeleteAll()
+        {
+            sh.Clear();
+
+            foreach (RoomLayer rl in roomLayers)
+            {
+                if (rl is ObjectLayer)
+                {
+                    ObjectLayer ol = rl as ObjectLayer;
+                    ol.Objects.Clear();                
+                }
+            } 
+        }
+
         public void GameClicked(MouseEventArgs e, MouseButtons mb)
         {
             MousePositionTranslated = cam.Camera.ScreenToWorld(MousePosition);
@@ -685,7 +700,7 @@ namespace SimplexIde
 
 
                                             o.Layer.Objects.Add(o);
-
+                                            sh.RegisterObject(o);
                                             //  SceneObjects = SceneObjects.OrderBy(x => x.Layer.Depth).ToList();
                                         }
 
@@ -773,15 +788,6 @@ namespace SimplexIde
                     if (!cmsOpen)
                     {
                         clickedObject.Position = vec;
-
-                        if (clickedObject != null)
-                        {
-                            foreach (var near in sh.ObjectsNearby(clickedObject))
-                            {
-                                ((Object3) near).r = 16;
-                            }
-                            Debug.WriteLine(sh.ObjectsNearby(clickedObject).Count.ToString());
-                        }
                     }
                 }
             }

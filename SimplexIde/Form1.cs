@@ -420,7 +420,7 @@ namespace SimplexIde
 
         private void newToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            drawTest1.DeleteAll();
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)

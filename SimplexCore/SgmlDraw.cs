@@ -638,10 +638,10 @@ namespace SimplexCore
             RenderVertices();
         }
 
-        public static void draw_circle_fast(Vector2 pos, int r, int segments)
+        public static void draw_circle_fast(Vector2 pos, int r, int segments, Color color)
         {
             vertices.Clear();
-            Microsoft.Xna.Framework.Color fc = FinalizeColor(DrawColor);
+            Color fc = FinalizeColor(color);
 
             float theta = MathHelper.TwoPi / (float)segments;
             float c = (float)Math.Cos(theta);

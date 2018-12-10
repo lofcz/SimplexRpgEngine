@@ -16,7 +16,7 @@ namespace SimplexCore
         {
             double r = a.Radius + b.Radius;
 
-            var k = r < Math.Sqrt(((a.Position.X - b.Position.X) * (a.Position.X - b.Position.X)) + ((a.Position.Y - b.Position.Y) * (a.Position.Y - b.Position.Y)));
+            var k = r > Math.Sqrt(((a.Position.X - b.Position.X) * (a.Position.X - b.Position.X)) + ((a.Position.Y - b.Position.Y) * (a.Position.Y - b.Position.Y)));
 
             return k;
         }
