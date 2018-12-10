@@ -89,6 +89,10 @@ namespace SimplexCore
                 {
                     primitiveCount = vertices.Count / 2; // Line list
                 }
+                else if (pt == PrimitiveType.LineStrip)
+                {
+                    primitiveCount = vertices.Count - 1;
+                }
 
                 pass.Apply();
                 sb.GraphicsDevice.DrawPrimitives(pt, 0, primitiveCount);
@@ -581,7 +585,7 @@ namespace SimplexCore
 
         //
         public static void draw_circle(Vector2 pos, int r, bool outline, int startAngle = 0, int totalAngle = 360, int distance = 0)
-        {
+        {          
             r *= 2;
             Microsoft.Xna.Framework.Color fc = FinalizeColor(DrawColor);
             totalAngle += startAngle;
@@ -632,6 +636,35 @@ namespace SimplexCore
             }
 
             RenderVertices();
+        }
+
+        public static void draw_circle_fast(Vector2 pos, int r, int segments)
+        {
+            vertices.Clear();
+            Microsoft.Xna.Framework.Color fc = FinalizeColor(DrawColor);
+
+            float theta = MathHelper.TwoPi / (float)segments;
+            float c = (float)Math.Cos(theta);
+            float s = (float) Math.Sin(theta);
+            float t;
+
+            float x = r;
+            float y = 0;
+
+            vertices.Add(new VertexPositionColor(new Vector3(x + pos.X, y + pos.Y, 0), fc));
+
+            for (int ii = 0; ii < segments; ii++)
+            {
+                vertices.Add(new VertexPositionColor(new Vector3(x + pos.X, y + pos.Y, 0), fc));
+
+                t = x;
+                x = c * x - s * y;
+                y = s * t + c * y;
+            }
+
+            vertices.Add(new VertexPositionColor(new Vector3(x + pos.X, y + pos.Y, 0), fc));
+
+            RenderVertices(PrimitiveType.LineStrip, false);
         }
 
         public static void draw_circle_color(Vector2 pos, int r, bool outline, Microsoft.Xna.Framework.Color c1, Microsoft.Xna.Framework.Color c2, int startAngle = 0, int totalAngle = 360, int distance = 0)

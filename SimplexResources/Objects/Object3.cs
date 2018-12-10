@@ -17,7 +17,7 @@ namespace SimplexResources.Objects
 {
     public class Object3 : GameObject
     {
-        double r = 0;
+        public double r = 32;
         private double scale = 1;
         private bool flag = false;
         List<Spring> springs = new List<Spring>();
@@ -93,11 +93,11 @@ namespace SimplexResources.Objects
 
             if (flag)
             {
-                r = lerp(r, 180, 0.1);
+               // r = lerp(r, 180, 0.1);
             }
             else
             {
-                r = lerp(r, 0, 0.1);
+               // r = lerp(r, 0, 0.1);
             }
 
             if (Input.KeyboardState.IsKeyDown(Keys.D))
@@ -120,9 +120,10 @@ namespace SimplexResources.Objects
             //  Speed = 1;
             Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, 64, 64);
 
-          draw_circle(new Vector2(Position.X + 32, Position.Y + 32), 32, true);
-          Direction = point_direction(new Vector2(Position.X + 32, Position.Y + 32), Input.MousePosition);
-          draw_line(new Vector2(Position.X + 32, Position.Y + 32), new Vector2(Position.X + 32 + (float)lengthdir_x(32, Direction), Position.Y + 32 + (float)lengthdir_y(32, Direction)));
+        //  draw_circle(new Vector2(Position.X + 32, Position.Y + 32), (int)r, true);
+        draw_circle_fast(new Vector2(Position.X + 32, Position.Y + 32), (int)r, 24);
+   //       Direction = point_direction(new Vector2(Position.X + 32, Position.Y + 32), Input.MousePosition);
+     //     draw_line(new Vector2(Position.X + 32, Position.Y + 32), new Vector2(Position.X + 32 + (float)lengthdir_x(32, Direction), Position.Y + 32 + (float)lengthdir_y(32, Direction)));
 
            // ((ColliderCircle)Colliders[0])
         }

@@ -432,8 +432,8 @@ namespace SimplexIde
                     // Layer is object
                     if (rl is ObjectLayer)
                     { 
-                        foreach (GameObject o in ((ObjectLayer) rl).Objects)
-                        {
+                       foreach (GameObject o in ((ObjectLayer) rl).Objects)
+                        {/*
                             // Trigger collisions on demand
                             foreach (ColliderDescriptor cd in o.CollidersActive)
                             {
@@ -453,7 +453,7 @@ namespace SimplexIde
                                         }
                                     }
                                 }
-                            }
+                            }*/
                             
                             o.EvtDraw(Editor.spriteBatch, Editor.Font, o.Sprite.Texture, vertexBuffer, basicEffect,
                                 transformMatrix);
@@ -776,6 +776,10 @@ namespace SimplexIde
 
                         if (clickedObject != null)
                         {
+                            foreach (var near in sh.ObjectsNearby(clickedObject))
+                            {
+                                ((Object3) near).r = 16;
+                            }
                             Debug.WriteLine(sh.ObjectsNearby(clickedObject).Count.ToString());
                         }
                     }
