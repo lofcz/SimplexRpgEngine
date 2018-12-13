@@ -110,9 +110,9 @@ namespace SimplexResources.Objects
            
             }
 
-            if (mouse.X > 100)
+            if (keyboard_check_pressed(Keys.A))
             {
-               
+                MessageBox.Show("kokot", "koko", new[] {"bléééééé"});
             }
 
             //  draw_triangle(Position.X, Position.Y, Position.X + 100, Position.Y, Position.X + 50, Position.Y + 50, true, r);

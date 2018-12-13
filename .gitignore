@@ -1,3 +1,5 @@
+*.exe
+*.pdb
 *.rsuser
 *.suo
 *.user
@@ -5,6 +7,5 @@
 *.sln.docstatesasd
 *.userprefs
 *.cache
+*.Cache
 .vs/
-*.exe
-*.pdb

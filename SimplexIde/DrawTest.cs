@@ -205,7 +205,6 @@ namespace SimplexIde
                 }
             }
 
-            Input.KeyboardStatePrevious = Keyboard.GetState();
         }
 
         public void ToggleGrid(bool toggle)
@@ -413,71 +412,22 @@ namespace SimplexIde
                 }
             }
 
-          //  try
-          //  {
-            //    List<GameObject> sortedObjects = SceneObjects.OrderBy(x => x.Layer.Depth).ToList();
-                /*foreach (GameObject o in sortedObjects)
-                {
-                    if (o.Layer != null)
-                    {
-                        if (o.Layer.Visible)
-                        {
-                            //if (GameRunning || o == clickedObject)
-                            {
-                                o.EvtDraw(Editor.spriteBatch, Editor.Font, o.Sprite.Texture, vertexBuffer, basicEffect,
-                                    transformMatrix);
-
-                                RectangleF r = new RectangleF(o.Position,
-                                    new Size2(o.Sprite.ImageRectangle.Width, o.Sprite.ImageRectangle.Height));
-
-                                if (o == clickedObject || r.Intersects(selectionRectangle) ||
-                                    selectedRectangleObjects.Contains(o))
-                                {
-                                    Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
-                                    Editor.spriteBatch.DrawRectangle(
-                                        new RectangleF(o.Position,
-                                            new Size2(o.Sprite.ImageRectangle.Width, o.Sprite.ImageRectangle.Height)),
-                                        Color.White,
-                                        2);
-                                    Editor.spriteBatch.End();
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-
-            }*/
-
                 if (Input.KeyboardState.IsKeyDown(Keys.LeftControl))
                 {
                     Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
                     Editor.spriteBatch.DrawRectangle(selectionRectangle, Color.White, 2);
                     Editor.spriteBatch.End();
                 }
-                //Editor.spriteBatch.DrawString(Editor.Font, "Mouse X: " +Math.Round(MousePositionTranslated.X) + "\nMouse Y: " + Math.Round(MousePositionTranslated.Y), new Vector2(200, 200), Color.White);
-
 
                 Editor.spriteBatch.Begin();
                 Editor.spriteBatch.DrawString(Editor.Font, framerate.ToString("F1"), new Vector2(10, 10), Color.White);
-                 Editor.spriteBatch.End();
+                Editor.spriteBatch.End();
 
-                //  mpb.world = world;
-                //  mpb.view = view;
-                //  mpb.projection = projection;
-                // mpb.TransformMatrix = transformMatrix;
-
-                //   mpb.TransformMatrix = transformMatrix;
-                //  mpb.DrawString(new StringBuilder("Kokot"), new Vector2(100, 100), 15, Color.White);
-                //   mpb.DrawCircle(new Vector2(100, 100), 64, Color.White, 64);
-                // mpb.Flush();
-                //mpb.Clear();
 
                 killClick = false;
 
-                Input.Clear();
+                Input.KeyboardStatePrevious = Keyboard.GetState();
+            Input.Clear();
         }
 
         public void PreCheckMouse(MouseEventArgs e)

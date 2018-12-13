@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using Keys = Microsoft.Xna.Framework.Input.Keys;
 
 namespace SimplexCore
 {
@@ -88,6 +89,11 @@ namespace SimplexCore
         public static void window_mouse_set(Vector2 pos)
         {
             Cursor.Position = new System.Drawing.Point((int)pos.X, (int)pos.Y);
+        }
+
+        public static bool keyboard_check_pressed(Keys key)
+        {
+            return Input.KeyPressed(key);
         }
 
         
