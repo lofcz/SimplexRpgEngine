@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Text;
 using Microsoft.Xna.Framework;
@@ -11,7 +12,6 @@ using SimplexCore;
 using static SimplexCore.Sgml;
 using Color = Microsoft.Xna.Framework.Color;
 using Point = Microsoft.Xna.Framework.Point;
-
 
 namespace SimplexResources.Objects
 {
@@ -29,6 +29,7 @@ namespace SimplexResources.Objects
         {
             Sprite.TextureSource = "texture";
             EditorPath = "Colliders";
+            Mass = 32;
 
             for (int i = 0; i < 50; i++)
             {
@@ -103,10 +104,16 @@ namespace SimplexResources.Objects
 
             if (Input.KeyboardState.IsKeyDown(Keys.D))
             {
-                int index = irandom(50);
-                springs[index].Height = 400;
+             //   int dir = irandom_range(0, 360);
+            //    Velocity.X = (float)lengthdir_x(5, dir);
+            //    Velocity.Y = (float)lengthdir_y(5, dir);
+           
             }
 
+            if (mouse.X > 100)
+            {
+               
+            }
 
             //  draw_triangle(Position.X, Position.Y, Position.X + 100, Position.Y, Position.X + 50, Position.Y + 50, true, r);
             //  draw_line(Position, new Vector2(Position.X, Position.Y - 100));
@@ -124,7 +131,7 @@ namespace SimplexResources.Objects
         //  draw_circle(new Vector2(Position.X + 32, Position.Y + 32), (int)r, true);
         //draw_circle_fast(new Vector2(Position.X + 32, Position.Y + 32), (int)r, 24, color);
 
-        draw_circle_fast((Colliders[0] as ColliderCircle).Position, (int)(Colliders[0] as ColliderCircle).Radius, 24, color);
+      //  draw_circle_fast((Colliders[0] as ColliderCircle).Position, (int)(Colliders[0] as ColliderCircle).Radius, 24, color);
 
         draw_rectangle(new Vector2(Position.X - 64, Position.Y - 64), new Vector2(Position.X + 64, Position.Y + 64), true);
             //       Direction = point_direction(new Vector2(Position.X + 32, Position.Y + 32), Input.MousePosition);

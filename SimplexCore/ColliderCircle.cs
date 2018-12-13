@@ -30,6 +30,27 @@ namespace SimplexCore
             return point;
         }
 
+        public static void ResolveCircleCircleCollisionElastic(GameObject a, GameObject b, ColliderCircle c1, ColliderCircle c2)
+        {
+            double colAngle = point_direction(c1.Position.X, c1.Position.Y, c2.Position.X, c2.Position.Y);
+
+            double v1x = a.Speed * cos(degtorad(a.Direction - colAngle));
+            double v1y = a.Speed * sin(degtorad(a.Direction - colAngle));
+            double v2x = b.Speed * cos(degtorad(b.Direction - colAngle));
+            double v2y = b.Speed * sin(degtorad(b.Direction - colAngle));
+
+
+            a.Velocity.X = (a.Velocity.X * (float)(a.Mass - b.Mass) + (2 * (float)b.Mass * b.Velocity.X)) / (float)(a.Mass + b.Mass);
+            a.Velocity.Y = (a.Velocity.Y * (float)(a.Mass - b.Mass) + (2 * (float)b.Mass * b.Velocity.Y)) / (float)(a.Mass + b.Mass);
+            b.Velocity.X = (b.Velocity.X * (float)(a.Mass - b.Mass) + (2 * (float)b.Mass * a.Velocity.X)) / (float)(a.Mass + b.Mass);
+            b.Velocity.Y = (b.Velocity.Y * (float)(a.Mass - b.Mass) + (2 * (float)b.Mass * a.Velocity.Y)) / (float)(a.Mass + b.Mass);
+
+            a.Position.X += a.Velocity.X;
+            a.Position.Y += a.Velocity.Y;
+            b.Position.X += b.Velocity.X;
+            b.Position.Y += b.Velocity.Y;
+        }
+
         public static CollisionInfo CircleCircleCollision(ColliderCircle a, ColliderCircle b)
         {
             Vector2 difVec = b.Position - a.Position;

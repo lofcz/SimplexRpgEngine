@@ -273,7 +273,7 @@ namespace SimplexIde
 
         private void Sprites_manager_MouseClick(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right)
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
             {
                 if (rows > 0 && cellH > 0 && cellW > 0)
                 {

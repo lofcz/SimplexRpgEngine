@@ -82,14 +82,14 @@ namespace SimplexIde
         public AutotileDefinition currentAutotile = null;
         public TileLayer currentTileLayer = null;
         public RoomLayer lastLayer = null;
-
+       
         SpatialHash sh = new SpatialHash() {CellSize = 128, Cols = 20, Rows = 20};
         
 
         protected override void Initialize()
         {
             base.Initialize();
-
+            
             Sgml.SceneObjects = SceneObjects;
             Sgml.roomLayers = roomLayers;
             Sgml.Textures = Textures;
@@ -139,19 +139,20 @@ namespace SimplexIde
         public void Rsize()
         {
             Editor.graphics.Viewport = new Viewport(0, 0, this.Width, this.Height);
-
+           
             m = Matrix.CreateOrthographicOffCenter(0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 0, 0, -1);
-            Debug.WriteLine(GraphicsDevice.Viewport.Height);
+           // Debug.WriteLine(GraphicsDevice.Viewport.Height);
         }
 
         protected override void Update(GameTime gameTime)
         {
             MousePositionTranslated = cam.Camera.ScreenToWorld(MousePosition);
-
-
             GridSizeRender = new Vector2(SimplexMath.Lerp(GridSizeRender.X, GridSize.X, 0.2f), SimplexMath.Lerp(GridSizeRender.Y, GridSize.Y, 0.2f));
-
+            
             Input.KeyboardState = Keyboard.GetState();
+            MouseState ms = Mouse.GetState();
+
+            //Debug.WriteLine(ms.X);
             g = gameTime;
             base.Update(gameTime);
 
@@ -212,10 +213,18 @@ namespace SimplexIde
             DrawGrid = toggle;
         }
 
-        public void ClickRelease()
+        public void ClickRelease(MouseButtons mb)
         {
             mouseLocked = false;
 
+            if ((mb & MouseButtons.Left) != 0) { Input.ReleasedButtons[0] = 1; }
+            if ((mb & MouseButtons.Right) != 0) { Input.ReleasedButtons[1] = 1; }
+            if ((mb & MouseButtons.Middle) != 0) { Input.ReleasedButtons[2] = 1; }
+            if ((mb & MouseButtons.None) != 0) { Input.ReleasedButtons[3] = 1; }
+            if ((mb & MouseButtons.XButton1) != 0) { Input.ReleasedButtons[5] = 1; }
+            if ((mb & MouseButtons.XButton2) != 0) { Input.ReleasedButtons[6] = 1; }
+
+            Input.CheckAnyReleased();
 
 
             if (Input.KeyboardState.IsKeyDown(Keys.LeftControl))
@@ -243,82 +252,6 @@ namespace SimplexIde
             }
 
             panView = false;
-        }
-
-        public void ClickLock(MouseButtons btn)
-        {
-            mouseLocked = true;
-            MousePrevious = MousePositionTranslated;
-
-            if (selectedRectangleObjects.Count > 0)
-            {
-                bool flag = false;
-                foreach (GameObject o in selectedRectangleObjects)
-                {
-                    RectangleF r = new RectangleF(o.Position,
-                        new Size2(o.Sprite.ImageRectangle.Width, o.Sprite.ImageRectangle.Height));
-                    if (r.Intersects(new RectangleF(MousePositionTranslated.X, MousePositionTranslated.Y, 4, 4)))
-                    {
-                        flag = true;
-                        break;
-                    }
-                }
-
-                if (!flag)
-                {
-                    selectedRectangleObjects.Clear();
-                }
-            }
-
-            if (btn == MouseButtons.Left && Input.KeyboardState.IsKeyDown(Keys.LeftControl))
-            {
-                Vector2 vec = MousePositionTranslated;
-                selectionRectangle.X = vec.X;
-                selectionRectangle.Y = vec.Y;
-            }
-
-            if (btn == MouseButtons.Middle)
-            {
-                panView = true;
-                helpVec = cam.Camera.ScreenToWorld(MousePosition);
-            }
-
-            if (btn == MouseButtons.Right && !Input.KeyboardState.IsKeyDown(Keys.LeftShift))
-            {
-                Vector2 vec = MousePositionTranslated;
-                if (DrawGrid)
-                {
-                    vec = new Vector2((int)vec.X / 32 * 32, (int)vec.Y / 32 * 32);
-                }
-
-                for (var i = SceneObjects.Count - 1; i >= 0; i--)
-                {
-                    Microsoft.Xna.Framework.Rectangle r = new Microsoft.Xna.Framework.Rectangle((int)SceneObjects[i].Position.X, (int)SceneObjects[i].Position.Y, SceneObjects[i].Sprite.ImageRectangle.Width, SceneObjects[i].Sprite.ImageRectangle.Height);
-
-                    if (r.Contains(vec))
-                    {
-                        if (goodBoy)
-                        {
-                            cms.Items.Clear();
-                            cms.Items.AddRange(SceneObjects[i].EditorOptions);
-                            cms.Invalidate();
-                            cms.Size = GetPreferredSize(ClientSize);
-                            cms.Show(Cursor.Position);
-
-                            clickedObject = SceneObjects[i];
-
-                            goodBoy = false;
-
-                        }
-                        else
-                        {
-                            goodBoy = true;
-                        }
-
-                        break;
-                    }
-                }
-            }
         }
 
         public void InitializeNodes(ObservableList<DarkTreeNode> nodes)
@@ -447,6 +380,7 @@ namespace SimplexIde
                                         if (g2 != o && (o.Colliders[0] as ColliderCircle).Position.X != 0 && (g2.Colliders[0] as ColliderCircle).Position.X != 0) 
                                         {
                                             ((Object3) g2).color = Color.Red;
+                                         //   ColliderCircle.ResolveCircleCircleCollisionElastic(g2, o);
                                         }
                                     }
                                     else
@@ -542,7 +476,8 @@ namespace SimplexIde
                 //mpb.Clear();
 
                 killClick = false;
-            
+
+                Input.Clear();
         }
 
         public void PreCheckMouse(MouseEventArgs e)
@@ -553,11 +488,13 @@ namespace SimplexIde
         public void WheelDown()
         {
             cam.TargetZoom -= 0.1f;
+            Input.WheelDown = true;
         }
 
         public void WheelUp()
         {
             cam.TargetZoom += 0.1f;
+            Input.WheelUp = true;
         }
 
         public void Undo()
@@ -595,8 +532,104 @@ namespace SimplexIde
             } 
         }
 
+        public void ClickLock(MouseButtons btn)
+        {
+            mouseLocked = true;
+            MousePrevious = MousePositionTranslated;
+
+            if ((btn & MouseButtons.Left) != 0) { Input.PressedButtonsOnce[0] = 1; Sgml.LastButton = Sgml.MouseButtons.mb_left;}
+            if ((btn & MouseButtons.Right) != 0) { Input.PressedButtonsOnce[1] = 1; Sgml.LastButton = Sgml.MouseButtons.mb_right; }
+            if ((btn & MouseButtons.Middle) != 0) { Input.PressedButtonsOnce[2] = 1; Sgml.LastButton = Sgml.MouseButtons.mb_middle; }
+            if ((btn & MouseButtons.None) != 0) { Input.PressedButtonsOnce[3] = 1;}
+            if ((btn & MouseButtons.XButton1) != 0) { Input.PressedButtonsOnce[5] = 1; Sgml.LastButton = Sgml.MouseButtons.mb_x1; }
+            if ((btn & MouseButtons.XButton2) != 0) { Input.PressedButtonsOnce[6] = 1; Sgml.LastButton = Sgml.MouseButtons.mb_x2; }
+
+            Input.CheckAnyPressedOnce();
+
+            if (selectedRectangleObjects.Count > 0)
+            {
+                bool flag = false;
+                foreach (GameObject o in selectedRectangleObjects)
+                {
+                    RectangleF r = new RectangleF(o.Position,
+                        new Size2(o.Sprite.ImageRectangle.Width, o.Sprite.ImageRectangle.Height));
+                    if (r.Intersects(new RectangleF(MousePositionTranslated.X, MousePositionTranslated.Y, 4, 4)))
+                    {
+                        flag = true;
+                        break;
+                    }
+                }
+
+                if (!flag)
+                {
+                    selectedRectangleObjects.Clear();
+                }
+            }
+
+            if (btn == MouseButtons.Left && Input.KeyboardState.IsKeyDown(Keys.LeftControl))
+            {
+                Vector2 vec = MousePositionTranslated;
+                selectionRectangle.X = vec.X;
+                selectionRectangle.Y = vec.Y;
+            }
+
+            if (btn == MouseButtons.Middle)
+            {
+                panView = true;
+                helpVec = cam.Camera.ScreenToWorld(MousePosition);
+            }
+
+            if (btn == MouseButtons.Right && !Input.KeyboardState.IsKeyDown(Keys.LeftShift))
+            {
+                Vector2 vec = MousePositionTranslated;
+                if (DrawGrid)
+                {
+                    vec = new Vector2((int)vec.X / 32 * 32, (int)vec.Y / 32 * 32);
+                }
+
+                for (var i = SceneObjects.Count - 1; i >= 0; i--)
+                {
+                    Microsoft.Xna.Framework.Rectangle r = new Microsoft.Xna.Framework.Rectangle((int)SceneObjects[i].Position.X, (int)SceneObjects[i].Position.Y, SceneObjects[i].Sprite.ImageRectangle.Width, SceneObjects[i].Sprite.ImageRectangle.Height);
+
+                    if (r.Contains(vec))
+                    {
+                        if (goodBoy)
+                        {
+                            cms.Items.Clear();
+                            cms.Items.AddRange(SceneObjects[i].EditorOptions);
+                            cms.Invalidate();
+                            cms.Size = GetPreferredSize(ClientSize);
+                            cms.Show(Cursor.Position);
+
+                            clickedObject = SceneObjects[i];
+
+                            goodBoy = false;
+
+                        }
+                        else
+                        {
+                            goodBoy = true;
+                        }
+
+                        break;
+                    }
+                }
+            }
+        }
+
+
         public void GameClicked(MouseEventArgs e, MouseButtons mb)
         {
+            if ((mb & MouseButtons.Left) != 0) { Input.PressedButtonsOnce[0] = 1; Sgml.LastButton = Sgml.MouseButtons.mb_left; }
+            if ((mb & MouseButtons.Right) != 0) { Input.PressedButtonsOnce[1] = 1; Sgml.LastButton = Sgml.MouseButtons.mb_right; }
+            if ((mb & MouseButtons.Middle) != 0) { Input.PressedButtonsOnce[2] = 1; Sgml.LastButton = Sgml.MouseButtons.mb_middle; }
+            if ((mb & MouseButtons.None) != 0) { Input.PressedButtonsOnce[3] = 1; }
+            if ((mb & MouseButtons.XButton1) != 0) { Input.PressedButtonsOnce[5] = 1; Sgml.LastButton = Sgml.MouseButtons.mb_x1; }
+            if ((mb & MouseButtons.XButton2) != 0) { Input.PressedButtonsOnce[6] = 1; Sgml.LastButton = Sgml.MouseButtons.mb_x2; }
+
+
+            Input.CheckAnyPressed();
+
             MousePositionTranslated = cam.Camera.ScreenToWorld(MousePosition);
 
             if (mb == MouseButtons.Left)

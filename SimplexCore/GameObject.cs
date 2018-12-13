@@ -62,6 +62,7 @@ namespace SimplexCore
         public double Friction;
         public Vector2 Gravity;
         public Vector2 Velocity;
+        public double Mass;
 
         [XmlIgnore]
         public List<ColliderBase> Colliders = new List<ColliderBase>();

@@ -200,7 +200,7 @@ namespace SimplexIde
 
         private void drawTest1_MouseUp(object sender, MouseEventArgs e)
         {
-            drawTest1.ClickRelease();
+            drawTest1.ClickRelease(e.Button);
         }
 
         private void drawTest1_OnMouseWheelUpwards(MouseEventArgs e)
@@ -216,6 +216,7 @@ namespace SimplexIde
         private void drawTest1_MouseDown(object sender, MouseEventArgs e)
         {
             drawTest1.ClickLock(e.Button);
+           
         }
 
         private void numericUpDown5_ValueChanged(object sender, EventArgs e)
