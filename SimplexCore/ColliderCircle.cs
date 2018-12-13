@@ -21,6 +21,15 @@ namespace SimplexCore
             return k;
         }
 
+        public static Vector2 CircleCircleCollisionPoint(ColliderCircle a, ColliderCircle b)
+        {
+            Vector2 point = Vector2.Zero;
+            point.X = (float)(((a.Position.X * b.Radius) + (b.Position.X * a.Radius)) / (a.Radius + b.Radius));
+            point.Y = (float)(((a.Position.Y * b.Radius) + (b.Position.Y * a.Radius)) / (a.Radius + b.Radius));
+
+            return point;
+        }
+
         public static CollisionInfo CircleCircleCollision(ColliderCircle a, ColliderCircle b)
         {
             Vector2 difVec = b.Position - a.Position;
