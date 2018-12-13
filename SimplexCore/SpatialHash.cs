@@ -11,6 +11,12 @@ namespace SimplexCore
         public int CellSize;
         public int Cols;
         public int Rows;
+        List<int> ids = new List<int>();
+        private int x = 0;
+        private int y = 0;
+        Rectangle kk = Rectangle.Empty;
+        List<GameObject> nearby = new List<GameObject>();
+        Rectangle rect2 = Rectangle.Empty;
 
         public SpatialHash()
         {
@@ -22,24 +28,23 @@ namespace SimplexCore
             {
                 Hash.Add(i, new List<GameObject>());
             }
-
-            //var k = Hash[0].Count;
         }
 
 
         public void Clear()
         {
-            Hash.Clear();
+           // Hash.Clear();
+
             for (int i = 0; i < Cols * Rows; i++)
             {
-                Hash.Add(i, new List<GameObject>());
+                //Hash.Add(i, new List<GameObject>());
+                Hash[i].Clear();
             }
         }
 
         public void RegisterObject(GameObject go)
         {
-            List<int> cellIds = GetIdsForObject(go);
-            foreach (int item in cellIds)
+            foreach (int item in GetIdsForObject(go))
             {
                 Hash[item].Add(go);
             }
@@ -47,16 +52,24 @@ namespace SimplexCore
 
         public List<int> GetIdsForObject(GameObject go)
         {
-            List<int> ids = new List<int>();
+            ids.Clear();
+            x = 0;
+            y = 0;
 
-            int x = 0;
-            int y = 0;
             for (int i = 0; i < Cols * Rows; i++)
-            {
-                
-                var kk = new Rectangle((int)go.Position.X - 64, (int)go.Position.Y - 64, 128, 128);
+            {              
+                kk.X = (int) go.Position.X - 64;
+                kk.Y = (int) go.Position.Y - 64;
+                kk.Width = 128;
+                kk.Height = 128;
 
-                if (kk.Intersects(new Rectangle(x, y, CellSize, CellSize)))
+                rect2.X = x;
+                rect2.Y = y;
+                rect2.Width = CellSize;
+                rect2.Height = CellSize;
+                    
+
+                if (kk.Intersects(rect2))
                 {
                     ids.Add(i);
                 }
@@ -75,10 +88,9 @@ namespace SimplexCore
 
         public List<GameObject> ObjectsNearby(GameObject go)
         {
-            List<GameObject> nearby = new List<GameObject>();
-            List<int> list = GetIdsForObject(go);
+            nearby.Clear();
 
-            foreach (int item in list)
+            foreach (int item in GetIdsForObject(go))
             {
                 nearby.AddRange(Hash[item]);
             }
