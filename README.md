@@ -68,6 +68,7 @@ These are defined in the same way like classic events but occur on room editor e
 ### Ported namespaces/functions
 - string_ - DONE
 - math_ - DONE
+- mouse_ - DONE
 - GameSave() - DONE
 - GameLoad() - DONE
 - draw_ - WIP
