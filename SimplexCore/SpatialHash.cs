@@ -26,7 +26,7 @@ namespace SimplexCore
 
             for (int i = 0; i < Cols * Rows; i++)
             {
-                Hash.Add(i, new List<GameObject>());
+                Hash.Add(i, null);
             }
         }
 
@@ -37,8 +37,10 @@ namespace SimplexCore
 
             for (int i = 0; i < Cols * Rows; i++)
             {
-                //Hash.Add(i, new List<GameObject>());
-                Hash[i].Clear();
+                if (Hash[i] != null)
+                {
+                    Hash[i].Clear();
+                }
             }
         }
 
@@ -46,6 +48,11 @@ namespace SimplexCore
         {
             foreach (int item in GetIdsForObject(go))
             {
+                if (Hash[item] == null)
+                {
+                    Hash[item] = new List<GameObject>();
+                }
+
                 Hash[item].Add(go);
             }
         }
@@ -92,7 +99,10 @@ namespace SimplexCore
 
             foreach (int item in GetIdsForObject(go))
             {
-                nearby.AddRange(Hash[item]);
+                if (Hash[item] != null)
+                {
+                    nearby.AddRange(Hash[item]);
+                }
             }
 
             return nearby;

@@ -4,4 +4,6 @@
 *.userosscache
 *.sln.docstatesasd
 *.userprefs
+*.exe
+*.pdb
 .vs/
