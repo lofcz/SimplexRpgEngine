@@ -100,5 +100,10 @@ namespace SimplexCore
         {
             return Input.KeyReleased(key);
         }
+
+        public static bool keyboard_check_direct(Keys key)
+        {
+            return Input.KeyboardLowLevel[(int) key] == 1;
+        }
     }
 }

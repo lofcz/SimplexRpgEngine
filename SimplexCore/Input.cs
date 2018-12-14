@@ -9,6 +9,7 @@ namespace SimplexCore
 {
     public static class Input
     {
+        public static int[] KeyboardLowLevel = new int[255];
         public static KeyboardState KeyboardState;
         public static KeyboardState KeyboardStatePrevious;
         public static bool WheelUp;
@@ -63,6 +64,11 @@ namespace SimplexCore
             }
         }
 
+        public static void PressDirect(int keyCode)
+        {
+            KeyboardLowLevel[keyCode] = 1;
+        }
+
         public static void Clear()
         {
             WheelDown = false;
@@ -70,6 +76,7 @@ namespace SimplexCore
 
             Array.Clear(PressedButtons, 0, PressedButtons.Length);
             Array.Clear(ReleasedButtons, 0, ReleasedButtons.Length);
+            Array.Clear(KeyboardLowLevel, 0, KeyboardLowLevel.Length);
             if (PressedButtonsOnce[4] == 1) {Array.Clear(PressedButtonsOnce, 0, PressedButtonsOnce.Length);}
         }
     }

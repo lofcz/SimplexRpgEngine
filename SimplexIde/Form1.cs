@@ -37,6 +37,8 @@ namespace SimplexIde
         public Form1()
         {
             InitializeComponent();
+
+            //Opacity = .5;
         }
 
         private void drawTest1_Click(object sender, EventArgs e)
