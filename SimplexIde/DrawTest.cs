@@ -104,23 +104,11 @@ namespace SimplexIde
             cam.TransformSpeed = 0.1f;
 
             prevState = Keyboard.GetState();
-
-
             basicEffect = new BasicEffect(GraphicsDevice);
 
-            VertexPositionColor[] vertices = new VertexPositionColor[3];
-            vertices[0] = new VertexPositionColor(new Vector3(100, 100, 0), Color.Red);
-            vertices[1] = new VertexPositionColor(new Vector3(200, 100, 0), Color.Green);
-            vertices[2] = new VertexPositionColor(new Vector3(150, 150, 0), Color.Blue);
-
             vertexBuffer = new DynamicVertexBuffer(GraphicsDevice, typeof(VertexPositionColor), 1000, BufferUsage.WriteOnly);
-            //vertexBuffer.SetData<VertexPositionColor>(vertices);
-
             m = Matrix.CreateOrthographicOffCenter(0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 0, 0, -1);
-
             mpb = new MgPrimitiveBatcher(Editor.graphics, Editor.Font);
-            // Editor.spriteBatch = mpb;
-
             _globalKeyboardHook = new GlobalKeyboardHook();
             _globalKeyboardHook.KeyboardPressed += OnKeyPressed;
         }
@@ -147,10 +135,8 @@ namespace SimplexIde
 
         public void Rsize()
         {
-            Editor.graphics.Viewport = new Viewport(0, 0, this.Width, this.Height);
-           
+            Editor.graphics.Viewport = new Viewport(0, 0, this.Width, this.Height);         
             m = Matrix.CreateOrthographicOffCenter(0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 0, 0, -1);
-           // Debug.WriteLine(GraphicsDevice.Viewport.Height);
         }
 
         protected override void Update(GameTime gameTime)
@@ -172,30 +158,13 @@ namespace SimplexIde
 
             MousePositionTranslated = cam.Camera.ScreenToWorld(MousePosition);
             GridSizeRender = new Vector2(SimplexMath.Lerp(GridSizeRender.X, GridSize.X, 0.2f), SimplexMath.Lerp(GridSizeRender.Y, GridSize.Y, 0.2f));
-            
-            Input.KeyboardState = Keyboard.GetState();
-            MouseState ms = Mouse.GetState();
 
-            //Debug.WriteLine(ms.X);
+            Input.KeyboardState = ks;
+
             g = gameTime;
             base.Update(gameTime);
 
             cam.UpdatePosition();
-
-            if (Input.KeyPressed(Keys.W))
-            {
-                //cam.TargetPosition.Y -= 100;
-            }
-
-            if (Input.KeyPressed(Keys.D))
-            {
-                //  k += 1;
-            }
-
-            if (Input.KeyPressed(Keys.Q))
-            {
-                // cam.TargetZoom -= 0.1f;
-            }
 
             sh.Clear();
             foreach (RoomLayer rl in roomLayers)
@@ -215,20 +184,6 @@ namespace SimplexIde
                     }
                 }
             }
-            foreach (GameObject o in SceneObjects)
-            {
-                if (o.Layer != null)
-                {
-                    if (o.Layer.Visible)
-                    {
-                        if (GameRunning || o == clickedObject)
-                        {
-                            o.EvtStep();
-                        }
-                    }
-                }
-            }
-
         }
 
         public void ToggleGrid(bool toggle)
@@ -296,7 +251,6 @@ namespace SimplexIde
             Matrix transformMatrix = cam.Camera.GetViewMatrix();
             BackgroundColor = Color.Black;
             Editor.graphics.Clear(BackgroundColor);
-            // Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
             Input.MousePosition = MousePositionTranslated;
 
             if (DrawGrid)
@@ -310,8 +264,7 @@ namespace SimplexIde
                     {
                         i = (float) Math.Round(i);
                         j = (float) Math.Round(j);
-                        Editor.spriteBatch.DrawRectangle(new RectangleF(j, i, GridSizeRender.X, GridSizeRender.Y), c,
-                            1);
+                        Editor.spriteBatch.DrawRectangle(new RectangleF(j, i, GridSizeRender.X, GridSizeRender.Y), c, 1);
                     }
                 }
 
@@ -331,12 +284,9 @@ namespace SimplexIde
                     {
                         for (float j = 0; j < 1024; j += GridSizeRender.X)
                         {
-
                             xIndex++;
                             i = (float) Math.Round(i);
                             j = (float) Math.Round(j);
-                            //  Editor.spriteBatch.DrawRectangle(new RectangleF(j, i, GridSizeRender.X, GridSizeRender.Y), c * 0.2f, 1);
-
                         }
 
                         yIndex++;
@@ -345,16 +295,12 @@ namespace SimplexIde
 
                     foreach (Tile t in ((TileLayer) rl).Tiles)
                     {
-                        Editor.spriteBatch.Draw(t.SourceTexture, new Vector2(t.PosX * 32, t.PosY * 32), t.DrawRectangle,
-                            Color.White);
-                        // Editor.spriteBatch.DrawString(Editor.Font, t.Score.ToString(), new Vector2(t.PosX * 32, t.PosY * 32), Color.Black);
+                        Editor.spriteBatch.Draw(t.SourceTexture, new Vector2(t.PosX * 32, t.PosY * 32), t.DrawRectangle, Color.White);
                     }
 
                     Editor.spriteBatch.End();
                 }
             }
-
-            //Editor.spriteBatch.DrawRectangle(new RectangleF(new Point2(0, 0), new Size2(Form1.width, Form1.height)), Color.White, 2);
 
             Matrix view = cam.Camera.GetViewMatrix();
             Matrix projection = m;
@@ -376,7 +322,6 @@ namespace SimplexIde
                         foreach (Tile t in ((TileLayer) rl).Tiles)
                         {
                             Editor.spriteBatch.Draw(t.SourceTexture, new Vector2(t.PosX * 32, t.PosY * 32), t.DrawRectangle, Color.White);
-                            // Editor.spriteBatch.DrawString(Editor.Font, t.Score.ToString(), new Vector2(t.PosX * 32, t.PosY * 32), Color.Black);
                         }
 
                         Editor.spriteBatch.End();
@@ -708,7 +653,6 @@ namespace SimplexIde
 
                                             o.Layer.Objects.Add(o);
                                             sh.RegisterObject(o);
-                                            //  SceneObjects = SceneObjects.OrderBy(x => x.Layer.Depth).ToList();
                                         }
 
                                         if (!Input.KeyboardState.IsKeyDown(Keys.LeftShift))
@@ -826,16 +770,6 @@ namespace SimplexIde
                         }
                     }
                 }
-              /*  for (var i = 0; i < SceneObjects.Count; i++)
-                {
-                    Microsoft.Xna.Framework.Rectangle r = new Microsoft.Xna.Framework.Rectangle((int)SceneObjects[i].Position.X, (int)SceneObjects[i].Position.Y, SceneObjects[i].Sprite.ImageRectangle.Width, SceneObjects[i].Sprite.ImageRectangle.Height);
-
-                    if (r.Contains(vec) && Input.KeyboardState.IsKeyDown(Keys.LeftShift))
-                    {
-                        SceneObjects[i].EvtDelete();
-                        SceneObjects.Remove(SceneObjects[i]);
-                    }
-                }*/
             }
 
             MousePrevious = MousePositionTranslated;
@@ -962,12 +896,6 @@ namespace SimplexIde
                 lt?.dtv.Nodes[0].Nodes.Add(dtn);
             }
 
-          //  }
-          //  else
-          //  {
-          //      flag = true;
-         //   }
-
             // we need to initialize layers by type
             foreach (RoomLayer rl in roomLayers)
             {
@@ -1057,36 +985,6 @@ namespace SimplexIde
                         }
                     }
                 }
-
-           /* if (flag)
-            {
-                if (currentRoom != null)
-                {
-                    GameRoom gr = (GameRoom)Activator.CreateInstance(currentRoom.GetType());
-                    selectedLayer = gr.Layers[0];
-                    foreach (RoomLayer rl in gr.Layers)
-                    {
-                        DarkTreeNode dtn = new DarkTreeNode(rl.Name);
-                        dtn.Tag = dtn;
-                        dtn.Tag = "";
-
-                        if (rl.LayerType == RoomLayer.LayerTypes.typeObject)
-                        {
-                            dtn.Icon = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("WorldLocal_16x");
-                        }
-                        else if (rl.LayerType == RoomLayer.LayerTypes.typeAsset)
-                        {
-                            dtn.Icon = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("Image_16x");
-                        }
-                        else
-                        {
-                            dtn.Icon = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("MapLineLayer_16x");
-                        }
-
-                        lt?.dtv.Nodes[0].Nodes.Add(dtn);
-                    }
-                }
-            }*/
 
            w.Close();
         }
