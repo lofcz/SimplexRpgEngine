@@ -105,5 +105,36 @@ namespace SimplexCore
         {
             return Input.KeyboardLowLevel[(int) key] == 1;
         }
+
+        public static void io_clear()
+        {
+            Input.Clear();
+        }
+
+        public static bool keyboard_check(Keys key)
+        {
+            return Input.KeyDown(key);
+        }
+
+        public static void keyboard_set_numlock(bool set)
+        {
+            if (Control.IsKeyLocked(System.Windows.Forms.Keys.NumLock) != set)
+            {
+                NativeMethods.SimulateKeyPress(NativeMethods.VK_NUMLOCK);
+            }
+        }
+
+        public static bool keyboard_get_numlock()
+        {
+            return Control.IsKeyLocked(System.Windows.Forms.Keys.NumLock);
+        }
+
+        public static void keyboard_clear()
+        {
+            Input.KeyboardState = new KeyboardState();
+            Input.KeyboardStatePrevious = new KeyboardState();
+        }
+
+
     }
 }

@@ -25,6 +25,11 @@ namespace SimplexCore
             return (KeyboardState.IsKeyDown(key) & !KeyboardStatePrevious.IsKeyDown(key));
         }
 
+        public static bool KeyDown(Keys key)
+        {
+            return KeyboardState.IsKeyDown(key);
+        }
+
         public static bool KeyReleased(Keys key)
         {
             return (KeyboardState.IsKeyUp(key) & !KeyboardStatePrevious.IsKeyUp(key));
