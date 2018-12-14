@@ -84,7 +84,8 @@ namespace SimplexIde
         public RoomLayer lastLayer = null;
        
         SpatialHash sh = new SpatialHash() {CellSize = 128, Cols = 20, Rows = 20};
-        
+        private GlobalKeyboardHook _globalKeyboardHook;
+
 
         protected override void Initialize()
         {
@@ -119,6 +120,32 @@ namespace SimplexIde
 
             mpb = new MgPrimitiveBatcher(Editor.graphics, Editor.Font);
             // Editor.spriteBatch = mpb;
+
+            _globalKeyboardHook = new GlobalKeyboardHook();
+            _globalKeyboardHook.KeyboardPressed += OnKeyPressed;
+        }
+
+        private void OnKeyPressed(object sender, GlobalKeyboardHookEventArgs e)
+        {
+            //Debug.WriteLine(e.KeyboardData.VirtualCode);
+          
+            if (e.KeyboardData.VirtualCode != GlobalKeyboardHook.VkSnapshot)
+                return;
+
+            // seems, not needed in the life.
+            //if (e.KeyboardState == GlobalKeyboardHook.KeyboardState.SysKeyDown &&
+            //    e.KeyboardData.Flags == GlobalKeyboardHook.LlkhfAltdown)
+            //{
+            //    MessageBox.Show("Alt + Print Screen");
+            //    e.Handled = true;
+            //}
+            //else
+
+            if (e.KeyboardState == GlobalKeyboardHook.KeyboardState.KeyDown)
+            {
+                MessageBox.Show("Print Screen");
+                e.Handled = true;
+            }
         }
 
         public void RenderLayers(TreeView tv)

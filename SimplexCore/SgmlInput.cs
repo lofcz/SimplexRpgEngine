@@ -96,6 +96,9 @@ namespace SimplexCore
             return Input.KeyPressed(key);
         }
 
-        
+        public static bool keyboard_check_released(Keys key)
+        {
+            return Input.KeyReleased(key);
+        }
     }
 }

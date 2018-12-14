@@ -110,7 +110,7 @@ namespace SimplexResources.Objects
            
             }
 
-            if (keyboard_check_pressed(Keys.A))
+            if (keyboard_check_released(Keys.A))
             {
                 MessageBox.Show("kokot", "koko", new[] {"bléééééé"});
             }
