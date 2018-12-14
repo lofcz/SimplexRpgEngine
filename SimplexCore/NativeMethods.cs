@@ -14,6 +14,11 @@ namespace SimplexCore
         [DllImport("user32.dll")]
         public static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, int dwExtraInfo);
 
+        public const UInt32 WM_KEYDOWN = 0x0100;
+
+        [DllImport("user32.dll")]
+        static extern bool PostMessage(IntPtr hWnd, UInt32 Msg, int wParam, int lParam);
+
         public static void SimulateKeyPress(byte keyCode)
         {
             keybd_event(VK_NUMLOCK, 0x45, KEYEVENTF_EXTENDEDKEY, 0);

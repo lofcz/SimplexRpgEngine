@@ -136,5 +136,16 @@ namespace SimplexCore
         }
 
 
+        public static void keyboard_press(Keys key)
+        {
+           SendKeys.Send(Convert.ToChar((int)key).ToString());
+        }
+
+        public static void keyboard_release(Keys key)
+        {
+            SendKeys.Send(Convert.ToChar((int)key).ToString());
+            SendKeys.Send(Convert.ToChar((int)key).ToString());
+        }
+
     }
 }

@@ -86,7 +86,6 @@ namespace SimplexIde
         SpatialHash sh = new SpatialHash() {CellSize = 128, Cols = 20, Rows = 20};
         private GlobalKeyboardHook _globalKeyboardHook;
 
-
         protected override void Initialize()
         {
             base.Initialize();
