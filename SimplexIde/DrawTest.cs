@@ -82,7 +82,8 @@ namespace SimplexIde
         public AutotileDefinition currentAutotile = null;
         public TileLayer currentTileLayer = null;
         public RoomLayer lastLayer = null;
-       
+        public Keys lastKey = Keys.None;
+
         SpatialHash sh = new SpatialHash() {CellSize = 128, Cols = 20, Rows = 20};
         private GlobalKeyboardHook _globalKeyboardHook;
 
@@ -154,6 +155,21 @@ namespace SimplexIde
 
         protected override void Update(GameTime gameTime)
         {
+            KeyboardState ks = new KeyboardState();
+            Keys[] keys = ks.GetPressedKeys();
+
+            if (ks.IsKeyUp(lastKey))
+            {
+                lastKey = Keys.None;
+            }
+            
+            if (keys.Length > 0 && lastKey == Keys.None)
+            {
+                lastKey = keys[0];
+                var keyValue = keys[0].ToString();
+                Sgml.keyboard_string += keyValue;
+            }
+
             MousePositionTranslated = cam.Camera.ScreenToWorld(MousePosition);
             GridSizeRender = new Vector2(SimplexMath.Lerp(GridSizeRender.X, GridSize.X, 0.2f), SimplexMath.Lerp(GridSizeRender.Y, GridSize.Y, 0.2f));
             

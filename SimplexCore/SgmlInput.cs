@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Security.Policy;
 using System.Text;
 using System.Windows.Forms;
 using Microsoft.Xna.Framework;
@@ -13,6 +14,50 @@ namespace SimplexCore
     {
         public static MouseButtons LastButton = MouseButtons.mb_none;
         private static Vector2 _mouse = Vector2.Zero;
+        private static Keys keyboardKey = Keys.None;
+        private static Keys keyboardLastKey = Keys.None;
+        public static string keyboard_string = "";
+
+        public static Keys keyboard_key
+        {
+            get
+            {
+                if (Keyboard.GetState().GetPressedKeys().Length > 0)
+                {
+                    keyboardKey = Keyboard.GetState().GetPressedKeys()[0];
+                }
+                else
+                {
+                    keyboardKey = Keys.None;
+                }
+
+                return keyboardKey;
+            }
+            set { keyboardKey = value; }
+        }
+
+        public static Keys keyboard_lastkey
+        {
+            get
+            {
+                if (Keyboard.GetState().GetPressedKeys().Length > 0)
+                {
+                    if (Keyboard.GetState().GetPressedKeys()[0] != Keys.None)
+                    {
+                        keyboardLastKey = Keyboard.GetState().GetPressedKeys()[0];
+                    }
+                }
+
+                return keyboardLastKey;
+            }
+            set { keyboardLastKey = value; }
+        }
+
+        public static char keyboard_lastchar
+        {
+            get { return (char) keyboardLastKey; }
+            set { keyboardLastKey = (Keys) value; }
+        }
 
         public static Vector2 mouse
         {

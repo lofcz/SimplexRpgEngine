@@ -24,6 +24,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Global.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Input.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)InputLowLevel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NativeMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ObjectLayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Quadtree.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RoomLayer.cs" />
