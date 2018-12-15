@@ -338,36 +338,35 @@ namespace SimplexIde
                     { 
                        foreach (GameObject o in ((ObjectLayer) rl).Objects)
                        {
-                        /*   List<GameObject> possibleColliders = sh.ObjectsNearby(o); // already works for bruteforce
+                               List<GameObject> possibleColliders = sh.ObjectsNearby(o); // already works for bruteforce
 
-                            foreach (GameObject g2 in possibleColliders)
-                            {
-                                if (g2 == o)
+                                foreach (GameObject g2 in possibleColliders)
                                 {
-                                    continue;
-                                }
-
-                                if (g2.GetType() == typeof(Object3))
-                                {
-                                    if (ColliderCircle.CircleInCircle((ColliderCircle)g2.Colliders[0], (ColliderCircle)o.Colliders[0]))
+                                    if (g2 == o)
                                     {
-                                        if (g2 != o && (o.Colliders[0] as ColliderCircle).Position.X != 0 && (g2.Colliders[0] as ColliderCircle).Position.X != 0) 
+                                        continue;
+                                    }
+
+                                    if (g2.GetType() == typeof(Object3))
+                                    {
+                                        if (ColliderCircle.CircleInCircle((ColliderCircle)g2.Colliders[0], (ColliderCircle)o.Colliders[0]))
                                         {
-                                            ((Object3) g2).color = Color.Red;
-                                         //   ColliderCircle.ResolveCircleCircleCollisionElastic(g2, o);
+                                            if (g2 != o && (o.Colliders[0] as ColliderCircle).Position.X != 0 && (g2.Colliders[0] as ColliderCircle).Position.X != 0) 
+                                            {
+                                                ((Object3) g2).color = Color.Red;
+                                             //   ColliderCircle.ResolveCircleCircleCollisionElastic(g2, o);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            //((Object3)g2).color = Color.White;
                                         }
                                     }
-                                    else
-                                    {
-                                        //((Object3)g2).color = Color.White;
-                                    }
                                 }
-                            }*/
-
+                            o.PositionPrevious = o.Position;
                             o.EvtDraw(Editor.spriteBatch, Editor.Font, o.Sprite.Texture, vertexBuffer, basicEffect,
                                 transformMatrix);
 
-                            o.PositionPrevious = o.Position;
 
                             RectangleF r = new RectangleF(o.Position,
                                 new Size2(o.Sprite.ImageRectangle.Width, o.Sprite.ImageRectangle.Height));

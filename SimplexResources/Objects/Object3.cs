@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Speech.Synthesis;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -35,6 +36,10 @@ namespace SimplexResources.Objects
             {
                 //springs.Add(new Spring());
             }
+
+            SpeechSynthesizer sy = new SpeechSynthesizer();
+            sy.Volume = 100;
+            sy.SpeakAsync("Hello world");
 
          //   Speed = random_range(0.5, 2);
           //  Friction = 0.05;
@@ -132,9 +137,9 @@ namespace SimplexResources.Objects
         //  draw_circle(new Vector2(Position.X + 32, Position.Y + 32), (int)r, true);
         //draw_circle_fast(new Vector2(Position.X + 32, Position.Y + 32), (int)r, 24, color);
 
-      //  draw_circle_fast((Colliders[0] as ColliderCircle).Position, (int)(Colliders[0] as ColliderCircle).Radius, 24, color);
+       draw_circle_fast((Colliders[0] as ColliderCircle).Position, (int)(Colliders[0] as ColliderCircle).Radius, 24, color);
 
-        draw_rectangle(new Vector2(Position.X - 64, Position.Y - 64), new Vector2(Position.X + 64, Position.Y + 64), true);
+       // draw_rectangle(new Vector2(Position.X - 64, Position.Y - 64), new Vector2(Position.X + 64, Position.Y + 64), true);
             //       Direction = point_direction(new Vector2(Position.X + 32, Position.Y + 32), Input.MousePosition);
             //     draw_line(new Vector2(Position.X + 32, Position.Y + 32), new Vector2(Position.X + 32 + (float)lengthdir_x(32, Direction), Position.Y + 32 + (float)lengthdir_y(32, Direction)));
 
