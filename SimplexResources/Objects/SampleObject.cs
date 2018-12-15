@@ -26,14 +26,7 @@ namespace SimplexResources.Objects
         {
             Sprite.TextureSource = "elves";
             Sprite.ImageRectangle = new Rectangle(0, 0, 64, 64);
-            EditorPath = "Actors";
-
-            EditorOptions.Clear(); // get rid of default options
-            EditorOptions.Add("Oh you can overload this?");
-            EditorOptions.Add(new ToolStripSeparator());
-            EditorOptions.Add("You can have images, buttons, textboxes and whatever you want here");
-
-            
+            EditorPath = "Actors"; 
         }
 
         public override void EvtContextMenuSelected(ToolStripItem e)

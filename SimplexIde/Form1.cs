@@ -470,5 +470,20 @@ namespace SimplexIde
         {
 
         }
+
+        private void darkContextMenu2_Opened(object sender, EventArgs e)
+        {
+            drawTest1.cmsOpened();
+        }
+
+        private void darkContextMenu2_Closed(object sender, ToolStripDropDownClosedEventArgs e)
+        {
+            drawTest1.cmsClosed();
+        }
+
+        private void darkContextMenu2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            drawTest1.RightClickMenuSelected(e);
+        }
     }
 }

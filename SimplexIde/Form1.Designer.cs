@@ -661,7 +661,10 @@
             this.darkContextMenu2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.darkContextMenu2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.darkContextMenu2.Name = "darkContextMenu2";
-            this.darkContextMenu2.Size = new System.Drawing.Size(61, 4);
+            this.darkContextMenu2.Size = new System.Drawing.Size(181, 26);
+            this.darkContextMenu2.Closed += new System.Windows.Forms.ToolStripDropDownClosedEventHandler(this.darkContextMenu2_Closed);
+            this.darkContextMenu2.Opened += new System.EventHandler(this.darkContextMenu2_Opened);
+            this.darkContextMenu2.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.darkContextMenu2_ItemClicked);
             // 
             // Form1
             // 

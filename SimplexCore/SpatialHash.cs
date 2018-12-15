@@ -63,7 +63,10 @@ namespace SimplexCore
             x = 0;
             y = 0;
 
-            for (int i = 0; i < Cols * Rows; i++)
+            int max = Cols * Rows;
+            int max2 = Cols * CellSize;
+
+            for (int i = 0; i < max; i++)
             {              
                 kk.X = (int) go.Position.X - 64;
                 kk.Y = (int) go.Position.Y - 64;
@@ -83,7 +86,7 @@ namespace SimplexCore
 
                 x += CellSize;
 
-                if (x >= Cols * CellSize)
+                if (x >= max2)
                 {
                     x = 0;
                     y += CellSize;

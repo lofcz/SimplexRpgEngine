@@ -26,7 +26,12 @@ namespace SimplexCore
 
 
         [XmlIgnore]
-        public ToolStripItemCollection EditorOptions = new ToolStripItemCollection(new ToolStrip(), new ToolStripItem[] {new ToolStripMenuItem("Kill1")});
+        public string[] EditorOptions = {"Send backward", "Send forward", "Delete"};
+
+        /*
+         * magic constants:
+         * [magic_separator]
+         */
 
         public string TypeString;
 

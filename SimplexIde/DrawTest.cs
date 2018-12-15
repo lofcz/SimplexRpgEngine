@@ -83,6 +83,7 @@ namespace SimplexIde
         public TileLayer currentTileLayer = null;
         public RoomLayer lastLayer = null;
         public Keys lastKey = Keys.None;
+        public ToolStripItemCollection toolStripItems = new ToolStripItemCollection(new ToolStrip(), new ToolStripItem[] {});
 
         SpatialHash sh = new SpatialHash() {CellSize = 128, Cols = 20, Rows = 20};
         private GlobalKeyboardHook _globalKeyboardHook;
@@ -246,6 +247,7 @@ namespace SimplexIde
         protected override void Draw()
         {
             double framerate = Editor.GetFrameRate;
+            KeyboardState ks = Keyboard.GetState();
 
             base.Draw();
             Matrix transformMatrix = cam.Camera.GetViewMatrix();
@@ -332,7 +334,7 @@ namespace SimplexIde
                     { 
                        foreach (GameObject o in ((ObjectLayer) rl).Objects)
                        {
-                           List<GameObject> possibleColliders = sh.ObjectsNearby(o); // already works for bruteforce
+                        /*   List<GameObject> possibleColliders = sh.ObjectsNearby(o); // already works for bruteforce
 
                             foreach (GameObject g2 in possibleColliders)
                             {
@@ -356,7 +358,7 @@ namespace SimplexIde
                                         //((Object3)g2).color = Color.White;
                                     }
                                 }
-                            }
+                            }*/
 
                             o.EvtDraw(Editor.spriteBatch, Editor.Font, o.Sprite.Texture, vertexBuffer, basicEffect,
                                 transformMatrix);
@@ -381,7 +383,7 @@ namespace SimplexIde
                 }
             }
 
-                if (Input.KeyboardState.IsKeyDown(Keys.LeftControl))
+                if (ks.IsKeyDown(Keys.LeftControl))
                 {
                     Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
                     Editor.spriteBatch.DrawRectangle(selectionRectangle, Color.White, 2);
@@ -515,7 +517,19 @@ namespace SimplexIde
                         if (goodBoy)
                         {
                             cms.Items.Clear();
-                            cms.Items.AddRange(SceneObjects[i].EditorOptions);
+
+                            foreach (string items in SceneObjects[i].EditorOptions)
+                            {
+                                if (items == "[magic_separator]")
+                                {
+                                    cms.Items.Add(new ToolStripSeparator());
+                                }
+                                else
+                                {
+                                    cms.Items.Add(items);
+                                }
+                            }
+
                             cms.Invalidate();
                             cms.Size = GetPreferredSize(ClientSize);
                             cms.Show(Cursor.Position);
@@ -539,6 +553,8 @@ namespace SimplexIde
 
         public void GameClicked(MouseEventArgs e, MouseButtons mb)
         {
+            KeyboardState ks = Keyboard.GetState();
+
             if ((mb & MouseButtons.Left) != 0) { Input.PressedButtonsOnce[0] = 1; Sgml.LastButton = Sgml.MouseButtons.mb_left; }
             if ((mb & MouseButtons.Right) != 0) { Input.PressedButtonsOnce[1] = 1; Sgml.LastButton = Sgml.MouseButtons.mb_right; }
             if ((mb & MouseButtons.Middle) != 0) { Input.PressedButtonsOnce[2] = 1; Sgml.LastButton = Sgml.MouseButtons.mb_middle; }
@@ -562,7 +578,7 @@ namespace SimplexIde
                     vec = new Vector2((int)vec.X / 32 * 32, (int)vec.Y / 32 * 32);
                 }
 
-                if (Input.KeyboardState.IsKeyDown(Keys.LeftControl))
+                if (ks.IsKeyDown(Keys.LeftControl))
                 {
                     selectionRectangle.Width = -selectionRectangle.X + vec.X;
                     selectionRectangle.Height = -selectionRectangle.Y + vec.Y;
@@ -593,7 +609,7 @@ namespace SimplexIde
                         }
                         else
                         {
-                            if (!Input.KeyboardState.IsKeyDown(Keys.LeftShift) || Sgml.PlaceEmpty(vec))
+                            if (!ks.IsKeyDown(Keys.LeftShift) || Sgml.PlaceEmpty(vec))
                             {
                                 if (Sgml.PlaceEmpty(vec))
                                 {
@@ -656,7 +672,7 @@ namespace SimplexIde
                                             sh.RegisterObject(o);
                                         }
 
-                                        if (!Input.KeyboardState.IsKeyDown(Keys.LeftShift))
+                                        if (!ks.IsKeyDown(Keys.LeftShift))
                                         {
                                             clickedObject = o;
                                         }
@@ -664,7 +680,7 @@ namespace SimplexIde
                                 }
                             }
 
-                            if (!Sgml.PlaceEmpty(vec) && !Input.KeyboardState.IsKeyDown(Keys.LeftShift))
+                            if (!Sgml.PlaceEmpty(vec) && !ks.IsKeyDown(Keys.LeftShift))
                             {
                                 // there's something cool at the position already, time to grab it
                                 GameObject collidingObject = Sgml.InstancePlace(vec);
@@ -745,6 +761,7 @@ namespace SimplexIde
             }
             else if (mb == MouseButtons.Right)
             {
+              //  Debug.WriteLine("----");
                 Vector2 vec = MousePositionTranslated;
                 if (DrawGrid)
                 {
@@ -760,10 +777,12 @@ namespace SimplexIde
                             ObjectLayer ol = (ObjectLayer) rl;
                             for (var i = ol.Objects.Count - 1; i >= 0; i--)
                             {
+
                                 Microsoft.Xna.Framework.Rectangle r = new Microsoft.Xna.Framework.Rectangle((int)ol.Objects[i].Position.X, (int)ol.Objects[i].Position.Y, ol.Objects[i].Sprite.ImageRectangle.Width, ol.Objects[i].Sprite.ImageRectangle.Height);
 
-                                if (r.Contains(vec) && Input.KeyboardState.IsKeyDown(Keys.LeftShift))
+                                if (ks.IsKeyDown(Keys.LeftShift) && r.Contains(vec))
                                 {
+                                    SceneObjects.Remove(ol.Objects[i]);
                                     ol.Objects[i].EvtDelete();
                                     ol.Objects.Remove(ol.Objects[i]);
                                 }
