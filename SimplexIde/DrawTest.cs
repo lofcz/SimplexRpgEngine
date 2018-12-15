@@ -167,7 +167,6 @@ namespace SimplexIde
 
             cam.UpdatePosition();
 
-            sh.Clear();
             foreach (RoomLayer rl in roomLayers)
             {
                 if (rl.Visible)
@@ -176,7 +175,12 @@ namespace SimplexIde
                     {
                         foreach (GameObject o in ((ObjectLayer)rl).Objects)
                         {
-                            sh.RegisterObject(o);
+                            if (o.Position.X != o.PositionPrevious.X || o.Position.Y != o.PositionPrevious.Y)
+                            {
+                                sh.UnregisterObject(o);
+                                sh.RegisterObject(o);
+                            }
+
                             if (GameRunning || o == clickedObject)
                             {
                                 o.EvtStep();
@@ -362,6 +366,8 @@ namespace SimplexIde
 
                             o.EvtDraw(Editor.spriteBatch, Editor.Font, o.Sprite.Texture, vertexBuffer, basicEffect,
                                 transformMatrix);
+
+                            o.PositionPrevious = o.Position;
 
                             RectangleF r = new RectangleF(o.Position,
                                 new Size2(o.Sprite.ImageRectangle.Width, o.Sprite.ImageRectangle.Height));

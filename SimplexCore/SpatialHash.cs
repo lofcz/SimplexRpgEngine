@@ -57,6 +57,17 @@ namespace SimplexCore
             }
         }
 
+        public void UnregisterObject(GameObject go)
+        {
+            foreach (var k in Hash)
+            {
+                if (k.Value != null && k.Value.Contains(go))
+                {
+                    k.Value.Remove(go);
+                }
+            }
+        }
+
         public List<int> GetIdsForObject(GameObject go)
         {
             ids.Clear();
