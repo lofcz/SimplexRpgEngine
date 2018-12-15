@@ -51,7 +51,7 @@ namespace SimplexCore
             return (byte)str[pos];
         }
 
-        public static int string_byte_lenght(string str)
+        public static int string_byte_length(string str)
         {
             return System.Text.Encoding.UTF8.GetByteCount(str);
         }
