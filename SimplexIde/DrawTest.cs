@@ -56,7 +56,7 @@ namespace SimplexIde
         private Vector2 helpVec;
         private Vector2 clickedVec;
         private bool panView = false;
-        public ContextMenuStrip cms;
+        public DarkContextMenu cms;
         private bool killClick = false;
         private bool cmsOpen = false;
         private bool goodBoy = false;
@@ -652,6 +652,7 @@ namespace SimplexIde
 
 
                                             o.Layer.Objects.Add(o);
+                                            SceneObjects.Add(o);
                                             sh.RegisterObject(o);
                                         }
 
@@ -924,8 +925,7 @@ namespace SimplexIde
                 foreach (GameObject g in rawData.Objects)
                 {
                     Spritesheet s = Sprites.FirstOrDefault(x => x.Name == g.Sprite.TextureSource);
-
-                   
+              
                     g.Sprite.Texture = s.Texture;
                     g.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
                     g.Sprite.TextureRows = s.Rows;

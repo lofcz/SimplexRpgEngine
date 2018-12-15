@@ -58,7 +58,7 @@ namespace SimplexIde
             Application.AddMessageFilter(darkDockPanel4.DockContentDragFilter);
 
             Invalidate();
-            drawTest1.cms = contextMenuStrip1;
+            drawTest1.cms = darkContextMenu2;
             drawTest1.editorForm = this;
             //drawTest1.lt = darkDockPanel4.
             // load list of all defined objects
