@@ -37,9 +37,8 @@ namespace SimplexResources.Objects
                 //springs.Add(new Spring());
             }
 
-            SpeechSynthesizer sy = new SpeechSynthesizer();
-            sy.Volume = 100;
-            sy.SpeakAsync("Hello world");
+            synth_set_rate(5);
+            synth_speak_async("Welcome to Simplex engine");
 
          //   Speed = random_range(0.5, 2);
           //  Friction = 0.05;
