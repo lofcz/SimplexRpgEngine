@@ -241,7 +241,7 @@ namespace SimplexCore
 
         public static void clipboard_set_text(string text)
         {
-            Clipboard.SetText("Hello, clipboard");
+            Clipboard.SetText(text);
         }
 
         public static string clipboard_get_text()
