@@ -672,6 +672,8 @@ namespace SimplexIde
                                             o.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
                                             o.LayerName = selectedLayer.Name;
                                             o.Layer = (ObjectLayer)selectedLayer;
+
+                                            Sgml.currentObject = o;
                                             o.EvtCreate();
 
 

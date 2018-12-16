@@ -18,5 +18,16 @@ namespace SimplexCore
         {
             currentObject.Position = new Vector2(irandom_range(0, (int)currentRoom.Size.X) / (int)cellSize.X * (int)cellSize.X, irandom_range(0, (int)currentRoom.Size.Y) / (int)cellSize.Y * (int)cellSize.Y);
         }
+
+        public static void move_snap(Vector2 cellSize)
+        {
+            int xp = (int)currentObject.Position.X / (int)cellSize.X;
+            int yp = (int)currentObject.Position.Y / (int)cellSize.Y;
+
+            currentObject.Position.X = xp;
+            currentObject.Position.Y = yp;
+            currentObject.Position.X *= (int)cellSize.X;
+            currentObject.Position.Y *= (int)cellSize.Y;
+        }
     }
 }

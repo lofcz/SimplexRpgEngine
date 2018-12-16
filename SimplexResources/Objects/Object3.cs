@@ -59,6 +59,11 @@ namespace SimplexResources.Objects
             RegisterCollider(cc, typeof(Object3), "main", typeof(ColliderRectangle), MyCollision, true);          
         }
 
+        public override void EvtCreate()
+        {
+            move_snap(new Vector2(32, 32));
+        }
+
         // "other" is the collider we've hit and contains reference to the object it belongs to
         void MyCollision(ColliderBase other)
         {
@@ -129,10 +134,10 @@ namespace SimplexResources.Objects
             //  draw_arrow(Position, Position + endPos, 16);
             //  Speed = 1;
           Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, 64, 64);
-
-          move_towards_point(mouse, 3);
-        //  draw_circle(new Vector2(Position.X + 32, Position.Y + 32), (int)r, true);
-        //draw_circle_fast(new Vector2(Position.X + 32, Position.Y + 32), (int)r, 24, color);
+          move_snap(new Vector2(128, 128));
+            //   move_towards_point(mouse, 3);
+            //  draw_circle(new Vector2(Position.X + 32, Position.Y + 32), (int)r, true);
+            //draw_circle_fast(new Vector2(Position.X + 32, Position.Y + 32), (int)r, 24, color);
 
             draw_circle_fast((Colliders[0] as ColliderCircle).Position, (int)(Colliders[0] as ColliderCircle).Radius, 24, color);
 
