@@ -61,7 +61,8 @@ namespace SimplexResources.Objects
 
         public override void EvtCreate()
         {
-            move_snap(new Vector2(32, 32));
+            Speed = 1;
+            Direction = random_range(0, 360);
         }
 
         // "other" is the collider we've hit and contains reference to the object it belongs to
@@ -79,9 +80,6 @@ namespace SimplexResources.Objects
 
             time++;
           //  draw_sprite(objectTexture, 0, Position);
-            sb.Begin(transformMatrix: m);
-           // sb.DrawString(f, Sprite.cellW.ToString(), Position, Color.Chartreuse);
-            sb.End();
             // DrawRectangle(Position, new Vector2(32, 32), true, 3);
 
             //draw_line(Position, new Vector2(Position.X, Position.Y - 100));
@@ -122,6 +120,10 @@ namespace SimplexResources.Objects
                 
             }
 
+            draw_rectangle(Vector2.Zero, new Vector2(1024, 768), true);
+
+
+
             //  draw_triangle(Position.X, Position.Y, Position.X + 100, Position.Y, Position.X + 50, Position.Y + 50, true, r);
             //  draw_line(Position, new Vector2(Position.X, Position.Y - 100));
             //  draw_line_width(Position, new Vector2(Position.X, Position.Y - 100), 5, r);
@@ -134,7 +136,7 @@ namespace SimplexResources.Objects
             //  draw_arrow(Position, Position + endPos, 16);
             //  Speed = 1;
           Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, 64, 64);
-          move_snap(new Vector2(128, 128));
+         // move_wrap(true, true, 64);
             //   move_towards_point(mouse, 3);
             //  draw_circle(new Vector2(Position.X + 32, Position.Y + 32), (int)r, true);
             //draw_circle_fast(new Vector2(Position.X + 32, Position.Y + 32), (int)r, 24, color);

@@ -14,12 +14,17 @@ namespace SimplexCore
         public Vector2 ViewSize { get; set; }
         public List<RoomLayer> Layers;
 
+        [XmlIgnore]
+        public Rectangle Rect;
+
         public GameRoom()
         {
             Size = new Vector2(1024, 768);
             Name = "Unnamed room";
             ViewSize = new Vector2(Size.X, Size.Y);
             Layers = new List<RoomLayer>();
+
+            Rect = new Rectangle(Point.Zero, new Point((int)Size.X, (int)Size.Y));
         }
     }
 }

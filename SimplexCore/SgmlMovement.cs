@@ -29,5 +29,22 @@ namespace SimplexCore
             currentObject.Position.X *= (int)cellSize.X;
             currentObject.Position.Y *= (int)cellSize.Y;
         }
+
+        public static void move_wrap(bool hor, bool ver, int margin)
+        {
+            Rectangle r = new Rectangle((int)currentObject.Position.X, (int)currentObject.Position.Y, currentObject.Sprite.ImageRectangle.Width, currentObject.Sprite.ImageRectangle.Height);
+
+            // Is outside room?
+            if (!currentRoom.Rect.Intersects(r))
+            {
+                var x = lengthdir_x(1, currentObject.Direction);
+                var y = lengthdir_y(1, currentObject.Direction);
+
+               //
+                currentObject.Position.X = currentRoom.Size.X - currentObject.Position.X;
+                currentObject.Position.Y = currentRoom.Size.Y - currentObject.Position.Y;
+
+            }
+        }
     }
 }

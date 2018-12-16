@@ -686,7 +686,11 @@ namespace SimplexIde
                                         {
                                             clickedObject = o;
                                         }
+
+                                        
                                     }
+
+                                    
                                 }
                             }
 
