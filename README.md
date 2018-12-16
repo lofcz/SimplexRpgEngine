@@ -69,11 +69,12 @@ These are defined in the same way like classic events but occur on room editor e
 - string_ - DONE
 - math_ - DONE
 - mouse_ - DONE
+- keyboard_ - DONE
 - GameSave() - DONE
 - GameLoad() - DONE
 - draw_ - WIP
 - PlaceEmpty()
 
-### SGML extra functions
-- RandomColor()
+### SGML extra namespaces
+- synth_ - DONE
 
