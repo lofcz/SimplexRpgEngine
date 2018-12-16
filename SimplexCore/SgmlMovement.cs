@@ -35,6 +35,18 @@ namespace SimplexCore
             return currentObject.Position.X % cellSize.X == 0 && currentObject.Position.Y % cellSize.Y == 0;
         }
 
+        public static void motion_set(double dir, double speed)
+        {
+            currentObject.Direction = dir;
+            currentObject.Speed = speed;
+        }
+
+        public static void motion_add(double dir, double speed)
+        {
+            currentObject.Direction += dir;
+            currentObject.Speed += speed;
+        }
+
         public static void move_wrap(bool hor, bool ver, int margin)
         {
             Rectangle r = new Rectangle((int)currentObject.Position.X, (int)currentObject.Position.Y, currentObject.Sprite.ImageRectangle.Width, currentObject.Sprite.ImageRectangle.Height);
