@@ -259,6 +259,8 @@ namespace SimplexIde
             Editor.graphics.Clear(BackgroundColor);
             Input.MousePosition = MousePositionTranslated;
 
+            Sgml.currentRoom = currentRoom;
+
             if (DrawGrid)
             {
                 Color c = Color.Black;
@@ -363,6 +365,7 @@ namespace SimplexIde
                                         }
                                     }
                                 }
+                            
                             o.PositionPrevious = o.Position;
                             o.EvtDraw(Editor.spriteBatch, Editor.Font, o.Sprite.Texture, vertexBuffer, basicEffect,
                                 transformMatrix);

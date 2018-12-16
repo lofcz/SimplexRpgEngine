@@ -37,9 +37,6 @@ namespace SimplexResources.Objects
                 //springs.Add(new Spring());
             }
 
-            synth_set_rate(5);
-            synth_speak_async("Welcome to Simplex engine");
-
          //   Speed = random_range(0.5, 2);
           //  Friction = 0.05;
 
@@ -133,10 +130,11 @@ namespace SimplexResources.Objects
             //  Speed = 1;
           Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, 64, 64);
 
+          move_towards_point(mouse, 3);
         //  draw_circle(new Vector2(Position.X + 32, Position.Y + 32), (int)r, true);
         //draw_circle_fast(new Vector2(Position.X + 32, Position.Y + 32), (int)r, 24, color);
 
-       draw_circle_fast((Colliders[0] as ColliderCircle).Position, (int)(Colliders[0] as ColliderCircle).Radius, 24, color);
+            draw_circle_fast((Colliders[0] as ColliderCircle).Position, (int)(Colliders[0] as ColliderCircle).Radius, 24, color);
 
        // draw_rectangle(new Vector2(Position.X - 64, Position.Y - 64), new Vector2(Position.X + 64, Position.Y + 64), true);
             //       Direction = point_direction(new Vector2(Position.X + 32, Position.Y + 32), Input.MousePosition);

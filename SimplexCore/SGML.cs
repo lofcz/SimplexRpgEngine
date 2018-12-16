@@ -28,6 +28,7 @@ namespace SimplexCore
         public static BasicEffect be;
         public static Microsoft.Xna.Framework.Matrix m;
         public static List<RoomLayer> roomLayers = new List<RoomLayer>();
+        public static GameRoom currentRoom;
 
         public static Color DrawColor
         {
