@@ -82,6 +82,11 @@ namespace SimplexCore
             return null;
         }
 
+        public static bool instance_exists(Guid guid)
+        {
+            return SceneObjects.FindIndex(x => x.Id == guid) != -1;
+        }
+
         public static int instance_number(Type obj)
         {
             return SceneObjects.FindAll(x => x.OriginalType == obj).Count;
