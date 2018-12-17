@@ -40,8 +40,8 @@
   </GameRoom>
   <GameObject xsi:type="Object3">
     <Position>
-      <X>206.395645</X>
-      <Y>710.9993</Y>
+      <X>209.695709</X>
+      <Y>707.9483</Y>
     </Position>
     <TypeString>SimplexResources.Objects.Object3</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -58,14 +58,14 @@
     <ImageAlpha>1</ImageAlpha>
     <LayerName>Object layer 1</LayerName>
     <ImageSpeed>1</ImageSpeed>
-    <Direction>79.303606636497946</Direction>
+    <Direction>340.6083390957715</Direction>
     <PostionStart>
       <X>0</X>
       <Y>0</Y>
     </PostionStart>
     <PositionPrevious>
-      <X>205.646881</X>
-      <Y>712.495544</Y>
+      <X>207.508179</X>
+      <Y>709.6415</Y>
     </PositionPrevious>
     <Speed>1</Speed>
     <Friction>0</Friction>
@@ -90,8 +90,8 @@
   </GameObject>
   <GameObject xsi:type="Object3">
     <Position>
-      <X>-115.189293</X>
-      <Y>-255.35907</Y>
+      <X>-117.829056</X>
+      <Y>-257.0224</Y>
     </Position>
     <TypeString>SimplexResources.Objects.Object3</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -108,14 +108,14 @@
     <ImageAlpha>1</ImageAlpha>
     <LayerName>Object layer 1</LayerName>
     <ImageSpeed>1</ImageSpeed>
-    <Direction>119.04258074194313</Direction>
+    <Direction>96.568104967739487</Direction>
     <PostionStart>
       <X>0</X>
       <Y>0</Y>
     </PostionStart>
     <PositionPrevious>
-      <X>-113.781036</X>
-      <Y>-257.6004</Y>
+      <X>-116.487473</X>
+      <Y>-256.815979</Y>
     </PositionPrevious>
     <Speed>1</Speed>
     <Friction>0</Friction>
@@ -140,8 +140,8 @@
   </GameObject>
   <GameObject xsi:type="Object3">
     <Position>
-      <X>430.966949</X>
-      <Y>-15.4797211</Y>
+      <X>431.420044</X>
+      <Y>-18.0600262</Y>
     </Position>
     <TypeString>SimplexResources.Objects.Object3</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -158,14 +158,14 @@
     <ImageAlpha>1</ImageAlpha>
     <LayerName>Object layer 1</LayerName>
     <ImageSpeed>1</ImageSpeed>
-    <Direction>274.82461437341971</Direction>
+    <Direction>314.72121268265005</Direction>
     <PostionStart>
       <X>0</X>
       <Y>0</Y>
     </PostionStart>
     <PositionPrevious>
-      <X>430.023254</X>
-      <Y>-15.822711</Y>
+      <X>430.90918</X>
+      <Y>-15.4731493</Y>
     </PositionPrevious>
     <Speed>1</Speed>
     <Friction>0</Friction>
@@ -190,8 +190,8 @@
   </GameObject>
   <GameObject xsi:type="Object3">
     <Position>
-      <X>591.483643</X>
-      <Y>493.98</Y>
+      <X>590.591553</X>
+      <Y>492.662</Y>
     </Position>
     <TypeString>SimplexResources.Objects.Object3</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -208,14 +208,14 @@
     <ImageAlpha>1</ImageAlpha>
     <LayerName>Object layer 1</LayerName>
     <ImageSpeed>1</ImageSpeed>
-    <Direction>24.7190237160395</Direction>
+    <Direction>351.09063237490625</Direction>
     <PostionStart>
       <X>0</X>
       <Y>0</Y>
     </PostionStart>
     <PositionPrevious>
-      <X>590.675659</X>
-      <Y>493.117371</Y>
+      <X>591.5283</X>
+      <Y>493.0578</Y>
     </PositionPrevious>
     <Speed>1</Speed>
     <Friction>0</Friction>
@@ -240,8 +240,8 @@
   </GameObject>
   <GameObject xsi:type="Object3">
     <Position>
-      <X>768.8414</X>
-      <Y>324.475555</Y>
+      <X>770.059448</X>
+      <Y>327.005</Y>
     </Position>
     <TypeString>SimplexResources.Objects.Object3</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -258,14 +258,14 @@
     <ImageAlpha>1</ImageAlpha>
     <LayerName>Object layer 1</LayerName>
     <ImageSpeed>1</ImageSpeed>
-    <Direction>222.52901337227272</Direction>
+    <Direction>84.442698827219516</Direction>
     <PostionStart>
       <X>0</X>
       <Y>0</Y>
     </PostionStart>
     <PositionPrevious>
-      <X>771.178467</X>
-      <Y>323.675934</Y>
+      <X>769.0166</X>
+      <Y>325.561371</Y>
     </PositionPrevious>
     <Speed>1</Speed>
     <Friction>0</Friction>

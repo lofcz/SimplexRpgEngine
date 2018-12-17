@@ -55,9 +55,9 @@ namespace SimplexResources.Objects
            draw_rectangle(Position, new Vector2(64, 64), false, 0);
            draw_set_alpha(1);
 
-
+           
            // Almost like in GMS, insted of mb_left buttons are now enumerated in MouseButtons (two extra buttons x1 and x2 are defined)
-           if (mouse_check_button_pressed(MouseButtons.Middle))
+            if (mouse_check_button_pressed(MouseButtons.Middle))
            {
                /*  Differencies from GMS2:
                 *  Two main things are that instance_create outputs a GameObject type as it doesn't know which type to return before args are passed
@@ -78,7 +78,11 @@ namespace SimplexResources.Objects
                {
                    instance_destroy(myObject);
                }
-           }
+
+                // This will return a list of instances that have their blend_color set to Aqua and whose position is equal to vec2(10, 10)
+                List<Object3> lookHowCoolIsThis = instance_find<Object3>(x => x.color == Color.White);
+
+            }
         }
     }
 }

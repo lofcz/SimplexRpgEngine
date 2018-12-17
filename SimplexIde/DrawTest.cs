@@ -944,6 +944,8 @@ namespace SimplexIde
                     g.UpdateState();               
                     g.UpdateColliders();
 
+                    // Need to give object OriginalType !!!
+                    g.OriginalType = Type.GetType(g.TypeString);
 
                     g.EvtCreate();
                     g.EvtLoad();

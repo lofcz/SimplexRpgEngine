@@ -304,52 +304,60 @@ namespace SimplexIde
 
             foreach (Type t in classList)
             {
-                using (GameObject o = (GameObject)Activator.CreateInstance(t))
+                try
                 {
-                    DarkTreeNode tn = new DarkTreeNode();
-                    tn.Text = t.Name;
-                    tn.Tag = t.Name;
-                    tn.Icon = Properties.Resources.AzureDefaultResource_16x;
-
-                    if (string.IsNullOrEmpty(o.EditorPath))
+                    using (GameObject o = (GameObject) Activator.CreateInstance(t))
                     {
-                        tn.Icon = Properties.Resources.Folder_16x;
+                        DarkTreeNode tn = new DarkTreeNode();
+                        tn.Text = t.Name;
+                        tn.Tag = t.Name;
+                        tn.Icon = Properties.Resources.AzureDefaultResource_16x;
 
-                        objects.Nodes[0].Nodes.Add(tn);
-                    }
-                    else
-                    {
-                        string[] pathTokens = o.EditorPath.Split('/');
-                        DarkTreeNode currentNode = objects.Nodes[0];
-
-                        foreach (string s in pathTokens)
+                        if (string.IsNullOrEmpty(o.EditorPath))
                         {
-                            if (currentNode.Nodes.FindIndex(x => (string)x.Tag == s) == -1)
-                            {
-                                DarkTreeNode folderNode = new DarkTreeNode();
-                                folderNode.Text = s;
-                                folderNode.Tag = s;
-                                folderNode.Icon = Properties.Resources.Folder_16x;
+                            tn.Icon = Properties.Resources.Folder_16x;
 
-                                currentNode.Nodes.Add(folderNode);
-                                currentNode = folderNode;
-                            }
-                            else
-                            {
-                                currentNode = currentNode.Nodes.Find(x => x.Text == s);
-                                currentNode?.Nodes.Add(tn);
-                                break;
-                            }
+                            objects.Nodes[0].Nodes.Add(tn);
+                        }
+                        else
+                        {
+                            string[] pathTokens = o.EditorPath.Split('/');
+                            DarkTreeNode currentNode = objects.Nodes[0];
 
-                            if (s == pathTokens[pathTokens.Length - 1])
+                            foreach (string s in pathTokens)
                             {
-                                currentNode?.Nodes.Add(tn);
+                                if (currentNode.Nodes.FindIndex(x => (string) x.Tag == s) == -1)
+                                {
+                                    DarkTreeNode folderNode = new DarkTreeNode();
+                                    folderNode.Text = s;
+                                    folderNode.Tag = s;
+                                    folderNode.Icon = Properties.Resources.Folder_16x;
+
+                                    currentNode.Nodes.Add(folderNode);
+                                    currentNode = folderNode;
+                                }
+                                else
+                                {
+                                    currentNode = currentNode.Nodes.Find(x => x.Text == s);
+                                    currentNode?.Nodes.Add(tn);
+                                    break;
+                                }
+
+                                if (s == pathTokens[pathTokens.Length - 1])
+                                {
+                                    currentNode?.Nodes.Add(tn);
+                                }
                             }
                         }
                     }
+
+                    reflectedTypes.Add(t);
                 }
 
-                reflectedTypes.Add(t);
+                catch (Exception e)
+                {
+
+                }
             }
 
             reflectedTypes.Add(typeof(RoomLayer));

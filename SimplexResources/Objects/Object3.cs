@@ -73,6 +73,7 @@ namespace SimplexResources.Objects
 
         public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, DynamicVertexBuffer vb, BasicEffect be, Matrix m)
         {
+            color = Color.White;
             UpdateState();
             UpdateColliders();
 

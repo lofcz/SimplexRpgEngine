@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SimplexResources.Objects;
 
 namespace SimplexCore
 {
@@ -50,6 +52,22 @@ namespace SimplexCore
                     }
                 }
             }
+        }
+
+        public static List<T> instance_find<T>(Predicate<T> predicate)
+        {
+            List<T> outputList = new List<T>();
+
+            foreach (RoomLayer rl in roomLayers)
+            {
+                if (rl is ObjectLayer)
+                {
+                    ObjectLayer ol = (ObjectLayer)rl;
+                    outputList.AddRange(ol.Objects.FindAll(x => x.OriginalType == typeof(T)).Cast<T>().ToList().FindAll(predicate));
+                }
+            }
+
+            return outputList;
         }
 
         public static GameObject instance_create(Vector2 position, Type obj, string layer)
