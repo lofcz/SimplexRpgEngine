@@ -82,6 +82,11 @@ namespace SimplexCore
             return null;
         }
 
+        public static int instance_number(Type obj)
+        {
+            return SceneObjects.FindAll(x => x.OriginalType == obj).Count;
+        }
+
         public static GameObject instance_furthest(Vector2 position, Type obj, bool countMe = false)
         {
             List<GameObject> selectedObjects = SceneObjects.FindAll(x => x.OriginalType == obj);
