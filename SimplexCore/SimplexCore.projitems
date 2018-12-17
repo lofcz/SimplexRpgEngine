@@ -35,6 +35,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)SgmlMovement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlString.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlSynth.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SgmlWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SimplexCamera.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SimplexMath.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SpatialHash.cs" />

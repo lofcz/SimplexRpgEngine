@@ -116,8 +116,7 @@ namespace SimplexResources.Objects
 
             if (keyboard_check_released(Keys.L))
             {
-                MessageBox.Show("kokot", "koko", new[] {"bléééééé"});
-                
+                window_center();
             }
 
             draw_rectangle(Vector2.Zero, new Vector2(1024, 768), true);

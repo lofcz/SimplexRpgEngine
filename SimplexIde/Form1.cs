@@ -37,7 +37,7 @@ namespace SimplexIde
         public Form1()
         {
             InitializeComponent();
-
+            Sgml.form = this;
             //Opacity = .5;
         }
 

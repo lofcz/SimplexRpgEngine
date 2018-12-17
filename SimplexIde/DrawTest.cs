@@ -91,7 +91,7 @@ namespace SimplexIde
         protected override void Initialize()
         {
             base.Initialize();
-            
+               
             Sgml.SceneObjects = SceneObjects;
             Sgml.roomLayers = roomLayers;
             Sgml.Textures = Textures;
