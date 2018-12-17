@@ -70,6 +70,30 @@ namespace SimplexCore
             return outputList;
         }
 
+        public static GameObject instance_nearset(Vector2 position, Type obj, bool countMe = false)
+        {
+            List<GameObject> selectedObjects = SceneObjects.FindAll(x => x.OriginalType == obj);
+
+            if (selectedObjects.Count > 0)
+            {
+                return selectedObjects.OrderBy(x => point_distance(x.Position, position)).ToList()[0];
+            }
+
+            return null;
+        }
+
+        public static GameObject instance_furthest(Vector2 position, Type obj, bool countMe = false)
+        {
+            List<GameObject> selectedObjects = SceneObjects.FindAll(x => x.OriginalType == obj);
+
+            if (selectedObjects.Count > 0)
+            {
+                return selectedObjects.OrderByDescending(x => point_distance(x.Position, position)).ToList()[0];
+            }
+
+            return null;
+        }
+
         public static GameObject instance_create(Vector2 position, Type obj, string layer)
         {
             // First we need to convert layer name to actual layer
