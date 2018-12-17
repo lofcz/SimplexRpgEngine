@@ -82,7 +82,7 @@ namespace SimplexCore
         public int FramesCount;
 
         [XmlIgnore]
-        public int Id;
+        public Guid Id;
 
         [XmlIgnore]
         public List<ColliderDescriptor> CollidersActive = new List<ColliderDescriptor>();

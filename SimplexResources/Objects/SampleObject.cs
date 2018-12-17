@@ -14,6 +14,7 @@ using SimplexCore;
 using SimplexIde;
 using static SimplexCore.Sgml;
 using Keys = Microsoft.Xna.Framework.Input.Keys;
+using MouseButtons = SimplexCore.Sgml.MouseButtons;
 
 namespace SimplexResources.Objects
 {
@@ -54,9 +55,29 @@ namespace SimplexResources.Objects
            draw_rectangle(Position, new Vector2(64, 64), false, 0);
            draw_set_alpha(1);
 
-           if (mouse_check_button_pressed(Sgml.MouseButtons.mb_middle))
+
+           // Almost like in GMS, insted of mb_left buttons are now enumerated in MouseButtons (two extra buttons x1 and x2 are defined)
+           if (mouse_check_button_pressed(MouseButtons.Middle))
            {
-               instance_create(new Vector2(100, 100), typeof(Object3), "Object layer 1");
+               /*  Differencies from GMS2:
+                *  Two main things are that instance_create outputs a GameObject type as it doesn't know which type to return before args are passed
+                *  also object to be created needs to be referenced within typeof() rather than with a native class name
+                *
+                * 1 - Object3, GameObject, var, object or dynamic - all these are possible
+                * 2 - We need to convert output - GameObject to desired class
+                * 3 - Class name needs to be enclosed in typeof()
+                */
+
+               /* 1 */            /* 2  */                                                /* 3  */
+               Object3 myObject = (Object3)instance_create(new Vector2(100, 100), typeof(Object3), "Object layer 1");
+
+               // Just some sample code changing position of myObject
+               myObject.Position = new Vector2(200, 200);
+
+               if (irandom(2) == 1)
+               {
+                   instance_destroy(myObject);
+               }
            }
         }
     }

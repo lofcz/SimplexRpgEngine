@@ -26,6 +26,32 @@ namespace SimplexCore
             return tx;
         }
 
+        public static void instance_destroy(GameObject go)
+        {
+            go.Layer.Objects.Remove(go);
+            SceneObjects.Remove(go);
+        }
+
+        public static void instance_destroy(Type type)
+        {
+            foreach (RoomLayer rl in roomLayers)
+            {
+                if (rl is ObjectLayer)
+                {
+                    ObjectLayer ol = (ObjectLayer) rl;
+
+                    foreach (GameObject go in ol.Objects)
+                    {
+                        if (go.OriginalType == type)
+                        {
+                            go.Layer.Objects.Remove(go);
+                            SceneObjects.Remove(go);
+                        }
+                    }
+                }
+            }
+        }
+
         public static GameObject instance_create(Vector2 position, Type obj, string layer)
         {
             // First we need to convert layer name to actual layer
@@ -88,7 +114,7 @@ namespace SimplexCore
             SceneObjects.Add(o);
             sh.RegisterObject(o);
 
-            return null;
+            return o;
         }
     }
 }

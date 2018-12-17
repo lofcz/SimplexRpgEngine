@@ -73,9 +73,9 @@ namespace SimplexCore
 
         public enum MouseButtons : int
         {
-            mb_left,
+            Left,
             mb_right,
-            mb_middle,
+            Middle,
             mb_none,
             mb_any,
             mb_x1,
@@ -109,9 +109,9 @@ namespace SimplexCore
 
         public static MouseButtons mouse_button()
         {
-            if (Input.PressedButtons[0] == 1) { return MouseButtons.mb_left;}
+            if (Input.PressedButtons[0] == 1) { return MouseButtons.Left;}
             if (Input.PressedButtons[1] == 1) { return MouseButtons.mb_right; }
-            if (Input.PressedButtons[2] == 1) { return MouseButtons.mb_middle; }
+            if (Input.PressedButtons[2] == 1) { return MouseButtons.Middle; }
             if (Input.PressedButtons[3] == 1) { return MouseButtons.mb_none; }
             if (Input.PressedButtons[5] == 1) { return MouseButtons.mb_x1; }
             if (Input.PressedButtons[6] == 1) { return MouseButtons.mb_x2; }
