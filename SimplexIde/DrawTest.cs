@@ -827,42 +827,6 @@ namespace SimplexIde
             }
         }
 
-        public void SaveGame(string path)
-        {
-            Root root = new Root();
-
-            foreach (RoomLayer r in roomLayers)
-            {
-                if (r is ObjectLayer)
-                {
-                    foreach (GameObject go in ((ObjectLayer)r).Objects)
-                    {
-                        go.EvtSave();
-                        root.Objects.Add(go);
-                    }
-                }
-
-                if (r is TileLayer)
-                {
-                    foreach (Tile t in ((TileLayer)r).Tiles)
-                    {
-                        root.Tiles.Add(t);
-                    }
-                }
-            }
-
-            GameRoom gr = (GameRoom)Activator.CreateInstance(Type.GetType(("SimplexResources.Rooms." + Form1.activeRoom.Text)));
-            root.Room = gr;
-
-            XmlSerializer ser = new XmlSerializer(typeof(Root), Form1.reflectedTypes.ToArray());
-            using (TextWriter w = new StreamWriter(path))
-            {
-                ser.Serialize(w, root);
-            }
-
-            Debug.WriteLine("Save OK");
-        }
-
         public void ClearAll()
         {
             SceneObjects.Clear();

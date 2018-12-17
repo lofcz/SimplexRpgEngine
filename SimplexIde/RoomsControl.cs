@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using DarkUI.Controls;
 using DarkUI.Docking;
 using DarkUI.Forms;
+using SimplexCore;
 
 namespace SimplexIde
 {
@@ -50,8 +51,7 @@ namespace SimplexIde
                 {
                     if (Form1.activeRoom != null)
                     {
-                        drawTest1.SaveGame(Path.Combine(Environment.CurrentDirectory,
-                            @"Data/" + Form1.activeRoom.Text));
+                        Sgml.game_save(Path.Combine(Environment.CurrentDirectory, @"Data/" + Form1.activeRoom.Text));
                     }
 
                     Form1.activeRoom = dtv.SelectedNodes[0];

@@ -96,7 +96,7 @@ namespace SimplexIde
             {
                 // activeRoom = treeView2.TopNode;
             }
-            drawTest1.SaveGame(Path.Combine(Environment.CurrentDirectory, @"Data/" + activeRoom.Text));
+            Sgml.game_save(Path.Combine(Environment.CurrentDirectory, @"Data/" + activeRoom.Text));
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -180,7 +180,7 @@ namespace SimplexIde
         {
             if (activeRoom != null)
             {
-                drawTest1.SaveGame(Path.Combine(Environment.CurrentDirectory, @"Data/" + activeRoom.Text));
+                Sgml.game_save(Path.Combine(Environment.CurrentDirectory, @"Data/" + activeRoom.Text));
             }
 
             //  activeRoom = treeView2.SelectedNode;
@@ -418,7 +418,7 @@ namespace SimplexIde
 
         private void saveToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            drawTest1.SaveGame("Data/" + activeRoom.Text);
+            Sgml.game_save("Data/" + activeRoom.Text);
         }
 
         private void newToolStripMenuItem1_Click(object sender, EventArgs e)
