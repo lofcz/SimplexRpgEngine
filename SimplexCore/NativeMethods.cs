@@ -28,6 +28,19 @@ namespace SimplexCore
             keybd_event(VK_NUMLOCK, 0x45, KEYEVENTF_EXTENDEDKEY, 0);
             keybd_event(VK_NUMLOCK, 0x45, KEYEVENTF_EXTENDEDKEY | KEYEVENTF_KEYUP, 0);
         }
+
+        [DllImport("user32.dll")]
+        public static extern bool GetCursorPos(out POINT lpPoint);
+
+        public static Point GetCursorPosition()
+        {
+            POINT lpPoint;
+            GetCursorPos(out lpPoint);
+            //bool success = User32.GetCursorPos(out lpPoint);
+            // if (!success)
+
+            return lpPoint;
+        }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -37,5 +50,17 @@ namespace SimplexCore
         public int Flags;
         public IntPtr Handle;
         public Point Position;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct POINT
+    {
+        public int X;
+        public int Y;
+
+        public static implicit operator Point(POINT point)
+        {
+            return new Point(point.X, point.Y);
+        }
     }
 }
