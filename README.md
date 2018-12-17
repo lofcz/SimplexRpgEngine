@@ -70,6 +70,7 @@ These are defined in the same way like classic events but occur on room editor e
 - math_ - DONE
 - mouse_ - DONE
 - keyboard_ - DONE
+- window_ - DONE
 - GameSave() - DONE
 - GameLoad() - DONE
 - draw_ - WIP
