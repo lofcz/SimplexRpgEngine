@@ -66,15 +66,16 @@ These are defined in the same way like classic events but occur on room editor e
 - EvtContextMenuSelected - Once an item is selected from a right-click context menu
 
 ### Ported namespaces/functions
-- string_ - DONE
-- math_ - DONE
-- mouse_ - DONE
-- keyboard_ - DONE
-- GameSave() - DONE
-- GameLoad() - DONE
+- string_ - :heavy_check_mark:
+- math_ - :heavy_check_mark:
+- mouse_ - :heavy_check_mark:
+- keyboard_ - :heavy_check_mark:
+- window_ - :heavy_check_mark:
+- GameSave() - :heavy_check_mark:
+- GameLoad() - :heavy_check_mark:
 - draw_ - WIP
-- PlaceEmpty()
+
 
 ### SGML extra namespaces
-- synth_ - DONE
+- synth_ - :heavy_check_mark:
 
