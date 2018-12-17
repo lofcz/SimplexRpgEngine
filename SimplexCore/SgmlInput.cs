@@ -94,7 +94,7 @@ namespace SimplexCore
 
         public static bool mouse_check_button_pressed(MouseButtons button)
         {
-            return Input.PressedButtonsOnce[(int)button] == 1;
+            return Input.PressedButtonsOnce[(int)button] == 1 && Input.ReleasedButtons[(int)button] == 0;
         }
 
         public static bool mouse_check_button(MouseButtons button)

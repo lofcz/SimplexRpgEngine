@@ -33,6 +33,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)SgmlDraw.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlGame.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlInput.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SgmlInstance.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlMovement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlString.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlSynth.cs" />

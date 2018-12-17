@@ -82,7 +82,7 @@ namespace SimplexCore
             Array.Clear(PressedButtons, 0, PressedButtons.Length);
             Array.Clear(ReleasedButtons, 0, ReleasedButtons.Length);
             Array.Clear(KeyboardLowLevel, 0, KeyboardLowLevel.Length);
-            if (PressedButtonsOnce[4] == 1) {Array.Clear(PressedButtonsOnce, 0, PressedButtonsOnce.Length);}
+            Array.Clear(PressedButtonsOnce, 0, PressedButtonsOnce.Length);
         }
     }
 }

@@ -112,6 +112,10 @@ namespace SimplexIde
             mpb = new MgPrimitiveBatcher(Editor.graphics, Editor.Font);
             _globalKeyboardHook = new GlobalKeyboardHook();
             _globalKeyboardHook.KeyboardPressed += OnKeyPressed;
+
+            Sgml.sh = sh;
+            Sgml.Sprites = Sprites;
+            Sgml.GraphicsDevice = GraphicsDevice;
         }
 
         private void OnKeyPressed(object sender, GlobalKeyboardHookEventArgs e)
@@ -200,7 +204,7 @@ namespace SimplexIde
         {
             mouseLocked = false;
 
-            if ((mb & MouseButtons.Left) != 0) { Input.ReleasedButtons[0] = 1; }
+            if ((mb & MouseButtons.Left) != 0) { Input.ReleasedButtons[0] = 1; Input.PressedButtonsOnce[0] = 0; }
             if ((mb & MouseButtons.Right) != 0) { Input.ReleasedButtons[1] = 1; }
             if ((mb & MouseButtons.Middle) != 0) { Input.ReleasedButtons[2] = 1; }
             if ((mb & MouseButtons.None) != 0) { Input.ReleasedButtons[3] = 1; }
@@ -338,11 +342,11 @@ namespace SimplexIde
                     // Layer is object
                     if (rl is ObjectLayer)
                     { 
-                       foreach (GameObject o in ((ObjectLayer) rl).Objects)
+                       foreach (GameObject o in ((ObjectLayer) rl).Objects.ToList())
                        {
                                List<GameObject> possibleColliders = sh.ObjectsNearby(o); // already works for bruteforce
 
-                                foreach (GameObject g2 in possibleColliders)
+                              /*  foreach (GameObject g2 in possibleColliders)
                                 {
                                     if (g2 == o)
                                     {
@@ -363,8 +367,8 @@ namespace SimplexIde
                                         {
                                             //((Object3)g2).color = Color.White;
                                         }
-                                    }
-                                }
+                                    }*/
+                                
                             
                             o.PositionPrevious = o.Position;
                             o.EvtDraw(Editor.spriteBatch, Editor.Font, o.Sprite.Texture, vertexBuffer, basicEffect,
@@ -406,7 +410,7 @@ namespace SimplexIde
                 killClick = false;
 
                 Input.KeyboardStatePrevious = Keyboard.GetState();
-            Input.Clear();
+                Input.Clear();
         }
 
         public void PreCheckMouse(MouseEventArgs e)
@@ -676,10 +680,10 @@ namespace SimplexIde
                                             Sgml.currentObject = o;
                                             o.EvtCreate();
 
-
-                                            o.Layer.Objects.Add(o);
+                                           o.Layer.Objects.Add(o);
                                             SceneObjects.Add(o);
                                             sh.RegisterObject(o);
+ 
                                         }
 
                                         if (!ks.IsKeyDown(Keys.LeftShift))
@@ -832,7 +836,7 @@ namespace SimplexIde
             SceneObjects.Clear();
             roomLayers.Clear();
 
-        }
+        }   
 
         public void LoadGame(string path)
         {

@@ -24,7 +24,7 @@ namespace SimplexResources.Objects
         private float alpha = 0;
         public SampleObject()
         {
-            Sprite.TextureSource = "elves";
+            Sprite.TextureSource = "texture";
             Sprite.ImageRectangle = new Rectangle(0, 0, 64, 64);
             EditorPath = "Actors"; 
         }
@@ -44,21 +44,6 @@ namespace SimplexResources.Objects
            // Sprite.ImageScaleTarget = new Vector2(0.5f, 0.5f);
         }
 
-        public override void OnDraw(SpriteBatch sb)
-        {
-            // We move up
-            if (Input.KeyPressed(Keys.W) && PlaceEmpty(Position))
-            {
-                Position.Y -= 40;
-            }
-
-            // Draw
-            sb.Draw(Sprite.Texture, Position, new Rectangle(0, 0, 64, 64) , Color.White);
-
-            DrawRectangle(Position, new Vector2(64, 64), true);
-
-        }
-
         public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, DynamicVertexBuffer vb, BasicEffect be, Matrix m)
         {
             Sgml.sb = s;
@@ -66,9 +51,13 @@ namespace SimplexResources.Objects
            ImageAlpha = Math.Abs((float)Math.Sin(MathHelper.ToRadians(time)));
 
            draw_set_alpha(ImageAlpha);
-          // DrawRectangle(Position, new Vector2(64, 64), false, 1);
+           draw_rectangle(Position, new Vector2(64, 64), false, 0);
            draw_set_alpha(1);
 
+           if (mouse_check_button_pressed(Sgml.MouseButtons.mb_middle))
+           {
+               instance_create(new Vector2(100, 100), typeof(Object3), "Object layer 1");
+           }
         }
     }
 }
