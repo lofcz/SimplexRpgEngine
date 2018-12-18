@@ -2,12 +2,13 @@
 <Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <GameRoom xsi:type="Room2">
     <Layers>
-      <RoomLayer>
+      <RoomLayer xsi:type="ObjectLayer">
         <Visible>true</Visible>
         <Name>Object layer 69</Name>
         <LayerType>typeObject</LayerType>
         <Position>0</Position>
         <Depth>0</Depth>
+        <Objects />
       </RoomLayer>
     </Layers>
     <Size>
@@ -21,4 +22,146 @@
     </ViewSize>
     <Persistent>false</Persistent>
   </GameRoom>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>567</X>
+      <Y>307</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 69</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <Direction>277.64481935540442</Direction>
+    <PostionStart>
+      <X>0</X>
+      <Y>0</Y>
+    </PostionStart>
+    <PositionPrevious>
+      <X>567</X>
+      <Y>307</Y>
+    </PositionPrevious>
+    <Speed>0</Speed>
+    <Friction>0</Friction>
+    <Gravity>
+      <X>0</X>
+      <Y>270</Y>
+    </Gravity>
+    <Velocity>
+      <X>0</X>
+      <Y>0</Y>
+    </Velocity>
+    <Mass>32</Mass>
+    <ImageIndex>0</ImageIndex>
+    <color>
+      <B>255</B>
+      <G>255</G>
+      <R>255</R>
+      <A>255</A>
+      <PackedValue>4294967295</PackedValue>
+    </color>
+    <r>32</r>
+  </GameObject>
+  <GameObject xsi:type="Object3">
+    <Position>
+      <X>373.1184</X>
+      <Y>204.236267</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.Object3</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 69</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <Direction>285.29621854671103</Direction>
+    <PostionStart>
+      <X>0</X>
+      <Y>0</Y>
+    </PostionStart>
+    <PositionPrevious>
+      <X>373.1184</X>
+      <Y>204.236267</Y>
+    </PositionPrevious>
+    <Speed>0</Speed>
+    <Friction>0</Friction>
+    <Gravity>
+      <X>0</X>
+      <Y>270</Y>
+    </Gravity>
+    <Velocity>
+      <X>0</X>
+      <Y>0</Y>
+    </Velocity>
+    <Mass>32</Mass>
+    <ImageIndex>0</ImageIndex>
+    <color>
+      <B>255</B>
+      <G>255</G>
+      <R>255</R>
+      <A>255</A>
+      <PackedValue>4294967295</PackedValue>
+    </color>
+    <r>32</r>
+  </GameObject>
+  <GameObject xsi:type="SampleObject">
+    <Position>
+      <X>159.071259</X>
+      <Y>120.928528</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.SampleObject</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>0.309016943</ImageAlpha>
+    <LayerName>Object layer 69</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <Direction>0</Direction>
+    <PostionStart>
+      <X>0</X>
+      <Y>0</Y>
+    </PostionStart>
+    <PositionPrevious>
+      <X>159.071259</X>
+      <Y>120.928528</Y>
+    </PositionPrevious>
+    <Speed>0</Speed>
+    <Friction>0</Friction>
+    <Gravity>
+      <X>0</X>
+      <Y>270</Y>
+    </Gravity>
+    <Velocity>
+      <X>0</X>
+      <Y>0</Y>
+    </Velocity>
+    <Mass>0</Mass>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
 </Root>

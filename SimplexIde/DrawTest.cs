@@ -117,6 +117,14 @@ namespace SimplexIde
             _globalKeyboardHook = new GlobalKeyboardHook();
             _globalKeyboardHook.KeyboardPressed += OnKeyPressed;
 
+            Sprites = JsonConvert.DeserializeObject<List<Spritesheet>>(new StreamReader("../../../SimplexRpgEngine3/SpritesDescriptor.json").ReadToEnd());
+
+            foreach (Spritesheet s in Sprites)
+            {
+                Texture2D tex = Editor.Content.Load<Texture2D>(Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/" + s.Name));
+                s.Texture = tex;
+            }
+
             Sgml.sh = sh;
             Sgml.Sprites = Sprites;
             Sgml.GraphicsDevice = GraphicsDevice;
@@ -632,7 +640,7 @@ namespace SimplexIde
                             {
                                 if (Sgml.PlaceEmpty(vec))
                                 {
-                                    if (SelectedObject != null)
+                                    if (SelectedObject != null && selectedLayer.GetType() == typeof(ObjectLayer))
                                     {
                                         GameObject o = (GameObject)Activator.CreateInstance(SelectedObject);
 

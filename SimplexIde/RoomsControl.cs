@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -45,6 +46,12 @@ namespace SimplexIde
 
         private void darkTreeView1_SelectedNodesChanged(object sender, EventArgs e)
         {
+            if (dtv.SelectedNodes.Count > 0)
+            {
+                Debug.WriteLine(dtv.SelectedNodes[0].Text);
+            }
+
+
             if (dtv.SelectedNodes.Count > 0 && execute)
             {
                 if ((string)dtv.SelectedNodes[0].Tag != "folder")

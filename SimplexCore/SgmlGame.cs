@@ -61,7 +61,7 @@ namespace SimplexCore
                 RoomEditor?.PropagateNodes();
                 RoomEditor.roomsControl.execute = false;
 
-                RoomEditor.roomsControl.dtv.SelectNode(RoomEditor.roomsControl.dtv.FindNode("Rooms/" + currentRoom.GetType().ToString().Split('.').Last()));
+                RoomEditor.roomsControl.dtv.SelectNode(RoomEditor.roomsControl.dtv.Nodes[0].Nodes.FirstOrDefault(x => x.Text == currentRoom.GetType().ToString().Split('.').Last()));
                 RoomEditor.roomsControl.execute = true;
 
             }

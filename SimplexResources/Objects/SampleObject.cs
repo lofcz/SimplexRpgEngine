@@ -82,8 +82,16 @@ namespace SimplexResources.Objects
 
                 // This will return a list of instances that have their blend_color set to Aqua and whose position is equal to vec2(10, 10)
                 List<Object3> lookHowCoolIsThis = instance_find<Object3>(x => x.color == Color.White);
-                room_goto(typeof(Room2));
-            }
+
+                if (currentRoom.GetType() == typeof(Room2))
+                {
+                    room_goto(typeof(Room1));
+                }
+                else
+                {
+                    room_goto(typeof(Room2));
+                }
+           }
         }
     }
 }

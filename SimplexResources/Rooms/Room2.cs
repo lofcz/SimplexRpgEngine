@@ -9,7 +9,7 @@ namespace SimplexResources.Rooms
     {
         public Room2()
         {
-             Layers.Add(new RoomLayer() {Name = "Object layer 69", LayerType = RoomLayer.LayerTypes.typeObject});
+             Layers.Add(new ObjectLayer() {Name = "Object layer 69"});
         }
     }
 }

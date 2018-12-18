@@ -39,10 +39,12 @@ namespace SimplexCore
             }
             else
             {
-                game_save(Path.Combine(Environment.CurrentDirectory, @"Data/" + currentRoom.GetType().ToString().Split('.').Last()));
+                //game_save(Path.Combine(Environment.CurrentDirectory, @"Data/" + currentRoom.GetType().ToString().Split('.').Last()));
                 game_load(Path.Combine(Environment.CurrentDirectory, @"Data/" + tempRoom.GetType().ToString().Split('.').Last()));
                 RoomEditor.currentRoom = tempRoom;
             }
+
+
         }
     }
 }
