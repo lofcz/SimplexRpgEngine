@@ -55,35 +55,46 @@ namespace SimplexCore
 
             currentRoom = rawData.Room;
 
-            RoomEditor?.PropagateNodes();
+            if (RoomEditor != null)
+            {
+                RoomEditor.currentRoom = currentRoom;
+                RoomEditor?.PropagateNodes();
+                RoomEditor.roomsControl.execute = false;
+
+                RoomEditor.roomsControl.dtv.SelectNode(RoomEditor.roomsControl.dtv.FindNode("Rooms/" + currentRoom.GetType().ToString().Split('.').Last()));
+                RoomEditor.roomsControl.execute = true;
+
+            }
 
             // if (currentRoom != null)
             // {
 
 
             // we need to initialize layers by type
-            foreach (RoomLayer rl in roomLayers)
+            if (tilesets != null)
             {
-                if (rl.LayerType == RoomLayer.LayerTypes.typeTile)
+                foreach (RoomLayer rl in roomLayers)
                 {
-                    // Start with empty cell data and load stuff later on
-                    ((TileLayer)rl).Data = new int[(int)currentRoom.Size.X / 32, (int)currentRoom.Size.Y / 32];
-
-                    // Now select correct tileset and assign it to this.. well tileset
-                    Tileset tl = tilesets.FirstOrDefault(x => x.Name == ((TileLayer)rl).TilelistName);
-
-                    // this can fail so check for that
-                    if (tl != null)
+                    if (rl.LayerType == RoomLayer.LayerTypes.typeTile)
                     {
-                        // also we need to load textures for the tileset
-                        // tl.AutotileLib = 
+                        // Start with empty cell data and load stuff later on
+                        ((TileLayer) rl).Data = new int[(int) currentRoom.Size.X / 32, (int) currentRoom.Size.Y / 32];
 
-                        // all good
-                        ((TileLayer)rl).Tileset = tl;
+                        // Now select correct tileset and assign it to this.. well tileset
+                        Tileset tl = tilesets.FirstOrDefault(x => x.Name == ((TileLayer) rl).TilelistName);
+
+                        // this can fail so check for that
+                        if (tl != null)
+                        {
+                            // also we need to load textures for the tileset
+                            // tl.AutotileLib = 
+
+                            // all good
+                            ((TileLayer) rl).Tileset = tl;
+                        }
                     }
                 }
             }
-
 
             // Time to load babies
             foreach (GameObject g in rawData.Objects)

@@ -88,6 +88,7 @@ namespace SimplexIde
         SpatialHash sh = new SpatialHash() {CellSize = 128, Cols = 20, Rows = 20};
         private GlobalKeyboardHook _globalKeyboardHook;
         public List<Tileset> tilesets;
+        public RoomsControl roomsControl;
 
         protected override void Initialize()
         {
@@ -96,7 +97,6 @@ namespace SimplexIde
             Sgml.SceneObjects = SceneObjects;
             Sgml.roomLayers = roomLayers;
             Sgml.Textures = Textures;
-            Sgml.tilesets = tilesets;
             Sgml.RoomEditor = this;
             Sgml.RoomEditorEditor = Editor;
 
@@ -122,6 +122,7 @@ namespace SimplexIde
             Sgml.GraphicsDevice = GraphicsDevice;
 
             tilesets = JsonConvert.DeserializeObject<List<Tileset>>(File.ReadAllText("../../../SimplexRpgEngine3/TilesetsDescriptor.json"));
+            Sgml.tilesets = tilesets;
         }
 
         private void OnKeyPressed(object sender, GlobalKeyboardHookEventArgs e)
@@ -328,7 +329,7 @@ namespace SimplexIde
             basicEffect.Projection = projection;
             basicEffect.VertexColorEnabled = true;
 
-            foreach (RoomLayer rl in roomLayers)
+            foreach (RoomLayer rl in roomLayers.ToList())
             {
                 if (rl.Visible)
                 {

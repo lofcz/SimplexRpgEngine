@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -38,7 +39,9 @@ namespace SimplexCore
             }
             else
             {
-                // TODO we need fuckign load game here
+                game_save(Path.Combine(Environment.CurrentDirectory, @"Data/" + currentRoom.GetType().ToString().Split('.').Last()));
+                game_load(Path.Combine(Environment.CurrentDirectory, @"Data/" + tempRoom.GetType().ToString().Split('.').Last()));
+                RoomEditor.currentRoom = tempRoom;
             }
         }
     }

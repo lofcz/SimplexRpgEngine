@@ -19,5 +19,6 @@
       <X>1024</X>
       <Y>768</Y>
     </ViewSize>
+    <Persistent>false</Persistent>
   </GameRoom>
 </Root>

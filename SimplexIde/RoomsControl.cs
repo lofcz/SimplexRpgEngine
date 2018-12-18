@@ -20,7 +20,7 @@ namespace SimplexIde
         public DarkTreeView dtv = null;
         public Form1 form1;
         public DrawTest drawTest1;
-
+        public bool execute = true;
         public RoomsControl()
         {
             InitializeComponent();
@@ -45,7 +45,7 @@ namespace SimplexIde
 
         private void darkTreeView1_SelectedNodesChanged(object sender, EventArgs e)
         {
-            if (dtv.SelectedNodes.Count > 0)
+            if (dtv.SelectedNodes.Count > 0 && execute)
             {
                 if ((string)dtv.SelectedNodes[0].Tag != "folder")
                 {
@@ -68,6 +68,11 @@ namespace SimplexIde
                         drawTest1.ClearAll();
                     }
                 }
+            }
+
+            if (!execute)
+            {
+              //  execute = true;
             }
         }
 
