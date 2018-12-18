@@ -9,6 +9,8 @@ namespace SimplexResources.Rooms
     {
         public Room1()
         {
+            Persistent = true;
+
             Layers.Add(new TileLayer() { Name = "Tile layer 1", TilelistName = "tileset0" });
             Layers.Add(new ObjectLayer() { Name = "Object layer 1"});
             Layers.Add(new ObjectLayer() { Name = "Object layer 2" });

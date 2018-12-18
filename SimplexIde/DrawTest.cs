@@ -87,6 +87,7 @@ namespace SimplexIde
 
         SpatialHash sh = new SpatialHash() {CellSize = 128, Cols = 20, Rows = 20};
         private GlobalKeyboardHook _globalKeyboardHook;
+        public List<Tileset> tilesets;
 
         protected override void Initialize()
         {
@@ -95,6 +96,9 @@ namespace SimplexIde
             Sgml.SceneObjects = SceneObjects;
             Sgml.roomLayers = roomLayers;
             Sgml.Textures = Textures;
+            Sgml.tilesets = tilesets;
+            Sgml.RoomEditor = this;
+            Sgml.RoomEditorEditor = Editor;
 
             camera = new Camera2D(Editor.graphics);
             basicEffect = new BasicEffect(Editor.graphics);
@@ -116,6 +120,8 @@ namespace SimplexIde
             Sgml.sh = sh;
             Sgml.Sprites = Sprites;
             Sgml.GraphicsDevice = GraphicsDevice;
+
+            tilesets = JsonConvert.DeserializeObject<List<Tileset>>(File.ReadAllText("../../../SimplexRpgEngine3/TilesetsDescriptor.json"));
         }
 
         private void OnKeyPressed(object sender, GlobalKeyboardHookEventArgs e)
@@ -701,7 +707,7 @@ namespace SimplexIde
                             if (!Sgml.PlaceEmpty(vec) && !ks.IsKeyDown(Keys.LeftShift))
                             {
                                 // there's something cool at the position already, time to grab it
-                                GameObject collidingObject = Sgml.InstancePlace(vec);
+                                GameObject collidingObject = Sgml.instance_place(vec);
 
                                 if (collidingObject != null)
                                 {
@@ -836,7 +842,46 @@ namespace SimplexIde
             SceneObjects.Clear();
             roomLayers.Clear();
 
-        }   
+        }
+
+        public void ClearNodes()
+        {
+            if (lt.dtv.Nodes.Count > 0)
+            {
+                lt.dtv.Nodes[0].Nodes.Clear();
+            }
+        }
+
+        public void PropagateNodes()
+        {
+            GameRoom gr = (GameRoom)Activator.CreateInstance(currentRoom.GetType());
+            selectedLayer = gr.Layers[0];
+            int currentDepth = 0;
+            foreach (RoomLayer rl in gr.Layers)
+            {
+                DarkTreeNode dtn = new DarkTreeNode(rl.Name);
+                dtn.Tag = dtn;
+                dtn.Tag = "";
+
+                if (rl.LayerType == RoomLayer.LayerTypes.typeObject)
+                {
+                    dtn.Icon = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("WorldLocal_16x");
+                }
+                else if (rl.LayerType == RoomLayer.LayerTypes.typeAsset)
+                {
+                    dtn.Icon = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("Image_16x");
+                }
+                else
+                {
+                    dtn.Icon = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("MapLineLayer_16x");
+                }
+
+                rl.Depth = currentDepth;
+                currentDepth += 100;
+                roomLayers.Add(rl);
+                lt?.dtv.Nodes[0].Nodes.Add(dtn);
+            }
+        }
 
         public void LoadGame(string path)
         {
@@ -845,8 +890,6 @@ namespace SimplexIde
             // First we fuck current scene
             ClearAll();
 
-            // Before loading layers, we load tilesets descriptor
-            List<Tileset> tilesets = JsonConvert.DeserializeObject<List<Tileset>>(File.ReadAllText("../../../SimplexRpgEngine3/TilesetsDescriptor.json"));
 
             // Load layers
             if (lt.dtv.Nodes.Count > 0)

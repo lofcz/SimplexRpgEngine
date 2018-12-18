@@ -143,7 +143,7 @@ namespace SimplexIde
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // load last game
-            drawTest1.LoadGame(Path.Combine(Environment.CurrentDirectory, @"Data/" + activeRoom.Text));
+            Sgml.game_load(Path.Combine(Environment.CurrentDirectory, @"Data/" + activeRoom.Text));
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -188,7 +188,7 @@ namespace SimplexIde
 
             if (File.Exists(Path.Combine(Environment.CurrentDirectory, @"Data/" + activeRoom.Text)))
             {
-                drawTest1.LoadGame(Path.Combine(Environment.CurrentDirectory, @"Data/" + activeRoom.Text));
+                Sgml.game_load(Path.Combine(Environment.CurrentDirectory, @"Data/" + activeRoom.Text));
             }
             else
             {

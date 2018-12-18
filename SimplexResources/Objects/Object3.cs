@@ -54,6 +54,8 @@ namespace SimplexResources.Objects
             // Add collider to the list of active colliders
             Colliders.Add(cc);
 
+            EditorOptions = new[] {"I can have", "My own options", "Here"};
+
             // This will trigger script "MyCollision" when our collider main collides with collider "main" of any "Object3"
             // last arg ensures that the check will be triggered on each frame without explicit ask for it
             RegisterCollider(cc, typeof(Object3), "main", typeof(ColliderRectangle), MyCollision, true);          
@@ -61,7 +63,7 @@ namespace SimplexResources.Objects
 
         public override void EvtCreate()
         {
-            Speed = 1;
+          // Speed = 1;
             Direction = random_range(0, 360);
         }
 
@@ -121,25 +123,24 @@ namespace SimplexResources.Objects
             }
 
             draw_rectangle(Vector2.Zero, new Vector2(1024, 768), true);
+            Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, 64, 64);
 
 
-
-            //  draw_triangle(Position.X, Position.Y, Position.X + 100, Position.Y, Position.X + 50, Position.Y + 50, true, r);
-            //  draw_line(Position, new Vector2(Position.X, Position.Y - 100));
-            //  draw_line_width(Position, new Vector2(Position.X, Position.Y - 100), 5, r);
-            //  draw_ellipse(Position, new Vector2(50, 100), (float)r);
-            //  draw_fluid(Spring.UpdateSprings(springs.ToArray()).ToArray());
-            //  draw_circle(Position, 64, false);
-            //  draw_roundrect(Position, new Vector2(Position.X + 200, Position.Y + 200), false, (int)r);
-            //  draw_line_width_color(Position, new Vector2(Position.X, Position.Y - 100), 5, Color.Red, Color.Lime, Color.DarkRed, Color.Yellow, r);
-            //  draw_rectangle(Position, new Vector2(Position.X + 100, Position.Y + 100), true, r); // scale * (abs(sin(degtorad(time))) * .1)
-            //  draw_arrow(Position, Position + endPos, 16);
-            //  Speed = 1;
-          Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, 64, 64);
-         // move_wrap(true, true, 64);
-            //   move_towards_point(mouse, 3);
-            //  draw_circle(new Vector2(Position.X + 32, Position.Y + 32), (int)r, true);
-            //draw_circle_fast(new Vector2(Position.X + 32, Position.Y + 32), (int)r, 24, color);
+         /*     draw_triangle(Position.X, Position.Y, Position.X + 100, Position.Y, Position.X + 50, Position.Y + 50, true, r);
+              draw_line(Position, new Vector2(Position.X, Position.Y - 100));
+              draw_line_width(Position, new Vector2(Position.X, Position.Y - 100), 5, r);
+              draw_ellipse(Position, new Vector2(50, 100), (float)r);
+              draw_fluid(Spring.UpdateSprings(springs.ToArray()).ToArray());
+              draw_circle(Position, 64, false);
+              draw_roundrect(Position, new Vector2(Position.X + 200, Position.Y + 200), false, (int)r);
+              draw_line_width_color(Position, new Vector2(Position.X, Position.Y - 100), 5, Color.Red, Color.Lime, Color.DarkRed, Color.Yellow, r);
+              draw_rectangle(Position, new Vector2(Position.X + 100, Position.Y + 100), true, r); // scale * (abs(sin(degtorad(time))) * .1)
+              draw_arrow(Position, Position + endPos, 16);
+              Speed = 1;
+              move_wrap(true, true, 64);
+              move_towards_point(mouse, 3);
+              draw_circle(new Vector2(Position.X + 32, Position.Y + 32), (int)r, true);
+              draw_circle_fast(new Vector2(Position.X + 32, Position.Y + 32), (int)r, 24, color);*/
 
             draw_circle_fast((Colliders[0] as ColliderCircle).Position, (int)(Colliders[0] as ColliderCircle).Radius, 24, color);
 

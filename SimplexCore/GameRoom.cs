@@ -13,6 +13,7 @@ namespace SimplexCore
         public string Name { get; set; }
         public Vector2 ViewSize { get; set; }
         public List<RoomLayer> Layers;
+        public bool Persistent { get; set; }
 
         [XmlIgnore]
         public Rectangle Rect;
@@ -23,6 +24,7 @@ namespace SimplexCore
             Name = "Unnamed room";
             ViewSize = new Vector2(Size.X, Size.Y);
             Layers = new List<RoomLayer>();
+            Persistent = false;
 
             Rect = new Rectangle(Point.Zero, new Point((int)Size.X, (int)Size.Y));
         }

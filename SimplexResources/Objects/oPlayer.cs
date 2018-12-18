@@ -43,12 +43,15 @@ namespace SimplexResources.Objects
         // Defines what happens once instance is placed in the room editor
         public override void EvtCreate()
         {
-            c1 = RandomColor();
-            c2 = RandomColor();
+            // Local function
+            int helper()
+            {
+                return irandom(10);
+            }
 
-            time = 0;
+            Position.X = helper();
+            Position.Y = helper();
 
-           
         }
 
         public override void EvtLoad()
@@ -157,10 +160,11 @@ namespace SimplexResources.Objects
 
         public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, DynamicVertexBuffer vb, BasicEffect be, Matrix transform)
         {
+            DrawStart(s, vb, be, transform, this);
             currentObject = this;
 
             // Initialize render engine for this instance
-            DrawStart(s, vb, be, transform, this);
+
             //    s.Draw(objectTexture, Position, DrawColor);
             // Actual code starts here
             // draw_set_alpha(0.5);

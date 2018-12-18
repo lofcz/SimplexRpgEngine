@@ -12,6 +12,7 @@ using MonoGame.Extended.Sprites;
 using MonoGame.Extended.TextureAtlases;
 using SimplexCore;
 using SimplexIde;
+using SimplexResources.Rooms;
 using static SimplexCore.Sgml;
 using Keys = Microsoft.Xna.Framework.Input.Keys;
 using MouseButtons = SimplexCore.Sgml.MouseButtons;
@@ -42,7 +43,7 @@ namespace SimplexResources.Objects
 
         public override void OnCreate()
         {
-           // Sprite.ImageScaleTarget = new Vector2(0.5f, 0.5f);
+           
         }
 
         public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, DynamicVertexBuffer vb, BasicEffect be, Matrix m)
@@ -81,7 +82,7 @@ namespace SimplexResources.Objects
 
                 // This will return a list of instances that have their blend_color set to Aqua and whose position is equal to vec2(10, 10)
                 List<Object3> lookHowCoolIsThis = instance_find<Object3>(x => x.color == Color.White);
-
+                room_goto(typeof(Room2));
             }
         }
     }

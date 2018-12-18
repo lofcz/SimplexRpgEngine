@@ -2,18 +2,159 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
+using DarkUI.Controls;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using MonoGame.Forms.Services;
+using Newtonsoft.Json;
+using SharpDX.Direct2D1;
 using SimplexIde;
 
 namespace SimplexCore
 {
     public static partial class Sgml
     {
+        public static List<Tileset> tilesets;
+        public static DrawTest RoomEditor;
+        public static UpdateService RoomEditorEditor;
+
         public static void game_end()
         {
             System.Windows.Forms.Application.Exit();
         }
+
+        static void ClearAll()
+        {
+            SceneObjects.Clear();
+            roomLayers.Clear();
+        }
+
+        public static void game_load(string path)
+        {
+            bool flag = false;
+
+            // First we fuck current scene
+            ClearAll();
+
+            RoomEditor?.ClearNodes();
+
+            // Prepare XML serializer
+            // Then we load raw data
+            Root root = new Root();
+            XmlSerializer ser = new XmlSerializer(typeof(Root), Form1.reflectedTypes.ToArray());
+            StreamReader w = new StreamReader(path);
+            Root rawData = (Root)ser.Deserialize(w);
+
+            // First load back room itself
+            Form1.width = (int)rawData.Room.Size.X;
+            Form1.height = (int)rawData.Room.Size.Y;
+            Form1.ActiveForm.Text = "Simplex RPG Engine / " + rawData.Room.Name;
+
+            currentRoom = rawData.Room;
+
+            RoomEditor?.PropagateNodes();
+
+            // if (currentRoom != null)
+            // {
+
+
+            // we need to initialize layers by type
+            foreach (RoomLayer rl in roomLayers)
+            {
+                if (rl.LayerType == RoomLayer.LayerTypes.typeTile)
+                {
+                    // Start with empty cell data and load stuff later on
+                    ((TileLayer)rl).Data = new int[(int)currentRoom.Size.X / 32, (int)currentRoom.Size.Y / 32];
+
+                    // Now select correct tileset and assign it to this.. well tileset
+                    Tileset tl = tilesets.FirstOrDefault(x => x.Name == ((TileLayer)rl).TilelistName);
+
+                    // this can fail so check for that
+                    if (tl != null)
+                    {
+                        // also we need to load textures for the tileset
+                        // tl.AutotileLib = 
+
+                        // all good
+                        ((TileLayer)rl).Tileset = tl;
+                    }
+                }
+            }
+
+
+            // Time to load babies
+            foreach (GameObject g in rawData.Objects)
+            {
+                Spritesheet s = Sprites.FirstOrDefault(x => x.Name == g.Sprite.TextureSource);
+
+                g.Sprite.Texture = s.Texture;
+                g.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
+                g.Sprite.TextureRows = s.Rows;
+                g.Sprite.TextureCellsPerRow = s.Texture.Width / s.CellWidth;
+                g.Sprite.ImageSize = new Vector2(s.CellWidth, s.CellHeight);
+                g.Sprite.FramesCount = (s.Texture.Width / s.CellWidth) * (s.Texture.Height / s.CellHeight) - 1;
+                g.FramesCount = g.Sprite.FramesCount - 1;
+                g.Sprite.cellW = s.CellHeight;
+                g.Sprite.cellH = s.CellWidth;
+
+                RoomLayer rt = roomLayers.FirstOrDefault(x => x.Name == g.LayerName);
+                g.Layer = (ObjectLayer)rt;
+
+                g.Sprite.UpdateImageRectangle();
+                g.UpdateState();
+                g.UpdateColliders();
+
+                // Need to give object OriginalType !!!
+                g.OriginalType = Type.GetType(g.TypeString);
+
+                g.EvtCreate();
+                g.EvtLoad();
+
+                g.Layer.Objects.Add(g);
+                sh.RegisterObject(g);
+
+            }
+
+            // Load tiles
+            foreach (Tile t in rawData.Tiles)
+            {
+                RoomLayer correctLayer = roomLayers.FirstOrDefault(x => x.Name == t.TileLayerName);
+
+                if (correctLayer != null)
+                {
+                    TileLayer crt = (TileLayer)correctLayer;
+                    t.TileLayer = crt;
+                    crt.Tiles.Add(t);
+                }
+                else
+                {
+                    Debug.WriteLine("Tile could not be loaded - TileLayerName is wrong");
+                }
+            }
+
+            // Now update all tiles
+            Texture2D ttt = RoomEditorEditor.Content.Load<Texture2D>(Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/Tilesets/" + "tileset0"));
+
+            foreach (RoomLayer rl in roomLayers)
+            {
+                if (rl is TileLayer)
+                {
+                    TileLayer crt = (TileLayer)rl;
+
+                    foreach (Tile t in crt.Tiles)
+                    {
+                        t.SourceTexture = ttt;
+                        Autotile.UpdateTile(t, crt);
+                    }
+                }
+            }
+
+            w.Close();
+        }
+
 
         public static void game_save(string path)
         {
