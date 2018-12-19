@@ -70,14 +70,14 @@ namespace SimplexResources.Objects
                 */
 
                /* 1 */            /* 2  */                                                /* 3  */
-               Object3 myObject = (Object3)instance_create(new Vector2(100, 100), typeof(Object3), "Object layer 1");
+              // Object3 myObject = (Object3)instance_create(new Vector2(100, 100), typeof(Object3), "Object layer 1");
 
                // Just some sample code changing position of myObject
-               myObject.Position = new Vector2(200, 200);
+              // myObject.Position = new Vector2(200, 200);
 
                if (irandom(2) == 1)
                {
-                   instance_destroy(myObject);
+                   //instance_destroy(myObject);
                }
 
                 // This will return a list of instances that have their blend_color set to Aqua and whose position is equal to vec2(10, 10)

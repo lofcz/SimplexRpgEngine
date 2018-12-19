@@ -640,7 +640,7 @@ namespace SimplexIde
                             {
                                 if (Sgml.PlaceEmpty(vec))
                                 {
-                                    if (SelectedObject != null && selectedLayer.GetType() == typeof(ObjectLayer))
+                                    if (selectedLayer != null && SelectedObject != null && selectedLayer.GetType() == typeof(ObjectLayer))
                                     {
                                         GameObject o = (GameObject)Activator.CreateInstance(SelectedObject);
 
