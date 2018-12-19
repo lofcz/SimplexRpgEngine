@@ -13,6 +13,7 @@ using SimplexCore;
 using static SimplexCore.Sgml;
 using Color = Microsoft.Xna.Framework.Color;
 using Point = Microsoft.Xna.Framework.Point;
+using Rectangle = Microsoft.Xna.Framework.Rectangle;
 
 namespace SimplexResources.Objects
 {
@@ -26,6 +27,7 @@ namespace SimplexResources.Objects
         private int time = 0;
         private Vector2 endPos;
         private ColliderCircle cc;
+        private int timeToRed = 0;
         public Object3()
         {
             Sprite.TextureSource = "texture";
@@ -63,7 +65,7 @@ namespace SimplexResources.Objects
 
         public override void EvtCreate()
         {
-          // Speed = 1;
+            Speed = 3;
             Direction = random_range(0, 360);
         }
 
@@ -81,6 +83,36 @@ namespace SimplexResources.Objects
 
             DrawStart(s, vb, be, m, this);
 
+            if (!currentRoom.Rect.Intersects(new Rectangle((int) Position.X, (int) Position.Y, 64, 64)))
+            {
+               color = Color.Red;
+
+               if (Position.X <= 0 || Position.X >= 1024)
+               {
+                   Direction = 180 - Direction;
+               }
+               else if (Position.Y <= 0 || Position.Y >= 768)
+               {
+                   Direction = 360 - Direction;
+               }
+
+                // Direction = point_direction(Position, PositionPrevious);
+                if (timeToRed > 1)
+                {
+                    Direction = point_direction(Position, new Vector2(1024 / 2, 768 / 2));
+                    move_towards_point(new Vector2(1024 / 2, 768 / 2), 4);
+                   // Debug.WriteLine("kokot");
+                }
+
+                Position = PositionPrevious;
+                timeToRed++;
+
+            }
+            else
+            {
+                timeToRed = 0;
+            }
+            
             time++;
           //  draw_sprite(objectTexture, 0, Position);
             // DrawRectangle(Position, new Vector2(32, 32), true, 3);
@@ -122,7 +154,7 @@ namespace SimplexResources.Objects
                 window_center();
             }
 
-            draw_rectangle(Vector2.Zero, new Vector2(1024, 768), true);
+            draw_rectangle(new Vector2(-64, -64), new Vector2(1024 + 64, 768 + 64), true);
             Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, 64, 64);
 
 
