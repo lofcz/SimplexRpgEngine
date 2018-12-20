@@ -58,9 +58,8 @@ namespace SimplexResources.Objects
 
             EditorOptions = new[] {"I can have", "My own options", "Here"};
 
-            // This will trigger script "MyCollision" when our collider main collides with collider "main" of any "Object3"
-            // last arg ensures that the check will be triggered on each frame without explicit ask for it
-            RegisterCollider(cc, typeof(Object3), "main", typeof(ColliderRectangle), MyCollision, true);          
+            // Trigger action MyCollision, once our "main" collider hits with collider "main" of any other object3
+            RegisterCollider("main", typeof(Object3), "main", MyCollision);          
         }
 
         public override void EvtCreate()
@@ -69,8 +68,8 @@ namespace SimplexResources.Objects
             Direction = random_range(0, 360);
         }
 
-        // "other" is the collider we've hit and contains reference to the object it belongs to
-        void MyCollision(ColliderBase other)
+        // "other" is the object we've hit
+        void MyCollision(GameObject other)
         {
 
         }
@@ -154,7 +153,7 @@ namespace SimplexResources.Objects
                 window_center();
             }
 
-            draw_rectangle(new Vector2(-64, -64), new Vector2(1024 + 64, 768 + 64), true);
+            draw_rectangle(new Vector2(-128, -128), new Vector2(1024 + 64, 768 + 64), true);
             Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, 64, 64);
 
 

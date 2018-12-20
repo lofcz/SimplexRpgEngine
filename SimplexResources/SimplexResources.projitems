@@ -9,7 +9,8 @@
     <Import_RootNamespace>SimplexResources</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Game1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Global.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Objects\AnotherObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Objects\MyObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Objects\oPlayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Objects\Object3.cs" />

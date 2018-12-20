@@ -269,6 +269,8 @@ namespace SimplexIde
 
         protected override void Draw()
         {
+            Sgml.drawFont = Editor.Font;
+
             double framerate = Editor.GetFrameRate;
             KeyboardState ks = Keyboard.GetState();
 
@@ -298,6 +300,11 @@ namespace SimplexIde
                 Editor.spriteBatch.End();
             }
 
+            Sgml.sb = Editor.spriteBatch;
+            Sgml.vb = vertexBuffer;
+            Sgml.be = basicEffect;
+            Sgml.m = transformMatrix;
+            SimplexResources.Global.DrawStart();
             foreach (RoomLayer rl in roomLayers)
             {
                 if (rl.LayerType == RoomLayer.LayerTypes.typeTile)
@@ -337,6 +344,26 @@ namespace SimplexIde
             basicEffect.Projection = projection;
             basicEffect.VertexColorEnabled = true;
 
+            // Before render, resolve collisions
+            foreach (GameObject go in SceneObjects)
+            {
+                if (go.Colliders.Count > 0)
+                {
+                    List<GameObject> possibleColliders = sh.ObjectsNearby(go);
+
+                    // Check for collision with each object from possible colliders
+                    foreach (GameObject c in possibleColliders)
+                    {
+                        // Check for general rectangle collision 
+                        if (c.CollisionContainer.Intersects(go.CollisionContainer))
+                        {
+                            // There is a possibility that two instances can collide
+
+                        }
+                    }
+                }
+            }
+
             foreach (RoomLayer rl in roomLayers.ToList())
             {
                 if (rl.Visible)
@@ -361,31 +388,12 @@ namespace SimplexIde
                        {
                                List<GameObject> possibleColliders = sh.ObjectsNearby(o); // already works for bruteforce
 
-                              /*  foreach (GameObject g2 in possibleColliders)
-                                {
-                                    if (g2 == o)
-                                    {
-                                        continue;
-                                    }
+                               foreach (GameObject g2 in possibleColliders)
+                               {
 
-                                    if (g2.GetType() == typeof(Object3))
-                                    {
-                                        if (ColliderCircle.CircleInCircle((ColliderCircle)g2.Colliders[0], (ColliderCircle)o.Colliders[0]))
-                                        {
-                                            if (g2 != o && (o.Colliders[0] as ColliderCircle).Position.X != 0 && (g2.Colliders[0] as ColliderCircle).Position.X != 0) 
-                                            {
-                                                ((Object3) g2).color = Color.Red;
-                                             //   ColliderCircle.ResolveCircleCircleCollisionElastic(g2, o);
-                                            }
-                                        }
-                                        else
-                                        {
-                                            //((Object3)g2).color = Color.White;
-                                        }
-                                    }*/
-                                
-                            
-                            o.PositionPrevious = o.Position;
+                               }
+
+                               o.PositionPrevious = o.Position;
                             o.EvtDraw(Editor.spriteBatch, Editor.Font, o.Sprite.Texture, vertexBuffer, basicEffect,
                                 transformMatrix);
 
@@ -423,6 +431,12 @@ namespace SimplexIde
 
 
                 killClick = false;
+
+                Sgml.sb = Editor.spriteBatch;
+                Sgml.vb = vertexBuffer;
+                Sgml.be = basicEffect;
+                Sgml.m = transformMatrix;
+                SimplexResources.Global.DrawEnd();
 
                 Input.KeyboardStatePrevious = Keyboard.GetState();
                 Input.Clear();

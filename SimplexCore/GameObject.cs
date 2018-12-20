@@ -24,9 +24,11 @@ namespace SimplexCore
         [XmlIgnore]
         public Type OriginalType;
 
-
         [XmlIgnore]
         public string[] EditorOptions = {"Send backward", "Send forward", "Delete"};
+
+        [XmlIgnore]
+        public Rectangle CollisionContainer = Rectangle.Empty;
 
         /*
          * magic constants:
@@ -141,19 +143,19 @@ namespace SimplexCore
             }
         }
 
-        public void RegisterCollider(ColliderBase c, Type gT, string n, Type cT, Action<ColliderBase> method, bool eachFrame = true)
+        public void RegisterCollider(string c, Type cT, string n, Action<GameObject> method)
         {
-            ColliderDescriptor cd = new ColliderDescriptor();
-            cd.Collider1 = c;
-            cd.ColliderType1 = c.GetType();
-            cd.ColliderName = c.Name;
-            cd.ColliderName2 = n;
-            cd.ColliderType2 = cT;
-            cd.EachFrame = eachFrame;
-            cd.TargetObject = gT;
-            cd.Method = method;
+            CollisionPairExtended cp1 = new CollisionPairExtended();
+            CollisionPair cp2 = new CollisionPair();
 
-            CollidersActive.Add(cd);
+            cp1.ColliderName = c;
+            cp1.Object = GetType();
+            cp1.CollisionAction = method;
+
+            cp2.ColliderName = n;
+            cp2.Object = cT;
+
+            CollisionsTree.DefinedCollisionPairs.Add(cp1, cp2);
         }
 
         public void DrawStart(SpriteBatch s, DynamicVertexBuffer vb, BasicEffect be, Matrix m, GameObject currentObject)

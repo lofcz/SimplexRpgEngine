@@ -720,5 +720,12 @@ namespace SimplexCore
 
             RenderVertices();
         }
+
+        public static void draw_text(Vector2 position, string text)
+        {
+            sb.Begin(transformMatrix: m);
+            sb.DrawString(drawFont, text, position, FinalizeColor(DrawColor));
+            sb.End();
+        }
     }
 }
