@@ -53,6 +53,7 @@ namespace SimplexCore
             Form1.height = (int)rawData.Room.Size.Y;
             Form1.ActiveForm.Text = "Simplex RPG Engine / " + rawData.Room.Name;
 
+
             currentRoom = rawData.Room;
 
             if (RoomEditor != null)

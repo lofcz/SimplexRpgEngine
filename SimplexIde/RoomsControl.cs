@@ -67,8 +67,7 @@ namespace SimplexIde
 
                     if (File.Exists(Path.Combine(Environment.CurrentDirectory, @"Data/" + Form1.activeRoom.Text)))
                     {
-                        drawTest1.LoadGame(Path.Combine(Environment.CurrentDirectory,
-                            @"Data/" + Form1.activeRoom.Text));
+                        Sgml.game_load(Path.Combine(Environment.CurrentDirectory, @"Data/" + Form1.activeRoom.Text));
                     }
                     else
                     {

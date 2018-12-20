@@ -436,12 +436,14 @@ namespace SimplexIde
         public void WheelDown()
         {
             cam.TargetZoom -= 0.1f;
+            cam.TargetZoom = (float)Sgml.clamp(cam.TargetZoom, 0.05, 10);
             Input.WheelDown = true;
         }
 
         public void WheelUp()
         {
             cam.TargetZoom += 0.1f;
+            cam.TargetZoom = (float)Sgml.clamp(cam.TargetZoom, 0.05, 10);
             Input.WheelUp = true;
         }
 
