@@ -158,31 +158,9 @@ namespace SimplexResources.Objects
             }
         }
 
-        public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, DynamicVertexBuffer vb, BasicEffect be, Matrix transform)
+        public override void EvtDraw()
         {
-            DrawStart(s, vb, be, transform, this);
-            currentObject = this;
 
-            // Initialize render engine for this instance
-
-            //    s.Draw(objectTexture, Position, DrawColor);
-            // Actual code starts here
-            // draw_set_alpha(0.5);
-            // draw_triangle(Position.X, Position.Y, Position.X + 100, Position.Y, Position.X + 50, Position.Y + 50, false);
-  
-            draw_set_alpha(1);
-           // draw_sprite(objectTexture, ImageIndex, Position);
-
-            s.Begin(transformMatrix: transform);
-            //s.DrawLine(Position.X, Position.Y, Position.X - 4, Position.Y, Color.Aqua);
-           // s.DrawRectangle((Colliders[0] as ColliderRectangle).CollisionTransformed, Color.Aqua);
-            //s.DrawString(f, ImageIndex.ToString(), Position, Color.White);
-            s.End();
-            draw_set_alpha(abs(sin(degtorad(time))));
-          //  draw_circle_color(new Vector2(Position.X + 32, Position.Y + 32), 128 + (int)(128 * abs(sin(degtorad(time)))), false, c1, Microsoft.Xna.Framework.Color.Transparent);
-            draw_set_alpha(1);
-            //draw_set_alpha(1);
-            // sb.Draw(objectTexture, Position, Color.White);
         }
     }
 }

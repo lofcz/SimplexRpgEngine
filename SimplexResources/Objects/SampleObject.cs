@@ -46,9 +46,8 @@ namespace SimplexResources.Objects
            
         }
 
-        public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, DynamicVertexBuffer vb, BasicEffect be, Matrix m)
+        public override void EvtDraw()
         {
-            Sgml.sb = s;
            time++;
            ImageAlpha = Math.Abs((float)Math.Sin(MathHelper.ToRadians(time)));
 

@@ -393,16 +393,14 @@ namespace SimplexIde
 
                                }
 
-                               o.PositionPrevious = o.Position;
-                            o.EvtDraw(Editor.spriteBatch, Editor.Font, o.Sprite.Texture, vertexBuffer, basicEffect,
-                                transformMatrix);
+                            o.PositionPrevious = o.Position;
+                            Sgml.currentObject = o;
+                            o.EvtDraw();
 
 
-                            RectangleF r = new RectangleF(o.Position,
-                                new Size2(o.Sprite.ImageRectangle.Width, o.Sprite.ImageRectangle.Height));
+                            RectangleF r = new RectangleF(o.Position, new Size2(o.Sprite.ImageRectangle.Width, o.Sprite.ImageRectangle.Height));
 
-                            if (o == clickedObject || r.Intersects(selectionRectangle) ||
-                                selectedRectangleObjects.Contains(o))
+                            if (o == clickedObject || r.Intersects(selectionRectangle) || selectedRectangleObjects.Contains(o))
                             {
 
                                 Editor.spriteBatch.Begin(transformMatrix: transformMatrix);

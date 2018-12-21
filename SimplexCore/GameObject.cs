@@ -168,11 +168,8 @@ namespace SimplexCore
         }
 
         // Editor events
-        public virtual void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, DynamicVertexBuffer vb, BasicEffect be, Matrix m)
+        public virtual void EvtDraw()
         {
-            Sgml.sb = s;
-            Sgml.vb = vb;
-            Sgml.be = be;
             //s.Draw(objectTexture, Position, Microsoft.Xna.Framework.Color.White * ImageAlpha);
         }
 

@@ -74,13 +74,11 @@ namespace SimplexResources.Objects
 
         }
 
-        public override void EvtDraw(SpriteBatch s, SpriteFont f, Texture2D objectTexture, DynamicVertexBuffer vb, BasicEffect be, Matrix m)
+        public override void EvtDraw()
         {
             color = Color.White;
             UpdateState();
             UpdateColliders();
-
-            DrawStart(s, vb, be, m, this);
 
             if (!currentRoom.Rect.Intersects(new Rectangle((int) Position.X, (int) Position.Y, 64, 64)))
             {
