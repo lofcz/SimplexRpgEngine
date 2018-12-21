@@ -28,6 +28,8 @@ namespace SimplexCore
 
         public static RasterizerState rSFIll = new RasterizerState() {FillMode = FillMode.Solid, CullMode = CullMode.None};
         public static RasterizerState rSWire = new RasterizerState() {FillMode =  FillMode.WireFrame, CullMode = CullMode.None};
+        static VertexPositionColor generalVertex = new VertexPositionColor();
+        static Vector3 generalVector = Vector3.Zero;
 
         // Internal cool shit
         static Vector2 GetCentroid(Vector3[] nodes)
@@ -665,7 +667,7 @@ namespace SimplexCore
             vertices.Clear();
             Color fc = FinalizeColor(color);
 
-            float theta = MathHelper.TwoPi / (float)segments;
+            float theta = MathHelper.TwoPi / segments;
             float c = (float)Math.Cos(theta);
             float s = (float) Math.Sin(theta);
             float t;
@@ -673,18 +675,32 @@ namespace SimplexCore
             float x = r;
             float y = 0;
 
-            vertices.Add(new VertexPositionColor(new Vector3(x + pos.X, y + pos.Y, 0), fc));
+            generalVector.X = x + pos.X;
+            generalVector.Y = y + pos.Y;
+
+            generalVertex.Position = generalVector;
+            generalVertex.Color = color;
+            vertices.Add(generalVertex);
 
             for (int ii = 0; ii < segments; ii++)
             {
-                vertices.Add(new VertexPositionColor(new Vector3(x + pos.X, y + pos.Y, 0), fc));
+                generalVector.X = x + pos.X;
+                generalVector.Y = y + pos.Y;
+
+                generalVertex.Position = generalVector;
+
+                vertices.Add(generalVertex);
 
                 t = x;
                 x = c * x - s * y;
                 y = s * t + c * y;
             }
 
-            vertices.Add(new VertexPositionColor(new Vector3(x + pos.X, y + pos.Y, 0), fc));
+            generalVector.X = x + pos.X;
+            generalVector.Y = y + pos.Y;
+            generalVertex.Position = generalVector;
+
+            vertices.Add(generalVertex);
 
             RenderVertices(PrimitiveType.LineStrip, false);
         }
