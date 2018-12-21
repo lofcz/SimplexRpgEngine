@@ -662,6 +662,19 @@ namespace SimplexCore
             RenderVertices();
         }
 
+        static void AddVertex(float x, float y)
+        {
+            generalVector.X = x;
+            generalVector.Y = y;
+            generalVertex.Position = generalVector;
+            vertices.Add(generalVertex);
+        }
+
+        static void SetVertexColor(Color c)
+        {
+            generalVertex.Color = c;
+        }
+
         public static void draw_circle_fast(Vector2 pos, int r, int segments, Color color)
         {
             vertices.Clear();
@@ -675,32 +688,18 @@ namespace SimplexCore
             float x = r;
             float y = 0;
 
-            generalVector.X = x + pos.X;
-            generalVector.Y = y + pos.Y;
+            SetVertexColor(fc);
+            AddVertex(x + pos.X, y + pos.Y);
 
-            generalVertex.Position = generalVector;
-            generalVertex.Color = color;
-            vertices.Add(generalVertex);
-
-            for (int ii = 0; ii < segments; ii++)
+            for (int i = 0; i < segments; i++)
             {
-                generalVector.X = x + pos.X;
-                generalVector.Y = y + pos.Y;
-
-                generalVertex.Position = generalVector;
-
-                vertices.Add(generalVertex);
-
+                AddVertex(x + pos.X, y + pos.Y);
                 t = x;
                 x = c * x - s * y;
                 y = s * t + c * y;
             }
 
-            generalVector.X = x + pos.X;
-            generalVector.Y = y + pos.Y;
-            generalVertex.Position = generalVector;
-
-            vertices.Add(generalVertex);
+            AddVertex(x + pos.X, y + pos.Y);
 
             RenderVertices(PrimitiveType.LineStrip, false);
         }
