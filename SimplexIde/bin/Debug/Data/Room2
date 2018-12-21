@@ -24,8 +24,8 @@
   </GameRoom>
   <GameObject xsi:type="Object3">
     <Position>
-      <X>610.338867</X>
-      <Y>632.3809</Y>
+      <X>688.619934</X>
+      <Y>677.020569</Y>
     </Position>
     <TypeString>SimplexResources.Objects.Object3</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -42,14 +42,14 @@
     <ImageAlpha>1</ImageAlpha>
     <LayerName>Object layer 69</LayerName>
     <ImageSpeed>1</ImageSpeed>
-    <Direction>356.13519111468236</Direction>
+    <Direction>328.45543360731352</Direction>
     <PostionStart>
       <X>0</X>
       <Y>0</Y>
     </PostionStart>
     <PositionPrevious>
-      <X>607.3457</X>
-      <Y>632.1787</Y>
+      <X>686.063232</X>
+      <Y>675.4511</Y>
     </PositionPrevious>
     <Speed>3</Speed>
     <Friction>0</Friction>

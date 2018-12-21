@@ -675,18 +675,17 @@ namespace SimplexCore
             generalVertex.Color = c;
         }
 
-        public static void draw_circle_fast(Vector2 pos, int r, int segments, Color color)
+        public static void draw_circle_fast(Vector2 pos, int r, int segments, Color color, float startAngle = 0, float totalAngle = 360)
         {
             vertices.Clear();
             Color fc = FinalizeColor(color);
 
-            float theta = MathHelper.TwoPi / segments;
-            float c = (float)Math.Cos(theta);
-            float s = (float) Math.Sin(theta);
-            float t;
+            float theta = (MathHelper.TwoPi / segments) * (totalAngle / 360);
+            float tv = (float) Math.Tan(theta);
+            float rv = (float) Math.Cos(theta);
 
-            float x = r;
-            float y = 0;
+            float x = r * (float) cos(degtorad(startAngle));
+            float y = r * (float) sin(degtorad(startAngle));
 
             SetVertexColor(fc);
             AddVertex(x + pos.X, y + pos.Y);
@@ -694,13 +693,18 @@ namespace SimplexCore
             for (int i = 0; i < segments; i++)
             {
                 AddVertex(x + pos.X, y + pos.Y);
-                t = x;
-                x = c * x - s * y;
-                y = s * t + c * y;
+
+                float tx = -y;
+                float ty = x;
+
+                x += tx * tv;
+                y += ty * tv;
+
+                x *= rv;
+                y *= rv;
             }
 
             AddVertex(x + pos.X, y + pos.Y);
-
             RenderVertices(PrimitiveType.LineStrip, false);
         }
 

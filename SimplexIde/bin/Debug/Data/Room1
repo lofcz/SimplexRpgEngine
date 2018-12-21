@@ -41,8 +41,8 @@
   </GameRoom>
   <GameObject xsi:type="Object3">
     <Position>
-      <X>649.4248</X>
-      <Y>482.503357</Y>
+      <X>895.8333</X>
+      <Y>646.3416</Y>
     </Position>
     <TypeString>SimplexResources.Objects.Object3</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -59,14 +59,14 @@
     <ImageAlpha>1</ImageAlpha>
     <LayerName>Object layer 1</LayerName>
     <ImageSpeed>1</ImageSpeed>
-    <Direction>241.16098567897498</Direction>
+    <Direction>83.5781571471962</Direction>
     <PostionStart>
       <X>0</X>
       <Y>0</Y>
     </PostionStart>
     <PositionPrevious>
-      <X>644.6656</X>
-      <Y>486.146729</Y>
+      <X>897.2678</X>
+      <Y>652.0551</Y>
     </PositionPrevious>
     <Speed>3</Speed>
     <Friction>0</Friction>
@@ -91,8 +91,8 @@
   </GameObject>
   <GameObject xsi:type="Object3">
     <Position>
-      <X>114.02346</X>
-      <Y>106.818481</Y>
+      <X>449.6138</X>
+      <Y>429.924927</Y>
     </Position>
     <TypeString>SimplexResources.Objects.Object3</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -109,14 +109,14 @@
     <ImageAlpha>1</ImageAlpha>
     <LayerName>Object layer 1</LayerName>
     <ImageSpeed>1</ImageSpeed>
-    <Direction>207.76330806676452</Direction>
+    <Direction>309.32993920023085</Direction>
     <PostionStart>
       <X>0</X>
       <Y>0</Y>
     </PostionStart>
     <PositionPrevious>
-      <X>109.857559</X>
-      <Y>109.032837</Y>
+      <X>445.695</X>
+      <Y>426.090454</Y>
     </PositionPrevious>
     <Speed>3</Speed>
     <Friction>0</Friction>
@@ -141,8 +141,8 @@
   </GameObject>
   <GameObject xsi:type="Object3">
     <Position>
-      <X>199.061432</X>
-      <Y>616.820251</Y>
+      <X>483.8682</X>
+      <Y>542.723938</Y>
     </Position>
     <TypeString>SimplexResources.Objects.Object3</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -159,14 +159,14 @@
     <ImageAlpha>1</ImageAlpha>
     <LayerName>Object layer 1</LayerName>
     <ImageSpeed>1</ImageSpeed>
-    <Direction>303.25543902034661</Direction>
+    <Direction>348.29043264886849</Direction>
     <PostionStart>
       <X>0</X>
       <Y>0</Y>
     </PostionStart>
     <PositionPrevious>
-      <X>183.463669</X>
-      <Y>608.175537</Y>
+      <X>478.281372</X>
+      <Y>546.901733</Y>
     </PositionPrevious>
     <Speed>3</Speed>
     <Friction>0</Friction>

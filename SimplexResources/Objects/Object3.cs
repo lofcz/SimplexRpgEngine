@@ -171,7 +171,7 @@ namespace SimplexResources.Objects
               draw_circle(new Vector2(Position.X + 32, Position.Y + 32), (int)r, true);
               draw_circle_fast(new Vector2(Position.X + 32, Position.Y + 32), (int)r, 24, color);*/
 
-            draw_circle_fast((Colliders[0] as ColliderCircle).Position, (int)(Colliders[0] as ColliderCircle).Radius, 24, color);
+            draw_circle_fast((Colliders[0] as ColliderCircle).Position, (int)(Colliders[0] as ColliderCircle).Radius, 24, color, 90, 270);
 
        // draw_rectangle(new Vector2(Position.X - 64, Position.Y - 64), new Vector2(Position.X + 64, Position.Y + 64), true);
             //       Direction = point_direction(new Vector2(Position.X + 32, Position.Y + 32), Input.MousePosition);
