@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
@@ -155,6 +156,7 @@ namespace SimplexCore
             cp2.ColliderName = n;
             cp2.Object = cT;
 
+            
             CollisionsTree.DefinedCollisionPairs.Add(cp1, cp2);
         }
 

@@ -127,7 +127,7 @@ namespace SimplexCore
 
         public static void draw_rectangle(Vector2 p1, Vector2 p2, bool outline, double angle = 0)
         {
-            Microsoft.Xna.Framework.Color fc = FinalizeColor(DrawColor);
+            Color fc = FinalizeColor(DrawColor);
             vertices.Clear();
 
             VertexPositionColor v0 = new VertexPositionColor(new Vector3((float)p1.X, (float)p1.Y, 0), fc);
@@ -146,6 +146,28 @@ namespace SimplexCore
                 v3.Position = RotateVec3(v3.Position, v, angle);
             }
      
+            if (!outline)
+            {
+                vertices.AddRange(new[] { v0, v1, v3, v0, v3, v2 });
+                RenderVertices();
+            }
+            else
+            {
+                vertices.AddRange(new[] { v0, v1, v1, v3, v3, v2, v2, v0 });
+                RenderVertices(PrimitiveType.LineList, true);
+            }
+        }
+
+        public static void draw_rectangle(MonoGame.Extended.RectangleF rect, bool outline)
+        {
+            Color fc = FinalizeColor(DrawColor);
+            vertices.Clear();
+
+            VertexPositionColor v0 = new VertexPositionColor(new Vector3((float)rect.X, (float)rect.Y, 0), fc);
+            VertexPositionColor v1 = new VertexPositionColor(new Vector3((float)rect.X, (float)rect.Y + rect.Height, 0), fc);
+            VertexPositionColor v2 = new VertexPositionColor(new Vector3((float)rect.X + rect.Width, (float)rect.Y, 0), fc);
+            VertexPositionColor v3 = new VertexPositionColor(new Vector3((float)rect.X + rect.Width, (float)rect.Y + rect.Height, 0), fc);
+
             if (!outline)
             {
                 vertices.AddRange(new[] { v0, v1, v3, v0, v3, v2 });

@@ -89,6 +89,7 @@ namespace SimplexIde
         private GlobalKeyboardHook _globalKeyboardHook;
         public List<Tileset> tilesets;
         public RoomsControl roomsControl;
+        RectangleF generalRectangle = RectangleF.Empty;
 
         protected override void Initialize()
         {
@@ -398,19 +399,12 @@ namespace SimplexIde
                             o.EvtDraw();
 
 
-                            RectangleF r = new RectangleF(o.Position, new Size2(o.Sprite.ImageRectangle.Width, o.Sprite.ImageRectangle.Height));
+                            generalRectangle.Width = o.Sprite.ImageRectangle.Width;
+                            generalRectangle.Height = o.Sprite.ImageRectangle.Height;
 
-                            if (o == clickedObject || r.Intersects(selectionRectangle) || selectedRectangleObjects.Contains(o))
-                            {
+                            generalRectangle.X = o.Position.X;
+                            generalRectangle.Y = o.Position.Y;
 
-                                Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
-                                Editor.spriteBatch.DrawRectangle(
-                                    new RectangleF(o.Position,
-                                        new Size2(o.Sprite.ImageRectangle.Width, o.Sprite.ImageRectangle.Height)),
-                                    Color.White,
-                                    2);
-                                Editor.spriteBatch.End();
-                            }
                         }
                     }
                 }
@@ -418,9 +412,7 @@ namespace SimplexIde
 
                 if (ks.IsKeyDown(Keys.LeftControl))
                 {
-                    Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
-                    Editor.spriteBatch.DrawRectangle(selectionRectangle, Color.White, 2);
-                    Editor.spriteBatch.End();
+                    Sgml.draw_rectangle(selectionRectangle, true);
                 }
 
                 Editor.spriteBatch.Begin();
@@ -528,7 +520,7 @@ namespace SimplexIde
                 }
             }
 
-            if (btn == MouseButtons.Left && Input.KeyboardState.IsKeyDown(Keys.LeftControl))
+            if (btn == MouseButtons.Left)
             {
                 Vector2 vec = MousePositionTranslated;
                 selectionRectangle.X = vec.X;
