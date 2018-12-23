@@ -172,26 +172,15 @@ namespace SimplexIde
 
             cam.UpdatePosition();
 
-            foreach (RoomLayer rl in roomLayers)
+            foreach (GameObject o in SceneObjects)
             {
-                if (rl.Visible)
-                {
-                    if (rl is ObjectLayer)
-                    {
-                        foreach (GameObject o in ((ObjectLayer)rl).Objects)
-                        {
-                            //if (o.Position.X != o.PositionPrevious.X || o.Position.Y != o.PositionPrevious.Y)
-                            {
-                                sh.UnregisterObject(o);
-                                sh.RegisterObject(o);
-                            }
+                sh.UnregisterObject(o);
+                sh.RegisterObject(o);
 
-                            if (GameRunning || o == clickedObject)
-                            {
-                                o.EvtStep();
-                            }
-                        }
-                    }
+                if (GameRunning || o == clickedObject)
+                {
+                    Sgml.currentObject = o;
+                    o.EvtStep();
                 }
             }
         }
@@ -357,19 +346,18 @@ namespace SimplexIde
                                 ColliderBase cb = go.Colliders.FirstOrDefault(x => x.Name == entries.Key.ColliderName);
                                 ColliderBase cb2 = c.Colliders.FirstOrDefault(x => x.Name == entries.Value.ColliderName);
 
-                                if ((cb.GetType() == typeof(ColliderRectangle) &&
-                                     cb2.GetType() == typeof(ColliderCircle)) ||
-                                    (cb2.GetType() == typeof(ColliderRectangle) &&
-                                     cb.GetType() == typeof(ColliderCircle)))
+                                if ((cb.GetType() == typeof(ColliderRectangle) && cb2.GetType() == typeof(ColliderCircle)))
                                 {
                                     if (cb is ColliderRectangle)
                                     {
                                         // Circle-rectangle collision
-                                        if (ColliderCircle.RectangleIntersectsCircle((ColliderRectangle) cb,
-                                            (ColliderCircle) cb2))
+                                        if (ColliderCircle.RectangleIntersectsCircle((ColliderRectangle) cb, (ColliderCircle) cb2))
                                         {
+
                                             // Collision occured, fire event
+                                            Sgml.currentObject = go;
                                             entries.Key.CollisionAction.Invoke(go, c);
+                                            break;
                                             //Debug.WriteLine("TRIGGER");
                                         }
                                     }
@@ -402,18 +390,9 @@ namespace SimplexIde
                     { 
                        foreach (GameObject o in ((ObjectLayer) rl).Objects.ToList())
                        {
-                               List<GameObject> possibleColliders = sh.ObjectsNearby(o); // already works for bruteforce
-
-                               foreach (GameObject g2 in possibleColliders)
-                               {
-
-                               }
-
                             o.PositionPrevious = o.Position;
                             Sgml.currentObject = o;
-                            Input.KeyboardState = ks;
                             o.EvtDraw();
-
 
                             generalRectangle.Width = o.Sprite.ImageRectangle.Width;
                             generalRectangle.Height = o.Sprite.ImageRectangle.Height;

@@ -56,10 +56,10 @@ namespace SimplexResources.Objects
 
         public void BallCollision(GameObject me, GameObject ball)
         {
-            //move_bounce_rectangle_object(me.CollisionContainer, ball.CollisionContainer, ball);
+            move_bounce_rectangle_object(me.CollisionContainer, ball.CollisionContainer, ball);
             Debug.WriteLine(360 - ball.Direction);
-            ball.Direction = irandom_range(70, 110);
-            ball.Position = ball.PositionPrevious;
+         //   ball.Direction = 360 - ball.Direction + irandom_range(-5, 5);
+          //  ball.Position = ball.PositionPrevious;
         }
 
         public override void EvtDraw()

@@ -156,7 +156,7 @@ namespace SimplexResources.Objects
                 window_center();
             }
 
-            draw_rectangle(new Vector2(-128, -128), new Vector2(1024 + 64, 768 + 64), true);
+            draw_rectangle(new Vector2(-32, -32), new Vector2(1024 + 32, 768 + 32), true);
             Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, 64, 64);
 
 

@@ -112,9 +112,7 @@ namespace SimplexCore
             {
                 if (currentObject.Position.X <= 0 || currentObject.Position.X >= 1024)
                 {
-                    currentObject.Direction = 180 - currentObject.Direction;
-
-                   
+                    currentObject.Direction = 180 - currentObject.Direction;                   
                 }
                 else if (rect2.Y <= currentObject.Position.Y || rect2.Y + rect2.Height >= currentObject.Position.Y)
                 {
