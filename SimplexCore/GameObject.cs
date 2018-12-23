@@ -144,7 +144,7 @@ namespace SimplexCore
             }
         }
 
-        public void RegisterCollider(string c, Type cT, string n, Action<GameObject> method)
+        public void RegisterCollider(string c, Type cT, string n, Action<GameObject, GameObject> method)
         {
             CollisionPairExtended cp1 = new CollisionPairExtended();
             CollisionPair cp2 = new CollisionPair();
@@ -170,6 +170,11 @@ namespace SimplexCore
         }
 
         // Editor events
+        public virtual void EvtRegisterCollisions()
+        {
+
+        }
+
         public virtual void EvtDraw()
         {
             //s.Draw(objectTexture, Position, Microsoft.Xna.Framework.Color.White * ImageAlpha);

@@ -31,6 +31,6 @@ namespace SimplexCore
 
     public class CollisionPairExtended : CollisionPair
     {
-        public Action<GameObject> CollisionAction;
+        public Action<GameObject, GameObject> CollisionAction;
     }
 }

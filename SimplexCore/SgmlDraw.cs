@@ -162,23 +162,28 @@ namespace SimplexCore
 
         public static void draw_rectangle(MonoGame.Extended.RectangleF rect, bool outline)
         {
-            Color fc = FinalizeColor(DrawColor);
             vertices.Clear();
-
-            VertexPositionColor v0 = new VertexPositionColor(new Vector3((float)rect.X, (float)rect.Y, 0), fc);
-            VertexPositionColor v1 = new VertexPositionColor(new Vector3((float)rect.X, (float)rect.Y + rect.Height, 0), fc);
-            VertexPositionColor v2 = new VertexPositionColor(new Vector3((float)rect.X + rect.Width, (float)rect.Y, 0), fc);
-            VertexPositionColor v3 = new VertexPositionColor(new Vector3((float)rect.X + rect.Width, (float)rect.Y + rect.Height, 0), fc);
+            SetVertexColor(FinalizeColor(DrawColor));
 
             if (!outline)
             {
-                vertices.AddRange(new[] { v0, v1, v3, v0, v3, v2 });
+                AddVertex(rect.X, rect.Y);
+                AddVertex(rect.X, rect.Y + rect.Height);
+                AddVertex(rect.X + rect.Width, rect.Y + rect.Height);
+                AddVertex(rect.X, rect.Y);
+                AddVertex(rect.X + rect.Width, rect.Y + rect.Height);
+                AddVertex(rect.X + rect.Width, rect.Y);
+
                 RenderVertices();
             }
             else
             {
-                vertices.AddRange(new[] { v0, v1, v1, v3, v3, v2, v2, v0 });
-                RenderVertices(PrimitiveType.LineList, true);
+                AddVertex(rect.X, rect.Y);
+                AddVertex(rect.X, rect.Y + rect.Height);
+                AddVertex(rect.X + rect.Width, rect.Y + rect.Height);
+                AddVertex(rect.X + rect.Width, rect.Y);
+
+                RenderVertices(PrimitiveType.LineStrip, true);
             }
         }
 
@@ -677,6 +682,7 @@ namespace SimplexCore
 
         public static void draw_circle_fast(Vector2 pos, int r, int segments, Color color, float startAngle = 0, float totalAngle = 360)
         {
+            r /= 2;
             vertices.Clear();
             Color fc = FinalizeColor(color);
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
+using MonoGame.Extended;
 
 namespace SimplexCore
 {
@@ -61,6 +62,73 @@ namespace SimplexCore
                 currentObject.Position.X = currentRoom.Size.X - currentObject.Position.X;
                 currentObject.Position.Y = currentRoom.Size.Y - currentObject.Position.Y;
 
+            }
+        }
+
+        public static void move_bounce_rectangle(RectangleF rect1, RectangleF rect2)
+        {
+            if (rect1.Intersects(rect2))
+            {
+                if (currentObject.Position.X <= rect2.X || currentObject.Position.X >= rect2.X + rect2.Width) 
+                {
+                    currentObject.Direction = 180 - currentObject.Direction;
+                }
+                else if (currentObject.Position.Y <= rect2.Y || currentObject.Position.Y >= rect2.Y + rect2.Height)
+                {
+                    currentObject.Direction = 360 - currentObject.Direction;
+                }
+
+            }
+        }
+
+        public static void move_bounce_rectangle_object(Rectangle rect1, Rectangle rect2, GameObject go)
+        {
+            if (rect1.Intersects(rect2))
+            {
+                if (go.Position.X <= rect2.X || go.Position.X >= rect2.X + rect2.Width)
+                {
+                  //  go.Direction = 180 - go.Direction;
+                }
+
+                if (rect2.Y <= go.Position.Y || rect2.Y + rect2.Height >= go.Position.Y)
+                {                
+                    go.Direction = 360 - go.Direction;
+
+                    if (rect2.Y <= go.Position.Y)
+                    {
+                        go.Position.Y -= (float)go.Speed;
+                    }
+                    else
+                    {
+                        go.Position.Y += (float)go.Speed;
+                    }
+                }
+            }
+        }
+
+        public static void move_bounce_rectangle_outside(Rectangle rect1, Rectangle rect2)
+        {
+            if (!rect1.Intersects(rect2))
+            {
+                if (currentObject.Position.X <= 0 || currentObject.Position.X >= 1024)
+                {
+                    currentObject.Direction = 180 - currentObject.Direction;
+
+                   
+                }
+                else if (rect2.Y <= currentObject.Position.Y || rect2.Y + rect2.Height >= currentObject.Position.Y)
+                {
+                    currentObject.Direction = 360 - currentObject.Direction;
+
+                    if (rect2.Y <= currentObject.Position.Y)
+                    {
+                        currentObject.Position.Y -= (float)currentObject.Speed;
+                    }
+                    else
+                    {
+                        currentObject.Position.Y += (float)currentObject.Speed;
+                    }
+                }
             }
         }
     }

@@ -54,12 +54,17 @@ namespace SimplexResources.Objects
             cc.GameObject = this;
 
             // Add collider to the list of active colliders
-            Colliders.Add(cc);
+           // Colliders.Add(cc);
 
             EditorOptions = new[] {"I can have", "My own options", "Here"};
 
-            // Trigger action MyCollision, once our "main" collider hits with collider "main" of any other object3
-            RegisterCollider("main", typeof(Object3), "main", MyCollision);          
+                
+        }
+
+        public override void EvtRegisterCollisions()
+        {
+            // Trigger action MyCollision, once our "main" collider hits with collider "main" of any other object3   
+           // RegisterCollider("main", typeof(Object3), "main", MyCollision);
         }
 
         public override void EvtCreate()
@@ -69,7 +74,7 @@ namespace SimplexResources.Objects
         }
 
         // "other" is the object we've hit
-        void MyCollision(GameObject other)
+        void MyCollision(GameObject me, GameObject other)
         {
 
         }
@@ -171,7 +176,7 @@ namespace SimplexResources.Objects
               draw_circle(new Vector2(Position.X + 32, Position.Y + 32), (int)r, true);
               draw_circle_fast(new Vector2(Position.X + 32, Position.Y + 32), (int)r, 24, color);*/
 
-            draw_circle_fast((Colliders[0] as ColliderCircle).Position, (int)(Colliders[0] as ColliderCircle).Radius, 24, color, 90, 270);
+            //draw_circle_fast((Colliders[0] as ColliderCircle).Position, (int)(Colliders[0] as ColliderCircle).Radius, 24, color, 90, 270);
 
        // draw_rectangle(new Vector2(Position.X - 64, Position.Y - 64), new Vector2(Position.X + 64, Position.Y + 64), true);
             //       Direction = point_direction(new Vector2(Position.X + 32, Position.Y + 32), Input.MousePosition);

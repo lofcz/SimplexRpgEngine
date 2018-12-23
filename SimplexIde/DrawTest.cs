@@ -139,21 +139,6 @@ namespace SimplexIde
             Input.PressDirect(e.KeyboardData.VirtualCode);
         }
 
-        public void RenderLayers(TreeView tv)
-        {
-            tv.Nodes[0].Nodes.Clear();
-
-            if (currentRoom != null)
-            {
-                GameRoom gr = (GameRoom)Activator.CreateInstance(currentRoom.GetType());
-
-                foreach (RoomLayer rl in gr.Layers)
-                {
-                    tv.Nodes[0].Nodes.Add(new TreeNode(rl.Name));
-                }
-            }
-        }
-
         public void Rsize()
         {
             Editor.graphics.Viewport = new Viewport(0, 0, this.Width, this.Height);         
@@ -180,7 +165,7 @@ namespace SimplexIde
             MousePositionTranslated = cam.Camera.ScreenToWorld(MousePosition);
             GridSizeRender = new Vector2(SimplexMath.Lerp(GridSizeRender.X, GridSize.X, 0.2f), SimplexMath.Lerp(GridSizeRender.Y, GridSize.Y, 0.2f));
 
-            Input.KeyboardState = ks;
+            Input.KeyboardState = Keyboard.GetState();
 
             g = gameTime;
             base.Update(gameTime);
@@ -195,7 +180,7 @@ namespace SimplexIde
                     {
                         foreach (GameObject o in ((ObjectLayer)rl).Objects)
                         {
-                            if (o.Position.X != o.PositionPrevious.X || o.Position.Y != o.PositionPrevious.Y)
+                            //if (o.Position.X != o.PositionPrevious.X || o.Position.Y != o.PositionPrevious.Y)
                             {
                                 sh.UnregisterObject(o);
                                 sh.RegisterObject(o);
@@ -274,6 +259,7 @@ namespace SimplexIde
 
             double framerate = Editor.GetFrameRate;
             KeyboardState ks = Keyboard.GetState();
+            Input.KeyboardState = ks;
 
             base.Draw();
             Matrix transformMatrix = cam.Camera.GetViewMatrix();
@@ -346,7 +332,7 @@ namespace SimplexIde
             basicEffect.VertexColorEnabled = true;
 
             // Before render, resolve collisions
-            foreach (GameObject go in SceneObjects)
+            foreach (GameObject go in SceneObjects.ToList())
             {
                 if (go.Colliders.Count > 0)
                 {
@@ -354,12 +340,41 @@ namespace SimplexIde
 
                     // Check for collision with each object from possible colliders
                     foreach (GameObject c in possibleColliders)
-                    {
+                    {       
+                        if (c == go) { continue; } // Discard self collisions
+                        
                         // Check for general rectangle collision 
                         if (c.CollisionContainer.Intersects(go.CollisionContainer))
                         {
                             // There is a possibility that two instances can collide
+                            // 1) Get entry from collision tree
+                            // 2) Detailed collisions
+                            var entries = CollisionsTree.DefinedCollisionPairs.FirstOrDefault(x => x.Key.Object == go.GetType() && x.Value.Object == c.GetType());
+                           
+                            if (entries.Key != null)
+                            {
+                                // Get colliders from names
+                                ColliderBase cb = go.Colliders.FirstOrDefault(x => x.Name == entries.Key.ColliderName);
+                                ColliderBase cb2 = c.Colliders.FirstOrDefault(x => x.Name == entries.Value.ColliderName);
 
+                                if ((cb.GetType() == typeof(ColliderRectangle) &&
+                                     cb2.GetType() == typeof(ColliderCircle)) ||
+                                    (cb2.GetType() == typeof(ColliderRectangle) &&
+                                     cb.GetType() == typeof(ColliderCircle)))
+                                {
+                                    if (cb is ColliderRectangle)
+                                    {
+                                        // Circle-rectangle collision
+                                        if (ColliderCircle.RectangleIntersectsCircle((ColliderRectangle) cb,
+                                            (ColliderCircle) cb2))
+                                        {
+                                            // Collision occured, fire event
+                                            entries.Key.CollisionAction.Invoke(go, c);
+                                            //Debug.WriteLine("TRIGGER");
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -396,6 +411,7 @@ namespace SimplexIde
 
                             o.PositionPrevious = o.Position;
                             Sgml.currentObject = o;
+                            Input.KeyboardState = ks;
                             o.EvtDraw();
 
 
@@ -896,158 +912,6 @@ namespace SimplexIde
                 roomLayers.Add(rl);
                 lt?.dtv.Nodes[0].Nodes.Add(dtn);
             }
-        }
-
-        public void LoadGame(string path)
-        {
-            bool flag = false;
-
-            // First we fuck current scene
-            ClearAll();
-
-
-            // Load layers
-            if (lt.dtv.Nodes.Count > 0)
-            {
-                lt.dtv.Nodes[0].Nodes.Clear();
-            }
-
-            // Prepare XML serializer
-            // Then we load raw data
-            Root root = new Root();
-            XmlSerializer ser = new XmlSerializer(typeof(Root), Form1.reflectedTypes.ToArray());
-            StreamReader w = new StreamReader(path);
-            Root rawData = (Root)ser.Deserialize(w);
-
-            // First load back room itself
-            Form1.width = (int)rawData.Room.Size.X;
-            Form1.height = (int)rawData.Room.Size.Y;
-            Form1.ActiveForm.Text = "Simplex RPG Engine / " + rawData.Room.Name;
-
-            currentRoom = rawData.Room;
-
-            // if (currentRoom != null)
-            // {
-            GameRoom gr = (GameRoom)Activator.CreateInstance(currentRoom.GetType());
-            selectedLayer = gr.Layers[0];
-            int currentDepth = 0;
-            foreach (RoomLayer rl in gr.Layers)
-            {
-                DarkTreeNode dtn = new DarkTreeNode(rl.Name);
-                dtn.Tag = dtn;
-                dtn.Tag = "";
-
-                if (rl.LayerType == RoomLayer.LayerTypes.typeObject)
-                {
-                    dtn.Icon = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("WorldLocal_16x");
-                }
-                else if (rl.LayerType == RoomLayer.LayerTypes.typeAsset)
-                {
-                    dtn.Icon = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("Image_16x");
-                }
-                else
-                {
-                    dtn.Icon = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("MapLineLayer_16x");
-                }
-
-                rl.Depth = currentDepth;
-                currentDepth += 100;
-                roomLayers.Add(rl);
-                lt?.dtv.Nodes[0].Nodes.Add(dtn);
-            }
-
-            // we need to initialize layers by type
-            foreach (RoomLayer rl in roomLayers)
-            {
-                if (rl.LayerType == RoomLayer.LayerTypes.typeTile)
-                {
-                    // Start with empty cell data and load stuff later on
-                    ((TileLayer)rl).Data = new int[(int)currentRoom.Size.X / 32, (int)currentRoom.Size.Y / 32];
-
-                    // Now select correct tileset and assign it to this.. well tileset
-                    Tileset tl = tilesets.FirstOrDefault(x => x.Name == ((TileLayer)rl).TilelistName);
-
-                    // this can fail so check for that
-                    if (tl != null)
-                    {
-                        // also we need to load textures for the tileset
-                       // tl.AutotileLib = 
-
-                        // all good
-                        ((TileLayer)rl).Tileset = tl;
-                    }
-                }
-            }
-
-
-                // Time to load babies
-                foreach (GameObject g in rawData.Objects)
-                {
-                    Spritesheet s = Sprites.FirstOrDefault(x => x.Name == g.Sprite.TextureSource);
-              
-                    g.Sprite.Texture = s.Texture;
-                    g.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
-                    g.Sprite.TextureRows = s.Rows;
-                    g.Sprite.TextureCellsPerRow = s.Texture.Width / s.CellWidth;
-                    g.Sprite.ImageSize = new Vector2(s.CellWidth, s.CellHeight);
-                    g.Sprite.FramesCount = (s.Texture.Width / s.CellWidth) * (s.Texture.Height / s.CellHeight) - 1;
-                    g.FramesCount = g.Sprite.FramesCount - 1;
-                    g.Sprite.cellW = s.CellHeight;
-                    g.Sprite.cellH = s.CellWidth;
-
-                    RoomLayer rt = roomLayers.FirstOrDefault(x => x.Name == g.LayerName);
-                    g.Layer = (ObjectLayer) rt;
-
-                    g.Sprite.UpdateImageRectangle();
-                    g.UpdateState();               
-                    g.UpdateColliders();
-
-                    // Need to give object OriginalType !!!
-                    g.OriginalType = Type.GetType(g.TypeString);
-
-                    g.EvtCreate();
-                    g.EvtLoad();
-
-                    g.Layer.Objects.Add(g);
-                    sh.RegisterObject(g);
-                    
-                }
-
-                // Load tiles
-                foreach (Tile t in rawData.Tiles)
-                {
-                    RoomLayer correctLayer = roomLayers.FirstOrDefault(x => x.Name == t.TileLayerName);
-
-                    if (correctLayer != null)
-                    {
-                        TileLayer crt = (TileLayer) correctLayer;
-                        t.TileLayer = crt;
-                        crt.Tiles.Add(t);
-                    }
-                    else
-                    {
-                        Debug.WriteLine("Tile could not be loaded - TileLayerName is wrong");
-                    }
-                }
-
-                // Now update all tiles
-                Texture2D ttt = Editor.Content.Load<Texture2D>(Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/Tilesets/" + "tileset0"));
-
-                foreach (RoomLayer rl in roomLayers)
-                {
-                    if (rl is TileLayer)
-                    {
-                        TileLayer crt = (TileLayer)rl;
-
-                        foreach (Tile t in crt.Tiles)
-                        {
-                          t.SourceTexture = ttt;
-                          Autotile.UpdateTile(t, crt);
-                        }
-                    }
-                }
-
-           w.Close();
         }
 
         public void cmsClosed()

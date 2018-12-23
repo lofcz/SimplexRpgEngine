@@ -125,6 +125,7 @@ namespace SimplexCore
                 g.EvtCreate();
                 g.EvtLoad();
 
+                SceneObjects.Add(g);
                 g.Layer.Objects.Add(g);
                 sh.RegisterObject(g);
 

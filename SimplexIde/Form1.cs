@@ -308,6 +308,9 @@ namespace SimplexIde
                 {
                     using (GameObject o = (GameObject) Activator.CreateInstance(t))
                     {
+                        // Register collisions
+                        o.EvtRegisterCollisions();
+
                         DarkTreeNode tn = new DarkTreeNode();
                         tn.Text = t.Name;
                         tn.Tag = t.Name;

@@ -83,5 +83,13 @@ namespace SimplexCore
 
             return null;
         }
+
+        public static bool RectangleIntersectsCircle(ColliderRectangle r, ColliderCircle c)
+        {
+            float DeltaX = c.Position.X - max(r.CollisionTransformed.X, min(c.Position.X, r.CollisionTransformed.X + r.CollisionTransformed.Width));
+            float DeltaY = c.Position.Y - max(r.CollisionTransformed.Y, min(c.Position.Y, r.CollisionTransformed.Y + r.CollisionTransformed.Height));
+
+            return (DeltaX * DeltaX + DeltaY * DeltaY) < (c.Radius * c.Radius);
+        }
     }
 }

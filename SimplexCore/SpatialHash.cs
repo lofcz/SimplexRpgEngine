@@ -117,6 +117,7 @@ namespace SimplexCore
                 {
                     nearby.AddRange(Hash[item]);
                 }
+                
             }
 
             return nearby;
