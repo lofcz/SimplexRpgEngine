@@ -13,6 +13,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Objects\AnotherObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Objects\MyObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Objects\oBall.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Objects\oBrick.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Objects\oPaddle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Objects\oPlayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Objects\Object3.cs" />

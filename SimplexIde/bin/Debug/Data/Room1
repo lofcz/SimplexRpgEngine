@@ -41,8 +41,8 @@
   </GameRoom>
   <GameObject xsi:type="Object3">
     <Position>
-      <X>717.455261</X>
-      <Y>96.9229355</Y>
+      <X>988.211548</X>
+      <Y>548.0313</Y>
     </Position>
     <TypeString>SimplexResources.Objects.Object3</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -59,14 +59,14 @@
     <ImageAlpha>1</ImageAlpha>
     <LayerName>Object layer 1</LayerName>
     <ImageSpeed>1</ImageSpeed>
-    <Direction>49.694092781140519</Direction>
+    <Direction>79.648231100127219</Direction>
     <PostionStart>
       <X>0</X>
       <Y>0</Y>
     </PostionStart>
     <PositionPrevious>
-      <X>715.514648</X>
-      <Y>99.21074</Y>
+      <X>981.0602</X>
+      <Y>551.1255</Y>
     </PositionPrevious>
     <Speed>3</Speed>
     <Friction>0</Friction>
@@ -91,8 +91,8 @@
   </GameObject>
   <GameObject xsi:type="oPaddle">
     <Position>
-      <X>373.6523</X>
-      <Y>726.8455</Y>
+      <X>597.652344</X>
+      <Y>646.8455</Y>
     </Position>
     <TypeString>SimplexResources.Objects.oPaddle</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -115,8 +115,8 @@
       <Y>0</Y>
     </PostionStart>
     <PositionPrevious>
-      <X>373.6523</X>
-      <Y>726.8455</Y>
+      <X>597.652344</X>
+      <Y>646.8455</Y>
     </PositionPrevious>
     <Speed>0</Speed>
     <Friction>0</Friction>
@@ -133,8 +133,8 @@
   </GameObject>
   <GameObject xsi:type="oBall">
     <Position>
-      <X>455.0914</X>
-      <Y>724.67</Y>
+      <X>1027.82751</X>
+      <Y>11024.9443</Y>
     </Position>
     <TypeString>SimplexResources.Objects.oBall</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -151,20 +151,440 @@
     <ImageAlpha>1</ImageAlpha>
     <LayerName>Object layer 1</LayerName>
     <ImageSpeed>1</ImageSpeed>
-    <Direction>299</Direction>
+    <Direction>334</Direction>
     <PostionStart>
       <X>0</X>
       <Y>0</Y>
     </PostionStart>
     <PositionPrevious>
-      <X>455.0914</X>
-      <Y>724.67</Y>
+      <X>1024.49927</X>
+      <Y>11013.4863</Y>
     </PositionPrevious>
     <Speed>8</Speed>
     <Friction>0</Friction>
     <Gravity>
       <X>0</X>
       <Y>200</Y>
+    </Gravity>
+    <Velocity>
+      <X>0</X>
+      <Y>0</Y>
+    </Velocity>
+    <Mass>0</Mass>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="oBall">
+    <Position>
+      <X>1039.77454</X>
+      <Y>-9411.681</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.oBall</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <Direction>63</Direction>
+    <PostionStart>
+      <X>0</X>
+      <Y>0</Y>
+    </PostionStart>
+    <PositionPrevious>
+      <X>1038.0658</X>
+      <Y>-9410.876</Y>
+    </PositionPrevious>
+    <Speed>8</Speed>
+    <Friction>0</Friction>
+    <Gravity>
+      <X>0</X>
+      <Y>270</Y>
+    </Gravity>
+    <Velocity>
+      <X>0</X>
+      <Y>0</Y>
+    </Velocity>
+    <Mass>0</Mass>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="oBrick">
+    <Position>
+      <X>146.899567</X>
+      <Y>223.706711</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.oBrick</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <Direction>0</Direction>
+    <PostionStart>
+      <X>0</X>
+      <Y>0</Y>
+    </PostionStart>
+    <PositionPrevious>
+      <X>146.899567</X>
+      <Y>223.706711</Y>
+    </PositionPrevious>
+    <Speed>0</Speed>
+    <Friction>0</Friction>
+    <Gravity>
+      <X>0</X>
+      <Y>270</Y>
+    </Gravity>
+    <Velocity>
+      <X>0</X>
+      <Y>0</Y>
+    </Velocity>
+    <Mass>0</Mass>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="oBrick">
+    <Position>
+      <X>298.899261</X>
+      <Y>221.706711</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.oBrick</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <Direction>0</Direction>
+    <PostionStart>
+      <X>0</X>
+      <Y>0</Y>
+    </PostionStart>
+    <PositionPrevious>
+      <X>298.899261</X>
+      <Y>221.706711</Y>
+    </PositionPrevious>
+    <Speed>0</Speed>
+    <Friction>0</Friction>
+    <Gravity>
+      <X>0</X>
+      <Y>270</Y>
+    </Gravity>
+    <Velocity>
+      <X>0</X>
+      <Y>0</Y>
+    </Velocity>
+    <Mass>0</Mass>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="oBrick">
+    <Position>
+      <X>446.898956</X>
+      <Y>223.706711</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.oBrick</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <Direction>0</Direction>
+    <PostionStart>
+      <X>0</X>
+      <Y>0</Y>
+    </PostionStart>
+    <PositionPrevious>
+      <X>446.898956</X>
+      <Y>223.706711</Y>
+    </PositionPrevious>
+    <Speed>0</Speed>
+    <Friction>0</Friction>
+    <Gravity>
+      <X>0</X>
+      <Y>270</Y>
+    </Gravity>
+    <Velocity>
+      <X>0</X>
+      <Y>0</Y>
+    </Velocity>
+    <Mass>0</Mass>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="oBrick">
+    <Position>
+      <X>608.8986</X>
+      <Y>217.706726</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.oBrick</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <Direction>0</Direction>
+    <PostionStart>
+      <X>0</X>
+      <Y>0</Y>
+    </PostionStart>
+    <PositionPrevious>
+      <X>608.8986</X>
+      <Y>217.706726</Y>
+    </PositionPrevious>
+    <Speed>0</Speed>
+    <Friction>0</Friction>
+    <Gravity>
+      <X>0</X>
+      <Y>270</Y>
+    </Gravity>
+    <Velocity>
+      <X>0</X>
+      <Y>0</Y>
+    </Velocity>
+    <Mass>0</Mass>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="oBrick">
+    <Position>
+      <X>746.8984</X>
+      <Y>227.706711</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.oBrick</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <Direction>0</Direction>
+    <PostionStart>
+      <X>0</X>
+      <Y>0</Y>
+    </PostionStart>
+    <PositionPrevious>
+      <X>746.8984</X>
+      <Y>227.706711</Y>
+    </PositionPrevious>
+    <Speed>0</Speed>
+    <Friction>0</Friction>
+    <Gravity>
+      <X>0</X>
+      <Y>270</Y>
+    </Gravity>
+    <Velocity>
+      <X>0</X>
+      <Y>0</Y>
+    </Velocity>
+    <Mass>0</Mass>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="oBrick">
+    <Position>
+      <X>880.8981</X>
+      <Y>223.706711</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.oBrick</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <Direction>0</Direction>
+    <PostionStart>
+      <X>0</X>
+      <Y>0</Y>
+    </PostionStart>
+    <PositionPrevious>
+      <X>880.8981</X>
+      <Y>223.706711</Y>
+    </PositionPrevious>
+    <Speed>0</Speed>
+    <Friction>0</Friction>
+    <Gravity>
+      <X>0</X>
+      <Y>270</Y>
+    </Gravity>
+    <Velocity>
+      <X>0</X>
+      <Y>0</Y>
+    </Velocity>
+    <Mass>0</Mass>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="oBrick">
+    <Position>
+      <X>994.8978</X>
+      <Y>225.706711</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.oBrick</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <Direction>0</Direction>
+    <PostionStart>
+      <X>0</X>
+      <Y>0</Y>
+    </PostionStart>
+    <PositionPrevious>
+      <X>994.8978</X>
+      <Y>225.706711</Y>
+    </PositionPrevious>
+    <Speed>0</Speed>
+    <Friction>0</Friction>
+    <Gravity>
+      <X>0</X>
+      <Y>270</Y>
+    </Gravity>
+    <Velocity>
+      <X>0</X>
+      <Y>0</Y>
+    </Velocity>
+    <Mass>0</Mass>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="oBrick">
+    <Position>
+      <X>54.8997574</X>
+      <Y>201.706757</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.oBrick</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <Direction>0</Direction>
+    <PostionStart>
+      <X>0</X>
+      <Y>0</Y>
+    </PostionStart>
+    <PositionPrevious>
+      <X>54.8997574</X>
+      <Y>201.706757</Y>
+    </PositionPrevious>
+    <Speed>0</Speed>
+    <Friction>0</Friction>
+    <Gravity>
+      <X>0</X>
+      <Y>270</Y>
+    </Gravity>
+    <Velocity>
+      <X>0</X>
+      <Y>0</Y>
+    </Velocity>
+    <Mass>0</Mass>
+    <ImageIndex>0</ImageIndex>
+  </GameObject>
+  <GameObject xsi:type="oBall">
+    <Position>
+      <X>532.4066</X>
+      <Y>558.9281</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.oBall</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
+    <Direction>318</Direction>
+    <PostionStart>
+      <X>0</X>
+      <Y>0</Y>
+    </PostionStart>
+    <PositionPrevious>
+      <X>526.6463</X>
+      <Y>560.9914</Y>
+    </PositionPrevious>
+    <Speed>8</Speed>
+    <Friction>0</Friction>
+    <Gravity>
+      <X>0</X>
+      <Y>270</Y>
     </Gravity>
     <Velocity>
       <X>0</X>

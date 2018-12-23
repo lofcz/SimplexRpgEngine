@@ -31,8 +31,11 @@ namespace SimplexCore
 
         public static void instance_destroy(GameObject go)
         {
-            go.Layer.Objects.Remove(go);
-            SceneObjects.Remove(go);
+            if (go.Layer != null)
+            {
+                go.Layer.Objects.Remove(go);
+                SceneObjects.Remove(go);
+            }
         }
 
         public static void instance_destroy(Type type)

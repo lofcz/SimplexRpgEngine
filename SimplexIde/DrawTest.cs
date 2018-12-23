@@ -357,6 +357,7 @@ namespace SimplexIde
                                             // Collision occured, fire event
                                             Sgml.currentObject = go;
                                             entries.Key.CollisionAction.Invoke(go, c);
+
                                             break;
                                             //Debug.WriteLine("TRIGGER");
                                         }
