@@ -41,8 +41,8 @@
   </GameRoom>
   <GameObject xsi:type="Object3">
     <Position>
-      <X>988.211548</X>
-      <Y>548.0313</Y>
+      <X>988.7506</X>
+      <Y>545.080139</Y>
     </Position>
     <TypeString>SimplexResources.Objects.Object3</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -59,7 +59,7 @@
     <ImageAlpha>1</ImageAlpha>
     <LayerName>Object layer 1</LayerName>
     <ImageSpeed>1</ImageSpeed>
-    <Direction>79.648231100127219</Direction>
+    <Direction>83.602409513482087</Direction>
     <PostionStart>
       <X>0</X>
       <Y>0</Y>
@@ -133,8 +133,8 @@
   </GameObject>
   <GameObject xsi:type="oBall">
     <Position>
-      <X>1027.82751</X>
-      <Y>11024.9443</Y>
+      <X>1035.01782</X>
+      <Y>11028.4512</Y>
     </Position>
     <TypeString>SimplexResources.Objects.oBall</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -151,7 +151,7 @@
     <ImageAlpha>1</ImageAlpha>
     <LayerName>Object layer 1</LayerName>
     <ImageSpeed>1</ImageSpeed>
-    <Direction>334</Direction>
+    <Direction>204</Direction>
     <PostionStart>
       <X>0</X>
       <Y>0</Y>
@@ -175,8 +175,8 @@
   </GameObject>
   <GameObject xsi:type="oBall">
     <Position>
-      <X>1039.77454</X>
-      <Y>-9411.681</Y>
+      <X>1043.40649</X>
+      <Y>-9418.809</Y>
     </Position>
     <TypeString>SimplexResources.Objects.oBall</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -193,7 +193,7 @@
     <ImageAlpha>1</ImageAlpha>
     <LayerName>Object layer 1</LayerName>
     <ImageSpeed>1</ImageSpeed>
-    <Direction>63</Direction>
+    <Direction>157</Direction>
     <PostionStart>
       <X>0</X>
       <Y>0</Y>
@@ -553,8 +553,8 @@
   </GameObject>
   <GameObject xsi:type="oBall">
     <Position>
-      <X>532.4066</X>
-      <Y>558.9281</Y>
+      <X>538.351746</X>
+      <Y>564.2811</Y>
     </Position>
     <TypeString>SimplexResources.Objects.oBall</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -571,7 +571,7 @@
     <ImageAlpha>1</ImageAlpha>
     <LayerName>Object layer 1</LayerName>
     <ImageSpeed>1</ImageSpeed>
-    <Direction>318</Direction>
+    <Direction>192</Direction>
     <PostionStart>
       <X>0</X>
       <Y>0</Y>
