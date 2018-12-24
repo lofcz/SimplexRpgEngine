@@ -30,6 +30,7 @@ namespace SimplexCore
         public static RasterizerState rSWire = new RasterizerState() {FillMode =  FillMode.WireFrame, CullMode = CullMode.None};
         static VertexPositionColor generalVertex = new VertexPositionColor();
         static Vector3 generalVector = Vector3.Zero;
+        static Rectangle GeneralRectangle = Rectangle.Empty;
 
         // Internal cool shit
         static Vector2 GetCentroid(Vector3[] nodes)
@@ -772,6 +773,18 @@ namespace SimplexCore
         {
             sb.Begin(transformMatrix: m);
             sb.DrawString(drawFont, text, position, FinalizeColor(DrawColor));
+            sb.End();
+        }
+
+        public static void draw_surface(Vector2 position, RenderTarget2D surface)
+        {
+            GeneralRectangle.X = (int) position.X;
+            GeneralRectangle.Y = (int) position.Y;
+            GeneralRectangle.Width = surface.Width;
+            GeneralRectangle.Height = surface.Height;
+
+            sb.Begin(transformMatrix: m);
+            sb.Draw(surface, GeneralRectangle, DrawColor);
             sb.End();
         }
     }

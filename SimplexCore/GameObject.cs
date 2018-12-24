@@ -211,6 +211,11 @@ namespace SimplexCore
 
         }
 
+        public virtual void EvtDrawToSurfaces()
+        {
+
+        }
+
         // Public state events  
         public void UpdateState()
         {

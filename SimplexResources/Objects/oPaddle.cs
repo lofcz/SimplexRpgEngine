@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using SimplexCore;
@@ -11,6 +12,8 @@ namespace SimplexResources.Objects
 {
     public class oPaddle : GameObject
     {
+        private RenderTarget2D MySurface;
+
         public oPaddle()
         {
             EditorPath = "Actors";
@@ -24,6 +27,8 @@ namespace SimplexResources.Objects
             cr.Collision = new RectangleF(0, 0, 128, 16);
 
             Colliders.Add(cr);
+
+            MySurface = surface_create(640, 480);
         }
 
         public override void EvtStep()
@@ -58,6 +63,14 @@ namespace SimplexResources.Objects
             move_bounce_rectangle_object(me.CollisionContainer, ball.CollisionContainer, ball);
         }
 
+        public override void EvtDrawToSurfaces()
+        {
+            surface_set_target(MySurface);
+            draw_circle_fast(new Vector2(100, 100), 64, 24, Color.Red);
+            draw_text(new Vector2(100, 200), "Hello I'm a cool surface!");
+            surface_reset_target();
+        }
+
         public override void EvtDraw()
         {
             CollisionContainer.Height = 16;
@@ -66,6 +79,7 @@ namespace SimplexResources.Objects
             CollisionContainer.Y = (int)Position.Y;
 
             draw_rectangle(Position, new Vector2(Position.X + 128, Position.Y + 16), true);
+            draw_surface(Position, MySurface);
         }
     }
 }

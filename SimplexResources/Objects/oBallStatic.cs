@@ -33,7 +33,7 @@ namespace SimplexResources.Objects
           //  me.Position.X -= 4;
            // other.Position.X += 4;
             ColliderCircle.ResolveCircleCircleStatic(me.Colliders[0] as ColliderCircle, other.Colliders[0] as ColliderCircle);
-            Debug.WriteLine(me.Id);
+          ////  Debug.WriteLine(me.Id);
         }
 
         public override void EvtStep()
