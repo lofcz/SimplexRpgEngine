@@ -484,12 +484,12 @@ namespace SimplexCore
 
         public static double point_distance(double x1, double y1, double x2, double y2)
         {
-            return ApplyEpsilon((Math.Pow(x1 - x2, 2) + Math.Pow(y1 - y2, 2)));
+            return ApplyEpsilon(Math.Sqrt(Math.Pow(x1 - x2, 2) + Math.Pow(y1 - y2, 2)));
         }
 
         public static double point_distance(Vector2 point1, Vector2 point2)
         {
-            return ApplyEpsilon((Math.Pow(point1.X - point2.X, 2) + Math.Pow(point1.Y - point2.Y, 2)));
+            return ApplyEpsilon(Math.Sqrt(Math.Pow(point1.X - point2.X, 2) + Math.Pow(point1.Y - point2.Y, 2)));
         }
 
         public static double dot_product(double x1, double y1, double x2, double y2)

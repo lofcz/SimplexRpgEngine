@@ -362,10 +362,19 @@ namespace SimplexIde
                                             // Collision occured, fire event
                                             Sgml.currentObject = go;
                                             entries.Key.CollisionAction.Invoke(go, c);
-
                                             break;
                                             //Debug.WriteLine("TRIGGER");
                                         }
+                                    }
+                                }
+
+                                if (cb.GetType() == typeof(ColliderCircle) && cb2.GetType() == typeof(ColliderCircle))
+                                {
+                                    if (ColliderCircle.CircleInCircle(cb as ColliderCircle, cb2 as ColliderCircle))
+                                    {
+                                        Sgml.currentObject = go;
+                                        entries.Key.CollisionAction.Invoke(go, c);
+                                        break;
                                     }
                                 }
                             }

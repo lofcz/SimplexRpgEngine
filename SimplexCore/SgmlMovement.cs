@@ -85,23 +85,13 @@ namespace SimplexCore
         {
             if (rect1.Intersects(rect2))
             {
-                if (go.Position.X <= rect2.X || go.Position.X >= rect2.X + rect2.Width)
-                {
-                  //  go.Direction = 180 - go.Direction;
-                }
-
                 if (rect2.Y <= go.Position.Y || rect2.Y + rect2.Height >= go.Position.Y)
-                {                
+                {
                     go.Direction = 360 - go.Direction;
-
-                    if (rect2.Y <= go.Position.Y)
-                    {
-                        go.Position.Y -= (float)go.Speed;
-                    }
-                    else
-                    {
-                        go.Position.Y += (float)go.Speed;
-                    }
+                }
+                else if (rect2.X <= go.Position.X || rect2.X  + rect2.Width >= go.Position.X)
+                {
+                    go.Direction = 180 - go.Direction;
                 }
             }
         }

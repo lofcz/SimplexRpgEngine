@@ -41,8 +41,8 @@
   </GameRoom>
   <GameObject xsi:type="Object3">
     <Position>
-      <X>988.7506</X>
-      <Y>545.080139</Y>
+      <X>982.842346</X>
+      <Y>548.9216</Y>
     </Position>
     <TypeString>SimplexResources.Objects.Object3</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -59,14 +59,14 @@
     <ImageAlpha>1</ImageAlpha>
     <LayerName>Object layer 1</LayerName>
     <ImageSpeed>1</ImageSpeed>
-    <Direction>83.602409513482087</Direction>
+    <Direction>317.907908501992</Direction>
     <PostionStart>
       <X>0</X>
       <Y>0</Y>
     </PostionStart>
     <PositionPrevious>
-      <X>981.0602</X>
-      <Y>551.1255</Y>
+      <X>975.0283</X>
+      <Y>545.163</Y>
     </PositionPrevious>
     <Speed>3</Speed>
     <Friction>0</Friction>
@@ -133,8 +133,8 @@
   </GameObject>
   <GameObject xsi:type="oBall">
     <Position>
-      <X>1035.01782</X>
-      <Y>11028.4512</Y>
+      <X>1002.179</X>
+      <Y>10925.5791</Y>
     </Position>
     <TypeString>SimplexResources.Objects.oBall</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -151,14 +151,14 @@
     <ImageAlpha>1</ImageAlpha>
     <LayerName>Object layer 1</LayerName>
     <ImageSpeed>1</ImageSpeed>
-    <Direction>204</Direction>
+    <Direction>144</Direction>
     <PostionStart>
       <X>0</X>
       <Y>0</Y>
     </PostionStart>
     <PositionPrevious>
-      <X>1024.49927</X>
-      <Y>11013.4863</Y>
+      <X>996.3381</X>
+      <Y>10918.3623</Y>
     </PositionPrevious>
     <Speed>8</Speed>
     <Friction>0</Friction>
@@ -175,8 +175,8 @@
   </GameObject>
   <GameObject xsi:type="oBall">
     <Position>
-      <X>1043.40649</X>
-      <Y>-9418.809</Y>
+      <X>1113.11646</X>
+      <Y>-9331.863</Y>
     </Position>
     <TypeString>SimplexResources.Objects.oBall</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -193,14 +193,14 @@
     <ImageAlpha>1</ImageAlpha>
     <LayerName>Object layer 1</LayerName>
     <ImageSpeed>1</ImageSpeed>
-    <Direction>157</Direction>
+    <Direction>236</Direction>
     <PostionStart>
       <X>0</X>
       <Y>0</Y>
     </PostionStart>
     <PositionPrevious>
-      <X>1038.0658</X>
-      <Y>-9410.876</Y>
+      <X>1087.21069</X>
+      <Y>-9331.858</Y>
     </PositionPrevious>
     <Speed>8</Speed>
     <Friction>0</Friction>
@@ -553,8 +553,8 @@
   </GameObject>
   <GameObject xsi:type="oBall">
     <Position>
-      <X>538.351746</X>
-      <Y>564.2811</Y>
+      <X>505.735779</X>
+      <Y>562.9191</Y>
     </Position>
     <TypeString>SimplexResources.Objects.oBall</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -571,14 +571,14 @@
     <ImageAlpha>1</ImageAlpha>
     <LayerName>Object layer 1</LayerName>
     <ImageSpeed>1</ImageSpeed>
-    <Direction>192</Direction>
+    <Direction>295</Direction>
     <PostionStart>
       <X>0</X>
       <Y>0</Y>
     </PostionStart>
     <PositionPrevious>
-      <X>526.6463</X>
-      <Y>560.9914</Y>
+      <X>490.94162</X>
+      <Y>559.189148</Y>
     </PositionPrevious>
     <Speed>8</Speed>
     <Friction>0</Friction>

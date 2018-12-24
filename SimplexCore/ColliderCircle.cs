@@ -14,11 +14,7 @@ namespace SimplexCore
 
         public static bool CircleInCircle(ColliderCircle a, ColliderCircle b)
         {
-            double r = a.Radius + b.Radius;
-
-            var k = r > Math.Sqrt(((a.Position.X - b.Position.X) * (a.Position.X - b.Position.X)) + ((a.Position.Y - b.Position.Y) * (a.Position.Y - b.Position.Y)));
-
-            return k;
+            return abs((a.Position.X - b.Position.X) * (a.Position.X - b.Position.X) + (a.Position.Y - b.Position.Y) * (a.Position.Y - b.Position.Y)) <= (a.Radius + b.Radius) * (a.Radius + b.Radius);
         }
 
         public static Vector2 CircleCircleCollisionPoint(ColliderCircle a, ColliderCircle b)
@@ -28,6 +24,20 @@ namespace SimplexCore
             point.Y = (float)(((a.Position.Y * b.Radius) + (b.Position.Y * a.Radius)) / (a.Radius + b.Radius));
 
             return point;
+        }
+
+        public static void ResolveCircleCircleStatic(ColliderCircle a, ColliderCircle b)
+        {
+            double dis = point_distance(a.Position, b.Position);
+            double overlapDisOverTwo = (dis - a.Radius - b.Radius) * .5;
+            double ex = (a.Position.X - b.Position.X) / dis;
+            double ey = (a.Position.Y - b.Position.Y) / dis;
+
+            a.GameObject.Position.X -= (float)(overlapDisOverTwo * ex);
+            a.GameObject.Position.Y -= (float)(overlapDisOverTwo * ey);
+
+            b.GameObject.Position.X += (float)(overlapDisOverTwo * ex);
+            b.GameObject.Position.Y += (float)(overlapDisOverTwo * ey);
         }
 
         public static void ResolveCircleCircleCollisionElastic(GameObject a, GameObject b, ColliderCircle c1, ColliderCircle c2)

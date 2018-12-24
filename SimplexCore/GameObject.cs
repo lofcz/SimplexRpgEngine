@@ -112,6 +112,7 @@ namespace SimplexCore
             Velocity = Vector2.Zero;
             Friction = 0;
             Direction = 0;
+            Id = Guid.NewGuid();
         }
 
 
