@@ -152,6 +152,25 @@ namespace SimplexIde
 
         protected override void Update(GameTime gameTime)
         {
+            var originalPos = cam.Camera.Position;
+            var originalZoom = cam.Camera.Zoom;
+
+            Matrix view = cam.Camera.GetViewMatrix();
+
+            cam.Camera.Position = new Vector2(0, 0);
+            cam.Camera.Zoom = 1;
+
+            Matrix normalizedMatrix = cam.Camera.GetViewMatrix();
+
+            cam.Camera.Position = originalPos;
+            cam.Camera.Zoom = originalZoom;
+
+           // Matrix projection = m;
+
+            Sgml.world = world;
+            Sgml.view = view;
+            Sgml.normalizedMatrix = normalizedMatrix;
+
             KeyboardState ks = new KeyboardState();
             Keys[] keys = ks.GetPressedKeys();
 
@@ -186,6 +205,7 @@ namespace SimplexIde
                 {
                     Sgml.currentObject = o;
                     o.EvtStep();
+                    o.EvtDrawToSurfaces();
                 }
             }
         }
@@ -326,7 +346,7 @@ namespace SimplexIde
             basicEffect.VertexColorEnabled = true;
 
             // Before render, resolve collisions
-            foreach (GameObject go in SceneObjects.ToList())
+                foreach (GameObject go in SceneObjects.ToList())
             {
                 if (go.Colliders.Count > 0)
                 {

@@ -38,6 +38,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)SgmlMovement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlRoom.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlString.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SgmlSurface.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlSynth.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SimplexCamera.cs" />

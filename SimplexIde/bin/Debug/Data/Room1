@@ -41,8 +41,8 @@
   </GameRoom>
   <GameObject xsi:type="Object3">
     <Position>
-      <X>982.842346</X>
-      <Y>548.9216</Y>
+      <X>736.969</X>
+      <Y>526.6454</Y>
     </Position>
     <TypeString>SimplexResources.Objects.Object3</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -59,14 +59,14 @@
     <ImageAlpha>1</ImageAlpha>
     <LayerName>Object layer 1</LayerName>
     <ImageSpeed>1</ImageSpeed>
-    <Direction>317.907908501992</Direction>
+    <Direction>268.05878722484164</Direction>
     <PostionStart>
       <X>0</X>
       <Y>0</Y>
     </PostionStart>
     <PositionPrevious>
-      <X>975.0283</X>
-      <Y>545.163</Y>
+      <X>734.6757</X>
+      <Y>525.4026</Y>
     </PositionPrevious>
     <Speed>3</Speed>
     <Friction>0</Friction>
@@ -133,8 +133,8 @@
   </GameObject>
   <GameObject xsi:type="oBall">
     <Position>
-      <X>1002.179</X>
-      <Y>10925.5791</Y>
+      <X>117.38623</X>
+      <Y>9476.448</Y>
     </Position>
     <TypeString>SimplexResources.Objects.oBall</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -151,14 +151,14 @@
     <ImageAlpha>1</ImageAlpha>
     <LayerName>Object layer 1</LayerName>
     <ImageSpeed>1</ImageSpeed>
-    <Direction>144</Direction>
+    <Direction>217</Direction>
     <PostionStart>
       <X>0</X>
       <Y>0</Y>
     </PostionStart>
     <PositionPrevious>
-      <X>996.3381</X>
-      <Y>10918.3623</Y>
+      <X>143.4829</X>
+      <Y>9509.793</Y>
     </PositionPrevious>
     <Speed>8</Speed>
     <Friction>0</Friction>
@@ -175,8 +175,8 @@
   </GameObject>
   <GameObject xsi:type="oBall">
     <Position>
-      <X>1113.11646</X>
-      <Y>-9331.863</Y>
+      <X>1078.63342</X>
+      <Y>-8578.737</Y>
     </Position>
     <TypeString>SimplexResources.Objects.oBall</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -193,14 +193,14 @@
     <ImageAlpha>1</ImageAlpha>
     <LayerName>Object layer 1</LayerName>
     <ImageSpeed>1</ImageSpeed>
-    <Direction>236</Direction>
+    <Direction>333</Direction>
     <PostionStart>
       <X>0</X>
       <Y>0</Y>
     </PostionStart>
     <PositionPrevious>
-      <X>1087.21069</X>
-      <Y>-9331.858</Y>
+      <X>1079.11743</X>
+      <Y>-8561.246</Y>
     </PositionPrevious>
     <Speed>8</Speed>
     <Friction>0</Friction>
@@ -427,48 +427,6 @@
   </GameObject>
   <GameObject xsi:type="oBrick">
     <Position>
-      <X>880.8981</X>
-      <Y>223.706711</Y>
-    </Position>
-    <TypeString>SimplexResources.Objects.oBrick</TypeString>
-    <ImageAngle>0</ImageAngle>
-    <ImageAngleTarget>0</ImageAngleTarget>
-    <TransformSpeed>0.2</TransformSpeed>
-    <ImageScale>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScale>
-    <ImageScaleTarget>
-      <X>1</X>
-      <Y>1</Y>
-    </ImageScaleTarget>
-    <ImageAlpha>1</ImageAlpha>
-    <LayerName>Object layer 1</LayerName>
-    <ImageSpeed>1</ImageSpeed>
-    <Direction>0</Direction>
-    <PostionStart>
-      <X>0</X>
-      <Y>0</Y>
-    </PostionStart>
-    <PositionPrevious>
-      <X>880.8981</X>
-      <Y>223.706711</Y>
-    </PositionPrevious>
-    <Speed>0</Speed>
-    <Friction>0</Friction>
-    <Gravity>
-      <X>0</X>
-      <Y>270</Y>
-    </Gravity>
-    <Velocity>
-      <X>0</X>
-      <Y>0</Y>
-    </Velocity>
-    <Mass>0</Mass>
-    <ImageIndex>0</ImageIndex>
-  </GameObject>
-  <GameObject xsi:type="oBrick">
-    <Position>
       <X>994.8978</X>
       <Y>225.706711</Y>
     </Position>
@@ -553,8 +511,8 @@
   </GameObject>
   <GameObject xsi:type="oBall">
     <Position>
-      <X>505.735779</X>
-      <Y>562.9191</Y>
+      <X>354.948181</X>
+      <Y>510.242432</Y>
     </Position>
     <TypeString>SimplexResources.Objects.oBall</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -571,14 +529,14 @@
     <ImageAlpha>1</ImageAlpha>
     <LayerName>Object layer 1</LayerName>
     <ImageSpeed>1</ImageSpeed>
-    <Direction>295</Direction>
+    <Direction>253</Direction>
     <PostionStart>
       <X>0</X>
       <Y>0</Y>
     </PostionStart>
     <PositionPrevious>
-      <X>490.94162</X>
-      <Y>559.189148</Y>
+      <X>374.036743</X>
+      <Y>499.319519</Y>
     </PositionPrevious>
     <Speed>8</Speed>
     <Friction>0</Friction>
