@@ -321,7 +321,7 @@ namespace SimplexIde
 
                                 if (toolMode == 1)
                                 {
-                                    SavePartialBitmap(lastImage, Path.GetFullPath("../../../SimplexRpgEngine3/Content/Sprites/Tilesets/tilesetSource0.png"), xIndex * cellW, yIndex * cellH, cellW, cellH, ImageFormat.Png);
+                                    SavePartialBitmap(lastImage, Path.GetFullPath("../../../SimplexRpgEngine3/Content/Sprites/Tilesets/tilesetSource0.png"), xIndex * cellW, yIndex * cellH, cellW, cellH, System.Drawing.Imaging.ImageFormat.Png);
 
                                     lastImage = new Bitmap(Path.GetFullPath("../../../SimplexRpgEngine3/Content/Sprites/Tilesets/tilesetSource0.png"));
                                     toolMode = 2;
@@ -603,7 +603,7 @@ namespace SimplexIde
             int index = 0;
             foreach (Subsprite s in subsprites)
             {
-                SavePartialBitmap(lastImage, "../../../SimplexRpgEngine3/Content/Sprites/" + selectedNode.Text + index + ".png", s.cellX * cellW, s.cellY * cellH, (s.cellW + 1) * cellW, (s.cellH + 1) * cellH, ImageFormat.Png);
+                SavePartialBitmap(lastImage, "../../../SimplexRpgEngine3/Content/Sprites/" + selectedNode.Text + index + ".png", s.cellX * cellW, s.cellY * cellH, (s.cellW + 1) * cellW, (s.cellH + 1) * cellH, System.Drawing.Imaging.ImageFormat.Png);
                 index++;
             }
 
