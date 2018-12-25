@@ -7,6 +7,7 @@
 *.log 
 *.DS_Store
 *.exe
+*.pdb
 [Tt]humbs.db 
 _ReSharper.*
 *.resharper
