@@ -41,8 +41,8 @@
   </GameRoom>
   <GameObject xsi:type="Object3">
     <Position>
-      <X>736.969</X>
-      <Y>526.6454</Y>
+      <X>737.2276</X>
+      <Y>526.6654</Y>
     </Position>
     <TypeString>SimplexResources.Objects.Object3</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -59,7 +59,7 @@
     <ImageAlpha>1</ImageAlpha>
     <LayerName>Object layer 1</LayerName>
     <ImageSpeed>1</ImageSpeed>
-    <Direction>268.05878722484164</Direction>
+    <Direction>270.5740342617845</Direction>
     <PostionStart>
       <X>0</X>
       <Y>0</Y>
@@ -133,8 +133,8 @@
   </GameObject>
   <GameObject xsi:type="oBall">
     <Position>
-      <X>117.38623</X>
-      <Y>9476.448</Y>
+      <X>118.850166</X>
+      <Y>9482.789</Y>
     </Position>
     <TypeString>SimplexResources.Objects.oBall</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -151,7 +151,7 @@
     <ImageAlpha>1</ImageAlpha>
     <LayerName>Object layer 1</LayerName>
     <ImageSpeed>1</ImageSpeed>
-    <Direction>217</Direction>
+    <Direction>358</Direction>
     <PostionStart>
       <X>0</X>
       <Y>0</Y>
@@ -175,8 +175,8 @@
   </GameObject>
   <GameObject xsi:type="oBall">
     <Position>
-      <X>1078.63342</X>
-      <Y>-8578.737</Y>
+      <X>1078.034</X>
+      <Y>-8573.035</Y>
     </Position>
     <TypeString>SimplexResources.Objects.oBall</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -193,7 +193,7 @@
     <ImageAlpha>1</ImageAlpha>
     <LayerName>Object layer 1</LayerName>
     <ImageSpeed>1</ImageSpeed>
-    <Direction>333</Direction>
+    <Direction>76</Direction>
     <PostionStart>
       <X>0</X>
       <Y>0</Y>
@@ -511,8 +511,8 @@
   </GameObject>
   <GameObject xsi:type="oBall">
     <Position>
-      <X>354.948181</X>
-      <Y>510.242432</Y>
+      <X>346.392059</X>
+      <Y>522.9274</Y>
     </Position>
     <TypeString>SimplexResources.Objects.oBall</TypeString>
     <ImageAngle>0</ImageAngle>
@@ -529,7 +529,7 @@
     <ImageAlpha>1</ImageAlpha>
     <LayerName>Object layer 1</LayerName>
     <ImageSpeed>1</ImageSpeed>
-    <Direction>253</Direction>
+    <Direction>26</Direction>
     <PostionStart>
       <X>0</X>
       <Y>0</Y>
