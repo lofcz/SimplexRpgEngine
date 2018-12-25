@@ -21,6 +21,12 @@
 /processorParam:TextureFormat=Compressed
 /build:Fonts/File.spritefont;Fonts/font1.spritefont
 
+#begin Shaders/File.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:Shaders/File.fx;Shaders/shader1.fx
+
 #begin Sprites/DA_male1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -32,31 +38,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprites/DA_male1.png;Sprites/elves.png
-
-#begin Sprites/Question_16x.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/Question_16x.png;Sprites/unknown.png
-
-#begin Sprites/texture.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Sprites/texture.png
-
 
 #begin Sprites/elves0.png
 /importer:TextureImporter
@@ -130,6 +111,29 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/elves5.png
 
+#begin Sprites/Question_16x.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/Question_16x.png;Sprites/unknown.png
+
+#begin Sprites/texture.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/texture.png
 
 #begin Sprites/Tilesets/tileset0.png
 /importer:TextureImporter

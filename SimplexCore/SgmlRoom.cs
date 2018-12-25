@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using SimplexIde;
 
 namespace SimplexCore
 {
@@ -33,15 +34,35 @@ namespace SimplexCore
             // Instantiate that room to see what's inside
             GameRoom tempRoom = (GameRoom)Activator.CreateInstance(room);
 
+            // Store persistent objects
+            List<GameObject> persistentObjects = SceneObjects.Where(x => x.Persistent).ToList();
+
             if (tempRoom.Persistent)
             {
                 // TODO
             }
             else
             {
+                Form1.activeRoom =  RoomEditor.roomsControl.dtv.Nodes[0].Nodes.FirstOrDefault(x => x.Text == tempRoom.GetType().ToString().Split('.').Last());
+                RoomEditor.editorForm.setStatusBottom("Editing " + Form1.activeRoom.Text);
+
                 //game_save(Path.Combine(Environment.CurrentDirectory, @"Data/" + currentRoom.GetType().ToString().Split('.').Last()));
                 game_load(Path.Combine(Environment.CurrentDirectory, @"Data/" + tempRoom.GetType().ToString().Split('.').Last()));
                 RoomEditor.currentRoom = tempRoom;
+                roomLayers = RoomEditor.currentRoom.Layers;
+
+                // Also we need to assign them all to appropriate layers
+                foreach (GameObject go in persistentObjects)
+                {
+                    go.Layer = (RoomEditor.currentRoom.Layers[0] as ObjectLayer);
+
+                    go.LayerName = go.Layer.Name;
+                    go.Layer.Objects.Add(go);
+                    sh.RegisterObject(go);
+                }
+
+                SceneObjects.AddRange(persistentObjects);
+
             }
 
 

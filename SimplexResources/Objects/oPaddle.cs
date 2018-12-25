@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using SimplexCore;
+using SimplexResources.Rooms;
 using static SimplexCore.Sgml;
 namespace SimplexResources.Objects
 {
@@ -17,10 +18,11 @@ namespace SimplexResources.Objects
         public oPaddle()
         {
             EditorPath = "Actors";
+            Persistent = true;
         }
 
         public override void EvtCreate()
-        {
+        {            
             ColliderRectangle cr = new ColliderRectangle();
             cr.Name = "MainCollider";
             cr.GameObject = this;
@@ -73,6 +75,11 @@ namespace SimplexResources.Objects
 
         public override void EvtDraw()
         {
+            if (mouse_wheel_up())
+            {
+                room_goto(typeof(Room2));
+            }
+
             CollisionContainer.Height = 16;
             CollisionContainer.Width = 128;
             CollisionContainer.X = (int)Position.X;

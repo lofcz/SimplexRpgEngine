@@ -90,6 +90,7 @@ namespace SimplexIde
         public List<Tileset> tilesets;
         public RoomsControl roomsControl;
         RectangleF generalRectangle = RectangleF.Empty;
+        Effect effect;
 
         protected override void Initialize()
         {
@@ -119,6 +120,7 @@ namespace SimplexIde
             _globalKeyboardHook.KeyboardPressed += OnKeyPressed;
 
             Sprites = JsonConvert.DeserializeObject<List<Spritesheet>>(new StreamReader("../../../SimplexRpgEngine3/SpritesDescriptor.json").ReadToEnd());
+            //effect = Editor.Content.Load<Effect>(Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Shaders/shader1"));
 
             foreach (Spritesheet s in Sprites)
             {
@@ -346,7 +348,7 @@ namespace SimplexIde
             basicEffect.VertexColorEnabled = true;
 
             // Before render, resolve collisions
-                foreach (GameObject go in SceneObjects.ToList())
+            foreach (GameObject go in SceneObjects.ToList())
             {
                 if (go.Colliders.Count > 0)
                 {
@@ -403,44 +405,53 @@ namespace SimplexIde
                 }
             }
 
-            foreach (RoomLayer rl in roomLayers.ToList())
+            if (currentRoom != null && roomLayers[0].Name == "Object layer 69")
             {
-                if (rl.Visible)
+
+            }
+
+            if (currentRoom != null)
+            {
+                foreach (RoomLayer rl in currentRoom.Layers.ToList())
                 {
-                    // ------------ positions doesn't matter here -------------
-                    // Layer is tile
-                    if (rl is TileLayer)
+                    if (rl.Visible)
                     {
-                        Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
-                        foreach (Tile t in ((TileLayer) rl).Tiles)
+                        // ------------ positions doesn't matter here -------------
+                        // Layer is tile
+                        if (rl is TileLayer)
                         {
-                            Editor.spriteBatch.Draw(t.SourceTexture, new Vector2(t.PosX * 32, t.PosY * 32), t.DrawRectangle, Color.White);
+                            Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
+                            foreach (Tile t in ((TileLayer) rl).Tiles)
+                            {
+                                Editor.spriteBatch.Draw(t.SourceTexture, new Vector2(t.PosX * 32, t.PosY * 32),
+                                    t.DrawRectangle, Color.White);
+                            }
+
+                            Editor.spriteBatch.End();
                         }
 
-                        Editor.spriteBatch.End();
-                    }
+                        // Layer is object
+                        if (rl is ObjectLayer)
+                        {
+                            foreach (GameObject o in ((ObjectLayer) rl).Objects.ToList())
+                            {
+                                o.PositionPrevious = o.Position;
+                                Sgml.currentObject = o;
+                                o.EvtDraw();
 
-                    // Layer is object
-                    if (rl is ObjectLayer)
-                    { 
-                       foreach (GameObject o in ((ObjectLayer) rl).Objects.ToList())
-                       {
-                            o.PositionPrevious = o.Position;
-                            Sgml.currentObject = o;
-                            o.EvtDraw();
+                                generalRectangle.Width = o.Sprite.ImageRectangle.Width;
+                                generalRectangle.Height = o.Sprite.ImageRectangle.Height;
 
-                            generalRectangle.Width = o.Sprite.ImageRectangle.Width;
-                            generalRectangle.Height = o.Sprite.ImageRectangle.Height;
+                                generalRectangle.X = o.Position.X;
+                                generalRectangle.Y = o.Position.Y;
 
-                            generalRectangle.X = o.Position.X;
-                            generalRectangle.Y = o.Position.Y;
-
+                            }
                         }
                     }
                 }
             }
 
-                if (ks.IsKeyDown(Keys.LeftControl))
+            if (ks.IsKeyDown(Keys.LeftControl))
                 {
                     Sgml.draw_rectangle(selectionRectangle, true);
                 }
@@ -506,14 +517,17 @@ namespace SimplexIde
         {
             sh.Clear();
 
-            foreach (RoomLayer rl in roomLayers)
+            if (currentRoom != null)
             {
-                if (rl is ObjectLayer)
+                foreach (RoomLayer rl in currentRoom.Layers)
                 {
-                    ObjectLayer ol = rl as ObjectLayer;
-                    ol.Objects.Clear();                
+                    if (rl is ObjectLayer)
+                    {
+                        ObjectLayer ol = rl as ObjectLayer;
+                        ol.Objects.Clear();
+                    }
                 }
-            } 
+            }
         }
 
         public void ClickLock(MouseButtons btn)
@@ -837,23 +851,29 @@ namespace SimplexIde
                     vec = new Vector2((int)vec.X / 32 * 32, (int)vec.Y / 32 * 32);
                 }
 
-                foreach (RoomLayer rl in roomLayers)
+                if (currentRoom != null)
                 {
-                    if (rl.Visible)
+                    foreach (RoomLayer rl in currentRoom.Layers)
                     {
-                        if (rl is ObjectLayer)
+                        if (rl.Visible)
                         {
-                            ObjectLayer ol = (ObjectLayer) rl;
-                            for (var i = ol.Objects.Count - 1; i >= 0; i--)
+                            if (rl is ObjectLayer)
                             {
-
-                                Microsoft.Xna.Framework.Rectangle r = new Microsoft.Xna.Framework.Rectangle((int)ol.Objects[i].Position.X, (int)ol.Objects[i].Position.Y, ol.Objects[i].Sprite.ImageRectangle.Width, ol.Objects[i].Sprite.ImageRectangle.Height);
-
-                                if (ks.IsKeyDown(Keys.LeftShift) && r.Contains(vec))
+                                ObjectLayer ol = (ObjectLayer) rl;
+                                for (var i = ol.Objects.Count - 1; i >= 0; i--)
                                 {
-                                    SceneObjects.Remove(ol.Objects[i]);
-                                    ol.Objects[i].EvtDelete();
-                                    ol.Objects.Remove(ol.Objects[i]);
+
+                                    Microsoft.Xna.Framework.Rectangle r =
+                                        new Microsoft.Xna.Framework.Rectangle((int) ol.Objects[i].Position.X,
+                                            (int) ol.Objects[i].Position.Y, ol.Objects[i].Sprite.ImageRectangle.Width,
+                                            ol.Objects[i].Sprite.ImageRectangle.Height);
+
+                                    if (ks.IsKeyDown(Keys.LeftShift) && r.Contains(vec))
+                                    {
+                                        SceneObjects.Remove(ol.Objects[i]);
+                                        ol.Objects[i].EvtDelete();
+                                        ol.Objects.Remove(ol.Objects[i]);
+                                    }
                                 }
                             }
                         }
@@ -886,7 +906,7 @@ namespace SimplexIde
         {
             SceneObjects.Clear();
             roomLayers.Clear();
-
+            currentRoom.Layers.Clear();
         }
 
         public void ClearNodes()
@@ -924,6 +944,7 @@ namespace SimplexIde
                 rl.Depth = currentDepth;
                 currentDepth += 100;
                 roomLayers.Add(rl);
+                currentRoom.Layers.Add(rl);
                 lt?.dtv.Nodes[0].Nodes.Add(dtn);
             }
         }

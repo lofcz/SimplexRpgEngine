@@ -71,6 +71,7 @@ namespace SimplexCore
         public Vector2 Gravity;
         public Vector2 Velocity;
         public double Mass;
+        public bool Persistent;
 
         [XmlIgnore]
         public List<ColliderBase> Colliders = new List<ColliderBase>();
