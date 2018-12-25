@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
@@ -17,13 +18,13 @@ namespace SimplexResources.Objects
         }
 
         public override void EvtCreate()
-        {
+        {                                                        
 
         }
 
         public override void EvtStep()
         {
-
+          Debug.WriteLine(real("2 + 8 + 12 * (4 - 3)", true));
         }
     }
 }

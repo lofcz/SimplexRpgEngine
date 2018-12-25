@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -10,6 +11,8 @@ namespace SimplexCore
 {
     public static partial class Sgml
     {
+        static DataTable dt = new DataTable();
+
         public static char ansi_char(int code)
         {
             return (char)code;
@@ -25,12 +28,24 @@ namespace SimplexCore
             return ch;
         }
 
-        public static double real(string s)
+        public static double real(string str, bool evaluate = false)
         {
             double r;
-            if (double.TryParse(s, out r))
+            if (evaluate)
             {
-                return r;
+                if (double.TryParse(dt.Compute(str, null).ToString(), out r))
+                {
+                    return r;
+                }
+            }
+            else
+            {
+
+                if (double.TryParse(str, out r))
+                {
+                    return r;
+                }
+
             }
 
             return double.NaN;
