@@ -66,8 +66,8 @@ namespace SimplexResources.Objects
             Debug.WriteLine(str2);
 
             //string_char_at
-            string str1 = "Hello World";
-            char chr = string_char_at(str1, 7);
+            // str1 = "Hello World";
+            //char chr = string_char_at(str1, 7);
         }
 
         public override void EvtStep()
