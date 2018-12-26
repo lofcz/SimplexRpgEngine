@@ -904,9 +904,9 @@ namespace SimplexIde
 
         public void ClearAll()
         {
-            SceneObjects.Clear();
-            roomLayers.Clear();
-            currentRoom.Layers.Clear();
+            SceneObjects?.Clear();
+            roomLayers?.Clear();
+            currentRoom?.Layers.Clear();
         }
 
         public void ClearNodes()
