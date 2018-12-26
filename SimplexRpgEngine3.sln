@@ -1,6 +1,7 @@
-﻿Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.102
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28407.52
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplexRpgEngine3", "SimplexRpgEngine3\SimplexRpgEngine3.csproj", "{DBB56ADA-D472-4D2B-9524-64C7A413656C}"
 EndProject
@@ -10,12 +11,16 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SimplexResources", "Simplex
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplexIde", "SimplexIde\SimplexIde.csproj", "{6947B6D5-6EBC-49D0-A880-0F9DE3C670F6}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "TestExtension1", "TestExtension1\TestExtension1.shproj", "{F8601106-4365-4008-92E1-59E2118C86F6}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		SimplexCore\SimplexCore.projitems*{6947b6d5-6ebc-49d0-a880-0f9de3c670f6}*SharedItemsImports = 4
 		SimplexResources\SimplexResources.projitems*{6947b6d5-6ebc-49d0-a880-0f9de3c670f6}*SharedItemsImports = 4
+		TestExtension1\TestExtension1.projitems*{6947b6d5-6ebc-49d0-a880-0f9de3c670f6}*SharedItemsImports = 4
 		SimplexCore\SimplexCore.projitems*{a0cdbd0e-3a41-42b7-9425-a838bc2c7383}*SharedItemsImports = 13
 		SimplexResources\SimplexResources.projitems*{c814330a-b072-47f7-8b8d-ea04244d0e56}*SharedItemsImports = 13
+		TestExtension1\TestExtension1.projitems*{f8601106-4365-4008-92e1-59e2118c86f6}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

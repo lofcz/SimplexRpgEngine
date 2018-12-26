@@ -53,7 +53,7 @@ namespace SimplexCore
 
         public static string sstring(object t)
         {
-            return t.ToString();
+            return (string)t;
         }
 
         public static bool is_string(object t)
