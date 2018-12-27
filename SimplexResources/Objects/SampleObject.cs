@@ -14,6 +14,7 @@ using SimplexCore;
 using SimplexIde;
 using SimplexResources.Rooms;
 using static SimplexCore.Sgml;
+using static SimplexCore.GlobalScripts;
 using Keys = Microsoft.Xna.Framework.Input.Keys;
 using MouseButtons = SimplexCore.Sgml.MouseButtons;
 
@@ -36,8 +37,7 @@ namespace SimplexResources.Objects
             if (e.Text == "Oh you can overload this?")
             {
                 Debug.WriteLine(is_string("Kokot"));
-                Debug.WriteLine(is_string(123));
-
+                Debug.WriteLine(is_string(123));               
             }
         }
 
