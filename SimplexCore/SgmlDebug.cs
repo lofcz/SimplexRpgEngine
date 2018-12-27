@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Text;
 using System.Windows.Forms;
@@ -17,6 +18,16 @@ namespace SimplexCore
         public static void show_message_ext(string str, string caption, MessageBoxButtons buttonType)
         {
             MessageBox.Show(str, caption, buttonType);
+        }
+
+        public static void show_debug_message(string str)
+        {
+            Debug.WriteLine(str);
+        }
+
+        public static void show_debug_message_ext(string str, string category)
+        {
+            Debug.WriteLine(str, category);
         }
 
         public static bool show_question(string str, string caption)
