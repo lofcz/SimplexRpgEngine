@@ -67,5 +67,29 @@ namespace SimplexCore
 
 
         }
+
+        public static void room_goto_next()
+        {
+            // Get target type, call room_goto
+            int index = Array.FindIndex(Config.GameRooms, x => x == currentRoom.GetType());
+
+            // Boundaries check
+            if (index != -1 && index < Config.GameRooms.Length - 1)
+            {
+                room_goto(Config.GameRooms[index + 1]);
+            }
+        }
+
+        public static void room_goto_previous()
+        {
+            // Get target type, call room_goto
+            int index = Array.FindIndex(Config.GameRooms, x => x == currentRoom.GetType());
+
+            // Boundaries check
+            if (index > 0)
+            {
+                room_goto(Config.GameRooms[index - 1]);
+            }
+        }
     }
 }
