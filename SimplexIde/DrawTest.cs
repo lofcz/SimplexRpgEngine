@@ -308,6 +308,11 @@ namespace SimplexIde
             Sgml.be = basicEffect;
             Sgml.m = transformMatrix;
             SimplexResources.Global.DrawStart();
+
+            if (roomLayers.Count > 2)
+            {
+                var k = 1;
+            }
             foreach (RoomLayer rl in roomLayers)
             {
                 if (rl.LayerType == RoomLayer.LayerTypes.typeTile)
@@ -403,11 +408,6 @@ namespace SimplexIde
                         }
                     }
                 }
-            }
-
-            if (currentRoom != null && roomLayers[0].Name == "Object layer 69")
-            {
-
             }
 
             if (currentRoom != null)

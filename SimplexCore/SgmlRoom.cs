@@ -46,26 +46,32 @@ namespace SimplexCore
                 Form1.activeRoom =  RoomEditor.roomsControl.dtv.Nodes[0].Nodes.FirstOrDefault(x => x.Text == tempRoom.GetType().ToString().Split('.').Last());
                 RoomEditor.editorForm.setStatusBottom("Editing " + Form1.activeRoom.Text);
 
-                //game_save(Path.Combine(Environment.CurrentDirectory, @"Data/" + currentRoom.GetType().ToString().Split('.').Last()));
+             //   RoomEditor.currentRoom = tempRoom;
+             //   roomLayers = RoomEditor.currentRoom.Layers;
                 game_load(Path.Combine(Environment.CurrentDirectory, @"Data/" + tempRoom.GetType().ToString().Split('.').Last()));
-                RoomEditor.currentRoom = tempRoom;
-                roomLayers = RoomEditor.currentRoom.Layers;
+
 
                 // Also we need to assign them all to appropriate layers
                 foreach (GameObject go in persistentObjects)
                 {
-                    go.Layer = (RoomEditor.currentRoom.Layers[0] as ObjectLayer);
+                    if (go.PersistentLayer == "")
+                    {
+                        // Try to find first ObjectLayer
+                        ObjectLayer ol = (ObjectLayer)RoomEditor.currentRoom.Layers.FirstOrDefault(x => x is ObjectLayer);
 
-                    go.LayerName = go.Layer.Name;
-                    go.Layer.Objects.Add(go);
-                    sh.RegisterObject(go);
+                        if (ol != null)
+                        {
+                            go.Layer = ol;
+
+                            go.LayerName = go.Layer.Name;
+                            go.Layer.Objects.Add(go);
+                            sh.RegisterObject(go);
+                        }
+                    }
                 }
 
                 SceneObjects.AddRange(persistentObjects);
-
             }
-
-
         }
 
         public static void room_goto_next()
@@ -90,6 +96,11 @@ namespace SimplexCore
             {
                 room_goto(Config.GameRooms[index - 1]);
             }
+        }
+
+        public static void room_restart()
+        {
+            room_goto(currentRoom.GetType());
         }
     }
 }

@@ -72,6 +72,7 @@ namespace SimplexCore
         public Vector2 Velocity;
         public double Mass;
         public bool Persistent;
+        public string PersistentLayer;
 
         [XmlIgnore]
         public List<ColliderBase> Colliders = new List<ColliderBase>();

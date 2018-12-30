@@ -12,7 +12,7 @@ namespace SimplexCore
         public Vector2 Size { get; set; }
         public string Name { get; set; }
         public Vector2 ViewSize { get; set; }
-        public List<RoomLayer> Layers;
+        public List<RoomLayer> Layers { get; set; }
         public bool Persistent { get; set; }
 
         [XmlIgnore]

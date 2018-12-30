@@ -304,8 +304,8 @@ namespace SimplexIde
 
             foreach (Type t in classList)
             {
-                try
-                {
+                if (t.Name == "<>c") { continue; }
+
                     using (GameObject o = (GameObject) Activator.CreateInstance(t))
                     {
                         // Register collisions
@@ -355,12 +355,7 @@ namespace SimplexIde
                     }
 
                     reflectedTypes.Add(t);
-                }
 
-                catch (Exception e)
-                {
-
-                }
             }
 
             for (var i = 0; i < Config.Extensions.Length; i++)

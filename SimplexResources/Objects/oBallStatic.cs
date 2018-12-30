@@ -32,7 +32,7 @@ namespace SimplexResources.Objects
         {
           //  me.Position.X -= 4;
            // other.Position.X += 4;
-            ColliderCircle.ResolveCircleCircleStatic(me.Colliders[0] as ColliderCircle, other.Colliders[0] as ColliderCircle);
+        //    ColliderCircle.ResolveCircleCircleStatic(me.Colliders[0] as ColliderCircle, other.Colliders[0] as ColliderCircle);
           ////  Debug.WriteLine(me.Id);
         }
 
@@ -54,7 +54,7 @@ namespace SimplexResources.Objects
             CollisionContainer.Width = 64;
             CollisionContainer.Height = 64;    
 
-            draw_circle_fast(Position, 64, 24, DrawColor);
+            draw_circle_fast(Position, 64, 24, Color.White);
         }
     }
 }

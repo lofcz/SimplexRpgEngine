@@ -43,7 +43,6 @@ namespace SimplexCore
 
             // Prepare XML serializer
             // Then we load raw data
-            Root root = new Root();
             XmlSerializer ser = new XmlSerializer(typeof(Root), Form1.reflectedTypes.ToArray());
             StreamReader w = new StreamReader(path);
             Root rawData = (Root)ser.Deserialize(w);
@@ -51,7 +50,6 @@ namespace SimplexCore
             // First load back room itself
             Form1.width = (int)rawData.Room.Size.X;
             Form1.height = (int)rawData.Room.Size.Y;
-            Form1.ActiveForm.Text = "Simplex RPG Engine / " + rawData.Room.Name;
 
 
             currentRoom = rawData.Room;
@@ -64,12 +62,7 @@ namespace SimplexCore
 
                 RoomEditor.roomsControl.dtv.SelectNode(RoomEditor.roomsControl.dtv.Nodes[0].Nodes.FirstOrDefault(x => x.Text == currentRoom.GetType().ToString().Split('.').Last()));
                 RoomEditor.roomsControl.execute = true;
-
             }
-
-            // if (currentRoom != null)
-            // {
-
 
             // we need to initialize layers by type
             if (tilesets != null)
@@ -88,8 +81,6 @@ namespace SimplexCore
                         if (tl != null)
                         {
                             // also we need to load textures for the tileset
-                            // tl.AutotileLib = 
-
                             // all good
                             ((TileLayer) rl).Tileset = tl;
                         }
@@ -112,7 +103,7 @@ namespace SimplexCore
                 g.Sprite.cellW = s.CellHeight;
                 g.Sprite.cellH = s.CellWidth;
 
-                RoomLayer rt = roomLayers.FirstOrDefault(x => x.Name == g.LayerName);
+                RoomLayer rt = currentRoom.Layers.FirstOrDefault(x => x.Name == g.LayerName);
                 g.Layer = (ObjectLayer)rt;
 
                 g.Sprite.UpdateImageRectangle();
@@ -166,6 +157,7 @@ namespace SimplexCore
             }
 
             w.Close();
+            ttt.Dispose();
         }
 
 
@@ -173,7 +165,7 @@ namespace SimplexCore
         {
             Root root = new Root();
 
-            foreach (RoomLayer r in roomLayers)
+            foreach (RoomLayer r in currentRoom.Layers)
             {
                 if (r is ObjectLayer)
                 {

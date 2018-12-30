@@ -77,7 +77,7 @@ namespace SimplexResources.Objects
         {
             if (mouse_wheel_up())
             {
-                room_goto_next();
+               room_restart();
             }
 
             CollisionContainer.Height = 16;

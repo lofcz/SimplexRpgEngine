@@ -75,11 +75,6 @@ namespace SimplexIde
                     }
                 }
             }
-
-            if (!execute)
-            {
-              //  execute = true;
-            }
         }
 
         private void darkTreeView1_DoubleClick(object sender, EventArgs e)
