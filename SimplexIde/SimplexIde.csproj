@@ -42,6 +42,7 @@
     <Reference Include="DarkUI">
       <HintPath>..\..\..\..\Desktop\DarkUI.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="MonoGame.Extended, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MonoGame.Extended.1.1.0\lib\portable-net45+win8+wpa81\MonoGame.Extended.dll</HintPath>
     </Reference>

@@ -23,6 +23,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)GameObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameRoom.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Global.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GlobalScripts.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Input.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)InputLowLevel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NativeMethods.cs" />
@@ -31,6 +32,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)RoomLayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Root.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SGML.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SgmlDebug.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlDraw.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlGame.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlInput.cs" />
