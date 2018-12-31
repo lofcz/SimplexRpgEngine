@@ -47,27 +47,12 @@ namespace SimplexCore
 
         public static bool PlaceEmpty(Vector2 position)
         {
-            foreach (RoomLayer rl in roomLayers)
+            foreach (GameObject g in SceneObjects)
             {
-                if (rl.Visible)
+                Rectangle r = new Rectangle((int)g.Position.X, (int)g.Position.Y, g.Sprite.ImageRectangle.Width, g.Sprite.ImageRectangle.Height);
+                if (r.Contains(position))
                 {
-                    if (rl is ObjectLayer)
-                    {
-                        ObjectLayer ol = (ObjectLayer)rl;
-                        foreach (GameObject g in ol.Objects)
-                        {
-                            Rectangle r = new Rectangle((int)g.Position.X, (int)g.Position.Y, g.Sprite.ImageRectangle.Width, g.Sprite.ImageRectangle.Height);
-                            if (r.Contains(position))
-                            {
-                                return false;
-                            }
-
-                            if (g == currentObject)
-                            {
-                                continue;
-                            }
-                        }
-                    }
+                    return false;
                 }
             }
 
@@ -105,7 +90,6 @@ namespace SimplexCore
 
         public static GameObject instance_place(Vector2 vec, Type go)
         {
-            //roomLayers.Reverse();
             foreach (RoomLayer rl in roomLayers)
             {
                 if (rl.Visible)
@@ -120,7 +104,6 @@ namespace SimplexCore
                             {
                                 if (ol.Objects[i].GetType() == go)
                                 {
-                                    //roomLayers.Reverse();
                                     return ol.Objects[i];
                                 }
                             }
@@ -129,7 +112,6 @@ namespace SimplexCore
                 }
             }
 
-           // roomLayers.Reverse();
             return null;
         }
         
