@@ -80,8 +80,8 @@
             this.toggleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.darkStatusStrip2 = new DarkUI.Controls.DarkStatusStrip();
-            this.drawTest1 = new SimplexIde.DrawTest();
             this.darkContextMenu2 = new DarkUI.Controls.DarkContextMenu();
+            this.drawTest1 = new SimplexIde.DrawTest();
             this.darkMenuStrip1.SuspendLayout();
             this.darkToolStrip1.SuspendLayout();
             this.darkStatusStrip1.SuspendLayout();
@@ -491,13 +491,14 @@
             this.toolStripSplitButton2.Name = "toolStripSplitButton2";
             this.toolStripSplitButton2.Size = new System.Drawing.Size(32, 25);
             this.toolStripSplitButton2.Text = "toolStripSplitButton2";
+            this.toolStripSplitButton2.ButtonClick += new System.EventHandler(this.toolStripSplitButton2_ButtonClick);
             // 
             // gridColorToolStripMenuItem
             // 
             this.gridColorToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.gridColorToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.gridColorToolStripMenuItem.Name = "gridColorToolStripMenuItem";
-            this.gridColorToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.gridColorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gridColorToolStripMenuItem.Text = "Enable grid";
             // 
             // gridAlphaToolStripMenuItem
@@ -506,7 +507,7 @@
             this.gridAlphaToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.gridAlphaToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.gridAlphaToolStripMenuItem.Name = "gridAlphaToolStripMenuItem";
-            this.gridAlphaToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.gridAlphaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gridAlphaToolStripMenuItem.Text = "Color";
             // 
             // gToolStripMenuItem
@@ -514,7 +515,7 @@
             this.gToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.gToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.gToolStripMenuItem.Name = "gToolStripMenuItem";
-            this.gToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.gToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gToolStripMenuItem.Text = "Alpha";
             // 
             // perspectiveToolStripMenuItem
@@ -522,7 +523,7 @@
             this.perspectiveToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.perspectiveToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.perspectiveToolStripMenuItem.Name = "perspectiveToolStripMenuItem";
-            this.perspectiveToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.perspectiveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.perspectiveToolStripMenuItem.Text = "Perspective";
             // 
             // toolStripButton7
@@ -637,6 +638,16 @@
             this.darkStatusStrip2.TabIndex = 46;
             this.darkStatusStrip2.Text = "darkStatusStrip2";
             // 
+            // darkContextMenu2
+            // 
+            this.darkContextMenu2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.darkContextMenu2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.darkContextMenu2.Name = "darkContextMenu2";
+            this.darkContextMenu2.Size = new System.Drawing.Size(61, 4);
+            this.darkContextMenu2.Closed += new System.Windows.Forms.ToolStripDropDownClosedEventHandler(this.darkContextMenu2_Closed);
+            this.darkContextMenu2.Opened += new System.EventHandler(this.darkContextMenu2_Opened);
+            this.darkContextMenu2.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.darkContextMenu2_ItemClicked);
+            // 
             // drawTest1
             // 
             this.drawTest1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -655,16 +666,6 @@
             this.drawTest1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.drawTest1_MouseDown);
             this.drawTest1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.drawTest1_MouseMove_1);
             this.drawTest1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.drawTest1_MouseUp);
-            // 
-            // darkContextMenu2
-            // 
-            this.darkContextMenu2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-            this.darkContextMenu2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.darkContextMenu2.Name = "darkContextMenu2";
-            this.darkContextMenu2.Size = new System.Drawing.Size(181, 26);
-            this.darkContextMenu2.Closed += new System.Windows.Forms.ToolStripDropDownClosedEventHandler(this.darkContextMenu2_Closed);
-            this.darkContextMenu2.Opened += new System.EventHandler(this.darkContextMenu2_Opened);
-            this.darkContextMenu2.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.darkContextMenu2_ItemClicked);
             // 
             // Form1
             // 

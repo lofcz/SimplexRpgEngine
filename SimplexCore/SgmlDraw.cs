@@ -26,8 +26,8 @@ namespace SimplexCore
         public static RasterizerState rasterizerState = new RasterizerState();
         public static bool wireframe = false;
 
-        public static RasterizerState rSFIll = new RasterizerState() {FillMode = FillMode.Solid, CullMode = CullMode.None};
-        public static RasterizerState rSWire = new RasterizerState() {FillMode =  FillMode.WireFrame, CullMode = CullMode.None};
+        public static RasterizerState rSFIll = new RasterizerState() {FillMode = FillMode.Solid, CullMode = CullMode.None, MultiSampleAntiAlias = false};
+        public static RasterizerState rSWire = new RasterizerState() {FillMode =  FillMode.WireFrame, CullMode = CullMode.None, MultiSampleAntiAlias = false};
         static VertexPositionColor generalVertex = new VertexPositionColor();
         static Vector3 generalVector = Vector3.Zero;
         static Rectangle GeneralRectangle = Rectangle.Empty;
@@ -75,7 +75,7 @@ namespace SimplexCore
         {
             vb.SetData(vertices.ToArray());
             sb.GraphicsDevice.SetVertexBuffer(vb);
-
+            
             if (outline)
             {
                 sb.GraphicsDevice.RasterizerState = rSWire;

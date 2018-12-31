@@ -566,5 +566,10 @@ namespace SimplexIde
         {
             drawTest1.RightClickMenuSelected(e);
         }
+
+        private void toolStripSplitButton2_ButtonClick(object sender, EventArgs e)
+        {
+            drawTest1.ToggleGrid();
+        }
     }
 }

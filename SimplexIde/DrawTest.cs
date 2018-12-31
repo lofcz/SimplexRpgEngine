@@ -284,29 +284,38 @@ namespace SimplexIde
             Input.MousePosition = MousePositionTranslated;
 
             Sgml.currentRoom = currentRoom;
+            Sgml.sb = Editor.spriteBatch;
+            Sgml.vb = vertexBuffer;
+            Sgml.be = basicEffect;
+            Sgml.m = transformMatrix;
+
+            Matrix view = cam.Camera.GetViewMatrix();
+            Matrix projection = m;
+
+            basicEffect.World = world;
+            basicEffect.View = view;
+            basicEffect.Projection = projection;
+            basicEffect.VertexColorEnabled = true;
+
 
             if (DrawGrid)
             {
-                Color c = Color.Black;
+                Color c = Color.White;
                 c.A = 128;
-                Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
+
                 for (float i = 0; i < 768; i += GridSizeRender.Y)
                 {
                     for (float j = 0; j < 1024; j += GridSizeRender.X)
                     {
                         i = (float) Math.Round(i);
                         j = (float) Math.Round(j);
-                        Editor.spriteBatch.DrawRectangle(new RectangleF(j, i, GridSizeRender.X, GridSizeRender.Y), c, 1);
+                        Sgml.draw_rectangle(new RectangleF(j, i, GridSizeRender.X, GridSizeRender.Y), true);
+                       // Editor.spriteBatch.DrawRectangle(new RectangleF(j, i, GridSizeRender.X, GridSizeRender.Y), c, 1);
                     }
                 }
 
-                Editor.spriteBatch.End();
             }
 
-            Sgml.sb = Editor.spriteBatch;
-            Sgml.vb = vertexBuffer;
-            Sgml.be = basicEffect;
-            Sgml.m = transformMatrix;
             SimplexResources.Global.DrawStart();
 
             if (roomLayers.Count > 2)
@@ -344,13 +353,6 @@ namespace SimplexIde
                 }
             }
 
-            Matrix view = cam.Camera.GetViewMatrix();
-            Matrix projection = m;
-
-            basicEffect.World = world;
-            basicEffect.View = view;
-            basicEffect.Projection = projection;
-            basicEffect.VertexColorEnabled = true;
 
             // Before render, resolve collisions
             foreach (GameObject go in SceneObjects.ToList())
@@ -958,6 +960,11 @@ namespace SimplexIde
         public void cmsOpened()
         {
             cmsOpen = true;
+        }
+
+        public void ToggleGrid()
+        {
+            DrawGrid = !DrawGrid;
         }
     }
 }

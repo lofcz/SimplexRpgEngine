@@ -88,7 +88,6 @@ namespace SimplexCore
 
         public static GameObject instance_place(Vector2 vec)
         {
-
             foreach (RoomLayer rl in currentRoom.Layers)
             {
                 if (rl.Visible)
@@ -101,7 +100,6 @@ namespace SimplexCore
                             RectangleF r = new Rectangle((int)ol.Objects[i].Position.X, (int)ol.Objects[i].Position.Y, ol.Objects[i].Sprite.ImageRectangle.Width, ol.Objects[i].Sprite.ImageRectangle.Height);
                             if (r.Contains(vec))
                             {
-
                                 return ol.Objects[i];
                             }
                         }
