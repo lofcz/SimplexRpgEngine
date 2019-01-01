@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ToolWindow));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.darkTreeView1 = new DarkUI.Controls.DarkTreeView();
             this.darkToolStrip1 = new DarkUI.Controls.DarkToolStrip();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.darkToolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,17 +57,21 @@
             // 
             // darkToolStrip1
             // 
+            this.darkToolStrip1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.darkToolStrip1.AutoSize = false;
             this.darkToolStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-            this.darkToolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.darkToolStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.darkToolStrip1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.darkToolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1,
             this.toolStripTextBox1,
             this.toolStripTextBox2});
-            this.darkToolStrip1.Location = new System.Drawing.Point(0, 392);
+            this.darkToolStrip1.Location = new System.Drawing.Point(0, 360);
+            this.darkToolStrip1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 100);
             this.darkToolStrip1.Name = "darkToolStrip1";
-            this.darkToolStrip1.Padding = new System.Windows.Forms.Padding(5, 0, 1, 0);
-            this.darkToolStrip1.Size = new System.Drawing.Size(298, 28);
+            this.darkToolStrip1.Padding = new System.Windows.Forms.Padding(0);
+            this.darkToolStrip1.Size = new System.Drawing.Size(298, 31);
             this.darkToolStrip1.TabIndex = 1;
             this.darkToolStrip1.Text = "darkToolStrip1";
             // 
@@ -74,7 +80,7 @@
             this.toolStripTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.toolStripTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(117, 25);
+            this.toolStripTextBox1.Size = new System.Drawing.Size(117, 28);
             this.toolStripTextBox1.Text = "Search for a resource";
             // 
             // toolStripTextBox2
@@ -83,6 +89,18 @@
             this.toolStripTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.toolStripTextBox2.Name = "toolStripTextBox2";
             this.toolStripTextBox2.Size = new System.Drawing.Size(180, 23);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 28);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // ToolWindow
             // 
@@ -108,5 +126,6 @@
         private DarkUI.Controls.DarkToolStrip darkToolStrip1;
         private System.Windows.Forms.ToolStripLabel toolStripTextBox1;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
     }
 }
