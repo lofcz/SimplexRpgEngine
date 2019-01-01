@@ -59,16 +59,28 @@ namespace SimplexIde
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
+            string editorPath = "Actors";
+            string currentFolder = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\SimplexCore\Prefabs\PrefabObject.cs";
+
+            // get prefab class
+            string[] prefabText = File.ReadAllLines(currentFolder);
+
             string className = Sgml.get_string("", "Object name");
 
             // generate actual class
-            string currentFolder = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\SimplexResources\Objects\" + className + ".cs";
+            currentFolder = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\SimplexResources\Objects\" + className + ".cs";
 
             using (StreamWriter sw = new StreamWriter(currentFolder))
             {
-                sw.WriteLine("using System;\nusing System.Collections.Generic;\nusing System.Text;\nusing SimplexCore;\nusing static SimplexCore.Sgml;\n");
-                sw.WriteLine("namespace SimplexResources.Objects\n{\n    public class "+ className + " : GameObject\n    {");
-                sw.WriteLine("        public "+ className + "()\n        {\n            EditorPath = \"Actors\";\n        }\n    }\n}");
+                foreach (string line in prefabText)
+                {
+                    string ll = line;
+                    ll = ll.Replace("{editorPath}", editorPath);
+                    ll = ll.Replace("PrefabObject", className);
+                    ll = ll.Replace("SimplexCore.Prefabs", "SimplexResources.Objects");
+                    sw.WriteLine(ll);
+                }
+
                 sw.Close();
             }
 
