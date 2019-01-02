@@ -37,22 +37,24 @@ namespace SimplexResources.Objects
         {
             UpdateColliders();
 
-            if (keyboard_check(Keys.D))
-            {
-                Position.X += 8;
-            }
-            else if (keyboard_check(Keys.A))
-            {
-                Position.X -= 8;
-            }
-            else if (keyboard_check(Keys.W))
-            {
-                Position.Y -= 8;
-            }
-            else if (keyboard_check(Keys.S))
-            {
-                Position.Y += 8;
-            }
+            //move_towards_point(mouse, 4);
+
+            /* if (keyboard_check(Keys.D))
+             {
+                 Position.X += 8;
+             }
+             else if (keyboard_check(Keys.A))
+             {
+                 Position.X -= 8;
+             }
+             else if (keyboard_check(Keys.W))
+             {
+                 Position.Y -= 8;
+             }
+             else if (keyboard_check(Keys.S))
+             {
+                 Position.Y += 8;
+             }*/
         }
 
         public override void EvtRegisterCollisions()
@@ -86,7 +88,7 @@ namespace SimplexResources.Objects
             CollisionContainer.Y = (int)Position.Y;
 
             draw_rectangle(Position, new Vector2(Position.X + 128, Position.Y + 16), true);
-            draw_surface(Position, MySurface);
+            //draw_surface(Position, MySurface);
         }
     }
 }

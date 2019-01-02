@@ -20,6 +20,9 @@ Global
 		TestExtension1\TestExtension1.projitems*{6947b6d5-6ebc-49d0-a880-0f9de3c670f6}*SharedItemsImports = 4
 		SimplexCore\SimplexCore.projitems*{a0cdbd0e-3a41-42b7-9425-a838bc2c7383}*SharedItemsImports = 13
 		SimplexResources\SimplexResources.projitems*{c814330a-b072-47f7-8b8d-ea04244d0e56}*SharedItemsImports = 13
+		SimplexCore\SimplexCore.projitems*{dbb56ada-d472-4d2b-9524-64c7a413656c}*SharedItemsImports = 4
+		SimplexResources\SimplexResources.projitems*{dbb56ada-d472-4d2b-9524-64c7a413656c}*SharedItemsImports = 4
+		TestExtension1\TestExtension1.projitems*{dbb56ada-d472-4d2b-9524-64c7a413656c}*SharedItemsImports = 4
 		TestExtension1\TestExtension1.projitems*{f8601106-4365-4008-92e1-59e2118c86f6}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

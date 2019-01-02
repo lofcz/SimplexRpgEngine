@@ -120,8 +120,7 @@ namespace SimplexIde
             _globalKeyboardHook.KeyboardPressed += OnKeyPressed;
 
             Sprites = JsonConvert.DeserializeObject<List<Spritesheet>>(new StreamReader("../../../SimplexRpgEngine3/SpritesDescriptor.json").ReadToEnd());
-            //effect = Editor.Content.Load<Effect>(Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Shaders/shader1"));
-
+  
             foreach (Spritesheet s in Sprites)
             {
                 Texture2D tex = Editor.Content.Load<Texture2D>(Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/" + s.Name));
