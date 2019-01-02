@@ -128,7 +128,7 @@ namespace SimplexCore
             RenderVertices(PrimitiveType.TriangleList, outline);
         }
         
-        public static void draw_triangle_new(float x1, float y1, float x2, float y2, float x3, float y3, bool outline, double angle = 0)
+        public static void draw_triangle(float x1, float y1, float x2, float y2, float x3, float y3, bool outline, double angle = 0)
         {
             Microsoft.Xna.Framework.Color fc = FinalizeColor(DrawColor);
             vertices.Clear();
@@ -250,6 +250,17 @@ namespace SimplexCore
             RenderVertices(PrimitiveType.LineList);
         }
         
+        public static void draw_line(float pos1x, float pos1y, float pos2x, float pos2y)
+        {
+            vertices.Clear();
+            SetVertexColor(FinalizeColor(DrawColor));
+            
+            AddVertex(pos1x, pos1y);
+            AddVertex(pos2x, pos2y);
+            
+            RenderVertices(PrimitiveType.LineStrip);
+        }
+        
 
         public static void draw_line_color(Vector2 pos1, Vector2 pos2, Color c1, Color c2)
         {
@@ -270,6 +281,16 @@ namespace SimplexCore
 
             vertices.Add(v1);
             vertices.Add(v1);
+
+            RenderVertices(PrimitiveType.LineList);
+        }
+        
+        public static void draw_point(float posX, float posY)
+        {
+            vertices.Clear();
+            
+            AddVertex(posX, posY);
+            AddVertex(posX, posY);
 
             RenderVertices(PrimitiveType.LineList);
         }
