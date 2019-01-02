@@ -127,6 +127,42 @@ namespace SimplexCore
 
             RenderVertices(PrimitiveType.TriangleList, outline);
         }
+        
+        public static void draw_triangle_new(float x1, float y1, float x2, float y2, float x3, float y3, bool outline, double angle = 0)
+        {
+            Microsoft.Xna.Framework.Color fc = FinalizeColor(DrawColor);
+            vertices.Clear();
+
+            VertexPositionColor v0 = new VertexPositionColor(new Vector3((float)x1, (float)y1, 0), fc);
+            VertexPositionColor v1 = new VertexPositionColor(new Vector3((float)x2, (float)y2, 0), fc);
+            VertexPositionColor v2 = new VertexPositionColor(new Vector3((float)x3, (float)y3, 0), fc);
+
+            if (Math.Abs(angle) > 0.001)
+            {
+                Vector2 pp = GetCentroid(new Vector3[] { v0.Position, v1.Position, v2.Position });
+
+                v0.Position = RotateVec3(v0.Position, new Vector3(pp, 0), angle);
+                v1.Position = RotateVec3(v1.Position, new Vector3(pp, 0), angle);
+                v2.Position = RotateVec3(v2.Position, new Vector3(pp, 0), angle);
+            }
+            
+            if (!outline)
+            {
+                AddVertex(x1, y1);
+                AddVertex(x2, y2);
+                AddVertex(x3, y3);
+                RenderVertices();
+            }
+            
+            else
+            {
+                AddVertex(x1, y1);
+                AddVertex(x2, y2);
+                AddVertex(x3, y3);
+                AddVertex(x1, y1);
+                RenderVertices(PrimitiveType.LineStrip, true);
+            }
+        }
 
         public static void draw_rectangle(Vector2 p1, Vector2 p2, bool outline, double angle = 0)
         {
@@ -203,6 +239,8 @@ namespace SimplexCore
         public static void draw_line(Vector2 pos1, Vector2 pos2)
         {
             vertices.Clear();
+            SetVertexColor(FinalizeColor(DrawColor));
+            
             VertexPositionColor v1 = new VertexPositionColor(new Vector3(pos1, 0), FinalizeColor(DrawColor));
             VertexPositionColor v2 = new VertexPositionColor(new Vector3(pos2, 0), FinalizeColor(DrawColor));
 
@@ -211,6 +249,7 @@ namespace SimplexCore
 
             RenderVertices(PrimitiveType.LineList);
         }
+        
 
         public static void draw_line_color(Vector2 pos1, Vector2 pos2, Color c1, Color c2)
         {
