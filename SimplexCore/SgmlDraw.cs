@@ -20,6 +20,11 @@ namespace SimplexCore
 {
     public static partial class Sgml
     {
+        struct Pair
+        {
+            public float x;
+            public float y;
+        }
         static Texture2D pixel;
         public static List<VertexPositionColor> vertices = new List<VertexPositionColor>();
         public static GameObject currentObject;
@@ -30,13 +35,16 @@ namespace SimplexCore
         public static RasterizerState rSWire = new RasterizerState() {FillMode =  FillMode.WireFrame, CullMode = CullMode.None, MultiSampleAntiAlias = false};
         static VertexPositionColor generalVertex = new VertexPositionColor();
         static Vector3 generalVector = Vector3.Zero;
+        private static Vector3 tempVector;
         static Rectangle GeneralRectangle = Rectangle.Empty;
+        static List<Pair> pushedVertices = new List<Pair>();
+        static PointF a, b;
 
         // Internal cool shit
         static Vector2 GetCentroid(Vector3[] nodes)
         {
             float x = 0, y = 0, area = 0, k;
-            PointF a, b = new PointF(nodes[nodes.Length - 1].X, nodes[nodes.Length - 1].Y);
+            b = new PointF(nodes[nodes.Length - 1].X, nodes[nodes.Length - 1].Y);
 
             for (int i = 0; i < nodes.Length; i++)
             {
@@ -52,6 +60,39 @@ namespace SimplexCore
             area *= 3;
 
             return (area == 0) ? Vector2.Zero : new Vector2(x /= area, y /= area);
+        }
+
+        static void RotateVectors(double angle)
+        {
+            float x = 0, y = 0, area = 0, k;
+            Sgml.b.X = pushedVertices[pushedVertices.Count - 1].x;
+            Sgml.b.Y = pushedVertices[pushedVertices.Count - 1].y;
+
+            for (int i = 0; i < pushedVertices.Count; i++)
+            {
+                a.X = pushedVertices[i].x;
+                a.Y = pushedVertices[i].y;
+
+                k = a.Y * b.X - a.X * b.Y;
+                area += k;
+                x += (a.X + b.X) * k;
+                y += (a.Y + b.Y) * k;
+
+                b = a;
+            }
+            area *= 3;
+
+            generalVector.X = x / area;
+            generalVector.Y = y / area;
+
+            foreach (Pair v in pushedVertices)
+            {
+                tempVector.X = v.x;
+                tempVector.Y = v.y;
+
+                generalVertex.Position = RotateVec3(tempVector, generalVector, angle);
+                vertices.Add(generalVertex);
+            }
         }
         static Vector3 RotateVec3(Vector3 pointToRotate, Vector3 centerPoint, double angleInDegrees)
         {
@@ -127,39 +168,33 @@ namespace SimplexCore
 
             RenderVertices(PrimitiveType.TriangleList, outline);
         }
+
+        static void ClearVertices()
+        {
+            vertices.Clear();
+            pushedVertices.Clear();
+        }
         
         public static void draw_triangle_new(float x1, float y1, float x2, float y2, float x3, float y3, bool outline, double angle = 0)
         {
-            Microsoft.Xna.Framework.Color fc = FinalizeColor(DrawColor);
-            vertices.Clear();
+            ClearVertices();
 
-            VertexPositionColor v0 = new VertexPositionColor(new Vector3((float)x1, (float)y1, 0), fc);
-            VertexPositionColor v1 = new VertexPositionColor(new Vector3((float)x2, (float)y2, 0), fc);
-            VertexPositionColor v2 = new VertexPositionColor(new Vector3((float)x3, (float)y3, 0), fc);
-
-            if (Math.Abs(angle) > 0.001)
-            {
-                Vector2 pp = GetCentroid(new Vector3[] { v0.Position, v1.Position, v2.Position });
-
-                v0.Position = RotateVec3(v0.Position, new Vector3(pp, 0), angle);
-                v1.Position = RotateVec3(v1.Position, new Vector3(pp, 0), angle);
-                v2.Position = RotateVec3(v2.Position, new Vector3(pp, 0), angle);
-            }
-            
             if (!outline)
             {
-                AddVertex(x1, y1);
-                AddVertex(x2, y2);
-                AddVertex(x3, y3);
+                AddVertex(x1, y1, true);
+                AddVertex(x2, y2, true);
+                AddVertex(x3, y3, true);
+                RotateVectors(angle);
                 RenderVertices();
             }
             
             else
             {
-                AddVertex(x1, y1);
-                AddVertex(x2, y2);
-                AddVertex(x3, y3);
-                AddVertex(x1, y1);
+                AddVertex(x1, y1, true);
+                AddVertex(x2, y2, true);
+                AddVertex(x3, y3, true);
+                AddVertex(x1, y1, true);
+                RotateVectors(angle);
                 RenderVertices(PrimitiveType.LineStrip, true);
             }
         }
@@ -707,12 +742,19 @@ namespace SimplexCore
             RenderVertices();
         }
 
-        static void AddVertex(float x, float y)
+        static void AddVertex(float x, float y, bool add = false)
         {
-            generalVector.X = x;
-            generalVector.Y = y;
-            generalVertex.Position = generalVector;
-            vertices.Add(generalVertex);
+            if (add)
+            {
+                pushedVertices.Add(new Pair() { x = x, y = y });
+            }
+            else
+            {
+                generalVector.X = x;
+                generalVector.Y = y;
+                generalVertex.Position = generalVector;
+                vertices.Add(generalVertex);
+            }
         }
 
         static void SetVertexColor(Color c)
