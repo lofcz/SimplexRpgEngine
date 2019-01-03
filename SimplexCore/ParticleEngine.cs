@@ -42,7 +42,7 @@ namespace SimplexCore
             float size = (float)random.NextDouble();
             int ttl = 20 + random.Next(40);
 
-            return new Particle(texture, position, velocity, angle, angularVelocity, color, size, ttl);
+            return new Particle(texture, position, velocity, angle, angularVelocity, color, size, ttl, 1);
         }
 
         public void Update()
