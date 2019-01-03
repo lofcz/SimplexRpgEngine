@@ -145,6 +145,11 @@ namespace SimplexIde
                         selectedNode.Icon =
                             (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("Image_16x");
                     }
+                    else if (rl.LayerType == RoomLayer.LayerTypes.typeParticle)
+                    {
+                        selectedNode.Icon =
+                            (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("ParticleLayer");
+                    }
                     else
                     {
                         selectedNode.Icon =

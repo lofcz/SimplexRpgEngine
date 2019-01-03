@@ -9,13 +9,18 @@ namespace SimplexCore
     [Serializable]
     [XmlInclude(typeof(TileLayer))]
     [XmlInclude(typeof(ObjectLayer))]
+    [XmlInclude(typeof(ParticleLayer))]
     public class RoomLayer
     {
         public enum LayerTypes
         {
             typeObject,
             typeTile,
-            typeAsset
+            typeAsset,
+            typeParticle,
+            typePath,
+            typeAudio,
+            typeScript
         }
 
         public string Name { get; set; }

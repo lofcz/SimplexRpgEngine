@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using SimplexCore;
 using static SimplexCore.Sgml;
 
@@ -10,6 +11,8 @@ namespace SimplexResources.Objects
 {
     public class oBallStatic : GameObject
     {
+        private ParticleEngine pe;
+
         public oBallStatic()
         {
             EditorPath = "Collisions";
@@ -21,6 +24,11 @@ namespace SimplexResources.Objects
             cr.GameObject = this;
 
             Colliders.Add(cr);
+        }
+
+        public override void EvtCreate()
+        {
+            pe = new ParticleEngine(new List<Texture2D>() { RoomEditor.Sprites[0].Texture }, Position);
         }
 
         public override void EvtRegisterCollisions()
@@ -45,10 +53,14 @@ namespace SimplexResources.Objects
             CollisionContainer.Y = (int)Position.Y;
             CollisionContainer.Width = 64;
             CollisionContainer.Height = 64;
+
+            pe.Update();
         }
 
         public override void EvtDraw()
         {
+            pe.Draw(sb);
+
             CollisionContainer.X = (int)Position.X;
             CollisionContainer.Y = (int)Position.Y;
             CollisionContainer.Width = 64;

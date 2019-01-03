@@ -937,6 +937,10 @@ namespace SimplexIde
                 {
                     dtn.Icon = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("Image_16x");
                 }
+                else if (rl.LayerType == RoomLayer.LayerTypes.typeParticle)
+                {
+                    dtn.Icon = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("ParticleLayer");
+                }
                 else
                 {
                     dtn.Icon = (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("MapLineLayer_16x");

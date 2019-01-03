@@ -432,6 +432,7 @@ namespace SimplexIde
 
             reflectedTypes.Add(typeof(RoomLayer));
             reflectedTypes.Add(typeof(TileLayer));
+            reflectedTypes.Add(typeof(ParticleLayer));
 
             nspace = "SimplexResources.Rooms";
             q = from t in Assembly.GetExecutingAssembly().GetTypes()

@@ -29,7 +29,7 @@ namespace SimplexResources.Objects
 
         public override void EvtDraw()
         {
-            draw_triangle_new(Position.X-15,Position.Y,Position.X+15,Position.Y,Position.X,Position.Y-15,true,50);
+            //draw_triangle_new(Position.X-15,Position.Y,Position.X+15,Position.Y,Position.X,Position.Y-15,true,50);
         }
     }
 }

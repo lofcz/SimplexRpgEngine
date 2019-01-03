@@ -71,7 +71,9 @@ namespace SimplexIde
                     }
                     else
                     {
-                        drawTest1.ClearAll();
+                        Sgml.currentRoom = (GameRoom) Activator.CreateInstance(Type.GetType("SimplexResources.Rooms." + Form1.activeRoom.Text));
+                        Sgml.game_save(Path.Combine(Environment.CurrentDirectory, @"Data/" + Form1.activeRoom.Text));
+                        drawTest1.ClearAll();              
                     }
                 }
             }

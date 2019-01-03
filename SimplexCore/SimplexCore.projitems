@@ -28,6 +28,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)InputLowLevel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NativeMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ObjectLayer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Particle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ParticleEngine.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ParticleLayer.cs" />
     <None Include="$(MSBuildThisFileDirectory)Prefabs\PrefabObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Quadtree.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RoomLayer.cs" />

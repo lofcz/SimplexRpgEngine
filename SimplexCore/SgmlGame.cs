@@ -165,34 +165,37 @@ namespace SimplexCore
         {
             Root root = new Root();
 
-            foreach (RoomLayer r in currentRoom.Layers)
-            {
-                if (r is ObjectLayer)
+                foreach (RoomLayer r in currentRoom.Layers)
                 {
-                    foreach (GameObject go in ((ObjectLayer)r).Objects)
+                    if (r is ObjectLayer)
                     {
-                        go.EvtSave();
-                        root.Objects.Add(go);
+                        foreach (GameObject go in ((ObjectLayer) r).Objects)
+                        {
+                            go.EvtSave();
+                            root.Objects.Add(go);
+                        }
+                    }
+
+                    if (r is TileLayer)
+                    {
+                        foreach (Tile t in ((TileLayer) r).Tiles)
+                        {
+                            root.Tiles.Add(t);
+                        }
                     }
                 }
 
-                if (r is TileLayer)
+                GameRoom gr =
+                    (GameRoom) Activator.CreateInstance(
+                        Type.GetType(("SimplexResources.Rooms." + Form1.activeRoom.Text)));
+                root.Room = gr;
+
+                XmlSerializer ser = new XmlSerializer(typeof(Root), Form1.reflectedTypes.ToArray());
+                using (TextWriter w = new StreamWriter(path))
                 {
-                    foreach (Tile t in ((TileLayer)r).Tiles)
-                    {
-                        root.Tiles.Add(t);
-                    }
+                    ser.Serialize(w, root);
                 }
-            }
-
-            GameRoom gr = (GameRoom)Activator.CreateInstance(Type.GetType(("SimplexResources.Rooms." + Form1.activeRoom.Text)));
-            root.Room = gr;
-
-            XmlSerializer ser = new XmlSerializer(typeof(Root), Form1.reflectedTypes.ToArray());
-            using (TextWriter w = new StreamWriter(path))
-            {
-                ser.Serialize(w, root);
-            }  
+            
         }
 
 

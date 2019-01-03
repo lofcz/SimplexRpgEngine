@@ -202,4 +202,7 @@
   <data name="Resize_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Resize_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ParticleLayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TracePointDisable_16xMD.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

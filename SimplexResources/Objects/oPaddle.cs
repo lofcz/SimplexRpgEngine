@@ -89,7 +89,7 @@ namespace SimplexResources.Objects
 
             draw_rectangle(Position, new Vector2(Position.X + 128, Position.Y + 16), true);
 
-            draw_triangle_new(Position.X, Position.Y, Position.X + 100, Position.Y, Position.X + 50, Position.Y - 50, true, 70);
+            //draw_triangle_new(Position.X, Position.Y, Position.X + 100, Position.Y, Position.X + 50, Position.Y - 50, true, 70);
             //draw_surface(Position, MySurface);
         }
     }
