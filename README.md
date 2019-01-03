@@ -30,6 +30,7 @@ There are plenty of reasons behind this. But these are the main ones:
 - Room
 - Layer
 - Tile + Autotile
+- Particle
 
 **TBD**
 - Shader
