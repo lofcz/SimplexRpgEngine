@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -28,7 +29,7 @@ namespace SimplexResources.Objects
 
         public override void EvtCreate()
         {
-            pe = new ParticleEngine(new List<Texture2D>() { RoomEditor.Sprites[0].Texture }, Position);
+            pe = new ParticleEngine(new List<Texture2D>() { RoomEditor.Sprites.FirstOrDefault(x => x.Name == "circle").Texture, RoomEditor.Sprites.FirstOrDefault(x => x.Name == "star").Texture, RoomEditor.Sprites.FirstOrDefault(x => x.Name == "diamond").Texture }, Position);
         }
 
         public override void EvtRegisterCollisions()
@@ -54,6 +55,7 @@ namespace SimplexResources.Objects
             CollisionContainer.Width = 64;
             CollisionContainer.Height = 64;
 
+            pe.EmitterLocation = mouse;
             pe.Update();
         }
 

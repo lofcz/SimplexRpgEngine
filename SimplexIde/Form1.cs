@@ -572,5 +572,16 @@ namespace SimplexIde
         {
             drawTest1.ToggleGrid();
         }
+
+        private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // check for updates
+        }
+
+        private void openManualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // open manual
+            Process.Start("https://github.com/lofcz/SimplexRpgEngine/wiki");
+        }
     }
 }
