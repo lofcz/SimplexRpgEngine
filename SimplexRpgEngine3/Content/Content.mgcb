@@ -30,7 +30,7 @@
 #begin Sounds/Mystical Piano.mp3
 /importer:Mp3Importer
 /processor:SoundEffectProcessor
-/processorParam:Quality=Best
+/processorParam:Quality=Low
 /build:Sounds/Mystical Piano.mp3;Sounds/MySong.mp3
 
 #begin Sprites/circle.png
