@@ -29,6 +29,11 @@ namespace SimplexCore
             return tx;
         }
 
+        public static GameObject instance_get_singleton(Type t)
+        {
+            return SceneObjects.FirstOrDefault(x => x.GetType() == t);
+        }
+
         public static void instance_destroy(GameObject go)
         {
             if (go.Layer != null)
@@ -114,6 +119,16 @@ namespace SimplexCore
         public static bool instance_exists(Guid guid)
         {
             return SceneObjects.FindIndex(x => x.Id == guid) != -1;
+        }
+
+        public static bool instance_exists(Type t, bool notMe = true)
+        {
+            if (!notMe)
+            {
+                return SceneObjects.FindIndex(x => x.GetType() == t && x.Id != currentObject.Id) != -1;
+            }
+
+            return SceneObjects.FindIndex(x => x.GetType() == t) != -1;
         }
 
         public static int instance_number(Type obj)
