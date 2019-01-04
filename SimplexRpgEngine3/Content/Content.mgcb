@@ -29,8 +29,8 @@
 
 #begin Sounds/Mystical Piano.mp3
 /importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Medium
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
 /build:Sounds/Mystical Piano.mp3;Sounds/MySong.mp3
 
 #begin Sprites/circle.png

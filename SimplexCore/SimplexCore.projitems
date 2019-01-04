@@ -31,7 +31,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Particle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ParticleEngine.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ParticleLayer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SgmlAudio.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlSprite.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SoundDescriptor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SoundReference.cs" />
     <None Include="$(MSBuildThisFileDirectory)Prefabs\PrefabObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Quadtree.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RoomLayer.cs" />

@@ -39,6 +39,7 @@ namespace SimplexIde
         List<Subsprite> subsprites = new List<Subsprite>();
         private Subsprite selectedSub = null;
         private int toolMode = 0;
+        List<SoundDescriptor> allSounds = new List<SoundDescriptor>();
 
         public Sounds_Manager()
         {
@@ -51,12 +52,12 @@ namespace SimplexIde
             // first we load descriptor for all sprites
             // Sprites = JsonConvert.DeserializeObject<List<Spritesheet>>(new StreamReader("../../../SimplexRpgEngine3/SpritesDescriptor.json").ReadToEnd());
 
-            string[] extensions = { ".mp3", ".wav", ".ogg" };
+            string[] extensions = { ".mp3", ".wav", ".ogg", ".wma" };
             foreach (string file in Directory.EnumerateFiles("../../../SimplexRpgEngine3/Content/bin/Windows/Sounds/", "*.xnb*"))
             {
                 string name = Path.GetFileNameWithoutExtension(file);
 
-                if (owner.drawTest1.Sprites.FindIndex(x => x.Name == name) != -1)
+                if (owner.drawTest1.audioList.FindIndex(x => x.Name == name) != -1)
                 {
                     okEntries.Add(name);
                 }
@@ -86,6 +87,15 @@ namespace SimplexIde
             }
 
             darkTreeView1.Nodes[0].Expanded = true;
+
+            StreamReader sw = new StreamReader("../../../SimplexRpgEngine3/SoundsDescriptor.json");
+            allSounds = JsonConvert.DeserializeObject<List<SoundDescriptor>>(sw.ReadToEnd());
+            sw.Close();
+
+            if (allSounds == null)
+            {
+                allSounds = new List<SoundDescriptor>();
+            }
         }
 
         private void darkTreeView1_Click(object sender, EventArgs e)
@@ -109,6 +119,9 @@ namespace SimplexIde
                     darkLabel1.Text = "Title: " + title;
                     darkLabel2.Text = "Album: " + album;
                     darkLabel3.Text = "Length: " + length;
+
+                    // load sound's info if it exist, else save
+
                 }
             }
         }
@@ -211,25 +224,18 @@ namespace SimplexIde
             // save descriptor
             if (toolMode == 0)
             {
-                StreamReader sw = new StreamReader("../../../SimplexRpgEngine3/SpritesDescriptor.json");
-                List<Spritesheet> current = JsonConvert.DeserializeObject<List<Spritesheet>>(sw.ReadToEnd());
-                sw.Close();
 
-                Spritesheet overwrite = current.FirstOrDefault(x => x.Name == selectedNode.Text);
+                SoundDescriptor overwrite = allSounds.FirstOrDefault(x => x.Name == selectedNode.Text);
 
                 if (overwrite != null)
                 {
-                    overwrite.CellHeight = cellH;
-                    overwrite.CellWidth = cellW;
-                    overwrite.Rows = rows;
+                    overwrite.RelativeVolume = trackBar1.Value;
                 }
                 else
                 {
-                    Spritesheet s = new Spritesheet();
+                    SoundDescriptor s = new SoundDescriptor();
                     s.Name = selectedNode.Text;
-                    s.CellHeight = cellH;
-                    s.CellWidth = cellW;
-                    s.Rows = rows;
+                    s.RelativeVolume = trackBar1.Value;
 
                     okEntries.Add(s.Name);
                     badEntries.Remove(s.Name);
@@ -237,12 +243,12 @@ namespace SimplexIde
                     selectedNode.Icon = (Bitmap) Properties.Resources.Checkmark_16x;
                     darkTreeView1.Invalidate();
 
-                    current.Add(s);
+                    allSounds.Add(s);
                 }
 
-                string json = JsonConvert.SerializeObject(current);
+                string json = JsonConvert.SerializeObject(allSounds);
 
-                using (StreamWriter writer = new StreamWriter("../../../SimplexRpgEngine3/SpritesDescriptor.json"))
+                using (StreamWriter writer = new StreamWriter("../../../SimplexRpgEngine3/SoundsDescriptor.json"))
                 {
                     writer.WriteLine(json);
                     writer.Close();

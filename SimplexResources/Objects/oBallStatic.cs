@@ -30,6 +30,7 @@ namespace SimplexResources.Objects
         public override void EvtCreate()
         {
             pe = new ParticleEngine(new List<Texture2D>() { RoomEditor.Sprites.FirstOrDefault(x => x.Name == "circle").Texture, RoomEditor.Sprites.FirstOrDefault(x => x.Name == "star").Texture, RoomEditor.Sprites.FirstOrDefault(x => x.Name == "diamond").Texture }, Position);
+            audio_play_sound_fast(audio_get("MySong"));
         }
 
         public override void EvtRegisterCollisions()

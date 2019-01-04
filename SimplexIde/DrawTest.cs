@@ -16,6 +16,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using MonoGame.Extended;
 using MonoGame.Extended.ViewportAdapters;
 using MonoGame.Extended.Shapes;
@@ -92,7 +93,7 @@ namespace SimplexIde
         public RoomsControl roomsControl;
         RectangleF generalRectangle = RectangleF.Empty;
         Effect effect;
-        public List<SoundEffect> audioList = new List<SoundEffect>();
+        public List<SoundReference> audioList = new List<SoundReference>();
 
         protected override void Initialize()
         {
@@ -103,6 +104,7 @@ namespace SimplexIde
             Sgml.Textures = Textures;
             Sgml.RoomEditor = this;
             Sgml.RoomEditorEditor = Editor;
+            Sgml.Sounds = audioList;
 
             camera = new Camera2D(Editor.graphics);
             basicEffect = new BasicEffect(Editor.graphics);
@@ -127,6 +129,17 @@ namespace SimplexIde
             {
                 Texture2D tex = Editor.Content.Load<Texture2D>(Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/" + s.Name));
                 s.Texture = tex;
+            }
+
+            List<SoundDescriptor> TempSounds = JsonConvert.DeserializeObject<List<SoundDescriptor>>(new StreamReader("../../../SimplexRpgEngine3/SoundsDescriptor.json").ReadToEnd());
+            foreach (SoundDescriptor s in TempSounds)
+            {
+                SoundReference r = new SoundReference();
+                r.Name = s.Name;
+                r.RelativeVolume = s.RelativeVolume;
+                r.Source = Editor.Content.Load<SoundEffect>(Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sounds/" + s.Name));
+
+                audioList.Add(r);
             }
 
             Sgml.sh = sh;
