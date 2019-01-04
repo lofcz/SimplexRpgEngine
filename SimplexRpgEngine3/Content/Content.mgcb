@@ -27,6 +27,12 @@
 /processorParam:DebugMode=Auto
 /build:Shaders/File.fx;Shaders/shader1.fx
 
+#begin Sounds/Mystical Piano.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Medium
+/build:Sounds/Mystical Piano.mp3;Sounds/MySong.mp3
+
 #begin Sprites/circle.png
 /importer:TextureImporter
 /processor:TextureProcessor

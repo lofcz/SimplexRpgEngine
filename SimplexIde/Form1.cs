@@ -32,6 +32,7 @@ namespace SimplexIde
         public DarkTreeView objects;
         public DarkTreeView rooms;
         public Sprites_manager SpritesManager = null;
+        public Sounds_Manager SoundsManager;
         public TilesetControl ww = null;
         public ToolWindow w = null;
 
@@ -582,6 +583,18 @@ namespace SimplexIde
         {
             // open manual
             Process.Start("https://github.com/lofcz/SimplexRpgEngine/wiki");
+        }
+
+        private void soundsManagerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Open sounds manager
+            SoundsManager?.Close();
+
+            SoundsManager = new Sounds_Manager();
+            SoundsManager.Owner = this;
+            SoundsManager.owner = this;
+            SoundsManager.StartPosition = FormStartPosition.CenterScreen;
+            SoundsManager.Show();
         }
     }
 }

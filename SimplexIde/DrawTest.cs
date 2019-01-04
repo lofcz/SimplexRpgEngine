@@ -13,6 +13,7 @@ using System.Xml.Serialization;
 using DarkUI.Collections;
 using DarkUI.Controls;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
@@ -91,6 +92,7 @@ namespace SimplexIde
         public RoomsControl roomsControl;
         RectangleF generalRectangle = RectangleF.Empty;
         Effect effect;
+        public List<SoundEffect> audioList = new List<SoundEffect>();
 
         protected override void Initialize()
         {
@@ -120,7 +122,7 @@ namespace SimplexIde
             _globalKeyboardHook.KeyboardPressed += OnKeyPressed;
 
             Sprites = JsonConvert.DeserializeObject<List<Spritesheet>>(new StreamReader("../../../SimplexRpgEngine3/SpritesDescriptor.json").ReadToEnd());
-  
+            
             foreach (Spritesheet s in Sprites)
             {
                 Texture2D tex = Editor.Content.Load<Texture2D>(Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/" + s.Name));

@@ -30,11 +30,11 @@ namespace SimplexCore
         {
             Texture2D texture = textures[random.Next(textures.Count)];
             Vector2 position = EmitterLocation;
-            Vector2 velocity = new Vector2(
-                1f * (float)(random.NextDouble() * 2 - 1),
-                1f * (float)(random.NextDouble() * 2 - 1));
+
+            double rr = random.NextDouble() * 5;
+            Vector2 velocity = new Vector2((float)random.NextDouble() * 5 * Sgml.choose(1, -1), (float)random.NextDouble() * 5 * Sgml.choose(1, -1));
             float angle = 0;
-            float angularVelocity = 0.1f * (float)(random.NextDouble() * 2 - 1);
+            float angularVelocity = 0.1f * (float)(random.NextDouble() * 5 - 1);
             Color color = new Color(
                 (float)random.NextDouble(),
                 (float)random.NextDouble(),

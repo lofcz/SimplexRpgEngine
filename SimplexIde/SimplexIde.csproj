@@ -58,6 +58,9 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="policy.2.0.taglib-sharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=db62eba44689b5b0, processorArchitecture=MSIL">
+      <HintPath>..\packages\taglib.2.1.0.0\lib\policy.2.0.taglib-sharp.dll</HintPath>
+    </Reference>
     <Reference Include="SharpDX, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpDX.4.0.1\lib\net45\SharpDX.dll</HintPath>
     </Reference>
@@ -97,6 +100,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="taglib-sharp, Version=2.1.0.0, Culture=neutral, PublicKeyToken=db62eba44689b5b0, processorArchitecture=MSIL">
+      <HintPath>..\packages\taglib.2.1.0.0\lib\taglib-sharp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config.cs" />
@@ -128,6 +134,12 @@
     </Compile>
     <Compile Include="RoomsControl.Designer.cs">
       <DependentUpon>RoomsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sounds manager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sounds manager.Designer.cs">
+      <DependentUpon>Sounds manager.cs</DependentUpon>
     </Compile>
     <Compile Include="Sprites manager.cs">
       <SubType>Form</SubType>
@@ -168,6 +180,9 @@
     </Compile>
     <EmbeddedResource Include="RoomsControl.resx">
       <DependentUpon>RoomsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sounds manager.resx">
+      <DependentUpon>Sounds manager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sprites manager.resx">
       <DependentUpon>Sprites manager.cs</DependentUpon>
