@@ -271,6 +271,14 @@ namespace SimplexCore
             sb.End();
         }
 
+        public static void draw_sprite_part(Texture2D sprite, Rectangle rect, Vector2 position)
+        {
+            sb.Begin(transformMatrix: m);
+
+            sb.Draw(sprite, position, rect, FinalizeColor(DrawColor), 0, new Vector2(0, 0),0, SpriteEffects.None, 1);
+            sb.End();
+        }
+
         public static void draw_line(Vector2 pos1, Vector2 pos2)
         {
             vertices.Clear();

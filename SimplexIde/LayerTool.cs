@@ -66,11 +66,11 @@ namespace SimplexIde
                         form.ww.currentTileset = ((TileLayer)l).Tileset;
 
                         // also give hime a bitmap which we need to get first
-                        Texture2D tex = form.drawTest1.Editor.Content.Load<Texture2D>(Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/Tilesets/" + ((TileLayer)l).Tileset.Name));
-                        MemoryStream memoryStream = new MemoryStream();
-                        tex.SaveAsPng(memoryStream, tex.Width, tex.Height);
+                       // Texture2D tex = form.drawTest1.Editor.Content.Load<Texture2D>(Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/Tilesets/" + ((TileLayer)l).Tileset.Name));
+                     //   MemoryStream memoryStream = new MemoryStream();
+                     //   tex.SaveAsPng(memoryStream, tex.Width, tex.Height);
 
-                        Bitmap bmp = new Bitmap(memoryStream);
+                        Bitmap bmp = new Bitmap(Path.GetFullPath("../../../SimplexRpgEngine3/Content/Sprites/Tilesets/" + ((TileLayer)l).Tileset.Name + ".png"));
 
                         // we have our bitmap now we pass it
                   

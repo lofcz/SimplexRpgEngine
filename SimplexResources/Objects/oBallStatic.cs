@@ -33,7 +33,7 @@ namespace SimplexResources.Objects
 
             if (instance_exists(typeof(oBallStatic), false))
             {
-                audio_play_sound_fast(audio_get("MySong"));
+                audio_play_sound_fast(audio_get("MySong"));              
             }
         }
 

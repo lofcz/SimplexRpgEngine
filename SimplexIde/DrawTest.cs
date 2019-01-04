@@ -336,6 +336,7 @@ namespace SimplexIde
             {
                 var k = 1;
             }
+            /*
             foreach (RoomLayer rl in roomLayers)
             {
                 if (rl.LayerType == RoomLayer.LayerTypes.typeTile)
@@ -365,7 +366,7 @@ namespace SimplexIde
 
                     Editor.spriteBatch.End();
                 }
-            }
+            }*/
 
 
             // Before render, resolve collisions
@@ -433,19 +434,6 @@ namespace SimplexIde
                     if (rl.Visible)
                     {
                         // ------------ positions doesn't matter here -------------
-                        // Layer is tile
-                        if (rl is TileLayer)
-                        {
-                            Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
-                            foreach (Tile t in ((TileLayer) rl).Tiles)
-                            {
-                                Editor.spriteBatch.Draw(t.SourceTexture, new Vector2(t.PosX * 32, t.PosY * 32),
-                                    t.DrawRectangle, Color.White);
-                            }
-
-                            Editor.spriteBatch.End();
-                        }
-
                         // Layer is object
                         if (rl is ObjectLayer)
                         {
@@ -462,6 +450,18 @@ namespace SimplexIde
                                 generalRectangle.Y = o.Position.Y;
 
                             }
+                        }
+
+                        // Layer is tile
+                        if (rl is TileLayer)
+                        {
+                            Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
+                            foreach (Tile t in ((TileLayer)rl).Tiles)
+                            {
+                                Editor.spriteBatch.Draw(t.SourceTexture, new Vector2(t.PosX * 32, t.PosY * 32), t.DrawRectangle, Color.White);
+                            }
+
+                            Editor.spriteBatch.End();
                         }
                     }
                 }

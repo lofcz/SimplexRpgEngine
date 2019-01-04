@@ -157,7 +157,7 @@ namespace SimplexCore
             }
 
             w.Close();
-            ttt.Dispose();
+           // ttt.Dispose();
         }
 
 
