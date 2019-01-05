@@ -51,13 +51,13 @@ namespace SimplexIde
         private void Form1_Load(object sender, EventArgs e)
         {
             // Application.AddMessageFilter(darkDockPanel2.DockContentDragFilter);
+            Application.AddMessageFilter(darkDockPanel5.DockResizeFilter);
             Application.AddMessageFilter(darkDockPanel2.DockResizeFilter);
             Application.AddMessageFilter(darkDockPanel1.DockResizeFilter);
             Application.AddMessageFilter(darkDockPanel1.DockContentDragFilter);
             Application.AddMessageFilter(darkDockPanel3.DockResizeFilter);
-            Application.AddMessageFilter(darkDockPanel3.DockContentDragFilter);
             Application.AddMessageFilter(darkDockPanel4.DockResizeFilter);
-            Application.AddMessageFilter(darkDockPanel4.DockContentDragFilter);
+
 
             Invalidate();
             drawTest1.cms = darkContextMenu2;
@@ -290,7 +290,7 @@ namespace SimplexIde
             w.main = drawTest1;
             objects = w.dtv;
             darkDockPanel2.AddContent(w);
-
+            
             loadResources();
         }
 

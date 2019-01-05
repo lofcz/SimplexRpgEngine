@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.Data;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace SimplexIde
         public DarkTreeNode selectedNode = null;
         public DrawTest f = null;
         public Form1 form;
+        public DarkTreeNode lastNodeSelected = null;
 
         public LayerTool(DrawTest f)
         {
@@ -53,41 +55,67 @@ namespace SimplexIde
             if (darkTreeView1.SelectedNodes.Count > 0)
             {
                 DarkTreeNode dtn = darkTreeView1.SelectedNodes[0];
-                if (dtn.Tag != null && (string)dtn?.Tag != "folder")
+                if (dtn.Tag != null && (string)dtn?.Tag != "folder" && dtn != lastNodeSelected)
                 {
-                    f.selectedLayer = f.roomLayers.FirstOrDefault(x => x.Name == dtn.Text);
+                        f.selectedLayer = f.roomLayers.FirstOrDefault(x => x.Name == dtn.Text);
 
-                    // Activate / deactive tile tool now
-                    RoomLayer l = f.selectedLayer;
+                        // Activate / deactive tile tool now
 
-                    if (l.LayerType == RoomLayer.LayerTypes.typeTile)
-                    {
-                        // give him a tileset
-                        form.ww.currentTileset = ((TileLayer)l).Tileset;
+                        RoomLayer l = f.selectedLayer;
 
-                        // also give hime a bitmap which we need to get first
-                       // Texture2D tex = form.drawTest1.Editor.Content.Load<Texture2D>(Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/Tilesets/" + ((TileLayer)l).Tileset.Name));
-                     //   MemoryStream memoryStream = new MemoryStream();
-                     //   tex.SaveAsPng(memoryStream, tex.Width, tex.Height);
+                        if (l.LayerType == RoomLayer.LayerTypes.typeTile)
+                        {
+                            // hide object panel to free up space
 
-                        Bitmap bmp = new Bitmap(Path.GetFullPath("../../../SimplexRpgEngine3/Content/Sprites/Tilesets/" + ((TileLayer)l).Tileset.Name + ".png"));
+                            if (form.w.Visible)
+                            {
+                                form.w.Hide();
+                                form.drawTest1.Location = new Point(form.drawTest1.Location.X - form.w.Size.Width, form.drawTest1.Location.Y);
+                                form.darkDockPanel3.Location = new Point(form.darkDockPanel3.Location.X - form.w.Size.Width, form.darkDockPanel3.Location.Y);
+                                form.darkDockPanel4.Location = new Point(form.darkDockPanel4.Location.X - form.w.Size.Width, form.darkDockPanel4.Location.Y);
+                                form.darkDockPanel3.Size = new Size(form.darkDockPanel3.Size.Width + form.w.Size.Width, form.darkDockPanel3.Size.Height);
+                                form.darkDockPanel4.Size = new Size(form.darkDockPanel4.Size.Width + form.w.Size.Width, form.darkDockPanel4.Size.Height);
+                                form.darkStatusStrip1.Location = new Point(form.darkStatusStrip1.Location.X - form.w.Size.Width, form.darkStatusStrip1.Location.Y);
+                                form.darkStatusStrip1.Size = new Size(form.darkStatusStrip1.Size.Width + form.w.Size.Width, form.darkStatusStrip1.Size.Height);
+                        }
 
-                        // we have our bitmap now we pass it
-                  
-                        form.ww.currentTilesetBitmap = bmp;
-                        form.ww.currentTileset = ((TileLayer)l).Tileset;
-                        form.ww.KillMe();
+                            // give him a tileset
+                            form.ww.currentTileset = ((TileLayer) l).Tileset;
+                            Bitmap bmp = new Bitmap(Path.GetFullPath(
+                                "../../../SimplexRpgEngine3/Content/Sprites/Tilesets/" + ((TileLayer) l).Tileset.Name +
+                                ".png"));
 
-                        form.drawTest1.lastLayer = l;
+                            // we have our bitmap now we pass it
+                            Sgml.show_debug_message("kokot");
+                            form.ww.currentTilesetBitmap = bmp;
+                            form.ww.currentTileset = ((TileLayer) l).Tileset;
+                            form.ww.KillMe();
+
+                            form.drawTest1.lastLayer = l;
+                        }
+
+                        if (l.LayerType == RoomLayer.LayerTypes.typeObject)
+                        {
+                            form.ww.currentTileset = null;
+                            form.w.Enabled = true;
+                            form.drawTest1.currentAutotile = null;
+
+                            if (!form.w.Visible)
+                            {
+                                form.drawTest1.Location = new Point(form.drawTest1.Location.X + form.w.Size.Width, form.drawTest1.Location.Y);
+                                form.darkDockPanel3.Location = new Point(form.darkDockPanel3.Location.X + form.w.Size.Width, form.darkDockPanel3.Location.Y);
+                                form.darkDockPanel4.Location = new Point(form.darkDockPanel4.Location.X + form.w.Size.Width, form.darkDockPanel4.Location.Y);
+                                form.darkDockPanel3.Size = new Size(form.darkDockPanel3.Size.Width - form.w.Size.Width, form.darkDockPanel3.Size.Height);
+                                form.darkDockPanel4.Size = new Size(form.darkDockPanel4.Size.Width - form.w.Size.Width, form.darkDockPanel4.Size.Height);
+                                form.darkStatusStrip1.Location = new Point(form.darkStatusStrip1.Location.X + form.w.Size.Width, form.darkStatusStrip1.Location.Y);
+                                form.darkStatusStrip1.Size = new Size(form.darkStatusStrip1.Size.Width - form.w.Size.Width, form.darkStatusStrip1.Size.Height);
+                        }
+
+                        form.w.Show();
+                        }
                     }
 
-                    if (l.LayerType == RoomLayer.LayerTypes.typeObject)
-                    {
-                        form.ww.currentTileset = null;
-                        form.w.Enabled = true;
-                        form.drawTest1.currentAutotile = null;
-                    }
-                }
+                lastNodeSelected = dtn;
             }
         }
 
