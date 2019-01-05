@@ -869,29 +869,68 @@ namespace SimplexIde
 
                 if (currentRoom != null)
                 {
-                    foreach (RoomLayer rl in currentRoom.Layers)
+                    if (currentAutotile == null)
                     {
-                        if (rl.Visible)
+                        foreach (RoomLayer rl in currentRoom.Layers)
                         {
-                            if (rl is ObjectLayer)
+                            if (rl.Visible)
                             {
-                                ObjectLayer ol = (ObjectLayer) rl;
-                                for (var i = ol.Objects.Count - 1; i >= 0; i--)
+                                if (rl is ObjectLayer)
                                 {
-
-                                    Microsoft.Xna.Framework.Rectangle r =
-                                        new Microsoft.Xna.Framework.Rectangle((int) ol.Objects[i].Position.X,
-                                            (int) ol.Objects[i].Position.Y, ol.Objects[i].Sprite.ImageRectangle.Width,
-                                            ol.Objects[i].Sprite.ImageRectangle.Height);
-
-                                    if (ks.IsKeyDown(Keys.LeftShift) && r.Contains(vec))
+                                    ObjectLayer ol = (ObjectLayer) rl;
+                                    for (var i = ol.Objects.Count - 1; i >= 0; i--)
                                     {
-                                        SceneObjects.Remove(ol.Objects[i]);
-                                        ol.Objects[i].EvtDelete();
-                                        ol.Objects.Remove(ol.Objects[i]);
+
+                                        Microsoft.Xna.Framework.Rectangle r =
+                                            new Microsoft.Xna.Framework.Rectangle((int) ol.Objects[i].Position.X,
+                                                (int) ol.Objects[i].Position.Y,
+                                                ol.Objects[i].Sprite.ImageRectangle.Width,
+                                                ol.Objects[i].Sprite.ImageRectangle.Height);
+
+                                        if (ks.IsKeyDown(Keys.LeftShift) && r.Contains(vec))
+                                        {
+                                            SceneObjects.Remove(ol.Objects[i]);
+                                            ol.Objects[i].EvtDelete();
+                                            ol.Objects.Remove(ol.Objects[i]);
+                                        }
                                     }
                                 }
                             }
+                        }
+                    }
+                    else
+                    {
+                        Tile alreadyT = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == (int) vec.X / 32 && x.PosY == (int) vec.Y / 32);
+
+                        if (alreadyT != null)
+                        {
+                            Tile t = new Tile();
+                            t.PosX = alreadyT.PosX;
+                            t.PosY = alreadyT.PosY;
+
+                            currentTileLayer.Tiles.Remove(alreadyT);
+
+                            // basic 4
+                            Tile t1 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX && x.PosY == t.PosY - 1); // N // 2
+                            Tile t2 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX && x.PosY == t.PosY + 1); // S // 64
+                            Tile t3 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX + 1 && x.PosY == t.PosY); // W // 16
+                            Tile t4 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX - 1 && x.PosY == t.PosY); // S // 8
+
+                            // extended 4
+                            Tile t5 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX - 1 && x.PosY == t.PosY - 1); // EN // 1
+                            Tile t6 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX + 1 && x.PosY == t.PosY - 1); // WN // 4
+                            Tile t7 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX - 1 && x.PosY == t.PosY + 1); // ES // 32
+                            Tile t8 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX + 1 && x.PosY == t.PosY + 1); // WS // 128
+
+                            if (t1 != null) { Autotile.UpdateTile(t1, currentTileLayer); }
+                            if (t2 != null) { Autotile.UpdateTile(t2, currentTileLayer); }
+                            if (t3 != null) { Autotile.UpdateTile(t3, currentTileLayer); }
+                            if (t4 != null) { Autotile.UpdateTile(t4, currentTileLayer); }
+
+                            if (t5 != null) { Autotile.UpdateTile(t5, currentTileLayer); }
+                            if (t6 != null) { Autotile.UpdateTile(t6, currentTileLayer); }
+                            if (t7 != null) { Autotile.UpdateTile(t7, currentTileLayer); }
+                            if (t8 != null) { Autotile.UpdateTile(t8, currentTileLayer); }
                         }
                     }
                 }

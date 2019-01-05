@@ -42,6 +42,7 @@ namespace SimplexCore
 
         public static void show_message_async(string str)
         {
+            
             //Microsoft.Xna.Framework.Input.MessageBox.Show("", str, new []{"Ok"});
         }
 
