@@ -212,16 +212,16 @@ namespace SimplexIde
 
             cam.UpdatePosition();
 
-            foreach (GameObject o in SceneObjects)
+            for (var i = 0; i < SceneObjects.Count; i++)
             {
-                sh.UnregisterObject(o);
-                sh.RegisterObject(o);
+                sh.UnregisterObject(SceneObjects[i]);
+                sh.RegisterObject(SceneObjects[i]);
 
-                if (GameRunning || o == clickedObject)
+                if (GameRunning || SceneObjects[i] == clickedObject)
                 {
-                    Sgml.currentObject = o;
-                    o.EvtStep();
-                    o.EvtDrawToSurfaces();
+                    Sgml.currentObject = SceneObjects[i];
+                    SceneObjects[i].EvtStep();
+                    SceneObjects[i].EvtDrawToSurfaces();
                 }
             }
         }
