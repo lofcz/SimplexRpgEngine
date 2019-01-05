@@ -684,23 +684,29 @@ namespace SimplexIde
                     {
                         Vector2 m = MousePositionTranslated;
 
-                        Tile alreadyT = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == (int)m.X / 32 && x.PosY == (int)m.Y / 32);
-
-                        if (alreadyT == null)
+                        // Check if a chunk is selected, if so -> process one by one
+                        for (var i = 0; i < TilesetSelectedRenRectangle.Height / 32; i++)
                         {
-                            Tile t = new Tile();
-                            t.Bits = 16;
-                            t.DrawRectangle = new Microsoft.Xna.Framework.Rectangle(TilesetSelectedRenRectangle.X, TilesetSelectedRenRectangle.Y, TilesetSelectedRenRectangle.Width, TilesetSelectedRenRectangle.Height);
-                            t.SourceTexture = tileTexture;
-                            t.PosX = (int) m.X / 32;
-                            t.PosY = (int) m.Y / 32;
-                            t.TileLayer = currentTileLayer;
-                            t.TileLayerName = t.TileLayer.Name;
+                            for (var j = 0; j < TilesetSelectedRenRectangle.Width / 32; j++)
+                            {
+                                Tile alreadyT = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == ((int)m.X / 32) + j && x.PosY == ((int)m.Y / 32) + i);
+                               
+                                if (alreadyT == null)
+                                {
+                                    Tile t = new Tile();
+                                    t.Bits = 16;
+                                    t.DrawRectangle = new Microsoft.Xna.Framework.Rectangle(TilesetSelectedRenRectangle.X + j * 32, TilesetSelectedRenRectangle.Y + i * 32, 32, 32);
+                                    t.SourceTexture = tileTexture;
+                                    t.PosX = (int)m.X / 32 + j;
+                                    t.PosY = (int)m.Y / 32 + i;
+                                    t.TileLayer = currentTileLayer;
+                                    t.TileLayerName = t.TileLayer.Name;
 
-                            currentTileLayer.Tiles.Add(t);
+                                    currentTileLayer.Tiles.Add(t);
+                                }
+                            }
                         }
-
-                        
+                      
                     }
                     else if (currentAutotile == null)
                     {
@@ -893,7 +899,7 @@ namespace SimplexIde
 
                 if (currentRoom != null)
                 {
-                    if (currentAutotile == null)
+                    if (currentTileLayer == null)
                     {
                         foreach (RoomLayer rl in currentRoom.Layers)
                         {
@@ -934,27 +940,30 @@ namespace SimplexIde
 
                             currentTileLayer.Tiles.Remove(alreadyT);
 
-                            // basic 4
-                            Tile t1 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX && x.PosY == t.PosY - 1); // N // 2
-                            Tile t2 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX && x.PosY == t.PosY + 1); // S // 64
-                            Tile t3 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX + 1 && x.PosY == t.PosY); // W // 16
-                            Tile t4 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX - 1 && x.PosY == t.PosY); // S // 8
+                            if (currentAutotile != null)
+                            { 
+                                // basic 4
+                                Tile t1 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX && x.PosY == t.PosY - 1); // N // 2
+                                Tile t2 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX && x.PosY == t.PosY + 1); // S // 64
+                                Tile t3 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX + 1 && x.PosY == t.PosY); // W // 16
+                                Tile t4 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX - 1 && x.PosY == t.PosY); // S // 8
 
-                            // extended 4
-                            Tile t5 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX - 1 && x.PosY == t.PosY - 1); // EN // 1
-                            Tile t6 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX + 1 && x.PosY == t.PosY - 1); // WN // 4
-                            Tile t7 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX - 1 && x.PosY == t.PosY + 1); // ES // 32
-                            Tile t8 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX + 1 && x.PosY == t.PosY + 1); // WS // 128
+                                // extended 4
+                                Tile t5 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX - 1 && x.PosY == t.PosY - 1); // EN // 1
+                                Tile t6 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX + 1 && x.PosY == t.PosY - 1); // WN // 4
+                                Tile t7 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX - 1 && x.PosY == t.PosY + 1); // ES // 32
+                                Tile t8 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX + 1 && x.PosY == t.PosY + 1); // WS // 128
 
-                            if (t1 != null) { Autotile.UpdateTile(t1, currentTileLayer); }
-                            if (t2 != null) { Autotile.UpdateTile(t2, currentTileLayer); }
-                            if (t3 != null) { Autotile.UpdateTile(t3, currentTileLayer); }
-                            if (t4 != null) { Autotile.UpdateTile(t4, currentTileLayer); }
+                                if (t1 != null) { Autotile.UpdateTile(t1, currentTileLayer); }
+                                if (t2 != null) { Autotile.UpdateTile(t2, currentTileLayer); }
+                                if (t3 != null) { Autotile.UpdateTile(t3, currentTileLayer); }
+                                if (t4 != null) { Autotile.UpdateTile(t4, currentTileLayer); }
 
-                            if (t5 != null) { Autotile.UpdateTile(t5, currentTileLayer); }
-                            if (t6 != null) { Autotile.UpdateTile(t6, currentTileLayer); }
-                            if (t7 != null) { Autotile.UpdateTile(t7, currentTileLayer); }
-                            if (t8 != null) { Autotile.UpdateTile(t8, currentTileLayer); }
+                                if (t5 != null) { Autotile.UpdateTile(t5, currentTileLayer); }
+                                if (t6 != null) { Autotile.UpdateTile(t6, currentTileLayer); }
+                                if (t7 != null) { Autotile.UpdateTile(t7, currentTileLayer); }
+                                if (t8 != null) { Autotile.UpdateTile(t8, currentTileLayer); }
+                            }
                         }
                     }
                 }

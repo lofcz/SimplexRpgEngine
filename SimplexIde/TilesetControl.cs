@@ -123,7 +123,7 @@ namespace SimplexIde
             }
         }
 
-        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             // Clicked 
             if (pictureBox1.Image != null)
@@ -145,9 +145,42 @@ namespace SimplexIde
 
                 form.drawTest1.TilesetSelectedRenRectangle = selOutput;
                 form.drawTest1.tileTexture = tilesetTexture;
+                form.drawTest1.currentAutotile = null;
 
                 pictureBox1.Invalidate();
             }
+        }
+
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (selecton != Rectangle.Empty)
+            {
+                // update if shift is down
+                if (ModifierKeys == Keys.Shift)
+                {
+                    selecton.Width = (e.X - selecton.Width) / 32;
+                    selecton.Height = (e.Y - selecton.Height) / 32;
+
+                    int x2 = selecton.Width * 32;
+                    int y2 = selecton.Height * 32;
+                    selOutput.Width = x2;
+                    selOutput.Height = y2;
+
+                    form.drawTest1.TilesetSelectedRenRectangle = selOutput;
+
+                    pictureBox1.Invalidate();
+                }
+            }
+        }
+
+        private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+
         }
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
