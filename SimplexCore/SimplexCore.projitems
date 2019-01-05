@@ -35,6 +35,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)SgmlSprite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SoundDescriptor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SoundReference.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TilesetDescriptor.cs" />
     <None Include="$(MSBuildThisFileDirectory)Prefabs\PrefabObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Quadtree.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RoomLayer.cs" />

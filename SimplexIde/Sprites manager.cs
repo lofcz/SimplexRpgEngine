@@ -90,7 +90,39 @@ namespace SimplexIde
                 darkTreeView1.Nodes[0].Nodes.Add(d);
             }
 
+            okEntries.Clear();
+            badEntries.Clear();
+            // load tilesets
+            foreach (string file in Directory.EnumerateFiles("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/Tilesets/", "*.xnb*"))
+            {
+                string name = Path.GetFileNameWithoutExtension(file);
+
+                if (owner.drawTest1.Sprites.FindIndex(x => x.Name == name) != -1)
+                {
+                    okEntries.Add(name);
+                }
+                else
+                {
+                    badEntries.Add(name);
+                }
+            }
+
+            newList = okEntries.Concat(badEntries);
+            foreach (string s in newList)
+            {
+                DarkTreeNode d = new DarkTreeNode(s);
+                d.Tag = "item";
+                d.Icon = (Bitmap)Properties.Resources.EditCommandColumn_ActionGray_16x_32;
+
+                if (okEntries.FindIndex(x => x == d.Text) != -1)
+                {
+                    d.Icon = (Bitmap)Properties.Resources.Checkmark_16x;
+                }
+                darkTreeView1.Nodes[1].Nodes.Add(d);
+            }
+
             darkTreeView1.Nodes[0].Expanded = true;
+            darkTreeView1.Nodes[1].Expanded = true;
         }
 
         private void darkTreeView1_Click(object sender, EventArgs e)
@@ -106,27 +138,55 @@ namespace SimplexIde
 
                 if ((string)selectedNode.Tag != "folder")
                 {
-                    MemoryStream memoryStream = new MemoryStream();
-
-                    try
+                    // decide if we are under sprites or tilesets
+                    if (selectedNode.ParentNode.Text == "Sprites")
                     {
-                        // for known textures
-                        Spritesheet s = owner.drawTest1.Sprites.FirstOrDefault(x => x.Name == selectedNode.Text);
-                        s.Texture.SaveAsPng(memoryStream, s.Texture.Width, s.Texture.Height);
+                        MemoryStream memoryStream = new MemoryStream();
 
-                        darkNumericUpDown3.Value = s.Rows;
-                        darkNumericUpDown1.Value = s.CellWidth;
-                        darkNumericUpDown2.Value = s.CellHeight;
+                        try
+                        {
+                            // for known textures
+                            Spritesheet s = owner.drawTest1.Sprites.FirstOrDefault(x => x.Name == selectedNode.Text);
+                            s.Texture.SaveAsPng(memoryStream, s.Texture.Width, s.Texture.Height);
+
+                            darkNumericUpDown3.Value = s.Rows;
+                            darkNumericUpDown1.Value = s.CellWidth;
+                            darkNumericUpDown2.Value = s.CellHeight;
+                        }
+                        catch (Exception ee)
+                        {
+                            // we need to load otherwise
+                            Texture2D tex = owner.drawTest1.Editor.Content.Load<Texture2D>(
+                                Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/" +
+                                                 selectedNode.Text));
+                            tex.SaveAsPng(memoryStream, tex.Width, tex.Height);
+                        }
+
+
+                        lastImage = new Bitmap(memoryStream);
                     }
-                    catch (Exception ee)
+                    else
                     {
-                        // we need to load otherwise
-                        Texture2D tex = owner.drawTest1.Editor.Content.Load<Texture2D>(Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/" + selectedNode.Text));
-                        tex.SaveAsPng(memoryStream, tex.Width, tex.Height);
+                        // tilesets
+                        MemoryStream memoryStream = new MemoryStream();
+
+                        try
+                        {
+                            // for known textures
+                            Tileset s = owner.drawTest1.tilesets.FirstOrDefault(x => x.Name == selectedNode.Text);
+                            s.Texture.SaveAsPng(memoryStream, s.Texture.Width, s.Texture.Height);
+                        }
+                        catch (Exception ee)
+                        {
+                            // we need to load otherwise
+                            Texture2D tex = owner.drawTest1.Editor.Content.Load<Texture2D>(
+                            Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/Tilesets/" + selectedNode.Text));
+                            tex.SaveAsPng(memoryStream, tex.Width, tex.Height);
+                        }
+
+
+                        lastImage = new Bitmap(memoryStream);
                     }
-
-
-                    lastImage = new Bitmap(memoryStream);
                 }
             }
         }
