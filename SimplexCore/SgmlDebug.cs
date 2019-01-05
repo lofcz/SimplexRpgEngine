@@ -42,12 +42,12 @@ namespace SimplexCore
 
         public static void show_message_async(string str)
         {
-            Microsoft.Xna.Framework.Input.MessageBox.Show("", str, new []{"Ok"});
+            //Microsoft.Xna.Framework.Input.MessageBox.Show("", str, new []{"Ok"});
         }
 
         public static void show_message_async_ext(string str, string caption, string[] buttons)
         {
-            Microsoft.Xna.Framework.Input.MessageBox.Show(caption, str, buttons);
+            //Microsoft.Xna.Framework.Input.MessageBox.Show(caption, str, buttons);
         }
 
         public static double get_double(string str, string caption, string defaultValue = "")

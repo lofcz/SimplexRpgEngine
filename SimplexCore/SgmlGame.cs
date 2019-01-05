@@ -19,7 +19,7 @@ namespace SimplexCore
     {
         public static List<Tileset> tilesets;
         public static DrawTest RoomEditor;
-        public static UpdateService RoomEditorEditor;
+        public static MonoGameService RoomEditorEditor;
 
         public static void game_end()
         {

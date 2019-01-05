@@ -51,40 +51,41 @@
             <param name="graphicsDevice">The GraphicsDevice.</param>
             <returns></returns>
         </member>
-        <member name="T:MonoGame.Forms.Controls.DrawWindow">
+        <member name="T:MonoGame.Forms.Controls.InvalidationControl">
             <summary>
-            Inherit from this class in your custom class to create a draw control, which is selectable from the ToolBox during design time.
+            Inherit from this class in your custom class to create an invalidation control, which is selectable from the ToolBox during design time.
             It provides 'NO' game loop, but it's updated through invalidation (<see cref="M:System.Windows.Forms.Control.Invalidate"/>).
-            <remarks>This draw control is useful as a simple window, which doesn't need a classical game loop like a preview window for textures.</remarks>
+            You need to call 'Invalidate()' on a custom control by yourself to update its contents.
+            <remarks>This control is useful as a simple CPU gentle control, which doesn't need a classical game loop like a preview window for textures.</remarks>
             </summary>
         </member>
-        <member name="P:MonoGame.Forms.Controls.DrawWindow.Editor">
+        <member name="P:MonoGame.Forms.Controls.InvalidationControl.Editor">
             <summary>
-            The <see cref="T:MonoGame.Forms.Services.DrawService"/> of the <see cref="T:MonoGame.Forms.Controls.DrawWindow"/> draws the actual content of the draw control.
+            The <see cref="T:MonoGame.Forms.Services.InvalidationService"/> of the <see cref="T:MonoGame.Forms.Controls.InvalidationControl"/> draws the actual content of the draw control.
             </summary>
         </member>
-        <member name="M:MonoGame.Forms.Controls.DrawWindow.Initialize">
+        <member name="M:MonoGame.Forms.Controls.InvalidationControl.Initialize">
             <summary>
             Basic initializing.
             </summary>
         </member>
-        <member name="M:MonoGame.Forms.Controls.DrawWindow.Draw">
+        <member name="M:MonoGame.Forms.Controls.InvalidationControl.Draw">
             <summary>
             Basic drawing.
-            The draw control becomes updated though invalidation: <see cref="M:System.Windows.Forms.Control.Invalidate"/>
+            This control becomes updated though invalidation: <see cref="M:System.Windows.Forms.Control.Invalidate"/>
             </summary>
         </member>
-        <member name="M:MonoGame.Forms.Controls.DrawWindow.OnClientSizeChanged(System.EventArgs)">
+        <member name="M:MonoGame.Forms.Controls.InvalidationControl.OnClientSizeChanged(System.EventArgs)">
             <summary>
             Updates related Editor services when the <see cref="P:System.Windows.Forms.Control.ClientSize"/> changes.
             </summary>
         </member>
-        <member name="M:MonoGame.Forms.Controls.DrawWindow.OnVisibleChanged(System.EventArgs)">
+        <member name="M:MonoGame.Forms.Controls.InvalidationControl.OnVisibleChanged(System.EventArgs)">
             <summary>
-            In case the ClientSize was changed before activating the window, the cam position gets updated according to this changes.
+            In case the ClientSize was changed before activating the control, the cam position gets updated according to this changes.
             </summary>
         </member>
-        <member name="M:MonoGame.Forms.Controls.DrawWindow.Dispose(System.Boolean)">
+        <member name="M:MonoGame.Forms.Controls.InvalidationControl.Dispose(System.Boolean)">
             <summary>
             Disposes the contents of the attached Editor.
             </summary>
@@ -183,16 +184,6 @@
             Get the ServiceContainer.
             </summary>
         </member>
-        <member name="P:MonoGame.Forms.Controls.GraphicsDeviceControl.AutomaticInvalidation">
-            <summary>
-            "true" if you want the editor view automatically updates itself.
-            Set this to "false" to update the editor view manually by calling "Invalidate()" on a custom control.
-            <remarks>
-            This option is useful when you are using a MonoGame.Forms render control inside a NodeGraphEditor for example and you don't want to block the
-            whole NodeGraph with the invalidations taking place here.
-            </remarks>
-            </summary>
-        </member>
         <member name="P:MonoGame.Forms.Controls.GraphicsDeviceControl.AlwaysEnableKeyboardInput">
             <summary>
             If enabled the Keyboard input will work even if the current control has no focus (mouse cursor is outside of the control).
@@ -203,45 +194,45 @@
             Returns true when the mouse cursor is inside the control.
             </summary>
         </member>
-        <member name="T:MonoGame.Forms.Controls.UpdateWindow">
+        <member name="T:MonoGame.Forms.Controls.MonoGameControl">
             <summary>
             Inherit from this class in your custom class to create a draw control with a game loop, which is selectable from the ToolBox during design time.
             It provides a game loop and a place to draw.
             <remarks>This game loop control is useful as a window, which needs a classical game loop for complex <see cref="T:Microsoft.Xna.Framework.GameTime"/> based mechanics.</remarks>
             </summary>
         </member>
-        <member name="P:MonoGame.Forms.Controls.UpdateWindow.Editor">
+        <member name="P:MonoGame.Forms.Controls.MonoGameControl.Editor">
             <summary>
-            The <see cref="T:MonoGame.Forms.Services.UpdateService"/> of the <see cref="T:MonoGame.Forms.Controls.UpdateWindow"/> draws and updates the actual content of the update control.
+            The <see cref="T:MonoGame.Forms.Services.MonoGameService"/> of the <see cref="T:MonoGame.Forms.Controls.MonoGameControl"/> draws and updates the actual content of the update control.
             </summary>
         </member>
-        <member name="M:MonoGame.Forms.Controls.UpdateWindow.Initialize">
+        <member name="M:MonoGame.Forms.Controls.MonoGameControl.Initialize">
             <summary>
             Basic initializing.
             </summary>
         </member>
-        <member name="M:MonoGame.Forms.Controls.UpdateWindow.Update(Microsoft.Xna.Framework.GameTime)">
+        <member name="M:MonoGame.Forms.Controls.MonoGameControl.Update(Microsoft.Xna.Framework.GameTime)">
             <summary>
             Basic updating.
             It uses a real game loop, represented by <see cref="T:Microsoft.Xna.Framework.GameTime"/>.
             </summary>
         </member>
-        <member name="M:MonoGame.Forms.Controls.UpdateWindow.Draw">
+        <member name="M:MonoGame.Forms.Controls.MonoGameControl.Draw">
             <summary>
             Basic drawing.
             </summary>
         </member>
-        <member name="M:MonoGame.Forms.Controls.UpdateWindow.OnClientSizeChanged(System.EventArgs)">
+        <member name="M:MonoGame.Forms.Controls.MonoGameControl.OnClientSizeChanged(System.EventArgs)">
             <summary>
             Updates related Editor services when the <see cref="P:System.Windows.Forms.Control.ClientSize"/> changes.
             </summary>
         </member>
-        <member name="M:MonoGame.Forms.Controls.UpdateWindow.OnVisibleChanged(System.EventArgs)">
+        <member name="M:MonoGame.Forms.Controls.MonoGameControl.OnVisibleChanged(System.EventArgs)">
             <summary>
             In case the ClientSize was changed before activating the window, the cam position gets updated according to this changes.
             </summary>
         </member>
-        <member name="M:MonoGame.Forms.Controls.UpdateWindow.Dispose(System.Boolean)">
+        <member name="M:MonoGame.Forms.Controls.MonoGameControl.Dispose(System.Boolean)">
             <summary>
             Disposes the contents of the attached Editor.
             </summary>
@@ -272,25 +263,25 @@
               Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
             </summary>
         </member>
-        <member name="T:MonoGame.Forms.Services.DrawService">
+        <member name="T:MonoGame.Forms.Services.InvalidationService">
             <summary>
-            This class inherits from <see cref="T:MonoGame.Forms.Services.GFXService"/>, which provides basic functionality of MonoGame.
-            The <see cref="T:MonoGame.Forms.Controls.DrawWindow"/> inherits from this class.
-            <remarks>Note: this class provides no game loop. Only the <see cref="T:MonoGame.Forms.Services.UpdateService"/> deliveres one.</remarks>
+            This class inherits from <see cref="T:MonoGame.Forms.Services.GFXService"/>, which provides basic functionality of the MonoGame.Framework.
+            The <see cref="T:MonoGame.Forms.Controls.InvalidationControl"/> inherits from this class.
+            <remarks>Note: this class provides no game loop. Only the <see cref="T:MonoGame.Forms.Services.MonoGameService"/> deliveres one.</remarks>
             </summary>
         </member>
-        <member name="M:MonoGame.Forms.Services.DrawService.Initialize">
+        <member name="M:MonoGame.Forms.Services.InvalidationService.Initialize">
             <summary>
             Override this basic intitializing method in your custom class to create your own initializing logic.
             </summary>
         </member>
-        <member name="M:MonoGame.Forms.Services.DrawService.Update(Microsoft.Xna.Framework.GameTime)">
+        <member name="M:MonoGame.Forms.Services.InvalidationService.Update(Microsoft.Xna.Framework.GameTime)">
             <summary>
-            Throws a <see cref="T:System.NotImplementedException"/>, because a <see cref="T:MonoGame.Forms.Services.DrawService"/> class doesn't contain a game loop.
+            Throws a <see cref="T:System.NotImplementedException"/>, because a <see cref="T:MonoGame.Forms.Services.InvalidationService"/> class doesn't contain a game loop.
             This is a basic implementation of the corresponding abstract method from the <see cref="T:MonoGame.Forms.Services.GFXService"/> class.
             </summary>
         </member>
-        <member name="M:MonoGame.Forms.Services.DrawService.Draw">
+        <member name="M:MonoGame.Forms.Services.InvalidationService.Draw">
             <summary>
             Override this basic drawing method in your custom class to create your own drawing logic.
             This basic implementation just clears the background color of the draw control in the predefined color: <see cref="P:MonoGame.Forms.Services.GFXService.BackgroundColor"/>
@@ -647,25 +638,25 @@
                 Adds a new service to the collection.
             </summary>
         </member>
-        <member name="T:MonoGame.Forms.Services.UpdateService">
+        <member name="T:MonoGame.Forms.Services.MonoGameService">
             <summary>
-            This class inherits from <see cref="T:MonoGame.Forms.Services.GFXService"/>, which provides basic functionality of MonoGame.
-            The <see cref="T:MonoGame.Forms.Controls.UpdateWindow"/> inherits from this class.
-            <remarks>Note: this class provides a game loop. The <see cref="T:MonoGame.Forms.Services.DrawService"/> is not using a game loop.</remarks>
+            This class inherits from <see cref="T:MonoGame.Forms.Services.GFXService"/>, which provides basic functionality of the MonoGame.Framework.
+            The <see cref="T:MonoGame.Forms.Controls.MonoGameControl"/> inherits from this class.
+            <remarks>Note: this class provides a game loop. The <see cref="T:MonoGame.Forms.Services.InvalidationService"/> is not using a game loop.</remarks>
             </summary>
         </member>
-        <member name="M:MonoGame.Forms.Services.UpdateService.Initialize">
+        <member name="M:MonoGame.Forms.Services.MonoGameService.Initialize">
             <summary>
             Override this basic intitializing method in your custom class to create your own initializing logic.
             </summary>
         </member>
-        <member name="M:MonoGame.Forms.Services.UpdateService.Update(Microsoft.Xna.Framework.GameTime)">
+        <member name="M:MonoGame.Forms.Services.MonoGameService.Update(Microsoft.Xna.Framework.GameTime)">
             <summary>
             Override this basic updating method in your custom class to create your own initializing logic.
             </summary>
             <param name="gameTime">The <see cref="T:Microsoft.Xna.Framework.GameTime"/> of the game loop.</param>
         </member>
-        <member name="M:MonoGame.Forms.Services.UpdateService.Draw">
+        <member name="M:MonoGame.Forms.Services.MonoGameService.Draw">
             <summary>
             Override this basic drawing method in your custom class to create your own drawing logic.
             This basic implementation just clears the background color of the draw control in the predefined color: <see cref="P:MonoGame.Forms.Services.GFXService.BackgroundColor"/>

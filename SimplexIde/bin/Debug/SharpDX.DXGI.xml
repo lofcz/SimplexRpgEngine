@@ -6671,9 +6671,6 @@
             <unmanaged>HRESULT IDXGIOutputDuplication::ReleaseFrame()</unmanaged>	
             <unmanaged-short>IDXGIOutputDuplication::ReleaseFrame</unmanaged-short>	
         </member>
-        <member name="M:SharpDX.DXGI.OutputDuplication.MapDesktopSurface">
-            <unmanaged>HRESULT IDXGIOutputDuplication::MapDesktopSurface([Out] DXGI_MAPPED_RECT* pLockedRect)</unmanaged>	
-        </member>
         <member name="T:SharpDX.DXGI.Resource">
             <summary>	
             <p>Set the priority for evicting the resource from memory.</p>	

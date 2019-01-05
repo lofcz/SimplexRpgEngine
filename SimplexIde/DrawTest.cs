@@ -38,7 +38,7 @@ using RectangleF = MonoGame.Extended.RectangleF;
 
 namespace SimplexIde
 {
-    public class DrawTest : UpdateWindow
+    public class DrawTest : MonoGameControl
     {
         public Type SelectedObject = null;
         public List<GameObject> SceneObjects = new List<GameObject>();
