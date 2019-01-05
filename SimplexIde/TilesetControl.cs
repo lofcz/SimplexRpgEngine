@@ -22,7 +22,9 @@ namespace SimplexIde
         public Bitmap currentTilesetBitmap;
         public int mode = 0;
         public Form1 form;
-
+        public Rectangle selecton = Rectangle.Empty;
+        public Rectangle selOutput;
+        public Texture2D tilesetTexture = null;
         public TilesetControl()
         {
             InitializeComponent();
@@ -30,7 +32,7 @@ namespace SimplexIde
 
         private void TilesetControl_Load(object sender, EventArgs e)
         {
-           
+            selOutput = form.drawTest1.TilesetSelectedRenRectangle;
         }
 
         public void KillMe()
@@ -116,7 +118,49 @@ namespace SimplexIde
                     // time to select autotile
                     form.drawTest1.currentAutotile = currentTileset.AutotileLib.FirstOrDefault(x => x.Name == selected.Text);
                     form.drawTest1.currentTileLayer = (TileLayer) form.drawTest1.lastLayer;
+                    form.drawTest1.TilesetSelectedRenRectangle = Rectangle.Empty;
                 }
+            }
+        }
+
+        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            // Clicked 
+            if (pictureBox1.Image != null)
+            {
+                selecton.X = (e.X - pictureBox1.Location.X) / 32;
+                selecton.Y = (e.Y - pictureBox1.Location.Y) / 32;
+                selecton.Width = 1;
+                selecton.Height = 1;
+
+                int x1 = selecton.X * 32 + pictureBox1.Location.X;
+                int y1 = selecton.Y * 32 + pictureBox1.Location.Y;
+                int x2 = selecton.Width * 32;
+                int y2 = selecton.Height * 32;
+
+                selOutput.X = x1;
+                selOutput.Y = y1 - 17;
+                selOutput.Width = x2;
+                selOutput.Height = y2;
+
+                form.drawTest1.TilesetSelectedRenRectangle = selOutput;
+                form.drawTest1.tileTexture = tilesetTexture;
+
+                pictureBox1.Invalidate();
+            }
+        }
+
+        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        {
+            // Paint selection
+            if (selecton != Rectangle.Empty)
+            {
+                int x1 = selecton.X * 32 + pictureBox1.Location.X;
+                int y1 = selecton.Y * 32 + pictureBox1.Location.Y;
+                int x2 = selecton.Width * 32;
+                int y2 = selecton.Height * 32;
+
+                e.Graphics.DrawRectangle(Pens.Black, new Rectangle(x1, y1 - 17, x2, y2));
             }
         }
     }

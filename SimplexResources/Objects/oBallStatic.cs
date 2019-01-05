@@ -71,7 +71,7 @@ namespace SimplexResources.Objects
             CollisionContainer.X = (int)Position.X;
             CollisionContainer.Y = (int)Position.Y;
             CollisionContainer.Width = 64;
-            CollisionContainer.Height = 64;    
+            CollisionContainer.Height = 64;
 
             draw_circle_fast(Position, 64, 24, Color.White);
         }

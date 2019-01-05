@@ -94,6 +94,8 @@ namespace SimplexIde
         RectangleF generalRectangle = RectangleF.Empty;
         Effect effect;
         public List<SoundReference> audioList = new List<SoundReference>();
+        public Rectangle TilesetSelectedRenRectangle = Rectangle.Empty;
+        public Texture2D tileTexture = null;
 
         protected override void Initialize()
         {
@@ -678,7 +680,29 @@ namespace SimplexIde
                 }
                 else if (clickedObject == null)
                 {
-                    if (currentAutotile == null)
+                    if (TilesetSelectedRenRectangle != Rectangle.Empty)
+                    {
+                        Vector2 m = MousePositionTranslated;
+
+                        Tile alreadyT = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == (int)m.X / 32 && x.PosY == (int)m.Y / 32);
+
+                        if (alreadyT == null)
+                        {
+                            Tile t = new Tile();
+                            t.Bits = 16;
+                            t.DrawRectangle = new Microsoft.Xna.Framework.Rectangle(TilesetSelectedRenRectangle.X, TilesetSelectedRenRectangle.Y, TilesetSelectedRenRectangle.Width, TilesetSelectedRenRectangle.Height);
+                            t.SourceTexture = tileTexture;
+                            t.PosX = (int) m.X / 32;
+                            t.PosY = (int) m.Y / 32;
+                            t.TileLayer = currentTileLayer;
+                            t.TileLayerName = t.TileLayer.Name;
+
+                            currentTileLayer.Tiles.Add(t);
+                        }
+
+                        
+                    }
+                    else if (currentAutotile == null)
                     {
                         if (selectedRectangleObjects.Count > 0)
                         {
