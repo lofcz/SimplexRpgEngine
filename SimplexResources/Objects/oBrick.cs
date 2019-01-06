@@ -40,7 +40,7 @@ namespace SimplexResources.Objects
         }
 
         public override void EvtDraw()
-        {
+        {        
             CollisionContainer.Height = 32;
             CollisionContainer.Width = 64;
             CollisionContainer.X = (int)Position.X;

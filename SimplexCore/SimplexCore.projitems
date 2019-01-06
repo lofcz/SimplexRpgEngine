@@ -24,6 +24,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)GameRoom.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Global.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GlobalScripts.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IDE\SpritesManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Input.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)InputLowLevel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NativeMethods.cs" />

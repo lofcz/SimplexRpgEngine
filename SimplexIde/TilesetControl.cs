@@ -89,12 +89,14 @@ namespace SimplexIde
         {
             darkTreeView1.Visible = true;
             pictureBox1.Visible = false;
+            panel1.Visible = false;
         }
 
         private void tilesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             darkTreeView1.Visible = false;
             pictureBox1.Visible = true;
+            panel1.Visible = true;
         }
 
         private void darkTreeView1_Click(object sender, EventArgs e)
@@ -139,7 +141,7 @@ namespace SimplexIde
                 int y2 = selecton.Height * 32;
 
                 selOutput.X = x1;
-                selOutput.Y = y1 - 17;
+                selOutput.Y = y1;
                 selOutput.Width = x2;
                 selOutput.Height = y2;
 
@@ -193,8 +195,13 @@ namespace SimplexIde
                 int x2 = selecton.Width * 32;
                 int y2 = selecton.Height * 32;
 
-                e.Graphics.DrawRectangle(Pens.Black, new Rectangle(x1, y1 - 17, x2, y2));
+                e.Graphics.DrawRectangle(Pens.Black, new Rectangle(x1, y1, x2, y2));
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

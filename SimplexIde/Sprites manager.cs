@@ -752,6 +752,21 @@ namespace SimplexIde
         {
 
         }
+
+        private void fileToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            // convert entire file to a tilemap
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string path = openFileDialog1.FileName;
+                Bitmap bitmap = new Bitmap(path);
+
+                Bitmap[] readyToConvert = SimplexCore.IDE.SpritesManager.BitmapToSixFortySeven(bitmap);
+                Bitmap finalBitmap = SimplexCore.IDE.SpritesManager.PreTilesetsToOneBitmap(readyToConvert, bitmap.Width * 4, bitmap.Height * 2); // for 64x96 base
+
+                finalBitmap.Save("myfile.png", System.Drawing.Imaging.ImageFormat.Png);
+            }
+        }
     }
 
     public class Subsprite
