@@ -37,7 +37,7 @@ namespace SimplexCore
             int rY = score / 8;
             int rX = score % 8;
 
-            t.DrawRectangle = new Microsoft.Xna.Framework.Rectangle(rX * 32, rY * 32, 32, 32);
+            t.DrawRectangle = new Microsoft.Xna.Framework.Rectangle(rX * 32 + t.SheetX * 256, rY * 32 + t.SheetY * 192, 32, 32);
             t.Score = score;
             return t;
         }

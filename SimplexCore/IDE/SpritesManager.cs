@@ -215,8 +215,73 @@ namespace SimplexCore.IDE
             CopyRegionIntoImage(lastImage, new Rectangle(0, 0, 32, 32), ref bpp, new Rectangle(192, 160, 32, 32));
 
             CopyRegionIntoImage(lastImage, new Rectangle(16, 48, 32, 32), ref bpp, new Rectangle(224, 160, 32, 32));
-            #endregion     
-            return bpp;
+            #endregion
+            #region Part 2
+            lastImage = bpp;
+
+            Bitmap bpp2 = new Bitmap(256, 192);
+
+            // r1
+            CopyRegionIntoImage(lastImage, new Rectangle(0, 0, 32, 32), ref bpp2, new Rectangle(0, 0, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(128, 160, 32, 32), ref bpp2, new Rectangle(32, 0, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(160, 160, 32, 32), ref bpp2, new Rectangle(64, 0, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(224, 128, 32, 32), ref bpp2, new Rectangle(96, 0, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(192, 128, 32, 32), ref bpp2, new Rectangle(128, 0, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(96, 160, 32, 32), ref bpp2, new Rectangle(160, 0, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(32, 160, 32, 32), ref bpp2, new Rectangle(192, 0, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(0, 160, 32, 32), ref bpp2, new Rectangle(224, 0, 32, 32));
+
+            // r2
+            CopyRegionIntoImage(lastImage, new Rectangle(32, 128, 32, 32), ref bpp2, new Rectangle(0, 32, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(224, 96, 32, 32), ref bpp2, new Rectangle(32, 32, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(192, 96, 32, 32), ref bpp2, new Rectangle(64, 32, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(160, 96, 32, 32), ref bpp2, new Rectangle(96, 32, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(128, 96, 32, 32), ref bpp2, new Rectangle(128, 32, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(64, 160, 32, 32), ref bpp2, new Rectangle(160, 32, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(0, 128, 32, 32), ref bpp2, new Rectangle(192, 32, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(160, 128, 32, 32), ref bpp2, new Rectangle(224, 32, 32, 32));
+
+            // r3
+            CopyRegionIntoImage(lastImage, new Rectangle(96, 96, 32, 32), ref bpp2, new Rectangle(0, 64, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(32, 96, 32, 32), ref bpp2, new Rectangle(32, 64, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(96, 128, 32, 32), ref bpp2, new Rectangle(64, 64, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(96, 64, 32, 32), ref bpp2, new Rectangle(96, 64, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(64, 64, 32, 32), ref bpp2, new Rectangle(128, 64, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(192, 64, 32, 32), ref bpp2, new Rectangle(160, 64, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(224, 32, 32, 32), ref bpp2, new Rectangle(192, 64, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(64, 32, 32, 32), ref bpp2, new Rectangle(224, 64, 32, 32));
+
+            // r4
+            CopyRegionIntoImage(lastImage, new Rectangle(160, 32, 32, 32), ref bpp2, new Rectangle(0, 96, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(128, 32, 32, 32), ref bpp2, new Rectangle(32, 96, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(128, 128, 32, 32), ref bpp2, new Rectangle(64, 96, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(64, 96, 32, 32), ref bpp2, new Rectangle(96, 96, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(0, 96, 32, 32), ref bpp2, new Rectangle(128, 96, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(160, 64, 32, 32), ref bpp2, new Rectangle(160, 96, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(160, 0, 32, 32), ref bpp2, new Rectangle(192, 96, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(192, 0, 32, 32), ref bpp2, new Rectangle(224, 96, 32, 32));
+
+            // r5
+            CopyRegionIntoImage(lastImage, new Rectangle(160, 0, 32, 32), ref bpp2, new Rectangle(0, 128, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(128, 0, 32, 32), ref bpp2, new Rectangle(32, 128, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(64, 128, 32, 32), ref bpp2, new Rectangle(64, 128, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(32, 64, 32, 32), ref bpp2, new Rectangle(96, 128, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(0, 64, 32, 32), ref bpp2, new Rectangle(128, 128, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(192, 64, 32, 32), ref bpp2, new Rectangle(160, 128, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(96, 32, 32, 32), ref bpp2, new Rectangle(192, 128, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(64, 32, 32, 32), ref bpp2, new Rectangle(224, 128, 32, 32));
+
+            // r6
+            CopyRegionIntoImage(lastImage, new Rectangle(32, 32, 32, 32), ref bpp2, new Rectangle(0, 160, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(0, 32, 32, 32), ref bpp2, new Rectangle(32, 160, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(128, 64, 32, 32), ref bpp2, new Rectangle(64, 160, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(96, 0, 32, 32), ref bpp2, new Rectangle(96, 160, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(64, 0, 32, 32), ref bpp2, new Rectangle(128, 160, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(32, 0, 32, 32), ref bpp2, new Rectangle(160, 160, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(0, 0, 32, 32), ref bpp2, new Rectangle(192, 160, 32, 32));
+            CopyRegionIntoImage(lastImage, new Rectangle(192, 160, 32, 32), ref bpp2, new Rectangle(224, 160, 32, 32));
+            #endregion
+            return bpp2;
         }
 
         public static void CopyRegionIntoImage(Bitmap srcBitmap, Rectangle srcRegion, ref Bitmap destBitmap, Rectangle destRegion)

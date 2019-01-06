@@ -26,6 +26,9 @@ namespace SimplexIde
         public Rectangle selecton = Rectangle.Empty;
         public Rectangle selOutput;
         public Texture2D tilesetTexture = null;
+        public int SheetX = 0;
+        public int SheetY = 0;
+
         public TilesetControl()
         {
             InitializeComponent();
@@ -122,6 +125,7 @@ namespace SimplexIde
                     form.drawTest1.currentAutotile = currentTileset.AutotileLib.FirstOrDefault(x => x.Name == selected.Text);
                     form.drawTest1.currentTileLayer = (TileLayer) form.drawTest1.lastLayer;
                     form.drawTest1.TilesetSelectedRenRectangle = Rectangle.Empty;
+                    
                 }
             }
         }

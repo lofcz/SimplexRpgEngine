@@ -23,6 +23,8 @@ namespace SimplexCore
         public int PosY { get; set; }
         public double Alpha;
         public Vector2 Scale;
+        public int SheetX { get; set; }
+        public int SheetY { get; set; }
 
         [XmlIgnore]
         public int Score { get; set; }
@@ -35,6 +37,8 @@ namespace SimplexCore
         public Tile()
         {
             Scale = Vector2.One;
+            SheetX = 0;
+            SheetY = 0;
         }
     }
 }

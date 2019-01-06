@@ -96,6 +96,8 @@ namespace SimplexIde
         public List<SoundReference> audioList = new List<SoundReference>();
         public Rectangle TilesetSelectedRenRectangle = Rectangle.Empty;
         public Texture2D tileTexture = null;
+        public int SheetX = 0;
+        public int SheetY = 0;
 
         protected override void Initialize()
         {
@@ -844,6 +846,8 @@ namespace SimplexIde
                             t.PosY = (int) m.Y / 32;
                             t.TileLayer = currentTileLayer;
                             t.TileLayerName = t.TileLayer.Name;
+                            t.SheetX = currentAutotile.X;
+                            t.SheetY = currentAutotile.Y;
 
                             currentTileLayer.Tiles.Add(t);
 
