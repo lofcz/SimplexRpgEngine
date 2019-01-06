@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using DarkUI.Controls;
 using DarkUI.Docking;
 using Microsoft.Xna.Framework.Graphics;
+using Newtonsoft.Json;
 using SimplexCore;
 
 namespace SimplexIde
@@ -54,7 +55,7 @@ namespace SimplexIde
             form.w.Enabled = false;
 
             // [todo]
-            currentTileset.AutotileLib[0].Texture = form.drawTest1.Editor.Content.Load<Texture2D>(Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/Tilesets/" + "tileset0"));
+           // currentTileset.AutotileLib[0].Texture = form.drawTest1.Editor.Content.Load<Texture2D>(Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/Tilesets/" + "tileset0"));
 
             // Now we can load actual autotiles
             foreach (AutotileDefinition k in currentTileset.AutotileLib)

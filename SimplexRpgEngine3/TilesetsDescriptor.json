@@ -5,7 +5,9 @@
     "AutotileLib": [
       {
         "Name": "grass",
-        "Bits": 16
+        "Bits": 16,
+		"X": 0,
+		"Y": 0
       }
     ]
   }

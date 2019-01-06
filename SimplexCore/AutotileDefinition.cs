@@ -11,6 +11,8 @@ namespace SimplexCore
     {
         public string Name { get; set; }
         public int Bits { get; set; }
+        public int X { get; set; }
+        public int Y { get; set; }
 
         [XmlIgnore]
         [JsonIgnore]

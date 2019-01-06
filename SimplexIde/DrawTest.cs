@@ -149,6 +149,11 @@ namespace SimplexIde
             Sgml.GraphicsDevice = GraphicsDevice;
 
             tilesets = JsonConvert.DeserializeObject<List<Tileset>>(File.ReadAllText("../../../SimplexRpgEngine3/TilesetsDescriptor.json"));
+
+            foreach (Tileset tl in tilesets)
+            {
+                tl.Texture = Editor.Content.Load<Texture2D>(Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/Tilesets/" + tl.Name));
+            }
             Sgml.tilesets = tilesets;
         }
 
@@ -460,7 +465,7 @@ namespace SimplexIde
                             Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
                             foreach (Tile t in ((TileLayer)rl).Tiles)
                             {
-                                Editor.spriteBatch.Draw(t.SourceTexture, new Vector2(t.PosX * 32, t.PosY * 32), t.DrawRectangle, Color.White);
+                                Editor.spriteBatch.Draw(((TileLayer)rl).Tileset.Texture, new Vector2(t.PosX * 32, t.PosY * 32), t.DrawRectangle, Color.White);
                             }
 
                             Editor.spriteBatch.End();
