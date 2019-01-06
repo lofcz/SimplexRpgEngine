@@ -865,15 +865,15 @@ namespace SimplexIde
                             Tile t7 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX - 1 && x.PosY == t.PosY + 1); // ES // 32
                             Tile t8 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX + 1 && x.PosY == t.PosY + 1); // WS // 128
 
-                            if (t1 != null) { Autotile.UpdateTile(t1, currentTileLayer); }
-                            if (t2 != null) { Autotile.UpdateTile(t2, currentTileLayer); }
-                            if (t3 != null) { Autotile.UpdateTile(t3, currentTileLayer); }
-                            if (t4 != null) { Autotile.UpdateTile(t4, currentTileLayer); }
+                            if (t1 != null && t1.SheetX == t.SheetX && t1.SheetY == t.SheetY) { Autotile.UpdateTile(t1, currentTileLayer); }
+                            if (t2 != null && t2.SheetX == t.SheetX && t2.SheetY == t.SheetY) { Autotile.UpdateTile(t2, currentTileLayer); }
+                            if (t3 != null && t3.SheetX == t.SheetX && t3.SheetY == t.SheetY) { Autotile.UpdateTile(t3, currentTileLayer); }
+                            if (t4 != null && t4.SheetX == t.SheetX && t4.SheetY == t.SheetY) { Autotile.UpdateTile(t4, currentTileLayer); }
 
-                            if (t5 != null) { Autotile.UpdateTile(t5, currentTileLayer); }
-                            if (t6 != null) { Autotile.UpdateTile(t6, currentTileLayer); }
-                            if (t7 != null) { Autotile.UpdateTile(t7, currentTileLayer); }
-                            if (t8 != null) { Autotile.UpdateTile(t8, currentTileLayer); }
+                            if (t5 != null && t5.SheetX == t.SheetX && t5.SheetY == t.SheetY) { Autotile.UpdateTile(t5, currentTileLayer); }
+                            if (t6 != null && t6.SheetX == t.SheetX && t6.SheetY == t.SheetY) { Autotile.UpdateTile(t6, currentTileLayer); }
+                            if (t7 != null && t7.SheetX == t.SheetX && t7.SheetY == t.SheetY) { Autotile.UpdateTile(t7, currentTileLayer); }
+                            if (t8 != null && t8.SheetX == t.SheetX && t8.SheetY == t.SheetY) { Autotile.UpdateTile(t8, currentTileLayer); }
                         }
                     }
                 }

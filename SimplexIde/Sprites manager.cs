@@ -18,6 +18,7 @@ using SimplexCore;
 using Color = System.Drawing.Color;
 using Rectangle = System.Drawing.Rectangle;
 using static SimplexCore.Sgml;
+using MouseButtons = System.Windows.Forms.MouseButtons;
 
 namespace SimplexIde
 {
@@ -39,6 +40,10 @@ namespace SimplexIde
         List<Subsprite> subsprites = new List<Subsprite>();
         private Subsprite selectedSub = null;
         private int toolMode = 0;
+        private DarkTreeNode lastNode = null;
+        private int lastSheetX = -1;
+        private int lastSheetY = -1;
+        private Tileset s;
 
         public Sprites_manager()
         {
@@ -136,58 +141,72 @@ namespace SimplexIde
             {
                 selectedNode = darkTreeView1.SelectedNodes[0];
 
-                if ((string)selectedNode.Tag != "folder")
+                if (lastNode != selectedNode)
                 {
-                    // decide if we are under sprites or tilesets
-                    if (selectedNode.ParentNode.Text == "Sprites")
+                    if ((string) selectedNode.Tag != "folder")
                     {
-                        MemoryStream memoryStream = new MemoryStream();
-
-                        try
+                        // decide if we are under sprites or tilesets
+                        if (selectedNode.ParentNode.Text == "Sprites")
                         {
-                            // for known textures
-                            Spritesheet s = owner.drawTest1.Sprites.FirstOrDefault(x => x.Name == selectedNode.Text);
-                            s.Texture.SaveAsPng(memoryStream, s.Texture.Width, s.Texture.Height);
+                            MemoryStream memoryStream = new MemoryStream();
 
-                            darkNumericUpDown3.Value = s.Rows;
-                            darkNumericUpDown1.Value = s.CellWidth;
-                            darkNumericUpDown2.Value = s.CellHeight;
+                            try
+                            {
+                                // for known textures
+                                Spritesheet s =
+                                    owner.drawTest1.Sprites.FirstOrDefault(x => x.Name == selectedNode.Text);
+                                s.Texture.SaveAsPng(memoryStream, s.Texture.Width, s.Texture.Height);
+
+                                darkNumericUpDown3.Value = s.Rows;
+                                darkNumericUpDown1.Value = s.CellWidth;
+                                darkNumericUpDown2.Value = s.CellHeight;
+                            }
+                            catch (Exception ee)
+                            {
+                                // we need to load otherwise
+                                Texture2D tex = owner.drawTest1.Editor.Content.Load<Texture2D>(
+                                    Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/" +
+                                                     selectedNode.Text));
+                                tex.SaveAsPng(memoryStream, tex.Width, tex.Height);
+                            }
+
+
+                            lastImage = new Bitmap(memoryStream);
                         }
-                        catch (Exception ee)
+                        else
                         {
-                            // we need to load otherwise
-                            Texture2D tex = owner.drawTest1.Editor.Content.Load<Texture2D>(
-                                Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/" +
-                                                 selectedNode.Text));
-                            tex.SaveAsPng(memoryStream, tex.Width, tex.Height);
+                            // tilesets
+                            MemoryStream memoryStream = new MemoryStream();
+
+                            try
+                            {
+                                // for known textures
+                                s = owner.drawTest1.tilesets.FirstOrDefault(x => x.Name == selectedNode.Text);
+                                s.Texture.SaveAsPng(memoryStream, s.Texture.Width, s.Texture.Height);
+
+                                foreach (AutotileDefinition ad in s.AutotileLib)
+                                {
+                                    darkDropdownList1.Items.Add(new DarkDropdownItem(ad.Name + " [X: " + ad.X + " Y: " + ad.Y + "]"));
+                                }
+                            }
+                            catch (Exception ee)
+                            {
+                                // we need to load otherwise
+                                Texture2D tex = owner.drawTest1.Editor.Content.Load<Texture2D>(
+                                    Path.GetFullPath(
+                                        "../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/Tilesets/" +
+                                        selectedNode.Text));
+                                tex.SaveAsPng(memoryStream, tex.Width, tex.Height);
+                            }
+
+
+                            lastImage = new Bitmap(memoryStream);
+                            toolMode = 2;
                         }
-
-
-                        lastImage = new Bitmap(memoryStream);
-                    }
-                    else
-                    {
-                        // tilesets
-                        MemoryStream memoryStream = new MemoryStream();
-
-                        try
-                        {
-                            // for known textures
-                            Tileset s = owner.drawTest1.tilesets.FirstOrDefault(x => x.Name == selectedNode.Text);
-                            s.Texture.SaveAsPng(memoryStream, s.Texture.Width, s.Texture.Height);
-                        }
-                        catch (Exception ee)
-                        {
-                            // we need to load otherwise
-                            Texture2D tex = owner.drawTest1.Editor.Content.Load<Texture2D>(
-                            Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/Tilesets/" + selectedNode.Text));
-                            tex.SaveAsPng(memoryStream, tex.Width, tex.Height);
-                        }
-
-
-                        lastImage = new Bitmap(memoryStream);
                     }
                 }
+
+                lastNode = selectedNode;
             }
         }
 
@@ -333,7 +352,52 @@ namespace SimplexIde
 
         private void Sprites_manager_MouseClick(object sender, MouseEventArgs e)
         {
-            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                if (toolMode == 2)
+                {
+                    // prompt user to define new autotile
+                    //string ss = get_string("", "Name this autotile:");
+                    if (rows > 0 && cellH > 0 && cellW > 0)
+                    {
+                        int cx, cy;
+                        cx = darkSectionPanel1.Location.X + darkSectionPanel1.Width + 20;
+                        cy = darkSectionPanel1.Location.Y;
+
+                        int xIndex = 0;
+                        int yIndex = 0;
+                        for (var i = 0; i < rows; i++)
+                        {
+                            for (var j = 0; j < lastImage.Width / cellW; j++)
+                            {
+                                bool hit = false;
+
+                                Rectangle r = new Rectangle((int)(cx * 1), (int)(cy * 1), (int)(cellW * zoom), (int)(cellH * zoom));
+
+                                if (r.Contains(new System.Drawing.Point((int)mouse.X, (int)mouse.Y)))
+                                {
+                                    hit = true;
+                                }
+
+                                if (hit)
+                                {
+                                    lastSheetX = xIndex;
+                                    lastSheetY = yIndex;
+                                }
+
+                                cx += (int)(cellW * zoom);
+                                xIndex++;
+                            }
+
+                            yIndex++;
+                            xIndex = 0;
+                            cy += (int)Math.Round(cellH * zoom);
+                            cx = darkSectionPanel1.Location.X + darkSectionPanel1.Width + 20;
+                        }
+                    }
+                }
+            }
+            else if (e.Button == System.Windows.Forms.MouseButtons.Right)
             {
                 if (rows > 0 && cellH > 0 && cellW > 0)
                 {
@@ -765,6 +829,34 @@ namespace SimplexIde
                 Bitmap finalBitmap = SimplexCore.IDE.SpritesManager.PreTilesetsToOneBitmap(readyToConvert, bitmap.Width * 4, bitmap.Height * 2); // for 64x96 base
 
                 finalBitmap.Save("myfile.png", System.Drawing.Imaging.ImageFormat.Png);
+            }
+        }
+
+        private void darkButton5_Click(object sender, EventArgs e)
+        {
+            if (lastSheetX != -1 && lastSheetY != -1)
+            {
+                string ss = get_string("", "Name");
+
+                AutotileDefinition ad = new AutotileDefinition();
+                ad.Name = ss;
+                ad.X = lastSheetX;
+                ad.Y = lastSheetY;
+                ad.Bits = 16;
+
+                lastSheetX = -1;
+                lastSheetY = -1;
+
+                s.AutotileLib.Add(ad);
+                owner.drawTest1.tilesets.FirstOrDefault(x => x.Name == selectedNode.Text).AutotileLib = s.AutotileLib;
+
+                // Save to file
+                string json = JsonConvert.SerializeObject(owner.drawTest1.tilesets);
+                using (StreamWriter writer = new StreamWriter("../../../SimplexRpgEngine3/TilesetsDescriptor.json"))
+                {
+                    writer.WriteLine(json);
+                    writer.Close();
+                }
             }
         }
     }

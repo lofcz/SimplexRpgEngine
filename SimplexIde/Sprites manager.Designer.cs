@@ -36,9 +36,16 @@
             this.importSpriteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importTilesetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darkTreeView1 = new DarkUI.Controls.DarkTreeView();
             this.darkSectionPanel1 = new DarkUI.Controls.DarkSectionPanel();
+            this.darkButton6 = new DarkUI.Controls.DarkButton();
+            this.darkButton5 = new DarkUI.Controls.DarkButton();
+            this.darkButton4 = new DarkUI.Controls.DarkButton();
+            this.darkButton3 = new DarkUI.Controls.DarkButton();
+            this.darkDropdownList1 = new DarkUI.Controls.DarkDropdownList();
+            this.darkLabel4 = new DarkUI.Controls.DarkLabel();
             this.darkButton2 = new DarkUI.Controls.DarkButton();
             this.darkButton1 = new DarkUI.Controls.DarkButton();
             this.darkNumericUpDown3 = new DarkUI.Controls.DarkNumericUpDown();
@@ -49,7 +56,6 @@
             this.darkLabel1 = new DarkUI.Controls.DarkLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.darkMenuStrip1.SuspendLayout();
             this.darkSectionPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.darkNumericUpDown3)).BeginInit();
@@ -88,7 +94,7 @@
             this.importSpriteToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.importSpriteToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.importSpriteToolStripMenuItem.Name = "importSpriteToolStripMenuItem";
-            this.importSpriteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.importSpriteToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.importSpriteToolStripMenuItem.Text = "Import sprite";
             this.importSpriteToolStripMenuItem.Click += new System.EventHandler(this.importSpriteToolStripMenuItem_Click);
             // 
@@ -97,7 +103,7 @@
             this.importTilesetToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.importTilesetToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.importTilesetToolStripMenuItem.Name = "importTilesetToolStripMenuItem";
-            this.importTilesetToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.importTilesetToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.importTilesetToolStripMenuItem.Text = "Import tileset";
             this.importTilesetToolStripMenuItem.Click += new System.EventHandler(this.importTilesetToolStripMenuItem_Click);
             // 
@@ -110,6 +116,15 @@
             this.actionsToolStripMenuItem.Name = "actionsToolStripMenuItem";
             this.actionsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
             this.actionsToolStripMenuItem.Text = "Tools";
+            // 
+            // fileToolStripMenuItem1
+            // 
+            this.fileToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.fileToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
+            this.fileToolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
+            this.fileToolStripMenuItem1.Text = "6 -> 47 file";
+            this.fileToolStripMenuItem1.Click += new System.EventHandler(this.fileToolStripMenuItem1_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -136,6 +151,12 @@
             // 
             this.darkSectionPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.darkSectionPanel1.Controls.Add(this.darkButton6);
+            this.darkSectionPanel1.Controls.Add(this.darkButton5);
+            this.darkSectionPanel1.Controls.Add(this.darkButton4);
+            this.darkSectionPanel1.Controls.Add(this.darkButton3);
+            this.darkSectionPanel1.Controls.Add(this.darkDropdownList1);
+            this.darkSectionPanel1.Controls.Add(this.darkLabel4);
             this.darkSectionPanel1.Controls.Add(this.darkButton2);
             this.darkSectionPanel1.Controls.Add(this.darkButton1);
             this.darkSectionPanel1.Controls.Add(this.darkNumericUpDown3);
@@ -150,6 +171,58 @@
             this.darkSectionPanel1.Size = new System.Drawing.Size(185, 577);
             this.darkSectionPanel1.TabIndex = 4;
             this.darkSectionPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.darkSectionPanel1_Paint);
+            // 
+            // darkButton6
+            // 
+            this.darkButton6.Location = new System.Drawing.Point(14, 338);
+            this.darkButton6.Name = "darkButton6";
+            this.darkButton6.Size = new System.Drawing.Size(159, 23);
+            this.darkButton6.TabIndex = 13;
+            this.darkButton6.Text = "Delete";
+            // 
+            // darkButton5
+            // 
+            this.darkButton5.Location = new System.Drawing.Point(14, 299);
+            this.darkButton5.Name = "darkButton5";
+            this.darkButton5.Size = new System.Drawing.Size(159, 23);
+            this.darkButton5.TabIndex = 12;
+            this.darkButton5.Text = "Create";
+            this.darkButton5.Click += new System.EventHandler(this.darkButton5_Click);
+            // 
+            // darkButton4
+            // 
+            this.darkButton4.Location = new System.Drawing.Point(14, 261);
+            this.darkButton4.Name = "darkButton4";
+            this.darkButton4.Size = new System.Drawing.Size(159, 23);
+            this.darkButton4.TabIndex = 11;
+            this.darkButton4.Text = "Change position";
+            // 
+            // darkButton3
+            // 
+            this.darkButton3.Location = new System.Drawing.Point(14, 222);
+            this.darkButton3.Name = "darkButton3";
+            this.darkButton3.Size = new System.Drawing.Size(159, 23);
+            this.darkButton3.TabIndex = 10;
+            this.darkButton3.Text = "Change name";
+            // 
+            // darkDropdownList1
+            // 
+            this.darkDropdownList1.Location = new System.Drawing.Point(14, 176);
+            this.darkDropdownList1.MaxHeight = 900;
+            this.darkDropdownList1.Name = "darkDropdownList1";
+            this.darkDropdownList1.Size = new System.Drawing.Size(159, 26);
+            this.darkDropdownList1.TabIndex = 9;
+            this.darkDropdownList1.Text = "darkDropdownList1";
+            // 
+            // darkLabel4
+            // 
+            this.darkLabel4.AutoSize = true;
+            this.darkLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.darkLabel4.Location = new System.Drawing.Point(11, 151);
+            this.darkLabel4.Name = "darkLabel4";
+            this.darkLabel4.Size = new System.Drawing.Size(86, 13);
+            this.darkLabel4.TabIndex = 8;
+            this.darkLabel4.Text = "Defined autotiles";
             // 
             // darkButton2
             // 
@@ -295,15 +368,6 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "image files|*.png";
             // 
-            // fileToolStripMenuItem1
-            // 
-            this.fileToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-            this.fileToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
-            this.fileToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.fileToolStripMenuItem1.Text = "6 -> 47 file";
-            this.fileToolStripMenuItem1.Click += new System.EventHandler(this.fileToolStripMenuItem1_Click);
-            // 
             // Sprites_manager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -353,5 +417,11 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ToolStripMenuItem importTilesetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem1;
+        private DarkUI.Controls.DarkDropdownList darkDropdownList1;
+        private DarkUI.Controls.DarkLabel darkLabel4;
+        private DarkUI.Controls.DarkButton darkButton6;
+        private DarkUI.Controls.DarkButton darkButton5;
+        private DarkUI.Controls.DarkButton darkButton4;
+        private DarkUI.Controls.DarkButton darkButton3;
     }
 }
