@@ -74,6 +74,8 @@ These are defined in the same way like classic events but occur on room editor e
 - window_ - :heavy_check_mark:
 - instance_ - :heavy_check_mark:
 - surface_ :heavy_check_mark:
+- show_ :heavy_check_mark:
+- get_ :heavy_check_mark:
 - GameSave() - :heavy_check_mark:
 - GameLoad() - :heavy_check_mark:
 - draw_ - WIP
