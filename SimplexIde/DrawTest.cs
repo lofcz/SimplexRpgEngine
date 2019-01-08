@@ -464,10 +464,10 @@ namespace SimplexIde
                         // Layer is tile
                         if (rl is TileLayer)
                         {
-                            Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
+                            Editor.spriteBatch.Begin(transformMatrix: transformMatrix, samplerState: SamplerState.PointClamp);
                             foreach (Tile t in ((TileLayer)rl).Tiles)
                             {
-                                Editor.spriteBatch.Draw(((TileLayer)rl).Tileset.Texture, new Vector2(t.PosX * 32, t.PosY * 32), t.DrawRectangle, Color.White);
+                                Editor.spriteBatch.Draw(((TileLayer)rl).Tileset.Texture, new Vector2((t.PosX * 32), (t.PosY * 32)), t.DrawRectangle, Color.White);
                             }
 
                             Editor.spriteBatch.End();

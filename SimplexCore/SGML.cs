@@ -384,6 +384,11 @@ namespace SimplexCore
             return ApplyEpsilon(MathHelper.Lerp((float)a, (float)b, (float)amt));
         }
 
+        public static double lerp_aggressive(double a, double b, double amt)
+        {
+            return ApplyEpsilonAggressive(MathHelper.Lerp((float)a, (float)b, (float)amt));
+        }
+
         public static double clamp(double val, double min, double max)
         {
             return ApplyEpsilon(MathHelper.Clamp((float) val, (float) min, (float) max));
@@ -524,6 +529,11 @@ namespace SimplexCore
         private static double ApplyEpsilon(double x)
         {
             return Math.Ceiling(x * (1 / _epsilon)) / (1 / _epsilon);
+        }
+
+        private static double ApplyEpsilonAggressive(double x)
+        {
+            return Math.Ceiling(x * (1 / 0.001)) / (1 / 0.001);
         }
     }
 }

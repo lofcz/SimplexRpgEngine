@@ -20,9 +20,9 @@ namespace SimplexCore
 
         public void UpdatePosition()
         {
-            float newX = SimplexMath.Lerp(Position.X, TargetPosition.X, TransformSpeed);
-            float newY = SimplexMath.Lerp(Position.Y, TargetPosition.Y, TransformSpeed);
-            float newZoom = SimplexMath.Lerp(Zoom, TargetZoom, TransformSpeed);
+            float newX = (float)Sgml.lerp_aggressive(Position.X, TargetPosition.X, TransformSpeed);
+            float newY = (float)Sgml.lerp_aggressive(Position.Y, TargetPosition.Y, TransformSpeed);
+            float newZoom = (float)Sgml.lerp_aggressive(Zoom, TargetZoom, TransformSpeed);
 
             Position.X = newX;
             Position.Y = newY;
