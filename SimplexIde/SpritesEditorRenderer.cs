@@ -31,10 +31,16 @@ namespace SimplexIde
         Vector2 MousePrevious = Vector2.One;
         Vector2 helpVec = Vector2.One;
         Vector2 MousePositionTranslated = Vector2.One;
+        public DrawTest mainForm = null;
+        private GameObject representativeGameObject = null;
 
         protected override void Initialize()
         {
             base.Initialize();
+
+            representativeGameObject = new GameObject();
+            representativeGameObject.Sprite.TextureCellsPerRow = 1;
+
             c = new Camera2D(Editor.graphics);
             cam.Camera = c;
             cam.Position = Vector2.Zero;
@@ -90,6 +96,7 @@ namespace SimplexIde
             Sgml.vb = vertexBuffer;
             Sgml.be = basicEffect;
             Sgml.m = transformMatrix;
+            Sgml.currentObject = representativeGameObject;
 
             Matrix view = cam.Camera.GetViewMatrix();
             Matrix projection = m;
@@ -114,6 +121,9 @@ namespace SimplexIde
             bool flag = true;
             bool lastFlag = flag;
 
+            basicEffect.View = Matrix.Identity;
+            Sgml.m = Matrix.Identity;
+            
             for (var i = 0; i < Height / cellSize + 1; i++)
             {
                 for (var j = 0; j < Width / cellSize + 1; j++)
@@ -145,11 +155,17 @@ namespace SimplexIde
                 lastFlag = !lastFlag;
                 flag = lastFlag;
             }
-            Sgml.draw_circle_fast(new Vector2(Sgml.mouse.X, Sgml.mouse.Y), 32, 24, Color.CornflowerBlue);
 
             Sgml.draw_set_color(Color.White);
             Sgml.draw_text(new Vector2(10, 10), framerate.ToString());
+            Sgml.draw_text(new Vector2(10, 30), "[X: " + Sgml.round(Sgml.mouse.X) + " Y: " + Sgml.round(Sgml.mouse.Y) + "]");
+            basicEffect.View = view;
+            Sgml.m = transformMatrix;
+
+            //Sgml.draw_circle_fast(new Vector2(Sgml.mouse.X, Sgml.mouse.Y), 32, 24, Color.CornflowerBlue);
+            Sgml.draw_sprite(Sgml.sprite_get("elves"), -2, new Vector2(200, 200));
         }
+
 
         public void Rsize()
         {

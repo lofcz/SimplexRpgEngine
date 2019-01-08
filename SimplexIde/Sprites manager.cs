@@ -78,6 +78,8 @@ namespace SimplexIde
                 }
             }
 
+            spritesEditorRenderer1.mainForm = RoomEditor;
+
             DarkTreeNode dtn = new DarkTreeNode("Sprites");
             dtn.Icon = (Bitmap) Properties.Resources.Folder_16x;
             dtn.Tag = "folder";

@@ -261,14 +261,23 @@ namespace SimplexCore
 
         public static void draw_sprite(Texture2D sprite, double subimg, Vector2 position)
         {
-            int y = ((int) subimg / currentObject.Sprite.TextureCellsPerRow);
-            int x = ((int) subimg % currentObject.Sprite.TextureCellsPerRow);
+            if (subimg != -2)
+            { 
+                int y = ((int) subimg / currentObject.Sprite.TextureCellsPerRow);
+                int x = ((int) subimg % currentObject.Sprite.TextureCellsPerRow);
 
-            Rectangle ImageRectangle = new Rectangle(x * currentObject.Sprite.cellW, y * (int) currentObject.Sprite.cellH, (int) currentObject.Sprite.cellW, (int) currentObject.Sprite.cellH);
+                Rectangle ImageRectangle = new Rectangle(x * currentObject.Sprite.cellW, y * (int) currentObject.Sprite.cellH, (int) currentObject.Sprite.cellW, (int) currentObject.Sprite.cellH);
 
-            sb.Begin(transformMatrix: m);
-            sb.Draw(sprite, position, ImageRectangle, FinalizeColor(DrawColor), currentObject.Sprite.ImageAngle, new Vector2(0, 0), currentObject.Sprite.ImageScale, SpriteEffects.None, 1);
-            sb.End();
+                sb.Begin(transformMatrix: m);
+                sb.Draw(sprite, position, ImageRectangle, FinalizeColor(DrawColor), currentObject.Sprite.ImageAngle, new Vector2(0, 0), currentObject.Sprite.ImageScale, SpriteEffects.None, 1);
+                sb.End();
+            }
+            else
+            {
+                sb.Begin(transformMatrix: m);
+                sb.Draw(sprite, position, FinalizeColor(DrawColor));
+                sb.End();
+            }
         }
 
         public static void draw_sprite_part(Texture2D sprite, Rectangle rect, Vector2 position)
