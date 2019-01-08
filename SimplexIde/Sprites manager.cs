@@ -54,7 +54,12 @@ namespace SimplexIde
         private void Sprites_manager_Load(object sender, EventArgs e)
         {
             // first we load descriptor for all sprites
-           // Sprites = JsonConvert.DeserializeObject<List<Spritesheet>>(new StreamReader("../../../SimplexRpgEngine3/SpritesDescriptor.json").ReadToEnd());
+            // Sprites = JsonConvert.DeserializeObject<List<Spritesheet>>(new StreamReader("../../../SimplexRpgEngine3/SpritesDescriptor.json").ReadToEnd());
+            var item0 = new DarkDropdownItem("Autotiling");
+            darkDropdownList2.Items.Add(item0);
+            darkDropdownList2.Items.Add(new DarkDropdownItem("Prefabs"));
+            darkDropdownList2.Items.Add(new DarkDropdownItem("Instancemasking"));
+            darkDropdownList2.SelectedItem = item0;
 
             string[] extensions = { ".png", ".jpg", ".jpeg", ".gif" };
             foreach (string file in Directory.EnumerateFiles("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/", "*.xnb*"))

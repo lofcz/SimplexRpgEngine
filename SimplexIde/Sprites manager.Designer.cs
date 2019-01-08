@@ -40,6 +40,7 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darkTreeView1 = new DarkUI.Controls.DarkTreeView();
             this.darkSectionPanel1 = new DarkUI.Controls.DarkSectionPanel();
+            this.darkDropdownList2 = new DarkUI.Controls.DarkDropdownList();
             this.darkButton6 = new DarkUI.Controls.DarkButton();
             this.darkButton5 = new DarkUI.Controls.DarkButton();
             this.darkButton4 = new DarkUI.Controls.DarkButton();
@@ -56,6 +57,7 @@
             this.darkLabel1 = new DarkUI.Controls.DarkLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.darkLabel5 = new DarkUI.Controls.DarkLabel();
             this.darkMenuStrip1.SuspendLayout();
             this.darkSectionPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.darkNumericUpDown3)).BeginInit();
@@ -151,6 +153,8 @@
             // 
             this.darkSectionPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.darkSectionPanel1.Controls.Add(this.darkLabel5);
+            this.darkSectionPanel1.Controls.Add(this.darkDropdownList2);
             this.darkSectionPanel1.Controls.Add(this.darkButton6);
             this.darkSectionPanel1.Controls.Add(this.darkButton5);
             this.darkSectionPanel1.Controls.Add(this.darkButton4);
@@ -172,9 +176,17 @@
             this.darkSectionPanel1.TabIndex = 4;
             this.darkSectionPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.darkSectionPanel1_Paint);
             // 
+            // darkDropdownList2
+            // 
+            this.darkDropdownList2.Location = new System.Drawing.Point(14, 178);
+            this.darkDropdownList2.Name = "darkDropdownList2";
+            this.darkDropdownList2.Size = new System.Drawing.Size(159, 26);
+            this.darkDropdownList2.TabIndex = 14;
+            this.darkDropdownList2.Text = "darkDropdownList2";
+            // 
             // darkButton6
             // 
-            this.darkButton6.Location = new System.Drawing.Point(14, 338);
+            this.darkButton6.Location = new System.Drawing.Point(14, 423);
             this.darkButton6.Name = "darkButton6";
             this.darkButton6.Size = new System.Drawing.Size(159, 23);
             this.darkButton6.TabIndex = 13;
@@ -182,7 +194,7 @@
             // 
             // darkButton5
             // 
-            this.darkButton5.Location = new System.Drawing.Point(14, 299);
+            this.darkButton5.Location = new System.Drawing.Point(14, 384);
             this.darkButton5.Name = "darkButton5";
             this.darkButton5.Size = new System.Drawing.Size(159, 23);
             this.darkButton5.TabIndex = 12;
@@ -191,7 +203,7 @@
             // 
             // darkButton4
             // 
-            this.darkButton4.Location = new System.Drawing.Point(14, 261);
+            this.darkButton4.Location = new System.Drawing.Point(14, 346);
             this.darkButton4.Name = "darkButton4";
             this.darkButton4.Size = new System.Drawing.Size(159, 23);
             this.darkButton4.TabIndex = 11;
@@ -199,7 +211,7 @@
             // 
             // darkButton3
             // 
-            this.darkButton3.Location = new System.Drawing.Point(14, 222);
+            this.darkButton3.Location = new System.Drawing.Point(14, 307);
             this.darkButton3.Name = "darkButton3";
             this.darkButton3.Size = new System.Drawing.Size(159, 23);
             this.darkButton3.TabIndex = 10;
@@ -207,7 +219,7 @@
             // 
             // darkDropdownList1
             // 
-            this.darkDropdownList1.Location = new System.Drawing.Point(14, 176);
+            this.darkDropdownList1.Location = new System.Drawing.Point(14, 261);
             this.darkDropdownList1.MaxHeight = 900;
             this.darkDropdownList1.Name = "darkDropdownList1";
             this.darkDropdownList1.Size = new System.Drawing.Size(159, 26);
@@ -218,7 +230,7 @@
             // 
             this.darkLabel4.AutoSize = true;
             this.darkLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.darkLabel4.Location = new System.Drawing.Point(11, 151);
+            this.darkLabel4.Location = new System.Drawing.Point(11, 236);
             this.darkLabel4.Name = "darkLabel4";
             this.darkLabel4.Size = new System.Drawing.Size(86, 13);
             this.darkLabel4.TabIndex = 8;
@@ -368,6 +380,16 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "image files|*.png";
             // 
+            // darkLabel5
+            // 
+            this.darkLabel5.AutoSize = true;
+            this.darkLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.darkLabel5.Location = new System.Drawing.Point(11, 152);
+            this.darkLabel5.Name = "darkLabel5";
+            this.darkLabel5.Size = new System.Drawing.Size(57, 13);
+            this.darkLabel5.TabIndex = 15;
+            this.darkLabel5.Text = "Active tool";
+            // 
             // Sprites_manager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -423,5 +445,7 @@
         private DarkUI.Controls.DarkButton darkButton5;
         private DarkUI.Controls.DarkButton darkButton4;
         private DarkUI.Controls.DarkButton darkButton3;
+        private DarkUI.Controls.DarkDropdownList darkDropdownList2;
+        private DarkUI.Controls.DarkLabel darkLabel5;
     }
 }
