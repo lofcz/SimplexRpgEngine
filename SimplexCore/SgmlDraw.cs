@@ -254,6 +254,7 @@ namespace SimplexCore
                 AddVertex(rect.X, rect.Y + rect.Height);
                 AddVertex(rect.X + rect.Width, rect.Y + rect.Height);
                 AddVertex(rect.X + rect.Width, rect.Y);
+                AddVertex(rect.X, rect.Y);
 
                 RenderVertices(PrimitiveType.LineStrip, true);
             }

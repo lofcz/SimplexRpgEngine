@@ -47,6 +47,7 @@ namespace SimplexIde
         private float CamX = 0;
         float CamY = 0;
 
+
         public Sprites_manager()
         {
             InitializeComponent();
@@ -79,6 +80,7 @@ namespace SimplexIde
             }
 
             spritesEditorRenderer1.mainForm = RoomEditor;
+            spritesEditorRenderer1.parentForm = this;
 
             DarkTreeNode dtn = new DarkTreeNode("Sprites");
             dtn.Icon = (Bitmap) Properties.Resources.Folder_16x;
@@ -169,6 +171,8 @@ namespace SimplexIde
                                 darkNumericUpDown3.Value = s.Rows;
                                 darkNumericUpDown1.Value = s.CellWidth;
                                 darkNumericUpDown2.Value = s.CellHeight;
+
+                                spritesEditorRenderer1.selectedImage = s.Texture;
                             }
                             catch (Exception ee)
                             {
@@ -177,10 +181,12 @@ namespace SimplexIde
                                     Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/" +
                                                      selectedNode.Text));
                                 tex.SaveAsPng(memoryStream, tex.Width, tex.Height);
+                                spritesEditorRenderer1.selectedImage = tex;
                             }
 
 
                             lastImage = new Bitmap(memoryStream);
+
                         }
                         else
                         {
@@ -197,6 +203,8 @@ namespace SimplexIde
                                 {
                                     darkDropdownList1.Items.Add(new DarkDropdownItem(ad.Name + " [X: " + ad.X + " Y: " + ad.Y + "]"));
                                 }
+
+                                spritesEditorRenderer1.selectedImage = s.Texture;
                             }
                             catch (Exception ee)
                             {
@@ -206,6 +214,7 @@ namespace SimplexIde
                                         "../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/Tilesets/" +
                                         selectedNode.Text));
                                 tex.SaveAsPng(memoryStream, tex.Width, tex.Height);
+                                spritesEditorRenderer1.selectedImage = tex;
                             }
 
 
@@ -232,7 +241,7 @@ namespace SimplexIde
 
         private void Sprites_manager_Paint(object sender, PaintEventArgs e)
         {
-            if (lastImage != null)
+           /* if (lastImage != null)
             {
                 rows = (int)darkNumericUpDown3.Value;
                 cellW = (int)darkNumericUpDown1.Value;
@@ -312,7 +321,7 @@ namespace SimplexIde
                         }
                     }
                 }
-            }
+            }*/
         }
 
         private void darkButton1_Click(object sender, EventArgs e)
@@ -913,6 +922,11 @@ namespace SimplexIde
             }
 
             spritesEditorRenderer1.MouseDrag(e.Location);
+        }
+
+        private void darkNumericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

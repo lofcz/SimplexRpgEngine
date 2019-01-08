@@ -17,6 +17,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ColliderRectangle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CollisionInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CollisionsTree.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SgmlRaycasting.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Ext\IPrimitiveBatcher.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Ext\MgPrimitiveBatcher.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Ext\PrimitiveBatcherBase.cs" />
@@ -67,9 +68,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)XmlManager.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Content\" />
+    <MonoGameContentReference Include="$(MSBuildThisFileDirectory)Content\Content.mgcb" />
   </ItemGroup>
   <ItemGroup>
-    <MonoGameContentReference Include="$(MSBuildThisFileDirectory)Content\Content.mgcb" />
+    <Folder Include="$(MSBuildThisFileDirectory)Content\" />
   </ItemGroup>
 </Project>

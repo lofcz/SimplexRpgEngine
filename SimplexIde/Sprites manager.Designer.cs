@@ -56,12 +56,12 @@
             this.darkLabel2 = new DarkUI.Controls.DarkLabel();
             this.darkLabel1 = new DarkUI.Controls.DarkLabel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.spritesEditorRenderer1 = new SimplexIde.SpritesEditorRenderer();
             this.darkToolStrip1 = new DarkUI.Controls.DarkToolStrip();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.spritesEditorRenderer1 = new SimplexIde.SpritesEditorRenderer();
             this.darkMenuStrip1.SuspendLayout();
             this.darkSectionPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.darkNumericUpDown3)).BeginInit();
@@ -359,6 +359,7 @@
             0,
             0,
             0});
+            this.darkNumericUpDown1.ValueChanged += new System.EventHandler(this.darkNumericUpDown1_ValueChanged);
             // 
             // darkLabel2
             // 
@@ -388,23 +389,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "image files|*.png";
-            // 
-            // spritesEditorRenderer1
-            // 
-            this.spritesEditorRenderer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.spritesEditorRenderer1.Location = new System.Drawing.Point(451, 48);
-            this.spritesEditorRenderer1.Name = "spritesEditorRenderer1";
-            this.spritesEditorRenderer1.Size = new System.Drawing.Size(813, 615);
-            this.spritesEditorRenderer1.TabIndex = 5;
-            this.spritesEditorRenderer1.Text = "spritesEditorRenderer1";
-            this.spritesEditorRenderer1.OnMouseWheelUpwards += new MonoGame.Forms.Controls.GraphicsDeviceControl.MouseWheelUpwardsEvent(this.spritesEditorRenderer1_OnMouseWheelUpwards);
-            this.spritesEditorRenderer1.OnMouseWheelDownwards += new MonoGame.Forms.Controls.GraphicsDeviceControl.MouseWheelDownwardsEvent(this.spritesEditorRenderer1_OnMouseWheelDownwards);
-            this.spritesEditorRenderer1.Click += new System.EventHandler(this.spritesEditorRenderer1_Click);
-            this.spritesEditorRenderer1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.spritesEditorRenderer1_MouseDown);
-            this.spritesEditorRenderer1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.spritesEditorRenderer1_MouseMove);
-            this.spritesEditorRenderer1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.spritesEditorRenderer1_MouseUp);
             // 
             // darkToolStrip1
             // 
@@ -465,6 +449,23 @@
             this.toolStripButton3.Size = new System.Drawing.Size(23, 18);
             this.toolStripButton3.Text = "toolStripButton3";
             // 
+            // spritesEditorRenderer1
+            // 
+            this.spritesEditorRenderer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.spritesEditorRenderer1.Location = new System.Drawing.Point(451, 48);
+            this.spritesEditorRenderer1.Name = "spritesEditorRenderer1";
+            this.spritesEditorRenderer1.Size = new System.Drawing.Size(813, 615);
+            this.spritesEditorRenderer1.TabIndex = 5;
+            this.spritesEditorRenderer1.Text = "spritesEditorRenderer1";
+            this.spritesEditorRenderer1.OnMouseWheelUpwards += new MonoGame.Forms.Controls.GraphicsDeviceControl.MouseWheelUpwardsEvent(this.spritesEditorRenderer1_OnMouseWheelUpwards);
+            this.spritesEditorRenderer1.OnMouseWheelDownwards += new MonoGame.Forms.Controls.GraphicsDeviceControl.MouseWheelDownwardsEvent(this.spritesEditorRenderer1_OnMouseWheelDownwards);
+            this.spritesEditorRenderer1.Click += new System.EventHandler(this.spritesEditorRenderer1_Click);
+            this.spritesEditorRenderer1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.spritesEditorRenderer1_MouseDown);
+            this.spritesEditorRenderer1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.spritesEditorRenderer1_MouseMove);
+            this.spritesEditorRenderer1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.spritesEditorRenderer1_MouseUp);
+            // 
             // Sprites_manager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -505,11 +506,8 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private DarkUI.Controls.DarkTreeView darkTreeView1;
         private DarkUI.Controls.DarkSectionPanel darkSectionPanel1;
-        private DarkUI.Controls.DarkNumericUpDown darkNumericUpDown2;
-        private DarkUI.Controls.DarkNumericUpDown darkNumericUpDown1;
         private DarkUI.Controls.DarkLabel darkLabel2;
         private DarkUI.Controls.DarkLabel darkLabel1;
-        private DarkUI.Controls.DarkNumericUpDown darkNumericUpDown3;
         private DarkUI.Controls.DarkLabel darkLabel3;
         private DarkUI.Controls.DarkButton darkButton1;
         private DarkUI.Controls.DarkButton darkButton2;
@@ -531,5 +529,8 @@
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
+        public DarkUI.Controls.DarkNumericUpDown darkNumericUpDown2;
+        public DarkUI.Controls.DarkNumericUpDown darkNumericUpDown1;
+        public DarkUI.Controls.DarkNumericUpDown darkNumericUpDown3;
     }
 }

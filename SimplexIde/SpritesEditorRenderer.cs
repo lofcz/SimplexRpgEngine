@@ -13,6 +13,7 @@ using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using MonoGame.Forms.Controls;
 using SimplexCore;
+using ButtonState = Microsoft.Xna.Framework.Input.ButtonState;
 
 namespace SimplexIde
 {
@@ -33,6 +34,10 @@ namespace SimplexIde
         Vector2 MousePositionTranslated = Vector2.One;
         public DrawTest mainForm = null;
         private GameObject representativeGameObject = null;
+        public Texture2D selectedImage = null;
+        public Sprites_manager parentForm = null;
+        int selectedXIndex = -1;
+        private int selectedYIndex = -1;
 
         protected override void Initialize()
         {
@@ -159,11 +164,55 @@ namespace SimplexIde
             Sgml.draw_set_color(Color.White);
             Sgml.draw_text(new Vector2(10, 10), framerate.ToString());
             Sgml.draw_text(new Vector2(10, 30), "[X: " + Sgml.round(Sgml.mouse.X) + " Y: " + Sgml.round(Sgml.mouse.Y) + "]");
+            Sgml.draw_text(new Vector2(10, 50), parentForm.darkNumericUpDown1.Value.ToString());
             basicEffect.View = view;
             Sgml.m = transformMatrix;
 
             //Sgml.draw_circle_fast(new Vector2(Sgml.mouse.X, Sgml.mouse.Y), 32, 24, Color.CornflowerBlue);
-            Sgml.draw_sprite(Sgml.sprite_get("elves"), -2, new Vector2(200, 200));
+            if (selectedImage != null)
+            {
+                Sgml.draw_sprite(selectedImage, -2, new Vector2(200, 200));
+
+                // draw cells
+                int xx = 200;
+                int yy = 200;
+                int xIndex = 0;
+                int yIndex = 0;
+                RectangleF temp = RectangleF.Empty;
+
+                for (var i = 0; i < parentForm.darkNumericUpDown3.Value; i++)
+                {
+                    for (var j = 0; j < selectedImage.Width / parentForm.darkNumericUpDown1.Value; j++)
+                    {
+                        temp.Size = new Size2((int)parentForm.darkNumericUpDown1.Value, (int)parentForm.darkNumericUpDown2.Value);
+                        temp.Position = new Point2(xx, yy);
+
+                        Sgml.draw_rectangle(temp, true);
+
+                        // check for mouse intersection
+                        if (Sgml.point_in_rectangle(Sgml.mouse, temp) || (selectedXIndex == xIndex && selectedYIndex == yIndex))
+                        {
+                            Sgml.draw_set_alpha(0.5);
+                            Sgml.draw_rectangle(temp, false);
+                            Sgml.draw_set_alpha(1);
+
+                            if (ms.LeftButton == ButtonState.Pressed)
+                            {
+                                selectedXIndex = xIndex;
+                                selectedYIndex = yIndex;
+                            }
+                        }
+
+                        xx += (int)parentForm.darkNumericUpDown1.Value;
+                        xIndex++;
+                    }
+
+                    xx = 200;
+                    yy += (int)parentForm.darkNumericUpDown2.Value;
+                    xIndex = 0;
+                    yIndex++;
+                }
+            }
         }
 
 
