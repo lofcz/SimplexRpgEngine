@@ -44,6 +44,8 @@ namespace SimplexIde
         private int lastSheetX = -1;
         private int lastSheetY = -1;
         private Tileset s;
+        private float CamX = 0;
+        float CamY = 0;
 
         public Sprites_manager()
         {
@@ -223,7 +225,7 @@ namespace SimplexIde
         {
             this.Enabled = true;
             
-            Invalidate();
+            //Invalidate();
         }
 
         private void Sprites_manager_Paint(object sender, PaintEventArgs e)
@@ -863,6 +865,52 @@ namespace SimplexIde
                     writer.Close();
                 }
             }
+        }
+
+        private void spritesEditorRenderer1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Sprites_manager_Resize(object sender, EventArgs e)
+        {
+            spritesEditorRenderer1.Rsize();
+        }
+
+        private void darkToolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void spritesEditorRenderer1_OnMouseWheelDownwards(MouseEventArgs e)
+        {
+            spritesEditorRenderer1.WheelDown();
+        }
+
+        private void spritesEditorRenderer1_MouseUp(object sender, MouseEventArgs e)
+        {
+            spritesEditorRenderer1.ClickUp();
+        }
+
+        private void spritesEditorRenderer1_OnMouseWheelUpwards(MouseEventArgs e)
+        {
+            spritesEditorRenderer1.WheelUp();
+        }
+
+        private void spritesEditorRenderer1_MouseDown(object sender, MouseEventArgs e)
+        {
+            spritesEditorRenderer1.ClickLock(e.Button);
+        }
+
+        private void spritesEditorRenderer1_MouseMove(object sender, MouseEventArgs e)
+        {
+
+            if (e.Button == MouseButtons.Middle)
+            {
+                spritesEditorRenderer1.MoveView();
+            }
+
+            spritesEditorRenderer1.MouseDrag(e.Location);
         }
     }
 

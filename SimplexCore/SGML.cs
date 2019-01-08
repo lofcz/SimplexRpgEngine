@@ -164,7 +164,7 @@ namespace SimplexCore
             drawAlpha = (float)alpha;
         }
 
-        public static void DrawSetColor(Color c)
+        public static void draw_set_color(Color c)
         {
             DrawColor = c;
         }

@@ -15,7 +15,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
-	<MonoGamePlatform>Windows</MonoGamePlatform>
+    <MonoGamePlatform>Windows</MonoGamePlatform>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -147,6 +147,9 @@
     </Compile>
     <Compile Include="Sprites manager.Designer.cs">
       <DependentUpon>Sprites manager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SpritesEditorRenderer.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="TilesetControl.cs">
       <SubType>UserControl</SubType>
