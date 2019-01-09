@@ -98,6 +98,7 @@ namespace SimplexIde
         public Texture2D tileTexture = null;
         public int SheetX = 0;
         public int SheetY = 0;
+        public bool UpdateRunning = true;
 
         protected override void Initialize()
         {
@@ -177,60 +178,64 @@ namespace SimplexIde
 
         protected override void Update(GameTime gameTime)
         {
-            var originalPos = cam.Camera.Position;
-            var originalZoom = cam.Camera.Zoom;
-
-            Matrix view = cam.Camera.GetViewMatrix();
-
-            cam.Camera.Position = new Vector2(0, 0);
-            cam.Camera.Zoom = 1;
-
-            Matrix normalizedMatrix = cam.Camera.GetViewMatrix();
-
-            cam.Camera.Position = originalPos;
-            cam.Camera.Zoom = originalZoom;
-
-           // Matrix projection = m;
-
-            Sgml.world = world;
-            Sgml.view = view;
-            Sgml.normalizedMatrix = normalizedMatrix;
-
-            KeyboardState ks = new KeyboardState();
-            Keys[] keys = ks.GetPressedKeys();
-
-            if (ks.IsKeyUp(lastKey))
+            if (UpdateRunning)
             {
-                lastKey = Keys.None;
-            }
-            
-            if (keys.Length > 0 && lastKey == Keys.None)
-            {
-                lastKey = keys[0];
-                var keyValue = keys[0].ToString();
-                Sgml.keyboard_string += keyValue;
-            }
+                var originalPos = cam.Camera.Position;
+                var originalZoom = cam.Camera.Zoom;
 
-            MousePositionTranslated = cam.Camera.ScreenToWorld(MousePosition);
-            GridSizeRender = new Vector2(SimplexMath.Lerp(GridSizeRender.X, GridSize.X, 0.2f), SimplexMath.Lerp(GridSizeRender.Y, GridSize.Y, 0.2f));
+                Matrix view = cam.Camera.GetViewMatrix();
 
-            Input.KeyboardState = Keyboard.GetState();
+                cam.Camera.Position = new Vector2(0, 0);
+                cam.Camera.Zoom = 1;
 
-            g = gameTime;
-            base.Update(gameTime);
+                Matrix normalizedMatrix = cam.Camera.GetViewMatrix();
 
-            cam.UpdatePosition();
+                cam.Camera.Position = originalPos;
+                cam.Camera.Zoom = originalZoom;
 
-            for (var i = 0; i < SceneObjects.Count; i++)
-            {
-                sh.UnregisterObject(SceneObjects[i]);
-                sh.RegisterObject(SceneObjects[i]);
+                // Matrix projection = m;
 
-                if (GameRunning || SceneObjects[i] == clickedObject)
+                Sgml.world = world;
+                Sgml.view = view;
+                Sgml.normalizedMatrix = normalizedMatrix;
+
+                KeyboardState ks = new KeyboardState();
+                Keys[] keys = ks.GetPressedKeys();
+
+                if (ks.IsKeyUp(lastKey))
                 {
-                    Sgml.currentObject = SceneObjects[i];
-                    SceneObjects[i].EvtStep();
-                    SceneObjects[i].EvtDrawToSurfaces();
+                    lastKey = Keys.None;
+                }
+
+                if (keys.Length > 0 && lastKey == Keys.None)
+                {
+                    lastKey = keys[0];
+                    var keyValue = keys[0].ToString();
+                    Sgml.keyboard_string += keyValue;
+                }
+
+                MousePositionTranslated = cam.Camera.ScreenToWorld(MousePosition);
+                GridSizeRender = new Vector2(SimplexMath.Lerp(GridSizeRender.X, GridSize.X, 0.2f),
+                    SimplexMath.Lerp(GridSizeRender.Y, GridSize.Y, 0.2f));
+
+                Input.KeyboardState = Keyboard.GetState();
+
+                g = gameTime;
+                base.Update(gameTime);
+
+                cam.UpdatePosition();
+
+                for (var i = 0; i < SceneObjects.Count; i++)
+                {
+                    sh.UnregisterObject(SceneObjects[i]);
+                    sh.RegisterObject(SceneObjects[i]);
+
+                    if (GameRunning || SceneObjects[i] == clickedObject)
+                    {
+                        Sgml.currentObject = SceneObjects[i];
+                        SceneObjects[i].EvtStep();
+                        SceneObjects[i].EvtDrawToSurfaces();
+                    }
                 }
             }
         }
@@ -294,189 +299,202 @@ namespace SimplexIde
 
         protected override void Draw()
         {
-            Sgml.drawFont = Editor.Font;
-
-            double framerate = Editor.GetFrameRate;
-            KeyboardState ks = Keyboard.GetState();
-            Input.KeyboardState = ks;
-
-            base.Draw();
-            Matrix transformMatrix = cam.Camera.GetViewMatrix();
-            BackgroundColor = Color.Black;
-            Editor.graphics.Clear(BackgroundColor);
-            Input.MousePosition = MousePositionTranslated;
-
-            Sgml.currentRoom = currentRoom;
-            Sgml.sb = Editor.spriteBatch;
-            Sgml.vb = vertexBuffer;
-            Sgml.be = basicEffect;
-            Sgml.m = transformMatrix;
-
-            Matrix view = cam.Camera.GetViewMatrix();
-            Matrix projection = m;
-
-            basicEffect.World = world;
-            basicEffect.View = view;
-            basicEffect.Projection = projection;
-            basicEffect.VertexColorEnabled = true;
-
-
-            if (DrawGrid)
+            if (UpdateRunning)
             {
-                Color c = Color.White;
-                c.A = 128;
+                Sgml.drawFont = Editor.Font;
 
-                for (float i = 0; i < 768; i += GridSizeRender.Y)
-                {
-                    for (float j = 0; j < 1024; j += GridSizeRender.X)
-                    {
-                        i = (float) Math.Round(i);
-                        j = (float) Math.Round(j);
-                        Sgml.draw_rectangle(new RectangleF(j, i, GridSizeRender.X, GridSizeRender.Y), true);
-                       // Editor.spriteBatch.DrawRectangle(new RectangleF(j, i, GridSizeRender.X, GridSizeRender.Y), c, 1);
-                    }
-                }
+                double framerate = Editor.GetFrameRate;
+                KeyboardState ks = Keyboard.GetState();
+                Input.KeyboardState = ks;
 
-            }
+                base.Draw();
+                Matrix transformMatrix = cam.Camera.GetViewMatrix();
+                BackgroundColor = Color.Black;
+                Editor.graphics.Clear(BackgroundColor);
+                Input.MousePosition = MousePositionTranslated;
 
-            SimplexResources.Global.DrawStart();
+                Sgml.currentRoom = currentRoom;
+                Sgml.sb = Editor.spriteBatch;
+                Sgml.vb = vertexBuffer;
+                Sgml.be = basicEffect;
+                Sgml.m = transformMatrix;
 
-            if (roomLayers.Count > 2)
-            {
-                var k = 1;
-            }
-            /*
-            foreach (RoomLayer rl in roomLayers)
-            {
-                if (rl.LayerType == RoomLayer.LayerTypes.typeTile)
+                Matrix view = cam.Camera.GetViewMatrix();
+                Matrix projection = m;
+
+                basicEffect.World = world;
+                basicEffect.View = view;
+                basicEffect.Projection = projection;
+                basicEffect.VertexColorEnabled = true;
+
+
+                if (DrawGrid)
                 {
                     Color c = Color.White;
                     c.A = 128;
-                    Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
-                    int xIndex = 0;
-                    int yIndex = 0;
+
                     for (float i = 0; i < 768; i += GridSizeRender.Y)
                     {
                         for (float j = 0; j < 1024; j += GridSizeRender.X)
                         {
-                            xIndex++;
                             i = (float) Math.Round(i);
                             j = (float) Math.Round(j);
+                            Sgml.draw_rectangle(new RectangleF(j, i, GridSizeRender.X, GridSizeRender.Y), true);
+                            // Editor.spriteBatch.DrawRectangle(new RectangleF(j, i, GridSizeRender.X, GridSizeRender.Y), c, 1);
                         }
-
-                        yIndex++;
-                        xIndex = 0;
                     }
 
-                    foreach (Tile t in ((TileLayer) rl).Tiles)
-                    {
-                        Editor.spriteBatch.Draw(t.SourceTexture, new Vector2(t.PosX * 32, t.PosY * 32), t.DrawRectangle, Color.White);
-                    }
-
-                    Editor.spriteBatch.End();
                 }
-            }*/
 
+                SimplexResources.Global.DrawStart();
 
-            // Before render, resolve collisions
-            foreach (GameObject go in SceneObjects.ToList())
-            {
-                if (go.Colliders.Count > 0)
+                if (roomLayers.Count > 2)
                 {
-                    List<GameObject> possibleColliders = sh.ObjectsNearby(go);
-
-                    // Check for collision with each object from possible colliders
-                    foreach (GameObject c in possibleColliders)
-                    {       
-                        if (c == go) { continue; } // Discard self collisions
-                        
-                        // Check for general rectangle collision 
-                        if (c.CollisionContainer.Intersects(go.CollisionContainer))
+                    var k = 1;
+                }
+                /*
+                foreach (RoomLayer rl in roomLayers)
+                {
+                    if (rl.LayerType == RoomLayer.LayerTypes.typeTile)
+                    {
+                        Color c = Color.White;
+                        c.A = 128;
+                        Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
+                        int xIndex = 0;
+                        int yIndex = 0;
+                        for (float i = 0; i < 768; i += GridSizeRender.Y)
                         {
-                            // There is a possibility that two instances can collide
-                            // 1) Get entry from collision tree
-                            // 2) Detailed collisions
-                            var entries = CollisionsTree.DefinedCollisionPairs.FirstOrDefault(x => x.Key.Object == go.GetType() && x.Value.Object == c.GetType());
-                           
-                            if (entries.Key != null)
+                            for (float j = 0; j < 1024; j += GridSizeRender.X)
                             {
-                                // Get colliders from names
-                                ColliderBase cb = go.Colliders.FirstOrDefault(x => x.Name == entries.Key.ColliderName);
-                                ColliderBase cb2 = c.Colliders.FirstOrDefault(x => x.Name == entries.Value.ColliderName);
+                                xIndex++;
+                                i = (float) Math.Round(i);
+                                j = (float) Math.Round(j);
+                            }
+    
+                            yIndex++;
+                            xIndex = 0;
+                        }
+    
+                        foreach (Tile t in ((TileLayer) rl).Tiles)
+                        {
+                            Editor.spriteBatch.Draw(t.SourceTexture, new Vector2(t.PosX * 32, t.PosY * 32), t.DrawRectangle, Color.White);
+                        }
+    
+                        Editor.spriteBatch.End();
+                    }
+                }*/
 
-                                if ((cb.GetType() == typeof(ColliderRectangle) && cb2.GetType() == typeof(ColliderCircle)))
+
+                // Before render, resolve collisions
+                foreach (GameObject go in SceneObjects.ToList())
+                {
+                    if (go.Colliders.Count > 0)
+                    {
+                        List<GameObject> possibleColliders = sh.ObjectsNearby(go);
+
+                        // Check for collision with each object from possible colliders
+                        foreach (GameObject c in possibleColliders)
+                        {
+                            if (c == go)
+                            {
+                                continue;
+                            } // Discard self collisions
+
+                            // Check for general rectangle collision 
+                            if (c.CollisionContainer.Intersects(go.CollisionContainer))
+                            {
+                                // There is a possibility that two instances can collide
+                                // 1) Get entry from collision tree
+                                // 2) Detailed collisions
+                                var entries = CollisionsTree.DefinedCollisionPairs.FirstOrDefault(x =>
+                                    x.Key.Object == go.GetType() && x.Value.Object == c.GetType());
+
+                                if (entries.Key != null)
                                 {
-                                    if (cb is ColliderRectangle)
-                                    {
-                                        // Circle-rectangle collision
-                                        if (ColliderCircle.RectangleIntersectsCircle((ColliderRectangle) cb, (ColliderCircle) cb2))
-                                        {
+                                    // Get colliders from names
+                                    ColliderBase cb =
+                                        go.Colliders.FirstOrDefault(x => x.Name == entries.Key.ColliderName);
+                                    ColliderBase cb2 =
+                                        c.Colliders.FirstOrDefault(x => x.Name == entries.Value.ColliderName);
 
-                                            // Collision occured, fire event
+                                    if ((cb.GetType() == typeof(ColliderRectangle) &&
+                                         cb2.GetType() == typeof(ColliderCircle)))
+                                    {
+                                        if (cb is ColliderRectangle)
+                                        {
+                                            // Circle-rectangle collision
+                                            if (ColliderCircle.RectangleIntersectsCircle((ColliderRectangle) cb,
+                                                (ColliderCircle) cb2))
+                                            {
+
+                                                // Collision occured, fire event
+                                                Sgml.currentObject = go;
+                                                entries.Key.CollisionAction.Invoke(go, c);
+                                                break;
+                                                //Debug.WriteLine("TRIGGER");
+                                            }
+                                        }
+                                    }
+
+                                    if (cb.GetType() == typeof(ColliderCircle) &&
+                                        cb2.GetType() == typeof(ColliderCircle))
+                                    {
+                                        if (ColliderCircle.CircleInCircle(cb as ColliderCircle, cb2 as ColliderCircle))
+                                        {
                                             Sgml.currentObject = go;
                                             entries.Key.CollisionAction.Invoke(go, c);
                                             break;
-                                            //Debug.WriteLine("TRIGGER");
                                         }
                                     }
                                 }
+                            }
+                        }
+                    }
+                }
 
-                                if (cb.GetType() == typeof(ColliderCircle) && cb2.GetType() == typeof(ColliderCircle))
+                if (currentRoom != null)
+                {
+                    foreach (RoomLayer rl in currentRoom.Layers.ToList())
+                    {
+                        if (rl.Visible)
+                        {
+                            // ------------ positions doesn't matter here -------------
+                            // Layer is object
+                            if (rl is ObjectLayer)
+                            {
+                                foreach (GameObject o in ((ObjectLayer) rl).Objects.ToList())
                                 {
-                                    if (ColliderCircle.CircleInCircle(cb as ColliderCircle, cb2 as ColliderCircle))
-                                    {
-                                        Sgml.currentObject = go;
-                                        entries.Key.CollisionAction.Invoke(go, c);
-                                        break;
-                                    }
+                                    o.PositionPrevious = o.Position;
+                                    Sgml.currentObject = o;
+                                    o.EvtDraw();
+
+                                    generalRectangle.Width = o.Sprite.ImageRectangle.Width;
+                                    generalRectangle.Height = o.Sprite.ImageRectangle.Height;
+
+                                    generalRectangle.X = o.Position.X;
+                                    generalRectangle.Y = o.Position.Y;
+
                                 }
                             }
+
+                            // Layer is tile
+                            if (rl is TileLayer)
+                            {
+                                Editor.spriteBatch.Begin(transformMatrix: transformMatrix,
+                                    samplerState: SamplerState.PointClamp);
+                                foreach (Tile t in ((TileLayer) rl).Tiles)
+                                {
+                                    Editor.spriteBatch.Draw(((TileLayer) rl).Tileset.Texture,
+                                        new Vector2((t.PosX * 32), (t.PosY * 32)), t.DrawRectangle, Color.White);
+                                }
+
+                                Editor.spriteBatch.End();
+                            }
                         }
                     }
                 }
-            }
 
-            if (currentRoom != null)
-            {
-                foreach (RoomLayer rl in currentRoom.Layers.ToList())
-                {
-                    if (rl.Visible)
-                    {
-                        // ------------ positions doesn't matter here -------------
-                        // Layer is object
-                        if (rl is ObjectLayer)
-                        {
-                            foreach (GameObject o in ((ObjectLayer) rl).Objects.ToList())
-                            {
-                                o.PositionPrevious = o.Position;
-                                Sgml.currentObject = o;
-                                o.EvtDraw();
-
-                                generalRectangle.Width = o.Sprite.ImageRectangle.Width;
-                                generalRectangle.Height = o.Sprite.ImageRectangle.Height;
-
-                                generalRectangle.X = o.Position.X;
-                                generalRectangle.Y = o.Position.Y;
-
-                            }
-                        }
-
-                        // Layer is tile
-                        if (rl is TileLayer)
-                        {
-                            Editor.spriteBatch.Begin(transformMatrix: transformMatrix, samplerState: SamplerState.PointClamp);
-                            foreach (Tile t in ((TileLayer)rl).Tiles)
-                            {
-                                Editor.spriteBatch.Draw(((TileLayer)rl).Tileset.Texture, new Vector2((t.PosX * 32), (t.PosY * 32)), t.DrawRectangle, Color.White);
-                            }
-
-                            Editor.spriteBatch.End();
-                        }
-                    }
-                }
-            }
-
-            if (ks.IsKeyDown(Keys.LeftControl))
+                if (ks.IsKeyDown(Keys.LeftControl))
                 {
                     Sgml.draw_rectangle(selectionRectangle, true);
                 }
@@ -496,6 +514,7 @@ namespace SimplexIde
 
                 Input.KeyboardStatePrevious = Keyboard.GetState();
                 Input.Clear();
+            }
         }
 
         public void PreCheckMouse(MouseEventArgs e)

@@ -56,6 +56,8 @@ namespace SimplexIde
 
         private void Sprites_manager_Load(object sender, EventArgs e)
         {
+            owner.drawTest1.UpdateRunning = false;
+
             // first we load descriptor for all sprites
             // Sprites = JsonConvert.DeserializeObject<List<Spritesheet>>(new StreamReader("../../../SimplexRpgEngine3/SpritesDescriptor.json").ReadToEnd());
             var item0 = new DarkDropdownItem("Autotiling");
@@ -927,6 +929,11 @@ namespace SimplexIde
         private void darkNumericUpDown1_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Sprites_manager_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            owner.drawTest1.UpdateRunning = true;
         }
     }
 

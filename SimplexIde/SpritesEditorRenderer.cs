@@ -38,7 +38,7 @@ namespace SimplexIde
         public Sprites_manager parentForm = null;
         int selectedXIndex = -1;
         private int selectedYIndex = -1;
-
+        RenderTarget2D gridSurface = null;
         protected override void Initialize()
         {
             base.Initialize();
@@ -58,6 +58,7 @@ namespace SimplexIde
             Sgml.GraphicsDevice = GraphicsDevice;
 
             Rsize();
+            UpdateGrid();
         }
 
         protected override void Update(GameTime gameTime)
@@ -129,37 +130,7 @@ namespace SimplexIde
             basicEffect.View = Matrix.Identity;
             Sgml.m = Matrix.Identity;
             
-            for (var i = 0; i < Height / cellSize + 1; i++)
-            {
-                for (var j = 0; j < Width / cellSize + 1; j++)
-                {
-                    if (j == 0)
-                    {
-                        lastFlag = flag;
-                    }
-
-                    rect.Size = new Size2(cellSize, cellSize);
-                    rect.Position = new Point2( x, y);
-
-                    if (flag)
-                    {
-                        Sgml.draw_set_color(c1);
-                    }
-                    else
-                    {
-                        Sgml.draw_set_color(c2);
-                    }
-
-                    Sgml.draw_rectangle(rect, false);
-                    x += cellSize;
-                    flag = !flag;
-                }
-
-                x = 0;
-                y += cellSize;
-                lastFlag = !lastFlag;
-                flag = lastFlag;
-            }
+            Sgml.draw_surface(Vector2.Zero, gridSurface);
 
             Sgml.draw_set_color(Color.White);
             Sgml.draw_text(new Vector2(10, 10), framerate.ToString());
@@ -215,6 +186,56 @@ namespace SimplexIde
             }
         }
 
+        void UpdateGrid()
+        {
+            int cellSize = 16;
+            int x = 0;
+            int y = 0;
+
+            RectangleF rect = RectangleF.Empty;
+
+            Color c1 = Color.FromNonPremultiplied(68, 68, 68, 255);
+            Color c2 = Color.FromNonPremultiplied(77, 77, 77, 255);
+
+            bool flag = true;
+            bool lastFlag = flag;
+
+            gridSurface = Sgml.surface_create(Width, Height);
+            Sgml.surface_set_target(gridSurface);
+            for (var i = 0; i < Height / cellSize + 1; i++)
+            {
+                for (var j = 0; j < Width / cellSize + 1; j++)
+                {
+                    if (j == 0)
+                    {
+                        lastFlag = flag;
+                    }
+
+                    rect.Size = new Size2(cellSize, cellSize);
+                    rect.Position = new Point2(x, y);
+
+                    if (flag)
+                    {
+                        Sgml.draw_set_color(c1);
+                    }
+                    else
+                    {
+                        Sgml.draw_set_color(c2);
+                    }
+
+                    Sgml.draw_rectangle(rect, false);
+                    x += cellSize;
+                    flag = !flag;
+                }
+
+                x = 0;
+                y += cellSize;
+                lastFlag = !lastFlag;
+                flag = lastFlag;
+            }
+            Sgml.surface_reset_target();
+        }
+
 
         public void Rsize()
         {
@@ -224,6 +245,7 @@ namespace SimplexIde
                 Editor.graphics.Viewport = new Viewport(0, 0, this.Width, this.Height);
                 m = Matrix.CreateOrthographicOffCenter(0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height,
                     0, 0, -1);
+                UpdateGrid();
             }
         }
 

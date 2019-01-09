@@ -479,6 +479,7 @@
             this.MainMenuStrip = this.darkMenuStrip1;
             this.Name = "Sprites_manager";
             this.Text = "Sprites Manager";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Sprites_manager_FormClosing);
             this.Load += new System.EventHandler(this.Sprites_manager_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Sprites_manager_Paint);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Sprites_manager_MouseClick);
