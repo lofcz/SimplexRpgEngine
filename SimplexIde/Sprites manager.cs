@@ -46,7 +46,7 @@ namespace SimplexIde
         private Tileset s;
         private float CamX = 0;
         float CamY = 0;
-
+        public bool drawModeOn = false;
 
         public Sprites_manager()
         {
@@ -934,6 +934,13 @@ namespace SimplexIde
         private void Sprites_manager_FormClosing(object sender, FormClosingEventArgs e)
         {
             owner.drawTest1.UpdateRunning = true;
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            // Toggle edit mode
+            drawModeOn = !drawModeOn;
+            spritesEditorRenderer1.AaToggled();
         }
     }
 

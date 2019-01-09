@@ -73,6 +73,8 @@ namespace SimplexResources.Objects
             CollisionContainer.Width = 64;
             CollisionContainer.Height = 64;
 
+            motion_add(360, 4);
+
             draw_circle_fast(Position, 64, 24, Color.White);
         }
     }

@@ -39,6 +39,7 @@ namespace SimplexCore
         static Rectangle GeneralRectangle = Rectangle.Empty;
         static List<Pair> pushedVertices = new List<Pair>();
         static PointF a, b;
+        private static bool aaOn = true;
 
         // Internal cool shit
         static Vector2 GetCentroid(Vector3[] nodes)
@@ -116,6 +117,7 @@ namespace SimplexCore
         {
             vb.SetData(vertices.ToArray());
             sb.GraphicsDevice.SetVertexBuffer(vb);
+            sb.GraphicsDevice.BlendState = BlendState.Opaque;
             
             if (outline)
             {
@@ -232,6 +234,11 @@ namespace SimplexCore
             }
         }
 
+        public static void draw_set_aa(bool on)
+        {
+            aaOn = on;
+        }
+
         public static void draw_rectangle(MonoGame.Extended.RectangleF rect, bool outline)
         {
             vertices.Clear();
@@ -275,7 +282,15 @@ namespace SimplexCore
             }
             else
             {
-                sb.Begin(transformMatrix: m);
+                if (aaOn)
+                {
+                    sb.Begin(transformMatrix: m);
+                }
+                else
+                {
+                    sb.Begin(transformMatrix: m, samplerState: SamplerState.PointClamp);
+                }
+
                 sb.Draw(sprite, position, FinalizeColor(DrawColor));
                 sb.End();
             }
@@ -283,9 +298,16 @@ namespace SimplexCore
 
         public static void draw_sprite_part(Texture2D sprite, Rectangle rect, Vector2 position)
         {
-            sb.Begin(transformMatrix: m);
+            if (aaOn)
+            {
+                sb.Begin(transformMatrix: m);
+            }
+            else
+            {
+                sb.Begin(transformMatrix: m, samplerState: SamplerState.PointClamp);
+            }
 
-            sb.Draw(sprite, position, rect, FinalizeColor(DrawColor), 0, new Vector2(0, 0),0, SpriteEffects.None, 1);
+            sb.Draw(sprite, position, rect, FinalizeColor(DrawColor), 0, new Vector2(0, 0),1, SpriteEffects.None, 1);
             sb.End();
         }
 

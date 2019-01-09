@@ -304,6 +304,9 @@
   <ItemGroup>
     <None Include="Resources\TracePointDisable_16xMD.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pen4_16x.png" />
+  </ItemGroup>
   <Import Project="..\SimplexCore\SimplexCore.projitems" Label="Shared" />
   <Import Project="..\SimplexResources\SimplexResources.projitems" Label="Shared" />
   <Import Project="..\TestExtension1\TestExtension1.projitems" Label="Shared" />

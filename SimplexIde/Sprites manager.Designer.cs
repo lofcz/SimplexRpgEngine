@@ -62,12 +62,15 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.spritesEditorRenderer1 = new SimplexIde.SpritesEditorRenderer();
+            this.darkToolStrip2 = new DarkUI.Controls.DarkToolStrip();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.darkMenuStrip1.SuspendLayout();
             this.darkSectionPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.darkNumericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.darkNumericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.darkNumericUpDown1)).BeginInit();
             this.darkToolStrip1.SuspendLayout();
+            this.darkToolStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // darkMenuStrip1
@@ -404,7 +407,7 @@
             this.darkToolStrip1.Location = new System.Drawing.Point(451, 24);
             this.darkToolStrip1.Name = "darkToolStrip1";
             this.darkToolStrip1.Padding = new System.Windows.Forms.Padding(5, 0, 1, 0);
-            this.darkToolStrip1.Size = new System.Drawing.Size(813, 21);
+            this.darkToolStrip1.Size = new System.Drawing.Size(424, 21);
             this.darkToolStrip1.TabIndex = 6;
             this.darkToolStrip1.Text = "darkToolStrip1";
             // 
@@ -466,11 +469,40 @@
             this.spritesEditorRenderer1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.spritesEditorRenderer1_MouseMove);
             this.spritesEditorRenderer1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.spritesEditorRenderer1_MouseUp);
             // 
+            // darkToolStrip2
+            // 
+            this.darkToolStrip2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.darkToolStrip2.AutoSize = false;
+            this.darkToolStrip2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.darkToolStrip2.Dock = System.Windows.Forms.DockStyle.None;
+            this.darkToolStrip2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.darkToolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton4});
+            this.darkToolStrip2.Location = new System.Drawing.Point(864, 24);
+            this.darkToolStrip2.Name = "darkToolStrip2";
+            this.darkToolStrip2.Padding = new System.Windows.Forms.Padding(5, 0, 1, 0);
+            this.darkToolStrip2.Size = new System.Drawing.Size(400, 21);
+            this.darkToolStrip2.TabIndex = 7;
+            this.darkToolStrip2.Text = "darkToolStrip2";
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.toolStripButton4.Image = global::SimplexIde.Properties.Resources.Pen4_16x;
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(23, 18);
+            this.toolStripButton4.Text = "toolStripButton4";
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
+            // 
             // Sprites_manager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 663);
+            this.Controls.Add(this.darkToolStrip2);
             this.Controls.Add(this.darkToolStrip1);
             this.Controls.Add(this.spritesEditorRenderer1);
             this.Controls.Add(this.darkTreeView1);
@@ -494,6 +526,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.darkNumericUpDown1)).EndInit();
             this.darkToolStrip1.ResumeLayout(false);
             this.darkToolStrip1.PerformLayout();
+            this.darkToolStrip2.ResumeLayout(false);
+            this.darkToolStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -533,5 +567,7 @@
         public DarkUI.Controls.DarkNumericUpDown darkNumericUpDown2;
         public DarkUI.Controls.DarkNumericUpDown darkNumericUpDown1;
         public DarkUI.Controls.DarkNumericUpDown darkNumericUpDown3;
+        private DarkUI.Controls.DarkToolStrip darkToolStrip2;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
     }
 }
