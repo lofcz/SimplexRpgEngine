@@ -18,16 +18,7 @@ namespace SimplexIde
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            try
-            {
-                Application.Run(new Form1());
-            }
-            catch (Exception e)
-            {
-
-            }
-
+            Application.Run(new Form1());
         }
     }
 }

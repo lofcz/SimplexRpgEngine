@@ -20,6 +20,7 @@ namespace SimplexIde
     {
         public DarkTreeView dtv = null;
         public DrawTest main = null;
+        private DarkTreeNode lastNode = null;
 
         public ToolWindow()
         {
@@ -55,6 +56,8 @@ namespace SimplexIde
                 DarkTreeNode dtn = darkTreeView1.SelectedNodes[0];
                 main.SelectedObject = Type.GetType("SimplexResources.Objects." + dtn.Text);
             }
+
+            
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -105,6 +108,44 @@ namespace SimplexIde
             }
 
             doc.Save(currentFolder);
+        }
+
+        private void darkTreeView1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (darkTreeView1.SelectedNodes.Count > 0 && e.Button == MouseButtons.Right)
+            {
+                DarkTreeNode dtn = darkTreeView1.SelectedNodes[0];
+
+                if (dtn.Icon != Resources.Folder_16x)
+                {
+                    darkContextMenu1.Show(Cursor.Position);
+                    lastNode = dtn;
+                }
+            }
+        }
+
+        private void renameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Rename object !
+            string name = Sgml.get_string("", "New name");
+
+            /*
+               1) Rename object in savefiles 
+
+             */
+
+            string corePath = Path.GetFullPath(Path.Combine("../../bin/Debug/Data/", ""));
+            string[] paths = Directory.GetFiles(corePath);
+
+
+            foreach (string s in paths)
+            {
+                // update each file
+                string f = File.ReadAllText(s);
+                f = f.Replace(lastNode.Text, name);
+                File.WriteAllText(s, f);
+                lastNode.Text = name;
+            }
         }
     }
 }

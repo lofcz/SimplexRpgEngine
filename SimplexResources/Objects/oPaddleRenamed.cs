@@ -11,11 +11,11 @@ using SimplexResources.Rooms;
 using static SimplexCore.Sgml;
 namespace SimplexResources.Objects
 {
-    public class oPaddle : GameObject
+    public class oPaddleRenamed : GameObject
     {
         private RenderTarget2D MySurface;
 
-        public oPaddle()
+        public oPaddleRenamed()
         {
             EditorPath = "Actors";
             Persistent = true;
