@@ -35,6 +35,7 @@ namespace SimplexIde
         public Sounds_Manager SoundsManager;
         public TilesetControl ww = null;
         public ToolWindow w = null;
+        public ControlInterface properties = null;
 
         public Form1()
         {
@@ -460,11 +461,11 @@ namespace SimplexIde
 
         private void darkDockPanel3_Load(object sender, EventArgs e)
         {
-            ControlInterface w = new ControlInterface();
+            properties = new ControlInterface();
             ww = new TilesetControl();
             ww.DockText = "Tiles";
             ww.form = this;
-            darkDockPanel3.AddContent(w);
+            darkDockPanel3.AddContent(properties);
             darkDockPanel3.AddContent(ww);
             ResizeRedraw = true;
         }

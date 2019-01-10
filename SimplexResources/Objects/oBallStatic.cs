@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
+using DarkUI.Controls;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SimplexCore;
@@ -13,6 +15,9 @@ namespace SimplexResources.Objects
     public class oBallStatic : GameObject
     {
         private ParticleEngine pe;
+        public bool ParticlesOn = false;
+        private DarkCheckBox box1 = null;
+        private DarkCheckBox box2 = null;
 
         public oBallStatic()
         {
@@ -25,6 +30,37 @@ namespace SimplexResources.Objects
             cr.GameObject = this;
 
             Colliders.Add(cr);
+
+            box1 = new DarkCheckBox() { Text = "On", AutoSize = true };
+            box1.CheckStateChanged += box1event;
+
+
+            box2 = new DarkCheckBox() { Text = "Off", AutoSize = true };
+            box2.CheckStateChanged += box2event;
+
+            EditorProperties = new Control[3];
+            EditorProperties[0] = new DarkLabel() {Text = "Toggle particles", AutoSize = true};
+            EditorProperties[1] = box1;
+            EditorProperties[2] = box2;
+
+        }
+
+        public void box1event(object sender, EventArgs e)
+        {
+            if (box1.Checked)
+            {
+                ParticlesOn = true;
+                box2.Checked = false;
+            }
+        }
+
+        public void box2event(object sender, EventArgs e)
+        {
+            if (box2.Checked)
+            {
+                ParticlesOn = false;
+                box1.Checked = false;
+            }
         }
 
         public override void EvtCreate()
@@ -60,8 +96,11 @@ namespace SimplexResources.Objects
             CollisionContainer.Width = 64;
             CollisionContainer.Height = 64;
 
-            pe.EmitterLocation = mouse;
-            pe.Update();
+            if (ParticlesOn)
+            {
+                pe.EmitterLocation = Position;
+                pe.Update();
+            }
         }
 
         public override void EvtDraw()
@@ -72,8 +111,6 @@ namespace SimplexResources.Objects
             CollisionContainer.Y = (int)Position.Y;
             CollisionContainer.Width = 64;
             CollisionContainer.Height = 64;
-
-            motion_add(360, 4);
 
             draw_circle_fast(Position, 64, 24, Color.White);
         }

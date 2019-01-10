@@ -845,6 +845,9 @@ namespace SimplexIde
                                     clickedObject = collidingObject;
                                     helpVec = new Vector2(-MousePositionTranslated.X + collidingObject.Position.X, -MousePositionTranslated.Y + collidingObject.Position.Y);
                                     clickedVec = MousePositionTranslated;
+
+                                    // load properties in the props tab
+                                    editorForm.properties.RegisterControls(clickedObject.EditorProperties);
                                 }
                             }
                         }

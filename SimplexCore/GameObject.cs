@@ -31,6 +31,8 @@ namespace SimplexCore
         [XmlIgnore]
         public Rectangle CollisionContainer = Rectangle.Empty;
 
+        [XmlIgnore]
+        public Control[] EditorProperties;
         /*
          * magic constants:
          * [magic_separator]
