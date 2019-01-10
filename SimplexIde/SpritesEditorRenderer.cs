@@ -43,6 +43,7 @@ namespace SimplexIde
         private RenderTarget2D imageOverlay = null;
         private MouseState ms;
         private Texture2D pixel = null;
+        public Color penColor = Color.Black;
 
         protected override void Initialize()
         {
@@ -65,8 +66,8 @@ namespace SimplexIde
             Sgml.GraphicsDevice = GraphicsDevice;
 
             pixel = new Texture2D(GraphicsDevice, 1, 1);
-            pixel.SetData(new[] {Color.Red});
-            GraphicsDevice.SamplerStates[0] = SamplerState.PointClamp;
+            pixel.SetData(new[] {Color.White});
+          
             Rsize();
             UpdateGrid();
         }
@@ -104,9 +105,12 @@ namespace SimplexIde
                 {
                     Sgml.surface_set_target(imageOverlay);
                     Sgml.draw_set_aa(false);
+
+                    Sgml.draw_set_color(penColor);
                     Sgml.draw_sprite(pixel, -2, new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1));
                     //Sgml.draw_rectangle(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1), new Vector2((float)Sgml.round(Sgml.mouse.X + .5f) - x1, (float)Sgml.round(Sgml.mouse.Y + .5f) - y1), false);
                     Sgml.surface_reset_target();
+                    Sgml.draw_set_color(Color.White);
                 }
             }
         }
@@ -250,6 +254,7 @@ namespace SimplexIde
                         Sgml.draw_set_alpha(1);
                         Sgml.draw_set_color(Color.White);
 
+                        Sgml.draw_set_aa(false);
                         Sgml.draw_surface(new Vector2(x1, y1), imageOverlay);
                         Sgml.draw_rectangle(
                             new Vector2((float) Sgml.round(Sgml.mouse.X - .5f), (float) Sgml.round(Sgml.mouse.Y - .5f)),

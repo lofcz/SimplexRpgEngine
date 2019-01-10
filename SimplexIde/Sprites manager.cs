@@ -942,6 +942,15 @@ namespace SimplexIde
             drawModeOn = !drawModeOn;
             spritesEditorRenderer1.AaToggled();
         }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Color r = colorDialog1.Color;
+                spritesEditorRenderer1.penColor = Microsoft.Xna.Framework.Color.FromNonPremultiplied(r.R, r.G, r.B, r.A);
+            }
+        }
     }
 
     public class Subsprite
