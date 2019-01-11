@@ -178,6 +178,15 @@ namespace SimplexIde
 
         protected override void Update(GameTime gameTime)
         {
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+            {
+                if (editorForm.renderSize != Size.Empty)
+                {
+                    Location = editorForm.renderPos;
+                    Size = editorForm.renderSize;
+                }
+            }
+
             if (UpdateRunning)
             {
                 var originalPos = cam.Camera.Position;
@@ -327,25 +336,6 @@ namespace SimplexIde
                 basicEffect.Projection = projection;
                 basicEffect.VertexColorEnabled = true;
 
-
-                if (DrawGrid)
-                {
-                    Color c = Color.White;
-                    c.A = 128;
-
-                    for (float i = 0; i < 768; i += GridSizeRender.Y)
-                    {
-                        for (float j = 0; j < 1024; j += GridSizeRender.X)
-                        {
-                            i = (float) Math.Round(i);
-                            j = (float) Math.Round(j);
-                            Sgml.draw_rectangle(new RectangleF(j, i, GridSizeRender.X, GridSizeRender.Y), true);
-                            // Editor.spriteBatch.DrawRectangle(new RectangleF(j, i, GridSizeRender.X, GridSizeRender.Y), c, 1);
-                        }
-                    }
-
-                }
-
                 SimplexResources.Global.DrawStart();
 
                 if (roomLayers.Count > 2)
@@ -492,6 +482,24 @@ namespace SimplexIde
                             }
                         }
                     }
+                }
+
+                if (DrawGrid)
+                {
+                    Color c = Color.White;
+                    c.A = 128;
+
+                    for (float i = 0; i < 768; i += GridSizeRender.Y)
+                    {
+                        for (float j = 0; j < 1024; j += GridSizeRender.X)
+                        {
+                            i = (float)Math.Round(i);
+                            j = (float)Math.Round(j);
+                            Sgml.draw_rectangle(new RectangleF(j, i, GridSizeRender.X, GridSizeRender.Y), true);
+                            // Editor.spriteBatch.DrawRectangle(new RectangleF(j, i, GridSizeRender.X, GridSizeRender.Y), c, 1);
+                        }
+                    }
+
                 }
 
                 if (ks.IsKeyDown(Keys.LeftControl))

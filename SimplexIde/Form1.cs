@@ -18,6 +18,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using SimplexCore;
 using Color = System.Drawing.Color;
+using Point = System.Drawing.Point;
 
 namespace SimplexIde
 {
@@ -36,6 +37,10 @@ namespace SimplexIde
         public TilesetControl ww = null;
         public ToolWindow w = null;
         public ControlInterface properties = null;
+        public Point renderPos = Point.Empty;
+        public Size renderSize = Size.Empty;
+
+
 
         public Form1()
         {
@@ -617,6 +622,16 @@ namespace SimplexIde
         public void preventClose(FormClosingEventArgs e)
         {
             e.Cancel = true;
+        }
+
+        private void toolStripButton7_Click(object sender, EventArgs e)
+        {
+            // toggle fullscreen mode
+            renderPos = drawTest1.Location;
+            renderSize = drawTest1.Size;
+
+            drawTest1.Location = new System.Drawing.Point(0, 0);
+            drawTest1.Size = new Size(Width, Height);
         }
     }
 }
