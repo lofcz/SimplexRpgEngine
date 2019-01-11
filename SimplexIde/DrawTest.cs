@@ -456,6 +456,7 @@ namespace SimplexIde
                                 {
                                     o.PositionPrevious = o.Position;
                                     Sgml.currentObject = o;
+                                    Sgml.realObject = o;
                                     o.EvtDraw();
 
                                     generalRectangle.Width = o.Sprite.ImageRectangle.Width;

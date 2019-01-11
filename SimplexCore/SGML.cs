@@ -30,6 +30,7 @@ namespace SimplexCore
         public static Microsoft.Xna.Framework.Matrix m;
         public static List<RoomLayer> roomLayers = new List<RoomLayer>();
         public static GameRoom currentRoom;
+        public static GameObject realObject = null;
 
         public static Color DrawColor
         {
@@ -534,6 +535,16 @@ namespace SimplexCore
         private static double ApplyEpsilonAggressive(double x)
         {
             return Math.Ceiling(x * (1 / 0.001)) / (1 / 0.001);
+        }
+
+        public static void with(GameObject obj)
+        {
+            currentObject = obj;
+        }
+
+        public static void with_reset()
+        {
+            currentObject = realObject;
         }
     }
 }
