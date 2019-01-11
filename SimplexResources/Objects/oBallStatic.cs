@@ -112,6 +112,15 @@ namespace SimplexResources.Objects
             CollisionContainer.Width = 64;
             CollisionContainer.Height = 64;
 
+            oPaddleRenamed closestPaddle = (oPaddleRenamed)instance_nearset(Position, typeof(oPaddleRenamed));
+
+            if (closestPaddle != null)
+            {
+                with(closestPaddle);
+                draw_circle_fast(closestPaddle.Position, 24, 24, Color.Orange);
+                with_reset();
+            }
+
             draw_circle_fast(Position, 64, 24, Color.White);
         }
     }

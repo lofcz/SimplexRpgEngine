@@ -76,6 +76,8 @@ namespace SimplexCore
         public bool Persistent;
         public string PersistentLayer;
 
+
+
         [XmlIgnore]
         public List<ColliderBase> Colliders = new List<ColliderBase>();
 
@@ -226,6 +228,7 @@ namespace SimplexCore
             UpdateImageScale();
             UpdateImageAngle();
 
+            ImageIndex += (float)ImageSpeed;
             // Apply friction
             if (abs(Speed) > 0)
             {

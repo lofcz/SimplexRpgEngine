@@ -23,6 +23,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Rooms\Room1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Rooms\Room2.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Objects\NewObject.cs" xmlns="" />
+    <Compile Include="$(MSBuildThisFileDirectory)Objects\oGem.cs" xmlns="" />
+    <Compile Include="$(MSBuildThisFileDirectory)Objects\oGeorge.cs" xmlns="" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Content\" />

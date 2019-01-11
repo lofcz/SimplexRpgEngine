@@ -8,12 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DarkUI.Docking;
+using SimplexCore;
 
 namespace SimplexIde
 {
     public partial class ControlInterface : DarkToolWindow
     {
         private Control[] controls = null;
+        public GameObject lastObject = null;
+
         public ControlInterface()
         {
             InitializeComponent();

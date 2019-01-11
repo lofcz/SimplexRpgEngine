@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="315366bf-fb01-4ea9-b821-868d15b45147" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/SimplexIde/ControlInterface.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SimplexIde/ControlInterface.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SimplexResources/Objects/oBallStatic.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SimplexResources/Objects/oBallStatic.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SimplexRpgEngine3/Content/bin/Windows/Content/Sprites/Tilesets/tileset0.xnb" beforeDir="false" afterPath="$PROJECT_DIR$/SimplexRpgEngine3/Content/bin/Windows/Content/Sprites/Tilesets/tileset0.xnb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SimplexRpgEngine3/Content/bin/Windows/Content/Sprites/unknown.xnb" beforeDir="false" afterPath="$PROJECT_DIR$/SimplexRpgEngine3/Content/bin/Windows/Content/Sprites/unknown.xnb" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SimplexRpgEngine3/Game1.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2218">
+              <caret line="58" column="19" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
+              <folding>
+                <marker date="1546372777232" expanded="false" signature="6:577" ph="..." />
+                <marker date="1546372777232" expanded="true" signature="606:16088" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="613:690" ph="/// This is the main type for your game. ... " />
+                <marker date="1546372777232" expanded="true" signature="720:16086" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="3176:3537" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="3583:5855" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="4817:5021" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="5936:6015" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="6062:6083" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="6132:6165" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="6224:7863" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="6964:7029" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="7087:7251" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="7535:7853" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="7683:7839" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="7920:16080" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="8790:9437" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="8937:9422" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="9026:9404" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="9526:9581" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="9630:10686" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="9711:10672" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="10009:10397" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="10106:10304" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="10460:10623" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="10798:13793" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="10856:13779" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="11102:13761" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="11353:13739" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="11408:11582" ph="/* There is a possibility that two instances can collide ... */" />
+                <marker date="1546372777232" expanded="true" signature="11799:13713" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="12256:13108" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="12355:13074" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="12593:13036" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="13228:13683" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="13378:13649" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="13831:15444" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="13915:15430" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="13969:15412" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="14016:14116" ph="/* ------------ positions doesn't matter here ------------- ... */" />
+                <marker date="1546372777232" expanded="true" signature="14161:14617" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="14329:14552" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="14708:15390" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="14823:15364" ph="{...}" />
+                <marker date="1546372777232" expanded="true" signature="15493:15584" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/SimplexRpgEngine3/Game1.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="260" />
+    <option name="y" value="20" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="SolutionExplorer" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="AssemblyExplorer" />
+      <pane id="SolutionExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="SimplexRpgEngine3" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="SimplexRpgEngine3" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="SimplexIde" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <option name="show-all-files" value="false" />
+      </pane>
+      <pane id="FileSystemExplorer" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
+    <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected=".NET Project.SimplexIde">
+    <configuration name="Default" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/SimplexRpgEngine3/bin/Windows/x86/Debug/SimplexRpgEngine3.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SimplexRpgEngine3/bin/Windows/x86/Debug" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/SimplexRpgEngine3/SimplexRpgEngine3.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="Console" />
+      <option name="PROJECT_TFM" value=".NETFramework,Version=v4.5" />
+      <method v="2">
+        <option name="Build" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SimplexIde" type="DotNetProject" factoryName=".NET Project" temporary="true">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/SimplexIde/bin/Debug/SimplexIde.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SimplexIde/bin/Debug" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/SimplexIde/SimplexIde.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="Console" />
+      <option name="PROJECT_TFM" value=".NETFramework,Version=v4.8" />
+      <method v="2">
+        <option name="Build" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue=".NET Project.SimplexIde" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="315366bf-fb01-4ea9-b821-868d15b45147" name="Default Changelist" comment="" />
+      <created>1547212743684</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1547212743684</updated>
+      <workItem from="1547212746068" duration="827000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="827000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Image Layers" />
+      <window_info id="Capture Tool" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="NuGet" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Unit Tests" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info active="true" anchor="bottom" id="Performance Profiler" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Build" weight="0.32936078" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Errors In Solution" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Unit Tests Coverage" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" suspend="NONE" type="DotNet Exception Breakpoints">
+          <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/SimplexRpgEngine3/Game1.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2218">
+          <caret line="58" column="19" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
+          <folding>
+            <marker date="1546372777232" expanded="false" signature="6:577" ph="..." />
+            <marker date="1546372777232" expanded="true" signature="606:16088" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="613:690" ph="/// This is the main type for your game. ... " />
+            <marker date="1546372777232" expanded="true" signature="720:16086" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="3176:3537" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="3583:5855" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="4817:5021" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="5936:6015" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="6062:6083" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="6132:6165" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="6224:7863" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="6964:7029" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="7087:7251" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="7535:7853" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="7683:7839" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="7920:16080" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="8790:9437" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="8937:9422" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="9026:9404" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="9526:9581" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="9630:10686" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="9711:10672" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="10009:10397" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="10106:10304" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="10460:10623" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="10798:13793" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="10856:13779" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="11102:13761" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="11353:13739" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="11408:11582" ph="/* There is a possibility that two instances can collide ... */" />
+            <marker date="1546372777232" expanded="true" signature="11799:13713" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="12256:13108" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="12355:13074" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="12593:13036" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="13228:13683" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="13378:13649" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="13831:15444" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="13915:15430" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="13969:15412" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="14016:14116" ph="/* ------------ positions doesn't matter here ------------- ... */" />
+            <marker date="1546372777232" expanded="true" signature="14161:14617" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="14329:14552" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="14708:15390" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="14823:15364" ph="{...}" />
+            <marker date="1546372777232" expanded="true" signature="15493:15584" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

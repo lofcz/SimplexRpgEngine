@@ -94,7 +94,7 @@ namespace SimplexResources.Objects
                 if (Input.KeyboardState.IsKeyDown(Keys.D) || Input.KeyboardState.IsKeyDown(Keys.W) || Input.KeyboardState.IsKeyDown(Keys.S) || Input.KeyboardState.IsKeyDown(Keys.A))
             {
                 ImageSpeed = 0.3;
-                ImageIndex += (float)ImageSpeed;             
+                ImageIndex += (float)ImageSpeed;
             }
             else
             {

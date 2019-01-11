@@ -57,6 +57,17 @@ namespace SimplexCore
             }
         }
 
+        public void UnregisterAll()
+        {
+            foreach (var k in Hash)
+            {
+                if (k.Value != null)
+                {
+                    k.Value.Clear();
+                }
+            }
+        }
+
         public void UnregisterObject(GameObject go)
         {
             foreach (var k in Hash)
@@ -113,11 +124,13 @@ namespace SimplexCore
 
             foreach (int item in GetIdsForObject(go))
             {
-                if (Hash[item] != null)
+                if (Hash[item] == null)
                 {
-                    nearby.AddRange(Hash[item]);
+                    Hash[item] = new List<GameObject>();
                 }
-                
+
+                nearby.AddRange(Hash[item]);
+
             }
 
             return nearby;

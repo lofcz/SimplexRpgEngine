@@ -234,9 +234,9 @@ namespace SimplexIde
 
                 cam.UpdatePosition();
 
-                for (var i = 0; i < SceneObjects.Count; i++)
+                sh.UnregisterAll();
+                for (var i = 0; i < SceneObjects.ToList().Count; i++)
                 {
-                    sh.UnregisterObject(SceneObjects[i]);
                     sh.RegisterObject(SceneObjects[i]);
 
                     if (GameRunning || SceneObjects[i] == clickedObject)
@@ -423,6 +423,17 @@ namespace SimplexIde
                                                 break;
                                                 //Debug.WriteLine("TRIGGER");
                                             }
+                                        }
+                                    }
+
+                                    if (cb.GetType() == typeof(ColliderRectangle) &&
+                                        cb2.GetType() == typeof(ColliderRectangle))
+                                    {
+                                        if ((cb as ColliderRectangle).CollisionTransformed.Intersects((cb2 as ColliderRectangle).CollisionTransformed))
+                                        {
+                                            Sgml.currentObject = go;
+                                            entries.Key.CollisionAction.Invoke(go, c);
+                                            break;
                                         }
                                     }
 
