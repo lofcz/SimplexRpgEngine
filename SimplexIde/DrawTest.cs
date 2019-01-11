@@ -235,15 +235,16 @@ namespace SimplexIde
                 cam.UpdatePosition();
 
                 sh.UnregisterAll();
-                for (var i = 0; i < SceneObjects.ToList().Count; i++)
+                GameObject[] obj = SceneObjects.ToArray();
+                for (var i = 0; i < obj.Length; i++)
                 {
-                    sh.RegisterObject(SceneObjects[i]);
+                    sh.RegisterObject(obj[i]);
 
-                    if (GameRunning || SceneObjects[i] == clickedObject)
+                    if (GameRunning || obj[i] == clickedObject)
                     {
-                        Sgml.currentObject = SceneObjects[i];
-                        SceneObjects[i].EvtStep();
-                        SceneObjects[i].EvtDrawToSurfaces();
+                        Sgml.currentObject = obj[i];
+                        obj[i].EvtStep();
+                        obj[i].EvtDrawToSurfaces();
                     }
                 }
             }
@@ -469,9 +470,9 @@ namespace SimplexIde
                             {
                                 foreach (GameObject o in ((ObjectLayer) rl).Objects.ToList())
                                 {
-                                    o.PositionPrevious = o.Position;
                                     Sgml.currentObject = o;
                                     Sgml.realObject = o;
+                                    o.PositionPrevious = o.Position;
                                     o.EvtDraw();
 
                                     generalRectangle.Width = o.Sprite.ImageRectangle.Width;
@@ -833,15 +834,16 @@ namespace SimplexIde
                                             o.Sprite.cellW = s.CellHeight;
                                             o.Sprite.cellH = s.CellWidth;
 
-                                            o.Position = new Vector2(vec.X - s.CellWidth / 2f, vec.Y - s.CellHeight / 2f);
+                                            o.Position = new Vector2(vec.X, vec.Y);
                                             o.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
                                             o.LayerName = selectedLayer.Name;
                                             o.Layer = (ObjectLayer)selectedLayer;
 
                                             Sgml.currentObject = o;
                                             o.EvtCreate();
+                                            o.EvtCreateEnd();
 
-                                           o.Layer.Objects.Add(o);
+                                            o.Layer.Objects.Add(o);
                                             SceneObjects.Add(o);
                                             sh.RegisterObject(o);
  

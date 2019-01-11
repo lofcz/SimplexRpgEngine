@@ -13,9 +13,9 @@ namespace SimplexCore
             return Sounds.FirstOrDefault(x => x.Name == name);
         }
 
-        public static void audio_play_sound_fast(SoundReference sound)
+        public static void audio_play_sound_fast(SoundReference sound, float volume = 1f)
         {
-            sound.Source.Play();
+            sound.Source.Play(volume, 0, 0);
         }
     }
 }

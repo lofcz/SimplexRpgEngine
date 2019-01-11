@@ -7,7 +7,9 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
+using SharpDX.Direct3D11;
 using SimplexResources.Objects;
+using Texture2D = Microsoft.Xna.Framework.Graphics.Texture2D;
 
 namespace SimplexCore
 {
@@ -151,7 +153,7 @@ namespace SimplexCore
         public static GameObject instance_create(Vector2 position, Type obj, string layer)
         {
             // First we need to convert layer name to actual layer
-            RoomLayer realLayer = roomLayers.FirstOrDefault(x => x.Name == layer);
+            RoomLayer realLayer = currentRoom.Layers.FirstOrDefault(x => x.Name == layer);
 
             GameObject o = (GameObject)Activator.CreateInstance(obj);
             Spritesheet s = new Spritesheet();
@@ -204,7 +206,7 @@ namespace SimplexCore
 
             currentObject = o;
             o.EvtCreate();
-
+            o.EvtCreateEnd();
 
             o.Layer.Objects.Add(o);
             SceneObjects.Add(o);

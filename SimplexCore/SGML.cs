@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
@@ -8,6 +9,7 @@ using MonoGame.Extended;
 using SharpDX;
 using Color = Microsoft.Xna.Framework.Color;
 using Matrix = System.Drawing.Drawing2D.Matrix;
+using Point = Microsoft.Xna.Framework.Point;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
 using RectangleF = MonoGame.Extended.RectangleF;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
@@ -92,25 +94,16 @@ namespace SimplexCore
 
         public static GameObject instance_place(Vector2 vec, Type go)
         {
-            foreach (RoomLayer rl in roomLayers)
+            List<GameObject> appliable = SceneObjects.FindAll(x => x.GetType() == go);
+            Point s = currentObject.Sprite.ImageRectangle.Size;
+            Rectangle fr = new Rectangle((int)vec.X, (int)vec.Y, s.X, s.Y);
+
+            foreach (GameObject g in appliable)
             {
-                if (rl.Visible)
+                RectangleF r = new Rectangle((int)g.Position.X, (int)g.Position.Y, g.Sprite.ImageRectangle.Width, g.Sprite.ImageRectangle.Height);
+                if (r.Intersects(fr))
                 {
-                    if (rl is ObjectLayer)
-                    {
-                        ObjectLayer ol = (ObjectLayer)rl;
-                        for (int i = ol.Objects.Count - 1; i >= 0; i--)
-                        {
-                            RectangleF r = new Rectangle((int)ol.Objects[i].Position.X, (int)ol.Objects[i].Position.Y, ol.Objects[i].Sprite.ImageRectangle.Width, ol.Objects[i].Sprite.ImageRectangle.Height);
-                            if (r.Contains(vec))
-                            {
-                                if (ol.Objects[i].GetType() == go)
-                                {
-                                    return ol.Objects[i];
-                                }
-                            }
-                        }
-                    }
+                    return g;
                 }
             }
 

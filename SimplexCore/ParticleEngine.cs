@@ -45,7 +45,7 @@ namespace SimplexCore
             return new Particle(texture, position, velocity, angle, angularVelocity, color, size, ttl, 1);
         }
 
-        public void Update()
+        public void Setup()
         {
             int total = 10;
 
@@ -53,7 +53,10 @@ namespace SimplexCore
             {
                 particles.Add(GenerateNewParticle());
             }
+        }
 
+        public void Update()
+        {
             for (int particle = 0; particle < particles.Count; particle++)
             {
                 particles[particle].Update();

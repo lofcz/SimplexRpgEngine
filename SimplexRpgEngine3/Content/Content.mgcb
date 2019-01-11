@@ -33,6 +33,12 @@
 /processorParam:Quality=Best
 /build:Sounds/Mystical Piano.mp3;Sounds/MySong.mp3
 
+#begin Sounds/sndGem1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sounds/sndGem1.wav
+
 #begin Sprites/circle.png
 /importer:TextureImporter
 /processor:TextureProcessor

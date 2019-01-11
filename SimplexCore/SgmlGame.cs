@@ -136,6 +136,11 @@ namespace SimplexCore
 
             }
 
+            foreach (GameObject g in SceneObjects)
+            {
+                g.EvtCreateEnd();
+            }
+
             // Load tiles
             foreach (Tile t in rawData.Tiles)
             {

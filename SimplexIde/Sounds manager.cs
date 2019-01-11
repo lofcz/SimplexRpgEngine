@@ -111,7 +111,7 @@ namespace SimplexIde
 
                 if ((string)selectedNode.Tag != "folder")
                 {
-                    TagLib.File file = TagLib.File.Create("../../../SimplexRpgEngine3/Content/bin/Windows/Sounds/" + selectedNode.Text + ".wma");
+                    TagLib.File file = TagLib.File.Create("../../../SimplexRpgEngine3/Content/bin/Windows/Sounds/" + selectedNode.Text + ".wav");
                     string title = file.Tag.Title;
                     string album = file.Tag.Album;
                     string length = file.Properties.Duration.ToString();

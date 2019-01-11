@@ -192,6 +192,11 @@ namespace SimplexCore
 
         }
 
+        public virtual void EvtCreateEnd()
+        {
+
+        }
+
         public virtual void EvtLoad()
         {
 
