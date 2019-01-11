@@ -47,6 +47,20 @@ namespace SimplexCore
             StreamReader w = new StreamReader(path);
             Root rawData = (Root)ser.Deserialize(w);
 
+            // Filter out duplicated layers
+            List<string> names = new List<string>();
+            List<RoomLayer> goodLayers = new List<RoomLayer>();
+            for (var i = 0; i < rawData.Room.Layers.Count; i++)
+            {
+                if (!names.Contains(rawData.Room.Layers[i].Name))
+                {
+                    names.Add(rawData.Room.Layers[i].Name);
+                    goodLayers.Add(rawData.Room.Layers[i]);
+                }
+            }
+
+            rawData.Room.Layers = goodLayers;
+
             // First load back room itself
             Form1.width = (int)rawData.Room.Size.X;
             Form1.height = (int)rawData.Room.Size.Y;
@@ -67,7 +81,7 @@ namespace SimplexCore
             // we need to initialize layers by type
             if (tilesets != null)
             {
-                foreach (RoomLayer rl in roomLayers)
+                foreach (RoomLayer rl in currentRoom.Layers)
                 {
                     if (rl.LayerType == RoomLayer.LayerTypes.typeTile)
                     {
@@ -125,7 +139,7 @@ namespace SimplexCore
             // Load tiles
             foreach (Tile t in rawData.Tiles)
             {
-                RoomLayer correctLayer = roomLayers.FirstOrDefault(x => x.Name == t.TileLayerName);
+                RoomLayer correctLayer = currentRoom.Layers.FirstOrDefault(x => x.Name == t.TileLayerName);
 
                 if (correctLayer != null)
                 {
@@ -142,7 +156,7 @@ namespace SimplexCore
             // Now update all tiles
             Texture2D ttt = RoomEditorEditor.Content.Load<Texture2D>(Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/Tilesets/" + "tileset0"));
 
-            foreach (RoomLayer rl in roomLayers)
+            foreach (RoomLayer rl in currentRoom.Layers)
             {
                 if (rl is TileLayer)
                 {

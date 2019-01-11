@@ -459,6 +459,10 @@ namespace SimplexIde
                     {
                         if (rl.Visible)
                         {
+                            if (currentRoom.Layers.Count > 3)
+                            {
+                                var z = 1;
+                            }
                             // ------------ positions doesn't matter here -------------
                             // Layer is object
                             if (rl is ObjectLayer)
@@ -1058,10 +1062,9 @@ namespace SimplexIde
 
         public void PropagateNodes()
         {
-            GameRoom gr = (GameRoom)Activator.CreateInstance(currentRoom.GetType());
-            selectedLayer = gr.Layers[0];
+            selectedLayer = currentRoom.Layers[0];
             int currentDepth = 0;
-            foreach (RoomLayer rl in gr.Layers)
+            foreach (RoomLayer rl in currentRoom.Layers)
             {
                 DarkTreeNode dtn = new DarkTreeNode(rl.Name);
                 dtn.Tag = dtn;
@@ -1086,8 +1089,6 @@ namespace SimplexIde
 
                 rl.Depth = currentDepth;
                 currentDepth += 100;
-                roomLayers.Add(rl);
-                currentRoom.Layers.Add(rl);
                 lt?.dtv.Nodes[0].Nodes.Add(dtn);
             }
         }

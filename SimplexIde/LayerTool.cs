@@ -57,7 +57,7 @@ namespace SimplexIde
                 DarkTreeNode dtn = darkTreeView1.SelectedNodes[0];
                 if (dtn.Tag != null && (string)dtn?.Tag != "folder" && dtn != lastNodeSelected)
                 {
-                        f.selectedLayer = f.roomLayers.FirstOrDefault(x => x.Name == dtn.Text);
+                        f.selectedLayer = f.currentRoom.Layers.FirstOrDefault(x => x.Name == dtn.Text);
 
                         // Activate / deactive tile tool now
 
