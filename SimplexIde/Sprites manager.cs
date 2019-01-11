@@ -933,9 +933,12 @@ namespace SimplexIde
 
         private void Sprites_manager_FormClosing(object sender, FormClosingEventArgs e)
         {
-            owner.drawTest1.UpdateRunning = true;
-            e.Cancel = true;
-            Hide();
+            if (Visible)
+            {
+                owner.drawTest1.UpdateRunning = true;
+                e.Cancel = true;
+                Hide();
+            }
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
