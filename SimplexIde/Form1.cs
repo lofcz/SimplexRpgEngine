@@ -528,12 +528,23 @@ namespace SimplexIde
                 SpritesManager.Close();
             }
 
-            SpritesManager = new Sprites_manager();
-            SpritesManager.Owner = this;
-            SpritesManager.owner = this;
-            SpritesManager.StartPosition = FormStartPosition.CenterScreen;
-            SpritesManager.Show();
+            if (SpritesManager == null)
+            {
+                SpritesManager = new Sprites_manager();
+                SpritesManager.Owner = this;
+                SpritesManager.owner = this;
+                SpritesManager.StartPosition = FormStartPosition.CenterScreen;
+                SpritesManager.Show();
+            }
+            else
+            {
+                SpritesManager.Show();
+            }
+
         }
+
+
+
 
         private void darkDockPanel3_Paint(object sender, PaintEventArgs e)
         {
@@ -596,6 +607,16 @@ namespace SimplexIde
             SoundsManager.owner = this;
             SoundsManager.StartPosition = FormStartPosition.CenterScreen;
             SoundsManager.Show();
+        }
+
+        public void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+           Application.Exit();
+        }
+
+        public void preventClose(FormClosingEventArgs e)
+        {
+            e.Cancel = true;
         }
     }
 }

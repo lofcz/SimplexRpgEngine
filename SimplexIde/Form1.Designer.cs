@@ -738,6 +738,7 @@
             this.Controls.Add(this.darkDockPanel5);
             this.Name = "Form1";
             this.Text = "Simplex RPG Engine";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.darkMenuStrip1.ResumeLayout(false);
             this.darkMenuStrip1.PerformLayout();
