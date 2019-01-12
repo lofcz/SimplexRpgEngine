@@ -99,6 +99,7 @@ namespace SimplexIde
         public int SheetX = 0;
         public int SheetY = 0;
         public bool UpdateRunning = true;
+        private RenderTarget2D midBuffer = null;
 
         protected override void Initialize()
         {
@@ -158,6 +159,8 @@ namespace SimplexIde
                 tl.Texture = Editor.Content.Load<Texture2D>(Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/Tilesets/" + tl.Name));
             }
             Sgml.tilesets = tilesets;
+
+            midBuffer = new RenderTarget2D(GraphicsDevice, Width, Height);
         }
 
         private void OnKeyPressed(object sender, GlobalKeyboardHookEventArgs e)
@@ -488,11 +491,10 @@ namespace SimplexIde
                             if (rl is TileLayer)
                             {
                                 Editor.spriteBatch.Begin(transformMatrix: transformMatrix,
-                                    samplerState: SamplerState.PointClamp);
+                                    samplerState: SamplerState.PointWrap);
                                 foreach (Tile t in ((TileLayer) rl).Tiles)
                                 {
-                                    Editor.spriteBatch.Draw(((TileLayer) rl).Tileset.Texture,
-                                        new Vector2((t.PosX * 32), (t.PosY * 32)), t.DrawRectangle, Color.White);
+                                    Editor.spriteBatch.Draw(((TileLayer) rl).Tileset.Texture, new Vector2((int)Math.Floor((double)t.PosX * 32), (int)Math.Floor((double)t.PosY * 32)), t.DrawRectangle, Color.White);
                                 }
 
                                 Editor.spriteBatch.End();

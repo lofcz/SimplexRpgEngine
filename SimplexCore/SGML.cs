@@ -264,37 +264,37 @@ namespace SimplexCore
 
         public static double dsin(double x)
         {
-            return ApplyEpsilon(Math.Sin(MathHelper.ToRadians((float)x)) * (1 / _epsilon));
+            return ApplyEpsilon(Math.Sin(MathHelper.ToRadians((float)x)));
         }
 
         public static double dcos(double x)
         {
-            return ApplyEpsilon(Math.Cos(MathHelper.ToRadians((float)x)) * (1 / _epsilon));
+            return ApplyEpsilon(Math.Cos(MathHelper.ToRadians((float)x)));
         }
 
         public static double dtan(double x)
         {
-            return ApplyEpsilon(Math.Tan(MathHelper.ToRadians((float)x)) * (1 / _epsilon));
+            return ApplyEpsilon(Math.Tan(MathHelper.ToRadians((float)x)));
         }
 
         public static double darcsin(double x)
         {
-            return ApplyEpsilon(Math.Asin(MathHelper.ToRadians((float)x)) * (1 / _epsilon));
+            return ApplyEpsilon(Math.Asin(MathHelper.ToRadians((float)x)));
         }
 
         public static double darccos(double x)
         {
-            return ApplyEpsilon(Math.Acos(MathHelper.ToRadians((float)x)) * (1 / _epsilon));
+            return ApplyEpsilon(Math.Acos(MathHelper.ToRadians((float)x)));
         }
 
         public static double darctan(double x)
         {
-            return ApplyEpsilon(Math.Atan(MathHelper.ToRadians((float)x)) * (1 / _epsilon));
+            return ApplyEpsilon(Math.Atan(MathHelper.ToRadians((float)x)));
         }
 
         public static double darctan2(double y, double x)
         {
-            return ApplyEpsilon(Math.Atan2(MathHelper.ToRadians((float)y), MathHelper.ToRadians((float)x)) * (1 / _epsilon));
+            return ApplyEpsilon(Math.Atan2(MathHelper.ToRadians((float)y), MathHelper.ToRadians((float)x)));
         }
 
         /*
