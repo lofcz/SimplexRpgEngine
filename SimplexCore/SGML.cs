@@ -279,17 +279,17 @@ namespace SimplexCore
 
         public static double darcsin(double x)
         {
-            return ApplyEpsilon(Math.Asin(MathHelper.ToRadians((float)x)));
+            return ApplyEpsilon(Math.Asin(Math.Asin(Math.Sin(MathHelper.ToRadians((float)x))) * (180 / Math.PI)) * (180 / Math.PI));
         }
 
         public static double darccos(double x)
         {
-            return ApplyEpsilon(Math.Acos(MathHelper.ToRadians((float)x)));
+            return ApplyEpsilon(Math.Acos(Math.Acos(Math.Sin(MathHelper.ToRadians((float)x))) * (180 / Math.PI)) * (180 / Math.PI));
         }
 
         public static double darctan(double x)
         {
-            return ApplyEpsilon(Math.Atan(MathHelper.ToRadians((float)x)));
+            return ApplyEpsilon(Math.Atan(Math.Atan(Math.Sin(MathHelper.ToRadians((float)x))) * (180 / Math.PI)) * (180 / Math.PI));
         }
 
         public static double darctan2(double y, double x)

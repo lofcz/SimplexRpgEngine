@@ -65,7 +65,7 @@ namespace SimplexResources.Objects
             frameManager.AddAnimation("george", new[] { 8, 9, 10, 11 }, "north"); 
             frameManager.AddAnimation("george", new[] { 12, 13, 14, 15 }, "east");
 
-            show_message(dsin(90).ToString());
+            show_message(darcsin(-1).ToString());
         }
 
 
