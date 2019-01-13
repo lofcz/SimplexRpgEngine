@@ -86,6 +86,7 @@
             this.darkContextMenu2 = new DarkUI.Controls.DarkContextMenu();
             this.darkDockPanel5 = new DarkUI.Docking.DarkDockPanel();
             this.drawTest1 = new SimplexIde.DrawTest();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.darkMenuStrip1.SuspendLayout();
             this.darkToolStrip1.SuspendLayout();
             this.darkStatusStrip1.SuspendLayout();
@@ -711,6 +712,10 @@
             this.drawTest1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.drawTest1_MouseMove_1);
             this.drawTest1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.drawTest1_MouseUp);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -819,6 +824,7 @@
         public DarkUI.Docking.DarkDockPanel darkDockPanel3;
         public DarkUI.Docking.DarkDockPanel darkDockPanel4;
         public DarkUI.Controls.DarkStatusStrip darkStatusStrip1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 

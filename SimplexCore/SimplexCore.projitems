@@ -36,6 +36,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ParticleLayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlAudio.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlSprite.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SimplexProjectStructure.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SoundDescriptor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SoundReference.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TilesetDescriptor.cs" />

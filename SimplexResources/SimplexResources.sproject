@@ -1,0 +1,15 @@
+{
+	"info": {
+		"engineVersion" :  1
+	},
+	"objects": [
+		{
+			"name":  "oGeorge"
+		}
+	],
+	"rooms":  [
+		{
+			"name":  "Room1"
+		}
+	]
+}

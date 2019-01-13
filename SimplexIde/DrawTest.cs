@@ -313,72 +313,39 @@ namespace SimplexIde
 
         protected override void Draw()
         {
-            if (UpdateRunning)
+            Sgml.drawFont = Editor.Font;
+
+            double framerate = Editor.GetFrameRate;
+            KeyboardState ks = Keyboard.GetState();
+            Input.KeyboardState = ks;
+
+            base.Draw();
+            Matrix transformMatrix = cam.Camera.GetViewMatrix();
+            BackgroundColor = Color.Black;
+            Editor.graphics.Clear(BackgroundColor);
+            Input.MousePosition = MousePositionTranslated;
+
+            Sgml.currentRoom = currentRoom;
+            Sgml.sb = Editor.spriteBatch;
+            Sgml.vb = vertexBuffer;
+            Sgml.be = basicEffect;
+            Sgml.m = transformMatrix;
+
+            Matrix view = cam.Camera.GetViewMatrix();
+            Matrix projection = m;
+
+            basicEffect.World = world;
+            basicEffect.View = view;
+            basicEffect.Projection = projection;
+            basicEffect.VertexColorEnabled = true;
+
+            if (editorForm.projectFile == "")
             {
-                Sgml.drawFont = Editor.Font;
-
-                double framerate = Editor.GetFrameRate;
-                KeyboardState ks = Keyboard.GetState();
-                Input.KeyboardState = ks;
-
-                base.Draw();
-                Matrix transformMatrix = cam.Camera.GetViewMatrix();
-                BackgroundColor = Color.Black;
-                Editor.graphics.Clear(BackgroundColor);
-                Input.MousePosition = MousePositionTranslated;
-
-                Sgml.currentRoom = currentRoom;
-                Sgml.sb = Editor.spriteBatch;
-                Sgml.vb = vertexBuffer;
-                Sgml.be = basicEffect;
-                Sgml.m = transformMatrix;
-
-                Matrix view = cam.Camera.GetViewMatrix();
-                Matrix projection = m;
-
-                basicEffect.World = world;
-                basicEffect.View = view;
-                basicEffect.Projection = projection;
-                basicEffect.VertexColorEnabled = true;
-
+                Sgml.draw_text(new Vector2((Width / 2) - ((int)Sgml.string_width("Click to open a project") / 2), Height / 2 - 5), "Click to open a project");
+            }
+            else if (UpdateRunning)
+            {
                 SimplexResources.Global.DrawStart();
-
-                if (roomLayers.Count > 2)
-                {
-                    var k = 1;
-                }
-                /*
-                foreach (RoomLayer rl in roomLayers)
-                {
-                    if (rl.LayerType == RoomLayer.LayerTypes.typeTile)
-                    {
-                        Color c = Color.White;
-                        c.A = 128;
-                        Editor.spriteBatch.Begin(transformMatrix: transformMatrix);
-                        int xIndex = 0;
-                        int yIndex = 0;
-                        for (float i = 0; i < 768; i += GridSizeRender.Y)
-                        {
-                            for (float j = 0; j < 1024; j += GridSizeRender.X)
-                            {
-                                xIndex++;
-                                i = (float) Math.Round(i);
-                                j = (float) Math.Round(j);
-                            }
-    
-                            yIndex++;
-                            xIndex = 0;
-                        }
-    
-                        foreach (Tile t in ((TileLayer) rl).Tiles)
-                        {
-                            Editor.spriteBatch.Draw(t.SourceTexture, new Vector2(t.PosX * 32, t.PosY * 32), t.DrawRectangle, Color.White);
-                        }
-    
-                        Editor.spriteBatch.End();
-                    }
-                }*/
-
 
                 // Before render, resolve collisions
                 foreach (GameObject go in SceneObjects.ToList())
@@ -702,334 +669,456 @@ namespace SimplexIde
 
         public void GameClicked(MouseEventArgs e, MouseButtons mb)
         {
-            KeyboardState ks = Keyboard.GetState();
-
-            if ((mb & MouseButtons.Left) != 0) { Input.PressedButtonsOnce[0] = 1; Sgml.LastButton = Sgml.MouseButtons.Left; }
-            if ((mb & MouseButtons.Right) != 0) { Input.PressedButtonsOnce[1] = 1; Sgml.LastButton = Sgml.MouseButtons.mb_right; }
-            if ((mb & MouseButtons.Middle) != 0) { Input.PressedButtonsOnce[2] = 1; Sgml.LastButton = Sgml.MouseButtons.Middle; }
-            if ((mb & MouseButtons.None) != 0) { Input.PressedButtonsOnce[3] = 1; }
-            if ((mb & MouseButtons.XButton1) != 0) { Input.PressedButtonsOnce[5] = 1; Sgml.LastButton = Sgml.MouseButtons.mb_x1; }
-            if ((mb & MouseButtons.XButton2) != 0) { Input.PressedButtonsOnce[6] = 1; Sgml.LastButton = Sgml.MouseButtons.mb_x2; }
-
-
-            Input.CheckAnyPressed();
-
-            MousePositionTranslated = cam.Camera.ScreenToWorld(MousePosition);
-
-            if (mb == MouseButtons.Left)
+            if (editorForm.projectFile != "")
             {
-                goodBoy = true;
-                Vector2 vec = MousePositionTranslated;
+                KeyboardState ks = Keyboard.GetState();
 
-
-                if (DrawGrid)
+                if ((mb & MouseButtons.Left) != 0)
                 {
-                    vec = new Vector2((int)vec.X / 32 * 32, (int)vec.Y / 32 * 32);
+                    Input.PressedButtonsOnce[0] = 1;
+                    Sgml.LastButton = Sgml.MouseButtons.Left;
                 }
 
-                if (ks.IsKeyDown(Keys.LeftControl))
+                if ((mb & MouseButtons.Right) != 0)
                 {
-                    selectionRectangle.Width = -selectionRectangle.X + vec.X;
-                    selectionRectangle.Height = -selectionRectangle.Y + vec.Y;
+                    Input.PressedButtonsOnce[1] = 1;
+                    Sgml.LastButton = Sgml.MouseButtons.mb_right;
                 }
-                else if (clickedObject == null)
+
+                if ((mb & MouseButtons.Middle) != 0)
                 {
-                    if (TilesetSelectedRenRectangle != Rectangle.Empty)
+                    Input.PressedButtonsOnce[2] = 1;
+                    Sgml.LastButton = Sgml.MouseButtons.Middle;
+                }
+
+                if ((mb & MouseButtons.None) != 0)
+                {
+                    Input.PressedButtonsOnce[3] = 1;
+                }
+
+                if ((mb & MouseButtons.XButton1) != 0)
+                {
+                    Input.PressedButtonsOnce[5] = 1;
+                    Sgml.LastButton = Sgml.MouseButtons.mb_x1;
+                }
+
+                if ((mb & MouseButtons.XButton2) != 0)
+                {
+                    Input.PressedButtonsOnce[6] = 1;
+                    Sgml.LastButton = Sgml.MouseButtons.mb_x2;
+                }
+
+
+                Input.CheckAnyPressed();
+
+                MousePositionTranslated = cam.Camera.ScreenToWorld(MousePosition);
+
+                if (mb == MouseButtons.Left)
+                {
+                    goodBoy = true;
+                    Vector2 vec = MousePositionTranslated;
+
+
+                    if (DrawGrid)
                     {
-                        Vector2 m = MousePositionTranslated;
+                        vec = new Vector2((int) vec.X / 32 * 32, (int) vec.Y / 32 * 32);
+                    }
 
-                        // Check if a chunk is selected, if so -> process one by one
-                        for (var i = 0; i < TilesetSelectedRenRectangle.Height / 32; i++)
+                    if (ks.IsKeyDown(Keys.LeftControl))
+                    {
+                        selectionRectangle.Width = -selectionRectangle.X + vec.X;
+                        selectionRectangle.Height = -selectionRectangle.Y + vec.Y;
+                    }
+                    else if (clickedObject == null)
+                    {
+                        if (TilesetSelectedRenRectangle != Rectangle.Empty)
                         {
-                            for (var j = 0; j < TilesetSelectedRenRectangle.Width / 32; j++)
-                            {
-                                Tile alreadyT = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == ((int)m.X / 32) + j && x.PosY == ((int)m.Y / 32) + i);
-                               
-                                if (alreadyT == null)
-                                {
-                                    Tile t = new Tile();
-                                    t.Bits = 16;
-                                    t.DrawRectangle = new Microsoft.Xna.Framework.Rectangle(TilesetSelectedRenRectangle.X + j * 32, TilesetSelectedRenRectangle.Y + i * 32, 32, 32);
-                                    t.SourceTexture = tileTexture;
-                                    t.PosX = (int)m.X / 32 + j;
-                                    t.PosY = (int)m.Y / 32 + i;
-                                    t.TileLayer = currentTileLayer;
-                                    t.TileLayerName = t.TileLayer.Name;
+                            Vector2 m = MousePositionTranslated;
 
-                                    currentTileLayer.Tiles.Add(t);
+                            // Check if a chunk is selected, if so -> process one by one
+                            for (var i = 0; i < TilesetSelectedRenRectangle.Height / 32; i++)
+                            {
+                                for (var j = 0; j < TilesetSelectedRenRectangle.Width / 32; j++)
+                                {
+                                    Tile alreadyT = currentTileLayer.Tiles.FirstOrDefault(x =>
+                                        x.PosX == ((int) m.X / 32) + j && x.PosY == ((int) m.Y / 32) + i);
+
+                                    if (alreadyT == null)
+                                    {
+                                        Tile t = new Tile();
+                                        t.Bits = 16;
+                                        t.DrawRectangle = new Microsoft.Xna.Framework.Rectangle(
+                                            TilesetSelectedRenRectangle.X + j * 32,
+                                            TilesetSelectedRenRectangle.Y + i * 32, 32, 32);
+                                        t.SourceTexture = tileTexture;
+                                        t.PosX = (int) m.X / 32 + j;
+                                        t.PosY = (int) m.Y / 32 + i;
+                                        t.TileLayer = currentTileLayer;
+                                        t.TileLayerName = t.TileLayer.Name;
+
+                                        currentTileLayer.Tiles.Add(t);
+                                    }
                                 }
                             }
-                        }
-                      
-                    }
-                    else if (currentAutotile == null)
-                    {
-                        if (selectedRectangleObjects.Count > 0)
-                        {
-                            bool flag = true;
 
-                            if (flag)
+                        }
+                        else if (currentAutotile == null)
+                        {
+                            if (selectedRectangleObjects.Count > 0)
                             {
-                                if (selectedRectangleObjects.Count > 0)
+                                bool flag = true;
+
+                                if (flag)
                                 {
-                                    foreach (GameObject o in selectedRectangleObjects)
+                                    if (selectedRectangleObjects.Count > 0)
                                     {
-                                        o.Position += new Vector2(vec.X - MousePrevious.X, vec.Y - MousePrevious.Y);
+                                        foreach (GameObject o in selectedRectangleObjects)
+                                        {
+                                            o.Position += new Vector2(vec.X - MousePrevious.X, vec.Y - MousePrevious.Y);
+                                        }
                                     }
+                                }
+                                else
+                                {
+                                    selectedRectangleObjects.Clear();
+
                                 }
                             }
                             else
                             {
-                                selectedRectangleObjects.Clear();
+                                if (!ks.IsKeyDown(Keys.LeftShift) || Sgml.PlaceEmpty(vec))
+                                {
+                                    if (Sgml.PlaceEmpty(vec))
+                                    {
+                                        if (selectedLayer != null && SelectedObject != null &&
+                                            selectedLayer.GetType() == typeof(ObjectLayer))
+                                        {
+                                            GameObject o = (GameObject) Activator.CreateInstance(SelectedObject);
 
+                                            Spritesheet s = new Spritesheet();
+                                            if (o.Sprite != null)
+                                            {
+                                                s = Sprites.FirstOrDefault(x => x.Name == o.Sprite.TextureSource);
+                                            }
+
+                                            if (!cmsOpen && SelectedObject != null)
+                                            {
+                                                if (stackedSteps.Count > 31)
+                                                {
+                                                    stackedSteps.Pop();
+                                                }
+
+                                                stackedSteps.Push(SceneObjects.ToList());
+                                                editorForm.updateStack(stackedSteps.Count);
+
+                                                o.OriginalType = SelectedObject;
+                                                o.TypeString = SelectedObject.ToString();
+
+                                                if (s == null)
+                                                {
+                                                    Texture2D tx = ConvertToTexture(Properties.Resources.Question_16x,
+                                                        GraphicsDevice);
+
+
+                                                    o.Sprite = new Sprite();
+                                                    o.Sprite.Texture = tx;
+                                                    o.Sprite.ImageRectangle =
+                                                        new Microsoft.Xna.Framework.Rectangle(0, 0, 16, 16);
+                                                }
+                                                else
+                                                {
+                                                    o.Sprite.Texture = s.Texture;
+                                                    o.Sprite.ImageRectangle =
+                                                        new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth,
+                                                            s.CellHeight);
+                                                }
+
+                                                o.Sprite.TextureRows = s.Rows;
+                                                o.Sprite.TextureCellsPerRow = s.Texture.Width / s.CellWidth;
+                                                o.Sprite.ImageSize = new Vector2(s.CellWidth, s.CellHeight);
+                                                o.Sprite.FramesCount =
+                                                    Math.Max(
+                                                        (s.Texture.Width / s.CellWidth) *
+                                                        (s.Texture.Height / s.CellHeight) - 1, 1);
+                                                o.FramesCount = Math.Max(o.Sprite.FramesCount - 1, 1);
+                                                o.Sprite.cellW = s.CellHeight;
+                                                o.Sprite.cellH = s.CellWidth;
+
+                                                o.Position = new Vector2(vec.X, vec.Y);
+                                                o.Sprite.ImageRectangle =
+                                                    new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth,
+                                                        s.CellHeight);
+                                                o.LayerName = selectedLayer.Name;
+                                                o.Layer = (ObjectLayer) selectedLayer;
+
+                                                Sgml.currentObject = o;
+                                                o.EvtCreate();
+                                                o.EvtCreateEnd();
+
+                                                o.Layer.Objects.Add(o);
+                                                SceneObjects.Add(o);
+                                                sh.RegisterObject(o);
+
+                                            }
+
+                                            if (!ks.IsKeyDown(Keys.LeftShift))
+                                            {
+                                                clickedObject = o;
+                                            }
+
+
+                                        }
+
+
+                                    }
+                                }
+
+                                if (!Sgml.PlaceEmpty(vec) && !ks.IsKeyDown(Keys.LeftShift))
+                                {
+                                    // there's something cool at the position already, time to grab it
+                                    GameObject collidingObject = Sgml.instance_place(vec);
+
+                                    if (collidingObject != null)
+                                    {
+                                        clickedObject = collidingObject;
+                                        helpVec = new Vector2(-MousePositionTranslated.X + collidingObject.Position.X,
+                                            -MousePositionTranslated.Y + collidingObject.Position.Y);
+                                        clickedVec = MousePositionTranslated;
+
+                                        // load properties in the props tab
+                                        editorForm.properties.RegisterControls(clickedObject.EditorProperties);
+                                    }
+                                }
                             }
                         }
                         else
                         {
-                            if (!ks.IsKeyDown(Keys.LeftShift) || Sgml.PlaceEmpty(vec))
+                            Vector2 m = MousePositionTranslated;
+
+                            Tile alreadyT = currentTileLayer.Tiles.FirstOrDefault(x =>
+                                x.PosX == (int) m.X / 32 && x.PosY == (int) m.Y / 32);
+
+                            if (alreadyT == null)
                             {
-                                if (Sgml.PlaceEmpty(vec))
-                                {
-                                    if (selectedLayer != null && SelectedObject != null && selectedLayer.GetType() == typeof(ObjectLayer))
-                                    {
-                                        GameObject o = (GameObject)Activator.CreateInstance(SelectedObject);
+                                Tile t = new Tile();
+                                t.Bits = 16;
+                                t.DrawRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, 32, 32);
+                                t.SourceTexture = currentAutotile.Texture;
+                                t.PosX = (int) m.X / 32;
+                                t.PosY = (int) m.Y / 32;
+                                t.TileLayer = currentTileLayer;
+                                t.TileLayerName = t.TileLayer.Name;
+                                t.SheetX = currentAutotile.X;
+                                t.SheetY = currentAutotile.Y;
 
-                                        Spritesheet s = new Spritesheet();
-                                        if (o.Sprite != null)
-                                        {
-                                            s = Sprites.FirstOrDefault(x => x.Name == o.Sprite.TextureSource);
-                                        }
+                                currentTileLayer.Tiles.Add(t);
 
-                                        if (!cmsOpen && SelectedObject != null)
-                                        {
-                                            if (stackedSteps.Count > 31)
-                                            {
-                                                stackedSteps.Pop();
-                                            }
+                                t = Autotile.UpdateTile(t, currentTileLayer);
 
-                                            stackedSteps.Push(SceneObjects.ToList());
-                                            editorForm.updateStack(stackedSteps.Count);
-
-                                            o.OriginalType = SelectedObject;
-                                            o.TypeString = SelectedObject.ToString();
-
-                                            if (s == null)
-                                            {
-                                                Texture2D tx = ConvertToTexture(Properties.Resources.Question_16x,
-                                                    GraphicsDevice);
-
-
-                                                o.Sprite = new Sprite();
-                                                o.Sprite.Texture = tx;
-                                                o.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, 16, 16);
-                                            }
-                                            else
-                                            {
-                                                o.Sprite.Texture = s.Texture;
-                                                o.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
-                                            }
-
-                                            o.Sprite.TextureRows = s.Rows;
-                                            o.Sprite.TextureCellsPerRow = s.Texture.Width / s.CellWidth;
-                                            o.Sprite.ImageSize = new Vector2(s.CellWidth, s.CellHeight);
-                                            o.Sprite.FramesCount = Math.Max((s.Texture.Width / s.CellWidth) * (s.Texture.Height / s.CellHeight) - 1, 1);
-                                            o.FramesCount = Math.Max(o.Sprite.FramesCount - 1, 1);
-                                            o.Sprite.cellW = s.CellHeight;
-                                            o.Sprite.cellH = s.CellWidth;
-
-                                            o.Position = new Vector2(vec.X, vec.Y);
-                                            o.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
-                                            o.LayerName = selectedLayer.Name;
-                                            o.Layer = (ObjectLayer)selectedLayer;
-
-                                            Sgml.currentObject = o;
-                                            o.EvtCreate();
-                                            o.EvtCreateEnd();
-
-                                            o.Layer.Objects.Add(o);
-                                            SceneObjects.Add(o);
-                                            sh.RegisterObject(o);
- 
-                                        }
-
-                                        if (!ks.IsKeyDown(Keys.LeftShift))
-                                        {
-                                            clickedObject = o;
-                                        }
-
-                                        
-                                    }
-
-                                    
-                                }
-                            }
-
-                            if (!Sgml.PlaceEmpty(vec) && !ks.IsKeyDown(Keys.LeftShift))
-                            {
-                                // there's something cool at the position already, time to grab it
-                                GameObject collidingObject = Sgml.instance_place(vec);
-
-                                if (collidingObject != null)
-                                {
-                                    clickedObject = collidingObject;
-                                    helpVec = new Vector2(-MousePositionTranslated.X + collidingObject.Position.X, -MousePositionTranslated.Y + collidingObject.Position.Y);
-                                    clickedVec = MousePositionTranslated;
-
-                                    // load properties in the props tab
-                                    editorForm.properties.RegisterControls(clickedObject.EditorProperties);
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        Vector2 m = MousePositionTranslated;
-
-                        Tile alreadyT = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == (int)m.X / 32 && x.PosY == (int)m.Y / 32);
-
-                        if (alreadyT == null)
-                        { 
-                            Tile t = new Tile();
-                            t.Bits = 16;
-                            t.DrawRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, 32, 32);
-                            t.SourceTexture = currentAutotile.Texture;
-                            t.PosX = (int) m.X / 32;
-                            t.PosY = (int) m.Y / 32;
-                            t.TileLayer = currentTileLayer;
-                            t.TileLayerName = t.TileLayer.Name;
-                            t.SheetX = currentAutotile.X;
-                            t.SheetY = currentAutotile.Y;
-
-                            currentTileLayer.Tiles.Add(t);
-
-                            t = Autotile.UpdateTile(t, currentTileLayer);
-
-                            // basic 4
-                            Tile t1 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX && x.PosY == t.PosY - 1); // N // 2
-                            Tile t2 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX && x.PosY == t.PosY + 1); // S // 64
-                            Tile t3 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX + 1 && x.PosY == t.PosY); // W // 16
-                            Tile t4 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX - 1 && x.PosY == t.PosY); // S // 8
-
-                            // extended 4
-                            Tile t5 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX - 1 && x.PosY == t.PosY - 1); // EN // 1
-                            Tile t6 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX + 1 && x.PosY == t.PosY - 1); // WN // 4
-                            Tile t7 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX - 1 && x.PosY == t.PosY + 1); // ES // 32
-                            Tile t8 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX + 1 && x.PosY == t.PosY + 1); // WS // 128
-
-                            if (t1 != null && t1.SheetX == t.SheetX && t1.SheetY == t.SheetY) { Autotile.UpdateTile(t1, currentTileLayer); }
-                            if (t2 != null && t2.SheetX == t.SheetX && t2.SheetY == t.SheetY) { Autotile.UpdateTile(t2, currentTileLayer); }
-                            if (t3 != null && t3.SheetX == t.SheetX && t3.SheetY == t.SheetY) { Autotile.UpdateTile(t3, currentTileLayer); }
-                            if (t4 != null && t4.SheetX == t.SheetX && t4.SheetY == t.SheetY) { Autotile.UpdateTile(t4, currentTileLayer); }
-
-                            if (t5 != null && t5.SheetX == t.SheetX && t5.SheetY == t.SheetY) { Autotile.UpdateTile(t5, currentTileLayer); }
-                            if (t6 != null && t6.SheetX == t.SheetX && t6.SheetY == t.SheetY) { Autotile.UpdateTile(t6, currentTileLayer); }
-                            if (t7 != null && t7.SheetX == t.SheetX && t7.SheetY == t.SheetY) { Autotile.UpdateTile(t7, currentTileLayer); }
-                            if (t8 != null && t8.SheetX == t.SheetX && t8.SheetY == t.SheetY) { Autotile.UpdateTile(t8, currentTileLayer); }
-                        }
-                    }
-                }
-                else
-                {
-                    vec = MousePositionTranslated;
-                    vec = new Vector2(vec.X + helpVec.X, vec.Y + helpVec.Y);
-
-                    if (DrawGrid)
-                    {
-                        vec = MousePositionTranslated;
-                        vec.X -= (int)(clickedObject.Sprite.ImageRectangle.Width - 32) / 2;//16;
-                        vec.Y -= (int)(clickedObject.Sprite.ImageRectangle.Height - 32) / 2;
-
-                        vec = new Vector2((int)vec.X / 32 * 32, (int)vec.Y / 32 * 32);
-                    }
-
-                    if (!cmsOpen)
-                    {
-                        clickedObject.Position = vec;
-                    }
-                }
-            }
-            else if (mb == MouseButtons.Right)
-            {
-              //  Debug.WriteLine("----");
-                Vector2 vec = MousePositionTranslated;
-                if (DrawGrid)
-                {
-                    vec = new Vector2((int)vec.X / 32 * 32, (int)vec.Y / 32 * 32);
-                }
-
-                if (currentRoom != null)
-                {
-                    if (currentTileLayer == null)
-                    {
-                        foreach (RoomLayer rl in currentRoom.Layers)
-                        {
-                            if (rl.Visible)
-                            {
-                                if (rl is ObjectLayer)
-                                {
-                                    ObjectLayer ol = (ObjectLayer) rl;
-                                    for (var i = ol.Objects.Count - 1; i >= 0; i--)
-                                    {
-
-                                        Microsoft.Xna.Framework.Rectangle r =
-                                            new Microsoft.Xna.Framework.Rectangle((int) ol.Objects[i].Position.X,
-                                                (int) ol.Objects[i].Position.Y,
-                                                ol.Objects[i].Sprite.ImageRectangle.Width,
-                                                ol.Objects[i].Sprite.ImageRectangle.Height);
-
-                                        if (ks.IsKeyDown(Keys.LeftShift) && r.Contains(vec))
-                                        {
-                                            SceneObjects.Remove(ol.Objects[i]);
-                                            ol.Objects[i].EvtDelete();
-                                            ol.Objects.Remove(ol.Objects[i]);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        Tile alreadyT = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == (int) vec.X / 32 && x.PosY == (int) vec.Y / 32);
-
-                        if (alreadyT != null)
-                        {
-                            Tile t = new Tile();
-                            t.PosX = alreadyT.PosX;
-                            t.PosY = alreadyT.PosY;
-
-                            currentTileLayer.Tiles.Remove(alreadyT);
-
-                            if (currentAutotile != null)
-                            { 
                                 // basic 4
-                                Tile t1 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX && x.PosY == t.PosY - 1); // N // 2
-                                Tile t2 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX && x.PosY == t.PosY + 1); // S // 64
-                                Tile t3 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX + 1 && x.PosY == t.PosY); // W // 16
-                                Tile t4 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX - 1 && x.PosY == t.PosY); // S // 8
+                                Tile t1 = currentTileLayer.Tiles.FirstOrDefault(x =>
+                                    x.PosX == t.PosX && x.PosY == t.PosY - 1); // N // 2
+                                Tile t2 = currentTileLayer.Tiles.FirstOrDefault(x =>
+                                    x.PosX == t.PosX && x.PosY == t.PosY + 1); // S // 64
+                                Tile t3 = currentTileLayer.Tiles.FirstOrDefault(x =>
+                                    x.PosX == t.PosX + 1 && x.PosY == t.PosY); // W // 16
+                                Tile t4 = currentTileLayer.Tiles.FirstOrDefault(x =>
+                                    x.PosX == t.PosX - 1 && x.PosY == t.PosY); // S // 8
 
                                 // extended 4
-                                Tile t5 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX - 1 && x.PosY == t.PosY - 1); // EN // 1
-                                Tile t6 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX + 1 && x.PosY == t.PosY - 1); // WN // 4
-                                Tile t7 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX - 1 && x.PosY == t.PosY + 1); // ES // 32
-                                Tile t8 = currentTileLayer.Tiles.FirstOrDefault(x => x.PosX == t.PosX + 1 && x.PosY == t.PosY + 1); // WS // 128
+                                Tile t5 = currentTileLayer.Tiles.FirstOrDefault(x =>
+                                    x.PosX == t.PosX - 1 && x.PosY == t.PosY - 1); // EN // 1
+                                Tile t6 = currentTileLayer.Tiles.FirstOrDefault(x =>
+                                    x.PosX == t.PosX + 1 && x.PosY == t.PosY - 1); // WN // 4
+                                Tile t7 = currentTileLayer.Tiles.FirstOrDefault(x =>
+                                    x.PosX == t.PosX - 1 && x.PosY == t.PosY + 1); // ES // 32
+                                Tile t8 = currentTileLayer.Tiles.FirstOrDefault(x =>
+                                    x.PosX == t.PosX + 1 && x.PosY == t.PosY + 1); // WS // 128
 
-                                if (t1 != null) { Autotile.UpdateTile(t1, currentTileLayer); }
-                                if (t2 != null) { Autotile.UpdateTile(t2, currentTileLayer); }
-                                if (t3 != null) { Autotile.UpdateTile(t3, currentTileLayer); }
-                                if (t4 != null) { Autotile.UpdateTile(t4, currentTileLayer); }
+                                if (t1 != null && t1.SheetX == t.SheetX && t1.SheetY == t.SheetY)
+                                {
+                                    Autotile.UpdateTile(t1, currentTileLayer);
+                                }
 
-                                if (t5 != null) { Autotile.UpdateTile(t5, currentTileLayer); }
-                                if (t6 != null) { Autotile.UpdateTile(t6, currentTileLayer); }
-                                if (t7 != null) { Autotile.UpdateTile(t7, currentTileLayer); }
-                                if (t8 != null) { Autotile.UpdateTile(t8, currentTileLayer); }
+                                if (t2 != null && t2.SheetX == t.SheetX && t2.SheetY == t.SheetY)
+                                {
+                                    Autotile.UpdateTile(t2, currentTileLayer);
+                                }
+
+                                if (t3 != null && t3.SheetX == t.SheetX && t3.SheetY == t.SheetY)
+                                {
+                                    Autotile.UpdateTile(t3, currentTileLayer);
+                                }
+
+                                if (t4 != null && t4.SheetX == t.SheetX && t4.SheetY == t.SheetY)
+                                {
+                                    Autotile.UpdateTile(t4, currentTileLayer);
+                                }
+
+                                if (t5 != null && t5.SheetX == t.SheetX && t5.SheetY == t.SheetY)
+                                {
+                                    Autotile.UpdateTile(t5, currentTileLayer);
+                                }
+
+                                if (t6 != null && t6.SheetX == t.SheetX && t6.SheetY == t.SheetY)
+                                {
+                                    Autotile.UpdateTile(t6, currentTileLayer);
+                                }
+
+                                if (t7 != null && t7.SheetX == t.SheetX && t7.SheetY == t.SheetY)
+                                {
+                                    Autotile.UpdateTile(t7, currentTileLayer);
+                                }
+
+                                if (t8 != null && t8.SheetX == t.SheetX && t8.SheetY == t.SheetY)
+                                {
+                                    Autotile.UpdateTile(t8, currentTileLayer);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        vec = MousePositionTranslated;
+                        vec = new Vector2(vec.X + helpVec.X, vec.Y + helpVec.Y);
+
+                        if (DrawGrid)
+                        {
+                            vec = MousePositionTranslated;
+                            vec.X -= (int) (clickedObject.Sprite.ImageRectangle.Width - 32) / 2; //16;
+                            vec.Y -= (int) (clickedObject.Sprite.ImageRectangle.Height - 32) / 2;
+
+                            vec = new Vector2((int) vec.X / 32 * 32, (int) vec.Y / 32 * 32);
+                        }
+
+                        if (!cmsOpen)
+                        {
+                            clickedObject.Position = vec;
+                        }
+                    }
+                }
+                else if (mb == MouseButtons.Right)
+                {
+                    //  Debug.WriteLine("----");
+                    Vector2 vec = MousePositionTranslated;
+                    if (DrawGrid)
+                    {
+                        vec = new Vector2((int) vec.X / 32 * 32, (int) vec.Y / 32 * 32);
+                    }
+
+                    if (currentRoom != null)
+                    {
+                        if (currentTileLayer == null)
+                        {
+                            foreach (RoomLayer rl in currentRoom.Layers)
+                            {
+                                if (rl.Visible)
+                                {
+                                    if (rl is ObjectLayer)
+                                    {
+                                        ObjectLayer ol = (ObjectLayer) rl;
+                                        for (var i = ol.Objects.Count - 1; i >= 0; i--)
+                                        {
+
+                                            Microsoft.Xna.Framework.Rectangle r =
+                                                new Microsoft.Xna.Framework.Rectangle((int) ol.Objects[i].Position.X,
+                                                    (int) ol.Objects[i].Position.Y,
+                                                    ol.Objects[i].Sprite.ImageRectangle.Width,
+                                                    ol.Objects[i].Sprite.ImageRectangle.Height);
+
+                                            if (ks.IsKeyDown(Keys.LeftShift) && r.Contains(vec))
+                                            {
+                                                SceneObjects.Remove(ol.Objects[i]);
+                                                ol.Objects[i].EvtDelete();
+                                                ol.Objects.Remove(ol.Objects[i]);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            Tile alreadyT = currentTileLayer.Tiles.FirstOrDefault(x =>
+                                x.PosX == (int) vec.X / 32 && x.PosY == (int) vec.Y / 32);
+
+                            if (alreadyT != null)
+                            {
+                                Tile t = new Tile();
+                                t.PosX = alreadyT.PosX;
+                                t.PosY = alreadyT.PosY;
+
+                                currentTileLayer.Tiles.Remove(alreadyT);
+
+                                if (currentAutotile != null)
+                                {
+                                    // basic 4
+                                    Tile t1 = currentTileLayer.Tiles.FirstOrDefault(x =>
+                                        x.PosX == t.PosX && x.PosY == t.PosY - 1); // N // 2
+                                    Tile t2 = currentTileLayer.Tiles.FirstOrDefault(x =>
+                                        x.PosX == t.PosX && x.PosY == t.PosY + 1); // S // 64
+                                    Tile t3 = currentTileLayer.Tiles.FirstOrDefault(x =>
+                                        x.PosX == t.PosX + 1 && x.PosY == t.PosY); // W // 16
+                                    Tile t4 = currentTileLayer.Tiles.FirstOrDefault(x =>
+                                        x.PosX == t.PosX - 1 && x.PosY == t.PosY); // S // 8
+
+                                    // extended 4
+                                    Tile t5 = currentTileLayer.Tiles.FirstOrDefault(x =>
+                                        x.PosX == t.PosX - 1 && x.PosY == t.PosY - 1); // EN // 1
+                                    Tile t6 = currentTileLayer.Tiles.FirstOrDefault(x =>
+                                        x.PosX == t.PosX + 1 && x.PosY == t.PosY - 1); // WN // 4
+                                    Tile t7 = currentTileLayer.Tiles.FirstOrDefault(x =>
+                                        x.PosX == t.PosX - 1 && x.PosY == t.PosY + 1); // ES // 32
+                                    Tile t8 = currentTileLayer.Tiles.FirstOrDefault(x =>
+                                        x.PosX == t.PosX + 1 && x.PosY == t.PosY + 1); // WS // 128
+
+                                    if (t1 != null)
+                                    {
+                                        Autotile.UpdateTile(t1, currentTileLayer);
+                                    }
+
+                                    if (t2 != null)
+                                    {
+                                        Autotile.UpdateTile(t2, currentTileLayer);
+                                    }
+
+                                    if (t3 != null)
+                                    {
+                                        Autotile.UpdateTile(t3, currentTileLayer);
+                                    }
+
+                                    if (t4 != null)
+                                    {
+                                        Autotile.UpdateTile(t4, currentTileLayer);
+                                    }
+
+                                    if (t5 != null)
+                                    {
+                                        Autotile.UpdateTile(t5, currentTileLayer);
+                                    }
+
+                                    if (t6 != null)
+                                    {
+                                        Autotile.UpdateTile(t6, currentTileLayer);
+                                    }
+
+                                    if (t7 != null)
+                                    {
+                                        Autotile.UpdateTile(t7, currentTileLayer);
+                                    }
+
+                                    if (t8 != null)
+                                    {
+                                        Autotile.UpdateTile(t8, currentTileLayer);
+                                    }
+                                }
                             }
                         }
                     }
                 }
-            }
 
-            MousePrevious = MousePositionTranslated;
+                MousePrevious = MousePositionTranslated;
+            }
         }
 
         public void RightClickMenuSelected(ToolStripItemClickedEventArgs e)
@@ -1044,7 +1133,7 @@ namespace SimplexIde
 
         public void MoveView()
         {
-            if (panView)
+            if (editorForm.projectFile != "" && panView)
             {
                 cam.TargetPosition = new Vector2(cam.Position.X + helpVec.X - MousePositionTranslated.X, cam.Position.Y + helpVec.Y - MousePositionTranslated.Y);
             }
@@ -1112,6 +1201,13 @@ namespace SimplexIde
         public void ToggleGrid()
         {
             DrawGrid = !DrawGrid;
+        }
+
+        public void LoadProject(SimplexProjectStructure sps, string path)
+        {
+            path = path.Replace(".sproject", "");
+            string[] parts = path.Split('\\');
+            editorForm.loadResources(parts[parts.Length - 1]);
         }
     }
 }
