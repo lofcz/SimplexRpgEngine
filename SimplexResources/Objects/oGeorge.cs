@@ -122,7 +122,7 @@ namespace SimplexResources.Objects
             {
                 frameManager.ApplyAnimation("george", "east");
 
-                if (instance_place(new Vector2(Position.X + speed, Position.Y - speed), typeof(oSolidMask)) == null)
+                if (instance_place(new Vector2(Position.X + speed, Position.Y), typeof(oSolidMask)) == null)
                 {
                     Position.X += speed;
                 }

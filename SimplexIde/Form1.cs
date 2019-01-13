@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -316,14 +317,17 @@ namespace SimplexIde
           //  loadResources();
         }
 
-        public void loadResources(string corePath)
+        public void loadResources(string corePath, SimplexProjectStructure sps)
         {
-            string nspace = corePath + "." + Config.GameProjectObjectsFolder;
-
+            string nspace = corePath + ".Objects";
             var q = from t in Assembly.GetExecutingAssembly().GetTypes()
                     where t.IsClass && t.Namespace == nspace
                     select t;
             List<Type> classList = q.ToList().ToList();
+
+            // filter class list
+            List<Type> fList = new List<Type>();
+
 
             foreach (Type t in classList)
             {
@@ -454,7 +458,7 @@ namespace SimplexIde
             }
 
 
-            nspace = "SimplexResources.Rooms";
+            nspace = corePath + ".Rooms";
             q = from t in Assembly.GetExecutingAssembly().GetTypes()
                 where t.IsClass && t.Namespace == nspace
                 select t;
