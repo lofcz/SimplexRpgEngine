@@ -350,9 +350,9 @@
             // darkDockPanel1
             // 
             this.darkDockPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-            this.darkDockPanel1.Location = new System.Drawing.Point(199, 54);
+            this.darkDockPanel1.Location = new System.Drawing.Point(207, 54);
             this.darkDockPanel1.Name = "darkDockPanel1";
-            this.darkDockPanel1.Size = new System.Drawing.Size(939, 490);
+            this.darkDockPanel1.Size = new System.Drawing.Size(983, 490);
             this.darkDockPanel1.TabIndex = 36;
             this.darkDockPanel1.Load += new System.EventHandler(this.darkDockPanel1_Load);
             // 
@@ -697,9 +697,9 @@
             this.drawTest1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.drawTest1.Location = new System.Drawing.Point(207, 57);
+            this.drawTest1.Location = new System.Drawing.Point(207, 60);
             this.drawTest1.Name = "drawTest1";
-            this.drawTest1.Size = new System.Drawing.Size(983, 481);
+            this.drawTest1.Size = new System.Drawing.Size(983, 475);
             this.drawTest1.TabIndex = 0;
             this.drawTest1.Text = "MainRenderer";
             this.drawTest1.OnMouseWheelUpwards += new MonoGame.Forms.Controls.GraphicsDeviceControl.MouseWheelUpwardsEvent(this.drawTest1_OnMouseWheelUpwards);

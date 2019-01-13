@@ -645,6 +645,11 @@
             <remarks>Note: this class provides a game loop. The <see cref="T:MonoGame.Forms.Services.InvalidationService"/> is not using a game loop.</remarks>
             </summary>
         </member>
+        <member name="P:MonoGame.Forms.Services.MonoGameService.GameTime">
+            <summary>
+            Get the current <see cref="P:MonoGame.Forms.Services.MonoGameService.GameTime"/> of the game loop.
+            </summary>
+        </member>
         <member name="M:MonoGame.Forms.Services.MonoGameService.Initialize">
             <summary>
             Override this basic intitializing method in your custom class to create your own initializing logic.
@@ -654,7 +659,7 @@
             <summary>
             Override this basic updating method in your custom class to create your own initializing logic.
             </summary>
-            <param name="gameTime">The <see cref="T:Microsoft.Xna.Framework.GameTime"/> of the game loop.</param>
+            <param name="gameTime">The <see cref="P:MonoGame.Forms.Services.MonoGameService.GameTime"/> of the game loop.</param>
         </member>
         <member name="M:MonoGame.Forms.Services.MonoGameService.Draw">
             <summary>

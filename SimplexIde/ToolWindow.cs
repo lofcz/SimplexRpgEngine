@@ -147,5 +147,13 @@ namespace SimplexIde
                 lastNode.Text = name;
             }
         }
+
+        private void editCodeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Launch new edit code window
+            ScriptEditor se = new ScriptEditor();
+            se.Text = "Code editor - " + lastNode.Text;
+            se.Show();
+        }
     }
 }

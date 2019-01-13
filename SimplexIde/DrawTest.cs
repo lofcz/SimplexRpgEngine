@@ -12,6 +12,7 @@ using System.Windows.Forms.VisualStyles;
 using System.Xml.Serialization;
 using DarkUI.Collections;
 using DarkUI.Controls;
+using DarkUI.Docking;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;

@@ -64,7 +64,7 @@ namespace SimplexIde
             Application.AddMessageFilter(darkDockPanel3.DockResizeFilter);
             Application.AddMessageFilter(darkDockPanel4.DockResizeFilter);
 
-
+           
             Invalidate();
             drawTest1.cms = darkContextMenu2;
             drawTest1.editorForm = this;
@@ -286,7 +286,7 @@ namespace SimplexIde
 
         private void darkDockPanel1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void darkDockPanel2_Load(object sender, EventArgs e)

@@ -38,6 +38,7 @@
             this.darkContextMenu1 = new DarkUI.Controls.DarkContextMenu();
             this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darkToolStrip1.SuspendLayout();
             this.darkContextMenu1.SuspendLayout();
             this.SuspendLayout();
@@ -112,10 +113,11 @@
             this.darkContextMenu1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.darkContextMenu1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.darkContextMenu1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editCodeToolStripMenuItem,
             this.renameToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.darkContextMenu1.Name = "darkContextMenu1";
-            this.darkContextMenu1.Size = new System.Drawing.Size(181, 70);
+            this.darkContextMenu1.Size = new System.Drawing.Size(181, 92);
             // 
             // renameToolStripMenuItem
             // 
@@ -131,8 +133,17 @@
             this.deleteToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.deleteToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
+            // 
+            // editCodeToolStripMenuItem
+            // 
+            this.editCodeToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.editCodeToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.editCodeToolStripMenuItem.Name = "editCodeToolStripMenuItem";
+            this.editCodeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editCodeToolStripMenuItem.Text = "Edit code";
+            this.editCodeToolStripMenuItem.Click += new System.EventHandler(this.editCodeToolStripMenuItem_Click);
             // 
             // ToolWindow
             // 
@@ -163,5 +174,6 @@
         private DarkUI.Controls.DarkContextMenu darkContextMenu1;
         private System.Windows.Forms.ToolStripMenuItem renameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editCodeToolStripMenuItem;
     }
 }
