@@ -1,4 +1,4 @@
-<img src="https://img.shields.io/badge/version-3.0%20 RC0-brightgreen.svg"> <img src="https://img.shields.io/shippable/5444c5ecb904a4b21567b0ff.svg"> <img src="https://img.shields.io/badge/license-EDU%20%2F%20Commercial-blue.svg">
+<img src="https://img.shields.io/badge/version-3.0%20 RC0-brightgreen.svg"> <img src="https://img.shields.io/shippable/5444c5ecb904a4b21567b0ff.svg">
 <br><br>
 <img src="https://www.stagl.cz/imageHosting/simplex/s7.png"/>
 
