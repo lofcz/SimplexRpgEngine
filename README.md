@@ -2,6 +2,12 @@
 <br><br>
 <img src="https://www.stagl.cz/imageHosting/simplex/s7.png"/>
 
+## Awards selection
+<img src="https://www.stagl.cz/imageHosting/simplex/isef.gif" height=150/>  <img src="https://www.stagl.cz/imageHosting/simplex/side1.png" height=150/> <img src="https://www.stagl.cz/imageHosting/simplex/sova.jpg" height=150/> <img src="https://www.stagl.cz/imageHosting/simplex/cvut.png" height=150/> <img src="https://www.stagl.cz/imageHosting/simplex/lib.png" height=150/> 
+
+<i>Contesting project on Intel ISEF 2018 - US, Pittsbourgh and EUCYS 2018 - Ireland, Dublin. Winning project of national SPA 2018 competition (category engineering), awared for scientifical value by ČVUT/FEL, multiple times awarded as best student project by region of Liberec, Czech Republic.</i>
+
+
 ## Why Simplex Engine 3
 Ever worked with GameMaker: Studio? Simplex is aiming to provide a modern, modular, GM:S like environment. Define objects, override events, assign actions, place instances into the room editor. You know the drill. We are taking this intuitive workflow to the next level. Learn how. 
 
