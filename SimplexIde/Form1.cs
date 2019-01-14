@@ -326,62 +326,70 @@ namespace SimplexIde
             List<Type> classList = q.ToList().ToList();
 
             // filter class list
-            List<Type> fList = new List<Type>();
+            Dictionary<Type, SimplexProjectItem> fList = new Dictionary<Type, SimplexProjectItem>();
 
-
-            foreach (Type t in classList)
+            foreach (SimplexProjectItem s in sps.Objects)
             {
-                if (t.Name == "<>c") { continue; }
+                if (classList.FirstOrDefault(x => x.Name == s.name) != null)
+                {
+                    // good boi
+                    fList.Add(classList.FirstOrDefault(x => x.Name == s.name), s);
+                }
+            }
 
-                    using (GameObject o = (GameObject) Activator.CreateInstance(t))
+
+            foreach (var t in fList)
+            {
+                DarkTreeNode tn = new DarkTreeNode();
+                tn.Text = t.Key.Name;
+                tn.Tag = t.Key.Name;
+                tn.Icon = Properties.Resources.AzureDefaultResource_16x; // Node for object itself
+
+                DarkTreeNode currentNode = objects.Nodes[0];
+
+                // Parse entire path
+                if (t.Value.path == "")
+                {
+                    currentNode?.Nodes.Add(tn);
+                }
+                else
+                {
+                    string[] tokens = t.Value.path.Split('/');
+
+                    foreach (string s in tokens)
                     {
-                        // Register collisions
-                        o.EvtRegisterCollisions();
-
-                        DarkTreeNode tn = new DarkTreeNode();
-                        tn.Text = t.Name;
-                        tn.Tag = t.Name;
-                        tn.Icon = Properties.Resources.AzureDefaultResource_16x;
-
-                        if (string.IsNullOrEmpty(o.EditorPath))
+                        if (currentNode.Nodes.FindIndex(x => (string) x.Tag == s) == -1)
                         {
-                            tn.Icon = Properties.Resources.Folder_16x;
+                            DarkTreeNode folderNode = new DarkTreeNode();
+                            folderNode.Text = s;
+                            folderNode.Tag = s;
+                            folderNode.Icon = Properties.Resources.Folder_16x;
+                            folderNode.IsFolder = true;
 
-                            objects.Nodes[0].Nodes.Add(tn);
+                            currentNode.Nodes.Add(folderNode);
+                            currentNode = folderNode;
                         }
                         else
                         {
-                            string[] pathTokens = o.EditorPath.Split('/');
-                            DarkTreeNode currentNode = objects.Nodes[0];
+                            currentNode = currentNode.Nodes.Find(x => x.Text == s);
+                            currentNode?.Nodes.Add(tn);
+                            break;
+                        }
 
-                            foreach (string s in pathTokens)
-                            {
-                                if (currentNode.Nodes.FindIndex(x => (string) x.Tag == s) == -1)
-                                {
-                                    DarkTreeNode folderNode = new DarkTreeNode();
-                                    folderNode.Text = s;
-                                    folderNode.Tag = s;
-                                    folderNode.Icon = Properties.Resources.Folder_16x;
-
-                                    currentNode.Nodes.Add(folderNode);
-                                    currentNode = folderNode;
-                                }
-                                else
-                                {
-                                    currentNode = currentNode.Nodes.Find(x => x.Text == s);
-                                    currentNode?.Nodes.Add(tn);
-                                    break;
-                                }
-
-                                if (s == pathTokens[pathTokens.Length - 1])
-                                {
-                                    currentNode?.Nodes.Add(tn);
-                                }
-                            }
+                        if (s == tokens[tokens.Length - 1])
+                        {
+                            currentNode.Nodes.Add(tn);
                         }
                     }
+                }
 
-                    reflectedTypes.Add(t);
+                using (GameObject o = (GameObject) Activator.CreateInstance(t.Key))
+                {
+                    // Register collisions
+                    o.EvtRegisterCollisions();
+                }
+
+                reflectedTypes.Add(t.Key);
 
             }
 
@@ -649,6 +657,11 @@ namespace SimplexIde
 
             drawTest1.Location = new System.Drawing.Point(0, 0);
             drawTest1.Size = new Size(Width, Height);
+        }
+
+        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

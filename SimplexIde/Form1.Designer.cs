@@ -87,6 +87,7 @@
             this.darkDockPanel5 = new DarkUI.Docking.DarkDockPanel();
             this.drawTest1 = new SimplexIde.DrawTest();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.darkMenuStrip1.SuspendLayout();
             this.darkToolStrip1.SuspendLayout();
             this.darkStatusStrip1.SuspendLayout();
@@ -716,11 +717,21 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Location = new System.Drawing.Point(201, 548);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1366, 22);
+            this.statusStrip1.TabIndex = 48;
+            this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1567, 570);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.drawTest1);
             this.Controls.Add(this.darkStatusStrip2);
             this.Controls.Add(this.darkLabel2);
@@ -825,6 +836,7 @@
         public DarkUI.Docking.DarkDockPanel darkDockPanel4;
         public DarkUI.Controls.DarkStatusStrip darkStatusStrip1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
     }
 }
 

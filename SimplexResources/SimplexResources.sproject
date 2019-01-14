@@ -4,8 +4,13 @@
 	},
 	"objects": [
 		{
-			"name":  "oGeorge"
-		}
+			"name":  "oGeorge",
+            "path": "Actors"
+		},
+		{
+			"name":  "oCryoSample",
+            "path": "Actors"
+		},
 	],
 	"rooms":  [
 		{

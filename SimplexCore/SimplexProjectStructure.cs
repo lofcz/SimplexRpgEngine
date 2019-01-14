@@ -13,5 +13,6 @@ namespace SimplexCore
     public class SimplexProjectItem
     {
         public string name { get; set; }
+        public string path { get; set; }
     }
 }
