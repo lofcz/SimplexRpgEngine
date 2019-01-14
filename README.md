@@ -1,4 +1,4 @@
-<img src="https://www.stagl.cz/imageHosting/simplex/s5.png"/>
+<img src="https://www.stagl.cz/imageHosting/simplex/s6.png"/>
 
 ### Why I've started working on v3
 There are plenty of reasons behind this. But these are the main ones:
