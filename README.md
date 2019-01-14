@@ -2,83 +2,26 @@
 <br><br>
 <img src="https://www.stagl.cz/imageHosting/simplex/s7.png"/>
 
-### Why I've started working on v3
-There are plenty of reasons behind this. But these are the main ones:
+## Why Simplex Engine 3
+Ever worked with GameMaker: Studio? Simplex is aiming to provide a modern, modular, GM:S like environment. Define objects, override events, assign actions, place instances into the room editor. You know the drill. We are taking this intuitive workflow to the next level. Learn how. 
 
-- We relied on proprietary software
-- GML sucks
-- Underlaying layer was a blackbox
+## Unique value
+Room editor runs in 60 fps and all objects are equipped with an additional set of in-editor events. That means you can do anything right in the room editor. From simple stuff like changing ImageIndex on runtime to physical simulation. Anything, rendered via DirectX12, 3D accelerated.
 
-### Aim of v3
+## SGML aka GML++
+Do you like Game Maker's scripting language as much as we do? So simple to use, right? We are taking GML where noone before - function by function we've implemented almost entire GML into C#, improving each and every function where possible. Ever wondered why draw_rectangle has no angle argument, why instance_find don't accept a predicate or why you can't set shape nor opacity of the game window? Use modern C# constructs and simple GML actions side by side.
 
-- Engine build on top of MonoGame FW
-- Room editor works as 60 fps GameWindow, thus allowing for editor events
-- Implement as much of GMS pipeline into C# as possible
-- Upgrade outdated concepts of GMS
+## All the editors you are used to
+Manage all your resources easily with our code, sprites, audio and room editor. Modern looking, dark themed, multi-display aware, ready for 8k forms. Several times faster project loading, using less memory and processing time, utilizing .net framework 4.8
 
-### Status
+## Every single inch modular
+Ever wanted to modify right-click instance menu in the room editor? Pair automapping with masks generation, visually edit attributes? We hear you, taking all you know from GMS one step further. 
 
-**Done**
-- Sprite
-- Font
+## Source control ready 
+Develop in teams and fear of the merge conflicts not. Simple, efficient project structure allows for painless source control and continuous integration. 
 
-**WIP**
-- Object (GameObject)
-- Events
-- Room
-- Layer
-- Tile + Autotile
-- Particle
-
-**TBD**
-- Shader
-- Timeline
-- Path
-
-### Room editor
-- 60 fps monoForm
-- allows to manage multiple rooms
-- supports grid
-
-### Big deals along the way
-- Creation code (roslyn)
-- Collision detection (quadtrees, spatial hash) :heavy_check_mark: 
-- Physics WIP (elastic + dynamic collisions, circle-circle, rect-rect, circle-rect)
-
-### Object events
-Events are aiming to imitate GMS native events while introducing some newcomers and discarding obsolete overheat. 
-
-- OnSetup - Use to toggle predefined GameObject behavior / custom plugins
-- OnCreate - Equal to create
-- OnStep - Equal to step
-- OnDraw - Equal to draw
-
-### Editor events
-These are defined in the same way like classic events but occur on room editor events
-
-- EvtCreate - Once object is placed in game
-- EvtLoad - When project is loaded and instance gets deserialized
-- EvtSave - Before instance gets serialized
-- EvtDelete - When object is removed from a room 
-- EvtDraw - Occurs when object is drawn in room editor
-- EvtStep - Occurs on each tick (60x per second)
-- EvtContextMenuSelected - Once an item is selected from a right-click context menu
-
-### Ported namespaces/functions
-- string_ - :heavy_check_mark:
-- math_ - :heavy_check_mark:
-- mouse_ - :heavy_check_mark:
-- keyboard_ - :heavy_check_mark:
-- window_ - :heavy_check_mark:
-- instance_ - :heavy_check_mark:
-- surface_ :heavy_check_mark:
-- show_ :heavy_check_mark:
-- get_ :heavy_check_mark:
-- GameSave() - :heavy_check_mark:
-- GameLoad() - :heavy_check_mark:
-- draw_ - WIP
+## Ready?
+Visit the [manual](https://github.com/lofcz/SimplexRpgEngine/wiki) to get started. 
 
 
-### SGML extra namespaces
-- synth_ - :heavy_check_mark:
-
+<sub>Built with <3 by SimplexEngine development team, 2019</sub>
