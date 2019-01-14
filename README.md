@@ -1,8 +1,4 @@
- # Simplex RPG Engine 3
- ## Currently under early development, please use v2
- 
- <a href="https://github.com/lofcz/SimplexRpgEngine/tree/SimplexRpgEngine2">Simplex RPG Engine 2</a>
-
+<img src="https://www.stagl.cz/imageHosting/simplex/s4.png"/>
 
 ### Why I've started working on v3
 There are plenty of reasons behind this. But these are the main ones:
