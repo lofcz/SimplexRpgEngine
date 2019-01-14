@@ -29,5 +29,8 @@ Develop in teams and fear of the merge conflicts not. Simple, efficient project 
 ## Ready?
 Visit the [manual](https://github.com/lofcz/SimplexRpgEngine/wiki) to get started. 
 
+## Other projects by us
+- [SimplexUI](https://github.com/lofcz/SimplexUI)
+- [LovofaChyseCMS](https://github.com/lofcz/LofovaChyse)
 
-<sub>Built with <3 by SimplexEngine development team, 2019</sub>
+<sub>Built with :heart: by SimplexEngine development team, 2019</sub>
