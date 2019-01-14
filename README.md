@@ -33,4 +33,4 @@ Visit the [manual](https://github.com/lofcz/SimplexRpgEngine/wiki) to get starte
 - [SimplexUI](https://github.com/lofcz/SimplexUI)
 - [LovofaChyseCMS](https://github.com/lofcz/LofovaChyse)
 
-<sub>Built with :heart: by SimplexEngine development team, 2019</sub>
+<sub>Built with :heart: by SimplexEngine development team, 2019. Check our [Hall Of Fame](https://github.com/lofcz/SimplexRpgEngine/wiki/Hall-of-fame-(Simplex-development-team).)</sub>
