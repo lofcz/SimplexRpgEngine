@@ -465,23 +465,33 @@ namespace SimplexIde
 
             }
 
-
             nspace = corePath + ".Rooms";
             q = from t in Assembly.GetExecutingAssembly().GetTypes()
                 where t.IsClass && t.Namespace == nspace
                 select t;
             classList = q.ToList().ToList();
 
-            foreach (Type t in classList)
+            fList.Clear();
+
+            foreach (SimplexProjectItem s in sps.Rooms)
             {
-                rooms.Nodes[0].Nodes.Add(new DarkTreeNode(t.Name) { Icon = Properties.Resources.MapTileLayer_16x });
-                reflectedTypes.Add(t);
+                if (classList.FirstOrDefault(x => x.Name == s.name) != null)
+                {
+                    // good boi
+                    fList.Add(classList.FirstOrDefault(x => x.Name == s.name), s);
+                }
+            }
+
+
+
+            foreach (var t in fList)
+            {
+                rooms.Nodes[0].Nodes.Add(new DarkTreeNode(t.Key.Name) { Icon = Properties.Resources.MapTileLayer_16x });
+                reflectedTypes.Add(t.Key);
             }
 
             activeRoom = null;
             drawTest1.InitializeNodes(objects.Nodes);
-
-
         }
 
         private void darkToolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)

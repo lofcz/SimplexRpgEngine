@@ -8,6 +8,7 @@ namespace SimplexCore
     public class SimplexProjectStructure
     {
        public List<SimplexProjectItem> Objects { get; set; } 
+       public List<SimplexProjectItem> Rooms { get; set; }
     }
 
     public class SimplexProjectItem
