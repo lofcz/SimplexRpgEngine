@@ -24,6 +24,10 @@ namespace SimplexCore
        [JsonIgnore]
        [XmlIgnore]
        public string RootPath { get; set; }
+
+       [JsonIgnore]
+       [XmlIgnore]
+       public string ProjectPath { get; set; }
     }
 
     public class SimplexProjectItem

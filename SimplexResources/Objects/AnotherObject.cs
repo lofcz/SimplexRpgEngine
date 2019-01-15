@@ -1,7 +1,8 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using SimplexCore;
+using static SimplexCore.Sgml;
 
 namespace SimplexResources.Objects
 {
@@ -9,7 +10,7 @@ namespace SimplexResources.Objects
     {
         public AnotherObject()
         {
-            EditorPath = "MyFolder";
+            EditorPath = "Actors";
         }
     }
 }

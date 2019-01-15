@@ -312,6 +312,7 @@ namespace SimplexIde
             w = new ToolWindow();
             w.Dock = DockStyle.Fill;
             w.main = drawTest1;
+            w.form1 = this;
             objects = w.dtv;
             darkDockPanel2.AddContent(w);
             
