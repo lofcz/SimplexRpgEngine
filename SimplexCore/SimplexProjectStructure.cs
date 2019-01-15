@@ -18,6 +18,8 @@ namespace SimplexCore
        public List<SimplexProjectItem> Shaders { get; set; }
        public List<SimplexProjectItem> Extensions { get; set; }
        public List<SimplexProjectItem> Scripts { get; set; }
+       public List<SimplexProjectItem> Paths { get; set; }
+       public List<SimplexProjectItem> DataFiles { get; set; }
 
        [JsonIgnore]
        [XmlIgnore]
@@ -35,6 +37,6 @@ namespace SimplexCore
         public float EngineVersion { get; set; }
         public string Author { get; set; }
         public float ProjectVersion { get; set; }
-
+        public string ProjectLoadMessage { get; set; }       
     }
 }
