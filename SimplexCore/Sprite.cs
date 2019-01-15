@@ -61,6 +61,27 @@ namespace SimplexCore
 
         }
 
+        public void change_color_bypixel(Color color, int R, int G, int B)
+        {
+            Color[] data = new Color[Texture.Width * Texture.Height]; //create list for image color data
+            
+            Texture.GetData(data); //load image data
+            
+            //effect
+            for (int i = 0; i < data.Length; i++)
+            {
+                // include your RGB color
+                if (data[i].R == R
+                    && data[i].G == G
+                    && data[i].B == B)
+                {
+                    data[i] = color;
+                }
+            }
+            //save data
+            Texture.SetData(data);
+        }
+
         public int GetFramesCount()
         {
             return Math.Max(((TextureCellsPerRow * (int)ImageSize.X) / ((int)ImageSize.X)) * ((TextureRows * (int)ImageSize.Y) / ((int)ImageSize.Y)) - 1, 0);

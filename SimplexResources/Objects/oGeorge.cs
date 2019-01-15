@@ -21,6 +21,7 @@ namespace SimplexResources.Objects
         {
             EditorPath = "Actors";
             Sprite.TextureSource = "george";
+            
 
             bodyCollider = new ColliderRectangle();
             bodyCollider.Collision = new RectangleF(0, 0, 48, 48);
@@ -59,7 +60,7 @@ namespace SimplexResources.Objects
         public override void EvtCreate()
         {
             Sprite.Texture = sprite_get("george");
-
+            Sprite.change_color_bypixel(Color.Red, 189, 132, 51);
             frameManager.AddAnimation("george", new[] { 0, 1, 2, 3  }, "south"); 
             frameManager.AddAnimation("george", new[] { 4, 5, 6, 7  }, "west"); 
             frameManager.AddAnimation("george", new[] { 8, 9, 10, 11 }, "north"); 
