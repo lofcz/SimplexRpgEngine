@@ -65,7 +65,7 @@ namespace SimplexIde
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             string editorPath = dtv.SelectedNodes[0].FullPath;
-
+            Sgml.show_message(editorPath);
             string currentFolder = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\SimplexCore\Prefabs\PrefabObject.cs";
 
             // get prefab class
@@ -120,7 +120,7 @@ namespace SimplexIde
             form1.currentProject.Objects.Add(spi);
 
             // finally save sproject
-            string json = JsonConvert.SerializeObject(form1.currentProject);
+            string json = JsonConvert.SerializeObject(form1.currentProject, Formatting.Indented);
             File.WriteAllText(form1.currentProject.ProjectPath, json);
         }
 
