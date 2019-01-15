@@ -485,8 +485,6 @@ namespace SimplexIde
                 }
             }
 
-
-
             foreach (var t in fList)
             {
                 rooms.Nodes[0].Nodes.Add(new DarkTreeNode(t.Key.Name) { Icon = Properties.Resources.MapTileLayer_16x });

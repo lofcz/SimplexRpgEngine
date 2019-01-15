@@ -8,8 +8,16 @@ namespace SimplexCore
 {
     public class SimplexProjectStructure
     {
+       public SimplexProjectInfo Info { get; set; }
+
        public List<SimplexProjectItem> Objects { get; set; } 
        public List<SimplexProjectItem> Rooms { get; set; }
+       public List<SimplexProjectItem> Sprites { get; set; }
+       public List<SimplexProjectItem> Tilesets { get; set; }
+       public List<SimplexProjectItem> Sounds { get; set; }
+       public List<SimplexProjectItem> Shaders { get; set; }
+       public List<SimplexProjectItem> Extensions { get; set; }
+       public List<SimplexProjectItem> Scripts { get; set; }
 
        [JsonIgnore]
        [XmlIgnore]
@@ -20,5 +28,13 @@ namespace SimplexCore
     {
         public string name { get; set; }
         public string path { get; set; }
+    }
+
+    public class SimplexProjectInfo
+    {
+        public float EngineVersion { get; set; }
+        public string Author { get; set; }
+        public float ProjectVersion { get; set; }
+
     }
 }
