@@ -42,7 +42,8 @@ namespace SimplexIde
         public Point renderPos = Point.Empty;
         public Size renderSize = Size.Empty;
         public string projectFile = "";
-
+        public SimplexProjectStructure currentProject = null;
+        public RoomsControl r = null;
 
 
         public Form1()
@@ -319,6 +320,8 @@ namespace SimplexIde
 
         public void loadResources(string corePath, SimplexProjectStructure sps)
         {
+            currentProject = sps;
+
             string nspace = corePath + ".Objects";
             var q = from t in Assembly.GetExecutingAssembly().GetTypes()
                     where t.IsClass && t.Namespace == nspace
@@ -516,7 +519,7 @@ namespace SimplexIde
             w.form = this;
             darkDockPanel4.AddContent(w);
 
-            RoomsControl r = new RoomsControl();
+            r = new RoomsControl();
             r.drawTest1 = drawTest1;
             r.form1 = this;
             darkDockPanel4.AddContent(r);
@@ -542,7 +545,9 @@ namespace SimplexIde
 
         private void saveToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Sgml.game_save("Data/" + activeRoom.Text);
+            string mapContent = Path.Combine(currentProject.RootPath, @"Data\" + r.dtv.SelectedNodes[0].Text);
+            toolStripStatusLabel3.Text = "Room saved";
+            Sgml.game_save(mapContent);
         }
 
         private void newToolStripMenuItem1_Click(object sender, EventArgs e)

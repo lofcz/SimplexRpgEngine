@@ -175,8 +175,7 @@ namespace SimplexCore
                 }
 
                 // Now update all tiles
-                Texture2D ttt = RoomEditorEditor.Content.Load<Texture2D>(
-                    Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/Tilesets/" + "tileset0"));
+                Texture2D ttt = RoomEditorEditor.Content.Load<Texture2D>(Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/Tilesets/" + "tileset0"));
 
                 foreach (RoomLayer rl in currentRoom.Layers)
                 {
@@ -197,40 +196,44 @@ namespace SimplexCore
         }
 
 
-        public static void game_save(string path)
+        public static void game_save(string path, bool sysSave = false)
         {
             Root root = new Root();
 
-                foreach (RoomLayer r in currentRoom.Layers)
+            foreach (RoomLayer r in currentRoom.Layers)
+            {
+                if (r is ObjectLayer)
                 {
-                    if (r is ObjectLayer)
+                    foreach (GameObject go in ((ObjectLayer) r).Objects)
                     {
-                        foreach (GameObject go in ((ObjectLayer) r).Objects)
-                        {
-                            go.EvtSave();
-                            root.Objects.Add(go);
-                        }
-                    }
-
-                    if (r is TileLayer)
-                    {
-                        foreach (Tile t in ((TileLayer) r).Tiles)
-                        {
-                            root.Tiles.Add(t);
-                        }
+                        go.EvtSave();
+                        root.Objects.Add(go);
                     }
                 }
 
-                GameRoom gr =
-                    (GameRoom) Activator.CreateInstance(
-                        Type.GetType(("SimplexResources.Rooms." + Form1.activeRoom.Text)));
-                root.Room = gr;
-
-                XmlSerializer ser = new XmlSerializer(typeof(Root), Form1.reflectedTypes.ToArray());
-                using (TextWriter w = new StreamWriter(path))
+                if (r is TileLayer)
                 {
-                    ser.Serialize(w, root);
+                    foreach (Tile t in ((TileLayer) r).Tiles)
+                    {
+                        root.Tiles.Add(t);
+                    }
                 }
+            }
+
+            GameRoom gr = (GameRoom) Activator.CreateInstance(Type.GetType(("SimplexResources.Rooms." + Form1.activeRoom.Text)));
+            root.Room = gr;
+
+            XmlSerializer ser = new XmlSerializer(typeof(Root), Form1.reflectedTypes.ToArray());
+
+            // Create (nested) folders when needed
+            // to prevent can't write file to nonexsiting folder error
+            FileInfo file = new FileInfo(path);
+            file.Directory?.Create();
+
+            using (TextWriter w = new StreamWriter(path))
+            {
+                ser.Serialize(w, root);
+            }
             
         }
 

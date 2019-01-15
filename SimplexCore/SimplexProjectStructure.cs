@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace SimplexCore
 {
@@ -9,6 +10,10 @@ namespace SimplexCore
     {
        public List<SimplexProjectItem> Objects { get; set; } 
        public List<SimplexProjectItem> Rooms { get; set; }
+
+       [JsonIgnore]
+       [XmlIgnore]
+       public string RootPath { get; set; }
     }
 
     public class SimplexProjectItem
