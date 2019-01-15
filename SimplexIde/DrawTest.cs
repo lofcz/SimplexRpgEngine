@@ -1205,9 +1205,12 @@ namespace SimplexIde
 
         public void LoadProject(SimplexProjectStructure sps, string path)
         {
+            sps.RootPath = path.Substring(0, path.LastIndexOf('\\'));
+            sps.ProjectPath = path;
+
             path = path.Replace(".sproject", "");
             string[] parts = path.Split('\\');
-            editorForm.loadResources(parts[parts.Length - 1]);
+            editorForm.loadResources(parts[parts.Length - 1], sps);
 
             editorForm.Text = "SimplexEngine - " + parts[parts.Length - 1] + ".sproject";
         }

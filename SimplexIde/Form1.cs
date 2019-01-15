@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,7 +42,8 @@ namespace SimplexIde
         public Point renderPos = Point.Empty;
         public Size renderSize = Size.Empty;
         public string projectFile = "";
-
+        public SimplexProjectStructure currentProject = null;
+        public RoomsControl r = null;
 
 
         public Form1()
@@ -310,74 +312,88 @@ namespace SimplexIde
             w = new ToolWindow();
             w.Dock = DockStyle.Fill;
             w.main = drawTest1;
+            w.form1 = this;
             objects = w.dtv;
             darkDockPanel2.AddContent(w);
             
           //  loadResources();
         }
 
-        public void loadResources(string corePath)
+        public void loadResources(string corePath, SimplexProjectStructure sps)
         {
-            string nspace = corePath + "." + Config.GameProjectObjectsFolder;
+            currentProject = sps;
 
+            string nspace = corePath + ".Objects";
             var q = from t in Assembly.GetExecutingAssembly().GetTypes()
                     where t.IsClass && t.Namespace == nspace
                     select t;
             List<Type> classList = q.ToList().ToList();
 
-            foreach (Type t in classList)
+            // filter class list
+            Dictionary<Type, SimplexProjectItem> fList = new Dictionary<Type, SimplexProjectItem>();
+
+            foreach (SimplexProjectItem s in sps.Objects)
             {
-                if (t.Name == "<>c") { continue; }
+                if (classList.FirstOrDefault(x => x.Name == s.name) != null)
+                {
+                    // good boi
+                    fList.Add(classList.FirstOrDefault(x => x.Name == s.name), s);
+                }
+            }
 
-                    using (GameObject o = (GameObject) Activator.CreateInstance(t))
+
+            foreach (var t in fList)
+            {
+                DarkTreeNode tn = new DarkTreeNode();
+                tn.Text = t.Key.Name;
+                tn.Tag = t.Key.Name;
+                tn.Icon = Properties.Resources.AzureDefaultResource_16x; // Node for object itself
+
+                DarkTreeNode currentNode = objects.Nodes[0];
+
+                // Parse entire path
+                if (t.Value.path == "")
+                {
+                    currentNode?.Nodes.Add(tn);
+                }
+                else
+                {
+                    string[] tokens = t.Value.path.Split('/');
+
+                    foreach (string s in tokens)
                     {
-                        // Register collisions
-                        o.EvtRegisterCollisions();
-
-                        DarkTreeNode tn = new DarkTreeNode();
-                        tn.Text = t.Name;
-                        tn.Tag = t.Name;
-                        tn.Icon = Properties.Resources.AzureDefaultResource_16x;
-
-                        if (string.IsNullOrEmpty(o.EditorPath))
+                        if (currentNode.Nodes.FindIndex(x => (string) x.Tag == s) == -1)
                         {
-                            tn.Icon = Properties.Resources.Folder_16x;
+                            DarkTreeNode folderNode = new DarkTreeNode();
+                            folderNode.Text = s;
+                            folderNode.Tag = s;
+                            folderNode.Icon = Properties.Resources.Folder_16x;
+                            folderNode.IsFolder = true;
 
-                            objects.Nodes[0].Nodes.Add(tn);
+                            currentNode.Nodes.Add(folderNode);
+                            currentNode = folderNode;
                         }
                         else
                         {
-                            string[] pathTokens = o.EditorPath.Split('/');
-                            DarkTreeNode currentNode = objects.Nodes[0];
+                            currentNode = currentNode.Nodes.Find(x => x.Text == s);
+                            currentNode?.Nodes.Add(tn);
+                            break;
+                        }
 
-                            foreach (string s in pathTokens)
-                            {
-                                if (currentNode.Nodes.FindIndex(x => (string) x.Tag == s) == -1)
-                                {
-                                    DarkTreeNode folderNode = new DarkTreeNode();
-                                    folderNode.Text = s;
-                                    folderNode.Tag = s;
-                                    folderNode.Icon = Properties.Resources.Folder_16x;
-
-                                    currentNode.Nodes.Add(folderNode);
-                                    currentNode = folderNode;
-                                }
-                                else
-                                {
-                                    currentNode = currentNode.Nodes.Find(x => x.Text == s);
-                                    currentNode?.Nodes.Add(tn);
-                                    break;
-                                }
-
-                                if (s == pathTokens[pathTokens.Length - 1])
-                                {
-                                    currentNode?.Nodes.Add(tn);
-                                }
-                            }
+                        if (s == tokens[tokens.Length - 1])
+                        {
+                            currentNode.Nodes.Add(tn);
                         }
                     }
+                }
 
-                    reflectedTypes.Add(t);
+                using (GameObject o = (GameObject) Activator.CreateInstance(t.Key))
+                {
+                    // Register collisions
+                    o.EvtRegisterCollisions();
+                }
+
+                reflectedTypes.Add(t.Key);
 
             }
 
@@ -453,23 +469,31 @@ namespace SimplexIde
 
             }
 
-
-            nspace = "SimplexResources.Rooms";
+            nspace = corePath + ".Rooms";
             q = from t in Assembly.GetExecutingAssembly().GetTypes()
                 where t.IsClass && t.Namespace == nspace
                 select t;
             classList = q.ToList().ToList();
 
-            foreach (Type t in classList)
+            fList.Clear();
+
+            foreach (SimplexProjectItem s in sps.Rooms)
             {
-                rooms.Nodes[0].Nodes.Add(new DarkTreeNode(t.Name) { Icon = Properties.Resources.MapTileLayer_16x });
-                reflectedTypes.Add(t);
+                if (classList.FirstOrDefault(x => x.Name == s.name) != null)
+                {
+                    // good boi
+                    fList.Add(classList.FirstOrDefault(x => x.Name == s.name), s);
+                }
+            }
+
+            foreach (var t in fList)
+            {
+                rooms.Nodes[0].Nodes.Add(new DarkTreeNode(t.Key.Name) { Icon = Properties.Resources.MapTileLayer_16x });
+                reflectedTypes.Add(t.Key);
             }
 
             activeRoom = null;
             drawTest1.InitializeNodes(objects.Nodes);
-
-
         }
 
         private void darkToolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -494,7 +518,7 @@ namespace SimplexIde
             w.form = this;
             darkDockPanel4.AddContent(w);
 
-            RoomsControl r = new RoomsControl();
+            r = new RoomsControl();
             r.drawTest1 = drawTest1;
             r.form1 = this;
             darkDockPanel4.AddContent(r);
@@ -520,7 +544,9 @@ namespace SimplexIde
 
         private void saveToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Sgml.game_save("Data/" + activeRoom.Text);
+            string mapContent = Path.Combine(currentProject.RootPath, @"Data\" + r.dtv.SelectedNodes[0].Text);
+            toolStripStatusLabel3.Text = "Room saved";
+            Sgml.game_save(mapContent);
         }
 
         private void newToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -645,6 +671,11 @@ namespace SimplexIde
 
             drawTest1.Location = new System.Drawing.Point(0, 0);
             drawTest1.Size = new Size(Width, Height);
+        }
+
+        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

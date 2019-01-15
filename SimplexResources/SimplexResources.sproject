@@ -1,15 +1,1 @@
-{
-	"info": {
-		"engineVersion" :  1
-	},
-	"objects": [
-		{
-			"name":  "oGeorge"
-		}
-	],
-	"rooms":  [
-		{
-			"name":  "Room1"
-		}
-	]
-}
+{"Info":{"EngineVersion":1.0,"Author":null,"ProjectVersion":0.0,"ProjectLoadMessage":null},"Objects":[{"name":"oGeorge","path":"Actors"},{"name":"oCryoSample","path":"Actors"},{"name":"AnotherObject","path":"Actors"}],"Rooms":[{"name":"Room1","path":null}],"Sprites":null,"Tilesets":null,"Sounds":null,"Shaders":null,"Extensions":null,"Scripts":null,"Paths":null,"DataFiles":null}

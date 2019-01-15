@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using DarkUI.Controls;
 using DarkUI.Docking;
+using Newtonsoft.Json;
 using SimplexCore;
 using SimplexIde.Properties;
 
@@ -21,6 +22,7 @@ namespace SimplexIde
         public DarkTreeView dtv = null;
         public DrawTest main = null;
         private DarkTreeNode lastNode = null;
+        public Form1 form1 = null;
 
         public ToolWindow()
         {
@@ -62,7 +64,8 @@ namespace SimplexIde
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            string editorPath = "Actors";
+            string editorPath = dtv.SelectedNodes[0].FullPath;
+            Sgml.show_message(editorPath);
             string currentFolder = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\SimplexCore\Prefabs\PrefabObject.cs";
 
             // get prefab class
@@ -108,6 +111,17 @@ namespace SimplexIde
             }
 
             doc.Save(currentFolder);
+
+            // add new object to the sproject
+            SimplexProjectItem spi = new SimplexProjectItem();
+            spi.name = className;
+            spi.path = editorPath;
+
+            form1.currentProject.Objects.Add(spi);
+
+            // finally save sproject
+            string json = JsonConvert.SerializeObject(form1.currentProject, Formatting.Indented);
+            File.WriteAllText(form1.currentProject.ProjectPath, json);
         }
 
         private void darkTreeView1_MouseClick(object sender, MouseEventArgs e)

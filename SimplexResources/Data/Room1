@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <GameRoom xsi:type="Room1">
+    <Size>
+      <X>1024</X>
+      <Y>768</Y>
+    </Size>
+    <Name>Unnamed room</Name>
+    <ViewSize>
+      <X>1024</X>
+      <Y>768</Y>
+    </ViewSize>
+    <Layers>
+      <RoomLayer xsi:type="TileLayer">
+        <Visible>true</Visible>
+        <Name>Tile layer bottom</Name>
+        <LayerType>typeTile</LayerType>
+        <Position>0</Position>
+        <Depth>0</Depth>
+        <Tiles />
+        <TilelistName>tileset0</TilelistName>
+      </RoomLayer>
+      <RoomLayer xsi:type="TileLayer">
+        <Visible>true</Visible>
+        <Name>Tile layer 1</Name>
+        <LayerType>typeTile</LayerType>
+        <Position>0</Position>
+        <Depth>0</Depth>
+        <Tiles />
+        <TilelistName>tileset0</TilelistName>
+      </RoomLayer>
+      <RoomLayer xsi:type="ObjectLayer">
+        <Visible>true</Visible>
+        <Name>Object layer 1</Name>
+        <LayerType>typeObject</LayerType>
+        <Position>0</Position>
+        <Depth>0</Depth>
+        <Objects />
+      </RoomLayer>
+      <RoomLayer xsi:type="ObjectLayer">
+        <Visible>true</Visible>
+        <Name>Object layer 2</Name>
+        <LayerType>typeObject</LayerType>
+        <Position>0</Position>
+        <Depth>0</Depth>
+        <Objects />
+      </RoomLayer>
+      <RoomLayer xsi:type="ParticleLayer">
+        <Visible>true</Visible>
+        <Name>Particle layer 1</Name>
+        <LayerType>typeParticle</LayerType>
+        <Position>0</Position>
+        <Depth>0</Depth>
+        <Emmiters />
+      </RoomLayer>
+    </Layers>
+    <Persistent>false</Persistent>
+  </GameRoom>
+  <GameObject xsi:type="oGeorge">
+    <Position>
+      <X>317</X>
+      <Y>212</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.oGeorge</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 2</LayerName>
+    <ImageSpeed>0</ImageSpeed>
+    <Direction>0</Direction>
+    <PostionStart>
+      <X>0</X>
+      <Y>0</Y>
+    </PostionStart>
+    <PositionPrevious>
+      <X>317</X>
+      <Y>212</Y>
+    </PositionPrevious>
+    <Speed>0</Speed>
+    <Friction>0</Friction>
+    <Gravity>
+      <X>0</X>
+      <Y>270</Y>
+    </Gravity>
+    <Velocity>
+      <X>0</X>
+      <Y>0</Y>
+    </Velocity>
+    <Mass>0</Mass>
+    <Persistent>false</Persistent>
+    <ImageIndex>0</ImageIndex>
+    <gemsRemaining>0</gemsRemaining>
+  </GameObject>
+  <GameObject xsi:type="oGeorge">
+    <Position>
+      <X>565</X>
+      <Y>254</Y>
+    </Position>
+    <TypeString>SimplexResources.Objects.oGeorge</TypeString>
+    <ImageAngle>0</ImageAngle>
+    <ImageAngleTarget>0</ImageAngleTarget>
+    <TransformSpeed>0.2</TransformSpeed>
+    <ImageScale>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScale>
+    <ImageScaleTarget>
+      <X>1</X>
+      <Y>1</Y>
+    </ImageScaleTarget>
+    <ImageAlpha>1</ImageAlpha>
+    <LayerName>Object layer 2</LayerName>
+    <ImageSpeed>0</ImageSpeed>
+    <Direction>0</Direction>
+    <PostionStart>
+      <X>0</X>
+      <Y>0</Y>
+    </PostionStart>
+    <PositionPrevious>
+      <X>565</X>
+      <Y>254</Y>
+    </PositionPrevious>
+    <Speed>0</Speed>
+    <Friction>0</Friction>
+    <Gravity>
+      <X>0</X>
+      <Y>270</Y>
+    </Gravity>
+    <Velocity>
+      <X>0</X>
+      <Y>0</Y>
+    </Velocity>
+    <Mass>0</Mass>
+    <Persistent>false</Persistent>
+    <ImageIndex>0</ImageIndex>
+    <gemsRemaining>0</gemsRemaining>
+  </GameObject>
+</Root>

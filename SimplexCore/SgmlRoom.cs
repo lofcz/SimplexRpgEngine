@@ -33,6 +33,7 @@ namespace SimplexCore
 
             // Instantiate that room to see what's inside
             GameRoom tempRoom = (GameRoom)Activator.CreateInstance(room);
+            string mapContent = Path.Combine(RoomEditor.editorForm.currentProject.RootPath, @"\Maps\" + tempRoom.GetType().ToString().Split('.').Last());
 
             // Store persistent objects
             List<GameObject> persistentObjects = SceneObjects.Where(x => x.Persistent).ToList();
@@ -45,10 +46,7 @@ namespace SimplexCore
             {
                 Form1.activeRoom =  RoomEditor.roomsControl.dtv.Nodes[0].Nodes.FirstOrDefault(x => x.Text == tempRoom.GetType().ToString().Split('.').Last());
                 RoomEditor.editorForm.setStatusBottom("Editing " + Form1.activeRoom.Text);
-
-             //   RoomEditor.currentRoom = tempRoom;
-             //   roomLayers = RoomEditor.currentRoom.Layers;
-                game_load(Path.Combine(Environment.CurrentDirectory, @"Data/" + tempRoom.GetType().ToString().Split('.').Last()));
+                game_load(mapContent);
 
 
                 // Also we need to assign them all to appropriate layers

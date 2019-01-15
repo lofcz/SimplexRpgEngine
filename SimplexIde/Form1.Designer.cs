@@ -85,8 +85,9 @@
             this.darkStatusStrip2 = new DarkUI.Controls.DarkStatusStrip();
             this.darkContextMenu2 = new DarkUI.Controls.DarkContextMenu();
             this.darkDockPanel5 = new DarkUI.Docking.DarkDockPanel();
-            this.drawTest1 = new SimplexIde.DrawTest();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.drawTest1 = new SimplexIde.DrawTest();
             this.darkMenuStrip1.SuspendLayout();
             this.darkToolStrip1.SuspendLayout();
             this.darkStatusStrip1.SuspendLayout();
@@ -187,7 +188,7 @@
             // 
             this.newToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.newToolStripMenuItem1.Name = "newToolStripMenuItem1";
-            this.newToolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
+            this.newToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.newToolStripMenuItem1.Text = "New";
             this.newToolStripMenuItem1.Click += new System.EventHandler(this.newToolStripMenuItem1_Click);
             // 
@@ -195,7 +196,7 @@
             // 
             this.saveToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.saveToolStripMenuItem1.Name = "saveToolStripMenuItem1";
-            this.saveToolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
+            this.saveToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem1.Text = "Save";
             this.saveToolStripMenuItem1.Click += new System.EventHandler(this.saveToolStripMenuItem1_Click);
             // 
@@ -203,7 +204,7 @@
             // 
             this.loadToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.loadToolStripMenuItem1.Name = "loadToolStripMenuItem1";
-            this.loadToolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
+            this.loadToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.loadToolStripMenuItem1.Text = "Load";
             // 
             // viewToolStripMenuItem
@@ -666,7 +667,8 @@
             this.darkStatusStrip2.Dock = System.Windows.Forms.DockStyle.None;
             this.darkStatusStrip2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.darkStatusStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel4});
+            this.toolStripStatusLabel4,
+            this.toolStripStatusLabel3});
             this.darkStatusStrip2.Location = new System.Drawing.Point(0, 538);
             this.darkStatusStrip2.Name = "darkStatusStrip2";
             this.darkStatusStrip2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 3);
@@ -693,6 +695,17 @@
             this.darkDockPanel5.Size = new System.Drawing.Size(359, 478);
             this.darkDockPanel5.TabIndex = 47;
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // toolStripStatusLabel3
+            // 
+            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(118, 19);
+            this.toolStripStatusLabel3.Text = "toolStripStatusLabel3";
+            this.toolStripStatusLabel3.Visible = false;
+            // 
             // drawTest1
             // 
             this.drawTest1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -711,10 +724,6 @@
             this.drawTest1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.drawTest1_MouseDown);
             this.drawTest1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.drawTest1_MouseMove_1);
             this.drawTest1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.drawTest1_MouseUp);
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // Form1
             // 
@@ -825,6 +834,7 @@
         public DarkUI.Docking.DarkDockPanel darkDockPanel4;
         public DarkUI.Controls.DarkStatusStrip darkStatusStrip1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
     }
 }
 

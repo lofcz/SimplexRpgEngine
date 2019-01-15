@@ -56,23 +56,25 @@ namespace SimplexIde
             {
                 if ((string)dtv.SelectedNodes[0].Tag != "folder")
                 {
+                    string mapContent = Path.Combine(form1.currentProject.RootPath, @"Data\" + dtv.SelectedNodes[0].Text);
+
                     if (Form1.activeRoom != null)
                     {
-                        Sgml.game_save(Path.Combine(Environment.CurrentDirectory, @"Data/" + Form1.activeRoom.Text));
+                        Sgml.game_save(mapContent, true);
                     }
 
                     Form1.activeRoom = dtv.SelectedNodes[0];
                     form1.setStatusBottom("Editing " + Form1.activeRoom.Text);
 
 
-                    if (File.Exists(Path.Combine(Environment.CurrentDirectory, @"Data/" + Form1.activeRoom.Text)))
+                    if (File.Exists(mapContent))
                     {
-                        Sgml.game_load(Path.Combine(Environment.CurrentDirectory, @"Data/" + Form1.activeRoom.Text));
+                        Sgml.game_load(mapContent);
                     }
                     else
                     {
                         Sgml.currentRoom = (GameRoom) Activator.CreateInstance(Type.GetType("SimplexResources.Rooms." + Form1.activeRoom.Text));
-                        Sgml.game_save(Path.Combine(Environment.CurrentDirectory, @"Data/" + Form1.activeRoom.Text));
+                        Sgml.game_save(mapContent);
                         drawTest1.ClearAll();              
                     }
                 }

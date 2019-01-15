@@ -10,7 +10,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Global.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Objects\AnotherObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Objects\MyObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Objects\oBall.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Objects\oBallStatic.cs" />
@@ -27,9 +26,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Objects\NewObject.cs" xmlns="" />
     <Compile Include="$(MSBuildThisFileDirectory)Objects\oGem.cs" xmlns="" />
     <Compile Include="$(MSBuildThisFileDirectory)Objects\oGeorge.cs" xmlns="" />
+    <Compile Include="$(MSBuildThisFileDirectory)Objects\AnotherObject.cs" xmlns="" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Content\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Maps\" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="$(MSBuildThisFileDirectory)Content\Content.mgcb" />
