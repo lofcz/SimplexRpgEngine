@@ -53,7 +53,7 @@ namespace SimplexIde
             // Sprites = JsonConvert.DeserializeObject<List<Spritesheet>>(new StreamReader("../../../SimplexRpgEngine3/SpritesDescriptor.json").ReadToEnd());
 
             string[] extensions = { ".mp3", ".wav", ".ogg", ".wma" };
-            foreach (string file in Directory.EnumerateFiles("../../../SimplexRpgEngine3/Content/bin/Windows/Sounds/", "*.xnb*"))
+            foreach (string file in Directory.EnumerateFiles( owner.currentProject.RootPath + "/Content/bin/Windows/Sounds/", "*.xnb*"))
             {
                 string name = Path.GetFileNameWithoutExtension(file);
 
@@ -88,7 +88,7 @@ namespace SimplexIde
 
             darkTreeView1.Nodes[0].Expanded = true;
 
-            StreamReader sw = new StreamReader("../../../SimplexRpgEngine3/SoundsDescriptor.json");
+            StreamReader sw = new StreamReader(owner.currentProject.RootPath + "/SoundsDescriptor.json");
             allSounds = JsonConvert.DeserializeObject<List<SoundDescriptor>>(sw.ReadToEnd());
             sw.Close();
 
@@ -111,7 +111,7 @@ namespace SimplexIde
 
                 if ((string)selectedNode.Tag != "folder")
                 {
-                    TagLib.File file = TagLib.File.Create("../../../SimplexRpgEngine3/Content/bin/Windows/Sounds/" + selectedNode.Text + ".wav");
+                    TagLib.File file = TagLib.File.Create(owner.currentProject.RootPath + "/Content/bin/Windows/Sounds/" + selectedNode.Text + ".wav");
                     string title = file.Tag.Title;
                     string album = file.Tag.Album;
                     string length = file.Properties.Duration.ToString();

@@ -28,6 +28,12 @@
 /processorParam:Defines=
 /build:Shaders/shader1.fx
 
+#begin Shaders/shader2.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:Shaders/shader2.fx
+
 #begin Sounds/sndGem1.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor

@@ -150,9 +150,11 @@ namespace SimplexResources.Objects
         {
             float d = (float)(string_width("Gems remaining: " + gemsRemaining) / 2f);
 
+            // Oscillate greyscale amount
             k = (float)abs(dsin(time));
             time += 1;
 
+            // Set shader just like in GMS, it's even easier!
             shader_set(shader_get("shader1"));
             shader_set_uniform_float("amt", k);
             draw_sprite(Sprite.Texture, ImageIndex, Position);
