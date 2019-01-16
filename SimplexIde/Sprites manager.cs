@@ -67,7 +67,7 @@ namespace SimplexIde
             darkDropdownList2.SelectedItem = item0;
 
             string[] extensions = { ".png", ".jpg", ".jpeg", ".gif" };
-            foreach (string file in Directory.EnumerateFiles("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/", "*.xnb*"))
+            foreach (string file in Directory.EnumerateFiles( owner.currentProject.RootPath + "/Content/bin/Windows/Sprites/", "*.xnb*"))
             {
                 string name = Path.GetFileNameWithoutExtension(file);
 
@@ -111,7 +111,7 @@ namespace SimplexIde
             okEntries.Clear();
             badEntries.Clear();
             // load tilesets
-            foreach (string file in Directory.EnumerateFiles("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/Tilesets/", "*.xnb*"))
+            foreach (string file in Directory.EnumerateFiles( owner.currentProject.RootPath + "/Content/bin/Windows/Sprites/Tilesets/", "*.xnb*"))
             {
                 string name = Path.GetFileNameWithoutExtension(file);
 
@@ -180,7 +180,7 @@ namespace SimplexIde
                             {
                                 // we need to load otherwise
                                 Texture2D tex = owner.drawTest1.Editor.Content.Load<Texture2D>(
-                                    Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/" +
+                                    Path.GetFullPath(owner.projectFile + "/Content/bin/Windows/Sprites/" +
                                                      selectedNode.Text));
                                 tex.SaveAsPng(memoryStream, tex.Width, tex.Height);
                                 spritesEditorRenderer1.selectedImage = tex;
@@ -212,8 +212,7 @@ namespace SimplexIde
                             {
                                 // we need to load otherwise
                                 Texture2D tex = owner.drawTest1.Editor.Content.Load<Texture2D>(
-                                    Path.GetFullPath(
-                                        "../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/Tilesets/" +
+                                    Path.GetFullPath(owner.projectFile + "/Content/bin/Windows/Sprites/Tilesets/" +
                                         selectedNode.Text));
                                 tex.SaveAsPng(memoryStream, tex.Width, tex.Height);
                                 spritesEditorRenderer1.selectedImage = tex;
@@ -243,87 +242,6 @@ namespace SimplexIde
 
         private void Sprites_manager_Paint(object sender, PaintEventArgs e)
         {
-           /* if (lastImage != null)
-            {
-                rows = (int)darkNumericUpDown3.Value;
-                cellW = (int)darkNumericUpDown1.Value;
-                cellH = (int)darkNumericUpDown2.Value;
-
-                e.Graphics.DrawImage(lastImage, new RectangleF(darkSectionPanel1.Location.X + darkSectionPanel1.Width + 20, darkSectionPanel1.Location.Y, lastImage.Width * (float)zoom, lastImage.Height * (float)zoom));
-
-                int cx, cy;
-                cx = darkSectionPanel1.Location.X + darkSectionPanel1.Width + 20;
-                cy = darkSectionPanel1.Location.Y;
-
-                int xIndex = 0;
-                int yIndex = 0;
-                if (rows > 0 && cellH > 0 && cellW > 0)
-                {
-                    for (var i = 0; i < rows; i++)
-                    {
-                        for (var j = 0; j < lastImage.Width / cellW; j++)
-                        {
-                            bool hit = false;
-
-                            Rectangle r = new Rectangle((int)(cx * 1), (int)(cy * 1), (int)(cellW * zoom), (int)(cellH * zoom));
-
-                            if (r.Contains(new System.Drawing.Point((int)mouse.X, (int)mouse.Y)))
-                            {
-                                hit = true;
-                            }
-                            
-                            if (hit)
-                            {
-                                e.Graphics.FillRectangle(b, r);
-                            }
-
-                            e.Graphics.DrawRectangle(p, r);
-                            cx += (int) (cellW * zoom);
-                            xIndex++;
-                        }
-
-                        cy += (int)Math.Round(cellH * zoom);
-                        yIndex++;
-                        xIndex = 0;
-                        cx = darkSectionPanel1.Location.X + darkSectionPanel1.Width + 20;
-                    }
-
-                    foreach (Subsprite ss in subsprites)
-                    {
-                        xIndex = 0;
-                        yIndex = 0;
-                        cx = darkSectionPanel1.Location.X + darkSectionPanel1.Width + 20;
-                        cy = darkSectionPanel1.Location.Y;
-                        for (var i = 0; i < rows; i++)
-                        {
-                            for (var j = 0; j < lastImage.Width / cellW; j++)
-                            {
-                                bool hit = false;
-
-                                Rectangle r = new Rectangle((int)(cx * 1), (int)(cy * 1), (int)(cellW * zoom), (int)(cellH * zoom));
-
-                                if (r.Contains(new System.Drawing.Point((int)mouse.X, (int)mouse.Y)))
-                                {
-                                    hit = true;
-                                }
-
-                                if (xIndex >= ss.cellX && xIndex <= ss.cellW + ss.cellX && yIndex >= ss.cellY && yIndex <= ss.cellH + ss.cellY)
-                                {
-                                    e.Graphics.FillRectangle(ss.sb, r);
-                                }
-
-                                cx += (int)(cellW * zoom);
-                                xIndex++;
-                            }
-
-                            cy += (int)Math.Round(cellH * zoom);
-                            yIndex++;
-                            xIndex = 0;
-                            cx = darkSectionPanel1.Location.X + darkSectionPanel1.Width + 20;
-                        }
-                    }
-                }
-            }*/
         }
 
         private void darkButton1_Click(object sender, EventArgs e)
@@ -331,7 +249,7 @@ namespace SimplexIde
             // save descriptor
             if (toolMode == 0)
             {
-                StreamReader sw = new StreamReader("../../../SimplexRpgEngine3/SpritesDescriptor.json");
+                StreamReader sw = new StreamReader(owner.currentProject.RootPath + "/SpritesDescriptor.json");
                 List<Spritesheet> current = JsonConvert.DeserializeObject<List<Spritesheet>>(sw.ReadToEnd());
                 sw.Close();
 
@@ -362,7 +280,7 @@ namespace SimplexIde
 
                 string json = JsonConvert.SerializeObject(current);
 
-                using (StreamWriter writer = new StreamWriter("../../../SimplexRpgEngine3/SpritesDescriptor.json"))
+                using (StreamWriter writer = new StreamWriter(owner.currentProject.RootPath + "/SpritesDescriptor.json"))
                 {
                     writer.WriteLine(json);
                     writer.Close();
