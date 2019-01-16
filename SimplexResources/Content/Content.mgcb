@@ -13,9 +13,10 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin File.fx
+#begin Shaders/shader1.fx
 /importer:EffectImporter
 /processor:EffectProcessor
 /processorParam:DebugMode=Auto
-/build:File.fx
+/processorParam:Defines=
+/build:Shaders/shader1.fx
 

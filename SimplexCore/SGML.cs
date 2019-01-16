@@ -21,6 +21,7 @@ namespace SimplexCore
         public static List<GameObject> SceneObjects = new List<GameObject>();
         public static List<TextureReference> Textures = new List<TextureReference>();
         public static List<SoundReference> Sounds = new List<SoundReference>();
+        public static List<Effect> Shaders = new List<Effect>();
         private static int _randomSeed = DateTime.Now.Millisecond;
         public static Random _random = new Random();
         private static double _epsilon = 0.000001;
@@ -33,6 +34,7 @@ namespace SimplexCore
         public static List<RoomLayer> roomLayers = new List<RoomLayer>();
         public static GameRoom currentRoom;
         public static GameObject realObject = null;
+        public static Effect effect;
 
         public static Color DrawColor
         {

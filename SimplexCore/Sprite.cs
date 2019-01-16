@@ -71,11 +71,12 @@ namespace SimplexCore
             for (int i = 0; i < data.Length; i++)
             {
                 // include your RGB color
-                if (data[i].R == R
+                /*if (data[i].R == R
                     && data[i].G == G
-                    && data[i].B == B)
+                    && data[i].B == B)*/
                 {
-                    data[i] = color;
+                    int k = (data[i].R + data[i].G + data[i].B) / 3;
+                    data[i] = new Color(k, k, k);
                 }
             }
             //save data

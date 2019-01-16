@@ -35,6 +35,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ParticleEngine.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ParticleLayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlAudio.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SgmlShader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlSprite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SimplexProjectStructure.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SoundDescriptor.cs" />

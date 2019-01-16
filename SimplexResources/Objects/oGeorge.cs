@@ -16,6 +16,8 @@ namespace SimplexResources.Objects
         private float imgSpd = .1f;
         private ColliderRectangle bodyCollider = null;
         public int gemsRemaining = 0;
+        private float k = 0;
+        private float time = 0;
 
         public oGeorge()
         {
@@ -60,7 +62,7 @@ namespace SimplexResources.Objects
         public override void EvtCreate()
         {
             Sprite.Texture = sprite_get("george");
-            Sprite.change_color_bypixel(Color.Red, 189, 132, 51);
+           // Sprite.change_color_bypixel(Color.Red, 189, 132, 51);
             frameManager.AddAnimation("george", new[] { 0, 1, 2, 3  }, "south"); 
             frameManager.AddAnimation("george", new[] { 4, 5, 6, 7  }, "west"); 
             frameManager.AddAnimation("george", new[] { 8, 9, 10, 11 }, "north"); 
@@ -148,7 +150,14 @@ namespace SimplexResources.Objects
         {
             float d = (float)(string_width("Gems remaining: " + gemsRemaining) / 2f);
 
+            k = (float)abs(dsin(time));
+            time += 1;
+
+            shader_set(shader_get("shader1"));
+            shader_set_uniform_float("amt", k);
             draw_sprite(Sprite.Texture, ImageIndex, Position);
+            shader_reset();
+
             draw_text(new Vector2(Position.X - d + 24, Position.Y - 16), "Gems remaining: " + gemsRemaining);
         }
     }

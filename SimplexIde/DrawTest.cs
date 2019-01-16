@@ -101,6 +101,7 @@ namespace SimplexIde
         public int SheetY = 0;
         public bool UpdateRunning = true;
         private RenderTarget2D midBuffer = null;
+        public List<Effect> shaders = new List<Effect>();
 
         protected override void Initialize()
         {
@@ -123,6 +124,11 @@ namespace SimplexIde
 
             prevState = Keyboard.GetState();
             basicEffect = new BasicEffect(GraphicsDevice);
+            effect = Editor.Content.Load<Effect>(Path.GetFullPath("../../../SimplexResources/Content/bin/Windows/Shaders/shader1"));
+            effect.Name = "shader1";
+            shaders.Add(effect);
+
+            Sgml.Shaders = shaders;
 
             vertexBuffer = new DynamicVertexBuffer(GraphicsDevice, typeof(VertexPositionColor), 1000, BufferUsage.WriteOnly);
             m = Matrix.CreateOrthographicOffCenter(0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 0, 0, -1);
@@ -330,6 +336,7 @@ namespace SimplexIde
             Sgml.vb = vertexBuffer;
             Sgml.be = basicEffect;
             Sgml.m = transformMatrix;
+            Sgml.effect = effect;
 
             Matrix view = cam.Camera.GetViewMatrix();
             Matrix projection = m;

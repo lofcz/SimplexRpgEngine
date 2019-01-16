@@ -276,9 +276,18 @@ namespace SimplexCore
 
                 Rectangle ImageRectangle = new Rectangle(x * currentObject.Sprite.cellW, y * (int) currentObject.Sprite.cellH, (int) currentObject.Sprite.cellW, (int) currentObject.Sprite.cellH);
 
-                sb.Begin(transformMatrix: m);
-                sb.Draw(sprite, position, ImageRectangle, FinalizeColor(DrawColor), currentObject.Sprite.ImageAngle, new Vector2(0, 0), currentObject.Sprite.ImageScale, SpriteEffects.None, 1);
-                sb.End();
+
+                if (!batchRunning)
+                { 
+                    sb.Begin(transformMatrix: m, effect: effect);
+                    sb.Draw(sprite, position, ImageRectangle, FinalizeColor(DrawColor), currentObject.Sprite.ImageAngle, new Vector2(0, 0), currentObject.Sprite.ImageScale, SpriteEffects.None, 1);
+                    sb.End();
+                }
+                else
+                {
+                    effect?.Parameters["FirstTexture"].SetValue(sprite);
+                    sb.Draw(sprite, position, ImageRectangle, FinalizeColor(DrawColor), currentObject.Sprite.ImageAngle, new Vector2(0, 0), currentObject.Sprite.ImageScale, SpriteEffects.None, 1);
+                }
             }
             else
             {
