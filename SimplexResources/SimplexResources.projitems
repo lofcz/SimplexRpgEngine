@@ -30,7 +30,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Content\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Maps\" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="$(MSBuildThisFileDirectory)Content\Content.mgcb" />
@@ -38,5 +37,11 @@
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)Shaders\shader1.fx" />
     <None Include="$(MSBuildThisFileDirectory)SimplexResources.sproject" />
+    <None Include="$(MSBuildThisFileDirectory)ShadersDescriptor.json" />
+    <None Include="$(MSBuildThisFileDirectory)SoundsDescriptor.json" />
+    <None Include="$(MSBuildThisFileDirectory)SpritesDescriptor.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)TilesetsDescriptor.json" />
   </ItemGroup>
 </Project>

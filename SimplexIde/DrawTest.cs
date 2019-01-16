@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
@@ -102,6 +103,9 @@ namespace SimplexIde
         public bool UpdateRunning = true;
         private RenderTarget2D midBuffer = null;
         public List<Effect> shaders = new List<Effect>();
+        public List<SoundDescriptor> Sounds = null;
+        public List<ShaderDescriptor> ShaderDescriptors = null;
+        private Thread thread;
 
         protected override void Initialize()
         {
@@ -112,7 +116,6 @@ namespace SimplexIde
             Sgml.Textures = Textures;
             Sgml.RoomEditor = this;
             Sgml.RoomEditorEditor = Editor;
-            Sgml.Sounds = audioList;
 
             camera = new Camera2D(Editor.graphics);
             basicEffect = new BasicEffect(Editor.graphics);
@@ -124,48 +127,15 @@ namespace SimplexIde
 
             prevState = Keyboard.GetState();
             basicEffect = new BasicEffect(GraphicsDevice);
-            effect = Editor.Content.Load<Effect>(Path.GetFullPath("../../../SimplexResources/Content/bin/Windows/Shaders/shader1"));
-            effect.Name = "shader1";
-            shaders.Add(effect);
-
-            Sgml.Shaders = shaders;
-
+        
             vertexBuffer = new DynamicVertexBuffer(GraphicsDevice, typeof(VertexPositionColor), 1000, BufferUsage.WriteOnly);
             m = Matrix.CreateOrthographicOffCenter(0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 0, 0, -1);
             mpb = new MgPrimitiveBatcher(Editor.graphics, Editor.Font);
             _globalKeyboardHook = new GlobalKeyboardHook();
             _globalKeyboardHook.KeyboardPressed += OnKeyPressed;
 
-            Sprites = JsonConvert.DeserializeObject<List<Spritesheet>>(new StreamReader("../../../SimplexRpgEngine3/SpritesDescriptor.json").ReadToEnd());
-            
-            foreach (Spritesheet s in Sprites)
-            {
-                Texture2D tex = Editor.Content.Load<Texture2D>(Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/" + s.Name));
-                s.Texture = tex;
-            }
-
-            List<SoundDescriptor> TempSounds = JsonConvert.DeserializeObject<List<SoundDescriptor>>(new StreamReader("../../../SimplexRpgEngine3/SoundsDescriptor.json").ReadToEnd());
-            foreach (SoundDescriptor s in TempSounds)
-            {
-                SoundReference r = new SoundReference();
-                r.Name = s.Name;
-                r.RelativeVolume = s.RelativeVolume;
-                r.Source = Editor.Content.Load<SoundEffect>(Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sounds/" + s.Name));
-
-                audioList.Add(r);
-            }
-
             Sgml.sh = sh;
-            Sgml.Sprites = Sprites;
             Sgml.GraphicsDevice = GraphicsDevice;
-
-            tilesets = JsonConvert.DeserializeObject<List<Tileset>>(File.ReadAllText("../../../SimplexRpgEngine3/TilesetsDescriptor.json"));
-
-            foreach (Tileset tl in tilesets)
-            {
-                tl.Texture = Editor.Content.Load<Texture2D>(Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/Tilesets/" + tl.Name));
-            }
-            Sgml.tilesets = tilesets;
 
             midBuffer = new RenderTarget2D(GraphicsDevice, Width, Height);
         }
@@ -308,12 +278,12 @@ namespace SimplexIde
 
         public void InitializeNodes(ObservableList<DarkTreeNode> nodes)
         {
-            Sprites = JsonConvert.DeserializeObject<List<Spritesheet>>(new StreamReader("../../../SimplexRpgEngine3/SpritesDescriptor.json").ReadToEnd());
+            //  Sprites = JsonConvert.DeserializeObject<List<Spritesheet>>(new StreamReader("../../../SimplexRpgEngine3/SpritesDescriptor.json").ReadToEnd());}}
 
-            foreach (Spritesheet s in Sprites)
+          //  foreach (Spritesheet s in Sprites)
             {
-                Texture2D tex = Editor.Content.Load<Texture2D>(Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/" + s.Name));
-                s.Texture = tex;
+           //     Texture2D tex = Editor.Content.Load<Texture2D>(Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/" + s.Name));
+            //    s.Texture = tex;
             }
         }
 
@@ -1220,6 +1190,96 @@ namespace SimplexIde
             editorForm.loadResources(parts[parts.Length - 1], sps);
 
             editorForm.Text = "SimplexEngine - " + parts[parts.Length - 1] + ".sproject";
+
+            // Load sprites, shaders, sounds, tilesets
+            thread = new Thread(BackgroundLoad);
+            thread.IsBackground = true;
+            thread.Start(sps);
+
+            editorForm.darkProgressBar1.Visible = true;
+        }
+
+        void BackgroundLoad(object ss)
+        {
+
+            SimplexProjectStructure sps = ss as SimplexProjectStructure;
+            
+            // Sprites
+            Sprites = JsonConvert.DeserializeObject<List<Spritesheet>>(File.ReadAllText(sps.RootPath + "/SpritesDescriptor.json"));
+
+            foreach (Spritesheet s in Sprites)
+            {
+                Texture2D tex = Editor.Content.Load<Texture2D>(Path.GetFullPath(sps.RootPath + "/Content/bin/Windows/Sprites/" + s.Name));
+                s.Texture = tex;
+            }
+
+            Sgml.Sprites = Sprites;
+            UpdateProgress(25);
+
+            // Audio
+            Sounds = JsonConvert.DeserializeObject<List<SoundDescriptor>>(File.ReadAllText(sps.RootPath + "/SoundsDescriptor.json"));
+
+            foreach (SoundDescriptor s in Sounds)
+            {
+                SoundReference r = new SoundReference();
+                r.Name = s.Name;
+                r.RelativeVolume = s.RelativeVolume;
+                r.Source = Editor.Content.Load<SoundEffect>(Path.GetFullPath(sps.RootPath + "/Content/bin/Windows/Sounds/" + s.Name));
+
+                audioList.Add(r);
+            }
+
+            Sgml.Sounds = audioList;
+            UpdateProgress(50);
+
+            // Tilesets
+            tilesets = JsonConvert.DeserializeObject<List<Tileset>>(File.ReadAllText(sps.RootPath + "/TilesetsDescriptor.json"));
+
+            foreach (Tileset tl in tilesets)
+            {
+                tl.Texture = Editor.Content.Load<Texture2D>(Path.GetFullPath(sps.RootPath + "/Content/bin/Windows/Sprites/Tilesets/" + tl.Name));
+            }
+
+            Sgml.tilesets = tilesets;
+            UpdateProgress(75);
+
+            // Shaders
+            ShaderDescriptors = JsonConvert.DeserializeObject<List<ShaderDescriptor>>(File.ReadAllText(sps.RootPath + "/ShadersDescriptor.json"));
+
+            foreach (ShaderDescriptor sd in ShaderDescriptors)
+            {
+                Effect e = Editor.Content.Load<Effect>(Path.GetFullPath(sps.RootPath + "/Content/bin/Windows/Shaders/" + sd.Name));
+                e.Name = sd.Name;
+
+                shaders.Add(e);
+            }
+
+            Sgml.Shaders = shaders;
+            UpdateProgress(100);
+
+            Invoke(new Action(() =>
+            {
+                editorForm.darkProgressBar1.Visible = false;
+            }));
+
+
+        }
+
+        private void UpdateProgress(int percent)
+        {
+            RunOnUiThread(() => editorForm.darkProgressBar1.Value = percent);
+        }
+
+        private void RunOnUiThread(Action action)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(action);
+            }
+            else
+            {
+                action();
+            }
         }
     }
 }

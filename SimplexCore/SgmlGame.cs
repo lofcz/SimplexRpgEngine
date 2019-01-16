@@ -175,7 +175,7 @@ namespace SimplexCore
                 }
 
                 // Now update all tiles
-                Texture2D ttt = RoomEditorEditor.Content.Load<Texture2D>(Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/Tilesets/" + "tileset0"));
+                Texture2D ttt = tilesets.FirstOrDefault(x => x.Name == "tileset0").Texture;
 
                 foreach (RoomLayer rl in currentRoom.Layers)
                 {
