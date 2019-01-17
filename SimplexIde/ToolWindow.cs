@@ -148,17 +148,20 @@ namespace SimplexIde
 
              */
 
-            string corePath = Path.GetFullPath(Path.Combine("../../bin/Debug/Data/", ""));
-            string[] paths = Directory.GetFiles(corePath);
-
-
-            foreach (string s in paths)
+            if (name != "")
             {
-                // update each file
-                string f = File.ReadAllText(s);
-                f = f.Replace(lastNode.Text, name);
-                File.WriteAllText(s, f);
-                lastNode.Text = name;
+                string corePath = Path.GetFullPath(Path.Combine("../../bin/Debug/Data/", ""));
+                string[] paths = Directory.GetFiles(corePath);
+
+
+                foreach (string s in paths)
+                {
+                    // update each file
+                    string f = File.ReadAllText(s);
+                    f = f.Replace(lastNode.Text, name);
+                    File.WriteAllText(s, f);
+                    lastNode.Text = name;
+                }
             }
         }
 
