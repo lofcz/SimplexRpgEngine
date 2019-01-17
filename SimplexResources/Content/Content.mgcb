@@ -220,3 +220,15 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Tilesets/tileset0.png
 
+
+#begin Sprites/simplex.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:/processorParam:ColorKeyEnabled=True
+/processorParam:/processorParam:PremultiplyAlpha=True
+/processorParam:/processorParam:GenerateMipmaps=False
+/processorParam:/processorParam:ResizeToPowerOfTwo=False
+/processorParam:/processorParam:MakeSquare=False
+/processorParam:/processorParam:TextureFormat=Color
+/build:Sprites/simplex.png

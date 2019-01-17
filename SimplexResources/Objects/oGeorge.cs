@@ -157,10 +157,12 @@ namespace SimplexResources.Objects
             // Set shader just like in GMS, it's even easier!
             shader_set(shader_get("shader1"));
             shader_set_uniform_float("amt", k);
-            draw_sprite(Sprite.Texture, ImageIndex, Position);
+          //  draw_sprite(Sprite.Texture, ImageIndex, Position);
             shader_reset();
 
-            draw_text(new Vector2(Position.X - d + 24, Position.Y - 16), "Gems remaining: " + gemsRemaining);
+         //  draw_text(new Vector2(Position.X - d + 24, Position.Y - 16), "Gems remaining: " + gemsRemaining);
+
+            draw_sprite(sprite_get("simplex"), -2, Position);
         }
     }
 }
