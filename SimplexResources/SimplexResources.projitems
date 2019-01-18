@@ -38,6 +38,7 @@
     <None Include="$(MSBuildThisFileDirectory)Shaders\shader1.fx" />
     <None Include="$(MSBuildThisFileDirectory)SimplexResources.sproject" />
     <None Include="$(MSBuildThisFileDirectory)ShadersDescriptor.json" />
+    <None Include="$(MSBuildThisFileDirectory)VideosDescriptor.json" />
     <None Include="$(MSBuildThisFileDirectory)SoundsDescriptor.json" />
     <None Include="$(MSBuildThisFileDirectory)SpritesDescriptor.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

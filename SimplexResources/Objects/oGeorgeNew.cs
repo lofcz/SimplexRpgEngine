@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using MonoGame.Extended;
 using SimplexCore;
 using static SimplexCore.Sgml;
@@ -68,7 +69,9 @@ namespace SimplexResources.Objects
             frameManager.AddAnimation("george", new[] { 8, 9, 10, 11 }, "north"); 
             frameManager.AddAnimation("george", new[] { 12, 13, 14, 15 }, "east");
 
-            show_message(darcsin(-1).ToString());
+            //show_message(darcsin(-1).ToString());
+
+           // video_play(video_get("MyVideo"));
         }
 
 
@@ -163,6 +166,8 @@ namespace SimplexResources.Objects
          //  draw_text(new Vector2(Position.X - d + 24, Position.Y - 16), "Gems remaining: " + gemsRemaining);
 
             draw_sprite(sprite_get("simplex"), -2, Position);
+
+
         }
     }
 }

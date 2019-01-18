@@ -20,6 +20,7 @@ namespace SimplexCore
        public List<SimplexProjectItem> Scripts { get; set; }
        public List<SimplexProjectItem> Paths { get; set; }
        public List<SimplexProjectItem> DataFiles { get; set; }
+       public List<SimplexProjectItem> Videos { get; set; }
 
        [JsonIgnore]
        [XmlIgnore]

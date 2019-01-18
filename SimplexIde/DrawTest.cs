@@ -105,6 +105,8 @@ namespace SimplexIde
         public List<Effect> shaders = new List<Effect>();
         public List<SoundDescriptor> Sounds = null;
         public List<ShaderDescriptor> ShaderDescriptors = null;
+        public List<VideoDescriptor> VideosDescriptors = null;
+        public List<VideoExtended> Videos = new List<VideoExtended>();
         private Thread thread;
         string[] lastProjects;
 
@@ -1317,7 +1319,18 @@ namespace SimplexIde
                 shaders.Add(e);
             }
 
-            Sgml.Shaders = shaders;
+            UpdateProgress(90);
+
+            // Videos
+            VideosDescriptors = JsonConvert.DeserializeObject<List<VideoDescriptor>>(File.ReadAllText(sps.RootPath + "/VideosDescriptor.json"));
+
+            foreach (VideoDescriptor sd in VideosDescriptors)
+            {
+                Video e = Editor.Content.Load<Video>(Path.GetFullPath(sps.RootPath + "/Content/bin/Windows/Videos/" + sd.Name));             
+                Videos.Add(new VideoExtended(e, sd.Name));
+            }
+
+            Sgml.Videos = Videos;
             UpdateProgress(100);
 
             Invoke(new Action(() =>
