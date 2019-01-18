@@ -1,4 +1,5 @@
 [Oo]bj
+*.simplexcache
 *.user
 *.suo
 *.[Cc]ache

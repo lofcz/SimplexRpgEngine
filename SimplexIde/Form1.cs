@@ -126,21 +126,7 @@ namespace SimplexIde
 
         private void drawTest1_Click_1(object sender, EventArgs e)
         {
-            // Open project if no project is loaded
-            if (projectFile == "")
-            {
-                openFileDialog1.Filter = "Simplex project files | *.sproject";
-                if (openFileDialog1.ShowDialog() == DialogResult.OK)
-                {
-                    string path = openFileDialog1.FileName;
-                   
-                    // Try to load the project
-                    SimplexProjectStructure sps = JsonConvert.DeserializeObject<SimplexProjectStructure>(File.ReadAllText(path));
-                    drawTest1.LoadProject(sps, path);
 
-                    projectFile = path;
-                }
-            }
         }
 
         private void drawTest1_MouseMove_1(object sender, MouseEventArgs e)

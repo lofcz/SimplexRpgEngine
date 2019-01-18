@@ -757,7 +757,7 @@ namespace SimplexIde
                 // And a node for this image
                 DarkTreeNode dtn = new DarkTreeNode(noext);
                 darkTreeView1.Nodes[0].Nodes.Add(dtn);
-
+                
             }
         }
 

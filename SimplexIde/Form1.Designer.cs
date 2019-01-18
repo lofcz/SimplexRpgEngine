@@ -845,9 +845,9 @@
         public DarkUI.Docking.DarkDockPanel darkDockPanel3;
         public DarkUI.Docking.DarkDockPanel darkDockPanel4;
         public DarkUI.Controls.DarkStatusStrip darkStatusStrip1;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
         public DarkUI.Controls.DarkProgressBar darkProgressBar1;
+        public System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 
