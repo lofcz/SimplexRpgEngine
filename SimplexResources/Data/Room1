@@ -56,12 +56,12 @@
     </Layers>
     <Persistent>false</Persistent>
   </GameRoom>
-  <GameObject xsi:type="oGeorge">
+  <GameObject xsi:type="oGeorgeNew">
     <Position>
       <X>317</X>
       <Y>212</Y>
     </Position>
-    <TypeString>SimplexResources.Objects.oGeorge</TypeString>
+    <TypeString>SimplexResources.Objects.oGeorgeNew</TypeString>
     <ImageAngle>0</ImageAngle>
     <ImageAngleTarget>0</ImageAngleTarget>
     <TransformSpeed>0.2</TransformSpeed>
@@ -100,12 +100,12 @@
     <ImageIndex>0</ImageIndex>
     <gemsRemaining>0</gemsRemaining>
   </GameObject>
-  <GameObject xsi:type="oGeorge">
+  <GameObject xsi:type="oGeorgeNew">
     <Position>
       <X>565</X>
       <Y>254</Y>
     </Position>
-    <TypeString>SimplexResources.Objects.oGeorge</TypeString>
+    <TypeString>SimplexResources.Objects.oGeorgeNew</TypeString>
     <ImageAngle>0</ImageAngle>
     <ImageAngleTarget>0</ImageAngleTarget>
     <TransformSpeed>0.2</TransformSpeed>

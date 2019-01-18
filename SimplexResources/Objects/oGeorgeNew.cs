@@ -9,7 +9,7 @@ using static SimplexCore.Sgml;
 
 namespace SimplexResources.Objects
 {
-    public class oGeorge : GameObject
+    public class oGeorgeNew : GameObject
     {
         FrameManager frameManager = new FrameManager();
         private float speed = 5;
@@ -19,7 +19,7 @@ namespace SimplexResources.Objects
         private float k = 0;
         private float time = 0;
 
-        public oGeorge()
+        public oGeorgeNew()
         {
             EditorPath = "Actors";
             Sprite.TextureSource = "george";
@@ -43,9 +43,9 @@ namespace SimplexResources.Objects
         {
             instance_create(new Vector2(other.Position.X  + 8, other.Position.Y + 8), typeof(oParticleSpawner), "Object layer 2");
             instance_destroy(other);
-            ((oGeorge)me).gemsRemaining--;
+            ((oGeorgeNew)me).gemsRemaining--;
 
-            if (((oGeorge) me).gemsRemaining <= 0)
+            if (((oGeorgeNew) me).gemsRemaining <= 0)
             {
                 show_message("You have collected all the gems! Level will now restart.");
                 room_restart();

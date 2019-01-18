@@ -150,18 +150,41 @@ namespace SimplexIde
 
             if (name != "")
             {
-                string corePath = Path.GetFullPath(Path.Combine("../../bin/Debug/Data/", ""));
+                string corePath = Path.GetFullPath(Path.Combine(form1.currentProject.RootPath + "/Data", ""));
                 string[] paths = Directory.GetFiles(corePath);
 
 
+                // Rename object in savefiles
                 foreach (string s in paths)
                 {
                     // update each file
                     string f = File.ReadAllText(s);
                     f = f.Replace(lastNode.Text, name);
                     File.WriteAllText(s, f);
-                    lastNode.Text = name;
+
                 }
+
+
+                // Also in the actual project
+                string[] allfiles = Directory.GetFiles(form1.currentProject.RootPath, "*.cs", SearchOption.AllDirectories).Union(Directory.GetFiles(form1.currentProject.RootPath, "*.sproject")).Union(Directory.GetFiles(form1.currentProject.RootPath, "*.projitems")).ToArray();
+
+                foreach (string f in allfiles)
+                {
+                    string text = File.ReadAllText(f);
+                    text = text.Replace(lastNode.Text, name);
+                    File.WriteAllText(f, text);
+                }
+
+                // Last step is to rename actual file
+                allfiles = Directory.GetFiles(form1.currentProject.RootPath,  lastNode.Text + ".cs", SearchOption.AllDirectories);
+
+                foreach (string f in allfiles)
+                {
+                    string k = f.Replace(lastNode.Text, name);
+                    File.Move(f, k);
+                }
+
+                lastNode.Text = name;
             }
         }
 
@@ -171,6 +194,16 @@ namespace SimplexIde
             ScriptEditor se = new ScriptEditor();
             se.Text = "Code editor - " + lastNode.Text;
             se.Show();
+        }
+
+        private void darkContextMenu1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void insertNewObjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
