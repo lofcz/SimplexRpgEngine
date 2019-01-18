@@ -84,7 +84,7 @@ namespace SimplexCore
         {
             if (format == ImageFormat.Png)
             {
-                Stream stream = File.Create(fname + ".pmg");
+                Stream stream = File.Create(fname + ".png");
                 surface.SaveAsPng(stream, surface.Width, surface.Height);
                 stream.Close();
             }
@@ -100,7 +100,7 @@ namespace SimplexCore
         {
             if (format == ImageFormat.Png)
             {
-                Stream stream = File.Create(fname + ".pmg");
+                Stream stream = File.Create(fname + ".png");
                 surface.SaveAsPng(stream, width, height);
                 stream.Close();
             }
