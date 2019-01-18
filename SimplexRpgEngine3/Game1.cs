@@ -26,7 +26,7 @@ namespace SimplexRpgEngine3
         GraphicsDeviceManager graphics;
         private VideoPlayer vp = null;
         private SpriteBatch sb = null;
-
+        private float k = 0;
         public Game1()
         {
             IsMouseVisible = true;
@@ -37,7 +37,7 @@ namespace SimplexRpgEngine3
             graphics.ApplyChanges();
 
             Content.RootDirectory = "Content";
-            Window.Title = "Simplex RPG Engine 3";
+            Window.Title = "Simplex RPG Engine 3 - Compiled DX12";
 
             sb = new SpriteBatch(GraphicsDevice);
         }
@@ -71,8 +71,9 @@ namespace SimplexRpgEngine3
 
         protected override void Draw(GameTime gameTime)
         {
-            
+            k += 0.0001f;
             base.Draw(gameTime);
+            GraphicsDevice.Clear(Color.Black);
 
             Texture2D videoTexture = null;
 
@@ -82,7 +83,7 @@ namespace SimplexRpgEngine3
             if (videoTexture != null)
             {
                 sb.Begin();
-                sb.Draw(videoTexture, new Rectangle(0, 0, 400, 240), Color.White);
+                sb.Draw(videoTexture, new Rectangle(400, 320, 600, 440), new Rectangle(0, 0, videoTexture.Width, videoTexture.Height), Color.FromNonPremultiplied(255 - (int)(k * 128), 255, 255, 255), (float)Math.Sin(MathHelper.ToDegrees(k)), new Vector2(1024 / 2, 768 / 2), SpriteEffects.None, 0);
                 sb.End();
             }
         }
