@@ -132,6 +132,24 @@
       <int>-1</int>
       <int>-1</int>
     </alarms>
+    <alarm_pause>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+    </alarm_pause>
     <ImageIndex>0</ImageIndex>
     <gemsRemaining>0</gemsRemaining>
   </GameObject>
@@ -211,6 +229,24 @@
       <int>-1</int>
       <int>-1</int>
     </alarms>
+    <alarm_pause>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+      <boolean>false</boolean>
+    </alarm_pause>
     <ImageIndex>0</ImageIndex>
     <gemsRemaining>0</gemsRemaining>
   </GameObject>

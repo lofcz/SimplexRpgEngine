@@ -19,7 +19,8 @@ namespace SimplexResources.Objects
 
         public override void EvtCreate()
         {
-            alarm_set(5, 60, this);
+            alarm_set(0, 120, this);
+            alarm_set(1, 60, this);
         }
 
         public override void EvtStep()
@@ -37,9 +38,10 @@ namespace SimplexResources.Objects
             Position.X += 100;
         }
 
-        public override void EvtAlarm5()
+        public override void EvtAlarm1()
         {
-            Position.X += 100;
+            Debug.WriteLine("Alarm 0 pauznut.. žádný pohyb");
+            alarm_pause(0, this);
         }
     }
 }

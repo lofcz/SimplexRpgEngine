@@ -94,8 +94,7 @@ namespace SimplexCore
         public int alarm16 = -1;
 
         public int[] alarms = new[] { -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1 };
-        private int[] steps = new[] { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
-        bool[] alarm_pause = new bool[]{ false, false, false, false, false, false, false, false, false, false,false, false, false, false, false, false };
+        public bool[] alarm_pause = new bool[]{ false, false, false, false, false, false, false, false, false, false,false, false, false, false, false, false };
 
         [XmlIgnore]
         public List<ColliderBase> Colliders = new List<ColliderBase>();
@@ -336,10 +335,12 @@ namespace SimplexCore
         {
             for (int i = 0; i < 16; i++)
             {
-                
                     if (alarms[i] > 0)
                     {
-                        alarms[i]--;
+                        if (alarm_pause[i] == false)
+                        {
+                            alarms[i]--;
+                        }
                     }
                     else if (alarms[i] == 0)
                     {
@@ -397,6 +398,7 @@ namespace SimplexCore
                                 EvtAlarm16();
                                 break;
                         }
+
                         alarms[i] = -1;
                     }
                 }

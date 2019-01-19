@@ -544,66 +544,30 @@ namespace SimplexCore
         
         public static void alarm_set(int index, int ticks, GameObject obj)
         {
-            switch (index)
-            {
-                case 0:
-                    obj.alarms[0] = ticks;
-                    break;
-                case 1:
-                    obj.alarms[1] = ticks;
-                    break;
-                case 2:
-                    obj.alarms[2] = ticks;
-                    break;
-                case 3:
-                    obj.alarms[3] = ticks;
-                    break;
-                case 4:
-                    obj.alarms[4] = ticks;
-                    break;
-                case 5:
-                    obj.alarms[5] = ticks;
-                    break;
-                case 6:
-                    obj.alarms[6] = ticks;
-                    break;
-                case 7:
-                    obj.alarms[7] = ticks;
-                    break;
-                case 8:
-                    obj.alarms[8] = ticks;
-                    break;
-                case 9:
-                    obj.alarms[9] = ticks;
-                    break;
-                case 10:
-                    obj.alarms[10] = ticks;
-                    break;
-                case 11:
-                    obj.alarms[11] = ticks;
-                    break;
-                case 12:
-                    obj.alarms[12] = ticks;
-                    break;
-                case 13:
-                    obj.alarms[13] = ticks;
-                    break;
-                case 14:
-                    obj.alarms[14] = ticks;
-                    break;
-                case 15:
-                    obj.alarms[15] = ticks;
-                    break;
-                case 16:
-                    obj.alarms[16] = ticks;
-                    break;
-            } 
+            obj.alarms[index] = ticks;
 
         }
 
-        public static void alarm_pause(int index, int ticks, GameObject obj)
+        public static void alarm_pause(int index, GameObject obj)
         {
-            
+            obj.alarm_pause[index] = true;
+        }
+
+        public static void alarm_continue(int index, GameObject obj)
+        {
+            obj.alarm_pause[index] = false;
+        }
+
+        public static bool alarm_get(int index, GameObject obj)
+        {
+            if (obj.alarm_pause[index] == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
