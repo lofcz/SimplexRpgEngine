@@ -16,6 +16,7 @@ using Vector2 = Microsoft.Xna.Framework.Vector2;
 
 namespace SimplexCore
 {
+
     public static partial class Sgml
     {
         public static List<GameObject> SceneObjects = new List<GameObject>();

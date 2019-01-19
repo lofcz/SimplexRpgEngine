@@ -72,14 +72,14 @@ namespace SimplexResources.Objects
             frameManager.AddAnimation("george", new[] { 12, 13, 14, 15 }, "east");
 
             //show_message(darcsin(-1).ToString());
-
-           // video_play(video_get("MyVideo"));
-           surface = surface_create(16, 16);
-           surface_set_target(surface);
-           draw_sprite(sprite_get("Gem"), -2, new Vector2(0, 0));
-           surface_reset_target();
-
-           surface_save_ext(surface, "kokot", 64, 64);
+            int k = system_get_ram();
+            // video_play(video_get("MyVideo"));
+            /* surface = surface_create(16, 16);
+             surface_set_target(surface);
+             draw_sprite(sprite_get("Gem"), -2, new Vector2(0, 0));
+             surface_reset_target();
+ 
+             surface_save_ext(surface, "kokot", 64, 64);*/
         }
 
 

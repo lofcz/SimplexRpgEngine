@@ -12,7 +12,7 @@ namespace SimplexCore
 
         public static VideoPlayer video_play(VideoExtended video)
         {
-            VideoPlayer vp = new VideoPlayer();
+            VideoPlayer vp = new VideoPlayer(GraphicsDevice);
             Video vv = video.VideoSource;
             vp.Play(vv);
 
