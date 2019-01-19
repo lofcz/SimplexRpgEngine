@@ -14,13 +14,7 @@ using Color = System.Drawing.Color;
 using static SimplexCore.Sgml;
 
 namespace SimplexCore
-{
-    public struct AlarmStruct
-    {
-        public int Steps;
-        public bool Active;
-    }
-    
+{    
     [Serializable]
     public class GameObject : IDisposable
     {
@@ -99,7 +93,9 @@ namespace SimplexCore
         public int alarm15 = -1;
         public int alarm16 = -1;
 
-        private int[] alarms = new[] { -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1 };
+        public int[] alarms = new[] { -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1 };
+        private int[] steps = new[] { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
+        bool[] alarm_pause = new bool[]{ false, false, false, false, false, false, false, false, false, false,false, false, false, false, false, false };
 
         [XmlIgnore]
         public List<ColliderBase> Colliders = new List<ColliderBase>();
@@ -340,68 +336,71 @@ namespace SimplexCore
         {
             for (int i = 0; i < 16; i++)
             {
-                if (alarms[i] > 0)
-                {
-                    alarms[i]--;
-                } else if (alarms[i] == 0)
-                {
-                    switch (alarms[i])
+                
+                    if (alarms[i] > 0)
                     {
-                        case 0:
-                            EvtAlarm0();
-                            break;
-                        case 1:
-                            EvtAlarm1();
-                            break;
-                        case 2:
-                            EvtAlarm2();
-                            break;
-                        case 3:
-                            EvtAlarm3();
-                            break;
-                        case 4:
-                            EvtAlarm4();
-                            break;
-                        case 5:
-                            EvtAlarm5();
-                            break;
-                        case 6:
-                            EvtAlarm6();
-                            break;
-                        case 7:
-                            EvtAlarm7();
-                            break;
-                        case 8:
-                            EvtAlarm8();
-                            break;
-                        case 9:
-                            EvtAlarm9();
-                            break;
-                        case 10:
-                            EvtAlarm10();
-                            break;
-                        case 11:
-                            EvtAlarm11();
-                            break;
-                        case 12:
-                            EvtAlarm12();
-                            break;
-                        case 13:
-                            EvtAlarm13();
-                            break;
-                        case 14:
-                            EvtAlarm14();
-                            break;
-                        case 15:
-                            EvtAlarm15();
-                            break;
-                        case 16:
-                            EvtAlarm16();
-                            break;
+                        alarms[i]--;
                     }
-                } 
-            }
-            
+                    else if (alarms[i] == 0)
+                    {
+                        switch (alarms[i])
+                        {
+                            case 0:
+                                EvtAlarm0();
+                                break;
+                            case 1:
+                                EvtAlarm1();
+                                break;
+                            case 2:
+                                EvtAlarm2();
+                                break;
+                            case 3:
+                                EvtAlarm3();
+                                break;
+                            case 4:
+                                EvtAlarm4();
+                                break;
+                            case 5:
+                                EvtAlarm5();
+                                break;
+                            case 6:
+                                EvtAlarm6();
+                                break;
+                            case 7:
+                                EvtAlarm7();
+                                break;
+                            case 8:
+                                EvtAlarm8();
+                                break;
+                            case 9:
+                                EvtAlarm9();
+                                break;
+                            case 10:
+                                EvtAlarm10();
+                                break;
+                            case 11:
+                                EvtAlarm11();
+                                break;
+                            case 12:
+                                EvtAlarm12();
+                                break;
+                            case 13:
+                                EvtAlarm13();
+                                break;
+                            case 14:
+                                EvtAlarm14();
+                                break;
+                            case 15:
+                                EvtAlarm15();
+                                break;
+                            case 16:
+                                EvtAlarm16();
+                                break;
+                        }
+                        alarms[i] = -1;
+                    }
+                }
+
             UpdateImageScale();
             UpdateImageAngle();
 

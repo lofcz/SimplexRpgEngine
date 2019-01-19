@@ -547,55 +547,55 @@ namespace SimplexCore
             switch (index)
             {
                 case 0:
-                    obj.alarm0 = ticks;
+                    obj.alarms[0] = ticks;
                     break;
                 case 1:
-                    obj.alarm1 = ticks;
+                    obj.alarms[1] = ticks;
                     break;
                 case 2:
-                    obj.alarm2 = ticks;
+                    obj.alarms[2] = ticks;
                     break;
                 case 3:
-                    obj.alarm3 = ticks;
+                    obj.alarms[3] = ticks;
                     break;
                 case 4:
-                    obj.alarm4 = ticks;
+                    obj.alarms[4] = ticks;
                     break;
                 case 5:
-                    obj.alarm5 = ticks;
+                    obj.alarms[5] = ticks;
                     break;
                 case 6:
-                    obj.alarm6 = ticks;
+                    obj.alarms[6] = ticks;
                     break;
                 case 7:
-                    obj.alarm7 = ticks;
+                    obj.alarms[7] = ticks;
                     break;
                 case 8:
-                    obj.alarm8 = ticks;
+                    obj.alarms[8] = ticks;
                     break;
                 case 9:
-                    obj.alarm9 = ticks;
+                    obj.alarms[9] = ticks;
                     break;
                 case 10:
-                    obj.alarm10 = ticks;
+                    obj.alarms[10] = ticks;
                     break;
                 case 11:
-                    obj.alarm11 = ticks;
+                    obj.alarms[11] = ticks;
                     break;
                 case 12:
-                    obj.alarm12 = ticks;
+                    obj.alarms[12] = ticks;
                     break;
                 case 13:
-                    obj.alarm13 = ticks;
+                    obj.alarms[13] = ticks;
                     break;
                 case 14:
-                    obj.alarm14 = ticks;
+                    obj.alarms[14] = ticks;
                     break;
                 case 15:
-                    obj.alarm15 = ticks;
+                    obj.alarms[15] = ticks;
                     break;
                 case 16:
-                    obj.alarm16 = ticks;
+                    obj.alarms[16] = ticks;
                     break;
             } 
 

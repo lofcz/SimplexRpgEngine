@@ -34,7 +34,7 @@ namespace SimplexResources.Objects
 
         public override void EvtAlarm0()
         {
-            Debug.WriteLine("LMAO");
+            Position.X += 100;
         }
 
         public override void EvtAlarm5()

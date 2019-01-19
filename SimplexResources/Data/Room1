@@ -114,8 +114,25 @@
     <alarm14>-1</alarm14>
     <alarm15>-1</alarm15>
     <alarm16>-1</alarm16>
+    <alarms>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+    </alarms>
     <ImageIndex>0</ImageIndex>
-    <Alarm1>-1</Alarm1>
     <gemsRemaining>0</gemsRemaining>
   </GameObject>
   <GameObject xsi:type="oGeorgeNew">
@@ -176,8 +193,25 @@
     <alarm14>-1</alarm14>
     <alarm15>-1</alarm15>
     <alarm16>-1</alarm16>
+    <alarms>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+      <int>-1</int>
+    </alarms>
     <ImageIndex>0</ImageIndex>
-    <Alarm1>-1</Alarm1>
     <gemsRemaining>0</gemsRemaining>
   </GameObject>
 </Root>
