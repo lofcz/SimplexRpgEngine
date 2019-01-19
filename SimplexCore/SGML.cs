@@ -545,7 +545,6 @@ namespace SimplexCore
         public static void alarm_set(int index, int ticks, GameObject obj)
         {
             obj.alarms[index] = ticks;
-
         }
 
         public static void alarm_pause(int index, GameObject obj)

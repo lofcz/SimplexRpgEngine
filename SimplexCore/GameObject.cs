@@ -344,7 +344,7 @@ namespace SimplexCore
                     }
                     else if (alarms[i] == 0)
                     {
-                        switch (alarms[i])
+                        switch (i)
                         {
                             case 0:
                                 EvtAlarm0();

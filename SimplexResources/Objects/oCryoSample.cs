@@ -40,7 +40,7 @@ namespace SimplexResources.Objects
 
         public override void EvtAlarm1()
         {
-            Debug.WriteLine("Alarm 0 pauznut.. žádný pohyb");
+            Debug.WriteLine("Pauza");
             alarm_pause(0, this);
         }
     }
