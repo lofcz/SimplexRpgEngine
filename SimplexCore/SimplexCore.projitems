@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
@@ -18,6 +18,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)CollisionInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CollisionsTree.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FrameManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MgcbEntry.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlRaycasting.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Ext\IPrimitiveBatcher.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Ext\MgPrimitiveBatcher.cs" />
@@ -37,11 +38,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)SgmlAudio.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlShader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlSprite.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SgmlVideo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ShaderDescriptor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SimplexProjectStructure.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SoundDescriptor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SoundReference.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TilesetDescriptor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VideoDescriptor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VideoExtended.cs" />
     <None Include="$(MSBuildThisFileDirectory)Prefabs\PrefabObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Quadtree.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RoomLayer.cs" />

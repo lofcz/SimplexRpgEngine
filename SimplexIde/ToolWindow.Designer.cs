@@ -36,10 +36,10 @@
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
             this.darkContextMenu1 = new DarkUI.Controls.DarkContextMenu();
+            this.insertNewObjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.insertNewObjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darkToolStrip1.SuspendLayout();
             this.darkContextMenu1.SuspendLayout();
             this.SuspendLayout();
@@ -120,14 +120,24 @@
             this.renameToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.darkContextMenu1.Name = "darkContextMenu1";
-            this.darkContextMenu1.Size = new System.Drawing.Size(165, 92);
+            this.darkContextMenu1.Size = new System.Drawing.Size(181, 114);
+            this.darkContextMenu1.Opening += new System.ComponentModel.CancelEventHandler(this.darkContextMenu1_Opening);
+            // 
+            // insertNewObjectToolStripMenuItem
+            // 
+            this.insertNewObjectToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.insertNewObjectToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.insertNewObjectToolStripMenuItem.Name = "insertNewObjectToolStripMenuItem";
+            this.insertNewObjectToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.insertNewObjectToolStripMenuItem.Text = "Insert new object";
+            this.insertNewObjectToolStripMenuItem.Click += new System.EventHandler(this.insertNewObjectToolStripMenuItem_Click);
             // 
             // editCodeToolStripMenuItem
             // 
             this.editCodeToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.editCodeToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.editCodeToolStripMenuItem.Name = "editCodeToolStripMenuItem";
-            this.editCodeToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.editCodeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editCodeToolStripMenuItem.Text = "Edit code";
             this.editCodeToolStripMenuItem.Click += new System.EventHandler(this.editCodeToolStripMenuItem_Click);
             // 
@@ -136,7 +146,7 @@
             this.renameToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.renameToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
-            this.renameToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.renameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.renameToolStripMenuItem.Text = "Rename";
             this.renameToolStripMenuItem.Click += new System.EventHandler(this.renameToolStripMenuItem_Click);
             // 
@@ -145,16 +155,8 @@
             this.deleteToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.deleteToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
-            // 
-            // insertNewObjectToolStripMenuItem
-            // 
-            this.insertNewObjectToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-            this.insertNewObjectToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.insertNewObjectToolStripMenuItem.Name = "insertNewObjectToolStripMenuItem";
-            this.insertNewObjectToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.insertNewObjectToolStripMenuItem.Text = "Insert new object";
             // 
             // ToolWindow
             // 

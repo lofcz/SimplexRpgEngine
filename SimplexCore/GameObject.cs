@@ -15,6 +15,12 @@ using static SimplexCore.Sgml;
 
 namespace SimplexCore
 {
+    public struct AlarmStruct
+    {
+        public int Steps;
+        public bool Active;
+    }
+    
     [Serializable]
     public class GameObject : IDisposable
     {
@@ -75,8 +81,25 @@ namespace SimplexCore
         public double Mass;
         public bool Persistent;
         public string PersistentLayer;
+        public int alarm0 = -1;
+        public int alarm1 = -1;
+        public int alarm2 = -1;
+        public int alarm3 = -1;
+        public int alarm4 = -1;
+        public int alarm5 = -1;
+        public int alarm6 = -1;
+        public int alarm7 = -1;
+        public int alarm8 = -1;
+        public int alarm9 = -1;
+        public int alarm10 = -1;
+        public int alarm11 = -1;
+        public int alarm12 = -1;
+        public int alarm13 = -1;
+        public int alarm14 = -1;
+        public int alarm15 = -1;
+        public int alarm16 = -1;
 
-
+        private int[] alarms = new[] { -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1 };
 
         [XmlIgnore]
         public List<ColliderBase> Colliders = new List<ColliderBase>();
@@ -189,7 +212,7 @@ namespace SimplexCore
 
         public virtual void EvtCreate()
         {
-
+            
         }
 
         public virtual void EvtCreateEnd()
@@ -227,9 +250,158 @@ namespace SimplexCore
 
         }
 
+        public virtual void EvtAlarm0()
+        {
+            
+        }
+        
+        public virtual void EvtAlarm1()
+        {
+            
+        }
+        
+        public virtual void EvtAlarm2()
+        {
+            
+        }
+        
+        public virtual void EvtAlarm3()
+        {
+            
+        }
+        
+        public virtual void EvtAlarm4()
+        {
+            
+        }
+        
+        public virtual void EvtAlarm5()
+        {
+            
+        }
+        
+        public virtual void EvtAlarm6()
+        {
+            
+        }
+        
+        public virtual void EvtAlarm7()
+        {
+            
+        }
+        
+        public virtual void EvtAlarm8()
+        {
+            
+        }
+        
+        public virtual void EvtAlarm9()
+        {
+            
+        }
+        
+        public virtual void EvtAlarm10()
+        {
+            
+        }
+        
+        public virtual void EvtAlarm11()
+        {
+            
+        }
+        
+        public virtual void EvtAlarm12()
+        {
+            
+        }
+        
+        public virtual void EvtAlarm13()
+        {
+            
+        }
+        
+        public virtual void EvtAlarm14()
+        {
+            
+        }
+        
+        public virtual void EvtAlarm15()
+        {
+            
+        }
+        
+        public virtual void EvtAlarm16()
+        {
+            
+        }
+
         // Public state events  
         public void UpdateState()
         {
+            for (int i = 0; i < 16; i++)
+            {
+                if (alarms[i] > 0)
+                {
+                    alarms[i]--;
+                } else if (alarms[i] == 0)
+                {
+                    switch (alarms[i])
+                    {
+                        case 0:
+                            EvtAlarm0();
+                            break;
+                        case 1:
+                            EvtAlarm1();
+                            break;
+                        case 2:
+                            EvtAlarm2();
+                            break;
+                        case 3:
+                            EvtAlarm3();
+                            break;
+                        case 4:
+                            EvtAlarm4();
+                            break;
+                        case 5:
+                            EvtAlarm5();
+                            break;
+                        case 6:
+                            EvtAlarm6();
+                            break;
+                        case 7:
+                            EvtAlarm7();
+                            break;
+                        case 8:
+                            EvtAlarm8();
+                            break;
+                        case 9:
+                            EvtAlarm9();
+                            break;
+                        case 10:
+                            EvtAlarm10();
+                            break;
+                        case 11:
+                            EvtAlarm11();
+                            break;
+                        case 12:
+                            EvtAlarm12();
+                            break;
+                        case 13:
+                            EvtAlarm13();
+                            break;
+                        case 14:
+                            EvtAlarm14();
+                            break;
+                        case 15:
+                            EvtAlarm15();
+                            break;
+                        case 16:
+                            EvtAlarm16();
+                            break;
+                    }
+                } 
+            }
+            
             UpdateImageScale();
             UpdateImageAngle();
 

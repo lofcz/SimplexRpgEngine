@@ -541,5 +541,69 @@ namespace SimplexCore
         {
             currentObject = realObject;
         }
+        
+        public static void alarm_set(int index, int ticks, GameObject obj)
+        {
+            switch (index)
+            {
+                case 0:
+                    obj.alarm0 = ticks;
+                    break;
+                case 1:
+                    obj.alarm1 = ticks;
+                    break;
+                case 2:
+                    obj.alarm2 = ticks;
+                    break;
+                case 3:
+                    obj.alarm3 = ticks;
+                    break;
+                case 4:
+                    obj.alarm4 = ticks;
+                    break;
+                case 5:
+                    obj.alarm5 = ticks;
+                    break;
+                case 6:
+                    obj.alarm6 = ticks;
+                    break;
+                case 7:
+                    obj.alarm7 = ticks;
+                    break;
+                case 8:
+                    obj.alarm8 = ticks;
+                    break;
+                case 9:
+                    obj.alarm9 = ticks;
+                    break;
+                case 10:
+                    obj.alarm10 = ticks;
+                    break;
+                case 11:
+                    obj.alarm11 = ticks;
+                    break;
+                case 12:
+                    obj.alarm12 = ticks;
+                    break;
+                case 13:
+                    obj.alarm13 = ticks;
+                    break;
+                case 14:
+                    obj.alarm14 = ticks;
+                    break;
+                case 15:
+                    obj.alarm15 = ticks;
+                    break;
+                case 16:
+                    obj.alarm16 = ticks;
+                    break;
+            } 
+
+        }
+
+        public static void alarm_pause(int index, int ticks, GameObject obj)
+        {
+            
+        }
     }
 }

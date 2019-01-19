@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
@@ -19,17 +19,27 @@ namespace SimplexResources.Objects
 
         public override void EvtCreate()
         {
-
+            alarm_set(5, 60, this);
         }
 
         public override void EvtStep()
         {
-            
+            UpdateState();
         }
 
         public override void EvtDraw()
         {
-            //draw_triangle_new(Position.X-15,Position.Y,Position.X+15,Position.Y,Position.X,Position.Y-15,true,50);
+            draw_circle(Position, 20, true, 0);
+        }
+
+        public override void EvtAlarm0()
+        {
+            Debug.WriteLine("LMAO");
+        }
+
+        public override void EvtAlarm5()
+        {
+            Position.X += 100;
         }
     }
 }

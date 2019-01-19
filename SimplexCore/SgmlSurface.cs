@@ -84,7 +84,7 @@ namespace SimplexCore
         {
             if (format == ImageFormat.Png)
             {
-                Stream stream = File.Create(fname + ".pmg");
+                Stream stream = File.Create(fname + ".png");
                 surface.SaveAsPng(stream, surface.Width, surface.Height);
                 stream.Close();
             }
@@ -100,9 +100,16 @@ namespace SimplexCore
         {
             if (format == ImageFormat.Png)
             {
-                Stream stream = File.Create(fname + ".pmg");
-                surface.SaveAsPng(stream, width, height);
+                RenderTarget2D temp = new RenderTarget2D(GraphicsDevice, width, height);
+                surface_set_target(temp);
+                draw_surface_stretched(new Vector2(0, 0), surface, new Vector2(width, height));
+                surface_reset_target();
+
+                Stream stream = File.Create(fname + ".png");
+                temp.SaveAsPng(stream, width, height);
                 stream.Close();
+
+                temp.Dispose();
             }
             else
             {

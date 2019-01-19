@@ -184,6 +184,18 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Question_16x.png;Sprites/unknown.png
 
+#begin Sprites/simplex.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/simplex.png
+
 #begin Sprites/star.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -219,4 +231,9 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprites/Tilesets/tileset0.png
+
+#begin Videos/MyVideo.mp4
+/importer:H264Importer
+/processor:VideoProcessor
+/build:Videos/MyVideo.mp4
 

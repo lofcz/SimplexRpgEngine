@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MonoGame.Extended.Gui</name>
+    </assembly>
+    <members>
+        <member name="M:MonoGame.Extended.Gui.Controls.GuiControl.UpdateRootIsLayoutRequired">
+            <summary>
+            Recursive Method to find the root element and update the IsLayoutRequired property.  So that the screen knows that something in the controls
+            have had a change to their layout.  Also, it will reset the size of the element so that it can get a clean build so that the background patches
+            can be rendered with the updates.
+            </summary>
+        </member>
+        <member name="M:MonoGame.Extended.Gui.GuiSystem.PropagateDown(MonoGame.Extended.Gui.Controls.GuiControl,System.Func{MonoGame.Extended.Gui.Controls.GuiControl,System.Boolean})">
+            <summary>
+            Method is meant to loop down the parents control to find a suitable event control.  If the predicate returns false
+            it will continue down the control tree.
+            </summary>
+            <param name="control">The control we want to check against</param>
+            <param name="predicate">A function to check if the propagation should resume, if returns false it will continue down the tree.</param>
+        </member>
+        <member name="T:MonoGame.Extended.Gui.Serialization.GuiAlignmentConverter">
+            <summary>
+            This converter handles the different spellings of Center.
+            </summary>
+        </member>
+    </members>
+</doc>

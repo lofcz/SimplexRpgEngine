@@ -56,12 +56,12 @@
     </Layers>
     <Persistent>false</Persistent>
   </GameRoom>
-  <GameObject xsi:type="oGeorge">
+  <GameObject xsi:type="oGeorgeNew">
     <Position>
       <X>317</X>
       <Y>212</Y>
     </Position>
-    <TypeString>SimplexResources.Objects.oGeorge</TypeString>
+    <TypeString>SimplexResources.Objects.oGeorgeNew</TypeString>
     <ImageAngle>0</ImageAngle>
     <ImageAngleTarget>0</ImageAngleTarget>
     <TransformSpeed>0.2</TransformSpeed>
@@ -97,15 +97,33 @@
     </Velocity>
     <Mass>0</Mass>
     <Persistent>false</Persistent>
+    <alarm0>-1</alarm0>
+    <alarm1>-1</alarm1>
+    <alarm2>-1</alarm2>
+    <alarm3>-1</alarm3>
+    <alarm4>-1</alarm4>
+    <alarm5>-1</alarm5>
+    <alarm6>-1</alarm6>
+    <alarm7>-1</alarm7>
+    <alarm8>-1</alarm8>
+    <alarm9>-1</alarm9>
+    <alarm10>-1</alarm10>
+    <alarm11>-1</alarm11>
+    <alarm12>-1</alarm12>
+    <alarm13>-1</alarm13>
+    <alarm14>-1</alarm14>
+    <alarm15>-1</alarm15>
+    <alarm16>-1</alarm16>
     <ImageIndex>0</ImageIndex>
+    <Alarm1>-1</Alarm1>
     <gemsRemaining>0</gemsRemaining>
   </GameObject>
-  <GameObject xsi:type="oGeorge">
+  <GameObject xsi:type="oGeorgeNew">
     <Position>
       <X>565</X>
       <Y>254</Y>
     </Position>
-    <TypeString>SimplexResources.Objects.oGeorge</TypeString>
+    <TypeString>SimplexResources.Objects.oGeorgeNew</TypeString>
     <ImageAngle>0</ImageAngle>
     <ImageAngleTarget>0</ImageAngleTarget>
     <TransformSpeed>0.2</TransformSpeed>
@@ -141,7 +159,25 @@
     </Velocity>
     <Mass>0</Mass>
     <Persistent>false</Persistent>
+    <alarm0>-1</alarm0>
+    <alarm1>-1</alarm1>
+    <alarm2>-1</alarm2>
+    <alarm3>-1</alarm3>
+    <alarm4>-1</alarm4>
+    <alarm5>-1</alarm5>
+    <alarm6>-1</alarm6>
+    <alarm7>-1</alarm7>
+    <alarm8>-1</alarm8>
+    <alarm9>-1</alarm9>
+    <alarm10>-1</alarm10>
+    <alarm11>-1</alarm11>
+    <alarm12>-1</alarm12>
+    <alarm13>-1</alarm13>
+    <alarm14>-1</alarm14>
+    <alarm15>-1</alarm15>
+    <alarm16>-1</alarm16>
     <ImageIndex>0</ImageIndex>
+    <Alarm1>-1</Alarm1>
     <gemsRemaining>0</gemsRemaining>
   </GameObject>
 </Root>

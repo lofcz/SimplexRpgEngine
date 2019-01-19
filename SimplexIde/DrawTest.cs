@@ -105,7 +105,11 @@ namespace SimplexIde
         public List<Effect> shaders = new List<Effect>();
         public List<SoundDescriptor> Sounds = null;
         public List<ShaderDescriptor> ShaderDescriptors = null;
+        public List<VideoDescriptor> VideosDescriptors = null;
+        public List<VideoExtended> Videos = new List<VideoExtended>();
         private Thread thread;
+        string[] lastProjects;
+
 
         protected override void Initialize()
         {
@@ -138,6 +142,15 @@ namespace SimplexIde
             Sgml.GraphicsDevice = GraphicsDevice;
 
             midBuffer = new RenderTarget2D(GraphicsDevice, Width, Height);
+
+            if (File.Exists("idecache.simplexcache"))
+            {
+                lastProjects = File.ReadAllLines("idecache.simplexcache");
+            }
+            else
+            {
+                lastProjects = null;
+            }
         }
 
         private void OnKeyPressed(object sender, GlobalKeyboardHookEventArgs e)
@@ -278,13 +291,7 @@ namespace SimplexIde
 
         public void InitializeNodes(ObservableList<DarkTreeNode> nodes)
         {
-            //  Sprites = JsonConvert.DeserializeObject<List<Spritesheet>>(new StreamReader("../../../SimplexRpgEngine3/SpritesDescriptor.json").ReadToEnd());}}
 
-          //  foreach (Spritesheet s in Sprites)
-            {
-           //     Texture2D tex = Editor.Content.Load<Texture2D>(Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/" + s.Name));
-            //    s.Texture = tex;
-            }
         }
 
         protected override void Draw()
@@ -319,6 +326,84 @@ namespace SimplexIde
             if (editorForm.projectFile == "")
             {
                 Sgml.draw_text(new Vector2((Width / 2) - ((int)Sgml.string_width("Click to open a project") / 2), Height / 2 - 5), "Click to open a project");
+
+                if (lastProjects == null)
+                { 
+                    Sgml.draw_text(new Vector2((Width / 2) - ((int)Sgml.string_width("Recently opened projects will appear here") / 2), Height / 2 + 15), "Recently opened projects will appear here");
+
+                    if (Sgml.mouse_check_button_pressed(Sgml.MouseButtons.Left))
+                    {
+                        // Open project if no project is loaded
+                        if (editorForm.projectFile == "")
+                        {
+                            editorForm.openFileDialog1.Filter = "Simplex project files | *.sproject";
+                            if (editorForm.openFileDialog1.ShowDialog() == DialogResult.OK)
+                            {
+                                string path = editorForm.openFileDialog1.FileName;
+
+                                // Try to load the project
+                                SimplexProjectStructure sps = JsonConvert.DeserializeObject<SimplexProjectStructure>(File.ReadAllText(path));
+                                LoadProject(sps, path);
+
+                                editorForm.projectFile = path;
+                                File.WriteAllText("idecache.simplexcache", path);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    int index = 0;
+                    bool hit = false;
+                    foreach (string s in lastProjects)
+                    {
+                        Color c = Color.White;
+
+                        // check for hover
+                        if (Sgml.point_in_rectangle(Sgml.mouse, new RectangleF(new Vector2((Width / 2) - ((int)Sgml.string_width(Path.GetFileNameWithoutExtension(s)) / 2), Height / 2 + 40 + 15 * index), new Size2((float)Sgml.string_width(Path.GetFileNameWithoutExtension(s)), 15))))
+                        {
+                            c = Color.CornflowerBlue;
+                            hit = true;
+
+                            if (Sgml.mouse_check_button_pressed(Sgml.MouseButtons.Left))
+                            {
+                                string path = s;
+
+                                // Try to load the project
+                                SimplexProjectStructure sps = JsonConvert.DeserializeObject<SimplexProjectStructure>(File.ReadAllText(path));
+                                LoadProject(sps, path);
+
+                                editorForm.projectFile = path;
+                                File.WriteAllText("idecache.simplexcache", path);
+                            }
+                        }
+
+                        Sgml.draw_set_color(c);
+                        Sgml.draw_text(new Vector2((Width / 2) - ((int)Sgml.string_width(Path.GetFileNameWithoutExtension(s)) / 2), Height / 2 + 40 + 15 * index), Path.GetFileNameWithoutExtension(s));
+                        Sgml.draw_set_color(Color.White);
+                        index++;
+                    }
+
+                    if (Sgml.mouse_check_button_pressed(Sgml.MouseButtons.Left) && !hit)
+                    {
+                        // Open project if no project is loaded
+                        if (editorForm.projectFile == "")
+                        {
+                            editorForm.openFileDialog1.Filter = "Simplex project files | *.sproject";
+                            if (editorForm.openFileDialog1.ShowDialog() == DialogResult.OK)
+                            {
+                                string path = editorForm.openFileDialog1.FileName;
+
+                                // Try to load the project
+                                SimplexProjectStructure sps = JsonConvert.DeserializeObject<SimplexProjectStructure>(File.ReadAllText(path));
+                                LoadProject(sps, path);
+
+                                editorForm.projectFile = path;
+                                File.WriteAllText("idecache.simplexcache", path);
+                            }
+                        }
+                    }
+                }
             }
             else if (UpdateRunning)
             {
@@ -1254,7 +1339,18 @@ namespace SimplexIde
                 shaders.Add(e);
             }
 
-            Sgml.Shaders = shaders;
+            UpdateProgress(90);
+
+            // Videos
+            VideosDescriptors = JsonConvert.DeserializeObject<List<VideoDescriptor>>(File.ReadAllText(sps.RootPath + "/VideosDescriptor.json"));
+
+            foreach (VideoDescriptor sd in VideosDescriptors)
+            {
+                Video e = Editor.Content.Load<Video>(Path.GetFullPath(sps.RootPath + "/Content/bin/Windows/Videos/" + sd.Name));             
+                Videos.Add(new VideoExtended(e, sd.Name));
+            }
+
+            Sgml.Videos = Videos;
             UpdateProgress(100);
 
             Invoke(new Action(() =>

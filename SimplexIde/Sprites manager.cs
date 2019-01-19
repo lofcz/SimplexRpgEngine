@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -47,6 +48,7 @@ namespace SimplexIde
         private float CamX = 0;
         float CamY = 0;
         public bool drawModeOn = false;
+        public List<MgcbEntry> MgcbEntries = new List<MgcbEntry>();
 
         public Sprites_manager()
         {
@@ -725,8 +727,71 @@ namespace SimplexIde
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 string path = openFileDialog1.FileName;
+                string file = Path.GetFileName(path);
+                string noext = Path.GetFileNameWithoutExtension(path);
 
+                Bitmap bmp = (Bitmap) Image.FromFile(path);
+                Texture2D tx = GetTexture(Sgml.GraphicsDevice, bmp);
+
+                spritesEditorRenderer1.selectedImage = tx;
+
+                // Create a new entry in unsaved images
+                MgcbEntry me = new MgcbEntry();
+                me.BeginLine = "#begin Sprites/" + file;
+                me.Build = "Sprites/" + file;
+                me.ImporterType = MgcbEntry.Importer.Texture;
+                me.Processor = MgcbEntry.Importer.Texture;
+                me.ProcessorParams.Add("/processorParam:ColorKeyColor=255,0,255,255");
+                me.ProcessorParams.Add("/processorParam:ColorKeyEnabled=True");
+                me.ProcessorParams.Add("/processorParam:PremultiplyAlpha=True");
+                me.ProcessorParams.Add("/processorParam:GenerateMipmaps=False");
+                me.ProcessorParams.Add("/processorParam:ResizeToPowerOfTwo=False");
+                me.ProcessorParams.Add("/processorParam:MakeSquare=False");
+                me.ProcessorParams.Add("/processorParam:TextureFormat=Color");
+                me.BitmapPhysical = bmp;
+                me.Name = file;
+                me.NameNoExt = noext;
+
+                MgcbEntries.Add(me);
+
+                // And a node for this image
+                DarkTreeNode dtn = new DarkTreeNode(noext);
+                darkTreeView1.Nodes[0].Nodes.Add(dtn);
+                
             }
+        }
+
+        private Texture2D GetTexture(GraphicsDevice dev, System.Drawing.Bitmap bmp)
+        {
+            int[] imgData = new int[bmp.Width * bmp.Height];
+            Texture2D texture = new Texture2D(dev, bmp.Width, bmp.Height);
+
+            unsafe
+            {
+                // lock bitmap
+                System.Drawing.Imaging.BitmapData origdata =
+                    bmp.LockBits(new System.Drawing.Rectangle(0, 0, bmp.Width, bmp.Height), System.Drawing.Imaging.ImageLockMode.ReadOnly, bmp.PixelFormat);
+
+                uint* byteData = (uint*)origdata.Scan0;
+
+                // Switch bgra -> rgba
+                for (int i = 0; i < imgData.Length; i++)
+                {
+                    byteData[i] = (byteData[i] & 0x000000ff) << 16 | (byteData[i] & 0x0000FF00) | (byteData[i] & 0x00FF0000) >> 16 | (byteData[i] & 0xFF000000);
+                }
+
+                // copy data
+                System.Runtime.InteropServices.Marshal.Copy(origdata.Scan0, imgData, 0, bmp.Width * bmp.Height);
+
+                byteData = null;
+
+                // unlock bitmap
+                bmp.UnlockBits(origdata);
+            }
+
+            texture.SetData(imgData);
+
+            return texture;
         }
 
         private void importTilesetToolStripMenuItem_Click(object sender, EventArgs e)
@@ -873,6 +938,47 @@ namespace SimplexIde
                 Color r = colorDialog1.Color;
                 spritesEditorRenderer1.penColor = Microsoft.Xna.Framework.Color.FromNonPremultiplied(r.R, r.G, r.B, r.A);
             }
+        }
+
+        private void compileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            using (StreamWriter w = File.AppendText(owner.currentProject.RootPath + "/Content/Content.mgcb"))
+            {
+                // add all unsaved entries to mgcb
+                foreach (MgcbEntry me in MgcbEntries)
+                {
+                    w.WriteLine("");
+                    w.WriteLine(me.BeginLine);
+                    w.WriteLine("/importer:" + me.ImporterToString(me.ImporterType));
+                    w.WriteLine("/processor:" + me.ProcessorToString(me.Processor));
+
+                    foreach (string ln in me.ProcessorParams)
+                    {
+                        w.WriteLine("/processorParam:" + ln);
+                    }
+
+                    w.WriteLine("/build:" + me.Build);
+
+                    // once entry sits in mgcb we need to copy over physical file
+                    me.BitmapPhysical.Save(owner.currentProject.RootPath + "/Content/Sprites/" + me.Name);
+
+                    // also a spritesheet needs to be generated
+                    Spritesheet s = new Spritesheet();
+                    s.Name = me.NameNoExt;
+                    s.CellHeight = cellH;
+                    s.CellWidth = cellW;
+                    s.Rows = rows;
+
+                    owner.drawTest1.Sprites.Add(s);
+                }
+            }
+
+            // save all spritesheets to descriptor
+            File.WriteAllText(owner.currentProject.RootPath + "/SpritesDescriptor.json", JsonConvert.SerializeObject(owner.drawTest1.Sprites));
+
+            // start mgcb to finish compile process
+            Process mgcb = Process.Start(owner.currentProject.RootPath + "/Content/Content.mgcb");
         }
     }
 

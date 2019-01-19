@@ -938,5 +938,17 @@ namespace SimplexCore
             sb.Draw(surface, GeneralRectangle, DrawColor);
             sb.End();
         }
+
+        public static void draw_surface_stretched(Vector2 position, RenderTarget2D surface, Vector2 size)
+        {
+            GeneralRectangle.X = (int)position.X;
+            GeneralRectangle.Y = (int)position.Y;
+            GeneralRectangle.Width = (int)size.X;
+            GeneralRectangle.Height = (int) size.Y;
+
+            sb.Begin(transformMatrix: m, samplerState: SamplerState.PointClamp);
+            sb.Draw(surface, GeneralRectangle, DrawColor);
+            sb.End();
+        }
     }
 }
