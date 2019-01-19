@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using MonoGame.Extended;
@@ -19,6 +20,7 @@ namespace SimplexResources.Objects
         public int gemsRemaining = 0;
         private float k = 0;
         private float time = 0;
+        private RenderTarget2D surface = null;
 
         public oGeorgeNew()
         {
@@ -72,6 +74,12 @@ namespace SimplexResources.Objects
             //show_message(darcsin(-1).ToString());
 
            // video_play(video_get("MyVideo"));
+           surface = surface_create(16, 16);
+           surface_set_target(surface);
+           draw_sprite(sprite_get("Gem"), -2, new Vector2(0, 0));
+           surface_reset_target();
+
+           surface_save_ext(surface, "kokot", 64, 64);
         }
 
 
