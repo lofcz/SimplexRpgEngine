@@ -330,6 +330,26 @@ namespace SimplexIde
                 if (lastProjects == null)
                 { 
                     Sgml.draw_text(new Vector2((Width / 2) - ((int)Sgml.string_width("Recently opened projects will appear here") / 2), Height / 2 + 15), "Recently opened projects will appear here");
+
+                    if (Sgml.mouse_check_button_pressed(Sgml.MouseButtons.Left))
+                    {
+                        // Open project if no project is loaded
+                        if (editorForm.projectFile == "")
+                        {
+                            editorForm.openFileDialog1.Filter = "Simplex project files | *.sproject";
+                            if (editorForm.openFileDialog1.ShowDialog() == DialogResult.OK)
+                            {
+                                string path = editorForm.openFileDialog1.FileName;
+
+                                // Try to load the project
+                                SimplexProjectStructure sps = JsonConvert.DeserializeObject<SimplexProjectStructure>(File.ReadAllText(path));
+                                LoadProject(sps, path);
+
+                                editorForm.projectFile = path;
+                                File.WriteAllText("idecache.simplexcache", path);
+                            }
+                        }
+                    }
                 }
                 else
                 {
