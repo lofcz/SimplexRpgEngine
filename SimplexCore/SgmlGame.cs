@@ -143,6 +143,7 @@ namespace SimplexCore
                     // Need to give object OriginalType !!!
                     g.OriginalType = Type.GetType(g.TypeString);
 
+                    currentObject = g;
                     g.EvtCreate();
                     g.EvtLoad();
 

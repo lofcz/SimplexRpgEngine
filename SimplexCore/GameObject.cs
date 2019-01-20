@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
@@ -15,9 +16,18 @@ using static SimplexCore.Sgml;
 
 namespace SimplexCore
 {
+
     [Serializable]
     public class GameObject : IDisposable
     {
+        public struct AlarmStruct
+        {
+            public int Steps;
+            public bool Running;
+        }
+
+        public AlarmStruct[] Alarms = new AlarmStruct[16];
+
         [XmlIgnore]
         public Sprite Sprite;
         public Vector2 Position;
@@ -217,6 +227,91 @@ namespace SimplexCore
 
         }
 
+        public virtual void EvtAlarm0()
+        {
+
+        }
+
+        public virtual void EvtAlarm1()
+        {
+
+        }
+
+        public virtual void EvtAlarm2()
+        {
+
+        }
+
+        public virtual void EvtAlarm3()
+        {
+
+        }
+
+        public virtual void EvtAlarm4()
+        {
+
+        }
+
+        public virtual void EvtAlarm5()
+        {
+
+        }
+
+        public virtual void EvtAlarm6()
+        {
+
+        }
+
+        public virtual void EvtAlarm7()
+        {
+
+        }
+
+        public virtual void EvtAlarm8()
+        {
+
+        }
+
+        public virtual void EvtAlarm9()
+        {
+
+        }
+
+        public virtual void EvtAlarm10()
+        {
+
+        }
+
+        public virtual void EvtAlarm11()
+        {
+
+        }
+
+        public virtual void EvtAlarm12()
+        {
+
+        }
+
+        public virtual void EvtAlarm13()
+        {
+
+        }
+
+        public virtual void EvtAlarm14()
+        {
+
+        }
+
+        public virtual void EvtAlarm15()
+        {
+
+        }
+
+        public virtual void EvtAlarm16()
+        {
+
+        }
+
         public virtual void EvtContextMenuSelected(ToolStripItem e)
         {
 
@@ -230,6 +325,23 @@ namespace SimplexCore
         // Public state events  
         public void UpdateState()
         {
+            // Update alarms
+            for (var i = 0; i < 16; i++)
+            {
+                if (Alarms[i].Running)
+                {
+                    Alarms[i].Steps--;
+
+                    if (Alarms[i].Steps <= 0)
+                    {
+                        MethodInfo alarmMethod = OriginalType.GetMethod("EvtAlarm" + i);
+                        alarmMethod.Invoke(this, null);
+                        Alarms[i].Steps = -1;
+                        Alarms[i].Running = false;
+                    }
+                }
+            }
+
             UpdateImageScale();
             UpdateImageAngle();
 

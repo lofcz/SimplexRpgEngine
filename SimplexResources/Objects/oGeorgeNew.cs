@@ -72,7 +72,7 @@ namespace SimplexResources.Objects
             frameManager.AddAnimation("george", new[] { 12, 13, 14, 15 }, "east");
 
             //show_message(darcsin(-1).ToString());
-            int k = system_get_ram();
+           // int k = system_get_ram();
             // video_play(video_get("MyVideo"));
             /* surface = surface_create(16, 16);
              surface_set_target(surface);
@@ -80,6 +80,12 @@ namespace SimplexResources.Objects
              surface_reset_target();
  
              surface_save_ext(surface, "kokot", 64, 64);*/
+            //alarm_set(0, 500);
+        }
+
+        public override void EvtAlarm0()
+        {
+            show_message("kokotí hlava");
         }
 
 
@@ -175,7 +181,7 @@ namespace SimplexResources.Objects
 
             draw_sprite(sprite_get("simplex"), -2, Position);
 
-
+            
         }
     }
 }

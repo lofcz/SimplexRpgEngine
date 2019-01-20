@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
 using SharpDX;
+using SharpDX.MediaFoundation.DirectX;
 using Color = Microsoft.Xna.Framework.Color;
 using Matrix = System.Drawing.Drawing2D.Matrix;
 using Point = Microsoft.Xna.Framework.Point;
@@ -541,6 +542,30 @@ namespace SimplexCore
         public static void with_reset()
         {
             currentObject = realObject;
+        }
+
+        /*
+         *  ------------------------------------- Alarms ------------------------------------
+         */
+        public static void alarm_set(int index, int steps)
+        {
+            currentObject.Alarms[index].Steps = steps;
+            currentObject.Alarms[index].Running = true;
+        }
+
+        public static int alarm_get(int index)
+        {
+            return currentObject.Alarms[index].Steps;
+        }
+
+        public static void alarm_set_running(int index, bool running)
+        {
+            currentObject.Alarms[index].Running = running;
+        }
+
+        public static bool alarm_get_running(int index)
+        {
+            return currentObject.Alarms[index].Running;
         }
     }
 }
