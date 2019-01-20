@@ -109,6 +109,8 @@ namespace SimplexIde
         public List<VideoExtended> Videos = new List<VideoExtended>();
         private Thread thread;
         string[] lastProjects;
+        public VideoPlayer videoPlayer = null;
+
 
 
         protected override void Initialize()
@@ -151,6 +153,9 @@ namespace SimplexIde
             {
                 lastProjects = null;
             }
+
+            videoPlayer = new VideoPlayer(GraphicsDevice);
+            Sgml.videoPlayer = videoPlayer;
         }
 
         private void OnKeyPressed(object sender, GlobalKeyboardHookEventArgs e)

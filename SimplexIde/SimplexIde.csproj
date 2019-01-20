@@ -75,7 +75,7 @@
       <HintPath>..\packages\MonoGame.Forms.DX.2.3.0\lib\net451\MonoGame.Forms.DX.dll</HintPath>
     </Reference>
     <Reference Include="MonoGame.Framework, Version=3.8.0.270, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MonoGame.Forms.DX.2.3.0\lib\net451\MonoGame.Framework.dll</HintPath>
+      <HintPath>..\packages\MonoGame.Framework.WindowsDX.5.0.0\lib\net45\MonoGame.Framework.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -355,4 +355,11 @@
   <Import Project="..\SimplexResources\SimplexResources.projitems" Label="Shared" />
   <Import Project="..\TestExtension1\TestExtension1.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\MonoGame.Framework.WindowsDX.5.0.0\build\MonoGame.Framework.WindowsDX.targets" Condition="Exists('..\packages\MonoGame.Framework.WindowsDX.5.0.0\build\MonoGame.Framework.WindowsDX.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\MonoGame.Framework.WindowsDX.5.0.0\build\MonoGame.Framework.WindowsDX.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MonoGame.Framework.WindowsDX.5.0.0\build\MonoGame.Framework.WindowsDX.targets'))" />
+  </Target>
 </Project>

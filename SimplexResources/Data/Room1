@@ -20,15 +20,6 @@
         <Tiles />
         <TilelistName>tileset0</TilelistName>
       </RoomLayer>
-      <RoomLayer xsi:type="TileLayer">
-        <Visible>true</Visible>
-        <Name>Tile layer 1</Name>
-        <LayerType>typeTile</LayerType>
-        <Position>0</Position>
-        <Depth>0</Depth>
-        <Tiles />
-        <TilelistName>tileset0</TilelistName>
-      </RoomLayer>
       <RoomLayer xsi:type="ObjectLayer">
         <Visible>true</Visible>
         <Name>Object layer 1</Name>
@@ -45,6 +36,15 @@
         <Depth>0</Depth>
         <Objects />
       </RoomLayer>
+      <RoomLayer xsi:type="TileLayer">
+        <Visible>true</Visible>
+        <Name>Tile layer 1</Name>
+        <LayerType>typeTile</LayerType>
+        <Position>0</Position>
+        <Depth>0</Depth>
+        <Tiles />
+        <TilelistName>tileset0</TilelistName>
+      </RoomLayer>
       <RoomLayer xsi:type="ParticleLayer">
         <Visible>true</Visible>
         <Name>Particle layer 1</Name>
@@ -59,7 +59,7 @@
   <GameObject xsi:type="oGeorgeNew">
     <Alarms>
       <AlarmStruct>
-        <Steps>494</Steps>
+        <Steps>93</Steps>
         <Running>true</Running>
       </AlarmStruct>
       <AlarmStruct>
@@ -169,7 +169,7 @@
   <GameObject xsi:type="oGeorgeNew">
     <Alarms>
       <AlarmStruct>
-        <Steps>494</Steps>
+        <Steps>93</Steps>
         <Running>true</Running>
       </AlarmStruct>
       <AlarmStruct>

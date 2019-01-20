@@ -11,10 +11,10 @@ namespace SimplexResources.Rooms
         {
             Persistent = false;
 
-            Layers.Add(new TileLayer() { Name = "Tile layer bottom", TilelistName = "tileset0" });
-            Layers.Add(new TileLayer() { Name = "Tile layer 1", TilelistName = "tileset0" });
+            Layers.Add(new TileLayer() { Name = "Tile layer bottom", TilelistName = "tileset0" });           
             Layers.Add(new ObjectLayer() { Name = "Object layer 1"});
             Layers.Add(new ObjectLayer() { Name = "Object layer 2" });
+            Layers.Add(new TileLayer() { Name = "Tile layer 1", TilelistName = "tileset0" });
             Layers.Add(new ParticleLayer() {Name = "Particle layer 1"});
         }
     }

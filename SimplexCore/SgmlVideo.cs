@@ -9,14 +9,13 @@ namespace SimplexCore
     public static partial class Sgml
     {
         public static List<VideoExtended> Videos = null;
+        public static VideoPlayer videoPlayer = null;
 
-        public static VideoPlayer video_play(VideoExtended video)
+
+        public static void video_play(VideoExtended video)
         {
-            VideoPlayer vp = new VideoPlayer(GraphicsDevice);
             Video vv = video.VideoSource;
-            vp.Play(vv);
-
-            return vp;
+            videoPlayer.Play(vv);
         }
 
         public static VideoExtended video_get(string name)

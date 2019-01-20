@@ -950,5 +950,12 @@ namespace SimplexCore
             sb.Draw(surface, GeneralRectangle, DrawColor);
             sb.End();
         }
+
+        public static void draw_video(Vector2 position, Vector2 size)
+        {
+            sb.Begin();
+            sb.Draw(videoPlayer.GetTexture(), new Vector2(0, 0), Color.White);
+            sb.End();
+        }
     }
 }
