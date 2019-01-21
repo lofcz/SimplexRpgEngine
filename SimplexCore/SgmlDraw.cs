@@ -40,6 +40,7 @@ namespace SimplexCore
         static List<Pair> pushedVertices = new List<Pair>();
         static PointF a, b;
         private static bool aaOn = true;
+        static Rectangle rect2 = Rectangle.Empty;
 
         // Internal cool shit
         static Vector2 GetCentroid(Vector3[] nodes)
@@ -953,8 +954,13 @@ namespace SimplexCore
 
         public static void draw_video(Vector2 position, Vector2 size)
         {
-            sb.Begin();
-            sb.Draw(videoPlayer.GetTexture(), new Vector2(0, 0), Color.White);
+            GeneralRectangle.X = (int)position.X;
+            GeneralRectangle.Y = (int)position.Y;
+            GeneralRectangle.Width = (int)size.X;
+            GeneralRectangle.Height = (int)size.Y;
+
+            sb.Begin(transformMatrix: m, samplerState: SamplerState.PointClamp);
+            sb.Draw(videoPlayer.GetTexture(), GeneralRectangle, null, FinalizeColor(DrawColor));
             sb.End();
         }
     }

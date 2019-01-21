@@ -59,7 +59,7 @@
   <GameObject xsi:type="oGeorgeNew">
     <Alarms>
       <AlarmStruct>
-        <Steps>93</Steps>
+        <Steps>87</Steps>
         <Running>true</Running>
       </AlarmStruct>
       <AlarmStruct>
@@ -169,7 +169,7 @@
   <GameObject xsi:type="oGeorgeNew">
     <Alarms>
       <AlarmStruct>
-        <Steps>93</Steps>
+        <Steps>87</Steps>
         <Running>true</Running>
       </AlarmStruct>
       <AlarmStruct>

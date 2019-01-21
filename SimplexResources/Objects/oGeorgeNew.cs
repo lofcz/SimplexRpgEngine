@@ -183,7 +183,7 @@ namespace SimplexResources.Objects
 
             draw_sprite(sprite_get("simplex"), -2, Position);
 
-            draw_video(Position, Position);
+            draw_video(Position, new Vector2(166, 100));
         }
     }
 }
