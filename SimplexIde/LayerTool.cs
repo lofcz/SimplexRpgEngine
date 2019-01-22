@@ -80,16 +80,16 @@ namespace SimplexIde
                         }
 
                             // give him a tileset
-                            form.ww.currentTileset = ((TileLayer) l).Tileset;
-                            Bitmap bmp = new Bitmap(Path.GetFullPath(
-                                "../../../SimplexRpgEngine3/Content/Sprites/Tilesets/" + ((TileLayer) l).Tileset.Name +
-                                ".png"));
+                           // MemoryStream ms = new MemoryStream();
 
-                             Texture2D tex = form.drawTest1.Editor.Content.Load<Texture2D>(Path.GetFullPath("../../../SimplexRpgEngine3/Content/bin/Windows/Sprites/Tilesets/" + ((TileLayer)l).Tileset.Name));
+                            form.ww.currentTileset = ((TileLayer) l).Tileset;
+                            Bitmap bmp = new Bitmap(Path.GetFullPath(form.currentProject.RootPath + "/Content/Tilesets/" + ((TileLayer) l).Tileset.Name + ".png"));
+
+                           // Bitmap bmp = 
+                            Texture2D tex = Sgml.tilesets.FirstOrDefault(x => x.Name == ((TileLayer)l).Tileset.Name).Texture;
 
 
                             // we have our bitmap now we pass it
-                            Sgml.show_debug_message("kokot");
                             form.ww.currentTilesetBitmap = bmp;
                             form.ww.tilesetTexture = tex;
                             form.ww.currentTileset = ((TileLayer) l).Tileset;

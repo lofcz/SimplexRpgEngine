@@ -10,7 +10,7 @@ namespace SimplexCore
     [Serializable]
     public class SimplexCamera
     {
-        public Camera2D Camera;
+        public OrthographicCamera Camera;
         public Vector2 TargetPosition;
         public Vector2 Position;
         public float TransformSpeed;

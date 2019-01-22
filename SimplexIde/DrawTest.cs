@@ -49,7 +49,7 @@ namespace SimplexIde
         GameTime g = new GameTime();
         public static Color BackgroundColor = Color.CornflowerBlue;
         public List<Spritesheet> Sprites = new List<Spritesheet>();
-        Camera2D camera;
+        OrthographicCamera camera;
         SimplexCamera cam = new SimplexCamera();
         KeyboardState prevState;
         public Vector2 MousePosition;
@@ -123,7 +123,7 @@ namespace SimplexIde
             Sgml.RoomEditor = this;
             Sgml.RoomEditorEditor = Editor;
 
-            camera = new Camera2D(Editor.graphics);
+            camera = new OrthographicCamera(Editor.graphics);
             basicEffect = new BasicEffect(Editor.graphics);
 
             cam.Camera = camera;
@@ -178,7 +178,7 @@ namespace SimplexIde
         {
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
-                if (editorForm.renderSize != Size.Empty)
+                //if (editorForm.renderSize != Size.)
                 {
                     Location = editorForm.renderPos;
                     Size = editorForm.renderSize;

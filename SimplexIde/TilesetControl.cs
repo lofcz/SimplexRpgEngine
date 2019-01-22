@@ -68,6 +68,8 @@ namespace SimplexIde
                 
                 darkTreeView1.Nodes[0].Nodes.Add(d);
             }
+
+            pictureBox1.Show();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -96,7 +98,7 @@ namespace SimplexIde
             panel1.Visible = false;
         }
 
-        private void tilesToolStripMenuItem_Click(object sender, EventArgs e)
+        public void tilesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             darkTreeView1.Visible = false;
             pictureBox1.Visible = true;

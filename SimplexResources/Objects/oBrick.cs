@@ -39,6 +39,17 @@ namespace SimplexResources.Objects
             UpdateColliders();
         }
 
+        public override void EvtCreate()
+        {
+           alarm_set(0, 60);
+
+        }
+
+        public override void EvtAlarm0()
+        {
+           show_message("asd");
+        }
+
         public override void EvtDraw()
         {        
             CollisionContainer.Height = 32;

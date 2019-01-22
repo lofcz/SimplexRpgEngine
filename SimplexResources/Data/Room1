@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<Root xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <GameRoom xsi:type="Room1">
     <Size>
       <X>1024</X>
@@ -59,7 +59,7 @@
   <GameObject xsi:type="oGeorgeNew">
     <Alarms>
       <AlarmStruct>
-        <Steps>87</Steps>
+        <Steps>76</Steps>
         <Running>true</Running>
       </AlarmStruct>
       <AlarmStruct>
@@ -169,7 +169,7 @@
   <GameObject xsi:type="oGeorgeNew">
     <Alarms>
       <AlarmStruct>
-        <Steps>87</Steps>
+        <Steps>76</Steps>
         <Running>true</Running>
       </AlarmStruct>
       <AlarmStruct>

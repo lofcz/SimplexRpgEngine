@@ -190,7 +190,7 @@ namespace SimplexIde
 
 
                             lastImage = new Bitmap(memoryStream);
-
+                         
                         }
                         else
                         {
