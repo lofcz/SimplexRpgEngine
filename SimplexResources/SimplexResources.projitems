@@ -27,6 +27,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Objects\oGem.cs" xmlns="" />
     <Compile Include="$(MSBuildThisFileDirectory)Objects\oGeorgeNew.cs" xmlns="" />
     <Compile Include="$(MSBuildThisFileDirectory)Objects\AnotherObject.cs" xmlns="" />
+    <Compile Include="$(MSBuildThisFileDirectory)Rooms\room3.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Content\" />
