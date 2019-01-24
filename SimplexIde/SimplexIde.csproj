@@ -145,6 +145,9 @@
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
+	<Compile Include="FormNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
@@ -186,6 +189,9 @@
     <Compile Include="TilesetControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+	   <Compile Include="FormNew.Designer.cs">
+      <DependentUpon>FormNew.cs</DependentUpon>
+    </Compile>
     <Compile Include="TilesetControl.Designer.cs">
       <DependentUpon>TilesetControl.cs</DependentUpon>
     </Compile>
@@ -214,6 +220,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+	    <EmbeddedResource Include="FormNew.resx">
+      <DependentUpon>FormNew.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RoomsControl.resx">
       <DependentUpon>RoomsControl.cs</DependentUpon>
     </EmbeddedResource>
