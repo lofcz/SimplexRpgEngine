@@ -335,6 +335,17 @@ namespace SimplexIde
             basicEffect.Projection = projection;
             basicEffect.VertexColorEnabled = true;
 
+            if (lastClickedObject != null)
+            {
+                if (Sgml.mouse_check_button_pressed(Sgml.MouseButtons.Left) && Input.KeyDown(Keys.LeftControl))
+                {
+                    float dir = (float)Sgml.point_direction(lastClickedObject.Position, Sgml.mouse);
+                    lastClickedObject.ImageAngle = 360 - (dir + 90);//Sgml.sign((float)dir - lastClickedObject.ImageAngle) / 10f;
+                    lastClickedObject.ImageAngleTarget = 360 - (dir + 90); //Sgml.sign((float)dir - lastClickedObject.ImageAngle) / 10f;
+
+                }
+            }
+
             if (editorForm.projectFile == "")
             {
                 Sgml.draw_text(new Vector2((Width / 2) - ((int)Sgml.string_width("Click to open a project") / 2), Height / 2 - 5), "Click to open a project");
@@ -612,12 +623,21 @@ namespace SimplexIde
                                             Cursor = Cursors.Default;                                       
                                         }
 
+                                        if (!Input.KeyboardState.IsKeyDown(Keys.LeftControl))
+                                        { 
+                                            Sgml.draw_line_color(generalRectangle.Position, new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y), c1, c1);
+                                            Sgml.draw_line_color(generalRectangle.Position, new Vector2(generalRectangle.X, generalRectangle.Y + generalRectangle.Height), c2, c2);
+                                            Sgml.draw_line_color(new Vector2(generalRectangle.X, generalRectangle.Y + generalRectangle.Height), new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y + generalRectangle.Height), c3, c3);
+                                            Sgml.draw_line_color(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y + generalRectangle.Height), new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y), c4, c4);
+                                        }
+                                        else
+                                        {
+                                            double d = Sgml.point_direction(generalRectangle.Position, Sgml.mouse);
+                                            double dd = Sgml.max(generalRectangle.Width, generalRectangle.Height) / 2;
 
-                                        Sgml.draw_line_color(generalRectangle.Position, new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y), c1, c1);
-                                        Sgml.draw_line_color(generalRectangle.Position, new Vector2(generalRectangle.X, generalRectangle.Y + generalRectangle.Height), c2, c2);
-                                        Sgml.draw_line_color(new Vector2(generalRectangle.X, generalRectangle.Y + generalRectangle.Height), new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y + generalRectangle.Height), c3, c3);
-                                        Sgml.draw_line_color(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y + generalRectangle.Height), new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y), c4, c4);
-
+                                            Sgml.draw_circle_fast(generalRectangle.Position, (int)Sgml.max(generalRectangle.Width, generalRectangle.Height), 24, Color.CornflowerBlue);
+                                            Sgml.draw_line_color(generalRectangle.Position, new Vector2((float)Sgml.lengthdir_x(dd, d) + generalRectangle.Position.X, (float)Sgml.lengthdir_y(dd, d) + generalRectangle.Position.Y), Color.Red, Color.Red);
+                                        }
                                     }
                                 }
                             }
@@ -656,7 +676,7 @@ namespace SimplexIde
 
                 }
 
-                if (ks.IsKeyDown(Keys.LeftControl))
+                if (ks.IsKeyDown(Keys.LeftControl) && lastClickedObject == null)
                 {
                     Sgml.draw_rectangle(selectionRectangle, true);
                 }
@@ -684,56 +704,59 @@ namespace SimplexIde
             // mouse moved
             if (Transformingobject != null)
             {
-                if (Transformingside == 1)
+                if (!Input.KeyDown(Keys.LeftControl))
                 {
-                    float dif = Transformrelative.Y - Sgml.mouse.Y;
-                    float height = Transformingobject.Sprite.ImageSize.Y;
-                    float heightNew = dif + height;
-                    float ratio = Math.Abs(dif / height);
+                    if (Transformingside == 1)
+                    {
+                        float dif = Transformrelative.Y - Sgml.mouse.Y;
+                        float height = Transformingobject.Sprite.ImageSize.Y;
+                        float heightNew = dif + height;
+                        float ratio = Math.Abs(dif / height);
 
 
-                    float k = (Sgml.sign(Transformrelative.Y - Sgml.mouse.Y)) * ratio;
-                    Transformingobject.ImageScaleTarget.Y += k;
-                    Transformingobject.ImageScale.Y += k;
-                    Transformingobject.Position.Y -= Transformrelative.Y - Sgml.mouse.Y;
-                }
-                else if (Transformingside == 3)
-                {
-                    float dif = Transformrelative.Y - Sgml.mouse.Y;
-                    float height = Transformingobject.Sprite.ImageSize.Y;
-                    float heightNew = dif + height;
-                    float ratio = Math.Abs(dif / height);
+                        float k = (Sgml.sign(Transformrelative.Y - Sgml.mouse.Y)) * ratio;
+                        Transformingobject.ImageScaleTarget.Y += k;
+                        Transformingobject.ImageScale.Y += k;
+                        Transformingobject.Position.Y -= Transformrelative.Y - Sgml.mouse.Y;
+                    }
+                    else if (Transformingside == 3)
+                    {
+                        float dif = Transformrelative.Y - Sgml.mouse.Y;
+                        float height = Transformingobject.Sprite.ImageSize.Y;
+                        float heightNew = dif + height;
+                        float ratio = Math.Abs(dif / height);
 
 
-                    float k = -(Sgml.sign(Transformrelative.Y - Sgml.mouse.Y)) * ratio;
-                    Transformingobject.ImageScaleTarget.Y += k;
-                    Transformingobject.ImageScale.Y += k;
-                }
-                else if (Transformingside == 2)
-                {
-                    float dif = Transformrelative.X - Sgml.mouse.X;
-                    float height = Transformingobject.Sprite.ImageSize.X;
-                    float heightNew = dif + height;
-                    float ratio = Math.Abs(dif / height);
+                        float k = -(Sgml.sign(Transformrelative.Y - Sgml.mouse.Y)) * ratio;
+                        Transformingobject.ImageScaleTarget.Y += k;
+                        Transformingobject.ImageScale.Y += k;
+                    }
+                    else if (Transformingside == 2)
+                    {
+                        float dif = Transformrelative.X - Sgml.mouse.X;
+                        float height = Transformingobject.Sprite.ImageSize.X;
+                        float heightNew = dif + height;
+                        float ratio = Math.Abs(dif / height);
 
 
-                    float k = (Sgml.sign(Transformrelative.X - Sgml.mouse.X)) * ratio;
-                    Transformingobject.ImageScaleTarget.X += k;
-                    Transformingobject.ImageScale.X += k;
-                    Transformingobject.Position.X -= Transformrelative.X - Sgml.mouse.X;
-                }
-                else if (Transformingside == 4)
-                {
-                    float dif = Transformrelative.X - Sgml.mouse.X;
-                    float height = Transformingobject.Sprite.ImageSize.X;
-                    float heightNew = dif + height;
-                    float ratio = Math.Abs(dif / height);
+                        float k = (Sgml.sign(Transformrelative.X - Sgml.mouse.X)) * ratio;
+                        Transformingobject.ImageScaleTarget.X += k;
+                        Transformingobject.ImageScale.X += k;
+                        Transformingobject.Position.X -= Transformrelative.X - Sgml.mouse.X;
+                    }
+                    else if (Transformingside == 4)
+                    {
+                        float dif = Transformrelative.X - Sgml.mouse.X;
+                        float height = Transformingobject.Sprite.ImageSize.X;
+                        float heightNew = dif + height;
+                        float ratio = Math.Abs(dif / height);
 
 
-                    float k = -(Sgml.sign(Transformrelative.X - Sgml.mouse.X)) * ratio;
-                    Transformingobject.ImageScaleTarget.X += k;
-                    Transformingobject.ImageScale.X += k;
-                  //  Transformingobject.Position.X -= Transformrelative.X - Sgml.mouse.X;
+                        float k = -(Sgml.sign(Transformrelative.X - Sgml.mouse.X)) * ratio;
+                        Transformingobject.ImageScaleTarget.X += k;
+                        Transformingobject.ImageScale.X += k;
+                        //  Transformingobject.Position.X -= Transformrelative.X - Sgml.mouse.X;
+                    }
                 }
 
                 Transformrelative = Sgml.mouse;
@@ -952,6 +975,7 @@ namespace SimplexIde
                     {
                         selectionRectangle.Width = -selectionRectangle.X + vec.X;
                         selectionRectangle.Height = -selectionRectangle.Y + vec.Y;
+
                     }
                     else if (clickedObject == null)
                     {

@@ -57,8 +57,10 @@ namespace SimplexResources.Objects
             CollisionContainer.X = (int)Position.X;
             CollisionContainer.Y = (int)Position.Y;
 
+           
          //   draw_rectangle(Position, new Vector2(Position.X + 16 * ImageScaleTarget.X, Position.Y + 16 * ImageScaleTarget.Y), true);
-            draw_sprite(sprite_get("Gem"), -2, Position, ImageScale.X, ImageScale.Y);
+            draw_sprite(sprite_get("Gem"), -2, Position, ImageScale.X, ImageScale.Y, ImageAngle);
+         //   draw_text(Position, ImageAngle.ToString());
         }
     }
 }

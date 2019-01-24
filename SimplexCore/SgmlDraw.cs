@@ -268,7 +268,7 @@ namespace SimplexCore
             }
         }
 
-        public static void draw_sprite(Texture2D sprite, double subimg, Vector2 position, float xscale = 1, float yscale = 1)
+        public static void draw_sprite(Texture2D sprite, double subimg, Vector2 position, float xscale = 1, float yscale = 1, float angle = 0)
         {
             if (subimg != -2)
             { 
@@ -301,7 +301,7 @@ namespace SimplexCore
                     sb.Begin(transformMatrix: m, samplerState: SamplerState.PointClamp);
                 }
 
-                sb.Draw(sprite, position, null, FinalizeColor(DrawColor), 0, new Vector2(0, 0), new Vector2(xscale, yscale), SpriteEffects.None, 1);
+                sb.Draw(sprite, position, null, FinalizeColor(DrawColor), MathHelper.ToRadians(angle), new Vector2(0, 0), new Vector2(xscale, yscale), SpriteEffects.None, 1);
                 sb.End();
             }
         }
