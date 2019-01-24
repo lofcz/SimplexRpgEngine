@@ -625,10 +625,25 @@ namespace SimplexIde
 
                                         if (!Input.KeyboardState.IsKeyDown(Keys.LeftControl))
                                         { 
-                                            Sgml.draw_line_color(generalRectangle.Position, new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y), c1, c1);
-                                            Sgml.draw_line_color(generalRectangle.Position, new Vector2(generalRectangle.X, generalRectangle.Y + generalRectangle.Height), c2, c2);
-                                            Sgml.draw_line_color(new Vector2(generalRectangle.X, generalRectangle.Y + generalRectangle.Height), new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y + generalRectangle.Height), c3, c3);
-                                            Sgml.draw_line_color(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y + generalRectangle.Height), new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y), c4, c4);
+                                            Vector2 r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.Position.X, generalRectangle.Position.Y), generalRectangle.Position, o.ImageAngle);
+                                            Vector2 r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y), generalRectangle.Position, o.ImageAngle);
+
+                                            Sgml.draw_line_color(r1, r2, c1, c1);
+
+                                            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.Position.X, generalRectangle.Position.Y), generalRectangle.Position, o.ImageAngle);
+                                            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X, generalRectangle.Y + generalRectangle.Height), generalRectangle.Position, o.ImageAngle);
+                                        
+                                            Sgml.draw_line_color(r1, r2, c2, c2);
+
+                                            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.X, generalRectangle.Y + generalRectangle.Height), generalRectangle.Position, o.ImageAngle);
+                                            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y + generalRectangle.Height), generalRectangle.Position, o.ImageAngle);
+
+                                            Sgml.draw_line_color(r1, r2, c3, c3);
+
+                                            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y + generalRectangle.Height), generalRectangle.Position, o.ImageAngle);
+                                            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y), generalRectangle.Position, o.ImageAngle);
+
+                                            Sgml.draw_line_color(r1, r2, c4, c4);
                                         }
                                         else
                                         {
