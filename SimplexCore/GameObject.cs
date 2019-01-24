@@ -25,7 +25,7 @@ namespace SimplexCore
             public int Steps;
             public bool Running;
         }
-
+       
         public AlarmStruct[] Alarms = new AlarmStruct[16];
 
         [XmlIgnore]
@@ -140,6 +140,7 @@ namespace SimplexCore
 
         public void UpdateImageScale()
         {
+            
             ImageScale = new Vector2(SimplexMath.Lerp(ImageScale.X, ImageScaleTarget.X, TransformSpeed), SimplexMath.Lerp(ImageScale.Y, ImageScaleTarget.Y, TransformSpeed));
         }
 

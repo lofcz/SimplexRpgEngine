@@ -352,6 +352,27 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cursor_rotate_16_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cursor_scale_16_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grab_cursor_16_7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Resize_BottomLeft_16_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Resize_Horizontal_16_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Resize_TopLeft_16_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Resize_Vertical_16_16.png" />
+  </ItemGroup>
   <Import Project="..\SimplexCore\SimplexCore.projitems" Label="Shared" />
   <Import Project="..\SimplexResources\SimplexResources.projitems" Label="Shared" />
   <Import Project="..\TestExtension1\TestExtension1.projitems" Label="Shared" />

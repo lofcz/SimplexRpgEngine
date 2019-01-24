@@ -26,6 +26,7 @@ using MonoGame.Forms.Controls;
 using Newtonsoft.Json;
 using SimplexCore;
 using SimplexCore.Ext;
+using SimplexIde.Properties;
 using SimplexResources.Objects;
 using SimplexResources.Rooms;
 using Bitmap = System.Drawing.Bitmap;
@@ -110,7 +111,13 @@ namespace SimplexIde
         private Thread thread;
         string[] lastProjects;
         public VideoPlayer videoPlayer = null;
+        public GameObject lastClickedObject = null;
+        public RectangleF GeneralRectangle2 = RectangleF.Empty;
+        private GameObject Transformingobject = null;
+        private int Transformingside = -1;
+        Vector2 Transformrelative = Vector2.One;
 
+        Cursor ScaleCursor = new Cursor((Resources.cursor_scale_16_16).GetHicon());
 
 
         protected override void Initialize()
@@ -265,7 +272,7 @@ namespace SimplexIde
             if ((mb & MouseButtons.XButton2) != 0) { Input.ReleasedButtons[6] = 1; }
 
             Input.CheckAnyReleased();
-
+            Transformingobject = null;
 
             if (Input.KeyboardState.IsKeyDown(Keys.LeftControl))
             {
@@ -513,12 +520,105 @@ namespace SimplexIde
                                     o.PositionPrevious = o.Position;
                                     o.EvtDraw();
 
-                                    generalRectangle.Width = o.Sprite.ImageRectangle.Width;
-                                    generalRectangle.Height = o.Sprite.ImageRectangle.Height;
+                                    generalRectangle.Width = o.Sprite.ImageRectangle.Width * o.ImageScale.X;
+                                    generalRectangle.Height = o.Sprite.ImageRectangle.Height * o.ImageScale.Y;
 
                                     generalRectangle.X = o.Position.X;
                                     generalRectangle.Y = o.Position.Y;
 
+                                    GeneralRectangle2.X = (generalRectangle.X) - 4;
+                                    GeneralRectangle2.Y = (generalRectangle.Y) - 4;
+
+                                    GeneralRectangle2.Width = generalRectangle.Width + 8;
+                                    GeneralRectangle2.Height = generalRectangle.Height + 8;
+
+                                    if (o == lastClickedObject)
+                                    {
+                                        int flag = -1;
+
+                                        Color c1 = Color.CornflowerBlue;
+                                        Color c2 = Color.CornflowerBlue;
+                                        Color c3 = Color.CornflowerBlue;
+                                        Color c4 = Color.CornflowerBlue;
+
+                                        if (Transformingobject != null)
+                                        {
+                                            if (Transformingside == 1)
+                                            {
+                                                c1 = Color.Red;
+                                            }
+
+                                            if (Transformingside == 2)
+                                            {
+                                                c2 = Color.Red;
+                                            }
+
+                                            if (Transformingside == 3)
+                                            {
+                                                c3 = Color.Red;
+                                            }
+
+                                            if (Transformingside == 4)
+                                            {
+                                                c4 = Color.Red;
+                                            }
+                                        }
+
+
+                                        // check for mouse in active area
+                                        if ((Sgml.point_in_rectangle(Sgml.mouse, GeneralRectangle2) && !Sgml.point_in_rectangle(Sgml.mouse, generalRectangle)))
+                                        {
+                                            //Cursor = ScaleCursor;
+
+                                            if (Sgml.point_in_rectangle(Sgml.mouse, new RectangleF(GeneralRectangle2.Position, new Size2(generalRectangle.Width, 4))))
+                                            {
+                                                c1 = Color.Red;
+                                                flag = 1;
+                                            }
+                                            else if (Sgml.point_in_rectangle(Sgml.mouse, new RectangleF(new Point2(GeneralRectangle2.Position.X + 4, GeneralRectangle2.Position.Y + generalRectangle.Height + 4), new Size2(generalRectangle.Width, 4))))
+                                            {
+                                                c3 = Color.Red;
+                                                flag = 3;
+                                            }
+                                            else if (Sgml.point_in_rectangle(Sgml.mouse, new RectangleF(new Point2(GeneralRectangle2.Position.X, GeneralRectangle2.Position.Y + 4), new Size2(4, generalRectangle.Height))))
+                                            {
+                                                c2 = Color.Red;
+                                                flag = 2;
+                                            }
+                                            else if (Sgml.point_in_rectangle(Sgml.mouse, new RectangleF(new Point2(GeneralRectangle2.Position.X + generalRectangle.Width + 4, GeneralRectangle2.Position.Y + 4), new Size2(4, generalRectangle.Height))))
+                                            {
+                                                c4 = Color.Red;
+                                                flag = 4;
+                                            }
+
+                                            //Sgml.draw_rectangle(new RectangleF(new Point2(GeneralRectangle2.Position.X + generalRectangle.Width + 4, GeneralRectangle2.Position.Y + 4), new Size2(4, generalRectangle.Height)), true);
+
+
+                                            if (Sgml.mouse_check_button_pressed(Sgml.MouseButtons.Left))
+                                            {
+                                                // scale start
+
+                                                if (Transformingobject == null)
+                                                {
+                                                    Transformingside = flag;
+                                                }
+
+                                                Transformingobject = lastClickedObject;
+                                                Transformrelative = Sgml.mouse;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            Cursor = Cursors.Default;                                       
+                                        }
+
+
+                                        Sgml.draw_line_color(generalRectangle.Position, new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y), c1, c1);
+                                        Sgml.draw_line_color(generalRectangle.Position, new Vector2(generalRectangle.X, generalRectangle.Y + generalRectangle.Height), c2, c2);
+                                        Sgml.draw_line_color(new Vector2(generalRectangle.X, generalRectangle.Y + generalRectangle.Height), new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y + generalRectangle.Height), c3, c3);
+                                        Sgml.draw_line_color(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y + generalRectangle.Height), new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y), c4, c4);
+
+                                    }
                                 }
                             }
 
@@ -581,7 +681,63 @@ namespace SimplexIde
 
         public void PreCheckMouse(MouseEventArgs e)
         {
+            // mouse moved
+            if (Transformingobject != null)
+            {
+                if (Transformingside == 1)
+                {
+                    float dif = Transformrelative.Y - Sgml.mouse.Y;
+                    float height = Transformingobject.Sprite.ImageSize.Y;
+                    float heightNew = dif + height;
+                    float ratio = Math.Abs(dif / height);
 
+
+                    float k = (Sgml.sign(Transformrelative.Y - Sgml.mouse.Y)) * ratio;
+                    Transformingobject.ImageScaleTarget.Y += k;
+                    Transformingobject.ImageScale.Y += k;
+                    Transformingobject.Position.Y -= Transformrelative.Y - Sgml.mouse.Y;
+                }
+                else if (Transformingside == 3)
+                {
+                    float dif = Transformrelative.Y - Sgml.mouse.Y;
+                    float height = Transformingobject.Sprite.ImageSize.Y;
+                    float heightNew = dif + height;
+                    float ratio = Math.Abs(dif / height);
+
+
+                    float k = -(Sgml.sign(Transformrelative.Y - Sgml.mouse.Y)) * ratio;
+                    Transformingobject.ImageScaleTarget.Y += k;
+                    Transformingobject.ImageScale.Y += k;
+                }
+                else if (Transformingside == 2)
+                {
+                    float dif = Transformrelative.X - Sgml.mouse.X;
+                    float height = Transformingobject.Sprite.ImageSize.X;
+                    float heightNew = dif + height;
+                    float ratio = Math.Abs(dif / height);
+
+
+                    float k = (Sgml.sign(Transformrelative.X - Sgml.mouse.X)) * ratio;
+                    Transformingobject.ImageScaleTarget.X += k;
+                    Transformingobject.ImageScale.X += k;
+                    Transformingobject.Position.X -= Transformrelative.X - Sgml.mouse.X;
+                }
+                else if (Transformingside == 4)
+                {
+                    float dif = Transformrelative.X - Sgml.mouse.X;
+                    float height = Transformingobject.Sprite.ImageSize.X;
+                    float heightNew = dif + height;
+                    float ratio = Math.Abs(dif / height);
+
+
+                    float k = -(Sgml.sign(Transformrelative.X - Sgml.mouse.X)) * ratio;
+                    Transformingobject.ImageScaleTarget.X += k;
+                    Transformingobject.ImageScale.X += k;
+                  //  Transformingobject.Position.X -= Transformrelative.X - Sgml.mouse.X;
+                }
+
+                Transformrelative = Sgml.mouse;
+            }
         }
 
         public void WheelDown()
@@ -718,6 +874,7 @@ namespace SimplexIde
                             cms.Show(Cursor.Position);
 
                             clickedObject = SceneObjects[i];
+                            lastClickedObject = clickedObject;
 
                             goodBoy = false;
 
@@ -931,6 +1088,7 @@ namespace SimplexIde
                                             if (!ks.IsKeyDown(Keys.LeftShift))
                                             {
                                                 clickedObject = o;
+                                                lastClickedObject = o;
                                             }
 
 
@@ -945,15 +1103,18 @@ namespace SimplexIde
                                     // there's something cool at the position already, time to grab it
                                     GameObject collidingObject = Sgml.instance_place(vec);
 
-                                    if (collidingObject != null)
+                                    if (collidingObject != null && Transformingobject == null)
                                     {
                                         clickedObject = collidingObject;
+                                        lastClickedObject = clickedObject;
+
                                         helpVec = new Vector2(-MousePositionTranslated.X + collidingObject.Position.X,
                                             -MousePositionTranslated.Y + collidingObject.Position.Y);
                                         clickedVec = MousePositionTranslated;
 
                                         // load properties in the props tab
                                         editorForm.properties.RegisterControls(clickedObject.EditorProperties);
+                                       // Sgml.show_debug_message("kokotí hlavička 69");
                                     }
                                 }
                             }

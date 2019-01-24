@@ -56,11 +56,11 @@
     </Layers>
     <Persistent>false</Persistent>
   </GameRoom>
-  <GameObject xsi:type="oGeorgeNew">
+  <GameObject xsi:type="oBrick">
     <Alarms>
       <AlarmStruct>
-        <Steps>76</Steps>
-        <Running>true</Running>
+        <Steps>-1</Steps>
+        <Running>false</Running>
       </AlarmStruct>
       <AlarmStruct>
         <Steps>0</Steps>
@@ -124,32 +124,32 @@
       </AlarmStruct>
     </Alarms>
     <Position>
-      <X>317</X>
-      <Y>212</Y>
+      <X>398.4028</X>
+      <Y>248.853317</Y>
     </Position>
-    <TypeString>SimplexResources.Objects.oGeorgeNew</TypeString>
+    <TypeString>SimplexResources.Objects.oBrick</TypeString>
     <ImageAngle>0</ImageAngle>
     <ImageAngleTarget>0</ImageAngleTarget>
     <TransformSpeed>0.2</TransformSpeed>
     <ImageScale>
       <X>1</X>
-      <Y>1</Y>
+      <Y>2</Y>
     </ImageScale>
     <ImageScaleTarget>
       <X>1</X>
-      <Y>1</Y>
+      <Y>2.00000024</Y>
     </ImageScaleTarget>
     <ImageAlpha>1</ImageAlpha>
-    <LayerName>Object layer 2</LayerName>
-    <ImageSpeed>0</ImageSpeed>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
     <Direction>0</Direction>
     <PostionStart>
       <X>0</X>
       <Y>0</Y>
     </PostionStart>
     <PositionPrevious>
-      <X>317</X>
-      <Y>212</Y>
+      <X>398.4028</X>
+      <Y>248.853317</Y>
     </PositionPrevious>
     <Speed>0</Speed>
     <Friction>0</Friction>
@@ -163,14 +163,13 @@
     </Velocity>
     <Mass>0</Mass>
     <Persistent>false</Persistent>
-    <ImageIndex>0</ImageIndex>
-    <gemsRemaining>0</gemsRemaining>
+    <ImageIndex>-1</ImageIndex>
   </GameObject>
-  <GameObject xsi:type="oGeorgeNew">
+  <GameObject xsi:type="oBrick">
     <Alarms>
       <AlarmStruct>
-        <Steps>76</Steps>
-        <Running>true</Running>
+        <Steps>0</Steps>
+        <Running>false</Running>
       </AlarmStruct>
       <AlarmStruct>
         <Steps>0</Steps>
@@ -234,10 +233,10 @@
       </AlarmStruct>
     </Alarms>
     <Position>
-      <X>565</X>
-      <Y>254</Y>
+      <X>132</X>
+      <Y>335</Y>
     </Position>
-    <TypeString>SimplexResources.Objects.oGeorgeNew</TypeString>
+    <TypeString>SimplexResources.Objects.oBrick</TypeString>
     <ImageAngle>0</ImageAngle>
     <ImageAngleTarget>0</ImageAngleTarget>
     <TransformSpeed>0.2</TransformSpeed>
@@ -250,16 +249,16 @@
       <Y>1</Y>
     </ImageScaleTarget>
     <ImageAlpha>1</ImageAlpha>
-    <LayerName>Object layer 2</LayerName>
-    <ImageSpeed>0</ImageSpeed>
+    <LayerName>Object layer 1</LayerName>
+    <ImageSpeed>1</ImageSpeed>
     <Direction>0</Direction>
     <PostionStart>
       <X>0</X>
       <Y>0</Y>
     </PostionStart>
     <PositionPrevious>
-      <X>565</X>
-      <Y>254</Y>
+      <X>132</X>
+      <Y>335</Y>
     </PositionPrevious>
     <Speed>0</Speed>
     <Friction>0</Friction>
@@ -273,7 +272,6 @@
     </Velocity>
     <Mass>0</Mass>
     <Persistent>false</Persistent>
-    <ImageIndex>0</ImageIndex>
-    <gemsRemaining>0</gemsRemaining>
+    <ImageIndex>-1</ImageIndex>
   </GameObject>
 </Root>

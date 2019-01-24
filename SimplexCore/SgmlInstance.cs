@@ -104,7 +104,7 @@ namespace SimplexCore
                         ObjectLayer ol = (ObjectLayer)rl;
                         for (int i = ol.Objects.Count - 1; i >= 0; i--)
                         {
-                            RectangleF r = new Rectangle((int)ol.Objects[i].Position.X, (int)ol.Objects[i].Position.Y, ol.Objects[i].Sprite.ImageRectangle.Width, ol.Objects[i].Sprite.ImageRectangle.Height);
+                            RectangleF r = new Rectangle((int)ol.Objects[i].Position.X, (int)ol.Objects[i].Position.Y, (int)(ol.Objects[i].Sprite.ImageRectangle.Width * ol.Objects[i].ImageScale.X), (int)(ol.Objects[i].Sprite.ImageRectangle.Height * ol.Objects[i].ImageScale.Y));
                             if (r.Contains(vec))
                             {
                                 return ol.Objects[i];

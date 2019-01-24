@@ -57,7 +57,7 @@ namespace SimplexCore
         {
             foreach (GameObject g in SceneObjects)
             {
-                Rectangle r = new Rectangle((int)g.Position.X, (int)g.Position.Y, g.Sprite.ImageRectangle.Width, g.Sprite.ImageRectangle.Height);
+                Rectangle r = new Rectangle((int)g.Position.X, (int)g.Position.Y, (int)(g.Sprite.ImageRectangle.Width * g.ImageScale.X), (int)(g.Sprite.ImageRectangle.Height * g.ImageScale.Y));
                 if (r.Contains(position))
                 {
                     return false;

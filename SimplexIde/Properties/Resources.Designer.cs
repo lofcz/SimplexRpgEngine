@@ -113,6 +113,26 @@ namespace SimplexIde.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cursor_rotate_16_16 {
+            get {
+                object obj = ResourceManager.GetObject("cursor_rotate_16_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cursor_scale_16_16 {
+            get {
+                object obj = ResourceManager.GetObject("cursor_scale_16_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap EditCommandColumn_ActionGray_16x_32 {
             get {
                 object obj = ResourceManager.GetObject("EditCommandColumn_ActionGray_16x_32", resourceCulture);
@@ -126,6 +146,16 @@ namespace SimplexIde.Properties {
         internal static System.Drawing.Bitmap Folder_16x {
             get {
                 object obj = ResourceManager.GetObject("Folder_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap grab_cursor_16_7 {
+            get {
+                object obj = ResourceManager.GetObject("grab_cursor_16_7", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -266,6 +296,46 @@ namespace SimplexIde.Properties {
         internal static System.Drawing.Bitmap Resize_16x {
             get {
                 object obj = ResourceManager.GetObject("Resize_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Resize_BottomLeft_16_16 {
+            get {
+                object obj = ResourceManager.GetObject("Resize_BottomLeft_16_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Resize_Horizontal_16_16 {
+            get {
+                object obj = ResourceManager.GetObject("Resize_Horizontal_16_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Resize_TopLeft_16_16 {
+            get {
+                object obj = ResourceManager.GetObject("Resize_TopLeft_16_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Resize_Vertical_16_16 {
+            get {
+                object obj = ResourceManager.GetObject("Resize_Vertical_16_16", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

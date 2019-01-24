@@ -41,7 +41,7 @@ namespace SimplexResources.Objects
 
         public override void EvtCreate()
         {
-           alarm_set(0, 60);
+           //alarm_set(0, 60);
 
         }
 
@@ -52,12 +52,13 @@ namespace SimplexResources.Objects
 
         public override void EvtDraw()
         {        
-            CollisionContainer.Height = 32;
-            CollisionContainer.Width = 64;
+            CollisionContainer.Height = (int)(32 * ImageScaleTarget.Y);
+            CollisionContainer.Width = (int)(64 * ImageScaleTarget.X);
             CollisionContainer.X = (int)Position.X;
             CollisionContainer.Y = (int)Position.Y;
 
-            draw_rectangle(Position, new Vector2(Position.X + 64, Position.Y + 32), true);
+         //   draw_rectangle(Position, new Vector2(Position.X + 16 * ImageScaleTarget.X, Position.Y + 16 * ImageScaleTarget.Y), true);
+            draw_sprite(sprite_get("Gem"), -2, Position, ImageScale.X, ImageScale.Y);
         }
     }
 }
