@@ -567,5 +567,19 @@ namespace SimplexCore
         {
             return currentObject.Alarms[index].Running;
         }
+
+        // rotate
+        public static Vector2 rotate_vector2(Vector2 vec, Vector2 origin, double angleInDegrees)
+        {
+            double angleInRadians = angleInDegrees * (Math.PI / 180);
+            double cosTheta = Math.Cos(angleInRadians);
+            double sinTheta = Math.Sin(angleInRadians);
+
+            Vector2 toReturn = new Vector2();
+            toReturn.X = (float) (cosTheta * (vec.X - origin.X) - sinTheta * (vec.Y - origin.Y) + origin.X);
+            toReturn.Y = (float) (sinTheta * (vec.X - origin.X) + cosTheta * (vec.Y - origin.Y) + origin.Y);
+
+            return toReturn;
+        }
     }
 }
