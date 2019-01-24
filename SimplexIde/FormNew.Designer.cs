@@ -28,46 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.darkButton1 = new DarkUI.Controls.DarkButton();
+            this.textName = new DarkUI.Controls.DarkTextBox();
+            this.darkTitle1 = new DarkUI.Controls.DarkTitle();
             this.SuspendLayout();
+            // 
+            // darkButton1
+            // 
+            this.darkButton1.Location = new System.Drawing.Point(342, 268);
+            this.darkButton1.Name = "darkButton1";
+            this.darkButton1.Size = new System.Drawing.Size(36, 20);
+            this.darkButton1.TabIndex = 3;
+            this.darkButton1.Text = "OK";
+            this.darkButton1.Click += new System.EventHandler(this.darkButton1_Click);
             // 
             // textName
             // 
             this.textName.Location = new System.Drawing.Point(12, 268);
             this.textName.Name = "textName";
-            this.textName.Size = new System.Drawing.Size(324, 20);
-            this.textName.TabIndex = 0;
+            this.textName.Size = new System.Drawing.Size(321, 20);
+            this.textName.TabIndex = 4;
             // 
-            // label1
+            // darkTitle1
             // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(12, 252);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "New name:";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(343, 268);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(39, 20);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "OK";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.darkTitle1.AutoSize = true;
+            this.darkTitle1.Location = new System.Drawing.Point(12, 252);
+            this.darkTitle1.Name = "darkTitle1";
+            this.darkTitle1.Size = new System.Drawing.Size(63, 13);
+            this.darkTitle1.TabIndex = 5;
+            this.darkTitle1.Text = "New Name:";
             // 
             // FormNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(616, 300);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.darkTitle1);
             this.Controls.Add(this.textName);
+            this.Controls.Add(this.darkButton1);
             this.Name = "FormNew";
             this.Text = "FormNew";
             this.ResumeLayout(false);
@@ -76,9 +74,8 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textName;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private DarkUI.Controls.DarkButton darkButton1;
+        private DarkUI.Controls.DarkTextBox textName;
+        private DarkUI.Controls.DarkTitle darkTitle1;
     }
 }

@@ -21,7 +21,21 @@ namespace SimplexIde
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void CreateDirectory(string newPath, string[] names)
+        {
+            foreach (var item in names)
+            {
+                Directory.CreateDirectory(newPath + item);
+            }
+        }
+        private void NewFiles(string prePath, string newPath, string[] names){
+            foreach (var item in names)
+            {
+                File.Copy(prePath + "Prefab.json", newPath + item);
+            }
+        }
+
+        private void darkButton1_Click(object sender, EventArgs e)
         {
             string path = Environment.CurrentDirectory;
 
@@ -80,23 +94,10 @@ namespace SimplexIde
             text = File.ReadAllText(path + "\\SimplexIde\\SimplexIde.csproj");
             i = text.IndexOf("<Import Project=\"..\\");
             rf = "<Import Project=\"..\\" + textName.Text + "\\" + textName.Text + ".projitems\" Label=\"Shared\" />";
-            s = text.Substring(0, i-1) + "\r\n" + rf + "\r\n" + text.Substring(i, text.Length - i);
+            s = text.Substring(0, i - 1) + "\r\n" + rf + "\r\n" + text.Substring(i, text.Length - i);
             File.WriteAllText(path + "\\SimplexIde\\SimplexIde.csproj", s);
 
             Close();
-        }
-        private void CreateDirectory(string newPath, string[] names)
-        {
-            foreach (var item in names)
-            {
-                Directory.CreateDirectory(newPath + item);
-            }
-        }
-        private void NewFiles(string prePath, string newPath, string[] names){
-            foreach (var item in names)
-            {
-                File.Copy(prePath + "Prefab.json", newPath + item);
-            }
         }
     }
 }
