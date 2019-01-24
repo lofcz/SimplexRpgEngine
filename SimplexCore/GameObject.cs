@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Reflection;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
 using SimplexResources.Objects;
@@ -27,6 +31,9 @@ namespace SimplexCore
         }
        
         public AlarmStruct[] Alarms = new AlarmStruct[16];
+
+        public List<AudioInstances> sound_instances = new List<AudioInstances>();
+        
 
         [XmlIgnore]
         public Sprite Sprite;
