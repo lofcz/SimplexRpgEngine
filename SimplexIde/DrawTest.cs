@@ -534,9 +534,9 @@ namespace SimplexIde
                                     generalRectangle.Width = o.Sprite.ImageRectangle.Width * o.ImageScale.X;
                                     generalRectangle.Height = o.Sprite.ImageRectangle.Height * o.ImageScale.Y;
 
-                                    generalRectangle.X = o.Position.X;
-                                    generalRectangle.Y = o.Position.Y;
-
+                                    generalRectangle.X = o.Position.X - (o.ImageOrigin.X * o.ImageScale.X);
+                                    generalRectangle.Y = o.Position.Y - (o.ImageOrigin.Y * o.ImageScale.Y);
+                                    //Debug.WriteLine((generalRectangle.Width / 2) * (float)Math.Cos(o.ImageAngle + 90) * (float)Math.PI / 180);
                                     GeneralRectangle2.X = (generalRectangle.X) - 4;
                                     GeneralRectangle2.Y = (generalRectangle.Y) - 4;
 
@@ -627,18 +627,19 @@ namespace SimplexIde
                                         else
                                         {
                                             RotatedRectangle rr = new RotatedRectangle(Vector2.One, Vector2.One, Vector2.One, Vector2.One);
+                                            Vector2 rPoint = new Vector2(generalRectangle.X + o.ImageOrigin.X * o.ImageScale.X, generalRectangle.Y + o.ImageOrigin.Y * o.ImageScale.Y);
 
-                                            Vector2 r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.Position.X, generalRectangle.Position.Y), generalRectangle.Position, o.ImageAngle);
-                                            Vector2 r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y), generalRectangle.Position, o.ImageAngle);
+                                            Vector2 r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.Position.X, generalRectangle.Position.Y), rPoint, o.ImageAngle);
+                                            Vector2 r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y), rPoint, o.ImageAngle);
 
                                             rr.Point1 = r1;
                                             rr.Point2 = r2;
 
-                                            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X, generalRectangle.Y - 4), generalRectangle.Position, o.ImageAngle);
+                                            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X, generalRectangle.Y - 4), rPoint, o.ImageAngle);
 
                                             rr.Point4 = r2;
 
-                                            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y - 4), generalRectangle.Position, o.ImageAngle);
+                                            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y - 4), rPoint, o.ImageAngle);
 
                                             rr.Point3 = r1;
 
@@ -649,17 +650,17 @@ namespace SimplexIde
                                             }
 
 
-                                            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.Position.X + generalRectangle.Width, generalRectangle.Position.Y), generalRectangle.Position, o.ImageAngle);
-                                            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width + 4, generalRectangle.Y), generalRectangle.Position, o.ImageAngle);
+                                            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.Position.X + generalRectangle.Width, generalRectangle.Position.Y), rPoint, o.ImageAngle);
+                                            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width + 4, generalRectangle.Y), rPoint, o.ImageAngle);
 
                                             rr.Point1 = r1;
                                             rr.Point2 = r2;
 
-                                            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y + generalRectangle.Height), generalRectangle.Position, o.ImageAngle);
+                                            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y + generalRectangle.Height), rPoint, o.ImageAngle);
 
                                             rr.Point4 = r2;
 
-                                            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width + 4, generalRectangle.Y + generalRectangle.Height), generalRectangle.Position, o.ImageAngle);
+                                            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width + 4, generalRectangle.Y + generalRectangle.Height), rPoint, o.ImageAngle);
 
                                             rr.Point3 = r1;
 
@@ -669,17 +670,17 @@ namespace SimplexIde
                                                 flag = 4;
                                             }
 
-                                            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.Position.X, generalRectangle.Position.Y + generalRectangle.Height), generalRectangle.Position, o.ImageAngle);
-                                            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y + generalRectangle.Height), generalRectangle.Position, o.ImageAngle);
+                                            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.Position.X, generalRectangle.Position.Y + generalRectangle.Height), rPoint, o.ImageAngle);
+                                            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y + generalRectangle.Height), rPoint, o.ImageAngle);
 
                                             rr.Point1 = r1;
                                             rr.Point2 = r2;
 
-                                            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X, generalRectangle.Y + generalRectangle.Height + 4), generalRectangle.Position, o.ImageAngle);
+                                            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X, generalRectangle.Y + generalRectangle.Height + 4), rPoint, o.ImageAngle);
 
                                             rr.Point4 = r2;
 
-                                            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y + generalRectangle.Height + 4), generalRectangle.Position, o.ImageAngle);
+                                            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y + generalRectangle.Height + 4), rPoint, o.ImageAngle);
 
                                             rr.Point3 = r1;
 
@@ -689,17 +690,17 @@ namespace SimplexIde
                                                 flag = 3;
                                             }
 
-                                            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.Position.X, generalRectangle.Position.Y), generalRectangle.Position, o.ImageAngle);
-                                            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X - 4, generalRectangle.Y), generalRectangle.Position, o.ImageAngle);
+                                            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.Position.X, generalRectangle.Position.Y), rPoint, o.ImageAngle);
+                                            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X - 4, generalRectangle.Y), rPoint, o.ImageAngle);
 
                                             rr.Point1 = r1;
                                             rr.Point2 = r2;
 
-                                            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X, generalRectangle.Y + generalRectangle.Height), generalRectangle.Position, o.ImageAngle);
+                                            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X, generalRectangle.Y + generalRectangle.Height), rPoint, o.ImageAngle);
 
                                             rr.Point4 = r2;
 
-                                            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.X - 4, generalRectangle.Y + generalRectangle.Height), generalRectangle.Position, o.ImageAngle);
+                                            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.X - 4, generalRectangle.Y + generalRectangle.Height), rPoint, o.ImageAngle);
 
                                             rr.Point3 = r1;
 
@@ -733,24 +734,26 @@ namespace SimplexIde
                                         }
 
                                         if (!Input.KeyboardState.IsKeyDown(Keys.LeftControl))
-                                        { 
-                                            Vector2 r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.Position.X, generalRectangle.Position.Y), generalRectangle.Position, o.ImageAngle);
-                                            Vector2 r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y), generalRectangle.Position, o.ImageAngle);
+                                        {
+                                            Vector2 rPoint = new Vector2(generalRectangle.X + o.ImageOrigin.X * o.ImageScale.X, generalRectangle.Y + o.ImageOrigin.Y * o.ImageScale.Y);
+
+                                            Vector2 r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.Position.X, generalRectangle.Position.Y), rPoint, o.ImageAngle);
+                                            Vector2 r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y), rPoint, o.ImageAngle);
 
                                             Sgml.draw_line_color(r1, r2, c1, c1);
 
-                                            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.Position.X, generalRectangle.Position.Y), generalRectangle.Position, o.ImageAngle);
-                                            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X, generalRectangle.Y + generalRectangle.Height), generalRectangle.Position, o.ImageAngle);
+                                            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.Position.X, generalRectangle.Position.Y), rPoint, o.ImageAngle);
+                                            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X, generalRectangle.Y + generalRectangle.Height), rPoint, o.ImageAngle);
                                         
                                             Sgml.draw_line_color(r1, r2, c2, c2);
 
-                                            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.X, generalRectangle.Y + generalRectangle.Height), generalRectangle.Position, o.ImageAngle);
-                                            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y + generalRectangle.Height), generalRectangle.Position, o.ImageAngle);
+                                            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.X, generalRectangle.Y + generalRectangle.Height), rPoint, o.ImageAngle);
+                                            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y + generalRectangle.Height), rPoint, o.ImageAngle);
 
                                             Sgml.draw_line_color(r1, r2, c3, c3);
 
-                                            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y + generalRectangle.Height), generalRectangle.Position, o.ImageAngle);
-                                            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y), generalRectangle.Position, o.ImageAngle);
+                                            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y + generalRectangle.Height), rPoint, o.ImageAngle);
+                                            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y), rPoint, o.ImageAngle);
 
                                             Sgml.draw_line_color(r1, r2, c4, c4);
                                         }
