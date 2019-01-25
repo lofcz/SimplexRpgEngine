@@ -759,8 +759,8 @@ namespace SimplexIde
                                             double d = Sgml.point_direction(generalRectangle.Position, Sgml.mouse);
                                             double dd = Sgml.max(generalRectangle.Width, generalRectangle.Height) / 2;
 
-                                            Sgml.draw_circle_fast(generalRectangle.Position, (int)Sgml.max(generalRectangle.Width, generalRectangle.Height), 24, Color.CornflowerBlue);
-                                            Sgml.draw_line_color(generalRectangle.Position, new Vector2((float)Sgml.lengthdir_x(dd, d) + generalRectangle.Position.X, (float)Sgml.lengthdir_y(dd, d) + generalRectangle.Position.Y), Color.Red, Color.Red);
+                                            Sgml.draw_circle_fast(new Vector2(generalRectangle.Position.X + o.ImageOrigin.X * o.ImageScale.X, generalRectangle.Position.Y + o.ImageOrigin.Y * o.ImageScale.Y), (int)Sgml.max(generalRectangle.Width, generalRectangle.Height), 24, Color.CornflowerBlue);
+                                            Sgml.draw_line_color(new Vector2(generalRectangle.Position.X + o.ImageOrigin.X * o.ImageScale.X, generalRectangle.Position.Y + o.ImageOrigin.Y * o.ImageScale.Y), new Vector2((float)Sgml.lengthdir_x(dd, d) + generalRectangle.Position.X + o.ImageOrigin.X * o.ImageScale.X, (float)Sgml.lengthdir_y(dd, d) + generalRectangle.Position.Y + o.ImageOrigin.Y * o.ImageScale.Y), Color.Red, Color.Red);
                                         }
                                     }
                                 }

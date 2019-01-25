@@ -42,7 +42,7 @@ namespace SimplexResources.Objects
         public override void EvtCreate()
         {
            //alarm_set(0, 60);
-
+           ImageOrigin = new Vector2(8, 8);
         }
 
         public override void EvtAlarm0()

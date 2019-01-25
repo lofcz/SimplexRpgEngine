@@ -165,8 +165,8 @@
     <Mass>0</Mass>
     <Persistent>false</Persistent>
     <ImageOrigin>
-      <X>0</X>
-      <Y>0</Y>
+      <X>8</X>
+      <Y>8</Y>
     </ImageOrigin>
     <ImageIndex>-1</ImageIndex>
   </GameObject>
@@ -279,8 +279,8 @@
     <Mass>0</Mass>
     <Persistent>false</Persistent>
     <ImageOrigin>
-      <X>0</X>
-      <Y>0</Y>
+      <X>8</X>
+      <Y>8</Y>
     </ImageOrigin>
     <ImageIndex>-1</ImageIndex>
   </GameObject>
