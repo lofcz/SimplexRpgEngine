@@ -20,6 +20,8 @@ namespace SimplexCore
 
         public static void audio_play_sound_fast(SoundReference sound, float volume = 1f)
         {
+            SoundEffectInstance soundEffectInstance = sound.Source.CreateInstance();
+            soundEffectInstance.Play();
             sound.Source.Play(volume, 0, 0);
         }
 

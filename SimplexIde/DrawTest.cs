@@ -116,6 +116,7 @@ namespace SimplexIde
         private GameObject Transformingobject = null;
         private int Transformingside = -1;
         Vector2 Transformrelative = Vector2.One;
+        private bool readyToDeselect = false;
 
         Cursor ScaleCursor = new Cursor((Resources.cursor_scale_16_16).GetHicon());
 
@@ -531,17 +532,7 @@ namespace SimplexIde
                                     o.PositionPrevious = o.Position;
                                     o.EvtDraw();
 
-                                    generalRectangle.Width = o.Sprite.ImageRectangle.Width * o.ImageScale.X;
-                                    generalRectangle.Height = o.Sprite.ImageRectangle.Height * o.ImageScale.Y;
-
-                                    generalRectangle.X = o.Position.X - (o.ImageOrigin.X * o.ImageScale.X);
-                                    generalRectangle.Y = o.Position.Y - (o.ImageOrigin.Y * o.ImageScale.Y);
-
-                                    GeneralRectangle2.X = (generalRectangle.X) - 4;
-                                    GeneralRectangle2.Y = (generalRectangle.Y) - 4;
-
-                                    GeneralRectangle2.Width = generalRectangle.Width + 8;
-                                    GeneralRectangle2.Height = generalRectangle.Height + 8;
+                                    ComputeRectanglesForInstance(o);
 
                                     if (o == lastClickedObject)
                                     {
@@ -831,6 +822,111 @@ namespace SimplexIde
                 Input.KeyboardStatePrevious = Keyboard.GetState();
                 Input.Clear();
             }
+        }
+
+        void ComputeRectanglesForInstance(GameObject o)
+        {
+            generalRectangle.Width = o.Sprite.ImageRectangle.Width * o.ImageScale.X;
+            generalRectangle.Height = o.Sprite.ImageRectangle.Height * o.ImageScale.Y;
+
+            generalRectangle.X = o.Position.X - (o.ImageOrigin.X * o.ImageScale.X);
+            generalRectangle.Y = o.Position.Y - (o.ImageOrigin.Y * o.ImageScale.Y);
+
+            GeneralRectangle2.X = (generalRectangle.X) - 4;
+            GeneralRectangle2.Y = (generalRectangle.Y) - 4;
+
+            GeneralRectangle2.Width = generalRectangle.Width + 8;
+            GeneralRectangle2.Height = generalRectangle.Height + 8;
+        }
+
+        bool CursorInInstanceDraggersArea(GameObject o)
+        {
+            if (o.ImageAngle == 0)
+            {
+                return Sgml.point_in_rectangle(Sgml.mouse, GeneralRectangle2);
+            }
+
+            RotatedRectangle rr = new RotatedRectangle(Vector2.One, Vector2.One, Vector2.One, Vector2.One);
+            Vector2 rPoint = new Vector2(generalRectangle.X + o.ImageOrigin.X * o.ImageScale.X, generalRectangle.Y + o.ImageOrigin.Y * o.ImageScale.Y);
+
+            Vector2 r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.Position.X, generalRectangle.Position.Y), rPoint, o.ImageAngle);
+            Vector2 r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y), rPoint, o.ImageAngle);
+
+            rr.Point1 = r1;
+            rr.Point2 = r2;
+
+            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X, generalRectangle.Y - 4), rPoint, o.ImageAngle);
+
+            rr.Point4 = r2;
+
+            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y - 4), rPoint, o.ImageAngle);
+
+            rr.Point3 = r1;
+
+            if (rr.Contains(Sgml.mouse))
+            {
+                return true;
+            }
+
+
+            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.Position.X + generalRectangle.Width, generalRectangle.Position.Y), rPoint, o.ImageAngle);
+            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width + 4, generalRectangle.Y), rPoint, o.ImageAngle);
+
+            rr.Point1 = r1;
+            rr.Point2 = r2;
+
+            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y + generalRectangle.Height), rPoint, o.ImageAngle);
+
+            rr.Point4 = r2;
+
+            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width + 4, generalRectangle.Y + generalRectangle.Height), rPoint, o.ImageAngle);
+
+            rr.Point3 = r1;
+
+            if (rr.Contains(Sgml.mouse))
+            {
+                return true;
+            }
+
+            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.Position.X, generalRectangle.Position.Y + generalRectangle.Height), rPoint, o.ImageAngle);
+            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y + generalRectangle.Height), rPoint, o.ImageAngle);
+
+            rr.Point1 = r1;
+            rr.Point2 = r2;
+
+            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X, generalRectangle.Y + generalRectangle.Height + 4), rPoint, o.ImageAngle);
+
+            rr.Point4 = r2;
+
+            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y + generalRectangle.Height + 4), rPoint, o.ImageAngle);
+
+            rr.Point3 = r1;
+
+            if (rr.Contains(Sgml.mouse))
+            {
+                return true;
+            }
+
+            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.Position.X, generalRectangle.Position.Y), rPoint, o.ImageAngle);
+            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X - 4, generalRectangle.Y), rPoint, o.ImageAngle);
+
+            rr.Point1 = r1;
+            rr.Point2 = r2;
+
+            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X, generalRectangle.Y + generalRectangle.Height), rPoint, o.ImageAngle);
+
+            rr.Point4 = r2;
+
+            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.X - 4, generalRectangle.Y + generalRectangle.Height), rPoint, o.ImageAngle);
+
+            rr.Point3 = r1;
+
+            if (rr.Contains(Sgml.mouse))
+            {
+                return true;
+            }
+
+            return false;
         }
 
         public void PreCheckMouse(MouseEventArgs e)
@@ -1171,6 +1267,34 @@ namespace SimplexIde
                     }
                 }
             }
+
+            if (lastClickedObject != null)
+            {
+                readyToDeselect = false;
+                if (!Input.KeyDown(Keys.LeftControl))
+                {
+                    // check if we can deselect
+                    // therefore run heuristic checks against currently selected instances 
+                    // not in any active area? fuck you then
+
+                    if (Sgml.PlaceEmpty(Sgml.mouse))
+                    {
+                        // also user might be in the draggers area so check that
+                        ComputeRectanglesForInstance(lastClickedObject);
+
+                        if (!CursorInInstanceDraggersArea(lastClickedObject))
+                        {
+                            readyToDeselect = true;
+                        }
+                    }
+                }
+
+                if (readyToDeselect)
+                {
+                    lastClickedObject = null;
+                    Transformingobject = null;
+                }
+            }
         }
 
 
@@ -1404,6 +1528,10 @@ namespace SimplexIde
                                     }
 
                                     Debug.WriteLine("ASD asd");
+                                }
+                                else
+                                {
+
                                 }
                             }
                         }
