@@ -70,12 +70,12 @@ namespace SimplexCore
                 {
                     Rectangle r = new Rectangle((int)g.Position.X, (int)g.Position.Y, (int)(g.Sprite.ImageRectangle.Width * g.ImageScale.X), (int)(g.Sprite.ImageRectangle.Height * g.ImageScale.Y));
                     RotatedRectangle rr = rectangle_rotate(r, g.ImageOrigin, g.ImageAngle);
-
+                   // g.rr = rr;
                    // rotate the point back
                   // position = rotate_vector2(position, g.ImageOrigin, -g.ImageAngle);
 
 
-                    if (r.Contains(position))
+                    if (rr.Contains(position))
                     {
                         return false;
                     }

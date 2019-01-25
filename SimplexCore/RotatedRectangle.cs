@@ -27,7 +27,7 @@ namespace SimplexCore
 
         public bool Contains(Vector2 point)
         {
-            return (Sgml.point_in_rectangle())
+            return (Sgml.point_in_triangle(Point1, Point2, Point3, point) || Sgml.point_in_triangle(Point3, Point4, Point1, point));
         }
     }
 

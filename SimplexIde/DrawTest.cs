@@ -577,35 +577,142 @@ namespace SimplexIde
 
 
                                         // check for mouse in active area
-                                        if ((Sgml.point_in_rectangle(Sgml.mouse, GeneralRectangle2) && !Sgml.point_in_rectangle(Sgml.mouse, generalRectangle)))
+                                        if (o.ImageAngle == 0)
                                         {
-                                            //Cursor = ScaleCursor;
+                                            if ((Sgml.point_in_rectangle(Sgml.mouse, GeneralRectangle2) && !Sgml.point_in_rectangle(Sgml.mouse, generalRectangle)))
+                                            {
+                                                //Cursor = ScaleCursor;
 
-                                            if (Sgml.point_in_rectangle(Sgml.mouse, new RectangleF(GeneralRectangle2.Position, new Size2(generalRectangle.Width, 4))))
+                                                if (o.ImageAngle == 0)
+                                                {
+                                                    if (Sgml.point_in_rectangle(Sgml.mouse, new RectangleF(GeneralRectangle2.Position, new Size2(generalRectangle.Width, 4))))
+                                                    {
+                                                        c1 = Color.Red;
+                                                        flag = 1;
+                                                    }
+                                                    else if (Sgml.point_in_rectangle(Sgml.mouse, new RectangleF(new Point2(GeneralRectangle2.Position.X + 4, GeneralRectangle2.Position.Y + generalRectangle.Height + 4), new Size2(generalRectangle.Width, 4))))
+                                                    {
+                                                        c3 = Color.Red;
+                                                        flag = 3;
+                                                    }
+                                                    else if (Sgml.point_in_rectangle(Sgml.mouse, new RectangleF(new Point2(GeneralRectangle2.Position.X, GeneralRectangle2.Position.Y + 4), new Size2(4, generalRectangle.Height))))
+                                                    {
+                                                        c2 = Color.Red;
+                                                        flag = 2;
+                                                    }
+                                                    else if (Sgml.point_in_rectangle(Sgml.mouse, new RectangleF(new Point2(GeneralRectangle2.Position.X + generalRectangle.Width + 4, GeneralRectangle2.Position.Y + 4), new Size2(4, generalRectangle.Height))))
+                                                    {
+                                                        c4 = Color.Red;
+                                                        flag = 4;
+                                                    }
+                                                }
+
+                                                //Sgml.draw_rectangle(new RectangleF(new Point2(GeneralRectangle2.Position.X + generalRectangle.Width + 4, GeneralRectangle2.Position.Y + 4), new Size2(4, generalRectangle.Height)), true);
+
+
+                                                if (Sgml.mouse_check_button_pressed(Sgml.MouseButtons.Left))
+                                                {
+                                                    // scale start
+
+                                                    if (Transformingobject == null)
+                                                    {
+                                                        Transformingside = flag;
+                                                    }
+
+                                                    Transformingobject = lastClickedObject;
+                                                    Transformrelative = Sgml.mouse;
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            RotatedRectangle rr = new RotatedRectangle(Vector2.One, Vector2.One, Vector2.One, Vector2.One);
+
+                                            Vector2 r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.Position.X, generalRectangle.Position.Y), generalRectangle.Position, o.ImageAngle);
+                                            Vector2 r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y), generalRectangle.Position, o.ImageAngle);
+
+                                            rr.Point1 = r1;
+                                            rr.Point2 = r2;
+
+                                            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X, generalRectangle.Y - 4), generalRectangle.Position, o.ImageAngle);
+
+                                            rr.Point4 = r2;
+
+                                            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y - 4), generalRectangle.Position, o.ImageAngle);
+
+                                            rr.Point3 = r1;
+
+                                            if (rr.Contains(Sgml.mouse))
                                             {
                                                 c1 = Color.Red;
                                                 flag = 1;
                                             }
-                                            else if (Sgml.point_in_rectangle(Sgml.mouse, new RectangleF(new Point2(GeneralRectangle2.Position.X + 4, GeneralRectangle2.Position.Y + generalRectangle.Height + 4), new Size2(generalRectangle.Width, 4))))
-                                            {
-                                                c3 = Color.Red;
-                                                flag = 3;
-                                            }
-                                            else if (Sgml.point_in_rectangle(Sgml.mouse, new RectangleF(new Point2(GeneralRectangle2.Position.X, GeneralRectangle2.Position.Y + 4), new Size2(4, generalRectangle.Height))))
-                                            {
-                                                c2 = Color.Red;
-                                                flag = 2;
-                                            }
-                                            else if (Sgml.point_in_rectangle(Sgml.mouse, new RectangleF(new Point2(GeneralRectangle2.Position.X + generalRectangle.Width + 4, GeneralRectangle2.Position.Y + 4), new Size2(4, generalRectangle.Height))))
+
+
+                                            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.Position.X + generalRectangle.Width, generalRectangle.Position.Y), generalRectangle.Position, o.ImageAngle);
+                                            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width + 4, generalRectangle.Y), generalRectangle.Position, o.ImageAngle);
+
+                                            rr.Point1 = r1;
+                                            rr.Point2 = r2;
+
+                                            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y + generalRectangle.Height), generalRectangle.Position, o.ImageAngle);
+
+                                            rr.Point4 = r2;
+
+                                            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width + 4, generalRectangle.Y + generalRectangle.Height), generalRectangle.Position, o.ImageAngle);
+
+                                            rr.Point3 = r1;
+
+                                            if (rr.Contains(Sgml.mouse))
                                             {
                                                 c4 = Color.Red;
                                                 flag = 4;
                                             }
 
-                                            //Sgml.draw_rectangle(new RectangleF(new Point2(GeneralRectangle2.Position.X + generalRectangle.Width + 4, GeneralRectangle2.Position.Y + 4), new Size2(4, generalRectangle.Height)), true);
+                                            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.Position.X, generalRectangle.Position.Y + generalRectangle.Height), generalRectangle.Position, o.ImageAngle);
+                                            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y + generalRectangle.Height), generalRectangle.Position, o.ImageAngle);
+
+                                            rr.Point1 = r1;
+                                            rr.Point2 = r2;
+
+                                            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X, generalRectangle.Y + generalRectangle.Height + 4), generalRectangle.Position, o.ImageAngle);
+
+                                            rr.Point4 = r2;
+
+                                            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.X + generalRectangle.Width, generalRectangle.Y + generalRectangle.Height + 4), generalRectangle.Position, o.ImageAngle);
+
+                                            rr.Point3 = r1;
+
+                                            if (rr.Contains(Sgml.mouse))
+                                            {
+                                                c3 = Color.Red;
+                                                flag = 3;
+                                            }
+
+                                            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.Position.X, generalRectangle.Position.Y), generalRectangle.Position, o.ImageAngle);
+                                            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X - 4, generalRectangle.Y), generalRectangle.Position, o.ImageAngle);
+
+                                            rr.Point1 = r1;
+                                            rr.Point2 = r2;
+
+                                            r2 = Sgml.rotate_vector2(new Vector2(generalRectangle.X, generalRectangle.Y + generalRectangle.Height), generalRectangle.Position, o.ImageAngle);
+
+                                            rr.Point4 = r2;
+
+                                            r1 = Sgml.rotate_vector2(new Vector2(generalRectangle.X - 4, generalRectangle.Y + generalRectangle.Height), generalRectangle.Position, o.ImageAngle);
+
+                                            rr.Point3 = r1;
+
+                                            if (rr.Contains(Sgml.mouse))
+                                            {
+                                                c2 = Color.Red;
+                                                flag = 2;
+                                            }
+
+                                           // o.rr = rr;
 
 
-                                            if (Sgml.mouse_check_button_pressed(Sgml.MouseButtons.Left))
+                                            if (flag != -1 && Sgml.mouse_check_button_pressed(Sgml.MouseButtons.Left))
                                             {
                                                 // scale start
 
@@ -617,10 +724,12 @@ namespace SimplexIde
                                                 Transformingobject = lastClickedObject;
                                                 Transformrelative = Sgml.mouse;
                                             }
-                                        }
-                                        else
-                                        {
-                                            Cursor = Cursors.Default;                                       
+
+                                            /* if (Sgml.point_in_rectangle_rotated(new Point2(Sgml.mouse.X, Sgml.mouse.Y), new RectangleF(GeneralRectangle2.Position, new Size2(generalRectangle.Width, 4)), o.ImageAngle, o.ImageOrigin))
+                                             {
+                                                 c1 = Color.Red;
+                                                 flag = 1;
+                                             }*/
                                         }
 
                                         if (!Input.KeyboardState.IsKeyDown(Keys.LeftControl))
