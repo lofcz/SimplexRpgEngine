@@ -960,14 +960,19 @@ namespace SimplexIde
                         {
                             dif = (float)Sgml.point_distance(Sgml.mouse, Transformrelative) * Sgml.sign(xd);
 
-                            if (Transformingobject.ImageAngle > 80)
+                            if (Transformingobject.ImageAngle > 60)
                             {
-                                dif = (float)Sgml.point_distance(Sgml.mouse, Transformrelative) * -Sgml.sign(yd);
+                                dif = (float)Sgml.point_distance(Sgml.mouse, Transformrelative) * Sgml.sign(yd);
+                            }
+
+                            if (Transformingobject.ImageAngle > 100)
+                            {
+                                dif = (float)Sgml.point_distance(Sgml.mouse, Transformrelative) * Sgml.sign(yd);
                             }
                         }
                         else if (Transformingobject.ImageAngle >= 135 && Transformingobject.ImageAngle < 225)
                         {
-                            dif = (float)Sgml.point_distance(Sgml.mouse, Transformrelative) * -Sgml.sign(yd);
+                            dif = (float)Sgml.point_distance(Sgml.mouse, Transformrelative) * Sgml.sign(yd);
 
                             if (Transformingobject.ImageAngle > 170)
                             {
@@ -981,6 +986,12 @@ namespace SimplexIde
                             if (Transformingobject.ImageAngle > 260)
                             {
                                 dif = (float)Sgml.point_distance(Sgml.mouse, Transformrelative) * Sgml.sign(yd);
+                            }
+
+
+                            if (Transformingobject.ImageAngle > 290)
+                            {
+                                dif = (float)Sgml.point_distance(Sgml.mouse, Transformrelative) * -Sgml.sign(yd);
                             }
                         }
                         else
