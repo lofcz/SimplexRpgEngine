@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
@@ -28,6 +28,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Objects\oGeorgeNew.cs" xmlns="" />
     <Compile Include="$(MSBuildThisFileDirectory)Objects\AnotherObject.cs" xmlns="" />
     <Compile Include="$(MSBuildThisFileDirectory)Rooms\room3.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Objects\KokotiHlava.cs" xmlns="" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Content\" />

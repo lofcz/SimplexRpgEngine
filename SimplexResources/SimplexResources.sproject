@@ -21,6 +21,10 @@
     {
       "name": "AnotherObject",
       "path": "Actors"
+    },
+    {
+      "name": "KokotiHlava",
+      "path": "Objects\\Actors\\oBrick"
     }
   ],
   "Rooms": [
@@ -45,5 +49,6 @@
   "Extensions": null,
   "Scripts": null,
   "Paths": null,
-  "DataFiles": null
+  "DataFiles": null,
+  "Videos": null
 }

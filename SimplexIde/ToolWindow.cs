@@ -64,64 +64,69 @@ namespace SimplexIde
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            string editorPath = dtv.SelectedNodes[0].FullPath;
-            Sgml.show_message(editorPath);
-            string currentFolder = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\SimplexCore\Prefabs\PrefabObject.cs";
-
-            // get prefab class
-            string[] prefabText = File.ReadAllLines(currentFolder);
-
-            string className = Sgml.get_string("", "Object name");
-
-            // generate actual class
-            currentFolder = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\SimplexResources\Objects\" + className + ".cs";
-
-            using (StreamWriter sw = new StreamWriter(currentFolder))
+            if (dtv.SelectedNodes.Count > 0)
             {
-                foreach (string line in prefabText)
+                string editorPath = dtv.SelectedNodes[0].FullPath;
+                string currentFolder = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName +
+                                       @"\SimplexCore\Prefabs\PrefabObject.cs";
+
+                // get prefab class
+                string[] prefabText = File.ReadAllLines(currentFolder);
+
+                string className = Sgml.get_string("", "Object name");
+
+                // generate actual class
+                currentFolder = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName +
+                                @"\SimplexResources\Objects\" + className + ".cs";
+
+                using (StreamWriter sw = new StreamWriter(currentFolder))
                 {
-                    string ll = line;
-                    ll = ll.Replace("{editorPath}", editorPath);
-                    ll = ll.Replace("PrefabObject", className);
-                    ll = ll.Replace("SimplexCore.Prefabs", "SimplexResources.Objects");
-                    sw.WriteLine(ll);
+                    foreach (string line in prefabText)
+                    {
+                        string ll = line;
+                        ll = ll.Replace("{editorPath}", editorPath.Replace("\\", "/"));
+                        ll = ll.Replace("PrefabObject", className);
+                        ll = ll.Replace("SimplexCore.Prefabs", "SimplexResources.Objects");
+                        sw.WriteLine(ll);
+                    }
+
+                    sw.Close();
                 }
 
-                sw.Close();
-            }
+                // add new object
+                // 1) locate projitems
+                currentFolder = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName +
+                                @"\SimplexResources\SimplexResources.projitems";
 
-            // add new object
-            // 1) locate projitems
-            currentFolder = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\SimplexResources\SimplexResources.projitems";
+                XDocument doc = XDocument.Load(currentFolder);
+                XElement root = new XElement("Compile");
+                root.Add(new XAttribute("Include", @"$(MSBuildThisFileDirectory)Objects\" + className + ".cs"));
 
-            XDocument doc = XDocument.Load(currentFolder);
-            XElement root = new XElement("Compile");
-            root.Add(new XAttribute("Include", @"$(MSBuildThisFileDirectory)Objects\" + className + ".cs"));
+                var v = doc.Root.Nodes().ToList();
 
-            var v = doc.Root.Nodes().ToList();
-
-            foreach (XElement xx in v)
-            {
-                if (xx.Name.LocalName == "ItemGroup")
+                foreach (XElement xx in v)
                 {
-                    // good boi we can write here
-                    xx.Add(root);
-                    break; // prevent from adding to each root
+                    if (xx.Name.LocalName == "ItemGroup")
+                    {
+                        // good boi we can write here
+                        xx.Add(root);
+                        break; // prevent from adding to each root
+                    }
                 }
+
+                doc.Save(currentFolder);
+
+                // add new object to the sproject
+                SimplexProjectItem spi = new SimplexProjectItem();
+                spi.name = className;
+                spi.path = editorPath;
+
+                form1.currentProject.Objects.Add(spi);
+
+                // finally save sproject
+                string json = JsonConvert.SerializeObject(form1.currentProject, Formatting.Indented);
+                File.WriteAllText(form1.currentProject.ProjectPath, json);
             }
-
-            doc.Save(currentFolder);
-
-            // add new object to the sproject
-            SimplexProjectItem spi = new SimplexProjectItem();
-            spi.name = className;
-            spi.path = editorPath;
-
-            form1.currentProject.Objects.Add(spi);
-
-            // finally save sproject
-            string json = JsonConvert.SerializeObject(form1.currentProject, Formatting.Indented);
-            File.WriteAllText(form1.currentProject.ProjectPath, json);
         }
 
         private void darkTreeView1_MouseClick(object sender, MouseEventArgs e)
