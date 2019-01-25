@@ -74,6 +74,7 @@ namespace SimplexIde
                     else
                     {
                         Sgml.currentRoom = (GameRoom) Activator.CreateInstance(Type.GetType("SimplexResources.Rooms." + Form1.activeRoom.Text));
+                      
                         Sgml.game_save(mapContent);
                         drawTest1.ClearAll();              
                     }
