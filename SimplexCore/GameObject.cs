@@ -94,8 +94,8 @@ namespace SimplexCore
         public string PersistentLayer;
         public Vector2 ImageOrigin;
 
-       // [XmlIgnore]
-       // public RotatedRectangle rr = new RotatedRectangle(Vector2.One, Vector2.One, Vector2.One, Vector2.One);
+        [XmlIgnore]
+        public RotatedRectangle rr = new RotatedRectangle(Vector2.One, Vector2.One, Vector2.One, Vector2.One);
 
 
         [XmlIgnore]

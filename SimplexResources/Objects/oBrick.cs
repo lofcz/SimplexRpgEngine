@@ -62,9 +62,9 @@ namespace SimplexResources.Objects
             draw_sprite(sprite_get("Gem"), -2, Position, ImageScale.X, ImageScale.Y, ImageAngle, ImageOrigin.X, ImageOrigin.Y);
             draw_text(Position, ImageAngle.ToString());
 
-        // draw_line_color(rr.Point1, rr.Point2, Color.Red, Color.Red);
+         //draw_line_color(rr.Point1, rr.Point2, Color.Red, Color.Red);
         // draw_line_color(rr.Point2, rr.Point3, Color.Red, Color.Red);
-        // draw_line_color(rr.Point3, rr.Point4, Color.Red, Color.Red);
+         //draw_line_color(rr.Point3, rr.Point4, Color.Red, Color.Red);
        //  draw_line_color(rr.Point4, rr.Point1, Color.Red, Color.Red);
 
         }

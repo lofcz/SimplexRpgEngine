@@ -104,7 +104,7 @@ namespace SimplexCore
                         ObjectLayer ol = (ObjectLayer)rl;
                         for (int i = ol.Objects.Count - 1; i >= 0; i--)
                         {
-                            Rectangle r = new Rectangle((int)ol.Objects[i].Position.X, (int)ol.Objects[i].Position.Y, (int)(ol.Objects[i].Sprite.ImageRectangle.Width * ol.Objects[i].ImageScale.X), (int)(ol.Objects[i].Sprite.ImageRectangle.Height * ol.Objects[i].ImageScale.Y));
+                            Rectangle r = new Rectangle((int)(ol.Objects[i].Position.X - (ol.Objects[i].ImageOrigin.X * ol.Objects[i].ImageScale.X)), (int)(ol.Objects[i].Position.Y - (ol.Objects[i].ImageOrigin.Y * ol.Objects[i].ImageScale.Y)), (int)(ol.Objects[i].Sprite.ImageRectangle.Width * ol.Objects[i].ImageScale.X), (int)(ol.Objects[i].Sprite.ImageRectangle.Height * ol.Objects[i].ImageScale.Y));
 
                             if (Math.Abs(ol.Objects[i].ImageAngle) < 1)
                             {
@@ -115,9 +115,9 @@ namespace SimplexCore
                             }
                             else
                             {
-                                RotatedRectangle rr = rectangle_rotate(r, ol.Objects[i].ImageOrigin, ol.Objects[i].ImageAngle);
+                                //RotatedRectangle rr = rectangle_rotate(r, new Vector2(ol.Objects[i].ImageOrigin.X * ol.Objects[i].ImageScale.X, ol.Objects[i].ImageOrigin.Y * ol.Objects[i].ImageScale.Y), ol.Objects[i].ImageAngle);
 
-                                if (rr.Contains(vec))
+                                if (ol.Objects[i].rr.Contains(vec))
                                 {
                                     return ol.Objects[i];
                                 }
