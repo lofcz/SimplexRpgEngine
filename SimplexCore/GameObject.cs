@@ -31,10 +31,7 @@ namespace SimplexCore
         }
        
         public AlarmStruct[] Alarms = new AlarmStruct[16];
-
-        public List<AudioInstances> sound_instances = new List<AudioInstances>();
         
-
         [XmlIgnore]
         public Sprite Sprite;
         public Vector2 Position;
