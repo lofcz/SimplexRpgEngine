@@ -867,8 +867,8 @@ namespace SimplexIde
                         Transformingobject.ImageScale.Y += k;
                         
 
-                        Transformingobject.Position.Y -= (dif) * (float)Math.Sin((Transformingobject.ImageAngle + 90) * Math.PI / 180);
-                        Transformingobject.Position.X -= (dif) * (float)Math.Cos((Transformingobject.ImageAngle + 90) * Math.PI / 180);
+                        Transformingobject.Position.Y -= (dif) * (float)Math.Sin((Transformingobject.ImageAngle + 90) * Math.PI / 180) / 2f;
+                        Transformingobject.Position.X -= (dif) * (float)Math.Cos((Transformingobject.ImageAngle + 90) * Math.PI / 180) / 2f;
                     }
                     else if (Transformingside == 3)
                     {
@@ -950,8 +950,8 @@ namespace SimplexIde
                         Transformingobject.ImageScaleTarget.X += k;
                         Transformingobject.ImageScale.X += k;
 
-                        Transformingobject.Position.Y -= (dif) * (float)Math.Sin((Transformingobject.ImageAngle) * Math.PI / 180);
-                        Transformingobject.Position.X -= (dif) * (float)Math.Cos((Transformingobject.ImageAngle) * Math.PI / 180);
+                        Transformingobject.Position.Y -= (dif) * (float)Math.Sin((Transformingobject.ImageAngle) * Math.PI / 180) / 2f;
+                        Transformingobject.Position.X -= (dif) * (float)Math.Cos((Transformingobject.ImageAngle) * Math.PI / 180) / 2f;
                     }
                     else if (Transformingside == 4)
                     {
