@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using SimplexCore;
@@ -20,7 +22,7 @@ namespace SimplexResources.Objects
 
         public override void EvtCreate()
         {
-            audio_play_loop_instance(audio_get("sndGem1"), this, "diamond");
+            SoundEffectInstance sfi =  audio_play("sndGem1");
         }
 
         public override void EvtStep()
