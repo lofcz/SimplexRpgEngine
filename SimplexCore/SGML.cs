@@ -37,6 +37,7 @@ namespace SimplexCore
         public static GameRoom currentRoom;
         public static GameObject realObject = null;
         public static Effect effect;
+        static Rectangle tRect = Rectangle.Empty;
 
         public static Color DrawColor
         {
@@ -57,10 +58,27 @@ namespace SimplexCore
         {
             foreach (GameObject g in SceneObjects)
             {
-                Rectangle r = new Rectangle((int)g.Position.X, (int)g.Position.Y, (int)(g.Sprite.ImageRectangle.Width * g.ImageScale.X), (int)(g.Sprite.ImageRectangle.Height * g.ImageScale.Y));
-                if (r.Contains(position))
+                if (g.ImageAngle == 0)
+                { 
+                    Rectangle r = new Rectangle((int)g.Position.X, (int)g.Position.Y, (int)(g.Sprite.ImageRectangle.Width * g.ImageScale.X), (int)(g.Sprite.ImageRectangle.Height * g.ImageScale.Y));
+                    if (r.Contains(position))
+                    {
+                        return false;
+                    }
+                }
+                else
                 {
-                    return false;
+                    Rectangle r = new Rectangle((int)g.Position.X, (int)g.Position.Y, (int)(g.Sprite.ImageRectangle.Width * g.ImageScale.X), (int)(g.Sprite.ImageRectangle.Height * g.ImageScale.Y));
+                    RotatedRectangle rr = rectangle_rotate(r, g.ImageOrigin, g.ImageAngle);
+
+                   // rotate the point back
+                  // position = rotate_vector2(position, g.ImageOrigin, -g.ImageAngle);
+
+
+                    if (r.Contains(position))
+                    {
+                        return false;
+                    }
                 }
             }
 

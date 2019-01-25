@@ -1154,7 +1154,11 @@ namespace SimplexIde
                                         // load properties in the props tab
                                         editorForm.properties.RegisterControls(clickedObject.EditorProperties);
                                        // Sgml.show_debug_message("kokotí hlavička 69");
+
+                                      
                                     }
+
+                                    Debug.WriteLine("ASD asd");
                                 }
                             }
                         }

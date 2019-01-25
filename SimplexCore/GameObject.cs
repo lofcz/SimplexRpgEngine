@@ -92,7 +92,7 @@ namespace SimplexCore
         public double Mass;
         public bool Persistent;
         public string PersistentLayer;
-
+        public Vector2 ImageOrigin;
 
 
         [XmlIgnore]
@@ -136,6 +136,7 @@ namespace SimplexCore
             Friction = 0;
             Direction = 0;
             Id = Guid.NewGuid();
+            
         }
 
 

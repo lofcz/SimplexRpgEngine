@@ -20,6 +20,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)CollisionsTree.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FrameManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MgcbEntry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RotatedRectangle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlRaycasting.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Ext\IPrimitiveBatcher.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Ext\MgPrimitiveBatcher.cs" />

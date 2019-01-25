@@ -123,6 +123,7 @@
         <Running>false</Running>
       </AlarmStruct>
     </Alarms>
+    <sound_instances />
     <Position>
       <X>398.4028</X>
       <Y>248.853317</Y>
@@ -163,6 +164,10 @@
     </Velocity>
     <Mass>0</Mass>
     <Persistent>false</Persistent>
+    <ImageOrigin>
+      <X>0</X>
+      <Y>0</Y>
+    </ImageOrigin>
     <ImageIndex>-1</ImageIndex>
   </GameObject>
   <GameObject xsi:type="oBrick">
@@ -232,6 +237,7 @@
         <Running>false</Running>
       </AlarmStruct>
     </Alarms>
+    <sound_instances />
     <Position>
       <X>132</X>
       <Y>335</Y>
@@ -272,6 +278,10 @@
     </Velocity>
     <Mass>0</Mass>
     <Persistent>false</Persistent>
+    <ImageOrigin>
+      <X>0</X>
+      <Y>0</Y>
+    </ImageOrigin>
     <ImageIndex>-1</ImageIndex>
   </GameObject>
 </Root>

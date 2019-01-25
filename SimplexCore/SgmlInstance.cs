@@ -104,10 +104,23 @@ namespace SimplexCore
                         ObjectLayer ol = (ObjectLayer)rl;
                         for (int i = ol.Objects.Count - 1; i >= 0; i--)
                         {
-                            RectangleF r = new Rectangle((int)ol.Objects[i].Position.X, (int)ol.Objects[i].Position.Y, (int)(ol.Objects[i].Sprite.ImageRectangle.Width * ol.Objects[i].ImageScale.X), (int)(ol.Objects[i].Sprite.ImageRectangle.Height * ol.Objects[i].ImageScale.Y));
-                            if (r.Contains(vec))
+                            Rectangle r = new Rectangle((int)ol.Objects[i].Position.X, (int)ol.Objects[i].Position.Y, (int)(ol.Objects[i].Sprite.ImageRectangle.Width * ol.Objects[i].ImageScale.X), (int)(ol.Objects[i].Sprite.ImageRectangle.Height * ol.Objects[i].ImageScale.Y));
+
+                            if (Math.Abs(ol.Objects[i].ImageAngle) < 1)
                             {
-                                return ol.Objects[i];
+                                if (r.Contains(vec))
+                                {
+                                    return ol.Objects[i];
+                                }
+                            }
+                            else
+                            {
+                                RotatedRectangle rr = rectangle_rotate(r, ol.Objects[i].ImageOrigin, ol.Objects[i].ImageAngle);
+
+                                if (rr.Contains(vec))
+                                {
+                                    return ol.Objects[i];
+                                }
                             }
                         }
                     }
