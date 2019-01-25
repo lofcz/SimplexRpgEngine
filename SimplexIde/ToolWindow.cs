@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using DarkUI.Controls;
 using DarkUI.Docking;
+using DarkUI.Forms;
 using Newtonsoft.Json;
 using SimplexCore;
 using SimplexIde.Properties;
@@ -126,6 +127,8 @@ namespace SimplexIde
                 // finally save sproject
                 string json = JsonConvert.SerializeObject(form1.currentProject, Formatting.Indented);
                 File.WriteAllText(form1.currentProject.ProjectPath, json);
+
+                DarkMessageBox.Show("Object was created, please restart the engine for changes to take effect.", "New object wizard");
             }
         }
 

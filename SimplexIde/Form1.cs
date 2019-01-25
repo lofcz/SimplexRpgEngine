@@ -320,6 +320,12 @@ namespace SimplexIde
 
             foreach (SimplexProjectItem s in sps.Objects)
             {
+                s.path = s.path.Replace("\\", "/");
+                if (s.path.StartsWith("Objects/"))
+                {
+                    s.path = s.path.Remove(0, 8);
+                }
+
                 if (classList.FirstOrDefault(x => x.Name == s.name) != null)
                 {
                     // good boi
