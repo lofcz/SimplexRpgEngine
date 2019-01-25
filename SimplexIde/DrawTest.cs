@@ -832,16 +832,31 @@ namespace SimplexIde
                 {
                     if (Transformingside == 1)
                     {
-                        float dif = Transformrelative.Y - Sgml.mouse.Y;
+
+                        float dif = 0;
+
+                        if (Transformingobject.ImageAngle > 90 && Transformingobject.ImageAngle < 360)
+                        {
+                            dif = (float)Sgml.point_distance(Sgml.mouse, Transformrelative) * Sgml.sign(Sgml.mouse.Y - Transformrelative.Y);
+                        }
+                        else
+                        {
+                            dif = (float)Sgml.point_distance(Sgml.mouse, Transformrelative) * Sgml.sign(-Sgml.mouse.Y + Transformrelative.Y);
+                        }
+
                         float height = Transformingobject.Sprite.ImageSize.Y;
                         float heightNew = dif + height;
                         float ratio = Math.Abs(dif / height);
 
 
-                        float k = (Sgml.sign(Transformrelative.Y - Sgml.mouse.Y)) * ratio;
+                        float k = (Sgml.sign(dif)) * ratio;
                         Transformingobject.ImageScaleTarget.Y += k;
                         Transformingobject.ImageScale.Y += k;
-                        Transformingobject.Position.Y -= Transformrelative.Y - Sgml.mouse.Y;
+                        
+
+                        Transformingobject.Position.Y -= (dif) * (float)Math.Sin((Transformingobject.ImageAngle + 90) * Math.PI / 180);
+                        Transformingobject.Position.X -= (dif) * (float)Math.Cos((Transformingobject.ImageAngle + 90) * Math.PI / 180);
+                        //Transformingobject.Position.X -= (float)Sgml.lengthdir_x(Transformrelative.Y - Sgml.mouse.Y, Transformingobject.ImageAngle);
                     }
                     else if (Transformingside == 3)
                     {
@@ -852,8 +867,9 @@ namespace SimplexIde
 
 
                         float k = -(Sgml.sign(Transformrelative.Y - Sgml.mouse.Y)) * ratio;
-                        Transformingobject.ImageScaleTarget.Y += k;
-                        Transformingobject.ImageScale.Y += k;
+                        Transformingobject.ImageScaleTarget.Y += k * Sgml.sign(Transformingobject.ImageAngle - 180);
+                        Transformingobject.ImageScale.Y += k * Sgml.sign(Transformingobject.ImageAngle - 180);
+
                     }
                     else if (Transformingside == 2)
                     {

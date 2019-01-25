@@ -60,7 +60,7 @@ namespace SimplexResources.Objects
            
          //   draw_rectangle(Position, new Vector2(Position.X + 16 * ImageScaleTarget.X, Position.Y + 16 * ImageScaleTarget.Y), true);
             draw_sprite(sprite_get("Gem"), -2, Position, ImageScale.X, ImageScale.Y, ImageAngle);
-         //   draw_text(Position, ImageAngle.ToString());
+            draw_text(Position, ImageAngle.ToString());
 
         // draw_line_color(rr.Point1, rr.Point2, Color.Red, Color.Red);
         // draw_line_color(rr.Point2, rr.Point3, Color.Red, Color.Red);
