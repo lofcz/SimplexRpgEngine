@@ -902,29 +902,99 @@ namespace SimplexIde
                     }
                     else if (Transformingside == 2)
                     {
-                        float dif = Transformrelative.X - Sgml.mouse.X;
+                        float dif = 0;
+                        float yd = Sgml.mouse.Y - Transformrelative.Y;
+                        float xd = Sgml.mouse.X - Transformrelative.X;
+
+                        if (Transformingobject.ImageAngle >= 45 && Transformingobject.ImageAngle < 135)
+                        {
+                            dif = (float)Sgml.point_distance(Sgml.mouse, Transformrelative) * -Sgml.sign(xd);
+
+                            if (Transformingobject.ImageAngle > 80)
+                            {
+                                dif = (float)Sgml.point_distance(Sgml.mouse, Transformrelative) * -Sgml.sign(yd);
+                            }
+                        }
+                        else if (Transformingobject.ImageAngle >= 135 && Transformingobject.ImageAngle < 225)
+                        {
+                            dif = (float)Sgml.point_distance(Sgml.mouse, Transformrelative) * -Sgml.sign(yd);
+
+                            if (Transformingobject.ImageAngle > 170)
+                            {
+                                dif = (float)Sgml.point_distance(Sgml.mouse, Transformrelative) * Sgml.sign(xd);
+                            }
+                        }
+                        else if (Transformingobject.ImageAngle >= 225 && Transformingobject.ImageAngle < 315)
+                        {
+                            dif = (float)Sgml.point_distance(Sgml.mouse, Transformrelative) * Sgml.sign(xd);
+
+                            if (Transformingobject.ImageAngle > 260)
+                            {
+                                dif = (float)Sgml.point_distance(Sgml.mouse, Transformrelative) * Sgml.sign(yd);
+                            }
+                        }
+                        else
+                        {
+                            dif = (float)Sgml.point_distance(Sgml.mouse, Transformrelative) * -Sgml.sign(xd);
+                        }
+
                         float height = Transformingobject.Sprite.ImageSize.X;
                         float heightNew = dif + height;
                         float ratio = Math.Abs(dif / height);
 
 
-                        float k = (Sgml.sign(Transformrelative.X - Sgml.mouse.X)) * ratio;
+                        float k = (Sgml.sign(dif)) * ratio;
                         Transformingobject.ImageScaleTarget.X += k;
                         Transformingobject.ImageScale.X += k;
-                        Transformingobject.Position.X -= Transformrelative.X - Sgml.mouse.X;
+
+                        Transformingobject.Position.Y -= (dif) * (float)Math.Sin((Transformingobject.ImageAngle) * Math.PI / 180);
+                        Transformingobject.Position.X -= (dif) * (float)Math.Cos((Transformingobject.ImageAngle) * Math.PI / 180);
                     }
                     else if (Transformingside == 4)
                     {
-                        float dif = Transformrelative.X - Sgml.mouse.X;
+                        float dif = 0;
+                        float yd = Sgml.mouse.Y - Transformrelative.Y;
+                        float xd = Sgml.mouse.X - Transformrelative.X;
+
+                        if (Transformingobject.ImageAngle >= 45 && Transformingobject.ImageAngle < 135)
+                        {
+                            dif = (float)Sgml.point_distance(Sgml.mouse, Transformrelative) * Sgml.sign(xd);
+
+                            if (Transformingobject.ImageAngle > 80)
+                            {
+                                dif = (float)Sgml.point_distance(Sgml.mouse, Transformrelative) * -Sgml.sign(yd);
+                            }
+                        }
+                        else if (Transformingobject.ImageAngle >= 135 && Transformingobject.ImageAngle < 225)
+                        {
+                            dif = (float)Sgml.point_distance(Sgml.mouse, Transformrelative) * -Sgml.sign(yd);
+
+                            if (Transformingobject.ImageAngle > 170)
+                            {
+                                dif = (float)Sgml.point_distance(Sgml.mouse, Transformrelative) * -Sgml.sign(xd);
+                            }
+                        }
+                        else if (Transformingobject.ImageAngle >= 225 && Transformingobject.ImageAngle < 315)
+                        {
+                            dif = (float)Sgml.point_distance(Sgml.mouse, Transformrelative) * -Sgml.sign(xd);
+
+                            if (Transformingobject.ImageAngle > 260)
+                            {
+                                dif = (float)Sgml.point_distance(Sgml.mouse, Transformrelative) * Sgml.sign(yd);
+                            }
+                        }
+                        else
+                        {
+                            dif = (float)Sgml.point_distance(Sgml.mouse, Transformrelative) * Sgml.sign(xd);
+                        }
                         float height = Transformingobject.Sprite.ImageSize.X;
                         float heightNew = dif + height;
                         float ratio = Math.Abs(dif / height);
 
 
-                        float k = -(Sgml.sign(Transformrelative.X - Sgml.mouse.X)) * ratio;
+                        float k = (Sgml.sign(dif)) * ratio;
                         Transformingobject.ImageScaleTarget.X += k;
                         Transformingobject.ImageScale.X += k;
-                        //  Transformingobject.Position.X -= Transformrelative.X - Sgml.mouse.X;
                     }
                 }
 
