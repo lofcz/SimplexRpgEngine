@@ -1382,19 +1382,19 @@ namespace SimplexIde
                             {
                                 for (var j = 0; j < my; j++)
                                 {
-                                    Tile alreadyT = possibleColliders.FirstOrDefault(x =>
-                                        x.PosX == ((int) m.X / 32) + j && x.PosY == ((int) m.Y / 32) + i);
+                                    int tx = (int) m.X / 32;
+                                    int ty = (int) m.Y / 32;
+
+                                    Tile alreadyT = possibleColliders.FirstOrDefault(x => x.PosX == tx + j && x.PosY == ty + i);
 
                                     if (alreadyT == null)
                                     {
                                         Tile t = new Tile();
                                         t.Bits = 16;
-                                        t.DrawRectangle = new Microsoft.Xna.Framework.Rectangle(
-                                            TilesetSelectedRenRectangle.X + j * 32,
-                                            TilesetSelectedRenRectangle.Y + i * 32, 32, 32);
+                                        t.DrawRectangle = new Microsoft.Xna.Framework.Rectangle(TilesetSelectedRenRectangle.X + j * 32, TilesetSelectedRenRectangle.Y + i * 32, 32, 32);
                                         t.SourceTexture = tileTexture;
-                                        t.PosX = (int) m.X / 32 + j;
-                                        t.PosY = (int) m.Y / 32 + i;
+                                        t.PosX = tx + j;
+                                        t.PosY = ty + i;
                                         t.TileLayer = currentTileLayer;
                                         t.TileLayerName = t.TileLayer.Name;
 
