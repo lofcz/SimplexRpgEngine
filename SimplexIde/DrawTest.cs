@@ -1367,12 +1367,22 @@ namespace SimplexIde
                         {
                             Vector2 m = MousePositionTranslated;
 
+
+                            // optimize -> prefetch tiles which could be possibly colliding
+                            int sx = (int)(m.X / 32);
+                            int sy = (int)(m.Y / 32);
+                            int mx = TilesetSelectedRenRectangle.Height / 32;
+                            int my = TilesetSelectedRenRectangle.Width / 32;
+
+
+                            List<Tile> possibleColliders = currentTileLayer.Tiles.FindAll(x => x.PosX >= sx && x.PosX <= sx + mx + 1 && x.PosY >= sy && x.PosY <= sy + my + 1);
+                            
                             // Check if a chunk is selected, if so -> process one by one
-                            for (var i = 0; i < TilesetSelectedRenRectangle.Height / 32; i++)
+                            for (var i = 0; i < mx; i++)
                             {
-                                for (var j = 0; j < TilesetSelectedRenRectangle.Width / 32; j++)
+                                for (var j = 0; j < my; j++)
                                 {
-                                    Tile alreadyT = currentTileLayer.Tiles.FirstOrDefault(x =>
+                                    Tile alreadyT = possibleColliders.FirstOrDefault(x =>
                                         x.PosX == ((int) m.X / 32) + j && x.PosY == ((int) m.Y / 32) + i);
 
                                     if (alreadyT == null)
@@ -1393,6 +1403,7 @@ namespace SimplexIde
                                 }
                             }
 
+                            possibleColliders = null; // fcking trash everywhere, eat that GC
                         }
                         else if (currentAutotile == null)
                         {
@@ -1554,7 +1565,7 @@ namespace SimplexIde
                                 t.TileLayerName = t.TileLayer.Name;
                                 t.SheetX = currentAutotile.X;
                                 t.SheetY = currentAutotile.Y;
-
+                                
                                 currentTileLayer.Tiles.Add(t);
 
                                 t = Autotile.UpdateTile(t, currentTileLayer);
@@ -1851,7 +1862,7 @@ namespace SimplexIde
         {
             sps.RootPath = path.Substring(0, path.LastIndexOf('\\'));
             sps.ProjectPath = path;
-
+            
             path = path.Replace(".sproject", "");
             string[] parts = path.Split('\\');
             editorForm.loadResources(parts[parts.Length - 1], sps);
