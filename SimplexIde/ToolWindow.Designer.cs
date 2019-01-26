@@ -66,7 +66,9 @@
             this.darkTreeView1.TabIndex = 0;
             this.darkTreeView1.Text = "darkTreeView1";
             this.darkTreeView1.SelectedNodesChanged += new System.EventHandler(this.darkTreeView1_SelectedNodesChanged);
+            this.darkTreeView1.AfterNodeDragged += new System.EventHandler(this.DarkTreeView1_AfterNodeDragged);
             this.darkTreeView1.Click += new System.EventHandler(this.darkTreeView1_Click);
+            this.darkTreeView1.DragDrop += new System.Windows.Forms.DragEventHandler(this.DarkTreeView1_DragDrop);
             this.darkTreeView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.darkTreeView1_MouseClick);
             // 
             // darkToolStrip1

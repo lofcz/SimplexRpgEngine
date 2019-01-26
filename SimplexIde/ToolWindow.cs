@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using DarkUI.Collections;
 using DarkUI.Controls;
 using DarkUI.Docking;
 using DarkUI.Forms;
@@ -252,6 +253,50 @@ namespace SimplexIde
         {
             // insert new folder
 
+        }
+
+        private void DarkTreeView1_DragDrop(object sender, DragEventArgs e)
+        {
+            
+        }
+
+        List<SimplexProjectItem> objects = new List<SimplexProjectItem>();
+        private void DarkTreeView1_AfterNodeDragged(object sender, EventArgs e)
+        {
+            // node was dragged      
+            objects.Clear();
+
+            foreach (DarkTreeNode dtn in darkTreeView1.Nodes)
+            {
+                rec(dtn);
+            }
+
+            // objects are ready
+            form1.currentProject.Objects = objects;
+
+            string json = JsonConvert.SerializeObject(form1.currentProject);
+            File.WriteAllText(form1.currentProject.ProjectPath, json);
+        }
+
+        void rec(DarkTreeNode dtn)
+        {
+            foreach (DarkTreeNode d in dtn.Nodes)
+            {
+                if (!d.IsFolder)
+                {
+                    SimplexProjectItem spi = new SimplexProjectItem();
+                    spi.path = d.FullPath;
+                    spi.name = d.Text;
+
+                    spi.path = spi.path.Replace("\\", "/");
+                    spi.path = spi.path.Substring(0, spi.path.LastIndexOf("/"));
+                    objects.Add(spi);                 
+                }
+                else
+                {
+                    rec(d);
+                }
+            }
         }
     }
 }
