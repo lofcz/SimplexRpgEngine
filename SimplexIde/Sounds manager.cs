@@ -111,17 +111,28 @@ namespace SimplexIde
 
                 if ((string)selectedNode.Tag != "folder")
                 {
-                    TagLib.File file = TagLib.File.Create(owner.currentProject.RootPath + "/Content/bin/Windows/Sounds/" + selectedNode.Text + ".wav");
-                    string title = file.Tag.Title;
-                    string album = file.Tag.Album;
-                    string length = file.Properties.Duration.ToString();
-                   
-                    darkLabel1.Text = "Title: " + title;
-                    darkLabel2.Text = "Album: " + album;
-                    darkLabel3.Text = "Length: " + length;
+                    // suffix unknown, populate a list of candidates
+                    string[] suffixes = new[] {".wma", ".ogg", ".wav", ".mp3"};
+
+                    foreach (var t in suffixes)
+                    {
+                        if (File.Exists(owner.currentProject.RootPath + "/Content/bin/Windows/Sounds/" + selectedNode.Text + t))
+                        {
+                            TagLib.File file = TagLib.File.Create(owner.currentProject.RootPath + "/Content/bin/Windows/Sounds/" + selectedNode.Text + t);
+                            string title = file.Tag.Title;
+                            string album = file.Tag.Album;
+                            string length = file.Properties.Duration.ToString();
+
+                            darkLabel1.Text = "Title: " + title;
+                            darkLabel2.Text = "Album: " + album;
+                            darkLabel3.Text = "Length: " + length;
+
+                            break;
+                        }
+                    }
+
 
                     // load sound's info if it exist, else save
-
                 }
             }
         }
