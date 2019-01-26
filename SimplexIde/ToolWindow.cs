@@ -24,6 +24,7 @@ namespace SimplexIde
         public DrawTest main = null;
         private DarkTreeNode lastNode = null;
         public Form1 form1 = null;
+        private bool canShow = true;
 
         public ToolWindow()
         {
@@ -32,6 +33,8 @@ namespace SimplexIde
             DarkTreeNode dtn = new DarkTreeNode("Objects");
             dtn.Icon = (Bitmap)Resources.ResourceManager.GetObject("Folder_16x");
             dtn.IsRoot = true;
+            dtn.IsFolder = true;
+            dtn.Tag = "folder";
             dtv = darkTreeView1;
             darkTreeView1.Nodes.Add(dtn);
 
@@ -138,11 +141,32 @@ namespace SimplexIde
             {
                 DarkTreeNode dtn = darkTreeView1.SelectedNodes[0];
 
-                if (dtn.Icon != Resources.Folder_16x && (string)dtn.Tag != "folder")
+                if (dtn.Icon != Resources.Folder_16x)
                 {
-                    darkContextMenu1.Show(Cursor.Position);
+                    if ((string) dtn.Tag == "folder")
+                    {
+                        darkContextMenu2.Show(Cursor.Position);
+                    }
+                    else
+                    {
+                        if (canShow)
+                        {
+                            darkContextMenu1.Show(Cursor.Position);
+                            canShow = false;
+                        }
+                        else
+                        {
+                            canShow = true;
+                        }
+                    }
+
                     lastNode = dtn;
                 }
+            }
+
+            if (e.Button == MouseButtons.Left)
+            {
+                canShow = true;
             }
         }
 
@@ -221,6 +245,12 @@ namespace SimplexIde
 
         private void insertNewObjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void InsertFolderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // insert new folder
 
         }
     }

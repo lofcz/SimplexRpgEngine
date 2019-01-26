@@ -21,7 +21,7 @@ namespace SimplexResources.Objects
             EditorPath = "Actors";
         }
 
-        public override void EvtCreate()
+      /*  public override void EvtCreate()
         {
             timeline_add("random name");
         }
@@ -34,7 +34,7 @@ namespace SimplexResources.Objects
             {
                 Debug.WriteLine("pindík");
             }
-        }
+        }*/
 
         public override void EvtDraw()
         {

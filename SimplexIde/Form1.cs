@@ -305,7 +305,7 @@ namespace SimplexIde
           //  loadResources();
         }
 
-        public void loadResources(string corePath, SimplexProjectStructure sps)
+        public void loadObjects(string corePath, SimplexProjectStructure sps)
         {
             currentProject = sps;
 
@@ -354,11 +354,11 @@ namespace SimplexIde
 
                     foreach (string s in tokens)
                     {
-                        if (currentNode.Nodes.FindIndex(x => (string) x.Tag == s) == -1)
+                        if (currentNode.Nodes.FindIndex(x => (string) x.Text == s) == -1)
                         {
                             DarkTreeNode folderNode = new DarkTreeNode();
                             folderNode.Text = s;
-                            folderNode.Tag = s;
+                            folderNode.Tag = "folder";
                             folderNode.Icon = Properties.Resources.Folder_16x;
                             folderNode.IsFolder = true;
 
@@ -409,7 +409,8 @@ namespace SimplexIde
 
                             DarkTreeNode tn = new DarkTreeNode();
                             tn.Text = t.Name;
-                            tn.Tag = t.Name;
+                            tn.Tag = "folder";
+                            tn.IsFolder = true;
                             tn.Icon = Properties.Resources.AzureDefaultResource_16x;
 
                             if (string.IsNullOrEmpty(o.EditorPath))
@@ -425,11 +426,12 @@ namespace SimplexIde
 
                                 foreach (string s in pathTokens)
                                 {
-                                    if (currentNode.Nodes.FindIndex(x => (string)x.Tag == s) == -1)
+                                    if (currentNode.Nodes.FindIndex(x => (string)x.Text == s) == -1)
                                     {
                                         DarkTreeNode folderNode = new DarkTreeNode();
                                         folderNode.Text = s;
-                                        folderNode.Tag = s;
+                                        folderNode.IsFolder = true;
+                                        folderNode.Tag = "folder";
                                         folderNode.Icon = Properties.Resources.Folder_16x;
 
                                         currentNode.Nodes.Add(folderNode);

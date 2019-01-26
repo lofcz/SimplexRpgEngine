@@ -59,8 +59,9 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DarkUI">
-      <HintPath>..\..\..\..\Desktop\DarkUI.dll</HintPath>
+    <Reference Include="DarkUI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\DarkUI.dll</HintPath>
     </Reference>
     <Reference Include="FastColoredTextBox, Version=2.16.24.0, Culture=neutral, PublicKeyToken=fb8aa12b994ef61b, processorArchitecture=MSIL">
       <HintPath>..\packages\FCTB.2.16.24\lib\FastColoredTextBox.dll</HintPath>
@@ -86,9 +87,6 @@
     </Reference>
     <Reference Include="ScintillaNET, Version=3.6.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\jacobslusser.ScintillaNET.3.6.3\lib\net40\ScintillaNET.dll</HintPath>
-    </Reference>
-    <Reference Include="SharpDX, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
-      <HintPath>..\packages\MonoGame.Forms.DX.2.3.0\lib\net451\SharpDX.dll</HintPath>
     </Reference>
     <Reference Include="SharpDX.Direct2D1, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b4dcf0f35e5521f1, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpDX.Direct2D1.4.0.1\lib\net45\SharpDX.Direct2D1.dll</HintPath>
@@ -145,7 +143,7 @@
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-	<Compile Include="FormNew.cs">
+    <Compile Include="FormNew.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
@@ -189,7 +187,7 @@
     <Compile Include="TilesetControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-	   <Compile Include="FormNew.Designer.cs">
+    <Compile Include="FormNew.Designer.cs">
       <DependentUpon>FormNew.cs</DependentUpon>
     </Compile>
     <Compile Include="TilesetControl.Designer.cs">
@@ -220,7 +218,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-	    <EmbeddedResource Include="FormNew.resx">
+    <EmbeddedResource Include="FormNew.resx">
       <DependentUpon>FormNew.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RoomsControl.resx">

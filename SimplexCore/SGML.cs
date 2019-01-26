@@ -40,7 +40,7 @@ namespace SimplexCore
         public static GameObject realObject = null;
         public static Effect effect;
         static Rectangle tRect = Rectangle.Empty;
-        public static List<TimeLines> all_time_lines = new List<TimeLines>();
+      //  public static List<TimeLines> all_time_lines = new List<TimeLines>();
 
         public static Color DrawColor
         {
@@ -604,7 +604,7 @@ namespace SimplexCore
         }
         
         //timelines
-        public static TimeLines timeline_add(string name)
+     /*   public static TimeLines timeline_add(string name)
         {
             TimeLines line = new TimeLines(){ Name = name};
             all_time_lines.Add(line);
@@ -620,6 +620,6 @@ namespace SimplexCore
         public static int timeline_count(string name)
         {
             return all_time_lines[all_time_lines.FindIndex(x => x.Name == name)].Count;
-        }
+        }*/
     }
 }
