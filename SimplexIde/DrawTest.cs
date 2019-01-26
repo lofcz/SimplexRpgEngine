@@ -773,11 +773,17 @@ namespace SimplexIde
                             // Layer is tile
                             if (rl is TileLayer)
                             {
-                                Editor.spriteBatch.Begin(transformMatrix: transformMatrix,
-                                    samplerState: SamplerState.PointWrap);
-                                foreach (Tile t in ((TileLayer) rl).Tiles)
+                                Editor.spriteBatch.Begin(transformMatrix: transformMatrix, samplerState: SamplerState.PointWrap, sortMode: SpriteSortMode.Texture);
+                                TileLayer tl = ((TileLayer) rl);
+
+                                Vector2 tempVec = Vector2.One;                                
+
+                                foreach (Tile t in tl.Tiles)
                                 {
-                                    Editor.spriteBatch.Draw(((TileLayer) rl).Tileset.Texture, new Vector2((int)Math.Floor((double)t.PosX * 32), (int)Math.Floor((double)t.PosY * 32)), t.DrawRectangle, Color.White);
+                                    tempVec.X = t.PosX * 32;
+                                    tempVec.Y = t.PosY * 32;
+
+                                    Editor.spriteBatch.Draw(tl.Tileset.Texture, tempVec, t.DrawRectangle, Color.White);
                                 }
 
                                 Editor.spriteBatch.End();

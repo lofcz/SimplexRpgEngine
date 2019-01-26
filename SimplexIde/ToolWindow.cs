@@ -202,9 +202,15 @@ namespace SimplexIde
             ScriptEditor se = new ScriptEditor();
             se.Text = "Code editor - " + lastNode.Text;
 
-            se.scintilla.Text = File.ReadAllText(Path.GetFullPath(form1.currentProject.RootPath + "/Objects/" + lastNode.Text + ".cs"));
+            if (File.Exists(Path.GetFullPath(form1.currentProject.RootPath + "/Objects/" + lastNode.Text + ".cs")))
+            {
+                se.scintilla.Text = File.ReadAllText(Path.GetFullPath(form1.currentProject.RootPath + "/Objects/" + lastNode.Text + ".cs"));
+            }
+            else
+            {
+                DarkMessageBox.Show("No code found for the object - class doesn't exist", "Simplex Engine");
+            }
 
-            
             se.Show();
         }
 
