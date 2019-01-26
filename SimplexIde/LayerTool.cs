@@ -104,6 +104,7 @@ namespace SimplexIde
                         {
                             form.drawTest1.currentAutotile = null;
                             form.drawTest1.TilesetSelectedRenRectangle = Rectangle.Empty;
+                            form.drawTest1.currentTileLayer = null;
 
                             form.ww.currentTileset = null;
                             form.w.Enabled = true;
@@ -163,38 +164,42 @@ namespace SimplexIde
             // if (f.roomLayers.Count > 0)
             // MessageBox.Show(f.roomLayers.Count.ToString());
             {
-                RoomLayer rl = f.roomLayers.FirstOrDefault(x => x.Name == selectedNode.Text);
-                rl.Visible = !rl.Visible;
+                RoomLayer rl = f.currentRoom.Layers.FirstOrDefault(x => x.Name == selectedNode.Text);
 
-                if (!rl.Visible)
+                if (rl != null)
                 {
-                    selectedNode.Icon = Properties.Resources.Visible_16xSM;
-                }
-                else
-                {
-                    if (rl.LayerType == RoomLayer.LayerTypes.typeObject)
+                    rl.Visible = !rl.Visible;
+
+                    if (!rl.Visible)
                     {
-                        selectedNode.Icon =
-                            (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("WorldLocal_16x");
-                    }
-                    else if (rl.LayerType == RoomLayer.LayerTypes.typeAsset)
-                    {
-                        selectedNode.Icon =
-                            (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("Image_16x");
-                    }
-                    else if (rl.LayerType == RoomLayer.LayerTypes.typeParticle)
-                    {
-                        selectedNode.Icon =
-                            (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("ParticleLayer");
+                        selectedNode.Icon = Properties.Resources.Visible_16xSM;
                     }
                     else
                     {
-                        selectedNode.Icon =
-                            (System.Drawing.Bitmap)Properties.Resources.ResourceManager.GetObject("MapLineLayer_16x");
+                        if (rl.LayerType == RoomLayer.LayerTypes.typeObject)
+                        {
+                            selectedNode.Icon =
+                                (System.Drawing.Bitmap) Properties.Resources.ResourceManager.GetObject("WorldLocal_16x");
+                        }
+                        else if (rl.LayerType == RoomLayer.LayerTypes.typeAsset)
+                        {
+                            selectedNode.Icon =
+                                (System.Drawing.Bitmap) Properties.Resources.ResourceManager.GetObject("Image_16x");
+                        }
+                        else if (rl.LayerType == RoomLayer.LayerTypes.typeParticle)
+                        {
+                            selectedNode.Icon =
+                                (System.Drawing.Bitmap) Properties.Resources.ResourceManager.GetObject("ParticleLayer");
+                        }
+                        else
+                        {
+                            selectedNode.Icon =
+                                (System.Drawing.Bitmap) Properties.Resources.ResourceManager.GetObject("MapLineLayer_16x");
+                        }
                     }
-                }
 
-                dtv.Invalidate();
+                    dtv.Invalidate();
+                }
             }
         }
     }
