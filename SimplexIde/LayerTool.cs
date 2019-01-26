@@ -66,6 +66,7 @@ namespace SimplexIde
                         if (l.LayerType == RoomLayer.LayerTypes.typeTile)
                         {
                             // hide object panel to free up space
+                            form.drawTest1.SelectedObject = null;
 
                             if (form.w.Visible)
                             {
@@ -101,6 +102,9 @@ namespace SimplexIde
 
                         if (l.LayerType == RoomLayer.LayerTypes.typeObject)
                         {
+                            form.drawTest1.currentAutotile = null;
+                            form.drawTest1.TilesetSelectedRenRectangle = Rectangle.Empty;
+
                             form.ww.currentTileset = null;
                             form.w.Enabled = true;
                             form.drawTest1.currentAutotile = null;

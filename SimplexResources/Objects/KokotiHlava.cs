@@ -10,7 +10,7 @@ namespace SimplexResources.Objects
     {
         public KokotiHlava()
         {
-            EditorPath = "Objects\Actors\oBrick";
+            EditorPath = "Objects/Actors/oBrick";
         }
     }
 }
