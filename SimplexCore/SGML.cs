@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
 using SharpDX;
 using SharpDX.MediaFoundation.DirectX;
+using SimplexIde;
 using Color = Microsoft.Xna.Framework.Color;
 using Matrix = System.Drawing.Drawing2D.Matrix;
 using Point = Microsoft.Xna.Framework.Point;
@@ -38,6 +40,7 @@ namespace SimplexCore
         public static GameObject realObject = null;
         public static Effect effect;
         static Rectangle tRect = Rectangle.Empty;
+        public static List<TimeLines> all_time_lines = new List<TimeLines>();
 
         public static Color DrawColor
         {
@@ -598,6 +601,25 @@ namespace SimplexCore
             toReturn.Y = (float) (sinTheta * (vec.X - origin.X) + cosTheta * (vec.Y - origin.Y) + origin.Y);
 
             return toReturn;
+        }
+        
+        //timelines
+        public static TimeLines timeline_add(string name)
+        {
+            TimeLines line = new TimeLines(){ Name = name};
+            all_time_lines.Add(line);
+            return line;
+        }
+
+        public static bool timeline_exists(string name)
+        {
+            bool containsItem = all_time_lines.Any(item => item.Name == name);
+            return containsItem;
+        }
+
+        public static int timeline_count(string name)
+        {
+            return all_time_lines[all_time_lines.FindIndex(x => x.Name == name)].Count;
         }
     }
 }

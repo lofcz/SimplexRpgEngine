@@ -40,6 +40,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)SgmlShader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlSprite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlSystem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SgmlTimelines.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlVideo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ShaderDescriptor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SimplexProjectStructure.cs" />

@@ -24,11 +24,7 @@ namespace SimplexCore
         }
 
         public static SoundEffectInstance audio_play(string sound, float volume = 1, bool loop = false)
-        {
-            StackTrace stackTrace = new StackTrace();
-            
-            Debug.WriteLine(stackTrace.GetFrame(1).GetMethod().Name);
-            
+        {            
             SoundEffectInstance s = audio_get(sound).Source.CreateInstance();
             
             s.IsLooped = loop;
