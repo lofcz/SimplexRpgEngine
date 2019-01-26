@@ -561,24 +561,26 @@ namespace SimplexIde
         private void spritesManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // open sprites manager
-            if (SpritesManager != null)
+            if (currentProject != null)
             {
-                SpritesManager.Close();
-            }
+                if (SpritesManager != null)
+                {
+                    SpritesManager.Close();
+                }
 
-            if (SpritesManager == null)
-            {
-                SpritesManager = new Sprites_manager();
-                SpritesManager.Owner = this;
-                SpritesManager.owner = this;
-                SpritesManager.StartPosition = FormStartPosition.CenterScreen;
-                SpritesManager.Show();
+                if (SpritesManager == null)
+                {
+                    SpritesManager = new Sprites_manager();
+                    SpritesManager.Owner = this;
+                    SpritesManager.owner = this;
+                    SpritesManager.StartPosition = FormStartPosition.CenterScreen;
+                    SpritesManager.Show();
+                }
+                else
+                {
+                    SpritesManager.Show();
+                }
             }
-            else
-            {
-                SpritesManager.Show();
-            }
-
         }
 
 

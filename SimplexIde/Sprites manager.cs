@@ -58,91 +58,96 @@ namespace SimplexIde
 
         private void Sprites_manager_Load(object sender, EventArgs e)
         {
-            owner.drawTest1.UpdateRunning = false;
-
-            // first we load descriptor for all sprites
-            // Sprites = JsonConvert.DeserializeObject<List<Spritesheet>>(new StreamReader("../../../SimplexRpgEngine3/SpritesDescriptor.json").ReadToEnd());
-            var item0 = new DarkDropdownItem("Autotiling");
-            darkDropdownList2.Items.Add(item0);
-            darkDropdownList2.Items.Add(new DarkDropdownItem("Prefabs"));
-            darkDropdownList2.Items.Add(new DarkDropdownItem("Instancemasking"));
-            darkDropdownList2.SelectedItem = item0;
-
-            string[] extensions = { ".png", ".jpg", ".jpeg", ".gif" };
-            foreach (string file in Directory.EnumerateFiles( owner.currentProject.RootPath + "/Content/bin/Windows/Sprites/", "*.xnb*"))
+            if (owner.currentProject != null)
             {
-                string name = Path.GetFileNameWithoutExtension(file);
+                owner.drawTest1.UpdateRunning = false;
 
-                if (owner.drawTest1.Sprites.FindIndex(x => x.Name == name) != -1)
+                // first we load descriptor for all sprites
+                // Sprites = JsonConvert.DeserializeObject<List<Spritesheet>>(new StreamReader("../../../SimplexRpgEngine3/SpritesDescriptor.json").ReadToEnd());
+                var item0 = new DarkDropdownItem("Autotiling");
+                darkDropdownList2.Items.Add(item0);
+                darkDropdownList2.Items.Add(new DarkDropdownItem("Prefabs"));
+                darkDropdownList2.Items.Add(new DarkDropdownItem("Instancemasking"));
+                darkDropdownList2.SelectedItem = item0;
+
+                string[] extensions = {".png", ".jpg", ".jpeg", ".gif"};
+                foreach (string file in Directory.EnumerateFiles(owner.currentProject.RootPath + "/Content/bin/Windows/Sprites/", "*.xnb*"))
                 {
-                    okEntries.Add(name);
+                    string name = Path.GetFileNameWithoutExtension(file);
+
+                    if (owner.drawTest1.Sprites.FindIndex(x => x.Name == name) != -1)
+                    {
+                        okEntries.Add(name);
+                    }
+                    else
+                    {
+                        badEntries.Add(name);
+                    }
                 }
-                else
+
+                spritesEditorRenderer1.mainForm = RoomEditor;
+                spritesEditorRenderer1.parentForm = this;
+
+                DarkTreeNode dtn = new DarkTreeNode("Sprites");
+                dtn.Icon = (Bitmap) Properties.Resources.Folder_16x;
+                dtn.Tag = "folder";
+                darkTreeView1.Nodes.Add(dtn);
+
+                DarkTreeNode dtn2 = new DarkTreeNode("Tilesets");
+                dtn2.Icon = (Bitmap) Properties.Resources.Folder_16x;
+                dtn2.Tag = "folder";
+                darkTreeView1.Nodes.Add(dtn2);
+
+                var newList = okEntries.Concat(badEntries);
+                foreach (string s in newList)
                 {
-                    badEntries.Add(name);
+                    DarkTreeNode d = new DarkTreeNode(s);
+                    d.Tag = "item";
+                    d.Icon = (Bitmap) Properties.Resources.EditCommandColumn_ActionGray_16x_32;
+
+                    if (okEntries.FindIndex(x => x == d.Text) != -1)
+                    {
+                        d.Icon = (Bitmap) Properties.Resources.Checkmark_16x;
+                    }
+
+                    darkTreeView1.Nodes[0].Nodes.Add(d);
                 }
+
+                okEntries.Clear();
+                badEntries.Clear();
+                // load tilesets
+                foreach (string file in Directory.EnumerateFiles(owner.currentProject.RootPath + "/Content/bin/Windows/Sprites/Tilesets/", "*.xnb*"))
+                {
+                    string name = Path.GetFileNameWithoutExtension(file);
+
+                    if (owner.drawTest1.Sprites.FindIndex(x => x.Name == name) != -1)
+                    {
+                        okEntries.Add(name);
+                    }
+                    else
+                    {
+                        badEntries.Add(name);
+                    }
+                }
+
+                newList = okEntries.Concat(badEntries);
+                foreach (string s in newList)
+                {
+                    DarkTreeNode d = new DarkTreeNode(s);
+                    d.Tag = "item";
+                    d.Icon = (Bitmap) Properties.Resources.EditCommandColumn_ActionGray_16x_32;
+
+                    if (okEntries.FindIndex(x => x == d.Text) != -1)
+                    {
+                        d.Icon = (Bitmap) Properties.Resources.Checkmark_16x;
+                    }
+
+                    darkTreeView1.Nodes[1].Nodes.Add(d);
+                }
+
+                darkTreeView1.Nodes[0].Expanded = true;
+                darkTreeView1.Nodes[1].Expanded = true;
             }
-
-            spritesEditorRenderer1.mainForm = RoomEditor;
-            spritesEditorRenderer1.parentForm = this;
-
-            DarkTreeNode dtn = new DarkTreeNode("Sprites");
-            dtn.Icon = (Bitmap) Properties.Resources.Folder_16x;
-            dtn.Tag = "folder";
-            darkTreeView1.Nodes.Add(dtn);
-
-            DarkTreeNode dtn2 = new DarkTreeNode("Tilesets");
-            dtn2.Icon = (Bitmap)Properties.Resources.Folder_16x;
-            dtn2.Tag = "folder";
-            darkTreeView1.Nodes.Add(dtn2);
-
-            var newList = okEntries.Concat(badEntries);
-            foreach (string s in newList)
-            {               
-                DarkTreeNode d = new DarkTreeNode(s);
-                d.Tag = "item";
-                d.Icon = (Bitmap)Properties.Resources.EditCommandColumn_ActionGray_16x_32;
-
-                if (okEntries.FindIndex(x => x == d.Text) != -1)
-                {
-                    d.Icon = (Bitmap) Properties.Resources.Checkmark_16x;
-                }
-                darkTreeView1.Nodes[0].Nodes.Add(d);
-            }
-
-            okEntries.Clear();
-            badEntries.Clear();
-            // load tilesets
-            foreach (string file in Directory.EnumerateFiles( owner.currentProject.RootPath + "/Content/bin/Windows/Sprites/Tilesets/", "*.xnb*"))
-            {
-                string name = Path.GetFileNameWithoutExtension(file);
-
-                if (owner.drawTest1.Sprites.FindIndex(x => x.Name == name) != -1)
-                {
-                    okEntries.Add(name);
-                }
-                else
-                {
-                    badEntries.Add(name);
-                }
-            }
-
-            newList = okEntries.Concat(badEntries);
-            foreach (string s in newList)
-            {
-                DarkTreeNode d = new DarkTreeNode(s);
-                d.Tag = "item";
-                d.Icon = (Bitmap)Properties.Resources.EditCommandColumn_ActionGray_16x_32;
-
-                if (okEntries.FindIndex(x => x == d.Text) != -1)
-                {
-                    d.Icon = (Bitmap)Properties.Resources.Checkmark_16x;
-                }
-                darkTreeView1.Nodes[1].Nodes.Add(d);
-            }
-
-            darkTreeView1.Nodes[0].Expanded = true;
-            darkTreeView1.Nodes[1].Expanded = true;
         }
 
         private void darkTreeView1_Click(object sender, EventArgs e)
