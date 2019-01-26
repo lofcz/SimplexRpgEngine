@@ -673,5 +673,10 @@ namespace SimplexIde
         {
 
         }
+
+        private void DarkContextMenu1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
     }
 }

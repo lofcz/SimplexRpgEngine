@@ -138,7 +138,7 @@ namespace SimplexIde
             {
                 DarkTreeNode dtn = darkTreeView1.SelectedNodes[0];
 
-                if (dtn.Icon != Resources.Folder_16x)
+                if (dtn.Icon != Resources.Folder_16x && (string)dtn.Tag != "folder")
                 {
                     darkContextMenu1.Show(Cursor.Position);
                     lastNode = dtn;
@@ -201,6 +201,10 @@ namespace SimplexIde
             // Launch new edit code window
             ScriptEditor se = new ScriptEditor();
             se.Text = "Code editor - " + lastNode.Text;
+
+            se.scintilla.Text = File.ReadAllText(Path.GetFullPath(form1.currentProject.RootPath + "/Objects/" + lastNode.Text + ".cs"));
+
+            
             se.Show();
         }
 
