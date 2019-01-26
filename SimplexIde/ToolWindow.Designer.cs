@@ -36,11 +36,11 @@
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
             this.darkContextMenu1 = new DarkUI.Controls.DarkContextMenu();
+            this.insertFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.insertNewObjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.renameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.insertFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darkContextMenu2 = new DarkUI.Controls.DarkContextMenu();
             this.renameToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,12 +57,12 @@
             // 
             this.darkTreeView1.AllowMoveNodes = true;
             this.darkTreeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.darkTreeView1.Location = new System.Drawing.Point(0, 31);
-            this.darkTreeView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.darkTreeView1.Location = new System.Drawing.Point(0, 25);
+            this.darkTreeView1.Margin = new System.Windows.Forms.Padding(4);
             this.darkTreeView1.MaxDragChange = 20;
             this.darkTreeView1.Name = "darkTreeView1";
             this.darkTreeView1.ShowIcons = true;
-            this.darkTreeView1.Size = new System.Drawing.Size(397, 486);
+            this.darkTreeView1.Size = new System.Drawing.Size(496, 621);
             this.darkTreeView1.TabIndex = 0;
             this.darkTreeView1.Text = "darkTreeView1";
             this.darkTreeView1.SelectedNodesChanged += new System.EventHandler(this.darkTreeView1_SelectedNodesChanged);
@@ -82,11 +82,11 @@
             this.toolStripButton1,
             this.toolStripTextBox1,
             this.toolStripTextBox2});
-            this.darkToolStrip1.Location = new System.Drawing.Point(0, 443);
+            this.darkToolStrip1.Location = new System.Drawing.Point(0, 572);
             this.darkToolStrip1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 123);
             this.darkToolStrip1.Name = "darkToolStrip1";
             this.darkToolStrip1.Padding = new System.Windows.Forms.Padding(0);
-            this.darkToolStrip1.Size = new System.Drawing.Size(397, 38);
+            this.darkToolStrip1.Size = new System.Drawing.Size(496, 38);
             this.darkToolStrip1.TabIndex = 1;
             this.darkToolStrip1.Text = "darkToolStrip1";
             // 
@@ -132,12 +132,21 @@
             this.darkContextMenu1.Size = new System.Drawing.Size(161, 124);
             this.darkContextMenu1.Opening += new System.ComponentModel.CancelEventHandler(this.darkContextMenu1_Opening);
             // 
+            // insertFolderToolStripMenuItem
+            // 
+            this.insertFolderToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.insertFolderToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.insertFolderToolStripMenuItem.Name = "insertFolderToolStripMenuItem";
+            this.insertFolderToolStripMenuItem.Size = new System.Drawing.Size(160, 24);
+            this.insertFolderToolStripMenuItem.Text = "Insert folder";
+            this.insertFolderToolStripMenuItem.Click += new System.EventHandler(this.InsertFolderToolStripMenuItem_Click);
+            // 
             // insertNewObjectToolStripMenuItem
             // 
             this.insertNewObjectToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.insertNewObjectToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.insertNewObjectToolStripMenuItem.Name = "insertNewObjectToolStripMenuItem";
-            this.insertNewObjectToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.insertNewObjectToolStripMenuItem.Size = new System.Drawing.Size(160, 24);
             this.insertNewObjectToolStripMenuItem.Text = "Insert object";
             this.insertNewObjectToolStripMenuItem.Click += new System.EventHandler(this.insertNewObjectToolStripMenuItem_Click);
             // 
@@ -146,7 +155,7 @@
             this.editCodeToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.editCodeToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.editCodeToolStripMenuItem.Name = "editCodeToolStripMenuItem";
-            this.editCodeToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.editCodeToolStripMenuItem.Size = new System.Drawing.Size(160, 24);
             this.editCodeToolStripMenuItem.Text = "Edit code";
             this.editCodeToolStripMenuItem.Click += new System.EventHandler(this.editCodeToolStripMenuItem_Click);
             // 
@@ -155,7 +164,7 @@
             this.renameToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.renameToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
-            this.renameToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.renameToolStripMenuItem.Size = new System.Drawing.Size(160, 24);
             this.renameToolStripMenuItem.Text = "Rename";
             this.renameToolStripMenuItem.Click += new System.EventHandler(this.renameToolStripMenuItem_Click);
             // 
@@ -164,17 +173,8 @@
             this.deleteToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.deleteToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(160, 24);
             this.deleteToolStripMenuItem.Text = "Delete";
-            // 
-            // insertFolderToolStripMenuItem
-            // 
-            this.insertFolderToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-            this.insertFolderToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.insertFolderToolStripMenuItem.Name = "insertFolderToolStripMenuItem";
-            this.insertFolderToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
-            this.insertFolderToolStripMenuItem.Text = "Insert folder";
-            this.insertFolderToolStripMenuItem.Click += new System.EventHandler(this.InsertFolderToolStripMenuItem_Click);
             // 
             // darkContextMenu2
             // 
@@ -211,9 +211,9 @@
             this.Controls.Add(this.darkTreeView1);
             this.DockText = "Project Explorer";
             this.Icon = global::SimplexIde.Properties.Resources.Noname;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ToolWindow";
-            this.Size = new System.Drawing.Size(397, 517);
+            this.Size = new System.Drawing.Size(496, 646);
             this.Load += new System.EventHandler(this.ToolWindow_Load);
             this.darkToolStrip1.ResumeLayout(false);
             this.darkToolStrip1.PerformLayout();
