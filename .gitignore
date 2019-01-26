@@ -1,4 +1,9 @@
 [Oo]bj
+.vs/
+.idea/
+*.ide-wal
+*.ide-shm
+*.ide
 *.simplexcache
 *.user
 *.suo
