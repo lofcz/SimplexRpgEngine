@@ -198,20 +198,20 @@ namespace SimplexIde
 
         private void editCodeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Launch new edit code window
-            ScriptEditor se = new ScriptEditor();
-            se.Text = "Code editor - " + lastNode.Text;
-
-            if (File.Exists(Path.GetFullPath(form1.currentProject.RootPath + "/Objects/" + lastNode.Text + ".cs")))
+            if (form1.currentProject != null && File.Exists(Path.GetFullPath(form1.currentProject.RootPath + "/Objects/" + lastNode.Text + ".cs")))
             {
+                // Launch new edit code window
+                ScriptEditor se = new ScriptEditor();
+                se.Text = "Code editor - " + lastNode.Text;
                 se.scintilla.Text = File.ReadAllText(Path.GetFullPath(form1.currentProject.RootPath + "/Objects/" + lastNode.Text + ".cs"));
+                se.Show();
             }
             else
             {
                 DarkMessageBox.Show("No code found for the object - class doesn't exist", "Simplex Engine");
             }
 
-            se.Show();
+
         }
 
         private void darkContextMenu1_Opening(object sender, CancelEventArgs e)
