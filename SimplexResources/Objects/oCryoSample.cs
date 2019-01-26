@@ -10,6 +10,7 @@ using MonoGame.Extended;
 using SimplexCore;
 using static SimplexCore.Sgml;
 using Microsoft.Xna.Framework.Graphics;
+using SimplexIde;
 
 namespace SimplexResources.Objects
 {
@@ -22,12 +23,17 @@ namespace SimplexResources.Objects
 
         public override void EvtCreate()
         {
-            SoundEffectInstance sfi =  audio_play("sndGem1");
+            timeline_add("random name");
         }
 
         public override void EvtStep()
         {
-            
+            UpdateState();
+
+            if (timeline_count("random name") == 300)
+            {
+                Debug.WriteLine("pindík");
+            }
         }
 
         public override void EvtDraw()

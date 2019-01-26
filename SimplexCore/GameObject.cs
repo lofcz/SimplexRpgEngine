@@ -334,6 +334,12 @@ namespace SimplexCore
         // Public state events  
         public void UpdateState()
         {
+            // Update timelines
+            foreach (TimeLines line in all_time_lines)
+            {
+                line.Count++;
+            }
+            
             // Update alarms
             for (var i = 0; i < 16; i++)
             {
