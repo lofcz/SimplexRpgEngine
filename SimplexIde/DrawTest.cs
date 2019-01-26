@@ -14,6 +14,7 @@ using System.Xml.Serialization;
 using DarkUI.Collections;
 using DarkUI.Controls;
 using DarkUI.Docking;
+using DarkUI.Forms;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
@@ -1433,81 +1434,95 @@ namespace SimplexIde
                                 {
                                     if (Sgml.PlaceEmpty(vec))
                                     {
-                                        if (selectedLayer != null && SelectedObject != null &&
-                                            selectedLayer.GetType() == typeof(ObjectLayer))
+                                        if (SelectedObject != null)
                                         {
-                                            GameObject o = (GameObject) Activator.CreateInstance(SelectedObject);
-
-                                            Spritesheet s = new Spritesheet();
-                                            if (o.Sprite != null)
+                                            if (selectedLayer != null && selectedLayer.GetType() == typeof(ObjectLayer))
                                             {
-                                                s = Sprites.FirstOrDefault(x => x.Name == o.Sprite.TextureSource);
-                                            }
+                                                GameObject o = (GameObject)Activator.CreateInstance(SelectedObject);
 
-                                            if (!cmsOpen && SelectedObject != null)
-                                            {
-                                                if (stackedSteps.Count > 31)
+                                                Spritesheet s = new Spritesheet();
+                                                if (o.Sprite != null)
                                                 {
-                                                    stackedSteps.Pop();
+                                                    s = Sprites.FirstOrDefault(x => x.Name == o.Sprite.TextureSource);
                                                 }
 
-                                                stackedSteps.Push(SceneObjects.ToList());
-                                                editorForm.updateStack(stackedSteps.Count);
-
-                                                o.OriginalType = SelectedObject;
-                                                o.TypeString = SelectedObject.ToString();
-
-                                                if (s == null)
+                                                if (!cmsOpen && SelectedObject != null)
                                                 {
-                                                    Texture2D tx = ConvertToTexture(Properties.Resources.Question_16x,
-                                                        GraphicsDevice);
+                                                    if (stackedSteps.Count > 31)
+                                                    {
+                                                        stackedSteps.Pop();
+                                                    }
+
+                                                    stackedSteps.Push(SceneObjects.ToList());
+                                                    editorForm.updateStack(stackedSteps.Count);
+
+                                                    o.OriginalType = SelectedObject;
+                                                    o.TypeString = SelectedObject.ToString();
+
+                                                    if (s == null)
+                                                    {
+                                                        Texture2D tx = ConvertToTexture(Properties.Resources.Question_16x,
+                                                            GraphicsDevice);
 
 
-                                                    o.Sprite = new Sprite();
-                                                    o.Sprite.Texture = tx;
-                                                    o.Sprite.ImageRectangle =
-                                                        new Microsoft.Xna.Framework.Rectangle(0, 0, 16, 16);
-                                                }
-                                                else
-                                                {
-                                                    o.Sprite.Texture = s.Texture;
+                                                        o.Sprite = new Sprite();
+                                                        o.Sprite.Texture = tx;
+                                                        o.Sprite.ImageRectangle =
+                                                            new Microsoft.Xna.Framework.Rectangle(0, 0, 16, 16);
+                                                    }
+                                                    else
+                                                    {
+                                                        o.Sprite.Texture = s.Texture;
+                                                        o.Sprite.ImageRectangle =
+                                                            new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth,
+                                                                s.CellHeight);
+                                                    }
+
+                                                    o.Sprite.TextureRows = s.Rows;
+                                                    o.Sprite.TextureCellsPerRow = s.Texture.Width / s.CellWidth;
+                                                    o.Sprite.ImageSize = new Vector2(s.CellWidth, s.CellHeight);
+                                                    o.Sprite.FramesCount =
+                                                        Math.Max(
+                                                            (s.Texture.Width / s.CellWidth) *
+                                                            (s.Texture.Height / s.CellHeight) - 1, 1);
+                                                    o.FramesCount = Math.Max(o.Sprite.FramesCount - 1, 1);
+                                                    o.Sprite.cellW = s.CellHeight;
+                                                    o.Sprite.cellH = s.CellWidth;
+
+                                                    o.Position = new Vector2(vec.X, vec.Y);
                                                     o.Sprite.ImageRectangle =
                                                         new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth,
                                                             s.CellHeight);
+                                                    o.LayerName = selectedLayer.Name;
+                                                    o.Layer = (ObjectLayer)selectedLayer;
+
+                                                    Sgml.currentObject = o;
+                                                    o.EvtCreate();
+                                                    o.EvtCreateEnd();
+
+                                                    o.Layer.Objects.Add(o);
+                                                    SceneObjects.Add(o);
+                                                    sh.RegisterObject(o);
+
                                                 }
 
-                                                o.Sprite.TextureRows = s.Rows;
-                                                o.Sprite.TextureCellsPerRow = s.Texture.Width / s.CellWidth;
-                                                o.Sprite.ImageSize = new Vector2(s.CellWidth, s.CellHeight);
-                                                o.Sprite.FramesCount =
-                                                    Math.Max(
-                                                        (s.Texture.Width / s.CellWidth) *
-                                                        (s.Texture.Height / s.CellHeight) - 1, 1);
-                                                o.FramesCount = Math.Max(o.Sprite.FramesCount - 1, 1);
-                                                o.Sprite.cellW = s.CellHeight;
-                                                o.Sprite.cellH = s.CellWidth;
-
-                                                o.Position = new Vector2(vec.X, vec.Y);
-                                                o.Sprite.ImageRectangle =
-                                                    new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth,
-                                                        s.CellHeight);
-                                                o.LayerName = selectedLayer.Name;
-                                                o.Layer = (ObjectLayer) selectedLayer;
-
-                                                Sgml.currentObject = o;
-                                                o.EvtCreate();
-                                                o.EvtCreateEnd();
-
-                                                o.Layer.Objects.Add(o);
-                                                SceneObjects.Add(o);
-                                                sh.RegisterObject(o);
-
+                                                if (!ks.IsKeyDown(Keys.LeftShift))
+                                                {
+                                                    clickedObject = o;
+                                                    lastClickedObject = o;
+                                                }
                                             }
-
-                                            if (!ks.IsKeyDown(Keys.LeftShift))
+                                            else
                                             {
-                                                clickedObject = o;
-                                                lastClickedObject = o;
+                                                if (selectedLayer == null)
+                                                {
+                                                    DarkMessageBox.Show("Select a layer to place instances", "Simplex Engine");
+                                                }
+                                                else 
+                                                {
+                                                    DarkMessageBox.Show("Object instances can only be placed when object layer is selected. ", "Simplex Engine");
+                                                }
+                                                
                                             }
 
 
