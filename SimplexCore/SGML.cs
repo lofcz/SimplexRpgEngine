@@ -61,28 +61,11 @@ namespace SimplexCore
         {
             foreach (GameObject g in SceneObjects)
             {
-                if (g.ImageAngle == 0)
-                { 
-                    Rectangle r = new Rectangle((int)(g.Position.X - (g.ImageOrigin.X * g.ImageScale.X)), (int)(g.Position.Y - (g.ImageOrigin.Y * g.ImageScale.Y)), (int)(g.Sprite.ImageRectangle.Width * g.ImageScale.X), (int)(g.Sprite.ImageRectangle.Height * g.ImageScale.Y));
-                    if (r.Contains(position))
-                    {
-                        return false;
-                    }
-                }
-                else
+                if (g.CollidingWithPoint(position))
                 {
-                   // Rectangle r = new Rectangle((int)(g.Position.X + g.ImageOrigin.X * g.ImageScale.X), (int)(g.Position.Y + g.ImageOrigin.Y * g.ImageScale.Y), (int)(g.Sprite.ImageRectangle.Width * g.ImageScale.X), (int)(g.Sprite.ImageRectangle.Height * g.ImageScale.Y));
-                   // RotatedRectangle rr = rectangle_rotate(r, new Vector2(g.ImageOrigin.X * g.ImageScale.X, g.ImageOrigin.Y * g.ImageScale.Y), g.ImageAngle);
-                   // g.rr = rr;
-                   // rotate the point back
-                  // position = rotate_vector2(position, g.ImageOrigin, -g.ImageAngle);
-
-                //  g.rr = rr;
-                    if (g.rr.Contains(position))
-                    {
-                        return false;
-                    }
+                    return false;
                 }
+
             }
 
             return true;

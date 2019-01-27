@@ -34,7 +34,73 @@ namespace SimplexCore
         
         [XmlIgnore]
         public Sprite Sprite;
-        public Vector2 Position;
+
+        private Vector2 _position;
+        private float x;
+        private float y;
+
+        public float X
+        {
+            get => x;
+            set
+            {
+                x = value;
+                _position.X = value;
+
+                if (ImageAngle == 0)
+                {
+                    UpdateRectangle();
+                }
+                else
+                {
+                    UpdateRotatedRectangle();
+                }
+
+                PositionPrevious = Position;
+            }
+        }
+
+        public float Y
+        {
+            get => y;
+            set
+            {
+                y = value;
+                _position.Y = value;
+
+                if (ImageAngle == 0)
+                {
+                    UpdateRectangle();
+                }
+                else
+                {
+                    UpdateRotatedRectangle();
+                }
+
+                PositionPrevious = Position;
+            }
+        }
+
+
+        public Vector2 Position
+        {
+            get => _position;
+            set
+            {
+                _position = value;
+
+                if (ImageAngle == 0)
+                {
+                    UpdateRectangle();
+                }
+                else
+                {
+                    UpdateRotatedRectangle();
+                }
+
+                PositionPrevious = Position;
+            }
+        }
 
         [XmlIgnore]
         public Type OriginalType;
@@ -94,7 +160,6 @@ namespace SimplexCore
         [XmlIgnore]
         public RotatedRectangle rr = new RotatedRectangle(Vector2.One, Vector2.One, Vector2.One, Vector2.One);
 
-
         [XmlIgnore]
         public List<ColliderBase> Colliders = new List<ColliderBase>();
 
@@ -118,6 +183,36 @@ namespace SimplexCore
         [XmlIgnore]
         public Vector2 TempPosition = Vector2.Zero;
 
+        void UpdateRectangle()
+        {
+            CollisionContainer.X = (int)(Position.X - (ImageOrigin.X * ImageScale.X));
+            CollisionContainer.Y = (int)(Position.Y - (ImageOrigin.Y * ImageScale.Y));
+            CollisionContainer.Width = (int) (Sprite.ImageRectangle.Width * ImageScale.X);
+            CollisionContainer.Height = (int)(Sprite.ImageRectangle.Height * ImageScale.Y);
+
+        }
+
+        public bool CollidingWithPoint(Vector2 point)
+        {
+            if (ImageAngle == 0)
+            {
+                return CollisionContainer.Contains(point);
+            }
+
+            return rr.Contains(point);
+        }
+
+        void UpdateRotatedRectangle()
+        {
+            float xdif = Position.X - PositionPrevious.X;
+            float ydif = Position.Y - PositionPrevious.Y;
+
+            rr.Point1 = new Vector2(rr.Point1.X + xdif, rr.Point1.Y + ydif);
+            rr.Point2 = new Vector2(rr.Point2.X + xdif, rr.Point2.Y + ydif);
+            rr.Point3 = new Vector2(rr.Point3.X + xdif, rr.Point3.Y + ydif);
+            rr.Point4 = new Vector2(rr.Point4.X + xdif, rr.Point4.Y + ydif);
+        }
+
         public GameObject()
         {
             ImageScale = Vector2.One;
@@ -136,7 +231,15 @@ namespace SimplexCore
             Friction = 0;
             Direction = 0;
             Id = Guid.NewGuid();
-            
+
+            if (ImageAngle == 0)
+            {
+                UpdateRectangle();
+            }
+            else
+            {
+                UpdateRotatedRectangle();
+            }
         }
 
 

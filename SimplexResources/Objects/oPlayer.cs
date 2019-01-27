@@ -49,8 +49,8 @@ namespace SimplexResources.Objects
                 return irandom(10);
             }
 
-            Position.X = helper();
-            Position.Y = helper();
+            X = helper();
+            Y = helper();
 
         }
 
@@ -109,7 +109,7 @@ namespace SimplexResources.Objects
                 bR.X += (float)speed;
                 if (PlaceEmptyRectangle(bR))
                 {
-                    Position.X += (float) speed;
+                    X += (float) speed;
                 }
 
                 LastImageIndex = ImageIndex;
@@ -123,7 +123,7 @@ namespace SimplexResources.Objects
                 bR.X -= (float)speed;
                 if (PlaceEmptyRectangle(bR))
                 {
-                    Position.X -= (float) speed;
+                    X -= (float) speed;
                 }
 
                 LastImageIndex = ImageIndex;
@@ -137,7 +137,7 @@ namespace SimplexResources.Objects
                 bR.Y -= (float)speed;
                 if (PlaceEmptyRectangle(bR))
                 {
-                    Position.Y -= (float) speed;
+                    Y -= (float) speed;
                 }
 
                 LastImageIndex = ImageIndex;
@@ -151,7 +151,7 @@ namespace SimplexResources.Objects
                 bR.Y += (float)speed;
                 if (PlaceEmptyRectangle(bR))
                 {
-                    Position.Y += (float) speed;
+                    Y += (float) speed;
                 }
 
                 LastImageIndex = ImageIndex;

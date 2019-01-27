@@ -7,13 +7,6 @@
   },
   "Objects": [
     {
-      "name": "EditSample",
-      "path": "Objects/Actors",
-      "tag": null,
-      "tagColor": "Gainsboro",
-      "nameColor": "Gainsboro"
-    },
-    {
       "name": "oGeorgeNew",
       "path": "Objects/Actors",
       "tag": "[WIP]",
@@ -21,7 +14,7 @@
       "nameColor": "255, 128, 64"
     },
     {
-      "name": "AnotherObject",
+      "name": "EditSample",
       "path": "Objects/Actors",
       "tag": null,
       "tagColor": "Gainsboro",
@@ -29,6 +22,13 @@
     },
     {
       "name": "oCryoSample",
+      "path": "Objects/Actors",
+      "tag": null,
+      "tagColor": "Gainsboro",
+      "nameColor": "Gainsboro"
+    },
+    {
+      "name": "AnotherObject",
       "path": "Objects/Actors",
       "tag": null,
       "tagColor": "Gainsboro",

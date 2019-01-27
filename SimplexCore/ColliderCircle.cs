@@ -33,11 +33,11 @@ namespace SimplexCore
             double ex = (a.Position.X - b.Position.X) / dis;
             double ey = (a.Position.Y - b.Position.Y) / dis;
 
-            a.GameObject.Position.X -= (float)(overlapDisOverTwo * ex);
-            a.GameObject.Position.Y -= (float)(overlapDisOverTwo * ey);
+            a.GameObject.X -= (float)(overlapDisOverTwo * ex);
+            a.GameObject.Y -= (float)(overlapDisOverTwo * ey);
 
-            b.GameObject.Position.X += (float)(overlapDisOverTwo * ex);
-            b.GameObject.Position.Y += (float)(overlapDisOverTwo * ey);
+            b.GameObject.X += (float)(overlapDisOverTwo * ex);
+            b.GameObject.Y += (float)(overlapDisOverTwo * ey);
         }
 
         public static void ResolveCircleCircleCollisionElastic(GameObject a, GameObject b, ColliderCircle c1, ColliderCircle c2)
@@ -55,10 +55,10 @@ namespace SimplexCore
             b.Velocity.X = (b.Velocity.X * (float)(a.Mass - b.Mass) + (2 * (float)b.Mass * a.Velocity.X)) / (float)(a.Mass + b.Mass);
             b.Velocity.Y = (b.Velocity.Y * (float)(a.Mass - b.Mass) + (2 * (float)b.Mass * a.Velocity.Y)) / (float)(a.Mass + b.Mass);
 
-            a.Position.X += a.Velocity.X;
-            a.Position.Y += a.Velocity.Y;
-            b.Position.X += b.Velocity.X;
-            b.Position.Y += b.Velocity.Y;
+            a.X += a.Velocity.X;
+            a.Y += a.Velocity.Y;
+            b.X += b.Velocity.X;
+            b.Y += b.Velocity.Y;
         }
 
         public static CollisionInfo CircleCircleCollision(ColliderCircle a, ColliderCircle b)

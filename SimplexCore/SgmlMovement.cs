@@ -11,8 +11,8 @@ namespace SimplexCore
         public static void move_towards_point(Vector2 point, double pixels)
         {
             var dir = point_direction(currentObject.Position, point);
-            currentObject.Position.X += (float)lengthdir_x(pixels, dir);
-            currentObject.Position.Y += (float)lengthdir_y(pixels, dir);
+            currentObject.X += (float)lengthdir_x(pixels, dir);
+            currentObject.Y += (float)lengthdir_y(pixels, dir);
         }
 
         public static void move_random(Vector2 cellSize)
@@ -25,10 +25,10 @@ namespace SimplexCore
             int xp = (int)currentObject.Position.X / (int)cellSize.X;
             int yp = (int)currentObject.Position.Y / (int)cellSize.Y;
 
-            currentObject.Position.X = xp;
-            currentObject.Position.Y = yp;
-            currentObject.Position.X *= (int)cellSize.X;
-            currentObject.Position.Y *= (int)cellSize.Y;
+            currentObject.X = xp;
+            currentObject.Y = yp;
+            currentObject.X *= (int)cellSize.X;
+            currentObject.Y *= (int)cellSize.Y;
         }
 
         public static bool place_snapped(Vector2 cellSize)
@@ -59,8 +59,8 @@ namespace SimplexCore
                 var y = lengthdir_y(1, currentObject.Direction);
 
                //
-                currentObject.Position.X = currentRoom.Size.X - currentObject.Position.X;
-                currentObject.Position.Y = currentRoom.Size.Y - currentObject.Position.Y;
+                currentObject.X = currentRoom.Size.X - currentObject.Position.X;
+                currentObject.Y = currentRoom.Size.Y - currentObject.Position.Y;
 
             }
         }
@@ -110,11 +110,11 @@ namespace SimplexCore
 
                     if (rect2.Y <= currentObject.Position.Y)
                     {
-                        currentObject.Position.Y -= (float)currentObject.Speed;
+                        currentObject.Y -= (float)currentObject.Speed;
                     }
                     else
                     {
-                        currentObject.Position.Y += (float)currentObject.Speed;
+                        currentObject.Y += (float)currentObject.Speed;
                     }
                 }
             }

@@ -123,10 +123,6 @@
         <Running>false</Running>
       </AlarmStruct>
     </Alarms>
-    <Position>
-      <X>748</X>
-      <Y>451</Y>
-    </Position>
     <TypeString>SimplexResources.Objects.AnotherObject</TypeString>
     <ImageAngle>0</ImageAngle>
     <ImageAngleTarget>0</ImageAngleTarget>
@@ -167,6 +163,12 @@
       <X>0</X>
       <Y>0</Y>
     </ImageOrigin>
+    <X>0</X>
+    <Y>0</Y>
+    <Position>
+      <X>748</X>
+      <Y>451</Y>
+    </Position>
     <ImageIndex>-1</ImageIndex>
   </GameObject>
   <GameObject xsi:type="AnotherObject">
@@ -236,10 +238,6 @@
         <Running>false</Running>
       </AlarmStruct>
     </Alarms>
-    <Position>
-      <X>446</X>
-      <Y>288</Y>
-    </Position>
     <TypeString>SimplexResources.Objects.AnotherObject</TypeString>
     <ImageAngle>0</ImageAngle>
     <ImageAngleTarget>0</ImageAngleTarget>
@@ -280,6 +278,12 @@
       <X>0</X>
       <Y>0</Y>
     </ImageOrigin>
+    <X>0</X>
+    <Y>0</Y>
+    <Position>
+      <X>446</X>
+      <Y>288</Y>
+    </Position>
     <ImageIndex>-1</ImageIndex>
   </GameObject>
   <GameObject xsi:type="AnotherObject">
@@ -349,10 +353,6 @@
         <Running>false</Running>
       </AlarmStruct>
     </Alarms>
-    <Position>
-      <X>610</X>
-      <Y>215</Y>
-    </Position>
     <TypeString>SimplexResources.Objects.AnotherObject</TypeString>
     <ImageAngle>0</ImageAngle>
     <ImageAngleTarget>0</ImageAngleTarget>
@@ -393,6 +393,12 @@
       <X>0</X>
       <Y>0</Y>
     </ImageOrigin>
+    <X>0</X>
+    <Y>0</Y>
+    <Position>
+      <X>610</X>
+      <Y>215</Y>
+    </Position>
     <ImageIndex>-1</ImageIndex>
   </GameObject>
 </Root>

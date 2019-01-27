@@ -11,6 +11,7 @@ namespace SimplexCore
         public Vector2 Point2 { get; set; }
         public Vector2 Point3 { get; set; }
         public Vector2 Point4 { get; set; }
+        public float Angle { get; set; }
 
         public RotatedRectangle(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4)
         {

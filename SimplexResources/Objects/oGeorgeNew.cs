@@ -115,7 +115,7 @@ namespace SimplexResources.Objects
 
                 if (instance_place(new Vector2(Position.X, Position.Y - speed), typeof(oSolidMask)) == null)
                 {
-                    Position.Y -= speed;
+                    Y -= speed;
                 }
             }
             else if (keyboard_check(Keys.S))
@@ -124,7 +124,7 @@ namespace SimplexResources.Objects
 
                 if (instance_place(new Vector2(Position.X, Position.Y + speed), typeof(oSolidMask)) == null)
                 {
-                    Position.Y += speed;
+                    Y += speed;
                 }
 
                 ImageSpeed = imgSpd;
@@ -135,7 +135,7 @@ namespace SimplexResources.Objects
 
                 if (instance_place(new Vector2(Position.X - speed, Position.Y), typeof(oSolidMask)) == null)
                 {
-                    Position.X -= speed;
+                    X -= speed;
                 }
 
                 ImageSpeed = imgSpd;
@@ -146,7 +146,7 @@ namespace SimplexResources.Objects
 
                 if (instance_place(new Vector2(Position.X + speed, Position.Y), typeof(oSolidMask)) == null)
                 {
-                    Position.X += speed;
+                    X += speed;
                 }
 
                 ImageSpeed = imgSpd;
