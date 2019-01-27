@@ -112,6 +112,16 @@
             This will run the game loop only once and immediately shows the result.
             </summary>
         </member>
+        <member name="M:MonoGame.Forms.Controls.GameControl.RunFrames(System.Int32)">
+            <summary>
+            Run a specific amount of frames before the game loop falls to sleep again.
+            The bool <see cref="P:MonoGame.Forms.Controls.GameControl.MouseHoverUpdatesOnly"/> must be set to 'true' before.
+            <remarks>
+            This could be helpful if some update mechanics are needing longer to update but doesn't need to run continuously afterwards.
+            </remarks>
+            </summary>
+            <param name="count">The amount of frames you want to render.</param>
+        </member>
         <member name="M:MonoGame.Forms.Controls.GameControl.Initialize">
             <summary>
             Basic initializing of the game control.

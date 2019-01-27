@@ -166,7 +166,7 @@ namespace SimplexIde
             }
 
             videoPlayer = new VideoPlayer(GraphicsDevice);
-            Sgml.videoPlayer = videoPlayer;
+            Sgml.videoPlayer = videoPlayer;         
         }
 
         private void OnKeyPressed(object sender, GlobalKeyboardHookEventArgs e)
