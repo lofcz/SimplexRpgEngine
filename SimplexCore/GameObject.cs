@@ -36,15 +36,12 @@ namespace SimplexCore
         public Sprite Sprite;
 
         private Vector2 _position;
-        private float x;
-        private float y;
 
         public float X
         {
-            get => x;
+            get => _position.X;
             set
             {
-                x = value;
                 _position.X = value;
 
                 if (ImageAngle == 0)
@@ -62,10 +59,9 @@ namespace SimplexCore
 
         public float Y
         {
-            get => y;
+            get => _position.Y;
             set
             {
-                y = value;
                 _position.Y = value;
 
                 if (ImageAngle == 0)

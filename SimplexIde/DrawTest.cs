@@ -977,7 +977,7 @@ namespace SimplexIde
                         float k = (Sgml.sign(dif)) * ratio;
                         Transformingobject.ImageScaleTarget.Y += k;
                         Transformingobject.ImageScale.Y += k;
-                        
+
 
                         Transformingobject.Y -= (dif) * (float)Math.Sin((Transformingobject.ImageAngle + 90) * Math.PI / 180) / 2f;
                         Transformingobject.X -= (dif) * (float)Math.Cos((Transformingobject.ImageAngle + 90) * Math.PI / 180) / 2f;
@@ -1561,8 +1561,8 @@ namespace SimplexIde
                                         clickedObject = collidingObject;
                                         lastClickedObject = clickedObject;
 
-                                        helpVec = new Vector2(-MousePositionTranslated.X + collidingObject.Position.X,
-                                            -MousePositionTranslated.Y + collidingObject.Position.Y);
+                                        helpVec = new Vector2(-MousePositionTranslated.X + collidingObject.X,
+                                            -MousePositionTranslated.Y + collidingObject.Y);
                                         clickedVec = MousePositionTranslated;
 
                                         // load properties in the props tab
@@ -1669,6 +1669,7 @@ namespace SimplexIde
                     else
                     {
                         vec = MousePositionTranslated;
+                        vec = new Vector2(vec.X + helpVec.X, vec.Y + helpVec.Y);
 
                         if (DrawGrid)
                         {

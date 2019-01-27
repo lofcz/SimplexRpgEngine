@@ -507,8 +507,6 @@ namespace SimplexIde
             r.form1 = this;
             darkDockPanel4.AddContent(r);
             rooms = r.dtv;
-
-          //  sr.drawTest1.roomsControl = r;
         }
 
         private void darkToolStrip3_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
