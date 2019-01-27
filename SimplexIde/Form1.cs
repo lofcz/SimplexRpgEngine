@@ -339,6 +339,7 @@ namespace SimplexIde
                 DarkTreeNode tn = new DarkTreeNode();
                 tn.Text = t.Key.Name;
                 tn.Tag = t.Key.Name;
+               // tn.Color = Color.FromArgb(Sgml.irandom(255), Sgml.irandom(255), Sgml.irandom(255));
                 tn.Icon = Properties.Resources.AzureDefaultResource_16x; // Node for object itself
 
                 DarkTreeNode currentNode = objects.Nodes[0];
