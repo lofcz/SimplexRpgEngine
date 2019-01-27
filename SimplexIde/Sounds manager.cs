@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DarkUI.Controls;
+using DarkUI.Docking;
 using DarkUI.Forms;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -21,7 +22,7 @@ using static SimplexCore.Sgml;
 
 namespace SimplexIde
 {
-    public partial class Sounds_Manager : DarkForm
+    public partial class Sounds_Manager : DarkToolWindow
     {
         public Form1 owner;
         public DarkTreeNode selectedNode = null;

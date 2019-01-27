@@ -57,14 +57,15 @@
             // 
             this.darkMenuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.darkMenuStrip1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.darkMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.darkMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.actionsToolStripMenuItem,
             this.aboutToolStripMenuItem});
-            this.darkMenuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.darkMenuStrip1.Location = new System.Drawing.Point(0, 31);
             this.darkMenuStrip1.Name = "darkMenuStrip1";
-            this.darkMenuStrip1.Padding = new System.Windows.Forms.Padding(3, 2, 0, 2);
-            this.darkMenuStrip1.Size = new System.Drawing.Size(981, 24);
+            this.darkMenuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.darkMenuStrip1.Size = new System.Drawing.Size(1308, 28);
             this.darkMenuStrip1.TabIndex = 0;
             this.darkMenuStrip1.Text = "darkMenuStrip1";
             // 
@@ -76,7 +77,7 @@
             this.importTilesetToolStripMenuItem});
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // importSpriteToolStripMenuItem
@@ -84,7 +85,7 @@
             this.importSpriteToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.importSpriteToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.importSpriteToolStripMenuItem.Name = "importSpriteToolStripMenuItem";
-            this.importSpriteToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.importSpriteToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
             this.importSpriteToolStripMenuItem.Text = "Import sprite";
             this.importSpriteToolStripMenuItem.Click += new System.EventHandler(this.importSpriteToolStripMenuItem_Click);
             // 
@@ -93,7 +94,7 @@
             this.importTilesetToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.importTilesetToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.importTilesetToolStripMenuItem.Name = "importTilesetToolStripMenuItem";
-            this.importTilesetToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.importTilesetToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
             this.importTilesetToolStripMenuItem.Text = "Import tileset";
             this.importTilesetToolStripMenuItem.Click += new System.EventHandler(this.importTilesetToolStripMenuItem_Click);
             // 
@@ -102,7 +103,7 @@
             this.actionsToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.actionsToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.actionsToolStripMenuItem.Name = "actionsToolStripMenuItem";
-            this.actionsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.actionsToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
             this.actionsToolStripMenuItem.Text = "Actions";
             // 
             // aboutToolStripMenuItem
@@ -110,17 +111,18 @@
             this.aboutToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.aboutToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // darkTreeView1
             // 
             this.darkTreeView1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.darkTreeView1.Location = new System.Drawing.Point(0, 24);
+            this.darkTreeView1.Location = new System.Drawing.Point(0, 59);
+            this.darkTreeView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkTreeView1.MaxDragChange = 20;
             this.darkTreeView1.Name = "darkTreeView1";
             this.darkTreeView1.ShowIcons = true;
-            this.darkTreeView1.Size = new System.Drawing.Size(253, 577);
+            this.darkTreeView1.Size = new System.Drawing.Size(337, 681);
             this.darkTreeView1.TabIndex = 2;
             this.darkTreeView1.Text = "darkTreeView1";
             this.darkTreeView1.SelectedNodesChanged += new System.EventHandler(this.darkTreeView1_SelectedNodesChanged);
@@ -131,19 +133,21 @@
             this.darkSectionPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.darkSectionPanel1.Controls.Add(this.darkButton1);
-            this.darkSectionPanel1.Location = new System.Drawing.Point(259, 24);
+            this.darkSectionPanel1.Location = new System.Drawing.Point(345, 30);
+            this.darkSectionPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkSectionPanel1.Name = "darkSectionPanel1";
             this.darkSectionPanel1.SectionHeader = null;
-            this.darkSectionPanel1.Size = new System.Drawing.Size(185, 577);
+            this.darkSectionPanel1.Size = new System.Drawing.Size(247, 710);
             this.darkSectionPanel1.TabIndex = 4;
             this.darkSectionPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.darkSectionPanel1_Paint);
             // 
             // darkButton1
             // 
             this.darkButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.darkButton1.Location = new System.Drawing.Point(14, 542);
+            this.darkButton1.Location = new System.Drawing.Point(19, 667);
+            this.darkButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton1.Name = "darkButton1";
-            this.darkButton1.Size = new System.Drawing.Size(159, 23);
+            this.darkButton1.Size = new System.Drawing.Size(212, 28);
             this.darkButton1.TabIndex = 6;
             this.darkButton1.Text = "Save";
             this.darkButton1.Click += new System.EventHandler(this.darkButton1_Click);
@@ -163,9 +167,10 @@
             // 
             this.darkLabel1.AutoSize = true;
             this.darkLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.darkLabel1.Location = new System.Drawing.Point(464, 32);
+            this.darkLabel1.Location = new System.Drawing.Point(619, 39);
+            this.darkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.darkLabel1.Name = "darkLabel1";
-            this.darkLabel1.Size = new System.Drawing.Size(41, 13);
+            this.darkLabel1.Size = new System.Drawing.Size(53, 17);
             this.darkLabel1.TabIndex = 5;
             this.darkLabel1.Text = "Name: ";
             // 
@@ -173,9 +178,10 @@
             // 
             this.darkLabel2.AutoSize = true;
             this.darkLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.darkLabel2.Location = new System.Drawing.Point(464, 55);
+            this.darkLabel2.Location = new System.Drawing.Point(619, 68);
+            this.darkLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.darkLabel2.Name = "darkLabel2";
-            this.darkLabel2.Size = new System.Drawing.Size(42, 13);
+            this.darkLabel2.Size = new System.Drawing.Size(55, 17);
             this.darkLabel2.TabIndex = 6;
             this.darkLabel2.Text = "Album: ";
             // 
@@ -183,9 +189,10 @@
             // 
             this.darkLabel3.AutoSize = true;
             this.darkLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.darkLabel3.Location = new System.Drawing.Point(465, 79);
+            this.darkLabel3.Location = new System.Drawing.Point(620, 97);
+            this.darkLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.darkLabel3.Name = "darkLabel3";
-            this.darkLabel3.Size = new System.Drawing.Size(41, 13);
+            this.darkLabel3.Size = new System.Drawing.Size(54, 17);
             this.darkLabel3.TabIndex = 7;
             this.darkLabel3.Text = "Author:";
             // 
@@ -193,18 +200,20 @@
             // 
             this.darkLabel4.AutoSize = true;
             this.darkLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.darkLabel4.Location = new System.Drawing.Point(465, 127);
+            this.darkLabel4.Location = new System.Drawing.Point(620, 156);
+            this.darkLabel4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.darkLabel4.Name = "darkLabel4";
-            this.darkLabel4.Size = new System.Drawing.Size(83, 13);
+            this.darkLabel4.Size = new System.Drawing.Size(108, 17);
             this.darkLabel4.TabIndex = 8;
             this.darkLabel4.Text = "Relative volume";
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(467, 158);
+            this.trackBar1.Location = new System.Drawing.Point(623, 194);
+            this.trackBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.trackBar1.Maximum = 100;
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(218, 45);
+            this.trackBar1.Size = new System.Drawing.Size(291, 56);
             this.trackBar1.TabIndex = 9;
             this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
@@ -213,17 +222,17 @@
             // 
             this.darkLabel5.AutoSize = true;
             this.darkLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.darkLabel5.Location = new System.Drawing.Point(554, 127);
+            this.darkLabel5.Location = new System.Drawing.Point(739, 156);
+            this.darkLabel5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.darkLabel5.Name = "darkLabel5";
-            this.darkLabel5.Size = new System.Drawing.Size(33, 13);
+            this.darkLabel5.Size = new System.Drawing.Size(44, 17);
             this.darkLabel5.TabIndex = 10;
             this.darkLabel5.Text = "100%";
             // 
             // Sounds_Manager
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(981, 601);
             this.Controls.Add(this.darkLabel5);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.darkLabel4);
@@ -233,10 +242,11 @@
             this.Controls.Add(this.darkTreeView1);
             this.Controls.Add(this.darkMenuStrip1);
             this.Controls.Add(this.darkSectionPanel1);
-            this.DoubleBuffered = true;
-            this.MainMenuStrip = this.darkMenuStrip1;
+            this.DefaultDockArea = DarkUI.Docking.DarkDockArea.Document;
+            this.DockText = "Sounds Manager";
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Sounds_Manager";
-            this.Text = "Sounds Manager";
+            this.Size = new System.Drawing.Size(1308, 740);
             this.Load += new System.EventHandler(this.Sprites_manager_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Sprites_manager_Paint);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Sprites_manager_MouseClick);

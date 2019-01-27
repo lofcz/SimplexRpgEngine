@@ -636,13 +636,11 @@ namespace SimplexIde
         private void soundsManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Open sounds manager
-            SoundsManager?.Close();
-
             SoundsManager = new Sounds_Manager();
-            SoundsManager.Owner = this;
             SoundsManager.owner = this;
-            SoundsManager.StartPosition = FormStartPosition.CenterScreen;
-            SoundsManager.Show();
+
+            darkDockPanel1.AddContent(SoundsManager);
+
         }
 
         public void Form1_FormClosing(object sender, FormClosingEventArgs e)
