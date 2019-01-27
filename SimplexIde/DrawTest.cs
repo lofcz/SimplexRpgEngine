@@ -119,6 +119,7 @@ namespace SimplexIde
         Vector2 Transformrelative = Vector2.One;
         private bool readyToDeselect = false;
         private bool allGood = false;
+        Vector2 helpVec2 = Vector2.One;
 
         Cursor ScaleCursor = new Cursor((Resources.cursor_scale_16_16).GetHicon());
 
@@ -1224,7 +1225,7 @@ namespace SimplexIde
             if (btn == MouseButtons.Middle)
             {
                 panView = true;
-                helpVec = cam.Camera.ScreenToWorld(MousePosition);
+                helpVec2 = cam.Camera.ScreenToWorld(MousePosition);
             }
 
             if (btn == MouseButtons.Right && !Input.KeyboardState.IsKeyDown(Keys.LeftShift))
@@ -1551,6 +1552,8 @@ namespace SimplexIde
                                     }
                                 }
 
+                                helpVec = Vector2.Zero;
+
                                 if (!placeEmpty && !ks.IsKeyDown(Keys.LeftShift))
                                 {
                                     // there's something cool at the position already, time to grab it
@@ -1682,7 +1685,7 @@ namespace SimplexIde
                         if (!cmsOpen)
                         {
                             clickedObject.Position = vec;
-                            Debug.WriteLine("KOKOTI AKCE");
+                          ////  Debug.WriteLine("KOKOTI AKCE");
                         }
                     }
                 }
@@ -1823,7 +1826,7 @@ namespace SimplexIde
         {
             if (editorForm.projectFile != "" && panView)
             {
-                cam.TargetPosition = new Vector2(cam.Position.X + helpVec.X - MousePositionTranslated.X, cam.Position.Y + helpVec.Y - MousePositionTranslated.Y);
+                cam.TargetPosition = new Vector2(cam.Position.X + helpVec2.X - MousePositionTranslated.X, cam.Position.Y + helpVec2.Y - MousePositionTranslated.Y);
             }
         }
 
