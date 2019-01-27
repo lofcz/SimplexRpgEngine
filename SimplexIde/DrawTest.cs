@@ -1441,9 +1441,11 @@ namespace SimplexIde
                             }
                             else
                             {
-                                if (!ks.IsKeyDown(Keys.LeftShift) || Sgml.PlaceEmpty(vec))
+                                bool placeEmpty = Sgml.PlaceEmpty(vec); // reduce collision checks needed
+
+                                if (!ks.IsKeyDown(Keys.LeftShift) || placeEmpty)
                                 {
-                                    if (Sgml.PlaceEmpty(vec))
+                                    if (placeEmpty)
                                     {
                                         if (SelectedObject != null)
                                         {
@@ -1451,8 +1453,6 @@ namespace SimplexIde
                                             {
                                                 // there is a fair chance user is trying to scale / rotate some innocent object right now
                                                 // so to fix us being dickheads spawning unintended instances we will perform fast (slow as fuck) check and if positive abort this shit
-
-
                                                 if (allGood)
                                                 {
                                                     GameObject o = (GameObject)Activator.CreateInstance(SelectedObject);
@@ -1551,7 +1551,7 @@ namespace SimplexIde
                                     }
                                 }
 
-                                if (!Sgml.PlaceEmpty(vec) && !ks.IsKeyDown(Keys.LeftShift))
+                                if (!placeEmpty && !ks.IsKeyDown(Keys.LeftShift))
                                 {
                                     // there's something cool at the position already, time to grab it
                                     GameObject collidingObject = Sgml.instance_place(vec);
@@ -1669,11 +1669,9 @@ namespace SimplexIde
                     else
                     {
                         vec = MousePositionTranslated;
-                        vec = new Vector2(vec.X + helpVec.X, vec.Y + helpVec.Y);
 
                         if (DrawGrid)
                         {
-                            vec = MousePositionTranslated;
                             vec.X -= (int) (clickedObject.Sprite.ImageRectangle.Width - 32) / 2; //16;
                             vec.Y -= (int) (clickedObject.Sprite.ImageRectangle.Height - 32) / 2;
 
@@ -1683,6 +1681,7 @@ namespace SimplexIde
                         if (!cmsOpen)
                         {
                             clickedObject.Position = vec;
+                            Debug.WriteLine("KOKOTI AKCE");
                         }
                     }
                 }

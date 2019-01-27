@@ -193,7 +193,7 @@ namespace SimplexCore
         }
 
         public bool CollidingWithPoint(Vector2 point)
-        {
+        {        
             if (ImageAngle == 0)
             {
                 return CollisionContainer.Contains(point);

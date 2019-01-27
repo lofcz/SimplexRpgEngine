@@ -99,34 +99,18 @@ namespace SimplexCore
             {
                 if (rl.Visible)
                 {
-                    if (rl is ObjectLayer)
+                    if (rl is ObjectLayer ol)
                     {
-                        ObjectLayer ol = (ObjectLayer)rl;
                         for (int i = ol.Objects.Count - 1; i >= 0; i--)
                         {
-                            Rectangle r = new Rectangle((int)(ol.Objects[i].Position.X - (ol.Objects[i].ImageOrigin.X * ol.Objects[i].ImageScale.X)), (int)(ol.Objects[i].Position.Y - (ol.Objects[i].ImageOrigin.Y * ol.Objects[i].ImageScale.Y)), (int)(ol.Objects[i].Sprite.ImageRectangle.Width * ol.Objects[i].ImageScale.X), (int)(ol.Objects[i].Sprite.ImageRectangle.Height * ol.Objects[i].ImageScale.Y));
-
-                            if (Math.Abs(ol.Objects[i].ImageAngle) < 1)
+                            if (ol.Objects[i].CollidingWithPoint(vec))
                             {
-                                if (r.Contains(vec))
-                                {
-                                    return ol.Objects[i];
-                                }
-                            }
-                            else
-                            {
-                                //RotatedRectangle rr = rectangle_rotate(r, new Vector2(ol.Objects[i].ImageOrigin.X * ol.Objects[i].ImageScale.X, ol.Objects[i].ImageOrigin.Y * ol.Objects[i].ImageScale.Y), ol.Objects[i].ImageAngle);
-
-                                if (ol.Objects[i].rr.Contains(vec))
-                                {
-                                    return ol.Objects[i];
-                                }
+                                return ol.Objects[i];
                             }
                         }
                     }
                 }
-            }
-           
+            }         
 
             return null;
         }
