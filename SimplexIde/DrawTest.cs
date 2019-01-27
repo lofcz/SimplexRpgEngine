@@ -1575,7 +1575,7 @@ namespace SimplexIde
                                       
                                     }
 
-                                    Debug.WriteLine("ASD asd");
+                                   // Debug.WriteLine("ASD asd");
                                 }
                                 else
                                 {
@@ -1708,20 +1708,16 @@ namespace SimplexIde
                                 {
                                     if (rl is ObjectLayer ol)
                                     {
-                                        for (var i = ol.Objects.Count - 1; i >= 0; i--)
+                                        if (ks.IsKeyDown(Keys.LeftShift))
                                         {
-
-                                            Microsoft.Xna.Framework.Rectangle r =
-                                                new Microsoft.Xna.Framework.Rectangle((int) ol.Objects[i].Position.X,
-                                                    (int) ol.Objects[i].Position.Y,
-                                                    ol.Objects[i].Sprite.ImageRectangle.Width,
-                                                    ol.Objects[i].Sprite.ImageRectangle.Height);
-
-                                            if (ks.IsKeyDown(Keys.LeftShift) && r.Contains(vec))
+                                            for (var i = ol.Objects.Count - 1; i >= 0; i--)
                                             {
-                                                SceneObjects.Remove(ol.Objects[i]);
-                                                ol.Objects[i].EvtDelete();
-                                                ol.Objects.Remove(ol.Objects[i]);
+                                                if (ol.Objects[i].CollidingWithPoint(vec))
+                                                {
+                                                    SceneObjects.Remove(ol.Objects[i]);
+                                                    ol.Objects[i].EvtDelete();
+                                                    ol.Objects.Remove(ol.Objects[i]);
+                                                }
                                             }
                                         }
                                     }
