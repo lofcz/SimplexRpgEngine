@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DarkUI.Controls;
+using DarkUI.Docking;
 using DarkUI.Forms;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -23,7 +24,7 @@ using MouseButtons = System.Windows.Forms.MouseButtons;
 
 namespace SimplexIde
 {
-    public partial class Sprites_manager : DarkForm
+    public partial class Sprites_manager : DarkToolWindow
     {
         public Form1 owner;
         public DarkTreeNode selectedNode = null;
@@ -60,7 +61,7 @@ namespace SimplexIde
         {
             if (owner.currentProject != null)
             {
-                owner.drawTest1.UpdateRunning = false;
+              //  owner.sr.drawTest1.UpdateRunning = false;
 
                 // first we load descriptor for all sprites
                 // Sprites = JsonConvert.DeserializeObject<List<Spritesheet>>(new StreamReader("../../../SimplexRpgEngine3/SpritesDescriptor.json").ReadToEnd());
@@ -75,7 +76,7 @@ namespace SimplexIde
                 {
                     string name = Path.GetFileNameWithoutExtension(file);
 
-                    if (owner.drawTest1.Sprites.FindIndex(x => x.Name == name) != -1)
+                    if (owner.sr.drawTest1.Sprites.FindIndex(x => x.Name == name) != -1)
                     {
                         okEntries.Add(name);
                     }
@@ -120,7 +121,7 @@ namespace SimplexIde
                 {
                     string name = Path.GetFileNameWithoutExtension(file);
 
-                    if (owner.drawTest1.Sprites.FindIndex(x => x.Name == name) != -1)
+                    if (owner.sr.drawTest1.Sprites.FindIndex(x => x.Name == name) != -1)
                     {
                         okEntries.Add(name);
                     }
@@ -174,7 +175,7 @@ namespace SimplexIde
                             {
                                 // for known textures
                                 Spritesheet s =
-                                    owner.drawTest1.Sprites.FirstOrDefault(x => x.Name == selectedNode.Text);
+                                    owner.sr.drawTest1.Sprites.FirstOrDefault(x => x.Name == selectedNode.Text);
                                 s.Texture.SaveAsPng(memoryStream, s.Texture.Width, s.Texture.Height);
 
                                 darkNumericUpDown3.Value = s.Rows;
@@ -186,7 +187,7 @@ namespace SimplexIde
                             catch (Exception ee)
                             {
                                 // we need to load otherwise
-                                Texture2D tex = owner.drawTest1.Editor.Content.Load<Texture2D>(
+                                Texture2D tex = owner.sr.drawTest1.Editor.Content.Load<Texture2D>(
                                     Path.GetFullPath(owner.projectFile + "/Content/bin/Windows/Sprites/" +
                                                      selectedNode.Text));
                                 tex.SaveAsPng(memoryStream, tex.Width, tex.Height);
@@ -205,7 +206,7 @@ namespace SimplexIde
                             try
                             {
                                 // for known textures
-                                s = owner.drawTest1.tilesets.FirstOrDefault(x => x.Name == selectedNode.Text);
+                                s = owner.sr.drawTest1.tilesets.FirstOrDefault(x => x.Name == selectedNode.Text);
                                 s.Texture.SaveAsPng(memoryStream, s.Texture.Width, s.Texture.Height);
 
                                 foreach (AutotileDefinition ad in s.AutotileLib)
@@ -218,7 +219,7 @@ namespace SimplexIde
                             catch (Exception ee)
                             {
                                 // we need to load otherwise
-                                Texture2D tex = owner.drawTest1.Editor.Content.Load<Texture2D>(
+                                Texture2D tex = owner.sr.drawTest1.Editor.Content.Load<Texture2D>(
                                     Path.GetFullPath(owner.projectFile + "/Content/bin/Windows/Sprites/Tilesets/" +
                                         selectedNode.Text));
                                 tex.SaveAsPng(memoryStream, tex.Width, tex.Height);
@@ -856,10 +857,10 @@ namespace SimplexIde
                 lastSheetY = -1;
 
                 s.AutotileLib.Add(ad);
-                owner.drawTest1.tilesets.FirstOrDefault(x => x.Name == selectedNode.Text).AutotileLib = s.AutotileLib;
+                owner.sr.drawTest1.tilesets.FirstOrDefault(x => x.Name == selectedNode.Text).AutotileLib = s.AutotileLib;
 
                 // Save to file
-                string json = JsonConvert.SerializeObject(owner.drawTest1.tilesets);
+                string json = JsonConvert.SerializeObject(owner.sr.drawTest1.tilesets);
                 using (StreamWriter writer = new StreamWriter("../../../SimplexRpgEngine3/TilesetsDescriptor.json"))
                 {
                     writer.WriteLine(json);
@@ -923,7 +924,7 @@ namespace SimplexIde
         {
             if (Visible)
             {
-                owner.drawTest1.UpdateRunning = true;
+                owner.sr.drawTest1.UpdateRunning = true;
                 e.Cancel = true;
                 Hide();
             }
@@ -975,15 +976,20 @@ namespace SimplexIde
                     s.CellWidth = cellW;
                     s.Rows = rows;
 
-                    owner.drawTest1.Sprites.Add(s);
+                    owner.sr.drawTest1.Sprites.Add(s);
                 }
             }
 
             // save all spritesheets to descriptor
-            File.WriteAllText(owner.currentProject.RootPath + "/SpritesDescriptor.json", JsonConvert.SerializeObject(owner.drawTest1.Sprites));
+            File.WriteAllText(owner.currentProject.RootPath + "/SpritesDescriptor.json", JsonConvert.SerializeObject(owner.sr.drawTest1.Sprites));
 
             // start mgcb to finish compile process
             Process mgcb = Process.Start(owner.currentProject.RootPath + "/Content/Content.mgcb");
+        }
+
+        private void DarkMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 

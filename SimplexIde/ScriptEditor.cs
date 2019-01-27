@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DarkUI.Docking;
 using DarkUI.Forms;
 using ScintillaNET;
 
 namespace SimplexIde
 {
-    public partial class ScriptEditor : DarkForm
+    public partial class ScriptEditor : DarkToolWindow
     {
         int lastCaretPos = 0;
         private int maxLineNumberCharLength;

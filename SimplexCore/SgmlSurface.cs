@@ -27,6 +27,10 @@ namespace SimplexCore
         public static void surface_set_target(RenderTarget2D surface)
         {
             GraphicsDevice.SetRenderTarget(surface);
+            if (be == null)
+            {
+                be = new BasicEffect(GraphicsDevice);
+            }
 
             be.View = normalizedMatrix;
             m = normalizedMatrix;

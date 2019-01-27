@@ -231,9 +231,9 @@ namespace SimplexIde
             {
                 // Launch new edit code window
                 ScriptEditor se = new ScriptEditor();
-                se.Text = "Code editor - " + lastNode.Text;
+                se.DockText = "Code editor - " + lastNode.Text;
                 se.scintilla.Text = File.ReadAllText(Path.GetFullPath(form1.currentProject.RootPath + "/Objects/" + lastNode.Text + ".cs"));
-                se.Show();
+                form1.darkDockPanel1.AddContent(se);
             }
             else
             {

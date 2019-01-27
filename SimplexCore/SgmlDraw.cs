@@ -116,33 +116,36 @@ namespace SimplexCore
         }
         static void RenderVertices(PrimitiveType pt = PrimitiveType.TriangleList, bool outline = false)
         {
-            vb.SetData(vertices.ToArray());
-            sb.GraphicsDevice.SetVertexBuffer(vb);
-            sb.GraphicsDevice.BlendState = BlendState.Opaque;
-            
-            if (outline)
+            if (vb != null)
             {
-                sb.GraphicsDevice.RasterizerState = rSWire;
-            }
-            else
-            {
-                sb.GraphicsDevice.RasterizerState = rSFIll;
-            }
+                vb.SetData(vertices.ToArray());
+                sb.GraphicsDevice.SetVertexBuffer(vb);
+                sb.GraphicsDevice.BlendState = BlendState.Opaque;
 
-            foreach (EffectPass pass in be.CurrentTechnique.Passes)
-            {
-                int primitiveCount = vertices.Count / 3; // Triangle list
-                if (pt == PrimitiveType.LineList)
+                if (outline)
                 {
-                    primitiveCount = vertices.Count / 2; // Line list
+                    sb.GraphicsDevice.RasterizerState = rSWire;
                 }
-                else if (pt == PrimitiveType.LineStrip)
+                else
                 {
-                    primitiveCount = vertices.Count - 1;
+                    sb.GraphicsDevice.RasterizerState = rSFIll;
                 }
 
-                pass.Apply();
-                sb.GraphicsDevice.DrawPrimitives(pt, 0, primitiveCount);
+                foreach (EffectPass pass in be.CurrentTechnique.Passes)
+                {
+                    int primitiveCount = vertices.Count / 3; // Triangle list
+                    if (pt == PrimitiveType.LineList)
+                    {
+                        primitiveCount = vertices.Count / 2; // Line list
+                    }
+                    else if (pt == PrimitiveType.LineStrip)
+                    {
+                        primitiveCount = vertices.Count - 1;
+                    }
+
+                    pass.Apply();
+                    sb.GraphicsDevice.DrawPrimitives(pt, 0, primitiveCount);
+                }
             }
         }
 

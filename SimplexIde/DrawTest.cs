@@ -75,7 +75,7 @@ namespace SimplexIde
         private Matrix m;
         private SimplexCore.Ext.MgPrimitiveBatcher mpb;
         public GameRoom currentRoom;
-        public LayerTool lt;
+        public LayerTool lt = null;
         public RoomLayer selectedLayer;
         public List<RoomLayer> roomLayers = new List<RoomLayer>();
         public RectangleF selectionRectangle = new RectangleF();

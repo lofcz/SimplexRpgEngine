@@ -36,7 +36,12 @@ namespace SimplexIde
 
         private void TilesetControl_Load(object sender, EventArgs e)
         {
-            selOutput = form.drawTest1.TilesetSelectedRenRectangle;
+           // selOutput = form.sr.drawTest1.TilesetSelectedRenRectangle;
+        }
+
+        public void LoadReady()
+        {
+            selOutput = form.sr.drawTest1.TilesetSelectedRenRectangle;
         }
 
         public void KillMe()
@@ -54,7 +59,7 @@ namespace SimplexIde
             darkTreeView1.Nodes.Add(dtn);
 
             // Also fuck object tree in main form and deselect any objects
-            form.drawTest1.SelectedObject = null;
+            form.sr.drawTest1.SelectedObject = null;
             form.w.Enabled = false;
 
             // [todo]
@@ -124,9 +129,9 @@ namespace SimplexIde
                 if ((string) selected.Tag != "folder")
                 {
                     // time to select autotile
-                    form.drawTest1.currentAutotile = currentTileset.AutotileLib.FirstOrDefault(x => x.Name == selected.Text);
-                    form.drawTest1.currentTileLayer = (TileLayer) form.drawTest1.lastLayer;
-                    form.drawTest1.TilesetSelectedRenRectangle = Rectangle.Empty;
+                    form.sr.drawTest1.currentAutotile = currentTileset.AutotileLib.FirstOrDefault(x => x.Name == selected.Text);
+                    form.sr.drawTest1.currentTileLayer = (TileLayer) form.sr.drawTest1.lastLayer;
+                    form.sr.drawTest1.TilesetSelectedRenRectangle = Rectangle.Empty;
                     
                 }
             }
@@ -152,9 +157,9 @@ namespace SimplexIde
                 selOutput.Width = x2;
                 selOutput.Height = y2;
 
-                form.drawTest1.TilesetSelectedRenRectangle = selOutput;
-                form.drawTest1.tileTexture = tilesetTexture;
-                form.drawTest1.currentAutotile = null;
+                form.sr.drawTest1.TilesetSelectedRenRectangle = selOutput;
+                form.sr.drawTest1.tileTexture = tilesetTexture;
+                form.sr.drawTest1.currentAutotile = null;
 
                 pictureBox1.Invalidate();
             }
@@ -175,7 +180,7 @@ namespace SimplexIde
                     selOutput.Width = x2;
                     selOutput.Height = y2;
 
-                    form.drawTest1.TilesetSelectedRenRectangle = selOutput;
+                    form.sr.drawTest1.TilesetSelectedRenRectangle = selOutput;
 
                     pictureBox1.Invalidate();
                 }

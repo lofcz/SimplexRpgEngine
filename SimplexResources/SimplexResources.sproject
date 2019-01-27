@@ -10,8 +10,22 @@
       "name": "KokotiHlava",
       "path": "Objects/Actors",
       "tag": null,
-      "tagColor": "220, 220, 220",
-      "nameColor": "220, 220, 220"
+      "tagColor": "Gainsboro",
+      "nameColor": "Gainsboro"
+    },
+    {
+      "name": "AnotherObject",
+      "path": "Objects/Actors",
+      "tag": null,
+      "tagColor": "Gainsboro",
+      "nameColor": "Gainsboro"
+    },
+    {
+      "name": "oCryoSample",
+      "path": "Objects/Actors",
+      "tag": null,
+      "tagColor": "Gainsboro",
+      "nameColor": "Gainsboro"
     },
     {
       "name": "oGeorgeNew",
@@ -24,22 +38,8 @@
       "name": "oBrick",
       "path": "Objects/Actors",
       "tag": null,
-      "tagColor": "220, 220, 220",
-      "nameColor": "220, 220, 220"
-    },
-    {
-      "name": "AnotherObject",
-      "path": "Objects/Actors",
-      "tag": null,
-      "tagColor": "220, 220, 220",
-      "nameColor": "220, 220, 220"
-    },
-    {
-      "name": "oCryoSample",
-      "path": "Objects/Actors",
-      "tag": null,
-      "tagColor": "220, 220, 220",
-      "nameColor": "220, 220, 220"
+      "tagColor": "Gainsboro",
+      "nameColor": "Gainsboro"
     }
   ],
   "Rooms": [

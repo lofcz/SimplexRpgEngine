@@ -26,7 +26,7 @@ namespace SimplexIde
         public Form1 form;
         public DarkTreeNode lastNodeSelected = null;
 
-        public LayerTool(DrawTest f)
+        public LayerTool()
         {
             InitializeComponent();
 
@@ -36,6 +36,10 @@ namespace SimplexIde
             dtn.Icon = (Bitmap)Properties.Resources.ResourceManager.GetObject("Folder_16x");
             dtn.Tag = "folder";
             darkTreeView1.Nodes.Add(dtn);
+        }
+
+        public void FinishIni(DrawTest f)
+        {
             f.lt = this;
             this.f = f;
         }
@@ -66,12 +70,12 @@ namespace SimplexIde
                         if (l.LayerType == RoomLayer.LayerTypes.typeTile)
                         {
                             // hide object panel to free up space
-                            form.drawTest1.SelectedObject = null;
+                            form.sr.drawTest1.SelectedObject = null;
 
                             if (form.w.Visible)
                             {
                                 form.w.Hide();
-                                form.drawTest1.Location = new Point(form.drawTest1.Location.X - form.w.Size.Width, form.drawTest1.Location.Y);
+                                form.sr.drawTest1.Location = new Point(form.sr.drawTest1.Location.X - form.w.Size.Width, form.sr.drawTest1.Location.Y);
                                 form.darkDockPanel3.Location = new Point(form.darkDockPanel3.Location.X - form.w.Size.Width, form.darkDockPanel3.Location.Y);
                                 form.darkDockPanel4.Location = new Point(form.darkDockPanel4.Location.X - form.w.Size.Width, form.darkDockPanel4.Location.Y);
                                 form.darkDockPanel3.Size = new Size(form.darkDockPanel3.Size.Width + form.w.Size.Width, form.darkDockPanel3.Size.Height);
@@ -96,23 +100,23 @@ namespace SimplexIde
                             form.ww.currentTileset = ((TileLayer) l).Tileset;
                             form.ww.KillMe();
 
-                            form.drawTest1.lastLayer = l;
-                            form.drawTest1.currentTileLayer = (TileLayer)l;
+                            form.sr.drawTest1.lastLayer = l;
+                            form.sr.drawTest1.currentTileLayer = (TileLayer)l;
                         }
 
                         if (l.LayerType == RoomLayer.LayerTypes.typeObject)
                         {
-                            form.drawTest1.currentAutotile = null;
-                            form.drawTest1.TilesetSelectedRenRectangle = Rectangle.Empty;
-                            form.drawTest1.currentTileLayer = null;
+                            form.sr.drawTest1.currentAutotile = null;
+                            form.sr.drawTest1.TilesetSelectedRenRectangle = Rectangle.Empty;
+                            form.sr.drawTest1.currentTileLayer = null;
 
                             form.ww.currentTileset = null;
                             form.w.Enabled = true;
-                            form.drawTest1.currentAutotile = null;
+                            form.sr.drawTest1.currentAutotile = null;
 
                             if (!form.w.Visible)
                             {
-                                form.drawTest1.Location = new Point(form.drawTest1.Location.X + form.w.Size.Width, form.drawTest1.Location.Y);
+                                form.sr.drawTest1.Location = new Point(form.sr.drawTest1.Location.X + form.w.Size.Width, form.sr.drawTest1.Location.Y);
                                 form.darkDockPanel3.Location = new Point(form.darkDockPanel3.Location.X + form.w.Size.Width, form.darkDockPanel3.Location.Y);
                                 form.darkDockPanel4.Location = new Point(form.darkDockPanel4.Location.X + form.w.Size.Width, form.darkDockPanel4.Location.Y);
                                 form.darkDockPanel3.Size = new Size(form.darkDockPanel3.Size.Width - form.w.Size.Width, form.darkDockPanel3.Size.Height);

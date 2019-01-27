@@ -164,10 +164,16 @@
       <DependentUpon>RoomsControl.cs</DependentUpon>
     </Compile>
     <Compile Include="ScriptEditor.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ScriptEditor.Designer.cs">
       <DependentUpon>ScriptEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SimplexRender.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SimplexRender.Designer.cs">
+      <DependentUpon>SimplexRender.cs</DependentUpon>
     </Compile>
     <Compile Include="Sounds manager.cs">
       <SubType>Form</SubType>
@@ -176,7 +182,7 @@
       <DependentUpon>Sounds manager.cs</DependentUpon>
     </Compile>
     <Compile Include="Sprites manager.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Sprites manager.Designer.cs">
       <DependentUpon>Sprites manager.cs</DependentUpon>
@@ -226,6 +232,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ScriptEditor.resx">
       <DependentUpon>ScriptEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SimplexRender.resx">
+      <DependentUpon>SimplexRender.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sounds manager.resx">
       <DependentUpon>Sounds manager.cs</DependentUpon>

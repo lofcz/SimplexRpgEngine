@@ -30,6 +30,7 @@ namespace SimplexIde
         /// </summary>
         private void InitializeComponent()
         {
+            
             this.components = new System.ComponentModel.Container();
             this.darkMenuStrip1 = new DarkUI.Controls.DarkMenuStrip();
             this.tilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();

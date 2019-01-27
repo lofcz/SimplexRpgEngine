@@ -57,7 +57,7 @@ namespace SimplexIde
             {
                 string name = Path.GetFileNameWithoutExtension(file);
 
-                if (owner.drawTest1.audioList.FindIndex(x => x.Name == name) != -1)
+                if (owner.sr.drawTest1.audioList.FindIndex(x => x.Name == name) != -1)
                 {
                     okEntries.Add(name);
                 }

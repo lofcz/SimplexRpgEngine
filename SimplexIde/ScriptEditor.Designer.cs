@@ -47,7 +47,7 @@
             | ScintillaNET.AutomaticFold.Change)));
             this.scintilla.EdgeColor = System.Drawing.Color.Black;
             this.scintilla.Location = new System.Drawing.Point(0, 38);
-            this.scintilla.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.scintilla.Margin = new System.Windows.Forms.Padding(4);
             this.scintilla.Name = "scintilla";
             this.scintilla.Size = new System.Drawing.Size(951, 648);
             this.scintilla.TabIndex = 0;
@@ -68,7 +68,7 @@
             this.toolStripSeparator1,
             this.toolStripButton3,
             this.toolStripButton4});
-            this.darkToolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.darkToolStrip1.Location = new System.Drawing.Point(0, 25);
             this.darkToolStrip1.Name = "darkToolStrip1";
             this.darkToolStrip1.Padding = new System.Windows.Forms.Padding(7, 0, 1, 0);
             this.darkToolStrip1.Size = new System.Drawing.Size(952, 34);
@@ -131,13 +131,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(952, 686);
             this.Controls.Add(this.darkToolStrip1);
             this.Controls.Add(this.scintilla);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DefaultDockArea = DarkUI.Docking.DarkDockArea.Document;
+            this.DockText = "Code editor";
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ScriptEditor";
-            this.Text = "Code editor";
-            this.TopMost = true;
+            this.Size = new System.Drawing.Size(952, 686);
             this.Load += new System.EventHandler(this.ScriptEditor_Load);
             this.darkToolStrip1.ResumeLayout(false);
             this.darkToolStrip1.PerformLayout();

@@ -19,6 +19,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Newtonsoft.Json;
 using SimplexCore;
+using SimplexCore.IDE;
 using Color = System.Drawing.Color;
 using Point = System.Drawing.Point;
 
@@ -44,7 +45,8 @@ namespace SimplexIde
         public string projectFile = "";
         public SimplexProjectStructure currentProject = null;
         public RoomsControl r = null;
-
+        public LayerTool lt = null;
+        public SimplexRender sr = null;
 
         public Form1()
         {
@@ -70,8 +72,13 @@ namespace SimplexIde
 
            
             Invalidate();
-            drawTest1.cms = darkContextMenu2;
-            drawTest1.editorForm = this;
+
+            sr = new SimplexRender();
+            sr.drawTest1.editorForm = this;
+            sr.drawTest1.cms = darkContextMenu2;
+            sr.drawTest1.lt = lt;
+            //  sr.drawTest1.cms = darkContextMenu2;
+            //  sr.drawTest1.editorForm = this;
             //drawTest1.lt = darkDockPanel4.
             // load list of all defined objects
         }
@@ -94,12 +101,12 @@ namespace SimplexIde
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             selectedObject = Type.GetType("SimplexResources.Objects." + e.Node.Text);
-            drawTest1.SelectedObject = selectedObject;
+            sr.drawTest1.SelectedObject = selectedObject;
         }
 
         private void drawTest1_MouseClick(object sender, MouseEventArgs e)
         {
-            drawTest1.GameClicked(e, e.Button);
+            sr.drawTest1.GameClicked(e, e.Button);
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -131,24 +138,7 @@ namespace SimplexIde
 
         private void drawTest1_MouseMove_1(object sender, MouseEventArgs e)
         {
-            ;
-            drawTest1.PreCheckMouse(e);
-
-            drawTest1.MousePosition = new Vector2(e.X, e.Y);
-
-            if (e.Button == MouseButtons.Left)
-            {
-                drawTest1.GameClicked(e, MouseButtons.Left);
-            }
-            else if (e.Button == MouseButtons.Right)
-            {
-                drawTest1.GameClicked(e, MouseButtons.Right);
-            }
-            else if (e.Button == MouseButtons.Middle)
-            {
-                drawTest1.MoveView();
-            }
-
+            
         }
 
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -203,33 +193,33 @@ namespace SimplexIde
             }
             else
             {
-                drawTest1.ClearAll();
+                sr.drawTest1.ClearAll();
             }
         }
 
         private void drawTest1_OnMouseWheelDownwards(MouseEventArgs e)
         {
-            drawTest1.WheelDown();
+          
         }
 
         private void drawTest1_MouseUp(object sender, MouseEventArgs e)
         {
-            drawTest1.ClickRelease(e.Button);
+            
         }
 
         private void drawTest1_OnMouseWheelUpwards(MouseEventArgs e)
         {
-            drawTest1.WheelUp();
+            
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            drawTest1.ClearAll();
+        
         }
 
         private void drawTest1_MouseDown(object sender, MouseEventArgs e)
         {
-            drawTest1.ClickLock(e.Button);
+           
            
         }
 
@@ -245,27 +235,27 @@ namespace SimplexIde
 
         private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            drawTest1.RightClickMenuSelected(e);
+            sr.drawTest1.RightClickMenuSelected(e);
         }
 
         private void contextMenuStrip1_Closed(object sender, ToolStripDropDownClosedEventArgs e)
         {
-            drawTest1.cmsClosed();
+            sr.drawTest1.cmsClosed();
         }
 
         private void contextMenuStrip1_Opened(object sender, EventArgs e)
         {
-            drawTest1.cmsOpened();
+            sr.drawTest1.cmsOpened();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            drawTest1.Undo();
+            sr.drawTest1.Undo();
         }
 
         private void drawTest1_SizeChanged(object sender, EventArgs e)
         {
-            drawTest1.Rsize();
+            sr.drawTest1.Rsize();
         }
 
         private void darkMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -289,20 +279,15 @@ namespace SimplexIde
         }
 
         private void darkDockPanel1_Load(object sender, EventArgs e)
-        {
-            
+        {      
+           
+           
         }
 
         private void darkDockPanel2_Load(object sender, EventArgs e)
         {
-            w = new ToolWindow();
-            w.Dock = DockStyle.Fill;
-            w.main = drawTest1;
-            w.form1 = this;
-            objects = w.dtv;
-            darkDockPanel2.AddContent(w);
-            
-          //  loadResources();
+
+
         }
 
         public void loadObjects(string corePath, SimplexProjectStructure sps)
@@ -493,7 +478,7 @@ namespace SimplexIde
             }
 
             activeRoom = null;
-            drawTest1.InitializeNodes(objects.Nodes);
+            sr.drawTest1.InitializeNodes(objects.Nodes);
         }
 
         private void darkToolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -514,17 +499,16 @@ namespace SimplexIde
 
         private void darkDockPanel4_Load(object sender, EventArgs e)
         {
-            LayerTool w = new LayerTool(drawTest1);
-            w.form = this;
-            darkDockPanel4.AddContent(w);
+            lt = new LayerTool();
+            lt.form = this;
+            darkDockPanel4.AddContent(lt);
 
             r = new RoomsControl();
-            r.drawTest1 = drawTest1;
             r.form1 = this;
             darkDockPanel4.AddContent(r);
             rooms = r.dtv;
 
-            drawTest1.roomsControl = r;
+          //  sr.drawTest1.roomsControl = r;
         }
 
         private void darkToolStrip3_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -551,44 +535,48 @@ namespace SimplexIde
 
         private void newToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            drawTest1.DeleteAll();
+            sr.drawTest1.DeleteAll();
             FormNew f = new FormNew();
             f.ShowDialog();
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            drawTest1.GameRunning = true;
+            sr.drawTest1.GameRunning = true;
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
-            drawTest1.GameRunning = false;
+            sr.drawTest1.GameRunning = false;
         }
 
         private void spritesManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // open sprites manager
-            if (currentProject != null)
-            {
-                if (SpritesManager != null)
-                {
-                    SpritesManager.Close();
-                }
+            /*  if (currentProject != null)
+              {
+                  if (SpritesManager != null)
+                  {
+                      SpritesManager.Close();
+                  }
 
-                if (SpritesManager == null)
-                {
-                    SpritesManager = new Sprites_manager();
-                    SpritesManager.Owner = this;
-                    SpritesManager.owner = this;
-                    SpritesManager.StartPosition = FormStartPosition.CenterScreen;
-                    SpritesManager.Show();
-                }
-                else
-                {
-                    SpritesManager.Show();
-                }
-            }
+                  if (SpritesManager == null)
+                  {
+                      SpritesManager = new Sprites_manager();
+                     // SpritesManager.Owner = this;
+                      SpritesManager.owner = this;
+                    //  SpritesManager.StartPosition = FormStartPosition.CenterScreen;
+                      SpritesManager.Show();
+                  }
+                  else
+                  {
+                      SpritesManager.Show();
+                  }
+              }*/
+
+            Sprites_manager sm = new Sprites_manager();
+            sm.owner = this;
+            darkDockPanel1.AddContent(sm);
         }
 
 
@@ -616,22 +604,22 @@ namespace SimplexIde
 
         private void darkContextMenu2_Opened(object sender, EventArgs e)
         {
-            drawTest1.cmsOpened();
+            sr.drawTest1.cmsOpened();
         }
 
         private void darkContextMenu2_Closed(object sender, ToolStripDropDownClosedEventArgs e)
         {
-            drawTest1.cmsClosed();
+            sr.drawTest1.cmsClosed();
         }
 
         private void darkContextMenu2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            drawTest1.RightClickMenuSelected(e);
+            sr.drawTest1.RightClickMenuSelected(e);
         }
 
         private void toolStripSplitButton2_ButtonClick(object sender, EventArgs e)
         {
-            drawTest1.ToggleGrid();
+            sr.drawTest1.ToggleGrid();
         }
 
         private void checkForUpdatesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -670,11 +658,11 @@ namespace SimplexIde
         private void toolStripButton7_Click(object sender, EventArgs e)
         {
             // toggle fullscreen mode
-            renderPos = drawTest1.Location;
-            renderSize = drawTest1.Size;
+            renderPos = sr.drawTest1.Location;
+            renderSize = sr.drawTest1.Size;
 
-            drawTest1.Location = new System.Drawing.Point(0, 0);
-            drawTest1.Size = new Size(Width, Height);
+            sr.drawTest1.Location = new System.Drawing.Point(0, 0);
+            sr.drawTest1.Size = new Size(Width, Height);
         }
 
         private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -685,6 +673,38 @@ namespace SimplexIde
         private void DarkContextMenu1_Opening(object sender, CancelEventArgs e)
         {
 
+        }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            // this fires when loading is complete
+            // fire loading finished for simplexRender dependent controls
+            r.drawTest1 = sr.drawTest1;
+            lt.FinishIni(sr.drawTest1);
+
+
+            darkDockPanel1.AddContent(sr);
+
+            w = new ToolWindow();
+            w.Dock = DockStyle.Fill;
+            w.main = sr.drawTest1;
+            w.form1 = this;
+
+            objects = w.dtv;
+            darkDockPanel2.AddContent(w);
+
+            sr.drawTest1.roomsControl = r;
+            sr.drawTest1.Rsize();
+
+            ww.LoadReady();
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            if (sr != null && sr.drawTest1 != null)
+            {
+                sr.drawTest1.Rsize();
+            }
         }
     }
 }
