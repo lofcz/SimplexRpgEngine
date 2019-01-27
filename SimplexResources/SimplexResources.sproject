@@ -7,11 +7,18 @@
   },
   "Objects": [
     {
-      "name": "KokotiHlava",
+      "name": "EditSample",
       "path": "Objects/Actors",
       "tag": null,
       "tagColor": "Gainsboro",
       "nameColor": "Gainsboro"
+    },
+    {
+      "name": "oGeorgeNew",
+      "path": "Objects/Actors",
+      "tag": "[WIP]",
+      "tagColor": "128, 0, 255",
+      "nameColor": "255, 128, 64"
     },
     {
       "name": "AnotherObject",
@@ -26,13 +33,6 @@
       "tag": null,
       "tagColor": "Gainsboro",
       "nameColor": "Gainsboro"
-    },
-    {
-      "name": "oGeorgeNew",
-      "path": "Objects/Actors",
-      "tag": "[WIP]",
-      "tagColor": "128, 0, 255",
-      "nameColor": "255, 128, 64"
     },
     {
       "name": "oBrick",

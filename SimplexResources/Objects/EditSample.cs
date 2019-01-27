@@ -6,9 +6,9 @@ using static SimplexCore.Sgml;
 
 namespace SimplexResources.Objects
 {
-    public class KokotiHlava : GameObject
+    public class EditSample : GameObject
     {
-        public KokotiHlava()
+        public EditSample()
         {
             EditorPath = "Objects/Actors/oBrick";
         }

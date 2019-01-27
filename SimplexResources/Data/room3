@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Root xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <GameRoom xsi:type="Room1">
+  <GameRoom xsi:type="room3">
     <Size>
       <X>1024</X>
       <Y>768</Y>
@@ -11,47 +11,13 @@
       <Y>768</Y>
     </ViewSize>
     <Layers>
-      <RoomLayer xsi:type="TileLayer">
-        <Visible>true</Visible>
-        <Name>Tile layer bottom</Name>
-        <LayerType>typeTile</LayerType>
-        <Position>0</Position>
-        <Depth>0</Depth>
-        <Tiles />
-        <TilelistName>tileset0</TilelistName>
-      </RoomLayer>
       <RoomLayer xsi:type="ObjectLayer">
         <Visible>true</Visible>
-        <Name>Object layer 1</Name>
+        <Name>My layer</Name>
         <LayerType>typeObject</LayerType>
         <Position>0</Position>
         <Depth>0</Depth>
         <Objects />
-      </RoomLayer>
-      <RoomLayer xsi:type="ObjectLayer">
-        <Visible>true</Visible>
-        <Name>Object layer 2</Name>
-        <LayerType>typeObject</LayerType>
-        <Position>0</Position>
-        <Depth>0</Depth>
-        <Objects />
-      </RoomLayer>
-      <RoomLayer xsi:type="TileLayer">
-        <Visible>true</Visible>
-        <Name>Tile layer 1</Name>
-        <LayerType>typeTile</LayerType>
-        <Position>0</Position>
-        <Depth>0</Depth>
-        <Tiles />
-        <TilelistName>tileset0</TilelistName>
-      </RoomLayer>
-      <RoomLayer xsi:type="ParticleLayer">
-        <Visible>true</Visible>
-        <Name>Particle layer 1</Name>
-        <LayerType>typeParticle</LayerType>
-        <Position>0</Position>
-        <Depth>0</Depth>
-        <Emmiters />
       </RoomLayer>
     </Layers>
     <Persistent>false</Persistent>

@@ -81,13 +81,13 @@ namespace SimplexResources.Objects
  
              surface_save_ext(surface, "kokot", 64, 64);*/
             //alarm_set(0, 100);
-            video_play(video_get("MyVideo"));
+         //   video_play(video_get("MyVideo"));
         }
 
         public override void EvtAlarm0()
         {
             //video_play(video_get("MyVideo"));
-            //  show_message("kokotí hlava");
+            //  show_message("kokotï¿½ hlava");
         }
 
 
@@ -183,7 +183,7 @@ namespace SimplexResources.Objects
 
             draw_sprite(sprite_get("simplex"), -2, Position);
 
-            draw_video(Position, new Vector2(166, 100));
+           // draw_video(Position, new Vector2(166, 100));
         }
     }
 }
