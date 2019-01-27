@@ -143,7 +143,7 @@
             // 
             this.checkBox4.AutoSize = true;
             this.checkBox4.Location = new System.Drawing.Point(2737, 198);
-            this.checkBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox4.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(107, 21);
             this.checkBox4.TabIndex = 27;
@@ -301,7 +301,7 @@
             // 
             this.darkSeparator1.Dock = System.Windows.Forms.DockStyle.Top;
             this.darkSeparator1.Location = new System.Drawing.Point(0, 28);
-            this.darkSeparator1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.darkSeparator1.Margin = new System.Windows.Forms.Padding(4);
             this.darkSeparator1.Name = "darkSeparator1";
             this.darkSeparator1.Size = new System.Drawing.Size(2089, 2);
             this.darkSeparator1.TabIndex = 33;
@@ -362,7 +362,7 @@
             // 
             this.darkDockPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.darkDockPanel1.Location = new System.Drawing.Point(276, 66);
-            this.darkDockPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.darkDockPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.darkDockPanel1.Name = "darkDockPanel1";
             this.darkDockPanel1.Size = new System.Drawing.Size(1311, 603);
             this.darkDockPanel1.TabIndex = 36;
@@ -401,7 +401,7 @@
             this.darkDockPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.darkDockPanel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.darkDockPanel2.Location = new System.Drawing.Point(0, 64);
-            this.darkDockPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.darkDockPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.darkDockPanel2.Name = "darkDockPanel2";
             this.darkDockPanel2.Size = new System.Drawing.Size(268, 638);
             this.darkDockPanel2.TabIndex = 37;
@@ -491,9 +491,9 @@
             this.darkDockPanel3.AutoScroll = true;
             this.darkDockPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.darkDockPanel3.Location = new System.Drawing.Point(1595, 70);
-            this.darkDockPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.darkDockPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.darkDockPanel3.Name = "darkDockPanel3";
-            this.darkDockPanel3.Size = new System.Drawing.Size(495, 252);
+            this.darkDockPanel3.Size = new System.Drawing.Size(454, 252);
             this.darkDockPanel3.TabIndex = 39;
             this.darkDockPanel3.Load += new System.EventHandler(this.darkDockPanel3_Load);
             this.darkDockPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.darkDockPanel3_Paint);
@@ -503,9 +503,9 @@
             this.darkDockPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.darkDockPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.darkDockPanel4.Location = new System.Drawing.Point(1595, 330);
-            this.darkDockPanel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.darkDockPanel4.Margin = new System.Windows.Forms.Padding(4);
             this.darkDockPanel4.Name = "darkDockPanel4";
-            this.darkDockPanel4.Size = new System.Drawing.Size(495, 329);
+            this.darkDockPanel4.Size = new System.Drawing.Size(454, 329);
             this.darkDockPanel4.TabIndex = 40;
             this.darkDockPanel4.Load += new System.EventHandler(this.darkDockPanel4_Load);
             // 
@@ -601,7 +601,7 @@
             0,
             65536});
             this.darkNumericUpDown1.Location = new System.Drawing.Point(1313, 38);
-            this.darkNumericUpDown1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.darkNumericUpDown1.Margin = new System.Windows.Forms.Padding(4);
             this.darkNumericUpDown1.MousewheelSingleIncrement = true;
             this.darkNumericUpDown1.Name = "darkNumericUpDown1";
             this.darkNumericUpDown1.Size = new System.Drawing.Size(81, 22);
@@ -623,7 +623,7 @@
             0,
             65536});
             this.darkNumericUpDown2.Location = new System.Drawing.Point(1433, 38);
-            this.darkNumericUpDown2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.darkNumericUpDown2.Margin = new System.Windows.Forms.Padding(4);
             this.darkNumericUpDown2.MousewheelSingleIncrement = true;
             this.darkNumericUpDown2.Name = "darkNumericUpDown2";
             this.darkNumericUpDown2.Size = new System.Drawing.Size(81, 22);
@@ -666,7 +666,7 @@
             this.darkContextMenu1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toggleToolStripMenuItem});
             this.darkContextMenu1.Name = "darkContextMenu1";
-            this.darkContextMenu1.Size = new System.Drawing.Size(211, 56);
+            this.darkContextMenu1.Size = new System.Drawing.Size(125, 28);
             this.darkContextMenu1.Opening += new System.ComponentModel.CancelEventHandler(this.DarkContextMenu1_Opening);
             // 
             // toggleToolStripMenuItem
@@ -674,7 +674,7 @@
             this.toggleToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.toggleToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.toggleToolStripMenuItem.Name = "toggleToolStripMenuItem";
-            this.toggleToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.toggleToolStripMenuItem.Size = new System.Drawing.Size(124, 24);
             this.toggleToolStripMenuItem.Text = "Toggle";
             // 
             // toolStripStatusLabel4
@@ -722,7 +722,7 @@
             this.darkDockPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.darkDockPanel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.darkDockPanel5.Location = new System.Drawing.Point(1595, 70);
-            this.darkDockPanel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.darkDockPanel5.Margin = new System.Windows.Forms.Padding(4);
             this.darkDockPanel5.Name = "darkDockPanel5";
             this.darkDockPanel5.Size = new System.Drawing.Size(479, 588);
             this.darkDockPanel5.TabIndex = 47;
@@ -736,7 +736,7 @@
             this.darkProgressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.darkProgressBar1.Location = new System.Drawing.Point(276, 666);
-            this.darkProgressBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.darkProgressBar1.Margin = new System.Windows.Forms.Padding(4);
             this.darkProgressBar1.Name = "darkProgressBar1";
             this.darkProgressBar1.Size = new System.Drawing.Size(1311, 28);
             this.darkProgressBar1.TabIndex = 48;
@@ -790,7 +790,7 @@
             this.Controls.Add(this.darkMenuStrip1);
             this.Controls.Add(this.darkDockPanel1);
             this.Controls.Add(this.darkDockPanel5);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Simplex RPG Engine";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);

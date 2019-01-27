@@ -1852,6 +1852,7 @@ namespace SimplexIde
                 DarkTreeNode dtn = new DarkTreeNode(rl.Name);
                 dtn.Tag = dtn;
                 dtn.Tag = "";
+                dtn.SuffixText = "[Visible]";
 
                 if (rl.LayerType == RoomLayer.LayerTypes.typeObject)
                 {

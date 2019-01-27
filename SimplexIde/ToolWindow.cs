@@ -173,6 +173,8 @@ namespace SimplexIde
 
         private void renameToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            canShow = true;
+
             // Rename object !
             string name = Sgml.get_string("", "New name");
 
@@ -223,6 +225,8 @@ namespace SimplexIde
 
         private void editCodeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            canShow = true;
+
             if (form1.currentProject != null && File.Exists(Path.GetFullPath(form1.currentProject.RootPath + "/Objects/" + lastNode.Text + ".cs")))
             {
                 // Launch new edit code window
@@ -246,12 +250,13 @@ namespace SimplexIde
 
         private void insertNewObjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            canShow = true;
         }
 
         private void InsertFolderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // insert new folder
+            canShow = true;
 
         }
 
@@ -296,6 +301,43 @@ namespace SimplexIde
                 {
                     rec(d);
                 }
+            }
+        }
+
+        private void DeleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            canShow = true;
+        }
+
+        private void ChangeColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            canShow = true;
+
+            // change color
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Color c = colorDialog1.Color;
+                lastNode.Color = c;
+            }
+        }
+
+        private void SetTagToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            canShow = true;
+
+            string tag = Sgml.get_string("", "New tag", lastNode.SuffixText);
+            lastNode.SuffixText = tag;
+        }
+
+        private void ChangeTagColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            canShow = true;
+
+            // change color
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Color c = colorDialog1.Color;
+                lastNode.SuffixColor = c;
             }
         }
     }
