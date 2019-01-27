@@ -1,1 +1,78 @@
-{"Info":{"EngineVersion":1.0,"Author":null,"ProjectVersion":0.0,"ProjectLoadMessage":null},"Objects":[{"name":"KokotiHlava","path":"Objects/Actors"},{"name":"oBrick","path":"Objects/Actors"},{"name":"oGeorgeNew","path":"Objects/Actors"},{"name":"AnotherObject","path":"Objects/Actors"},{"name":"oCryoSample","path":"Objects/Actors"}],"Rooms":[{"name":"Room1","path":null},{"name":"room3","path":null}],"Sprites":null,"Tilesets":null,"Sounds":null,"Shaders":[{"name":"shader1","path":null}],"Extensions":null,"Scripts":null,"Paths":null,"DataFiles":null,"Videos":null}
+{
+  "Info": {
+    "EngineVersion": 1.0,
+    "Author": null,
+    "ProjectVersion": 0.0,
+    "ProjectLoadMessage": null
+  },
+  "Objects": [
+    {
+      "name": "KokotiHlava",
+      "path": "Objects/Actors",
+      "tag": null,
+      "tagColor": "220, 220, 220",
+      "nameColor": "220, 220, 220"
+    },
+    {
+      "name": "oGeorgeNew",
+      "path": "Objects/Actors",
+      "tag": "[WIP]",
+      "tagColor": "128, 0, 255",
+      "nameColor": "255, 128, 64"
+    },
+    {
+      "name": "oBrick",
+      "path": "Objects/Actors",
+      "tag": null,
+      "tagColor": "220, 220, 220",
+      "nameColor": "220, 220, 220"
+    },
+    {
+      "name": "AnotherObject",
+      "path": "Objects/Actors",
+      "tag": null,
+      "tagColor": "220, 220, 220",
+      "nameColor": "220, 220, 220"
+    },
+    {
+      "name": "oCryoSample",
+      "path": "Objects/Actors",
+      "tag": null,
+      "tagColor": "220, 220, 220",
+      "nameColor": "220, 220, 220"
+    }
+  ],
+  "Rooms": [
+    {
+      "name": "Room1",
+      "path": null,
+      "tag": null,
+      "tagColor": "",
+      "nameColor": ""
+    },
+    {
+      "name": "room3",
+      "path": null,
+      "tag": null,
+      "tagColor": "",
+      "nameColor": ""
+    }
+  ],
+  "Sprites": null,
+  "Tilesets": null,
+  "Sounds": null,
+  "Shaders": [
+    {
+      "name": "shader1",
+      "path": null,
+      "tag": null,
+      "tagColor": "",
+      "nameColor": ""
+    }
+  ],
+  "Extensions": null,
+  "Scripts": null,
+  "Paths": null,
+  "DataFiles": null,
+  "Videos": null
+}

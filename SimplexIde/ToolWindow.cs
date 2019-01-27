@@ -268,6 +268,11 @@ namespace SimplexIde
         List<SimplexProjectItem> objects = new List<SimplexProjectItem>();
         private void DarkTreeView1_AfterNodeDragged(object sender, EventArgs e)
         {
+            SerializeSaveObjects();
+        }
+
+        void SerializeSaveObjects()
+        {
             // node was dragged      
             objects.Clear();
 
@@ -279,7 +284,7 @@ namespace SimplexIde
             // objects are ready
             form1.currentProject.Objects = objects;
 
-            string json = JsonConvert.SerializeObject(form1.currentProject);
+            string json = JsonConvert.SerializeObject(form1.currentProject, Formatting.Indented);
             File.WriteAllText(form1.currentProject.ProjectPath, json);
         }
 
@@ -292,6 +297,9 @@ namespace SimplexIde
                     SimplexProjectItem spi = new SimplexProjectItem();
                     spi.path = d.FullPath;
                     spi.name = d.Text;
+                    spi.nameColor = d.Color;
+                    spi.tag = d.SuffixText;
+                    spi.tagColor = d.SuffixColor;
 
                     spi.path = spi.path.Replace("\\", "/");
                     spi.path = spi.path.Substring(0, spi.path.LastIndexOf("/"));

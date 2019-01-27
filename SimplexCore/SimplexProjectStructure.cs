@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Xml.Serialization;
+using Microsoft.Xna.Framework;
 using Newtonsoft.Json;
 
 namespace SimplexCore
@@ -35,6 +36,9 @@ namespace SimplexCore
     {
         public string name { get; set; }
         public string path { get; set; }
+        public string tag { get; set; }
+        public System.Drawing.Color tagColor { get; set; }
+        public System.Drawing.Color nameColor { get; set; }
     }
 
     public class SimplexProjectInfo
