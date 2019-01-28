@@ -1575,7 +1575,7 @@ namespace SimplexIde
                                         editorForm.properties.Controls.Clear();
 
                                         // 1) register default trash
-                                        editorForm.properties.Controls.Add(new DarkLabel() {Text = "Kokoti hlavička", Location = new System.Drawing.Point(10, 30), AutoSize = true });
+                                        editorForm.properties.Controls.Add(new DarkLabel() {Text = "Instance " + lastClickedObject.Id.ToString() , Location = new System.Drawing.Point(10, 30), AutoSize = true });
 
                                         // 2) user defined shit
                                         editorForm.properties.RegisterControls(clickedObject.EditorProperties);
