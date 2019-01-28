@@ -43,7 +43,7 @@ namespace SimplexCore
             set
             {
                 _position.X = value;
-
+ 
                 if (ImageAngle == 0)
                 {
                     UpdateRectangle();
@@ -179,10 +179,10 @@ namespace SimplexCore
         [XmlIgnore]
         public Vector2 TempPosition = Vector2.Zero;
 
-        void UpdateRectangle()
+        public void UpdateRectangle()
         {
-            CollisionContainer.X = (int)(Position.X - (ImageOrigin.X * ImageScale.X));
-            CollisionContainer.Y = (int)(Position.Y - (ImageOrigin.Y * ImageScale.Y));
+            CollisionContainer.X = (int)(_position.X - (ImageOrigin.X * ImageScale.X));
+            CollisionContainer.Y = (int)(_position.Y - (ImageOrigin.Y * ImageScale.Y));
             CollisionContainer.Width = (int) (Sprite.ImageRectangle.Width * ImageScale.X);
             CollisionContainer.Height = (int)(Sprite.ImageRectangle.Height * ImageScale.Y);
 

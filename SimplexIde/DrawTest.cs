@@ -982,6 +982,7 @@ namespace SimplexIde
 
                         Transformingobject.Y -= (dif) * (float)Math.Sin((Transformingobject.ImageAngle + 90) * Math.PI / 180) / 2f;
                         Transformingobject.X -= (dif) * (float)Math.Cos((Transformingobject.ImageAngle + 90) * Math.PI / 180) / 2f;
+                        Transformingobject.UpdateRectangle();
                     }
                     else if (Transformingside == 3)
                     {
@@ -1014,7 +1015,7 @@ namespace SimplexIde
                         float k = (Sgml.sign(dif)) * ratio;
                         Transformingobject.ImageScaleTarget.Y += k;
                         Transformingobject.ImageScale.Y += k;
-
+                        Transformingobject.UpdateRectangle();
                     }
                     else if (Transformingside == 2)
                     {
@@ -1065,6 +1066,7 @@ namespace SimplexIde
 
                         Transformingobject.Y -= (dif) * (float)Math.Sin((Transformingobject.ImageAngle) * Math.PI / 180) / 2f;
                         Transformingobject.X -= (dif) * (float)Math.Cos((Transformingobject.ImageAngle) * Math.PI / 180) / 2f;
+                        Transformingobject.UpdateRectangle();
                     }
                     else if (Transformingside == 4)
                     {
@@ -1122,6 +1124,7 @@ namespace SimplexIde
                         float k = (Sgml.sign(dif)) * ratio;
                         Transformingobject.ImageScaleTarget.X += k;
                         Transformingobject.ImageScale.X += k;
+                        Transformingobject.UpdateRectangle();
                     }
                 }
 
@@ -1559,7 +1562,7 @@ namespace SimplexIde
                                     // there's something cool at the position already, time to grab it
                                     GameObject collidingObject = Sgml.instance_place(vec);
 
-                                    if (collidingObject != null && Transformingobject == null)
+                                    if (collidingObject != null)
                                     {
                                         clickedObject = collidingObject;
                                         lastClickedObject = clickedObject;
@@ -1569,17 +1572,15 @@ namespace SimplexIde
                                         clickedVec = MousePositionTranslated;
 
                                         // load properties in the props tab
+                                        editorForm.properties.Controls.Clear();
+
+                                        // 1) register default trash
+                                        editorForm.properties.Controls.Add(new DarkLabel() {Text = "Kokoti hlavička", Location = new System.Drawing.Point(10, 30), AutoSize = true });
+
+                                        // 2) user defined shit
                                         editorForm.properties.RegisterControls(clickedObject.EditorProperties);
-                                       // Sgml.show_debug_message("kokotí hlavička 69");
 
-                                      
                                     }
-
-                                   // Debug.WriteLine("ASD asd");
-                                }
-                                else
-                                {
-
                                 }
                             }
                         }
