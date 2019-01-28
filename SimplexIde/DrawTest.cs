@@ -1241,9 +1241,7 @@ namespace SimplexIde
 
                 for (var i = SceneObjects.Count - 1; i >= 0; i--)
                 {
-                    Microsoft.Xna.Framework.Rectangle r = new Microsoft.Xna.Framework.Rectangle((int)SceneObjects[i].Position.X, (int)SceneObjects[i].Position.Y, SceneObjects[i].Sprite.ImageRectangle.Width, SceneObjects[i].Sprite.ImageRectangle.Height);
-
-                    if (r.Contains(vec))
+                    if (SceneObjects[i].CollidingWithPoint(vec))
                     {
                         if (goodBoy)
                         {
@@ -1564,21 +1562,25 @@ namespace SimplexIde
 
                                     if (collidingObject != null)
                                     {
-                                        clickedObject = collidingObject;
-                                        lastClickedObject = clickedObject;
+                                        if (Transformingobject == null)
+                                        {
+                                            clickedObject = collidingObject;
+                                            lastClickedObject = clickedObject;
 
-                                        helpVec = new Vector2(-MousePositionTranslated.X + collidingObject.X,
-                                            -MousePositionTranslated.Y + collidingObject.Y);
-                                        clickedVec = MousePositionTranslated;
+                                            helpVec = new Vector2(-MousePositionTranslated.X + collidingObject.X,
+                                                -MousePositionTranslated.Y + collidingObject.Y);
+                                            clickedVec = MousePositionTranslated;
 
-                                        // load properties in the props tab
-                                        editorForm.properties.Controls.Clear();
+                                            // load properties in the props tab
+                                            editorForm.properties.Controls.Clear();
 
-                                        // 1) register default trash
-                                        editorForm.properties.Controls.Add(new DarkLabel() {Text = "Instance " + lastClickedObject.Id.ToString() , Location = new System.Drawing.Point(10, 30), AutoSize = true });
+                                            // 1) register default trash
+                                            editorForm.properties.Controls.Add(new DarkLabel() {Text = "Instance " + lastClickedObject.Id.ToString(), Location = new System.Drawing.Point(10, 30), AutoSize = true});
 
-                                        // 2) user defined shit
-                                        editorForm.properties.RegisterControls(clickedObject.EditorProperties);
+                                            // 2) user defined shit
+                                            editorForm.properties.RegisterControls(clickedObject.EditorProperties);
+
+                                        }
 
                                     }
                                 }
