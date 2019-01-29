@@ -535,7 +535,7 @@ namespace SimplexIde
         {
             sr.drawTest1.DeleteAll();
             FormNew f = new FormNew();
-            f.ShowDialog();
+            darkDockPanel1.AddContent(f);
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
