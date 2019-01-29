@@ -550,35 +550,10 @@ namespace SimplexIde
 
         private void spritesManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // open sprites manager
-            /*  if (currentProject != null)
-              {
-                  if (SpritesManager != null)
-                  {
-                      SpritesManager.Close();
-                  }
-
-                  if (SpritesManager == null)
-                  {
-                      SpritesManager = new Sprites_manager();
-                     // SpritesManager.Owner = this;
-                      SpritesManager.owner = this;
-                    //  SpritesManager.StartPosition = FormStartPosition.CenterScreen;
-                      SpritesManager.Show();
-                  }
-                  else
-                  {
-                      SpritesManager.Show();
-                  }
-              }*/
-
             Sprites_manager sm = new Sprites_manager();
             sm.owner = this;
             darkDockPanel1.AddContent(sm);
         }
-
-
-
 
         private void darkDockPanel3_Paint(object sender, PaintEventArgs e)
         {
