@@ -1,4 +1,5 @@
-﻿using DarkUI.Forms;
+﻿using DarkUI.Docking;
+using DarkUI.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,10 +11,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace SimplexIde
 {
-    public partial class FormNew : DarkForm
+    public partial class FormNew : DarkToolWindow
     {
         public FormNew()
         {
