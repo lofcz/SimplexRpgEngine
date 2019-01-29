@@ -69,6 +69,8 @@
             this.Controls.Add(this.darkTitle1);
             this.Controls.Add(this.textName);
             this.Controls.Add(this.darkButton1);
+            this.DefaultDockArea = DarkUI.Docking.DarkDockArea.Document;
+            this.DockText = "New Project";
             this.Name = "FormNew";
             this.Size = new System.Drawing.Size(616, 300);
             this.ResumeLayout(false);
