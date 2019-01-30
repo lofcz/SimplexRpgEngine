@@ -614,19 +614,22 @@ namespace SimplexCore
              int height = Convert.ToInt32(abs(round(0 + second_pos.Y - first_pos.Y)));
              int Ygrids = Convert.ToInt32(round(height / GridSize));
              
-             double[,] Grids = new double[Xgrids+Ygrids,Xgrids+Ygrids];
+             double[,] Grids = new double[Xgrids+Ygrids, Xgrids * Ygrids];
              
              int current_row = 0; 
              int Ypos = 0;
              int Xpos = 0;
-             for (int i = 0; i < Xgrids + Ygrids; i++)
+             int j = 0;
+             for (int i = 0; i < Ygrids; i++)
              {
                  for (int x = 0; x < Xgrids; x++)
                  {
-                     Grids[0, i] = Ypos * 10000 + Xpos;
+                     Grids[0, j] = Ypos * 10000 + Xpos;
+                    
                      Xpos += GridSize;
-                     //Debug.WriteLine("x: {0}, y: {1}", x1d(i,Grids), y1d(i,Grids));
-                 }
+                    Debug.WriteLine("x: {0}, y: {1}", x1d(j,Grids), y1d(j,Grids));
+                    j++;
+                }
 
                  current_row++;
                  Xpos = 0;
