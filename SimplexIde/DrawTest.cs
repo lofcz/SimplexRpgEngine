@@ -119,6 +119,7 @@ namespace SimplexIde
         Vector2 Transformrelative = Vector2.One;
         private bool readyToDeselect = false;
         private bool allGood = false;
+        Vector2 helpVec2 = Vector2.One;
 
         Cursor ScaleCursor = new Cursor((Resources.cursor_scale_16_16).GetHicon());
 
@@ -165,7 +166,7 @@ namespace SimplexIde
             }
 
             videoPlayer = new VideoPlayer(GraphicsDevice);
-            Sgml.videoPlayer = videoPlayer;
+            Sgml.videoPlayer = videoPlayer;         
         }
 
         private void OnKeyPressed(object sender, GlobalKeyboardHookEventArgs e)
@@ -977,10 +978,11 @@ namespace SimplexIde
                         float k = (Sgml.sign(dif)) * ratio;
                         Transformingobject.ImageScaleTarget.Y += k;
                         Transformingobject.ImageScale.Y += k;
-                        
+
 
                         Transformingobject.Y -= (dif) * (float)Math.Sin((Transformingobject.ImageAngle + 90) * Math.PI / 180) / 2f;
                         Transformingobject.X -= (dif) * (float)Math.Cos((Transformingobject.ImageAngle + 90) * Math.PI / 180) / 2f;
+                        Transformingobject.UpdateRectangle();
                     }
                     else if (Transformingside == 3)
                     {
@@ -1013,7 +1015,7 @@ namespace SimplexIde
                         float k = (Sgml.sign(dif)) * ratio;
                         Transformingobject.ImageScaleTarget.Y += k;
                         Transformingobject.ImageScale.Y += k;
-
+                        Transformingobject.UpdateRectangle();
                     }
                     else if (Transformingside == 2)
                     {
@@ -1064,6 +1066,7 @@ namespace SimplexIde
 
                         Transformingobject.Y -= (dif) * (float)Math.Sin((Transformingobject.ImageAngle) * Math.PI / 180) / 2f;
                         Transformingobject.X -= (dif) * (float)Math.Cos((Transformingobject.ImageAngle) * Math.PI / 180) / 2f;
+                        Transformingobject.UpdateRectangle();
                     }
                     else if (Transformingside == 4)
                     {
@@ -1121,6 +1124,7 @@ namespace SimplexIde
                         float k = (Sgml.sign(dif)) * ratio;
                         Transformingobject.ImageScaleTarget.X += k;
                         Transformingobject.ImageScale.X += k;
+                        Transformingobject.UpdateRectangle();
                     }
                 }
 
@@ -1224,7 +1228,7 @@ namespace SimplexIde
             if (btn == MouseButtons.Middle)
             {
                 panView = true;
-                helpVec = cam.Camera.ScreenToWorld(MousePosition);
+                helpVec2 = cam.Camera.ScreenToWorld(MousePosition);
             }
 
             if (btn == MouseButtons.Right && !Input.KeyboardState.IsKeyDown(Keys.LeftShift))
@@ -1237,9 +1241,7 @@ namespace SimplexIde
 
                 for (var i = SceneObjects.Count - 1; i >= 0; i--)
                 {
-                    Microsoft.Xna.Framework.Rectangle r = new Microsoft.Xna.Framework.Rectangle((int)SceneObjects[i].Position.X, (int)SceneObjects[i].Position.Y, SceneObjects[i].Sprite.ImageRectangle.Width, SceneObjects[i].Sprite.ImageRectangle.Height);
-
-                    if (r.Contains(vec))
+                    if (SceneObjects[i].CollidingWithPoint(vec))
                     {
                         if (goodBoy)
                         {
@@ -1551,32 +1553,36 @@ namespace SimplexIde
                                     }
                                 }
 
+                                helpVec = Vector2.Zero;
+
                                 if (!placeEmpty && !ks.IsKeyDown(Keys.LeftShift))
                                 {
                                     // there's something cool at the position already, time to grab it
                                     GameObject collidingObject = Sgml.instance_place(vec);
 
-                                    if (collidingObject != null && Transformingobject == null)
+                                    if (collidingObject != null)
                                     {
-                                        clickedObject = collidingObject;
-                                        lastClickedObject = clickedObject;
+                                        if (Transformingobject == null)
+                                        {
+                                            clickedObject = collidingObject;
+                                            lastClickedObject = clickedObject;
 
-                                        helpVec = new Vector2(-MousePositionTranslated.X + collidingObject.Position.X,
-                                            -MousePositionTranslated.Y + collidingObject.Position.Y);
-                                        clickedVec = MousePositionTranslated;
+                                            helpVec = new Vector2(-MousePositionTranslated.X + collidingObject.X,
+                                                -MousePositionTranslated.Y + collidingObject.Y);
+                                            clickedVec = MousePositionTranslated;
 
-                                        // load properties in the props tab
-                                        editorForm.properties.RegisterControls(clickedObject.EditorProperties);
-                                       // Sgml.show_debug_message("kokotí hlavička 69");
+                                            // load properties in the props tab
+                                            editorForm.properties.Controls.Clear();
 
-                                      
+                                            // 1) register default trash
+                                            editorForm.properties.Controls.Add(new DarkLabel() {Text = "Instance " + lastClickedObject.Id.ToString(), Location = new System.Drawing.Point(10, 30), AutoSize = true});
+
+                                            // 2) user defined shit
+                                            editorForm.properties.RegisterControls(clickedObject.EditorProperties);
+
+                                        }
+
                                     }
-
-                                    Debug.WriteLine("ASD asd");
-                                }
-                                else
-                                {
-
                                 }
                             }
                         }
@@ -1669,6 +1675,7 @@ namespace SimplexIde
                     else
                     {
                         vec = MousePositionTranslated;
+                        vec = new Vector2(vec.X + helpVec.X, vec.Y + helpVec.Y);
 
                         if (DrawGrid)
                         {
@@ -1681,7 +1688,7 @@ namespace SimplexIde
                         if (!cmsOpen)
                         {
                             clickedObject.Position = vec;
-                            Debug.WriteLine("KOKOTI AKCE");
+                          ////  Debug.WriteLine("KOKOTI AKCE");
                         }
                     }
                 }
@@ -1704,20 +1711,16 @@ namespace SimplexIde
                                 {
                                     if (rl is ObjectLayer ol)
                                     {
-                                        for (var i = ol.Objects.Count - 1; i >= 0; i--)
+                                        if (ks.IsKeyDown(Keys.LeftShift))
                                         {
-
-                                            Microsoft.Xna.Framework.Rectangle r =
-                                                new Microsoft.Xna.Framework.Rectangle((int) ol.Objects[i].Position.X,
-                                                    (int) ol.Objects[i].Position.Y,
-                                                    ol.Objects[i].Sprite.ImageRectangle.Width,
-                                                    ol.Objects[i].Sprite.ImageRectangle.Height);
-
-                                            if (ks.IsKeyDown(Keys.LeftShift) && r.Contains(vec))
+                                            for (var i = ol.Objects.Count - 1; i >= 0; i--)
                                             {
-                                                SceneObjects.Remove(ol.Objects[i]);
-                                                ol.Objects[i].EvtDelete();
-                                                ol.Objects.Remove(ol.Objects[i]);
+                                                if (ol.Objects[i].CollidingWithPoint(vec))
+                                                {
+                                                    SceneObjects.Remove(ol.Objects[i]);
+                                                    ol.Objects[i].EvtDelete();
+                                                    ol.Objects.Remove(ol.Objects[i]);
+                                                }
                                             }
                                         }
                                     }
@@ -1822,7 +1825,7 @@ namespace SimplexIde
         {
             if (editorForm.projectFile != "" && panView)
             {
-                cam.TargetPosition = new Vector2(cam.Position.X + helpVec.X - MousePositionTranslated.X, cam.Position.Y + helpVec.Y - MousePositionTranslated.Y);
+                cam.TargetPosition = new Vector2(cam.Position.X + helpVec2.X - MousePositionTranslated.X, cam.Position.Y + helpVec2.Y - MousePositionTranslated.Y);
             }
         }
 

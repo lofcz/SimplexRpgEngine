@@ -44,10 +44,6 @@ namespace SimplexIde
                     }
                 }
             }
-            else
-            {
-                Controls.Clear();
-            }
 
             this.controls = controls;
 

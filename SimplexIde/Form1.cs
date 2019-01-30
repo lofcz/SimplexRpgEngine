@@ -507,8 +507,6 @@ namespace SimplexIde
             r.form1 = this;
             darkDockPanel4.AddContent(r);
             rooms = r.dtv;
-
-          //  sr.drawTest1.roomsControl = r;
         }
 
         private void darkToolStrip3_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -537,7 +535,7 @@ namespace SimplexIde
         {
             sr.drawTest1.DeleteAll();
             FormNew f = new FormNew();
-            f.ShowDialog();
+            darkDockPanel1.AddContent(f);
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
@@ -552,35 +550,10 @@ namespace SimplexIde
 
         private void spritesManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // open sprites manager
-            /*  if (currentProject != null)
-              {
-                  if (SpritesManager != null)
-                  {
-                      SpritesManager.Close();
-                  }
-
-                  if (SpritesManager == null)
-                  {
-                      SpritesManager = new Sprites_manager();
-                     // SpritesManager.Owner = this;
-                      SpritesManager.owner = this;
-                    //  SpritesManager.StartPosition = FormStartPosition.CenterScreen;
-                      SpritesManager.Show();
-                  }
-                  else
-                  {
-                      SpritesManager.Show();
-                  }
-              }*/
-
             Sprites_manager sm = new Sprites_manager();
             sm.owner = this;
             darkDockPanel1.AddContent(sm);
         }
-
-
-
 
         private void darkDockPanel3_Paint(object sender, PaintEventArgs e)
         {
