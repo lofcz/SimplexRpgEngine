@@ -11,20 +11,35 @@ using SimplexCore;
 using static SimplexCore.Sgml;
 using Microsoft.Xna.Framework.Graphics;
 using SimplexIde;
+using SimplexIde.PathFinder;
 
 namespace SimplexResources.Objects
 {
     public class oCryoSample : GameObject
     {
+        private FindPath path;
+        
         public oCryoSample()
         {
             EditorPath = "Actors";
         }
 
+        public override void EvtCreate()
+        {    
+            path = new FindPath(Position);
+            double[,] Grid =  grid_set(new Vector2(0,0), new Vector2(96,96), 32);
+        }
+
+        public override void EvtStep()
+        {
+            path.find_path();
+        }
+        
       /*  public override void EvtCreate()
         {
             timeline_add("random name");
         }
+        
 
         public override void EvtStep()
         {

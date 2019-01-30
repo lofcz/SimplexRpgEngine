@@ -604,5 +604,46 @@ namespace SimplexCore
         {
             return all_time_lines[all_time_lines.FindIndex(x => x.Name == name)].Count;
         }*/
+
+         //Grid
+         public static double[,] grid_set(Vector2 first_pos, Vector2 second_pos,int GridSize)
+         {
+             int width = Convert.ToInt32(abs(round(0 + second_pos.X - first_pos.X)));
+             int Xgrids = Convert.ToInt32(floor(width / GridSize));
+             
+             int height = Convert.ToInt32(abs(round(0 + second_pos.Y - first_pos.Y)));
+             int Ygrids = Convert.ToInt32(round(height / GridSize));
+             
+             double[,] Grids = new double[Xgrids+Ygrids,Xgrids+Ygrids];
+             
+             int current_row = 0; 
+             int Ypos = 0;
+             int Xpos = 0;
+             for (int i = 0; i < Xgrids + Ygrids; i++)
+             {
+                 for (int x = 0; x < Xgrids; x++)
+                 {
+                     Grids[0, i] = Ypos * 10000 + Xpos;
+                     Xpos += GridSize;
+                     //Debug.WriteLine("x: {0}, y: {1}", x1d(i,Grids), y1d(i,Grids));
+                 }
+
+                 current_row++;
+                 Xpos = 0;
+                 Ypos += GridSize;
+             }
+
+             return Grids;
+
+             double x1d(int index, double[,] Grid2D)
+             {
+                 return Grid2D[0, index] % 10000;
+             }
+
+             double y1d(int index, double[,] Grid2D)
+             {
+                 return floor(Grid2D[0, index] / 10000);
+             }
+         }
     }
 }
