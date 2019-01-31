@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
-using MonoGame.Extended;
 using SimplexCore;
 using static SimplexCore.Sgml;
+using RectangleF = MonoGame.Extended.RectangleF;
 
 namespace SimplexResources.Objects
 {
@@ -71,6 +72,10 @@ namespace SimplexResources.Objects
             frameManager.AddAnimation("george", new[] { 8, 9, 10, 11 }, "north"); 
             frameManager.AddAnimation("george", new[] { 12, 13, 14, 15 }, "east");
 
+            mp_grid_create(new System.Drawing.Rectangle(0, 0, 1024, 768), new Size(32, 32));
+
+
+
             //show_message(darcsin(-1).ToString());
             // int k = system_get_ram();
             // video_play(video_get("MyVideo"));
@@ -81,7 +86,7 @@ namespace SimplexResources.Objects
  
              surface_save_ext(surface, "kokot", 64, 64);*/
             //alarm_set(0, 100);
-         //   video_play(video_get("MyVideo"));
+            //   video_play(video_get("MyVideo"));
         }
 
         public override void EvtAlarm0()
@@ -100,12 +105,6 @@ namespace SimplexResources.Objects
         {
             UpdateState();
             UpdateColliders();
-
-            CollisionContainer.X = (int)Position.X;
-            CollisionContainer.Y = (int)Position.Y;
-            CollisionContainer.Width = 48;
-            CollisionContainer.Height = 48;
-
             Sprite.UpdateImageRectangle();
 
             if (keyboard_check(Keys.W))
@@ -183,7 +182,14 @@ namespace SimplexResources.Objects
 
             draw_sprite(sprite_get("simplex"), -2, Position);
 
-           // draw_video(Position, new Vector2(166, 100));
+            // draw_video(Position, new Vector2(166, 100));
+            mp_grid_clear();
+
+            mp_grid_set_cell(4, 4);
+            mp_grid_set_rectangle(6, 6, 3, 3);
+            mp_grid_set_instance(this);
+
+            mp_grid_draw(false);
         }
     }
 }

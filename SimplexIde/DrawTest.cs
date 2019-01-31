@@ -145,7 +145,7 @@ namespace SimplexIde
             prevState = Keyboard.GetState();
             basicEffect = new BasicEffect(GraphicsDevice);
         
-            vertexBuffer = new DynamicVertexBuffer(GraphicsDevice, typeof(VertexPositionColor), 1000, BufferUsage.WriteOnly);
+            vertexBuffer = new DynamicVertexBuffer(GraphicsDevice, typeof(VertexPositionColor), 16000, BufferUsage.WriteOnly);
             m = Matrix.CreateOrthographicOffCenter(0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 0, 0, -1);
             mpb = new MgPrimitiveBatcher(Editor.graphics, Editor.Font);
             _globalKeyboardHook = new GlobalKeyboardHook();

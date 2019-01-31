@@ -41,6 +41,9 @@ namespace SimplexCore
         static PointF a, b;
         private static bool aaOn = true;
         static Rectangle rect2 = Rectangle.Empty;
+        private static bool vertexbatchOn = false;
+        private static PrimitiveType vertexBatchType = PrimitiveType.LineList;
+        private static bool vertexBatchOutline = false;
 
         // Internal cool shit
         static Vector2 GetCentroid(Vector3[] nodes)
@@ -120,7 +123,6 @@ namespace SimplexCore
             {
                 vb.SetData(vertices.ToArray());
                 sb.GraphicsDevice.SetVertexBuffer(vb);
-                sb.GraphicsDevice.BlendState = BlendState.Opaque;
 
                 if (outline)
                 {
@@ -269,6 +271,55 @@ namespace SimplexCore
 
                 RenderVertices(PrimitiveType.LineStrip, true);
             }
+        }
+
+
+        public static void draw_rectangle(Rectangle rect, bool outline)
+        {
+            if (!vertexbatchOn) {vertices.Clear();}
+            SetVertexColor(FinalizeColor(DrawColor));
+
+            if (!outline)
+            {
+                AddVertex(rect.X, rect.Y);
+                AddVertex(rect.X, rect.Y + rect.Height);
+                AddVertex(rect.X + rect.Width, rect.Y + rect.Height);
+
+                AddVertex(rect.X + rect.Width, rect.Y + rect.Height);
+                AddVertex(rect.X + rect.Width, rect.Y);
+                AddVertex(rect.X, rect.Y);
+
+                if (!vertexbatchOn) {RenderVertices();}
+            }
+            else
+            {
+                AddVertex(rect.X, rect.Y);
+                AddVertex(rect.X, rect.Y + rect.Height);
+
+                AddVertex(rect.X, rect.Y + rect.Height);
+                AddVertex(rect.X + rect.Width, rect.Y + rect.Height);
+
+                AddVertex(rect.X + rect.Width, rect.Y + rect.Height);
+                AddVertex(rect.X + rect.Width, rect.Y);
+
+                AddVertex(rect.X + rect.Width, rect.Y);
+                AddVertex(rect.X, rect.Y);
+
+                if (!vertexbatchOn) {RenderVertices(PrimitiveType.LineStrip);}
+            }
+        }
+
+        public static void draw_primitive_batch_start(PrimitiveType pt, bool outline = true)
+        {
+            vertexbatchOn = true;
+            vertexBatchType = pt;
+            vertexBatchOutline = outline;
+            vertices.Clear();
+        }
+
+        public static void draw_primitive_batch_end()
+        {
+            RenderVertices(vertexBatchType, vertexBatchOutline);
         }
 
         public static void draw_sprite(Texture2D sprite, double subimg, Vector2 position, float xscale = 1, float yscale = 1, float angle = 0, float originX = 0, float originY = 0)
