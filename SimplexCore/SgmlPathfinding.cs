@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -7,6 +8,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MoreLinq;
+using SharpDX.Direct2D1;
 using Point = System.Drawing.Point;
 using Rectangle = System.Drawing.Rectangle;
 
@@ -23,6 +25,7 @@ namespace SimplexCore
         static List<AStarCell> openList = new List<AStarCell>();
         static List<AStarCell> closedList = new List<AStarCell>();
         static AStarCell node = new AStarCell();
+        private static int g = 0;
 
         public static void mp_grid_create(Rectangle rect, Size cellSize)
         {
@@ -66,6 +69,9 @@ namespace SimplexCore
 
         public static GamePath mp_grid_path(Vector2 start, Vector2 goal)
         {
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             GamePath p = new GamePath();
 
             // 1) Convert positions to cell indexes
@@ -95,15 +101,17 @@ namespace SimplexCore
             // loop until path is found
             bool resolved = false;
 
+            int tried = 0;
             while (!resolved)
             {
                 AStarCell lowest = MpSelectLowest();
-                closedList.Add(lowest);
-                openList.Remove(lowest);
+                tried++;
 
                 if (lowest.X == goalCell.X && lowest.Y == goalCell.Y)
                 {
                     resolved = true;
+                    stopwatch.Stop();
+                    show_debug_message(tried.ToString());
 
                     // backtrack the path
                     bool backtrackDone = false;
@@ -118,6 +126,7 @@ namespace SimplexCore
                         else
                         {
                             backtrackDone = true;
+                            
                         }
                     }
                 }
@@ -125,8 +134,12 @@ namespace SimplexCore
                 {
                     MpAddNeighbors(lowest, startCell, goalCell);
                 }
+
+                closedList.Add(lowest);
+                openList.Remove(lowest);
             }
 
+            show_debug_message(stopwatch.Elapsed.ToString());
             return p;
         }
 
@@ -143,13 +156,15 @@ namespace SimplexCore
                 if (openList.FirstOrDefault(x => x.X == p.X && x.Y == p.Y - 1) == null)
                 {
                     node = new AStarCell() {X = p.X, Y = p.Y - 1, StartNode = start, GoalNode = end, ParentNode = p};
-                    node.ComputeGHF();
+                    node.ComputeGHF(p);
                     openList.Add(node);
                 }
                 else
                 {
-                    openList.FirstOrDefault(x => x.X == p.X && x.Y == p.Y - 1)?.ComputeGHF();
+                    node = openList.FirstOrDefault(x => x.X == p.X && x.Y == p.Y - 1);
+                    node.ComputeGHF(p);
                 }
+
             }
 
             // S
@@ -158,12 +173,13 @@ namespace SimplexCore
                 if (openList.FirstOrDefault(x => x.X == p.X && x.Y == p.Y + 1) == null)
                 {
                     node = new AStarCell() {X = p.X, Y = p.Y + 1, StartNode = start, GoalNode = end, ParentNode = p};
-                    node.ComputeGHF();
+                    node.ComputeGHF(p);
                     openList.Add(node);
                 }
                 else
                 {
-                    openList.FirstOrDefault(x => x.X == p.X && x.Y == p.Y + 1)?.ComputeGHF();
+                    node = openList.FirstOrDefault(x => x.X == p.X && x.Y == p.Y + 1);
+                    node.ComputeGHF(p);
                 }
             }
 
@@ -173,12 +189,13 @@ namespace SimplexCore
                 if (openList.FirstOrDefault(x => x.X == p.X - 1 && x.Y == p.Y) == null)
                 {
                     node = new AStarCell() {X = p.X - 1, Y = p.Y, StartNode = start, GoalNode = end, ParentNode = p};
-                    node.ComputeGHF();
+                    node.ComputeGHF(p);
                     openList.Add(node);
                 }
                 else
                 {
-                    openList.FirstOrDefault(x => x.X == p.X - 1 && x.Y == p.Y)?.ComputeGHF();
+                    node = openList.FirstOrDefault(x => x.X == p.X - 1 && x.Y == p.Y);
+                    node.ComputeGHF(p);
                 }
             }
 
@@ -188,12 +205,13 @@ namespace SimplexCore
                 if (openList.FirstOrDefault(x => x.X == p.X + 1 && x.Y == p.Y) == null)
                 {
                     node = new AStarCell() {X = p.X + 1, Y = p.Y, StartNode = start, GoalNode = end, ParentNode = p};
-                    node.ComputeGHF();
+                    node.ComputeGHF(p);
                     openList.Add(node);
                 }
                 else
                 {
-                    openList.FirstOrDefault(x => x.X == p.X + 1 && x.Y == p.Y)?.ComputeGHF();
+                    node = openList.FirstOrDefault(x => x.X == p.X + 1 && x.Y == p.Y);
+                    node.ComputeGHF(p);
                 }
             }
 
@@ -203,12 +221,13 @@ namespace SimplexCore
                 if (openList.FirstOrDefault(x => x.X == p.X + 1 && x.Y == p.Y - 1) == null)
                 {
                     node = new AStarCell() {X = p.X + 1, Y = p.Y - 1, StartNode = start, GoalNode = end, ParentNode = p};
-                    node.ComputeGHF();
+                    node.ComputeGHF(p);
                     openList.Add(node);
                 }
                 else
                 {
-                    openList.FirstOrDefault(x => x.X == p.X + 1 && x.Y == p.Y - 1)?.ComputeGHF();
+                    node = openList.FirstOrDefault(x => x.X == p.X + 1 && x.Y == p.Y - 1);
+                    node.ComputeGHF(p);
                 }
             }
 
@@ -218,12 +237,13 @@ namespace SimplexCore
                 if (openList.FirstOrDefault(x => x.X == p.X - 1 && x.Y == p.Y - 1) == null)
                 {
                     node = new AStarCell() {X = p.X - 1, Y = p.Y - 1, StartNode = start, GoalNode = end, ParentNode = p};
-                    node.ComputeGHF();
+                    node.ComputeGHF(p);
                     openList.Add(node);
                 }
                 else
                 {
-                    openList.FirstOrDefault(x => x.X == p.X - 1 && x.Y == p.Y - 1)?.ComputeGHF();
+                    node = openList.FirstOrDefault(x => x.X == p.X - 1 && x.Y == p.Y - 1);
+                    node.ComputeGHF(p);
                 }
             }
 
@@ -233,12 +253,13 @@ namespace SimplexCore
                 if (openList.FirstOrDefault(x => x.X == p.X + 1 && x.Y == p.Y + 1) == null)
                 {
                     node = new AStarCell() {X = p.X + 1, Y = p.Y + 1, StartNode = start, GoalNode = end, ParentNode = p};
-                    node.ComputeGHF();
+                    node.ComputeGHF(p);
                     openList.Add(node);
                 }
                 else
                 {
-                    openList.FirstOrDefault(x => x.X == p.X + 1 && x.Y == p.Y + 1)?.ComputeGHF();
+                    node = openList.FirstOrDefault(x => x.X == p.X + 1 && x.Y == p.Y + 1);
+                    node.ComputeGHF(p);
                 }
             }
 
@@ -248,12 +269,13 @@ namespace SimplexCore
                 if (openList.FirstOrDefault(x => x.X == p.X - 1 && x.Y == p.Y + 1) == null)
                 {
                     node = new AStarCell() {X = p.X - 1, Y = p.Y + 1, StartNode = start, GoalNode = end, ParentNode = p};
-                    node.ComputeGHF();
+                    node.ComputeGHF(p);
                     openList.Add(node);
                 }
                 else
                 {
-                    openList.FirstOrDefault(x => x.X == p.X - 1 && x.Y == p.Y + 1)?.ComputeGHF();
+                    node = openList.FirstOrDefault(x => x.X == p.X - 1 && x.Y == p.Y + 1);
+                    node.ComputeGHF(p);
                 }
             }
         }
@@ -310,7 +332,12 @@ namespace SimplexCore
 
         public static bool mp_grid_get_cell(int x, int y)
         {
-            return pathfindingGrid.Grid[y * pathfindingGrid.CellsX + x, 0];
+            if (x >= 0 && y >= 0)
+            {
+                return pathfindingGrid.Grid[y * pathfindingGrid.CellsX + x, 0];
+            }
+
+            return true;
         }
 
         public static void mp_grid_clear()
@@ -347,11 +374,28 @@ namespace SimplexCore
         public AStarCell GoalNode;
         public AStarCell ParentNode;
 
-        public void ComputeGHF()
+        public void ComputeGHF(AStarCell pNode)
         {
-            G = Sgml.point_distance(X, Y, StartNode.X, StartNode.Y);
-            H = Sgml.point_distance(X, Y, GoalNode.X, GoalNode.Y);
-            F = G + H;
+            int dX = Math.Abs(pNode.X - X);
+            int dY = Math.Abs(pNode.Y - Y);
+            double k = 0;
+
+            if (dX > dY)
+            {
+                k = G + (14 * dY + 10 * (dX - dY));
+            }
+            else
+            {
+                k = G + (14 * dX + 10 * (dY - dX));
+            }
+
+            //if (k < G)
+            {
+                G = k;
+                H = k - G;
+                F = G + H;
+                ParentNode = pNode;
+            }
         }
     }
 }

@@ -22,7 +22,8 @@ namespace SimplexResources.Objects
         private float k = 0;
         private float time = 0;
         private RenderTarget2D surface = null;
-
+        List<Vector2> pos = new List<Vector2>();
+        
         public oGeorgeNew()
         {
             EditorPath = "Actors";
@@ -187,13 +188,27 @@ namespace SimplexResources.Objects
 
             mp_grid_set_instance(this);
 
-            GamePath p = mp_grid_path(new Vector2(96, 96), new Vector2(512, 512));
+
           //  mp_grid_set_cell(4, 4);
           //  mp_grid_set_rectangle(6, 6, 3, 3);
+
+          if (mouse_check_button_pressed(MouseButtons.mb_right))
+          {
+                pos.Add(new Vector2(mouse.X / 32, mouse.Y / 32));
+          }
+
+          foreach (Vector2 v in pos)
+          {
+              mp_grid_set_cell((int)v.X, (int)v.Y);
+          }
+
+          GamePath p = mp_grid_path(new Vector2(96, 96), new Vector2(512, 512));
 
 
             mp_grid_draw(false);
             draw_path(p);
+
+            //mp_
         }
     }
 }

@@ -1020,12 +1020,15 @@ namespace SimplexCore
 
         public static void draw_path(GamePath path)
         {
-            Vector2 prev = path.points[0];
-
-            foreach (Vector2 p in path.points)
+            if (path.points.Count > 0)
             {
-                draw_line(prev, p);
-                prev = p;
+                Vector2 prev = path.points[0];
+
+                foreach (Vector2 p in path.points)
+                {
+                    draw_line(prev, p);
+                    prev = p;
+                }
             }
         }
     }
