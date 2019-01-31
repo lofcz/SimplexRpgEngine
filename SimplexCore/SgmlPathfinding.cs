@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using MoreLinq;
 using Point = System.Drawing.Point;
 using Rectangle = System.Drawing.Rectangle;
 
@@ -18,6 +20,9 @@ namespace SimplexCore
         }
 
         private static PathfingingGrid pathfindingGrid = new PathfingingGrid();
+        static List<AStarCell> openList = new List<AStarCell>();
+        static List<AStarCell> closedList = new List<AStarCell>();
+        static AStarCell node = new AStarCell();
 
         public static void mp_grid_create(Rectangle rect, Size cellSize)
         {
@@ -49,7 +54,7 @@ namespace SimplexCore
                     GeneralRectangle.Width = pathfindingGrid.CellSizeX;
                     GeneralRectangle.Height = pathfindingGrid.CellSizeY;
 
-                    draw_set_color(mp_grid_get_cell(j, i) ? Microsoft.Xna.Framework.Color.Lime : Microsoft.Xna.Framework.Color.Red);
+                    draw_set_color(mp_grid_get_cell(j, i) ? Microsoft.Xna.Framework.Color.Red : Microsoft.Xna.Framework.Color.Lime);
                     draw_rectangle(GeneralRectangle, outline);
                 }
             }
@@ -59,10 +64,205 @@ namespace SimplexCore
             draw_set_alpha(f);
         }
 
+        public static GamePath mp_grid_path(Vector2 start, Vector2 goal)
+        {
+            GamePath p = new GamePath();
+
+            // 1) Convert positions to cell indexes
+            int relativeX = (int)start.X - pathfindingGrid.X;
+            int relativeY = (int)start.Y - pathfindingGrid.Y;
+
+            int startX = relativeX / pathfindingGrid.CellSizeX;
+            int startY = relativeY / pathfindingGrid.CellSizeY;
+
+            relativeX = (int)goal.X - pathfindingGrid.X;
+            relativeY = (int)goal.Y - pathfindingGrid.Y;
+
+            int goalX = relativeX / pathfindingGrid.CellSizeX;
+            int goalY = relativeY / pathfindingGrid.CellSizeY;
+
+            // Prepare lists for a*
+            openList.Clear();
+            closedList.Clear();
+
+            // Prepare goal + start cells
+            AStarCell startCell = new AStarCell() {X = startX, Y = startY};
+            AStarCell goalCell = new AStarCell() { X = goalX, Y = goalY };
+
+            // Get all surrounding cells of the start cell
+            MpAddNeighbors(startCell, startCell, goalCell);
+
+            // loop until path is found
+            bool resolved = false;
+
+            while (!resolved)
+            {
+                AStarCell lowest = MpSelectLowest();
+                closedList.Add(lowest);
+                openList.Remove(lowest);
+
+                if (lowest.X == goalCell.X && lowest.Y == goalCell.Y)
+                {
+                    resolved = true;
+
+                    // backtrack the path
+                    bool backtrackDone = false;
+
+                    while (!backtrackDone)
+                    {
+                        if (lowest.ParentNode != null)
+                        {
+                            p.points.Add(new Vector2(lowest.X * pathfindingGrid.CellSizeX + pathfindingGrid.X + 16, lowest.Y * pathfindingGrid.CellSizeY + pathfindingGrid.Y + 16));
+                            lowest = lowest.ParentNode;
+                        }
+                        else
+                        {
+                            backtrackDone = true;
+                        }
+                    }
+                }
+                else
+                {
+                    MpAddNeighbors(lowest, startCell, goalCell);
+                }
+            }
+
+            return p;
+        }
+
+        static AStarCell MpSelectLowest()
+        {
+            return openList.MinBy(x => x.F).First();
+        }
+
+        static void MpAddNeighbors(AStarCell p, AStarCell start, AStarCell end)
+        {
+            // N
+            if (!mp_grid_get_cell(p.X, p.Y - 1) && closedList.FirstOrDefault(x => x.X == p.X && x.Y == p.Y - 1) == null)
+            {
+                if (openList.FirstOrDefault(x => x.X == p.X && x.Y == p.Y - 1) == null)
+                {
+                    node = new AStarCell() {X = p.X, Y = p.Y - 1, StartNode = start, GoalNode = end, ParentNode = p};
+                    node.ComputeGHF();
+                    openList.Add(node);
+                }
+                else
+                {
+                    openList.FirstOrDefault(x => x.X == p.X && x.Y == p.Y - 1)?.ComputeGHF();
+                }
+            }
+
+            // S
+            if (!mp_grid_get_cell(p.X, p.Y + 1) && closedList.FirstOrDefault(x => x.X == p.X && x.Y == p.Y + 1) == null)
+            {
+                if (openList.FirstOrDefault(x => x.X == p.X && x.Y == p.Y + 1) == null)
+                {
+                    node = new AStarCell() {X = p.X, Y = p.Y + 1, StartNode = start, GoalNode = end, ParentNode = p};
+                    node.ComputeGHF();
+                    openList.Add(node);
+                }
+                else
+                {
+                    openList.FirstOrDefault(x => x.X == p.X && x.Y == p.Y + 1)?.ComputeGHF();
+                }
+            }
+
+            // E
+            if (!mp_grid_get_cell(p.X - 1, p.Y) && closedList.FirstOrDefault(x => x.X == p.X - 1 && x.Y == p.Y) == null)
+            {
+                if (openList.FirstOrDefault(x => x.X == p.X - 1 && x.Y == p.Y) == null)
+                {
+                    node = new AStarCell() {X = p.X - 1, Y = p.Y, StartNode = start, GoalNode = end, ParentNode = p};
+                    node.ComputeGHF();
+                    openList.Add(node);
+                }
+                else
+                {
+                    openList.FirstOrDefault(x => x.X == p.X - 1 && x.Y == p.Y)?.ComputeGHF();
+                }
+            }
+
+            // W
+            if (!mp_grid_get_cell(p.X + 1, p.Y) && closedList.FirstOrDefault(x => x.X == p.X + 1 && x.Y == p.Y) == null)
+            {
+                if (openList.FirstOrDefault(x => x.X == p.X + 1 && x.Y == p.Y) == null)
+                {
+                    node = new AStarCell() {X = p.X + 1, Y = p.Y, StartNode = start, GoalNode = end, ParentNode = p};
+                    node.ComputeGHF();
+                    openList.Add(node);
+                }
+                else
+                {
+                    openList.FirstOrDefault(x => x.X == p.X + 1 && x.Y == p.Y)?.ComputeGHF();
+                }
+            }
+
+            // NE
+            if (!mp_grid_get_cell(p.X + 1, p.Y - 1) && closedList.FirstOrDefault(x => x.X == p.X + 1 && x.Y == p.Y - 1) == null)
+            {
+                if (openList.FirstOrDefault(x => x.X == p.X + 1 && x.Y == p.Y - 1) == null)
+                {
+                    node = new AStarCell() {X = p.X + 1, Y = p.Y - 1, StartNode = start, GoalNode = end, ParentNode = p};
+                    node.ComputeGHF();
+                    openList.Add(node);
+                }
+                else
+                {
+                    openList.FirstOrDefault(x => x.X == p.X + 1 && x.Y == p.Y - 1)?.ComputeGHF();
+                }
+            }
+
+            // NW
+            if (!mp_grid_get_cell(p.X - 1, p.Y - 1) && closedList.FirstOrDefault(x => x.X == p.X - 1 && x.Y == p.Y - 1) == null)
+            {
+                if (openList.FirstOrDefault(x => x.X == p.X - 1 && x.Y == p.Y - 1) == null)
+                {
+                    node = new AStarCell() {X = p.X - 1, Y = p.Y - 1, StartNode = start, GoalNode = end, ParentNode = p};
+                    node.ComputeGHF();
+                    openList.Add(node);
+                }
+                else
+                {
+                    openList.FirstOrDefault(x => x.X == p.X - 1 && x.Y == p.Y - 1)?.ComputeGHF();
+                }
+            }
+
+            // SE
+            if (!mp_grid_get_cell(p.X + 1, p.Y + 1) && closedList.FirstOrDefault(x => x.X == p.X + 1 && x.Y == p.Y + 1) == null)
+            {
+                if (openList.FirstOrDefault(x => x.X == p.X + 1 && x.Y == p.Y + 1) == null)
+                {
+                    node = new AStarCell() {X = p.X + 1, Y = p.Y + 1, StartNode = start, GoalNode = end, ParentNode = p};
+                    node.ComputeGHF();
+                    openList.Add(node);
+                }
+                else
+                {
+                    openList.FirstOrDefault(x => x.X == p.X + 1 && x.Y == p.Y + 1)?.ComputeGHF();
+                }
+            }
+
+            // SW
+            if (!mp_grid_get_cell(p.X - 1, p.Y + 1) && closedList.FirstOrDefault(x => x.X == p.X - 1 && x.Y == p.Y + 1) == null)
+            {
+                if (openList.FirstOrDefault(x => x.X == p.X - 1 && x.Y == p.Y + 1) == null)
+                {
+                    node = new AStarCell() {X = p.X - 1, Y = p.Y + 1, StartNode = start, GoalNode = end, ParentNode = p};
+                    node.ComputeGHF();
+                    openList.Add(node);
+                }
+                else
+                {
+                    openList.FirstOrDefault(x => x.X == p.X - 1 && x.Y == p.Y + 1)?.ComputeGHF();
+                }
+            }
+        }
+
+
+
         public static void mp_grid_set_instance(GameObject go, bool empty = true)
         {
             // rasterize entire shit based on bounding box
-
             if (Math.Abs(go.ImageAngle) < .5f)
             {
                 Microsoft.Xna.Framework.Rectangle r = go.CollisionContainer;
@@ -134,5 +334,24 @@ namespace SimplexCore
         public int CellSizeY;
         public int CellsX;
         public int CellsY;
+    }
+
+    public class AStarCell
+    {
+        public int X;
+        public int Y;
+        public double G;
+        public double H;
+        public double F;
+        public AStarCell StartNode;
+        public AStarCell GoalNode;
+        public AStarCell ParentNode;
+
+        public void ComputeGHF()
+        {
+            G = Sgml.point_distance(X, Y, StartNode.X, StartNode.Y);
+            H = Sgml.point_distance(X, Y, GoalNode.X, GoalNode.Y);
+            F = G + H;
+        }
     }
 }

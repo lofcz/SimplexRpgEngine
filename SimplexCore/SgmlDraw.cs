@@ -1017,5 +1017,16 @@ namespace SimplexCore
             sb.Draw(videoPlayer.GetTexture(), GeneralRectangle, null, FinalizeColor(DrawColor));
             sb.End();
         }
+
+        public static void draw_path(GamePath path)
+        {
+            Vector2 prev = path.points[0];
+
+            foreach (Vector2 p in path.points)
+            {
+                draw_line(prev, p);
+                prev = p;
+            }
+        }
     }
 }

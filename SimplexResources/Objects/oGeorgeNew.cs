@@ -185,11 +185,15 @@ namespace SimplexResources.Objects
             // draw_video(Position, new Vector2(166, 100));
             mp_grid_clear();
 
-            mp_grid_set_cell(4, 4);
-            mp_grid_set_rectangle(6, 6, 3, 3);
             mp_grid_set_instance(this);
 
+            GamePath p = mp_grid_path(new Vector2(96, 96), new Vector2(512, 512));
+          //  mp_grid_set_cell(4, 4);
+          //  mp_grid_set_rectangle(6, 6, 3, 3);
+
+
             mp_grid_draw(false);
+            draw_path(p);
         }
     }
 }

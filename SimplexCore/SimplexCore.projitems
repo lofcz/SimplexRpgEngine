@@ -19,6 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)CollisionsTree.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FrameManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MgcbEntry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GamePath.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RotatedRectangle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlPathfinding.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlRaycasting.cs" />
