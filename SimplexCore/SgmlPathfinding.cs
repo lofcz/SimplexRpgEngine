@@ -22,11 +22,12 @@ namespace SimplexCore
         }
 
         private static PathfingingGrid pathfindingGrid = new PathfingingGrid();
-        static List<AStarCell> openList = new List<AStarCell>();
+        private static Heap<AStarCell> openList;
         static List<AStarCell> tempList = new List<AStarCell>();
         static HashSet<AStarCell> closedList = new HashSet<AStarCell>();
         static AStarCell node = new AStarCell();
         private static int g = 0;
+        public static int heapSize = 0;
 
         public static void mp_grid_create(Rectangle rect, Size cellSize)
         {
@@ -39,6 +40,8 @@ namespace SimplexCore
             pathfindingGrid.CellSizeY = cellSize.Height;
             pathfindingGrid.CellsX = rect.Width / pathfindingGrid.CellSizeX;
             pathfindingGrid.CellsY = rect.Height / pathfindingGrid.CellSizeY;
+
+            heapSize = pathfindingGrid.CellsX * pathfindingGrid.CellsY;
 
             for (var i = 0; i < pathfindingGrid.CellsY; i++)
             {
@@ -101,9 +104,6 @@ namespace SimplexCore
 
         public static GamePath mp_grid_path(Vector2 start, Vector2 goal)
         {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
-
             GamePath p = new GamePath();
 
             // 1) Convert positions to cell indexes
@@ -119,31 +119,20 @@ namespace SimplexCore
             int goalX = relativeX / pathfindingGrid.CellSizeX;
             int goalY = relativeY / pathfindingGrid.CellSizeY;
 
-            // Prepare lists for a*
-            openList.Clear();
+            // Prepare heaps for a*
+            openList = new Heap<AStarCell>(heapSize);
             closedList.Clear();
 
             // Prepare goal + start cells
             AStarCell startCell = pathfindingGrid.Grid[startX, startY];
             AStarCell goalCell = pathfindingGrid.Grid[goalX, goalY];
 
-
             openList.Add(startCell);
             int iter = 0;
 
             while (openList.Count > 0)
             {
-                AStarCell currentNode = openList[0];
-
-                for (int i = 1; i < openList.Count; i++)
-                {
-                    if (openList[i].F < currentNode.F || (openList[i].F == currentNode.F && openList[i].H < currentNode.H))
-                    {
-                        currentNode = openList[i];
-                    } 
-                }
-
-                openList.Remove(currentNode);
+                AStarCell currentNode = openList.RemoveFirst();
                 closedList.Add(currentNode);
 
                 if (currentNode.X == goalX && currentNode.Y == goalY)
@@ -198,11 +187,6 @@ namespace SimplexCore
             }
 
             tempList = path;
-        }
-
-        static AStarCell MpSelectLowest()
-        {
-            return openList.MinBy(x => x.F).First();
         }
 
         static int MpGetDistance(AStarCell a, AStarCell b)
@@ -294,13 +278,22 @@ namespace SimplexCore
         public int CellsY;
     }
 
-    public class AStarCell
+    public class AStarCell : IHeapItem<AStarCell>
     {
         public int X;
         public int Y;
         public int G;
         public int H;
         public int F;
+        private int heapIndex;
+
+        public int HeapIndex
+        {
+            get { return heapIndex; }
+
+            set { heapIndex = value; }
+        }
+
         public bool Empty;
         public AStarCell StartNode;
         public AStarCell GoalNode;
@@ -309,6 +302,18 @@ namespace SimplexCore
         public AStarCell()
         {
             Empty = true;
+        }
+
+        public int CompareTo(AStarCell toCompare)
+        {
+            int compare = F.CompareTo(toCompare.F);
+
+            if (compare == 0)
+            {
+                compare = H.CompareTo(toCompare.H);
+            }
+
+            return -compare;
         }
     }
 }
