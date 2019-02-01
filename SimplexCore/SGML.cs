@@ -23,6 +23,7 @@ namespace SimplexCore
     public static partial class Sgml
     {
         public static List<GameObject> SceneObjects = new List<GameObject>();
+        public static List<GameObject> SceneColliders = new List<GameObject>();
         public static List<TextureReference> Textures = new List<TextureReference>();
         public static List<SoundReference> Sounds = new List<SoundReference>();
         public static List<Effect> Shaders = new List<Effect>();

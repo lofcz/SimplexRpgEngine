@@ -8,6 +8,7 @@ namespace SimplexCore
     public static class CollisionsTree
     {
         public static Dictionary<CollisionPairExtended, CollisionPair> DefinedCollisionPairs = new Dictionary<CollisionPairExtended, CollisionPair>();
+        public static List<Type> CollisionActiveTypes = new List<Type>();
 
         public static void DrawPairsDebug()
         {
@@ -19,6 +20,17 @@ namespace SimplexCore
             {
                 Sgml.draw_text(new Vector2(20, (index + 1) * 30), k.Key.Object + "(" + k.Key.ColliderName + ")" + " - " + k.Value.Object + "(" + k.Value.ColliderName + ")" + " -->" + k.Key.CollisionAction);
                 index++;
+            }
+        }
+
+        public static void ComputeActiveColliders()
+        {
+            foreach (var k in DefinedCollisionPairs)
+            {
+                if (!CollisionActiveTypes.Contains(k.Key.Object))
+                {
+                    CollisionActiveTypes.Add(k.Key.Object);
+                }
             }
         }
     }

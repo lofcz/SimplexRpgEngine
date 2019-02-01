@@ -59,6 +59,11 @@ namespace SimplexCore
                         {
                             go.Layer.Objects.Remove(go);
                             SceneObjects.Remove(go);
+
+                            if (CollisionsTree.CollisionActiveTypes.Contains(go.GetType()))
+                            {
+                                SceneColliders.Remove(go);
+                            }
                         }
                     }
                 }
@@ -208,6 +213,11 @@ namespace SimplexCore
             o.Layer.Objects.Add(o);
             SceneObjects.Add(o);
             sh.RegisterObject(o);
+
+            if (CollisionsTree.CollisionActiveTypes.Contains(o.GetType()))
+            {
+                SceneColliders.Add(o);
+            }
 
             return o;
         }

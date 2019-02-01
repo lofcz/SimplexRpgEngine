@@ -34,7 +34,7 @@ namespace SimplexResources.Objects
         public override void EvtCreate()
         {
             cur_depth = 0;
-            depth = 200;
+            depth = 500;
             width = 1000;
             height = 1000;
             grid_size = 16;

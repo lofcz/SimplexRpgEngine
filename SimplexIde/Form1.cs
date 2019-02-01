@@ -381,6 +381,8 @@ namespace SimplexIde
 
             }
 
+            CollisionsTree.ComputeActiveColliders();
+
             nspace = corePath + ".Rooms";
             q = from t in Assembly.GetExecutingAssembly().GetTypes()
                 where t.IsClass && t.Namespace == nspace

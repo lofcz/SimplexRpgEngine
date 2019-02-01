@@ -120,6 +120,8 @@ namespace SimplexIde
         private bool readyToDeselect = false;
         private bool allGood = false;
         Vector2 helpVec2 = Vector2.One;
+        private List<GameObject> possibleColliders = null;
+        private List<GameObject> activeColliders = new List<GameObject>();
 
         Cursor ScaleCursor = new Cursor((Resources.cursor_scale_16_16).GetHicon());
 
@@ -129,6 +131,7 @@ namespace SimplexIde
             base.Initialize();
                
             Sgml.SceneObjects = SceneObjects;
+            Sgml.SceneColliders = activeColliders;
             Sgml.roomLayers = roomLayers;
             Sgml.Textures = Textures;
             Sgml.RoomEditor = this;
@@ -437,81 +440,78 @@ namespace SimplexIde
             {
                 SimplexResources.Global.DrawStart();
 
-                // Before render, resolve collisions
-                foreach (GameObject go in SceneObjects.ToList())
+                // Before render, resolve collisions             
+                foreach (GameObject go in activeColliders.ToList())
                 {
-                    if (go.Colliders.Count > 0)
+                    possibleColliders = sh.ObjectsNearby(go);
+
+                    // Check for collision with each object from possible colliders
+                    foreach (GameObject c in possibleColliders)
                     {
-                        List<GameObject> possibleColliders = sh.ObjectsNearby(go);
-
-                        // Check for collision with each object from possible colliders
-                        foreach (GameObject c in possibleColliders)
+                        if (c == go)
                         {
-                            if (c == go)
-                            {
-                                continue;
-                            } // Discard self collisions
+                            continue;
+                        } // Discard self collisions
 
-                            // Check for general rectangle collision 
-                            if (c.CollisionContainer.Intersects(go.CollisionContainer))
-                            {
-                                // There is a possibility that two instances can collide
-                                // 1) Get entry from collision tree
-                                // 2) Detailed collisions
-                                var entries = CollisionsTree.DefinedCollisionPairs.FirstOrDefault(x =>
-                                    x.Key.Object == go.GetType() && x.Value.Object == c.GetType());
+                        // Check for general rectangle collision 
+                        if (c.CollisionContainer.Intersects(go.CollisionContainer))
+                        {
+                            // There is a possibility that two instances can collide
+                            // 1) Get entry from collision tree
+                            // 2) Detailed collisions
+                            var entries = CollisionsTree.DefinedCollisionPairs.FirstOrDefault(x =>
+                                x.Key.Object == go.GetType() && x.Value.Object == c.GetType());
 
-                                if (entries.Key != null)
+                            if (entries.Key != null)
+                            {
+                                // Get colliders from names
+                                ColliderBase cb =
+                                    go.Colliders.FirstOrDefault(x => x.Name == entries.Key.ColliderName);
+                                ColliderBase cb2 =
+                                    c.Colliders.FirstOrDefault(x => x.Name == entries.Value.ColliderName);
+
+                                if ((cb.GetType() == typeof(ColliderRectangle) &&
+                                     cb2.GetType() == typeof(ColliderCircle)))
                                 {
-                                    // Get colliders from names
-                                    ColliderBase cb =
-                                        go.Colliders.FirstOrDefault(x => x.Name == entries.Key.ColliderName);
-                                    ColliderBase cb2 =
-                                        c.Colliders.FirstOrDefault(x => x.Name == entries.Value.ColliderName);
-
-                                    if ((cb.GetType() == typeof(ColliderRectangle) &&
-                                         cb2.GetType() == typeof(ColliderCircle)))
+                                    if (cb is ColliderRectangle)
                                     {
-                                        if (cb is ColliderRectangle)
+                                        // Circle-rectangle collision
+                                        if (ColliderCircle.RectangleIntersectsCircle((ColliderRectangle) cb,
+                                            (ColliderCircle) cb2))
                                         {
-                                            // Circle-rectangle collision
-                                            if (ColliderCircle.RectangleIntersectsCircle((ColliderRectangle) cb,
-                                                (ColliderCircle) cb2))
-                                            {
 
-                                                // Collision occured, fire event
-                                                Sgml.currentObject = go;
-                                                entries.Key.CollisionAction.Invoke(go, c);
-                                                break;
-                                                //Debug.WriteLine("TRIGGER");
-                                            }
-                                        }
-                                    }
-
-                                    if (cb.GetType() == typeof(ColliderRectangle) &&
-                                        cb2.GetType() == typeof(ColliderRectangle))
-                                    {
-                                        if ((cb as ColliderRectangle).CollisionTransformed.Intersects((cb2 as ColliderRectangle).CollisionTransformed))
-                                        {
+                                            // Collision occured, fire event
                                             Sgml.currentObject = go;
                                             entries.Key.CollisionAction.Invoke(go, c);
                                             break;
-                                        }
-                                    }
-
-                                    if (cb.GetType() == typeof(ColliderCircle) &&
-                                        cb2.GetType() == typeof(ColliderCircle))
-                                    {
-                                        if (ColliderCircle.CircleInCircle(cb as ColliderCircle, cb2 as ColliderCircle))
-                                        {
-                                            Sgml.currentObject = go;
-                                            entries.Key.CollisionAction.Invoke(go, c);
-                                            break;
+                                            //Debug.WriteLine("TRIGGER");
                                         }
                                     }
                                 }
+
+                                if (cb.GetType() == typeof(ColliderRectangle) &&
+                                    cb2.GetType() == typeof(ColliderRectangle))
+                                {
+                                    if ((cb as ColliderRectangle).CollisionTransformed.Intersects((cb2 as ColliderRectangle).CollisionTransformed))
+                                    {
+                                        Sgml.currentObject = go;
+                                        entries.Key.CollisionAction.Invoke(go, c);
+                                        break;
+                                    }
+                                }
+
+                                if (cb.GetType() == typeof(ColliderCircle) &&
+                                    cb2.GetType() == typeof(ColliderCircle))
+                                {
+                                    if (ColliderCircle.CircleInCircle(cb as ColliderCircle, cb2 as ColliderCircle))
+                                    {
+                                        Sgml.currentObject = go;
+                                        entries.Key.CollisionAction.Invoke(go, c);
+                                        break;
+                                    }
+                                }
                             }
-                        }
+                        }                      
                     }
                 }
 
@@ -519,6 +519,7 @@ namespace SimplexIde
                 {
                     foreach (RoomLayer rl in currentRoom.Layers.ToList())
                     {
+                        //Sgml.sb.Begin(transformMatrix: m, effect: effect);
                         if (rl.Visible)
                         {
                             if (currentRoom.Layers.Count > 3)
@@ -536,10 +537,9 @@ namespace SimplexIde
                                     o.PositionPrevious = o.Position;
                                     o.EvtDraw();
 
-                                    ComputeRectanglesForInstance(o);
-
                                     if (o == lastClickedObject)
                                     {
+                                        ComputeRectanglesForInstance(o);
                                         int flag = -1;
 
                                         Color c1 = Color.CornflowerBlue;
@@ -774,7 +774,7 @@ namespace SimplexIde
                             // Layer is tile
                             if (rl is TileLayer)
                             {
-                                Editor.spriteBatch.Begin(transformMatrix: transformMatrix, samplerState: SamplerState.PointWrap, sortMode: SpriteSortMode.Texture);
+                             //   Editor.spriteBatch.Begin(transformMatrix: transformMatrix, samplerState: SamplerState.PointWrap, sortMode: SpriteSortMode.Texture);
                                 TileLayer tl = ((TileLayer) rl);
 
                                 Vector2 tempVec = Vector2.One;                                
@@ -787,11 +787,13 @@ namespace SimplexIde
                                     Editor.spriteBatch.Draw(tl.Tileset.Texture, tempVec, t.DrawRectangle, Color.White);
                                 }
 
-                                Editor.spriteBatch.End();
+                              //  Editor.spriteBatch.End();
                             }
 
                             //Sgml.BatchForceUnload();
                         }
+
+                       // Sgml.sb.End();
                     }
                 }
 
