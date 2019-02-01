@@ -33,6 +33,11 @@ namespace SimplexCore
             roomLayers.Clear();
         }
 
+        public static void game_restart()
+        {
+            room_goto(currentProject.RoomTypes[0]);
+        }
+
         public static void game_load(string path)
         {
             bool flag = false;

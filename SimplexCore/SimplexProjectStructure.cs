@@ -30,6 +30,9 @@ namespace SimplexCore
        [JsonIgnore]
        [XmlIgnore]
        public string ProjectPath { get; set; }
+
+       [XmlIgnore]
+       public List<Type> RoomTypes;
     }
 
     public class SimplexProjectItem
