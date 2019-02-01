@@ -52,6 +52,7 @@ namespace SimplexIde
         {
             InitializeComponent();
             Sgml.form = this;
+            Sgml.currentProject = currentProject;
             //Opacity = .5;
         }
 
@@ -379,6 +380,13 @@ namespace SimplexIde
                 reflectedTypes.Add(t.Key);
 
             }
+
+            nspace = corePath + ".Rooms";
+            q = from t in Assembly.GetExecutingAssembly().GetTypes()
+                where t.IsClass && t.Namespace == nspace
+                select t;
+            classList = q.ToList().ToList();
+            currentProject.RoomTypes = classList;
 
             for (var i = 0; i < Config.Extensions.Length; i++)
             {

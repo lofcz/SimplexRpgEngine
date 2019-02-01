@@ -40,6 +40,7 @@ namespace SimplexCore
         public static GameObject realObject = null;
         public static Effect effect;
         static Rectangle tRect = Rectangle.Empty;
+        public static SimplexProjectStructure currentProject;
       //  public static List<TimeLines> all_time_lines = new List<TimeLines>();
 
         public static Color DrawColor
