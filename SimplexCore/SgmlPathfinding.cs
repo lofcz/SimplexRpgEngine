@@ -23,7 +23,8 @@ namespace SimplexCore
 
         private static PathfingingGrid pathfindingGrid = new PathfingingGrid();
         static List<AStarCell> openList = new List<AStarCell>();
-        static List<AStarCell> closedList = new List<AStarCell>();
+        static List<AStarCell> tempList = new List<AStarCell>();
+        static HashSet<AStarCell> closedList = new HashSet<AStarCell>();
         static AStarCell node = new AStarCell();
         private static int g = 0;
 
@@ -31,13 +32,21 @@ namespace SimplexCore
         {
             pathfindingGrid = new PathfingingGrid();
 
-            pathfindingGrid.Grid = new bool[rect.Width * rect.Height, Enum.GetNames(typeof(PathfindingAttributes)).Length];
+            pathfindingGrid.Grid = new AStarCell[rect.Width, rect.Height];
             pathfindingGrid.X = rect.X;
             pathfindingGrid.Y = rect.Y;
             pathfindingGrid.CellSizeX = cellSize.Width;
             pathfindingGrid.CellSizeY = cellSize.Height;
             pathfindingGrid.CellsX = rect.Width / pathfindingGrid.CellSizeX;
             pathfindingGrid.CellsY = rect.Height / pathfindingGrid.CellSizeY;
+
+            for (var i = 0; i < pathfindingGrid.CellsY; i++)
+            {
+                for (var j = 0; j < pathfindingGrid.CellsX; j++)
+                {
+                    pathfindingGrid.Grid[j, i] = new AStarCell() {X = j, Y = i, Empty = true};
+                }
+            }
 
         }
 
@@ -52,12 +61,12 @@ namespace SimplexCore
             {
                 for (int j = 0; j < pathfindingGrid.CellsX; j++)
                 {
-                    GeneralRectangle.X = j * pathfindingGrid.CellSizeX;
-                    GeneralRectangle.Y = i * pathfindingGrid.CellSizeY;
+                    GeneralRectangle.X = j * pathfindingGrid.CellSizeX + pathfindingGrid.X;
+                    GeneralRectangle.Y = i * pathfindingGrid.CellSizeY + pathfindingGrid.Y;
                     GeneralRectangle.Width = pathfindingGrid.CellSizeX;
                     GeneralRectangle.Height = pathfindingGrid.CellSizeY;
 
-                    draw_set_color(mp_grid_get_cell(j, i) ? Microsoft.Xna.Framework.Color.Red : Microsoft.Xna.Framework.Color.Lime);
+                    draw_set_color(mp_grid_get_cell(j, i) ? Microsoft.Xna.Framework.Color.Lime : Microsoft.Xna.Framework.Color.Red);
                     draw_rectangle(GeneralRectangle, outline);
                 }
             }
@@ -65,6 +74,29 @@ namespace SimplexCore
             draw_primitive_batch_end();
             draw_set_color(c);
             draw_set_alpha(f);
+        }
+
+        static List<AStarCell> MpGetNeighbors(AStarCell cell)
+        {
+            tempList.Clear();
+
+            for (int x = -1; x <= 1; x++)
+            {
+                for (int y = -1; y <= 1; y++)
+                {
+                    if (x == 0 && y == 0) { continue; }
+
+                    int cX = cell.X + x;
+                    int cY = cell.Y + y;
+
+                    if (cX >= 0 && cX <= pathfindingGrid.CellsX && cY >= 0 && cY <= pathfindingGrid.CellsY)
+                    {
+                        tempList.Add(pathfindingGrid.Grid[cX, cY]);
+                    }
+                }
+            }
+
+            return tempList;
         }
 
         public static GamePath mp_grid_path(Vector2 start, Vector2 goal)
@@ -92,55 +124,80 @@ namespace SimplexCore
             closedList.Clear();
 
             // Prepare goal + start cells
-            AStarCell startCell = new AStarCell() {X = startX, Y = startY};
-            AStarCell goalCell = new AStarCell() { X = goalX, Y = goalY };
+            AStarCell startCell = pathfindingGrid.Grid[startX, startY];
+            AStarCell goalCell = pathfindingGrid.Grid[goalX, goalY];
 
-            // Get all surrounding cells of the start cell
-            MpAddNeighbors(startCell, startCell, goalCell);
 
-            // loop until path is found
-            bool resolved = false;
+            openList.Add(startCell);
+            int iter = 0;
 
-            int tried = 0;
-            while (!resolved)
+            while (openList.Count > 0)
             {
-                AStarCell lowest = MpSelectLowest();
-                tried++;
+                AStarCell currentNode = openList[0];
 
-                if (lowest.X == goalCell.X && lowest.Y == goalCell.Y)
+                for (int i = 1; i < openList.Count; i++)
                 {
-                    resolved = true;
-                    stopwatch.Stop();
-                    show_debug_message(tried.ToString());
-
-                    // backtrack the path
-                    bool backtrackDone = false;
-
-                    while (!backtrackDone)
+                    if (openList[i].F < currentNode.F || (openList[i].F == currentNode.F && openList[i].H < currentNode.H))
                     {
-                        if (lowest.ParentNode != null)
+                        currentNode = openList[i];
+                    } 
+                }
+
+                openList.Remove(currentNode);
+                closedList.Add(currentNode);
+
+                if (currentNode.X == goalX && currentNode.Y == goalY)
+                {
+                    RetracePath(startCell, goalCell);
+
+                    foreach (AStarCell a in tempList)
+                    {
+                       p.points.Add(new Vector2(a.X * pathfindingGrid.CellSizeX + pathfindingGrid.X + 16, a.Y * pathfindingGrid.CellSizeY + pathfindingGrid.Y + 16));     
+                    }
+
+                    break;
+                }
+
+                foreach (AStarCell cell in MpGetNeighbors(currentNode))
+                {
+                    if (cell == null || !cell.Empty || closedList.Contains(cell))
+                    {
+                        continue;
+                    }
+
+                    int d = currentNode.G + MpGetDistance(currentNode, cell);
+
+                    if (d < cell.G || !openList.Contains(cell))
+                    {
+                        cell.G = d;
+                        cell.H = MpGetDistance(cell, goalCell);
+                        cell.F = cell.G + cell.H;
+
+                        cell.ParentNode = currentNode;
+
+                        if (!openList.Contains(cell))
                         {
-                            p.points.Add(new Vector2(lowest.X * pathfindingGrid.CellSizeX + pathfindingGrid.X + 16, lowest.Y * pathfindingGrid.CellSizeY + pathfindingGrid.Y + 16));
-                            lowest = lowest.ParentNode;
-                        }
-                        else
-                        {
-                            backtrackDone = true;
-                            
+                            openList.Add(cell);
                         }
                     }
                 }
-                else
-                {
-                    MpAddNeighbors(lowest, startCell, goalCell);
-                }
-
-                closedList.Add(lowest);
-                openList.Remove(lowest);
             }
 
-            show_debug_message(stopwatch.Elapsed.ToString());
             return p;
+        }
+
+        static void RetracePath(AStarCell start, AStarCell end)
+        {
+            List<AStarCell> path = new List<AStarCell>();
+            AStarCell cNode = end;
+
+            while (cNode != start)
+            {
+                path.Add(cNode);
+                cNode = cNode.ParentNode;
+            }
+
+            tempList = path;
         }
 
         static AStarCell MpSelectLowest()
@@ -148,141 +205,20 @@ namespace SimplexCore
             return openList.MinBy(x => x.F).First();
         }
 
-        static void MpAddNeighbors(AStarCell p, AStarCell start, AStarCell end)
+        static int MpGetDistance(AStarCell a, AStarCell b)
         {
-            // N
-            if (!mp_grid_get_cell(p.X, p.Y - 1) && closedList.FirstOrDefault(x => x.X == p.X && x.Y == p.Y - 1) == null)
-            {
-                if (openList.FirstOrDefault(x => x.X == p.X && x.Y == p.Y - 1) == null)
-                {
-                    node = new AStarCell() {X = p.X, Y = p.Y - 1, StartNode = start, GoalNode = end, ParentNode = p};
-                    node.ComputeGHF(p);
-                    openList.Add(node);
-                }
-                else
-                {
-                    node = openList.FirstOrDefault(x => x.X == p.X && x.Y == p.Y - 1);
-                    node.ComputeGHF(p);
-                }
+            int dx = Math.Abs(a.X - b.X);
+            int dy = Math.Abs(a.Y - b.Y);
 
+            if (dx > dy)
+            {
+                return 14 * dy + 10 * (dx - dy);
             }
 
-            // S
-            if (!mp_grid_get_cell(p.X, p.Y + 1) && closedList.FirstOrDefault(x => x.X == p.X && x.Y == p.Y + 1) == null)
-            {
-                if (openList.FirstOrDefault(x => x.X == p.X && x.Y == p.Y + 1) == null)
-                {
-                    node = new AStarCell() {X = p.X, Y = p.Y + 1, StartNode = start, GoalNode = end, ParentNode = p};
-                    node.ComputeGHF(p);
-                    openList.Add(node);
-                }
-                else
-                {
-                    node = openList.FirstOrDefault(x => x.X == p.X && x.Y == p.Y + 1);
-                    node.ComputeGHF(p);
-                }
-            }
-
-            // E
-            if (!mp_grid_get_cell(p.X - 1, p.Y) && closedList.FirstOrDefault(x => x.X == p.X - 1 && x.Y == p.Y) == null)
-            {
-                if (openList.FirstOrDefault(x => x.X == p.X - 1 && x.Y == p.Y) == null)
-                {
-                    node = new AStarCell() {X = p.X - 1, Y = p.Y, StartNode = start, GoalNode = end, ParentNode = p};
-                    node.ComputeGHF(p);
-                    openList.Add(node);
-                }
-                else
-                {
-                    node = openList.FirstOrDefault(x => x.X == p.X - 1 && x.Y == p.Y);
-                    node.ComputeGHF(p);
-                }
-            }
-
-            // W
-            if (!mp_grid_get_cell(p.X + 1, p.Y) && closedList.FirstOrDefault(x => x.X == p.X + 1 && x.Y == p.Y) == null)
-            {
-                if (openList.FirstOrDefault(x => x.X == p.X + 1 && x.Y == p.Y) == null)
-                {
-                    node = new AStarCell() {X = p.X + 1, Y = p.Y, StartNode = start, GoalNode = end, ParentNode = p};
-                    node.ComputeGHF(p);
-                    openList.Add(node);
-                }
-                else
-                {
-                    node = openList.FirstOrDefault(x => x.X == p.X + 1 && x.Y == p.Y);
-                    node.ComputeGHF(p);
-                }
-            }
-
-            // NE
-            if (!mp_grid_get_cell(p.X + 1, p.Y - 1) && closedList.FirstOrDefault(x => x.X == p.X + 1 && x.Y == p.Y - 1) == null)
-            {
-                if (openList.FirstOrDefault(x => x.X == p.X + 1 && x.Y == p.Y - 1) == null)
-                {
-                    node = new AStarCell() {X = p.X + 1, Y = p.Y - 1, StartNode = start, GoalNode = end, ParentNode = p};
-                    node.ComputeGHF(p);
-                    openList.Add(node);
-                }
-                else
-                {
-                    node = openList.FirstOrDefault(x => x.X == p.X + 1 && x.Y == p.Y - 1);
-                    node.ComputeGHF(p);
-                }
-            }
-
-            // NW
-            if (!mp_grid_get_cell(p.X - 1, p.Y - 1) && closedList.FirstOrDefault(x => x.X == p.X - 1 && x.Y == p.Y - 1) == null)
-            {
-                if (openList.FirstOrDefault(x => x.X == p.X - 1 && x.Y == p.Y - 1) == null)
-                {
-                    node = new AStarCell() {X = p.X - 1, Y = p.Y - 1, StartNode = start, GoalNode = end, ParentNode = p};
-                    node.ComputeGHF(p);
-                    openList.Add(node);
-                }
-                else
-                {
-                    node = openList.FirstOrDefault(x => x.X == p.X - 1 && x.Y == p.Y - 1);
-                    node.ComputeGHF(p);
-                }
-            }
-
-            // SE
-            if (!mp_grid_get_cell(p.X + 1, p.Y + 1) && closedList.FirstOrDefault(x => x.X == p.X + 1 && x.Y == p.Y + 1) == null)
-            {
-                if (openList.FirstOrDefault(x => x.X == p.X + 1 && x.Y == p.Y + 1) == null)
-                {
-                    node = new AStarCell() {X = p.X + 1, Y = p.Y + 1, StartNode = start, GoalNode = end, ParentNode = p};
-                    node.ComputeGHF(p);
-                    openList.Add(node);
-                }
-                else
-                {
-                    node = openList.FirstOrDefault(x => x.X == p.X + 1 && x.Y == p.Y + 1);
-                    node.ComputeGHF(p);
-                }
-            }
-
-            // SW
-            if (!mp_grid_get_cell(p.X - 1, p.Y + 1) && closedList.FirstOrDefault(x => x.X == p.X - 1 && x.Y == p.Y + 1) == null)
-            {
-                if (openList.FirstOrDefault(x => x.X == p.X - 1 && x.Y == p.Y + 1) == null)
-                {
-                    node = new AStarCell() {X = p.X - 1, Y = p.Y + 1, StartNode = start, GoalNode = end, ParentNode = p};
-                    node.ComputeGHF(p);
-                    openList.Add(node);
-                }
-                else
-                {
-                    node = openList.FirstOrDefault(x => x.X == p.X - 1 && x.Y == p.Y + 1);
-                    node.ComputeGHF(p);
-                }
-            }
+            return 14 * dx + 10 * (dy - dx);
         }
 
-
-
-        public static void mp_grid_set_instance(GameObject go, bool empty = true)
+        public static void mp_grid_set_instance(GameObject go, bool empty = false)
         {
             // rasterize entire shit based on bounding box
             if (Math.Abs(go.ImageAngle) < .5f)
@@ -314,7 +250,7 @@ namespace SimplexCore
             }
         }
 
-        public static void mp_grid_set_rectangle(int x, int y, int w, int h, bool empty = true)
+        public static void mp_grid_set_rectangle(int x, int y, int w, int h, bool empty = false)
         {
             for (int i = y; i < y + h; i++)
             {
@@ -325,19 +261,14 @@ namespace SimplexCore
             }
         }
 
-        public static void mp_grid_set_cell(int x, int y, bool empty = true)
+        public static void mp_grid_set_cell(int x, int y, bool empty = false)
         {
-            pathfindingGrid.Grid[y * pathfindingGrid.CellsX + x, 0] = empty;
+            pathfindingGrid.Grid[x, y].Empty = empty;
         }
 
         public static bool mp_grid_get_cell(int x, int y)
         {
-            if (x >= 0 && y >= 0)
-            {
-                return pathfindingGrid.Grid[y * pathfindingGrid.CellsX + x, 0];
-            }
-
-            return true;
+            return pathfindingGrid.Grid[x, y].Empty;
         }
 
         public static void mp_grid_clear()
@@ -346,7 +277,7 @@ namespace SimplexCore
             {
                 for (int j = 0; j < pathfindingGrid.CellsX; j++)
                 {
-                    mp_grid_set_cell(j, i, false);
+                    mp_grid_set_cell(j, i, true);
                 }
             }
         }
@@ -354,7 +285,7 @@ namespace SimplexCore
 
     public class PathfingingGrid
     {
-        public bool[,] Grid;
+        public AStarCell[,] Grid;
         public int X;
         public int Y;
         public int CellSizeX;
@@ -367,35 +298,17 @@ namespace SimplexCore
     {
         public int X;
         public int Y;
-        public double G;
-        public double H;
-        public double F;
+        public int G;
+        public int H;
+        public int F;
+        public bool Empty;
         public AStarCell StartNode;
         public AStarCell GoalNode;
         public AStarCell ParentNode;
 
-        public void ComputeGHF(AStarCell pNode)
+        public AStarCell()
         {
-            int dX = Math.Abs(pNode.X - X);
-            int dY = Math.Abs(pNode.Y - Y);
-            double k = 0;
-
-            if (dX > dY)
-            {
-                k = G + (14 * dY + 10 * (dX - dY));
-            }
-            else
-            {
-                k = G + (14 * dX + 10 * (dY - dX));
-            }
-
-            //if (k < G)
-            {
-                G = k;
-                H = k - G;
-                F = G + H;
-                ParentNode = pNode;
-            }
+            Empty = true;
         }
     }
 }
