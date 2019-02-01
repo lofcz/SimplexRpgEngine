@@ -154,10 +154,19 @@ namespace SimplexCore
         public Vector2 ImageOrigin;
 
         [XmlIgnore]
-        public RotatedRectangle rr = new RotatedRectangle(Vector2.One, Vector2.One, Vector2.One, Vector2.One);
+        public RotatedRectangle rr = null;
 
         [XmlIgnore]
-        public List<ColliderBase> Colliders = new List<ColliderBase>();
+        private List<ColliderBase> _colliders = null;
+
+        [XmlIgnore]
+        public List<ColliderBase> Colliders
+        {
+            get
+            {
+                return _colliders ?? (_colliders = new List<ColliderBase>());
+            }
+        }
 
         [XmlIgnore]
         public ObjectLayer Layer;
@@ -172,7 +181,16 @@ namespace SimplexCore
         public Guid Id;
 
         [XmlIgnore]
-        public List<ColliderDescriptor> CollidersActive = new List<ColliderDescriptor>();
+        private List<ColliderDescriptor> _descriptors;
+
+        [XmlIgnore]
+        public List<ColliderDescriptor> CollidersActive
+        {
+            get
+            {
+                return _descriptors ?? (_descriptors = new List<ColliderDescriptor>());
+            }
+        }
 
         private float _imageIndex;
 
@@ -200,6 +218,11 @@ namespace SimplexCore
 
         void UpdateRotatedRectangle()
         {
+            if (rr == null)
+            {
+                rr = new RotatedRectangle(Vector2.One, Vector2.One, Vector2.One, Vector2.One);
+            }
+
             float xdif = Position.X - PositionPrevious.X;
             float ydif = Position.Y - PositionPrevious.Y;
 

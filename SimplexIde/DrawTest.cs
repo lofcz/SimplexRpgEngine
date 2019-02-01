@@ -245,18 +245,20 @@ namespace SimplexIde
                 base.Update(gameTime);
 
                 cam.UpdatePosition();
-
                 sh.UnregisterAll();
-                GameObject[] obj = SceneObjects.ToArray();
-                for (var i = 0; i < obj.Length; i++)
-                {
-                    sh.RegisterObject(obj[i]);
 
-                    if (GameRunning || obj[i] == clickedObject)
+                for (var i = 0; i < SceneObjects.Count; i++)
+                {
+                    if (SceneObjects[i] != null)
                     {
-                        Sgml.currentObject = obj[i];
-                        obj[i].EvtStep();
-                        obj[i].EvtDrawToSurfaces();
+                        sh.RegisterObject(SceneObjects[i]);
+
+                        if (GameRunning || SceneObjects[i] == clickedObject)
+                        {
+                            Sgml.currentObject = SceneObjects[i];
+                            SceneObjects[i].EvtStep();
+                            SceneObjects[i].EvtDrawToSurfaces();
+                        }
                     }
                 }
             }
@@ -517,6 +519,7 @@ namespace SimplexIde
 
                 if (currentRoom != null)
                 {
+                   // Sgml.sb.Begin(transformMatrix: m);
                     foreach (RoomLayer rl in currentRoom.Layers.ToList())
                     {
                         //Sgml.sb.Begin(transformMatrix: m, effect: effect);
@@ -705,13 +708,9 @@ namespace SimplexIde
                                                 flag = 2;
                                             }
 
-                                           // o.rr = rr;
-
-
                                             if (flag != -1 && Sgml.mouse_check_button_pressed(Sgml.MouseButtons.Left))
                                             {
                                                 // scale start
-
                                                 if (Transformingobject == null)
                                                 {
                                                     Transformingside = flag;
@@ -721,11 +720,6 @@ namespace SimplexIde
                                                 Transformrelative = Sgml.mouse;
                                             }
 
-                                            /* if (Sgml.point_in_rectangle_rotated(new Point2(Sgml.mouse.X, Sgml.mouse.Y), new RectangleF(GeneralRectangle2.Position, new Size2(generalRectangle.Width, 4)), o.ImageAngle, o.ImageOrigin))
-                                             {
-                                                 c1 = Color.Red;
-                                                 flag = 1;
-                                             }*/
                                         }
 
                                         if (!Input.KeyboardState.IsKeyDown(Keys.LeftControl))
@@ -795,6 +789,7 @@ namespace SimplexIde
 
                        // Sgml.sb.End();
                     }
+                   // Sgml.sb.End();
                 }
 
                 if (DrawGrid)

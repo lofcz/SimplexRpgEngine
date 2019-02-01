@@ -156,6 +156,11 @@ namespace SimplexCore
                     g.Layer.Objects.Add(g);
                     sh.RegisterObject(g);
 
+                    if (g.Colliders.Count > 0)
+                    {
+                        SceneColliders.Add(g);
+                    }
+
                 }
 
                 foreach (GameObject g in SceneObjects)
