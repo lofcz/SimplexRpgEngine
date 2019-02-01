@@ -65,7 +65,7 @@ namespace SimplexCore
             while (true)
             {
                 int cIL = item.HeapIndex * 2 + 1;
-                int cIR = item.HeapIndex * 2 + 2;
+                int cIR = cIL + 1;
                 int sI = 0;
 
                 if (cIL < ItemCount)
