@@ -202,7 +202,7 @@ namespace SimplexResources.Objects
               mp_grid_set_cell((int)v.X, (int)v.Y);
           }
 
-          GamePath p = mp_grid_path(new Vector2(96, 96), new Vector2(512, 512));
+          GamePath p = mp_grid_path(new Vector2(96, 96), new Vector2(512, 512), false);
 
 
             mp_grid_draw(false);

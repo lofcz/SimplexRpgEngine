@@ -789,6 +789,8 @@ namespace SimplexIde
 
                                 Editor.spriteBatch.End();
                             }
+
+                            //Sgml.BatchForceUnload();
                         }
                     }
                 }

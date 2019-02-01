@@ -79,7 +79,7 @@ namespace SimplexCore
             draw_set_alpha(f);
         }
 
-        static List<AStarCell> MpGetNeighbors(AStarCell cell)
+        static List<AStarCell> MpGetNeighbors(AStarCell cell, bool allowDiag)
         {
             tempList.Clear();
 
@@ -88,6 +88,29 @@ namespace SimplexCore
                 for (int y = -1; y <= 1; y++)
                 {
                     if (x == 0 && y == 0) { continue; }
+
+                    if (!allowDiag)
+                    {
+                        if (x == -1 && y == -1)
+                        {
+                            continue;                          
+                        }
+
+                        if (x == 1 && y == -1)
+                        {
+                            continue;                          
+                        }
+
+                        if (x == -1 && y == 1)
+                        {
+                            continue;
+                        }
+
+                        if (x == 1 && y == 1)
+                        {
+                            continue;
+                        }
+                    }
 
                     int cX = cell.X + x;
                     int cY = cell.Y + y;
@@ -102,7 +125,7 @@ namespace SimplexCore
             return tempList;
         }
 
-        public static GamePath mp_grid_path(Vector2 start, Vector2 goal)
+        public static GamePath mp_grid_path(Vector2 start, Vector2 goal, bool allowDiag = true)
         {
             GamePath p = new GamePath();
 
@@ -147,7 +170,7 @@ namespace SimplexCore
                     break;
                 }
 
-                foreach (AStarCell cell in MpGetNeighbors(currentNode))
+                foreach (AStarCell cell in MpGetNeighbors(currentNode, allowDiag))
                 {
                     if (cell == null || !cell.Empty || closedList.Contains(cell))
                     {

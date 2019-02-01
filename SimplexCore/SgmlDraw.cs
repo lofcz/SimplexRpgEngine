@@ -25,6 +25,7 @@ namespace SimplexCore
             public float x;
             public float y;
         }
+
         static Texture2D pixel;
         public static List<VertexPositionColor> vertices = new List<VertexPositionColor>();
         public static GameObject currentObject;
@@ -70,8 +71,8 @@ namespace SimplexCore
         static void RotateVectors(double angle)
         {
             float x = 0, y = 0, area = 0, k;
-            Sgml.b.X = pushedVertices[pushedVertices.Count - 1].x;
-            Sgml.b.Y = pushedVertices[pushedVertices.Count - 1].y;
+            b.X = pushedVertices[pushedVertices.Count - 1].x;
+            b.Y = pushedVertices[pushedVertices.Count - 1].y;
 
             for (int i = 0; i < pushedVertices.Count; i++)
             {
@@ -151,10 +152,33 @@ namespace SimplexCore
             }
         }
 
+        static void BatchCheckStart()
+        {
+            if (!vertexbatchOn)
+            {
+                vertices.Clear();
+            }
+        }
+
+        static void BatchCheckUnload()
+        {
+            if (vertices.Count > 4000)
+            {
+                RenderVertices(vertexBatchType, vertexBatchOutline);
+                vertices.Clear();
+            }
+        }
+
+        public static void BatchForceUnload()
+        {
+            RenderVertices(vertexBatchType, vertexBatchOutline);
+            vertices.Clear();
+        }
+
         // Public goodies
         public static void draw_triangle(double x1, double y1, double x2, double y2, double x3, double y3, bool outline, double angle = 0)
         {
-            Microsoft.Xna.Framework.Color fc = FinalizeColor(DrawColor);
+            Color fc = FinalizeColor(DrawColor);
             vertices.Clear();
 
             VertexPositionColor v0 = new VertexPositionColor(new Vector3((float)x1, (float)y1, 0), fc);
