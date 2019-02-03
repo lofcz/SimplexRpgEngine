@@ -13,6 +13,7 @@ using System.Windows.Forms;
 
 namespace SimplexIde
 {
+    
     public partial class FormNew : DarkToolWindow
     {
         public FormNew()
@@ -37,17 +38,17 @@ namespace SimplexIde
 
         private void darkButton1_Click(object sender, EventArgs e)
         {
-            string path = Environment.CurrentDirectory;
+            string oldPath = Environment.CurrentDirectory;
 
-            int i = path.LastIndexOf("\\");
-            path = path.Substring(0, i);
-            i = path.LastIndexOf("\\");
-            path = path.Substring(0, i);
-            i = path.LastIndexOf("\\");
-            path = path.Substring(0, i);
+            int i = oldPath.LastIndexOf("\\");
+            oldPath = oldPath.Substring(0, i);
+            i = oldPath.LastIndexOf("\\");
+            oldPath = oldPath.Substring(0, i);
+            i = oldPath.LastIndexOf("\\");
+            oldPath = oldPath.Substring(0, i);
 
-            string prePath = path + "\\SimplexCore\\Prefabs\\";
-            string newPath = path + "\\" + textName.Text;
+            string prePath = oldPath + "\\SimplexCore\\Prefabs\\";
+            string newPath = textPath.Text + "\\" + textName.Text;
 
             Directory.CreateDirectory(newPath);
             newPath += "\\";
@@ -73,31 +74,62 @@ namespace SimplexIde
             File.Copy(prePath + "Prefab.shproj", newPath + textName.Text + ".shproj");
             text = File.ReadAllText(newPath + textName.Text + ".shproj");
             text = text.Replace("Prefab", textName.Text);
+            text = text.Replace("..\\SimplexIde\\SimplexIde.projitems", oldPath + "\\SimplexIde\\SimplexIde.projitems");
             File.WriteAllText(newPath + textName.Text + ".shproj", text);
+            
+            //sproject
+            text = File.ReadAllText(newPath + textName.Text + ".sproject");
+            text = text.Replace("\"Author\": null,", "\"Author\": \"" + textAuthor.Text + "\",");
+            File.WriteAllText(newPath + textName.Text + ".sproject", text);
+
+            //csproj ref
+            text = File.ReadAllText(oldPath + "\\SimplexIde\\SimplexIde.csproj");
+            i = text.IndexOf("<Import Project=\"..\\");
+            string rf = "<Import Project=\"" + newPath + textName.Text + ".projitems\" Label=\"Shared\" />";
+            //string rf = "<Import Project=\"..\\" + textName.Text + "\\" + textName.Text + ".projitems\" Label=\"Shared\" />";
+            string s = text.Substring(0, i - 1) + "\r\n" + rf + "\r\n" + text.Substring(i, text.Length - i);
+            File.WriteAllText(oldPath + "\\SimplexIde\\SimplexIde.csproj", s);
 
             //Create directories
             names = new string[] { "Content", "Objects", "Rooms", "Shaders" };
             this.CreateDirectory(newPath, names);
 
-            newPath += "Content\\";
             names = new string[] { "Fonts", "Shaders", "Sounds", "Sprites", "Tilesets", "Videos" };
-            this.CreateDirectory(newPath, names);
+            this.CreateDirectory(newPath + "Content\\", names);
 
             //sln ref
-            text = File.ReadAllText(path + "\\SimplexRpgEngine3.sln");
+            text = File.ReadAllText(oldPath + "\\SimplexRpgEngine3.sln");
             i = text.IndexOf("Global");
-            string rf = "Project(\"{" + Guid.NewGuid() + "}\") = \"" + textName.Text + "\", \"" + textName.Text + "\\" + textName.Text + ".shproj\", \"{" + Guid.NewGuid() + "}\"\r\n" + "EndProject";
-            string s = text.Substring(0, i - 1) + "\r\n" + rf + "\r\n" + text.Substring(i, text.Length - i);
-            File.WriteAllText(path + "\\SimplexRpgEngine3.sln", s);
-
-            //csproj ref
-            text = File.ReadAllText(path + "\\SimplexIde\\SimplexIde.csproj");
-            i = text.IndexOf("<Import Project=\"..\\");
-            rf = "<Import Project=\"..\\" + textName.Text + "\\" + textName.Text + ".projitems\" Label=\"Shared\" />";
+            rf = "Project(\"{" + Guid.NewGuid() + "}\") = \"" + textName.Text + "\", \"" /*+ textName.Text + "\\" */+ newPath + textName.Text + ".shproj\", \"{" + Guid.NewGuid() + "}\"\r\n" + "EndProject";
             s = text.Substring(0, i - 1) + "\r\n" + rf + "\r\n" + text.Substring(i, text.Length - i);
-            File.WriteAllText(path + "\\SimplexIde\\SimplexIde.csproj", s);
+            File.WriteAllText(oldPath + "\\SimplexRpgEngine3.sln", s);
+
+
 
             Close();
+        }
+
+        private void darkButton2_Click(object sender, EventArgs e)
+        {
+            using (var log = new FolderBrowserDialog())
+            {
+                string oldPath = Environment.CurrentDirectory;
+
+                int i = oldPath.LastIndexOf("\\");
+                oldPath = oldPath.Substring(0, i);
+                i = oldPath.LastIndexOf("\\");
+                oldPath = oldPath.Substring(0, i);
+                i = oldPath.LastIndexOf("\\");
+                oldPath = oldPath.Substring(0, i);
+
+                log.SelectedPath = oldPath;
+                DialogResult result = log.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(log.SelectedPath))
+                {
+                    textPath.Text = log.SelectedPath;
+                }
+            }
         }
     }
 }
