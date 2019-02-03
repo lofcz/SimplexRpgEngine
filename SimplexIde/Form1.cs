@@ -47,7 +47,7 @@ namespace SimplexIde
         public RoomsControl r = null;
         public LayerTool lt = null;
         public SimplexRender sr = null;
-
+        public Graphics WinGraphics;
         public Form1()
         {
             InitializeComponent();
@@ -71,7 +71,7 @@ namespace SimplexIde
             Application.AddMessageFilter(darkDockPanel3.DockResizeFilter);
             Application.AddMessageFilter(darkDockPanel4.DockResizeFilter);
 
-           
+            
             Invalidate();
 
             sr = new SimplexRender();
@@ -690,6 +690,11 @@ namespace SimplexIde
             {
                 sr.drawTest1.Rsize();
             }
+        }
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            WinGraphics = e.Graphics;
         }
     }
 }

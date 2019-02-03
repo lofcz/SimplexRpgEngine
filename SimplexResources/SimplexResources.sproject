@@ -1,4 +1,9 @@
 {
+  "RoomTypes": [
+    "SimplexResources.Rooms.Room1, SimplexIde, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "SimplexResources.Rooms.Room2, SimplexIde, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "SimplexResources.Rooms.room3, SimplexIde, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
   "Info": {
     "EngineVersion": 1.0,
     "Author": null,
@@ -8,42 +13,63 @@
   "Objects": [
     {
       "name": "oGeorgeNew",
-      "path": "Objects/Actors",
+      "path": "Actors",
       "tag": "[WIP]",
       "tagColor": "128, 0, 255",
       "nameColor": "255, 128, 64"
     },
     {
       "name": "LevelGenerator",
-      "path": "Objects/Actors",
+      "path": "Actors",
       "tag": "",
       "tagColor": "128, 0, 255",
       "nameColor": "255, 128, 64"
     },
     {
       "name": "EditSample",
-      "path": "Objects/Actors",
+      "path": "Actors",
       "tag": null,
       "tagColor": "Gainsboro",
       "nameColor": "Gainsboro"
     },
     {
       "name": "oCryoSample",
-      "path": "Objects/Actors",
+      "path": "Actors",
       "tag": null,
       "tagColor": "Gainsboro",
       "nameColor": "Gainsboro"
     },
     {
       "name": "AnotherObject",
-      "path": "Objects/Actors",
+      "path": "Actors",
       "tag": null,
       "tagColor": "Gainsboro",
       "nameColor": "Gainsboro"
     },
     {
       "name": "oBrick",
-      "path": "Objects/Actors",
+      "path": "Actors",
+      "tag": null,
+      "tagColor": "Gainsboro",
+      "nameColor": "Gainsboro"
+    },
+    {
+      "name": "oZombie",
+      "path": "Actors",
+      "tag": null,
+      "tagColor": "Gainsboro",
+      "nameColor": "Gainsboro"
+    },
+    {
+      "name": "oZombiePlayer",
+      "path": "Actors",
+      "tag": null,
+      "tagColor": "Gainsboro",
+      "nameColor": "Gainsboro"
+    },
+    {
+      "name": "oZombieCoin",
+      "path": "Actors",
       "tag": null,
       "tagColor": "Gainsboro",
       "nameColor": "Gainsboro"

@@ -50,6 +50,7 @@ namespace SimplexIde
         float CamY = 0;
         public bool drawModeOn = false;
         public List<MgcbEntry> MgcbEntries = new List<MgcbEntry>();
+        public Graphics WinGraphics;
 
         public Sprites_manager()
         {
@@ -261,7 +262,12 @@ namespace SimplexIde
                 List<Spritesheet> current = JsonConvert.DeserializeObject<List<Spritesheet>>(sw.ReadToEnd());
                 sw.Close();
 
-                Spritesheet overwrite = current.FirstOrDefault(x => x.Name == selectedNode.Text);
+                Spritesheet overwrite = null;
+
+                if (selectedNode != null)
+                {
+                    overwrite = current.FirstOrDefault(x => x.Name == selectedNode.Text);
+                }
 
                 if (overwrite != null)
                 {
@@ -730,11 +736,59 @@ namespace SimplexIde
         private void importSpriteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // import sprite
-            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            openFileDialog1.Multiselect = true;
+            Bitmap finalBitmap = null;
+            string path = "";
+            string file = "";
+            string noext = "";
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                string path = openFileDialog1.FileName;
-                string file = Path.GetFileName(path);
-                string noext = Path.GetFileNameWithoutExtension(path);
+                // Create a new bitmap from selected images if selected > 1
+                if (openFileDialog1.FileNames.Length > 1)
+                {
+                    int w = 0;
+                    int h = 0;
+
+                    Bitmap[] bmps = new Bitmap[openFileDialog1.FileNames.Length];
+                    int i = 0;
+
+                    // Determine final bitmap size
+                    foreach (string s in openFileDialog1.FileNames)
+                    {
+                        Bitmap b = (Bitmap)Image.FromFile(s);
+                        w += b.Width;
+                        h = max(b.Height, h);
+
+                        bmps[i] = b;
+                        i++;
+                    }
+
+                    // Draw each image to the final image
+                    finalBitmap = new Bitmap(w, h);
+
+                    Graphics g = Graphics.FromImage(finalBitmap);
+                    w = 0;
+                    foreach (Bitmap b in bmps)
+                    {
+                        g.DrawImage(b, new System.Drawing.Point(w, 0));
+                        w += b.Width;
+                    }
+
+                    // Save final bitmap
+                    finalBitmap.Save("tempImage");
+
+                    path = "tempImage";
+                    file = Path.GetFileName(path);
+                    noext = Path.GetFileNameWithoutExtension(path);
+                }
+                else
+                {
+                    path = openFileDialog1.FileNames[0];
+                    file = Path.GetFileName(path);
+                    noext = Path.GetFileNameWithoutExtension(path);
+                }
+
 
                 Bitmap bmp = (Bitmap) Image.FromFile(path);
                 Texture2D tx = GetTexture(Sgml.GraphicsDevice, bmp);

@@ -30,6 +30,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Rooms\room3.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Objects\EditSample.cs" xmlns="" />
     <Compile Include="$(MSBuildThisFileDirectory)Objects\LevelGenerator.cs" xmlns="" />
+    <Compile Include="$(MSBuildThisFileDirectory)Objects\oZombie.cs" xmlns="" />
+    <Compile Include="$(MSBuildThisFileDirectory)Objects\oZombiePlayer.cs" xmlns="" />
+    <Compile Include="$(MSBuildThisFileDirectory)Objects\oZombieCoin.cs" xmlns="" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Content\" />
