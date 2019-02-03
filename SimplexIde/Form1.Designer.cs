@@ -363,7 +363,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.darkDockPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-            this.darkDockPanel1.Location = new System.Drawing.Point(276, 74);
+            this.darkDockPanel1.Location = new System.Drawing.Point(278, 74);
             this.darkDockPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.darkDockPanel1.Name = "darkDockPanel1";
             this.darkDockPanel1.Size = new System.Drawing.Size(931, 597);
@@ -441,7 +441,7 @@
             this.toolStripButton5.Image = global::SimplexIde.Properties.Resources.Undo_16x;
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(24, 31);
+            this.toolStripButton5.Size = new System.Drawing.Size(24, 24);
             this.toolStripButton5.Text = "toolStripButton5";
             // 
             // toolStripButton6
@@ -452,7 +452,7 @@
             this.toolStripButton6.Image = global::SimplexIde.Properties.Resources.Redo_16x;
             this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(24, 31);
+            this.toolStripButton6.Size = new System.Drawing.Size(24, 24);
             this.toolStripButton6.Text = "toolStripButton6";
             // 
             // toolStripSeparator1
@@ -471,7 +471,7 @@
             this.toolStripButton3.Image = global::SimplexIde.Properties.Resources.Run_16xMD;
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(24, 31);
+            this.toolStripButton3.Size = new System.Drawing.Size(24, 24);
             this.toolStripButton3.Text = "toolStripButton1";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
@@ -483,7 +483,7 @@
             this.toolStripButton4.Image = global::SimplexIde.Properties.Resources.Stop_16x;
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(24, 31);
+            this.toolStripButton4.Size = new System.Drawing.Size(24, 24);
             this.toolStripButton4.Text = "toolStripButton2";
             this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
@@ -751,6 +751,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1709, 702);
+            this.Controls.Add(this.darkDockPanel1);
             this.Controls.Add(this.darkProgressBar1);
             this.Controls.Add(this.darkStatusStrip2);
             this.Controls.Add(this.darkLabel2);
@@ -770,7 +771,6 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.darkMenuStrip1);
-            this.Controls.Add(this.darkDockPanel1);
             this.Controls.Add(this.darkDockPanel5);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
@@ -821,7 +821,6 @@
         private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private DarkUI.Docking.DarkDockPanel darkDockPanel2;
         private DarkUI.Controls.DarkToolStrip darkToolStrip2;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
@@ -858,6 +857,7 @@
         public DarkUI.Controls.DarkProgressBar darkProgressBar1;
         public System.Windows.Forms.OpenFileDialog openFileDialog1;
         public DarkUI.Docking.DarkDockPanel darkDockPanel1;
+        public DarkUI.Docking.DarkDockPanel darkDockPanel2;
     }
 }
 

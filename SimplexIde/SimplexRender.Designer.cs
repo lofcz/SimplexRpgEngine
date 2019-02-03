@@ -33,11 +33,13 @@
             // 
             // drawTest1
             // 
-            this.drawTest1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.drawTest1.Location = new System.Drawing.Point(0, 25);
+            this.drawTest1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.drawTest1.Location = new System.Drawing.Point(0, 28);
             this.drawTest1.MouseHoverUpdatesOnly = false;
             this.drawTest1.Name = "drawTest1";
-            this.drawTest1.Size = new System.Drawing.Size(700, 535);
+            this.drawTest1.Size = new System.Drawing.Size(700, 532);
             this.drawTest1.TabIndex = 0;
             this.drawTest1.Text = "drawTest1";
             this.drawTest1.OnMouseWheelUpwards += new MonoGame.Forms.Controls.GraphicsDeviceControl.MouseWheelUpwardsEvent(this.DrawTest1_OnMouseWheelUpwards);

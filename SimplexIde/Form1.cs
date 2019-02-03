@@ -639,11 +639,15 @@ namespace SimplexIde
         private void toolStripButton7_Click(object sender, EventArgs e)
         {
             // toggle fullscreen mode
-            renderPos = sr.drawTest1.Location;
-            renderSize = sr.drawTest1.Size;
+            renderPos = darkDockPanel1.Location;
+            renderSize = darkDockPanel1.Size;
 
-            sr.drawTest1.Location = new System.Drawing.Point(0, 0);
-            sr.drawTest1.Size = new Size(Width, Height);
+            darkDockPanel1.Location = new System.Drawing.Point(0, 0);
+            darkDockPanel1.Size = new Size(Width, Height);
+
+            sr.drawTest1.Location = new Point(sr.drawTest1.Location.X, sr.drawTest1.Location.Y - 25);
+            sr.drawTest1.Size = new Size(sr.drawTest1.Size.Width, sr.drawTest1.Size.Height + 25);
+            sr.HideTitle = true;
         }
 
         private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
