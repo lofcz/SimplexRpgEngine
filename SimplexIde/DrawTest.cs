@@ -768,7 +768,7 @@ namespace SimplexIde
                             // Layer is tile
                             if (rl is TileLayer)
                             {
-                             //   Editor.spriteBatch.Begin(transformMatrix: transformMatrix, samplerState: SamplerState.PointWrap, sortMode: SpriteSortMode.Texture);
+                                Editor.spriteBatch.Begin(transformMatrix: transformMatrix, samplerState: SamplerState.PointWrap, sortMode: SpriteSortMode.Texture);
                                 TileLayer tl = ((TileLayer) rl);
 
                                 Vector2 tempVec = Vector2.One;                                
@@ -781,7 +781,7 @@ namespace SimplexIde
                                     Editor.spriteBatch.Draw(tl.Tileset.Texture, tempVec, t.DrawRectangle, Color.White);
                                 }
 
-                              //  Editor.spriteBatch.End();
+                                Editor.spriteBatch.End();
                             }
 
                             //Sgml.BatchForceUnload();
