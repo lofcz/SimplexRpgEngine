@@ -437,6 +437,19 @@ namespace SimplexCore
             RenderVertices(PrimitiveType.LineList);
         }
 
+        public static void draw_rectangle(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4)
+        {            
+            vertices.Clear();
+            SetVertexColor(FinalizeColor(DrawColor));
+
+            AddVertex(p1.X, p1.Y);
+            AddVertex(p2.X, p2.X);
+            AddVertex(p3.X, p3.X);
+            AddVertex(p4.X, p4.X);
+
+            RenderVertices(PrimitiveType.LineList);
+        }
+
         public static void draw_point(Vector2 p)
         {
             vertices.Clear();
