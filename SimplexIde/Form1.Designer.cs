@@ -366,7 +366,7 @@
             this.darkDockPanel1.Location = new System.Drawing.Point(278, 74);
             this.darkDockPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.darkDockPanel1.Name = "darkDockPanel1";
-            this.darkDockPanel1.Size = new System.Drawing.Size(931, 597);
+            this.darkDockPanel1.Size = new System.Drawing.Size(931, 588);
             this.darkDockPanel1.TabIndex = 36;
             this.darkDockPanel1.Load += new System.EventHandler(this.darkDockPanel1_Load);
             // 

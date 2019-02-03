@@ -333,7 +333,7 @@ namespace SimplexIde
               // tn.SuffixText = "test";
                 tn.Icon = Properties.Resources.AzureDefaultResource_16x; // Node for object itself
 
-                DarkTreeNode currentNode = objects.Nodes[0];
+                DarkTreeNode currentNode = objects.Nodes.FirstOrDefault(x => x.Text == "Objects");
 
                 // Parse entire path
                 if (t.Value.path == "")
@@ -389,7 +389,7 @@ namespace SimplexIde
                 select t;
             classList = q.ToList().ToList();
             currentProject.RoomTypes = classList;
-
+            /*
             for (var i = 0; i < Config.Extensions.Length; i++)
             {
                 nspace = Config.Extensions[i] + ".Objects";
@@ -463,7 +463,7 @@ namespace SimplexIde
                 }
 
             }
-
+            */
             nspace = corePath + ".Rooms";
             q = from t in Assembly.GetExecutingAssembly().GetTypes()
                 where t.IsClass && t.Namespace == nspace

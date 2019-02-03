@@ -46,6 +46,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)SgmlTimelines.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlVideo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ShaderDescriptor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SimplexIdeApi.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SimplexProjectStructure.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SoundDescriptor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SoundReference.cs" />
