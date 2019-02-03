@@ -41,7 +41,6 @@ namespace SimplexIde
             SimplexIdeApi.TreeAddRootNode(dtv, "Fonts");
             SimplexIdeApi.TreeAddRootNode(dtv, "Time Lines");
             SimplexIdeApi.TreeAddRootNode(dtv, "Objects");
-            SimplexIdeApi.TreeAddRootNode(dtv, "Rooms");
             SimplexIdeApi.TreeAddRootNode(dtv, "Included Files");
             SimplexIdeApi.TreeAddRootNode(dtv, "Extensions");
 

@@ -63,12 +63,12 @@
             this.darkTreeView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.darkTreeView1.Location = new System.Drawing.Point(0, 25);
+            this.darkTreeView1.Location = new System.Drawing.Point(0, 33);
             this.darkTreeView1.Margin = new System.Windows.Forms.Padding(4);
             this.darkTreeView1.MaxDragChange = 20;
             this.darkTreeView1.Name = "darkTreeView1";
             this.darkTreeView1.ShowIcons = true;
-            this.darkTreeView1.Size = new System.Drawing.Size(268, 583);
+            this.darkTreeView1.Size = new System.Drawing.Size(268, 575);
             this.darkTreeView1.TabIndex = 0;
             this.darkTreeView1.Text = "darkTreeView1";
             this.darkTreeView1.SelectedNodesChanged += new System.EventHandler(this.darkTreeView1_SelectedNodesChanged);

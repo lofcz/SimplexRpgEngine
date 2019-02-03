@@ -17,6 +17,7 @@ namespace SimplexCore
             dtn.IsFolder = true;
             dtn.Tag = "folder";
             dtn.IsCore = true;
+            dtn.RootNodeName = name;
             dtv.Nodes.Add(dtn);
         }
     }

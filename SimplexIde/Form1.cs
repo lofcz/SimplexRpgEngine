@@ -67,7 +67,6 @@ namespace SimplexIde
             Application.AddMessageFilter(darkDockPanel5.DockResizeFilter);
             Application.AddMessageFilter(darkDockPanel2.DockResizeFilter);
             Application.AddMessageFilter(darkDockPanel1.DockResizeFilter);
-            Application.AddMessageFilter(darkDockPanel1.DockContentDragFilter);
             Application.AddMessageFilter(darkDockPanel3.DockResizeFilter);
             Application.AddMessageFilter(darkDockPanel4.DockResizeFilter);
 
@@ -328,6 +327,7 @@ namespace SimplexIde
                 tn.SuffixText = t.Value.tag;
                 tn.SuffixColor = t.Value.tagColor;
                 tn.Color = t.Value.nameColor;
+                tn.RootNodeName = "Objects";
 
                // tn.Color = Color.FromArgb(Sgml.irandom(255), Sgml.irandom(255), Sgml.irandom(255));
               // tn.SuffixText = "test";
@@ -353,6 +353,7 @@ namespace SimplexIde
                             folderNode.Tag = "folder";
                             folderNode.Icon = Properties.Resources.Folder_16x;
                             folderNode.IsFolder = true;
+                            folderNode.RootNodeName = "Objects";
 
                             currentNode.Nodes.Add(folderNode);
                             currentNode = folderNode;
