@@ -19,18 +19,18 @@
       "nameColor": "255, 128, 64"
     },
     {
-      "name": "EditSample",
-      "path": "Objects/Actors",
-      "tag": null,
-      "tagColor": "Gainsboro",
-      "nameColor": "Gainsboro"
-    },
-    {
       "name": "LevelGenerator",
       "path": "Objects/Actors",
       "tag": "",
       "tagColor": "128, 0, 255",
       "nameColor": "255, 128, 64"
+    },
+    {
+      "name": "EditSample",
+      "path": "Objects/Actors",
+      "tag": null,
+      "tagColor": "Gainsboro",
+      "nameColor": "Gainsboro"
     },
     {
       "name": "oCryoSample",
