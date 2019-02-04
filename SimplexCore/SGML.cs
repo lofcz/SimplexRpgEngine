@@ -269,6 +269,20 @@ namespace SimplexCore
             return n * factorial(n - 1);
         }
 
+        public static int factorial_stirling(int n)
+        {
+            if (n == 1)
+            {
+                return 1;
+            }
+
+            double z;
+            double e = Math.E;
+
+            z = Math.Sqrt(2 * 3.14 * n) * Math.Pow((n / e), n);
+            return (int)(z);
+        }
+
         public static int permutations(int set, int subset)
         {
             int f, k, l, m, n;
