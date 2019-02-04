@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MoreLinq;
 using SharpDX.Direct2D1;
+using TagLib.Riff;
 using Point = System.Drawing.Point;
 using Rectangle = System.Drawing.Rectangle;
 
@@ -51,6 +53,56 @@ namespace SimplexCore
                 }
             }
 
+        }
+
+        public static bool mp_potential_step(Vector2 start, Vector2 goal, bool allowDiag = true)
+        {
+            potential cur_check = new potential(){X = (int)start.X, Y = (int)start.X};
+            
+            int complete = 1;
+
+            bool result = true;
+            
+            if (complete != 0)
+            {     
+            
+                if (cur_check.X < goal.X)
+                {
+                    cur_check.X  = cur_check.X + 16;
+                }
+                if (cur_check.X > goal.X)
+                {
+                    cur_check.X  = cur_check.X - 16;
+                }
+                if (cur_check.Y < goal.Y)
+                {
+                    cur_check.Y  = cur_check.Y + 16;
+                }
+                if (cur_check.Y > goal.Y)
+                {
+                    cur_check.Y  = cur_check.Y - 16;
+                }
+
+                if (!PlaceEmpty(new Vector2(cur_check.X, cur_check.Y)))
+                {
+                    complete = 0;
+                    return result = false;
+                }
+
+                if (cur_check.X == goal.X && cur_check.Y == goal.Y)
+                {
+                    complete = 0;
+                    return result = true;
+                }
+            }
+
+            return result;
+        }
+
+        class potential
+        {
+            public int X { get; set; }
+            public int Y { get; set; }
         }
 
         public static void mp_grid_draw(bool outline = true, double alpha = .5)
