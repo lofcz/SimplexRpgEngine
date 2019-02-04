@@ -322,7 +322,10 @@ namespace SimplexCore
 
         public static void mp_grid_set_cell(int x, int y, bool empty = false)
         {
-            pathfindingGrid.Grid[x, y].Empty = empty;
+            if (x >= 0 && y >= 0 && x < pathfindingGrid.CellsX && y < pathfindingGrid.CellsY)
+            {
+                pathfindingGrid.Grid[x, y].Empty = empty;
+            }
         }
 
         public static bool mp_grid_get_cell(int x, int y)

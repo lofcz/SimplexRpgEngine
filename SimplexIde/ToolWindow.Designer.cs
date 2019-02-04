@@ -60,13 +60,15 @@
             // darkTreeView1
             // 
             this.darkTreeView1.AllowMoveNodes = true;
-            this.darkTreeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.darkTreeView1.Location = new System.Drawing.Point(0, 25);
+            this.darkTreeView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.darkTreeView1.Location = new System.Drawing.Point(0, 33);
             this.darkTreeView1.Margin = new System.Windows.Forms.Padding(4);
             this.darkTreeView1.MaxDragChange = 20;
             this.darkTreeView1.Name = "darkTreeView1";
             this.darkTreeView1.ShowIcons = true;
-            this.darkTreeView1.Size = new System.Drawing.Size(268, 621);
+            this.darkTreeView1.Size = new System.Drawing.Size(268, 575);
             this.darkTreeView1.TabIndex = 0;
             this.darkTreeView1.Text = "darkTreeView1";
             this.darkTreeView1.SelectedNodesChanged += new System.EventHandler(this.darkTreeView1_SelectedNodesChanged);
@@ -88,11 +90,11 @@
             this.toolStripButton1,
             this.toolStripTextBox1,
             this.toolStripTextBox2});
-            this.darkToolStrip1.Location = new System.Drawing.Point(0, 591);
+            this.darkToolStrip1.Location = new System.Drawing.Point(0, 612);
             this.darkToolStrip1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 123);
             this.darkToolStrip1.Name = "darkToolStrip1";
             this.darkToolStrip1.Padding = new System.Windows.Forms.Padding(0);
-            this.darkToolStrip1.Size = new System.Drawing.Size(250, 38);
+            this.darkToolStrip1.Size = new System.Drawing.Size(268, 38);
             this.darkToolStrip1.TabIndex = 1;
             this.darkToolStrip1.Text = "darkToolStrip1";
             // 
@@ -252,7 +254,7 @@
             this.Icon = global::SimplexIde.Properties.Resources.Noname;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ToolWindow";
-            this.Size = new System.Drawing.Size(268, 646);
+            this.Size = new System.Drawing.Size(272, 650);
             this.Load += new System.EventHandler(this.ToolWindow_Load);
             this.darkToolStrip1.ResumeLayout(false);
             this.darkToolStrip1.PerformLayout();

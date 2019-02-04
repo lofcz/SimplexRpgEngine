@@ -1,4 +1,9 @@
 {
+  "RoomTypes": [
+    "SimplexResources.Rooms.Room1, SimplexIde, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "SimplexResources.Rooms.Room2, SimplexIde, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "SimplexResources.Rooms.room3, SimplexIde, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+  ],
   "Info": {
     "EngineVersion": 1.0,
     "Author": null,
@@ -43,6 +48,27 @@
     },
     {
       "name": "oBrick",
+      "path": "Objects/Actors",
+      "tag": null,
+      "tagColor": "Gainsboro",
+      "nameColor": "Gainsboro"
+    },
+    {
+      "name": "oZombie",
+      "path": "Objects/Actors",
+      "tag": null,
+      "tagColor": "Gainsboro",
+      "nameColor": "Gainsboro"
+    },
+    {
+      "name": "oZombiePlayer",
+      "path": "Objects/Actors",
+      "tag": null,
+      "tagColor": "Gainsboro",
+      "nameColor": "Gainsboro"
+    },
+    {
+      "name": "oZombieCoin",
       "path": "Objects/Actors",
       "tag": null,
       "tagColor": "Gainsboro",

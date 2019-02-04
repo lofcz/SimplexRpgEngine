@@ -75,14 +75,15 @@ namespace SimplexIde
                             if (form.w.Visible)
                             {
                                 form.w.Hide();
-                                form.sr.drawTest1.Location = new Point(form.sr.drawTest1.Location.X - form.w.Size.Width, form.sr.drawTest1.Location.Y);
+                                form.darkDockPanel1.Location = new Point(form.darkDockPanel1.Location.X - form.w.Size.Width, form.darkDockPanel1.Location.Y);
                                 form.darkDockPanel3.Location = new Point(form.darkDockPanel3.Location.X - form.w.Size.Width, form.darkDockPanel3.Location.Y);
                                 form.darkDockPanel4.Location = new Point(form.darkDockPanel4.Location.X - form.w.Size.Width, form.darkDockPanel4.Location.Y);
                                 form.darkDockPanel3.Size = new Size(form.darkDockPanel3.Size.Width + form.w.Size.Width, form.darkDockPanel3.Size.Height);
                                 form.darkDockPanel4.Size = new Size(form.darkDockPanel4.Size.Width + form.w.Size.Width, form.darkDockPanel4.Size.Height);
                                 form.darkStatusStrip1.Location = new Point(form.darkStatusStrip1.Location.X - form.w.Size.Width, form.darkStatusStrip1.Location.Y);
                                 form.darkStatusStrip1.Size = new Size(form.darkStatusStrip1.Size.Width + form.w.Size.Width, form.darkStatusStrip1.Size.Height);
-                        }
+                                form.darkDockPanel2.Visible = false;
+                            }
 
                             // give him a tileset
                            // MemoryStream ms = new MemoryStream();
@@ -116,13 +117,14 @@ namespace SimplexIde
 
                             if (!form.w.Visible)
                             {
-                                form.sr.drawTest1.Location = new Point(form.sr.drawTest1.Location.X + form.w.Size.Width, form.sr.drawTest1.Location.Y);
+                                form.darkDockPanel1.Location = new Point(form.darkDockPanel1.Location.X + form.w.Size.Width, form.darkDockPanel1.Location.Y);
                                 form.darkDockPanel3.Location = new Point(form.darkDockPanel3.Location.X + form.w.Size.Width, form.darkDockPanel3.Location.Y);
                                 form.darkDockPanel4.Location = new Point(form.darkDockPanel4.Location.X + form.w.Size.Width, form.darkDockPanel4.Location.Y);
                                 form.darkDockPanel3.Size = new Size(form.darkDockPanel3.Size.Width - form.w.Size.Width, form.darkDockPanel3.Size.Height);
                                 form.darkDockPanel4.Size = new Size(form.darkDockPanel4.Size.Width - form.w.Size.Width, form.darkDockPanel4.Size.Height);
                                 form.darkStatusStrip1.Location = new Point(form.darkStatusStrip1.Location.X + form.w.Size.Width, form.darkStatusStrip1.Location.Y);
                                 form.darkStatusStrip1.Size = new Size(form.darkStatusStrip1.Size.Width - form.w.Size.Width, form.darkStatusStrip1.Size.Height);
+                                form.darkDockPanel2.Visible = true;
                         }
 
                         form.w.Show();

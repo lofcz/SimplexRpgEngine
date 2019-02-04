@@ -192,10 +192,15 @@ namespace SimplexIde
         {
             if (Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
-                //if (editorForm.renderSize != Size.)
+                if (editorForm.sr.HideTitle)
                 {
-                    Location = editorForm.renderPos;
-                    Size = editorForm.renderSize;
+                    editorForm.darkDockPanel1.Location = editorForm.renderPos;
+                    editorForm.darkDockPanel1.Size = editorForm.renderSize;
+
+                    editorForm.sr.drawTest1.Location = new System.Drawing.Point(editorForm.sr.drawTest1.Location.X, editorForm.sr.drawTest1.Location.Y + 25);
+                    editorForm.sr.drawTest1.Size = new System.Drawing.Size(editorForm.sr.drawTest1.Size.Width, editorForm.sr.drawTest1.Size.Height - 25);
+                    editorForm.sr.HideTitle = false;
+                    editorForm.sr.UpdateBtns();
                 }
             }
 
@@ -768,7 +773,7 @@ namespace SimplexIde
                             // Layer is tile
                             if (rl is TileLayer)
                             {
-                             //   Editor.spriteBatch.Begin(transformMatrix: transformMatrix, samplerState: SamplerState.PointWrap, sortMode: SpriteSortMode.Texture);
+                                Editor.spriteBatch.Begin(transformMatrix: transformMatrix, samplerState: SamplerState.PointWrap, sortMode: SpriteSortMode.Texture);
                                 TileLayer tl = ((TileLayer) rl);
 
                                 Vector2 tempVec = Vector2.One;                                
@@ -781,7 +786,7 @@ namespace SimplexIde
                                     Editor.spriteBatch.Draw(tl.Tileset.Texture, tempVec, t.DrawRectangle, Color.White);
                                 }
 
-                              //  Editor.spriteBatch.End();
+                                Editor.spriteBatch.End();
                             }
 
                             //Sgml.BatchForceUnload();

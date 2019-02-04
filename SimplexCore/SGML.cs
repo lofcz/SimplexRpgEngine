@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
@@ -232,6 +233,131 @@ namespace SimplexCore
         {
             _randomSeed = DateTime.Now.Millisecond;
             _random = new Random(_randomSeed);
+        }
+
+        public static double boxstep(double a, double b, double amt)
+        {
+            double p;
+
+            if (Math.Abs(a - b) < 0.001)
+            {
+                return -1;
+            }
+
+            p = (amt - a) / (b - a);
+            if (p <= 0) {return 0;}
+            if (p >= 1) {return 1;}
+            return p;
+        }
+
+        public static double smoothstep(double a, double b, double amt)
+        {
+            // 3x2−2x3
+            double p;
+            if (amt < a) {return 0;}
+            if (amt >= b) {return 1;}
+            if (Math.Abs(a - b) < 0.001) {return -1;}
+
+            p = (amt - a) / (b - a);
+            return (p * p * (3 - 2 * p));
+        }
+
+        public static int factorial(int n)
+        {
+            if (n <= 1) {return 1;}
+
+            return n * factorial(n - 1);
+        }
+
+        public static int permutations(int set, int subset)
+        {
+            int f, k, l, m, n;
+            n = set;
+            k = subset;
+
+            m = n - k;
+            if (m < 0) {return -1;}
+
+            f = 1;
+            for (l = n; l > m; l -= 1)
+            {
+                f *= l;
+            }
+            return f;          
+        }
+
+        public static int fibonacci(int n)
+        {
+            return (int)round(power((1 + sqrt(5)) / 2, n) / sqrt(5));
+        }
+
+        public static int lcm(int a, int b)
+        {
+            int c, r;
+
+            a = max(a, b);
+            b = min(a, b);
+            c = a * b;
+            while (b != 0)
+            {
+                r = a % b;
+                a = b;
+                b = r;
+            }
+            return (c / a);
+        }
+
+        public static int gcd(int a, int b)
+        {
+            int r;
+
+            a = max(a, b);
+            b = min(a, b);
+            while (b != 0)
+            {
+                r = a % b;
+                a = b;
+                b = r;
+            }
+
+            return a;
+        }
+
+        public static int next_pow2(int a)
+        {          
+            a--;
+            a |= a >> 1;
+            a |= a >> 2;
+            a |= a >> 4;
+            a |= a >> 8;
+            a |= a >> 16;
+            a++;
+
+            return a;
+        }
+
+        public static int irandom_weighted(params int[] p)
+        {
+            int sum = 0;
+
+            foreach (var t in p)
+            {
+                sum += t;
+            }
+
+            int rnd = irandom(sum);
+
+            for (int i = 0; i < p.Length; i++)
+            {
+                if (rnd < p[i])
+                {
+                    return i;
+                }
+
+                rnd -= p[i];
+            }
+
+            return int.MinValue;
         }
 
         /*

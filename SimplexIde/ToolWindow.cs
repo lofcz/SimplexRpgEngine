@@ -30,14 +30,19 @@ namespace SimplexIde
         public ToolWindow()
         {
             InitializeComponent();
-
-            DarkTreeNode dtn = new DarkTreeNode("Objects");
-            dtn.Icon = (Bitmap)Resources.ResourceManager.GetObject("Folder_16x");
-            dtn.IsRoot = true;
-            dtn.IsFolder = true;
-            dtn.Tag = "folder";
             dtv = darkTreeView1;
-            darkTreeView1.Nodes.Add(dtn);
+
+            SimplexIdeApi.TreeAddRootNode(dtv, "Sprites");
+            SimplexIdeApi.TreeAddRootNode(dtv, "Sounds");
+            SimplexIdeApi.TreeAddRootNode(dtv, "Tiles");
+            SimplexIdeApi.TreeAddRootNode(dtv, "Paths");
+            SimplexIdeApi.TreeAddRootNode(dtv, "Scripts");
+            SimplexIdeApi.TreeAddRootNode(dtv, "Shaders");
+            SimplexIdeApi.TreeAddRootNode(dtv, "Fonts");
+            SimplexIdeApi.TreeAddRootNode(dtv, "Time Lines");
+            SimplexIdeApi.TreeAddRootNode(dtv, "Objects");
+            SimplexIdeApi.TreeAddRootNode(dtv, "Included Files");
+            SimplexIdeApi.TreeAddRootNode(dtv, "Extensions");
 
         }
 

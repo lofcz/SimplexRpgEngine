@@ -46,10 +46,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)SgmlTimelines.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlVideo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ShaderDescriptor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SimplexIdeApi.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SimplexProjectStructure.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SoundDescriptor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SoundReference.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TilesetDescriptor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Triangle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)VideoDescriptor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)VideoExtended.cs" />
     <None Include="$(MSBuildThisFileDirectory)Prefabs\PrefabObject.cs" />
