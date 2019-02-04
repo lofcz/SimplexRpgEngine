@@ -279,7 +279,7 @@ namespace SimplexCore
             double z;
             double e = Math.E;
 
-            z = Math.Sqrt(2 * 3.14 * n) * Math.Pow((n / e), n);
+            z = Math.Sqrt(2 * Math.PI * n) * Math.Pow((n / e), n);
             return (int)(z);
         }
 
