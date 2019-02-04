@@ -55,7 +55,7 @@ namespace SimplexResources.Objects
             if (cur_depth < depth)
             {
                 randomize();
-                instance_create(walkerGen.pos, typeof(oGem), "Object layer 1");
+                instance_create(walkerGen.pos, typeof(oGem), "Obwject layer 1");
                 dir = irandom_range(0,3);
                 switch (dir)
                 {

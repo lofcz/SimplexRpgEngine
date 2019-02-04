@@ -205,8 +205,8 @@ namespace SimplexResources.Objects
           GamePath p = mp_grid_path(new Vector2(96, 96), new Vector2(512, 512), false);
 
 
-            mp_grid_draw(false);
-            draw_path(p);
+           mp_grid_draw(false);
+           draw_path(p);
 
             //mp_
         }
