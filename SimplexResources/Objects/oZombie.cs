@@ -29,11 +29,11 @@ namespace SimplexResources.Objects
             }
 
             draw_set_color(c);
-            draw_line(200f, 200f, mouse.X, mouse.Y);
+           // draw_line(200f, 200f, mouse.X, mouse.Y);
 
             if (vp.HasValue)
             {
-                draw_circle_fast(vp.Value, 8, 24, Color.Red);
+            //    draw_circle_fast(vp.Value, 8, 24, Color.Red);
             }
 
             draw_set_color(Color.White);

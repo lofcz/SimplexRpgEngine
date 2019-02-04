@@ -498,27 +498,27 @@ namespace SimplexCore
             double x3 = p3.X, y3 = p3.Y;
             double x4 = p4.X, y4 = p4.Y;
 
-            // equations of the form x = c (two vertical lines)
             if (Math.Abs(x1 - x2) < tolerance && Math.Abs(x3 - x4) < tolerance && Math.Abs(x1 - x3) < tolerance)
             {
+                // vertical lines
                 return Vector2.Zero;
             }
 
-            //equations of the form y=c (two horizontal lines)
             if (Math.Abs(y1 - y2) < tolerance && Math.Abs(y3 - y4) < tolerance && Math.Abs(y1 - y3) < tolerance)
             {
+                // horizontal lines
                 return Vector2.Zero;
             }
 
-            //equations of the form x=c (two vertical lines)
             if (Math.Abs(x1 - x2) < tolerance && Math.Abs(x3 - x4) < tolerance)
             {
+                // vertical lines
                 return null;
             }
 
-            //equations of the form y=c (two horizontal lines)
             if (Math.Abs(y1 - y2) < tolerance && Math.Abs(y3 - y4) < tolerance)
             {
+                // horizontal lines
                 return null;
             }
 
@@ -568,6 +568,22 @@ namespace SimplexCore
         public static bool point_in_line(Vector2 p1, Vector2 p2, double x, double y)
         {
             return (x >= p1.X && x <= p2.X || x >= p2.X && x <= p1.X) && (y >= p1.Y && y <= p2.Y || y >= p2.Y && y <= p1.Y);
+        }
+
+        public static double intercept_course(Vector2 start, Vector2 target, float speed, float targetSpeed, float targetDirection)
+        {
+            double dir = point_direction(start.X, start.Y, target.X, target.Y);
+            double alpha = targetSpeed / speed;
+            double phi = degtorad(targetDirection - dir);
+            double beta = alpha * sin(phi);
+
+            if (abs(beta) >= 1)
+            {
+                return (-1);
+            }
+
+            dir += radtodeg(arcsin(beta));
+            return dir;
         }
     }
 }
