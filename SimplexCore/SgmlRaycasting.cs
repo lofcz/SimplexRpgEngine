@@ -585,5 +585,10 @@ namespace SimplexCore
             dir += radtodeg(arcsin(beta));
             return dir;
         }
+
+        public static float line_get_slope(Vector2 p1, Vector2 p2)
+        {
+            return ((p2.X - p1.X) / (p2.Y - p1.Y));
+        }
     }
 }
