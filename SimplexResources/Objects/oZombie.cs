@@ -20,7 +20,7 @@ namespace SimplexResources.Objects
         {
             Color c = Color.White;
             Vector2? vp;
-            vp = line_intersects_rectangle_rotate(new Vector2(200, 200), mouse, rr);
+            vp = line_in_rectangle_rotated_closest(new Vector2(200, 200), mouse, rr);
 
             if (vp.HasValue)
             {

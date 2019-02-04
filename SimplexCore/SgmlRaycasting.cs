@@ -93,20 +93,92 @@ namespace SimplexCore
             return new RotatedRectangle(p1, p3, p4, p2);
         }
 
-        public static Vector2? line_intersects_rectangle_rotate(Vector2 p1, Vector2 p2, RotatedRectangle r)
+        public static List<Vector2> line_in_rectangle_rotated_all(Vector2 p1, Vector2 p2, RotatedRectangle r)
+        {
+            if (r != null)
+            {
+                List<Vector2> l = new List<Vector2>();
+                Vector2? temp = Vector2.One;
+
+                temp = line_in_line(p1, p2, r.Point1, r.Point2);
+                if (temp.HasValue)
+                {
+                    l.Add(temp.Value);
+                }
+
+                temp = line_in_line(p1, p2, r.Point2, r.Point3);
+                if (temp.HasValue)
+                {
+                    l.Add(temp.Value);
+                }
+
+                temp = line_in_line(p1, p2, r.Point3, r.Point4);
+                if (temp.HasValue)
+                {
+                    l.Add(temp.Value);
+                }
+
+                temp = line_in_line(p1, p2, r.Point4, r.Point1);
+                if (temp.HasValue)
+                {
+                    l.Add(temp.Value);
+                }
+
+                return l;
+            }
+
+            return null;
+        }
+
+        public static Vector2? line_in_rectangle_rotated_any(Vector2 p1, Vector2 p2, RotatedRectangle r)
+        {
+            if (r != null)
+            {
+                Vector2? temp = Vector2.One;
+
+                temp = line_in_line(p1, p2, r.Point1, r.Point2);
+                if (temp.HasValue)
+                {
+                    return temp;
+                }
+
+                temp = line_in_line(p1, p2, r.Point2, r.Point3);
+                if (temp.HasValue)
+                {
+                    return temp;
+                }
+
+                temp = line_in_line(p1, p2, r.Point3, r.Point4);
+                if (temp.HasValue)
+                {
+                    return temp;
+                }
+
+                temp = line_in_line(p1, p2, r.Point4, r.Point1);
+                if (temp.HasValue)
+                {
+                    return temp;
+                }
+
+            }
+
+            return null;
+        }
+
+        public static Vector2? line_in_rectangle_rotated_nearest(Vector2 p1, Vector2 p2, RotatedRectangle r)
         {
             if (r != null)
             {
                 Vector2? temp = Vector2.One;
                 Vector2? lastScs = null;
 
-                temp = line_intersets_line_point(p1, p2, r.Point1, r.Point2);
+                temp = line_in_line(p1, p2, r.Point1, r.Point2);
                 if (temp.HasValue)
                 {
                     lastScs = temp;
                 }
 
-                temp = line_intersets_line_point(p1, p2, r.Point2, r.Point3);
+                temp = line_in_line(p1, p2, r.Point2, r.Point3);
                 if (temp.HasValue)
                 {
                     if (lastScs == null)
@@ -124,7 +196,7 @@ namespace SimplexCore
                     }
                 }
 
-                temp = line_intersets_line_point(p1, p2, r.Point3, r.Point4);
+                temp = line_in_line(p1, p2, r.Point3, r.Point4);
                 if (temp.HasValue)
                 {
                     if (lastScs == null)
@@ -142,7 +214,7 @@ namespace SimplexCore
                     }
                 }
 
-                temp = line_intersets_line_point(p1, p2, r.Point4, r.Point1);
+                temp = line_in_line(p1, p2, r.Point4, r.Point1);
                 if (temp.HasValue)
                 {
                     if (lastScs == null)
@@ -166,7 +238,80 @@ namespace SimplexCore
             return null;
         }
 
-        public static Vector2? line_intersets_line_point(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, double tolerance = 0.001)
+        public static Vector2? line_in_rectangle_rotated_furthest(Vector2 p1, Vector2 p2, RotatedRectangle r)
+        {
+            if (r != null)
+            {
+                Vector2? temp = Vector2.One;
+                Vector2? lastScs = null;
+
+                temp = line_in_line(p1, p2, r.Point1, r.Point2);
+                if (temp.HasValue)
+                {
+                    lastScs = temp;
+                }
+
+                temp = line_in_line(p1, p2, r.Point2, r.Point3);
+                if (temp.HasValue)
+                {
+                    if (lastScs == null)
+                    {
+                        lastScs = temp;
+                    }
+                    else
+                    {
+                        double k = point_distance(p1, temp.Value);
+
+                        if (k > point_distance(p1, lastScs.Value))
+                        {
+                            lastScs = temp;
+                        }
+                    }
+                }
+
+                temp = line_in_line(p1, p2, r.Point3, r.Point4);
+                if (temp.HasValue)
+                {
+                    if (lastScs == null)
+                    {
+                        lastScs = temp;
+                    }
+                    else
+                    {
+                        double k = point_distance(p1, temp.Value);
+
+                        if (k > point_distance(p1, lastScs.Value))
+                        {
+                            lastScs = temp;
+                        }
+                    }
+                }
+
+                temp = line_in_line(p1, p2, r.Point4, r.Point1);
+                if (temp.HasValue)
+                {
+                    if (lastScs == null)
+                    {
+                        lastScs = temp;
+                    }
+                    else
+                    {
+                        double k = point_distance(p1, temp.Value);
+
+                        if (k > point_distance(p1, lastScs.Value))
+                        {
+                            lastScs = temp;
+                        }
+                    }
+                }
+
+                return lastScs;
+            }
+
+            return null;
+        }
+
+        public static Vector2? line_in_line(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, double tolerance = 0.001)
         {
             double x1 = p1.X, y1 = p1.Y;
             double x2 = p2.X, y2 = p2.Y;
