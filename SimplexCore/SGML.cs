@@ -234,6 +234,33 @@ namespace SimplexCore
             _random = new Random(_randomSeed);
         }
 
+        public static double boxstep(double a, double b, double amt)
+        {
+            double p;
+
+            if (Math.Abs(a - b) < 0.001)
+            {
+                return -1;
+            }
+
+            p = (amt - a) / (b - a);
+            if (p <= 0) {return 0;}
+            if (p >= 1) {return 1;}
+            return p;
+        }
+
+        public static double smoothstep(double a, double b, double amt)
+        {
+            // 3x2−2x3
+            double p;
+            if (amt < a) {return 0;}
+            if (amt >= b) {return 1;}
+            if (Math.Abs(a - b) < 0.001) {return -1;}
+
+            p = (amt - a) / (b - a);
+            return (p * p * (3 - 2 * p));
+        }
+
         /*
          *  ------------------------------------- Trigonometry ------------------------------------
          */
