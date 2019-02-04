@@ -437,6 +437,31 @@ namespace SimplexCore
             RenderVertices(PrimitiveType.LineList);
         }
 
+        public static void draw_triangle(Triangle t, bool outline, float angle = 0)
+        {
+            ClearVertices();
+            SetVertexColor(FinalizeColor(DrawColor));
+
+            if (!outline)
+            {
+                AddVertex(t.Point1.X, t.Point1.Y, true);
+                AddVertex(t.Point2.X, t.Point2.Y, true);
+                AddVertex(t.Point3.X, t.Point3.Y, true);
+                RotateVectors(angle);
+                RenderVertices();
+            }
+
+            else
+            {
+                AddVertex(t.Point1.X, t.Point1.Y, true);
+                AddVertex(t.Point2.X, t.Point2.Y, true);
+                AddVertex(t.Point3.X, t.Point3.Y, true);
+                AddVertex(t.Point1.X, t.Point1.Y, true);
+                RotateVectors(angle);
+                RenderVertices(PrimitiveType.LineStrip, true);
+            }
+        }
+
         public static void draw_rectangle(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4)
         {            
             vertices.Clear();

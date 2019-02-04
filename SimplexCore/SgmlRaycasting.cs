@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using MonoGame.Extended;
+using MonoGame.Extended.Shapes;
 
 namespace SimplexCore
 {
@@ -128,6 +129,184 @@ namespace SimplexCore
             }
 
             return null;
+        }
+
+        public static List<Vector2> triangle_in_triangle_all(Triangle t1, Triangle t2)
+        {
+            List<Vector2> t = new List<Vector2>();
+            Vector2? temp = Vector2.One;
+
+            // side 1
+            temp = line_in_line(t1.Point1, t1.Point2, t2.Point1, t2.Point2);
+            if (temp.HasValue)
+            {
+                t.Add(temp.Value);
+            }
+
+            temp = line_in_line(t1.Point1, t1.Point2, t2.Point2, t2.Point3);
+            if (temp.HasValue)
+            {
+                t.Add(temp.Value);
+            }
+
+            temp = line_in_line(t1.Point1, t1.Point2, t2.Point3, t2.Point1);
+            if (temp.HasValue)
+            {
+                t.Add(temp.Value);
+            }
+
+            // side 2
+            temp = line_in_line(t1.Point2, t1.Point3, t2.Point1, t2.Point2);
+            if (temp.HasValue)
+            {
+                t.Add(temp.Value);
+            }
+
+            temp = line_in_line(t1.Point2, t1.Point3, t2.Point2, t2.Point3);
+            if (temp.HasValue)
+            {
+                t.Add(temp.Value);
+            }
+
+            temp = line_in_line(t1.Point2, t1.Point3, t2.Point3, t2.Point1);
+            if (temp.HasValue)
+            {
+                t.Add(temp.Value);
+            }
+
+            // side 3
+            temp = line_in_line(t1.Point3, t1.Point1, t2.Point1, t2.Point2);
+            if (temp.HasValue)
+            {
+                t.Add(temp.Value);
+            }
+
+            temp = line_in_line(t1.Point3, t1.Point1, t2.Point2, t2.Point3);
+            if (temp.HasValue)
+            {
+                t.Add(temp.Value);
+            }
+
+            temp = line_in_line(t1.Point3, t1.Point1, t2.Point3, t2.Point1);
+            if (temp.HasValue)
+            {
+                t.Add(temp.Value);
+            }
+
+            return t;
+        }
+
+        public static bool rectangle_in_rectangle(Rectangle r1, Rectangle r2)
+        {
+            return r1.Intersects(r2);
+        }
+
+        public static List<Vector2> rectangle_in_rectangle_all(RotatedRectangle r1, RotatedRectangle r2)
+        {
+            List<Vector2> l = new List<Vector2>();
+            Vector2? temp = Vector2.One;
+
+
+            // side 1
+            temp = line_in_line(r1.Point1, r1.Point2, r2.Point1, r2.Point2);
+            if (temp.HasValue)
+            {
+                l.Add(temp.Value);
+            }
+
+            temp = line_in_line(r1.Point1, r1.Point2, r2.Point2, r2.Point3);
+            if (temp.HasValue)
+            {
+                l.Add(temp.Value);
+            }
+
+            temp = line_in_line(r1.Point1, r1.Point2, r2.Point3, r2.Point4);
+            if (temp.HasValue)
+            {
+                l.Add(temp.Value);
+            }
+
+            temp = line_in_line(r1.Point1, r1.Point2, r2.Point4, r2.Point1);
+            if (temp.HasValue)
+            {
+                l.Add(temp.Value);
+            }
+
+            // side 2
+            temp = line_in_line(r1.Point2, r1.Point3, r2.Point1, r2.Point2);
+            if (temp.HasValue)
+            {
+                l.Add(temp.Value);
+            }
+
+            temp = line_in_line(r1.Point2, r1.Point3, r2.Point2, r2.Point3);
+            if (temp.HasValue)
+            {
+                l.Add(temp.Value);
+            }
+
+            temp = line_in_line(r1.Point2, r1.Point3, r2.Point3, r2.Point4);
+            if (temp.HasValue)
+            {
+                l.Add(temp.Value);
+            }
+
+            temp = line_in_line(r1.Point2, r1.Point3, r2.Point4, r2.Point1);
+            if (temp.HasValue)
+            {
+                l.Add(temp.Value);
+            }
+
+            // side 3
+            temp = line_in_line(r1.Point3, r1.Point4, r2.Point1, r2.Point2);
+            if (temp.HasValue)
+            {
+                l.Add(temp.Value);
+            }
+
+            temp = line_in_line(r1.Point3, r1.Point4, r2.Point2, r2.Point3);
+            if (temp.HasValue)
+            {
+                l.Add(temp.Value);
+            }
+
+            temp = line_in_line(r1.Point3, r1.Point4, r2.Point3, r2.Point4);
+            if (temp.HasValue)
+            {
+                l.Add(temp.Value);
+            }
+
+            temp = line_in_line(r1.Point3, r1.Point4, r2.Point4, r2.Point1);
+            if (temp.HasValue)
+            {
+                l.Add(temp.Value);
+            }
+
+            // side 4
+            temp = line_in_line(r1.Point4, r1.Point1, r2.Point1, r2.Point2);
+            if (temp.HasValue)
+            {
+                l.Add(temp.Value);
+            }
+
+            temp = line_in_line(r1.Point4, r1.Point1, r2.Point2, r2.Point3);
+            if (temp.HasValue)
+            {
+                l.Add(temp.Value);
+            }
+
+            temp = line_in_line(r1.Point4, r1.Point1, r2.Point3, r2.Point4);
+            if (temp.HasValue)
+            {
+                l.Add(temp.Value);
+            }
+
+            temp = line_in_line(r1.Point4, r1.Point1, r2.Point4, r2.Point1);
+            if (temp.HasValue)
+            {
+                l.Add(temp.Value);
+            }
+            return l;
         }
 
         public static Vector2? line_in_rectangle_rotated_any(Vector2 p1, Vector2 p2, RotatedRectangle r)

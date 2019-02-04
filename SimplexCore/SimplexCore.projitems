@@ -51,6 +51,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)SoundDescriptor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SoundReference.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TilesetDescriptor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Triangle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)VideoDescriptor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)VideoExtended.cs" />
     <None Include="$(MSBuildThisFileDirectory)Prefabs\PrefabObject.cs" />
