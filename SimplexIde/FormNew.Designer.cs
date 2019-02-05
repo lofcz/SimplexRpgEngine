@@ -62,9 +62,9 @@
             // textName
             // 
             this.textName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textName.Location = new System.Drawing.Point(100, 139);
+            this.textName.Location = new System.Drawing.Point(100, 205);
             this.textName.Name = "textName";
-            this.textName.Size = new System.Drawing.Size(204, 20);
+            this.textName.Size = new System.Drawing.Size(461, 20);
             this.textName.TabIndex = 4;
             this.textName.TextChanged += new System.EventHandler(this.textName_TextChanged);
             // 
@@ -83,9 +83,9 @@
             // 
             this.textAuthor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textAuthor.Location = new System.Drawing.Point(100, 205);
+            this.textAuthor.Location = new System.Drawing.Point(100, 139);
             this.textAuthor.Name = "textAuthor";
-            this.textAuthor.Size = new System.Drawing.Size(461, 20);
+            this.textAuthor.Size = new System.Drawing.Size(194, 20);
             this.textAuthor.TabIndex = 7;
             this.textAuthor.TextChanged += new System.EventHandler(this.textAuthor_TextChanged);
             // 
