@@ -131,5 +131,49 @@ namespace SimplexIde
                 }
             }
         }
+
+        private void darkButton3_Click(object sender, EventArgs e)
+        {
+            string oldPath = Environment.CurrentDirectory;
+
+            int i = oldPath.LastIndexOf("\\");
+            oldPath = oldPath.Substring(0, i);
+            i = oldPath.LastIndexOf("\\");
+            oldPath = oldPath.Substring(0, i);
+            i = oldPath.LastIndexOf("\\");
+            oldPath = oldPath.Substring(0, i);
+
+            textPath.Text = oldPath;
+        }
+
+        private void darkTitle3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void darkTitle1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void darkTitle2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textAuthor_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textPath_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

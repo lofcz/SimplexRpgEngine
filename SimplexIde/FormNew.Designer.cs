@@ -41,74 +41,79 @@
             // darkButton1
             // 
             this.darkButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.darkButton1.Location = new System.Drawing.Point(565, 267);
+            this.darkButton1.Location = new System.Drawing.Point(514, 240);
             this.darkButton1.Name = "darkButton1";
-            this.darkButton1.Size = new System.Drawing.Size(36, 20);
+            this.darkButton1.Size = new System.Drawing.Size(89, 41);
             this.darkButton1.TabIndex = 3;
-            this.darkButton1.Text = "OK";
+            this.darkButton1.Text = "Create";
             this.darkButton1.Click += new System.EventHandler(this.darkButton1_Click);
             // 
             // darkTitle1
             // 
             this.darkTitle1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.darkTitle1.AutoSize = true;
-            this.darkTitle1.Location = new System.Drawing.Point(11, 173);
+            this.darkTitle1.Location = new System.Drawing.Point(20, 207);
             this.darkTitle1.Name = "darkTitle1";
-            this.darkTitle1.Size = new System.Drawing.Size(63, 13);
+            this.darkTitle1.Size = new System.Drawing.Size(74, 13);
             this.darkTitle1.TabIndex = 5;
-            this.darkTitle1.Text = "New Name:";
+            this.darkTitle1.Text = "Project Name:";
+            this.darkTitle1.Click += new System.EventHandler(this.darkTitle1_Click);
             // 
             // textName
             // 
-            this.textName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textName.Location = new System.Drawing.Point(11, 189);
+            this.textName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.textName.Location = new System.Drawing.Point(100, 139);
             this.textName.Name = "textName";
-            this.textName.Size = new System.Drawing.Size(548, 20);
+            this.textName.Size = new System.Drawing.Size(204, 20);
             this.textName.TabIndex = 4;
+            this.textName.TextChanged += new System.EventHandler(this.textName_TextChanged);
             // 
             // darkTitle2
             // 
             this.darkTitle2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.darkTitle2.AutoSize = true;
-            this.darkTitle2.Location = new System.Drawing.Point(11, 251);
+            this.darkTitle2.Location = new System.Drawing.Point(53, 141);
             this.darkTitle2.Name = "darkTitle2";
             this.darkTitle2.Size = new System.Drawing.Size(41, 13);
             this.darkTitle2.TabIndex = 6;
             this.darkTitle2.Text = "Author:";
+            this.darkTitle2.Click += new System.EventHandler(this.darkTitle2_Click);
             // 
             // textAuthor
             // 
             this.textAuthor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textAuthor.Location = new System.Drawing.Point(11, 267);
+            this.textAuthor.Location = new System.Drawing.Point(100, 205);
             this.textAuthor.Name = "textAuthor";
-            this.textAuthor.Size = new System.Drawing.Size(548, 20);
+            this.textAuthor.Size = new System.Drawing.Size(461, 20);
             this.textAuthor.TabIndex = 7;
+            this.textAuthor.TextChanged += new System.EventHandler(this.textAuthor_TextChanged);
             // 
             // darkTitle3
             // 
             this.darkTitle3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.darkTitle3.AutoSize = true;
-            this.darkTitle3.Location = new System.Drawing.Point(11, 212);
+            this.darkTitle3.Location = new System.Drawing.Point(6, 174);
             this.darkTitle3.Name = "darkTitle3";
-            this.darkTitle3.Size = new System.Drawing.Size(32, 13);
+            this.darkTitle3.Size = new System.Drawing.Size(88, 13);
             this.darkTitle3.TabIndex = 8;
-            this.darkTitle3.Text = "Path:";
+            this.darkTitle3.Text = "Project Directory:";
+            this.darkTitle3.Click += new System.EventHandler(this.darkTitle3_Click);
             // 
             // textPath
             // 
             this.textPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textPath.Location = new System.Drawing.Point(11, 228);
+            this.textPath.Location = new System.Drawing.Point(100, 172);
             this.textPath.Name = "textPath";
-            this.textPath.Size = new System.Drawing.Size(548, 20);
+            this.textPath.Size = new System.Drawing.Size(461, 20);
             this.textPath.TabIndex = 9;
+            this.textPath.TextChanged += new System.EventHandler(this.textPath_TextChanged);
             // 
             // darkButton2
             // 
             this.darkButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.darkButton2.Location = new System.Drawing.Point(565, 228);
+            this.darkButton2.Location = new System.Drawing.Point(567, 172);
             this.darkButton2.Name = "darkButton2";
             this.darkButton2.Size = new System.Drawing.Size(36, 20);
             this.darkButton2.TabIndex = 10;
