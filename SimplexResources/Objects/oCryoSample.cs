@@ -24,17 +24,13 @@ namespace SimplexResources.Objects
 
         public override void EvtCreate()
         {
-            X = 64;
-            Y = 64;
             mp_grid_create(new System.Drawing.Rectangle(0, 0, 1024, 768), new Size(16,16));
+            
         }
         
         public override void EvtStep()
         {
-            if (mp_potential_step(Position, new Vector2(16,16)))
-            {
-                show_debug_message("jaaj");
-            }
+            mp_linear_step(10,10,16);
         }
 
         public override void EvtDraw()

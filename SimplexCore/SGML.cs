@@ -11,6 +11,7 @@ using MonoGame.Extended;
 using SharpDX;
 using SharpDX.MediaFoundation.DirectX;
 using SimplexIde;
+using SimplexResources.Objects;
 using Color = Microsoft.Xna.Framework.Color;
 using Matrix = System.Drawing.Drawing2D.Matrix;
 using Point = Microsoft.Xna.Framework.Point;
@@ -60,18 +61,33 @@ namespace SimplexCore
             return c;
         }
 
-        public static bool PlaceEmpty(Vector2 position)
+        public static bool PlaceEmpty(Vector2 position, bool self = false)
         {
-            foreach (GameObject g in SceneObjects)
+            if (self == false)
             {
-                if (g.CollidingWithPoint(position))
+                foreach (GameObject g in SceneObjects)
                 {
-                    return false;
+                    if (g.CollidingWithPoint(position))
+                    {
+                        return false;
+                    }
+
+                }
+                return true;
+            }
+            else
+            {
+                IEnumerable<GameObject> list_of_object_w_self = SceneObjects.Where(x => x.OriginalType != typeof(oCryoSample));
+                foreach (var g  in list_of_object_w_self)
+                {
+                    if (g.CollidingWithPoint(position))
+                    {
+                        return false;
+                    }
                 }
 
+                return true;
             }
-
-            return true;
         }
 
         public static bool PlaceEmptyRectangle(RectangleF rr)
