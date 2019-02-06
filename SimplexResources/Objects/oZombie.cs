@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using SimplexCore;
 using static SimplexCore.Sgml;
 using Color = Microsoft.Xna.Framework.Color;
@@ -15,6 +16,30 @@ namespace SimplexResources.Objects
         public oZombie()
         {
             EditorPath = "Objects/Actors/oBrick";
+        }
+
+        public override void EvtCreate()
+        {
+            Texture2D[] x = new Texture2D[50];
+
+            for (var i = 0; i < 50; i++)
+            {
+                int k = choose(4, 8, 16, 32, 64, 128);
+                int w = choose(4, 8, 16, 32, 64, 128);//k;//irandom_range(64, 256);
+                int h = choose(4, 8, 16, 32, 64, 128);//k;//irandom_range(64, 256);
+                Texture2D t = new Texture2D(Sgml.GraphicsDevice, w, h);
+                Color[] data = new Color[w * h];
+                Color c = choose(Color.Red, Color.Gray, Color.Lime, Color.Beige, Color.Aqua, Color.Green, Color.Yellow, Color.Chocolate, Color.Black, Color.Fuchsia);
+                for (var j = 0; j < w * h; j++)
+                {
+                    data[j] = c;
+                }
+
+                t.SetData(data);
+                x[i] = t;
+            }
+
+            SimplexTexurePacker.PackTextures(x, 512);
         }
 
         public override void EvtDraw()
