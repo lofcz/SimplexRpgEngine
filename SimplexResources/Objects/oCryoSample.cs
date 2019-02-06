@@ -30,7 +30,10 @@ namespace SimplexResources.Objects
         
         public override void EvtStep()
         {
-            mp_linear_step(10,10,16);
+            if (mp_linear_step(10, 10, 16))
+            {
+                Debug.WriteLine("dorazil");
+            }
         }
 
         public override void EvtDraw()

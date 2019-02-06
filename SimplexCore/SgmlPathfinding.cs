@@ -55,12 +55,18 @@ namespace SimplexCore
             }
         }
 
-        public static void mp_linear_step(float Xgoal, float Ygoal, int StepSize, bool allowDiag = true)
+        public static bool mp_linear_step(float Xgoal, float Ygoal, int StepSize, bool allowDiag = true)
         {
             if (PlaceEmpty(currentObject.Position, true))
             {
                 move_towards_point(new Vector2(Xgoal, Ygoal), StepSize);
             }
+            else
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public static void mp_grid_draw(bool outline = true, double alpha = .5)
