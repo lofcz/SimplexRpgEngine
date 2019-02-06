@@ -10,7 +10,7 @@ namespace SimplexCore
 {
     public static class SimplexTexurePacker
     {
-        public static void PackTextures(Texture2D[] textures, int pageSize)
+        public static void PackTextures(Texture2D[] textures, int pageSize, int padding = 0)
         {
             // 0. preapare a list of rectangles 
             List<Rectangle> cells = new List<Rectangle>();
@@ -37,13 +37,14 @@ namespace SimplexCore
             // 4. find first to fit rectangle for each texture
             Sgml.surface_set_target(page);
             List<RectangleCadidate> candidates = new List<RectangleCadidate>();
+            int successful = 0;
 
             foreach (TexturePrepacked t in prepacked)
             {
                 candidates.Clear();
                 foreach (Rectangle r in cells)
                 {
-                    if (t.FitsToRectangle(r))
+                    if (t.FitsToRectangle(r, padding))
                     {
                         RectangleCadidate rc = new RectangleCadidate();
                         rc.r = r;
@@ -57,19 +58,21 @@ namespace SimplexCore
                 {
                     // Split this rectangle to two new rectangles
                     Rectangle r = candidates.OrderBy(x => x.LeftArea).ToList()[0].r;
-                    Rectangle r1 = new Rectangle(r.X + t.Tex.Width, r.Y, r.Width - t.Tex.Width, t.Tex.Height);
-                    Rectangle r2 = new Rectangle(r.X, r.Y + t.Tex.Height, r.Width, r.Height - t.Tex.Height);
+                    Rectangle r1 = new Rectangle(r.X + t.Tex.Width + padding, r.Y, r.Width - t.Tex.Width - padding, t.Tex.Height);
+                    Rectangle r2 = new Rectangle(r.X, r.Y + t.Tex.Height + padding, r.Width, r.Height - t.Tex.Height - padding);
 
                     Sgml.draw_sprite(t.Tex, -2, new Vector2(r.X, r.Y));
 
                     cells.Remove(r);
                     cells.Add(r1);
                     cells.Add(r2);
+                    successful++;
                 }
             }
             Sgml.surface_reset_target();
 
             Sgml.surface_save(page, "kokotiSurface");
+            Sgml.show_message(successful.ToString());
         }
 
         struct RectangleCadidate
@@ -84,9 +87,9 @@ namespace SimplexCore
         public Texture2D Tex { get; set; }
         public int MaxSize { get; set; }
 
-        public bool FitsToRectangle(Rectangle r)
+        public bool FitsToRectangle(Rectangle r, int padding = 0)
         {
-            return (r.Width >= Tex.Width && r.Height >= Tex.Height);
+            return (r.Width >= Tex.Width + padding && r.Height >= Tex.Height + padding);
         }
 
         public int LeftArea(Rectangle r)

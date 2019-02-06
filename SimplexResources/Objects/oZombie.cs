@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -20,9 +21,9 @@ namespace SimplexResources.Objects
 
         public override void EvtCreate()
         {
-            Texture2D[] x = new Texture2D[50];
+            Texture2D[] x = new Texture2D[500];
 
-            for (var i = 0; i < 50; i++)
+            for (var i = 0; i < 500; i++)
             {
                 int k = choose(4, 8, 16, 32, 64, 128);
                 int w = choose(4, 8, 16, 32, 64, 128);//k;//irandom_range(64, 256);
@@ -38,8 +39,11 @@ namespace SimplexResources.Objects
                 t.SetData(data);
                 x[i] = t;
             }
-
-            SimplexTexurePacker.PackTextures(x, 512);
+            Stopwatch s = new Stopwatch();
+            s.Start();
+            SimplexTexurePacker.PackTextures(x, 1048, 0);
+            s.Stop();
+            Sgml.show_message(s.ElapsedMilliseconds.ToString());
         }
 
         public override void EvtDraw()
