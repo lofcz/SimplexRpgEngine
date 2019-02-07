@@ -55,18 +55,65 @@ namespace SimplexCore
             }
         }
 
-        public static bool mp_linear_step(float Xgoal, float Ygoal, int StepSize, bool allowDiag = true)
+        public static bool? mp_linear_step(float Xgoal, float Ygoal, int StepSize)
         {
-            if (place_empty(currentObject.Position, true))
+            if (point_distance(currentObject.Position, new Vector2(Xgoal, Ygoal)) > StepSize)
             {
-                move_towards_point(new Vector2(Xgoal, Ygoal), StepSize);
+                    if (place_empty(currentObject.Position, true))
+                    {
+                        move_towards_point(new Vector2(Xgoal, Ygoal), StepSize);
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return true;
+                }
+            return null;
+        }
+        /*
+        public static bool? mp_linear_step_object(float Xgoal, float Ygoal, int StepSize, Type[] obj)
+        {
+            if (point_distance(currentObject.Position, new Vector2(Xgoal, Ygoal)) > StepSize)
+            {
+                if (place_empty(currentObject.Position, true, obj))
+                {
+                    move_towards_point(new Vector2(Xgoal, Ygoal), StepSize);
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
-                return false;
+                return true;
+            }
+            return null;
+        }
+        */
+        public static bool? mp_linear_step(Vector2 Goal, int StepSize)
+        {
+            if (point_distance(currentObject.Position,Goal) > StepSize)
+            {
+                if (place_empty(currentObject.Position, true))
+                {
+                    move_towards_point(Goal, StepSize);
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return true;
             }
 
-            return true;
+            return null;
         }
 
         public static void mp_grid_draw(bool outline = true, double alpha = .5)
@@ -109,12 +156,12 @@ namespace SimplexCore
                     {
                         if (x == -1 && y == -1)
                         {
-                            continue;                          
+                            continue;
                         }
 
                         if (x == 1 && y == -1)
                         {
-                            continue;                          
+                            continue;
                         }
 
                         if (x == -1 && y == 1)
@@ -180,7 +227,7 @@ namespace SimplexCore
 
                     foreach (AStarCell a in tempList)
                     {
-                       p.points.Add(new Vector2(a.X * pathfindingGrid.CellSizeX + pathfindingGrid.X + 16, a.Y * pathfindingGrid.CellSizeY + pathfindingGrid.Y + 16));     
+                       p.points.Add(new Vector2(a.X * pathfindingGrid.CellSizeX + pathfindingGrid.X + 16, a.Y * pathfindingGrid.CellSizeY + pathfindingGrid.Y + 16));
                     }
 
                     break;
