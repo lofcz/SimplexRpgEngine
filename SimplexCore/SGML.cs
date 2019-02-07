@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
+using MoreLinq.Extensions;
 using SharpDX;
 using SharpDX.MediaFoundation.DirectX;
 using SimplexIde;
@@ -61,19 +62,19 @@ namespace SimplexCore
             return c;
         }
 
-        public static bool place_empty(Vector2 position, bool self = false)
+        public static bool place_empty(Vector2 position, bool self = false, Type[] obj = null)
         {
-            Guid blockedId = Guid.Empty;
+            Guid[] blockedId = new Guid[1];
             if (self)
             {
-                blockedId = currentObject.Id;
+                blockedId[0] = currentObject.Id;
             }
 
             foreach (GameObject g in SceneObjects)
             {
                 if (g.CollidingWithPoint(position))
                 {
-                    if (!(self && g.Id == blockedId))
+                    if (!(self && g.Id == blockedId[0]))
                     {
                         return false;
                     }

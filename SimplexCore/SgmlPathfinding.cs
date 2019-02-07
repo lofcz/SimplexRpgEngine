@@ -55,13 +55,10 @@ namespace SimplexCore
             }
         }
 
-        public static bool mp_linear_step(float Xgoal, float Ygoal, int StepSize)
+        public static bool? mp_linear_step(float Xgoal, float Ygoal, int StepSize)
         {
             if (point_distance(currentObject.Position, new Vector2(Xgoal, Ygoal)) > StepSize)
             {
-
-                if (place_empty(currentObject.Position, true))
-                {
                     if (place_empty(currentObject.Position, true))
                     {
                         move_towards_point(new Vector2(Xgoal, Ygoal), StepSize);
@@ -75,17 +72,30 @@ namespace SimplexCore
                 {
                     return true;
                 }
-            }
-            return false;
+            return null;
         }
-
-        public static GameObject mp_linear_step_object(Type go)
+        /*
+        public static bool? mp_linear_step_object(float Xgoal, float Ygoal, int StepSize, Type[] obj)
         {
-            GameObject target = SceneObjects.FindAll(x => x.GetType() == go).FirstOrDefault();
-            return target;
+            if (point_distance(currentObject.Position, new Vector2(Xgoal, Ygoal)) > StepSize)
+            {
+                if (place_empty(currentObject.Position, true, obj))
+                {
+                    move_towards_point(new Vector2(Xgoal, Ygoal), StepSize);
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return true;
+            }
+            return null;
         }
-
-        public static bool mp_linear_step(Vector2 Goal, int StepSize)
+        */
+        public static bool? mp_linear_step(Vector2 Goal, int StepSize)
         {
             if (point_distance(currentObject.Position,Goal) > StepSize)
             {
@@ -103,7 +113,7 @@ namespace SimplexCore
                 return true;
             }
 
-            return false;
+            return null;
         }
 
         public static void mp_grid_draw(bool outline = true, double alpha = .5)
