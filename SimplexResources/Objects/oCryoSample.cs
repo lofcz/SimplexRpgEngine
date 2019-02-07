@@ -30,9 +30,10 @@ namespace SimplexResources.Objects
         
         public override void EvtStep()
         {
-            if (mp_linear_step(10, 10, 16))
+            if(instance_place())
+            if (mp_linear_step(10,10, 16))
             {
-                Debug.WriteLine("dorazil");
+                show_message("kokos");
             }
         }
 

@@ -55,18 +55,55 @@ namespace SimplexCore
             }
         }
 
-        public static bool mp_linear_step(float Xgoal, float Ygoal, int StepSize, bool allowDiag = true)
+        public static bool mp_linear_step(float Xgoal, float Ygoal, int StepSize)
         {
-            if (PlaceEmpty(currentObject.Position, true))
+            if (point_distance(currentObject.Position, new Vector2(Xgoal, Ygoal)) > StepSize)
             {
-                move_towards_point(new Vector2(Xgoal, Ygoal), StepSize);
+
+                if (place_empty(currentObject.Position, true))
+                {
+                    if (place_empty(currentObject.Position, true))
+                    {
+                        move_towards_point(new Vector2(Xgoal, Ygoal), StepSize);
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public static GameObject mp_linear_step_object(Type go)
+        {
+            GameObject target = SceneObjects.FindAll(x => x.GetType() == go).FirstOrDefault();
+            return target;
+        }
+
+        public static bool mp_linear_step(Vector2 Goal, int StepSize)
+        {
+            if (point_distance(currentObject.Position,Goal) > StepSize)
+            {
+                if (place_empty(currentObject.Position, true))
+                {
+                    move_towards_point(Goal, StepSize);
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
-                return false;
+                return true;
             }
 
-            return true;
+            return false;
         }
 
         public static void mp_grid_draw(bool outline = true, double alpha = .5)

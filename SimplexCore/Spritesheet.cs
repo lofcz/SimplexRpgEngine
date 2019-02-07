@@ -13,6 +13,10 @@ namespace SimplexCore
         public int CellHeight { get; set; }
         public int Rows { get; set; }
 
+        public bool TempResource { get; set; }
+
+        public bool OwnTexturePage { get; set; }
+
         [JsonIgnore]
         public Texture2D Texture { get; set; }
     }

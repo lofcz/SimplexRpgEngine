@@ -1293,7 +1293,7 @@ namespace SimplexIde
                     // therefore run heuristic checks against currently selected instances 
                     // not in any active area? fuck you then
 
-                    if (Sgml.PlaceEmpty(Sgml.mouse))
+                    if (Sgml.place_empty(Sgml.mouse))
                     {
                         // also user might be in the draggers area so check that
                         ComputeRectanglesForInstance(lastClickedObject);
@@ -1447,7 +1447,7 @@ namespace SimplexIde
                             }
                             else
                             {
-                                bool placeEmpty = Sgml.PlaceEmpty(vec); // reduce collision checks needed
+                                bool placeEmpty = Sgml.place_empty(vec); // reduce collision checks needed
 
                                 if (!ks.IsKeyDown(Keys.LeftShift) || placeEmpty)
                                 {

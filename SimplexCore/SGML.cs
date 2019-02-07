@@ -61,33 +61,26 @@ namespace SimplexCore
             return c;
         }
 
-        public static bool PlaceEmpty(Vector2 position, bool self = false)
+        public static bool place_empty(Vector2 position, bool self = false)
         {
-            if (self == false)
+            Guid blockedId = Guid.Empty;
+            if (self)
             {
-                foreach (GameObject g in SceneObjects)
-                {
-                    if (g.CollidingWithPoint(position))
-                    {
-                        return false;
-                    }
-
-                }
-                return true;
+                blockedId = currentObject.Id;
             }
-            else
+
+            foreach (GameObject g in SceneObjects)
             {
-                IEnumerable<GameObject> list_of_object_w_self = SceneObjects.Where(x => x.OriginalType != typeof(oCryoSample));
-                foreach (var g  in list_of_object_w_self)
+                if (g.CollidingWithPoint(position))
                 {
-                    if (g.CollidingWithPoint(position))
+                    if (!(self && g.Id == blockedId))
                     {
                         return false;
                     }
                 }
 
-                return true;
             }
+            return true;
         }
 
         public static bool PlaceEmptyRectangle(RectangleF rr)
