@@ -146,12 +146,12 @@ namespace SimplexCore
                     {
                         if (x == -1 && y == -1)
                         {
-                            continue;                          
+                            continue;
                         }
 
                         if (x == 1 && y == -1)
                         {
-                            continue;                          
+                            continue;
                         }
 
                         if (x == -1 && y == 1)
@@ -217,7 +217,7 @@ namespace SimplexCore
 
                     foreach (AStarCell a in tempList)
                     {
-                       p.points.Add(new Vector2(a.X * pathfindingGrid.CellSizeX + pathfindingGrid.X + 16, a.Y * pathfindingGrid.CellSizeY + pathfindingGrid.Y + 16));     
+                       p.points.Add(new Vector2(a.X * pathfindingGrid.CellSizeX + pathfindingGrid.X + 16, a.Y * pathfindingGrid.CellSizeY + pathfindingGrid.Y + 16));
                     }
 
                     break;
