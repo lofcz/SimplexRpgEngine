@@ -76,7 +76,9 @@ namespace SimplexCore
                     {
                         if (currentNode.Nodes.FindIndex(x => (string) x.Text == s) == -1)
                         {
-                            DarkTreeNode folderNode = SimplexIdeApi.TreeCreateNode(s, rootNode, "", "", null, null, SimplexIde.Properties.Resources.Folder_16x, true);
+                            DarkTreeNode folderNode = TreeCreateNode(s, rootNode, "", "", null, null, SimplexIde.Properties.Resources.Folder_16x, true);
+
+                            
                             currentNode.Nodes.Add(folderNode);
                             currentNode = folderNode;
                         }

@@ -1902,12 +1902,12 @@ namespace SimplexIde
         {
             sps.RootPath = path.Substring(0, path.LastIndexOf('\\'));
             sps.ProjectPath = path;
-            
-            path = path.Replace(".sproject", "");
-            string[] parts = path.Split('\\');
-            editorForm.loadObjects(parts[parts.Length - 1], sps);
 
-            editorForm.Text = "SimplexEngine - " + parts[parts.Length - 1] + ".sproject";
+            path = path.Replace(".sproject", "");
+            sps.Parts = path.Split('\\');
+
+            editorForm.loadObjects(sps.Parts[sps.Parts.Length - 1], sps);
+            editorForm.Text = "SimplexEngine - " + sps.Parts[sps.Parts.Length - 1] + ".sproject";
 
             // Load sprites, shaders, sounds, tilesets
             thread = new Thread(BackgroundLoad);
@@ -1917,9 +1917,18 @@ namespace SimplexIde
             editorForm.darkProgressBar1.Visible = true;
         }
 
+        public void UpdateObjectsIcons()
+        {
+            DarkTreeNode objectsRoot = editorForm.objects.Nodes.FirstOrDefault(x => x.Text == "Objects");
+            foreach (DarkTreeNode tn in objectsRoot.GetChilds(false))
+            {
+                Sgml.show_debug_message("píča líže ");
+            }
+        }
+
         void BackgroundLoad(object ss)
         {
-
+            
             SimplexProjectStructure sps = ss as SimplexProjectStructure;
             
             // Sprites
@@ -1929,7 +1938,29 @@ namespace SimplexIde
             {
                 Texture2D tex = Editor.Content.Load<Texture2D>(Path.GetFullPath(sps.RootPath + "/Content/bin/Windows/Sprites/" + s.Name));
                 s.Texture = tex;
+
+                if (s.Name != "unknown")
+                {
+                    try
+                    {
+                        // Generate nodes for sprites
+                        DarkTreeNode toAdd = SimplexIdeApi.TreeCreateNode(s.Name, "Sprites", s.Name, "", null, null,
+                            Resources.AzureDefaultResource_16x);
+                        DarkTreeNode currentNode = editorForm.objects.Nodes.FirstOrDefault(x => x.Text == "Sprites");
+                        
+                        Bitmap b = (Bitmap) Image.FromFile(Path.GetFullPath(sps.RootPath + "/Content/Sprites/" + s.Name + ".png"));
+                        b = new Bitmap(b, 16, 16);
+
+                        toAdd.Icon = b;
+                        Invoke(new Action(() => { currentNode.Nodes.Add(toAdd); }));
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.WriteLine("Loading: sprite " + s.Name + " failed, skipping");
+                    }
+                }
             }
+
 
             Sgml.Sprites = Sprites;
             UpdateProgress(25);
@@ -1984,13 +2015,16 @@ namespace SimplexIde
             }
 
             Sgml.Videos = Videos;
-            UpdateProgress(100);
-
+            UpdateProgress(95);
+           
             Invoke(new Action(() =>
             {
                 editorForm.darkProgressBar1.Visible = false;
+                UpdateObjectsIcons();
             }));
 
+           
+            UpdateProgress(100);
 
         }
 

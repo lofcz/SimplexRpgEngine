@@ -22,6 +22,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)MgcbEntry.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GamePath.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RotatedRectangle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SgmlMisc.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlPathfinding.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlRaycasting.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Ext\IPrimitiveBatcher.cs" />

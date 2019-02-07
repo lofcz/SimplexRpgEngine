@@ -100,10 +100,8 @@ namespace SimplexCore
             }
         }
 
-        public static void surface_save_ext(RenderTarget2D surface, string fname, int width, int height, ImageFormat format = ImageFormat.Png)
+        public static void surface_save_ext(RenderTarget2D surface, string fname, int width, int height)
         {
-            if (format == ImageFormat.Png)
-            {
                 RenderTarget2D temp = new RenderTarget2D(GraphicsDevice, width, height);
                 surface_set_target(temp);
                 draw_surface_stretched(new Vector2(0, 0), surface, new Vector2(width, height));
@@ -114,13 +112,20 @@ namespace SimplexCore
                 stream.Close();
 
                 temp.Dispose();
-            }
-            else
-            {
-                Stream stream = File.Create(fname + ".jpg");
-                surface.SaveAsJpeg(stream, width, height);
-                stream.Close();
-            }
+        }
+
+        public static MemoryStream surface_save_ext_memory(RenderTarget2D surface, int width, int height)
+        {
+            RenderTarget2D temp = new RenderTarget2D(GraphicsDevice, width, height);
+            surface_set_target(temp);
+            draw_surface_stretched(new Vector2(0, 0), surface, new Vector2(width, height));
+            surface_reset_target();
+
+            MemoryStream stream = new MemoryStream();
+            temp.SaveAsPng(stream, width, height);
+
+            temp.Dispose();
+            return stream;
         }
     }
 }

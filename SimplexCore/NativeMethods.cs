@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Windows.Forms;
 
 namespace SimplexCore
 {
@@ -40,6 +41,15 @@ namespace SimplexCore
             // if (!success)
 
             return lpPoint;
+        }
+
+        public static void Invoke<TControlType>(this TControlType control, Action<TControlType> del)
+            where TControlType : Control
+        {
+            if (control.InvokeRequired)
+                control.Invoke(new Action(() => del(control)));
+            else
+                del(control);
         }
     }
 

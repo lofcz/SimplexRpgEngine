@@ -12,6 +12,97 @@
   },
   "Objects": [
     {
+      "name": "texture",
+      "path": "Sprites",
+      "tag": "",
+      "tagColor": "220, 220, 220",
+      "nameColor": "220, 220, 220"
+    },
+    {
+      "name": "elves0",
+      "path": "Sprites",
+      "tag": "",
+      "tagColor": "220, 220, 220",
+      "nameColor": "220, 220, 220"
+    },
+    {
+      "name": "elves1",
+      "path": "Sprites",
+      "tag": "",
+      "tagColor": "220, 220, 220",
+      "nameColor": "220, 220, 220"
+    },
+    {
+      "name": "elves2",
+      "path": "Sprites",
+      "tag": "",
+      "tagColor": "220, 220, 220",
+      "nameColor": "220, 220, 220"
+    },
+    {
+      "name": "elves3",
+      "path": "Sprites",
+      "tag": "",
+      "tagColor": "220, 220, 220",
+      "nameColor": "220, 220, 220"
+    },
+    {
+      "name": "elves4",
+      "path": "Sprites",
+      "tag": "",
+      "tagColor": "220, 220, 220",
+      "nameColor": "220, 220, 220"
+    },
+    {
+      "name": "george",
+      "path": "Sprites",
+      "tag": "",
+      "tagColor": "220, 220, 220",
+      "nameColor": "220, 220, 220"
+    },
+    {
+      "name": "elves5",
+      "path": "Sprites",
+      "tag": "",
+      "tagColor": "220, 220, 220",
+      "nameColor": "220, 220, 220"
+    },
+    {
+      "name": "diamond",
+      "path": "Sprites",
+      "tag": "",
+      "tagColor": "220, 220, 220",
+      "nameColor": "220, 220, 220"
+    },
+    {
+      "name": "circle",
+      "path": "Sprites",
+      "tag": "",
+      "tagColor": "220, 220, 220",
+      "nameColor": "220, 220, 220"
+    },
+    {
+      "name": "star",
+      "path": "Sprites",
+      "tag": "",
+      "tagColor": "220, 220, 220",
+      "nameColor": "220, 220, 220"
+    },
+    {
+      "name": "Gem",
+      "path": "Sprites",
+      "tag": "",
+      "tagColor": "220, 220, 220",
+      "nameColor": "220, 220, 220"
+    },
+    {
+      "name": "simplex",
+      "path": "Sprites",
+      "tag": "",
+      "tagColor": "220, 220, 220",
+      "nameColor": "220, 220, 220"
+    },
+    {
       "name": "oGeorgeNew",
       "path": "Objects/Actors",
       "tag": "[WIP]",

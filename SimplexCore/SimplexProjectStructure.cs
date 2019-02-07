@@ -23,6 +23,10 @@ namespace SimplexCore
        public List<SimplexProjectItem> DataFiles { get; set; }
        public List<SimplexProjectItem> Videos { get; set; }
 
+       [XmlIgnore]
+       [JsonIgnore]
+       public string[] Parts { get; set; }
+
        [JsonIgnore]
        [XmlIgnore]
        public string RootPath { get; set; }
