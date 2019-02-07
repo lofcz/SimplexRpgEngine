@@ -57,7 +57,7 @@ namespace SimplexCore
 
         public static bool mp_linear_step(float Xgoal, float Ygoal, int StepSize, bool allowDiag = true)
         {
-            if (PlaceEmpty(currentObject.Position, true))
+            if (place_empty(currentObject.Position, true))
             {
                 move_towards_point(new Vector2(Xgoal, Ygoal), StepSize);
             }
