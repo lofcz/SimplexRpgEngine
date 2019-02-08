@@ -15,152 +15,159 @@
       "name": "texture",
       "path": "Sprites",
       "tag": "",
-      "tagColor": "220, 220, 220",
-      "nameColor": "220, 220, 220"
+      "tagColor": "Gainsboro",
+      "nameColor": "Gainsboro"
     },
     {
       "name": "elves0",
       "path": "Sprites",
       "tag": "",
-      "tagColor": "220, 220, 220",
-      "nameColor": "220, 220, 220"
+      "tagColor": "Gainsboro",
+      "nameColor": "Gainsboro"
     },
     {
       "name": "elves1",
       "path": "Sprites",
       "tag": "",
-      "tagColor": "220, 220, 220",
-      "nameColor": "220, 220, 220"
+      "tagColor": "Gainsboro",
+      "nameColor": "Gainsboro"
     },
     {
       "name": "elves2",
       "path": "Sprites",
       "tag": "",
-      "tagColor": "220, 220, 220",
-      "nameColor": "220, 220, 220"
+      "tagColor": "Gainsboro",
+      "nameColor": "Gainsboro"
     },
     {
       "name": "elves3",
       "path": "Sprites",
       "tag": "",
-      "tagColor": "220, 220, 220",
-      "nameColor": "220, 220, 220"
+      "tagColor": "Gainsboro",
+      "nameColor": "Gainsboro"
     },
     {
       "name": "elves4",
       "path": "Sprites",
       "tag": "",
-      "tagColor": "220, 220, 220",
-      "nameColor": "220, 220, 220"
+      "tagColor": "Gainsboro",
+      "nameColor": "Gainsboro"
     },
     {
       "name": "george",
       "path": "Sprites",
       "tag": "",
-      "tagColor": "220, 220, 220",
-      "nameColor": "220, 220, 220"
+      "tagColor": "Gainsboro",
+      "nameColor": "Gainsboro"
     },
     {
       "name": "elves5",
       "path": "Sprites",
       "tag": "",
-      "tagColor": "220, 220, 220",
-      "nameColor": "220, 220, 220"
+      "tagColor": "Gainsboro",
+      "nameColor": "Gainsboro"
     },
     {
       "name": "diamond",
       "path": "Sprites",
       "tag": "",
-      "tagColor": "220, 220, 220",
-      "nameColor": "220, 220, 220"
+      "tagColor": "Gainsboro",
+      "nameColor": "Gainsboro"
     },
     {
       "name": "circle",
       "path": "Sprites",
       "tag": "",
-      "tagColor": "220, 220, 220",
-      "nameColor": "220, 220, 220"
+      "tagColor": "Gainsboro",
+      "nameColor": "Gainsboro"
     },
     {
       "name": "star",
       "path": "Sprites",
       "tag": "",
-      "tagColor": "220, 220, 220",
-      "nameColor": "220, 220, 220"
+      "tagColor": "Gainsboro",
+      "nameColor": "Gainsboro"
     },
     {
       "name": "Gem",
       "path": "Sprites",
       "tag": "",
-      "tagColor": "220, 220, 220",
-      "nameColor": "220, 220, 220"
+      "tagColor": "Gainsboro",
+      "nameColor": "Gainsboro"
     },
     {
       "name": "simplex",
       "path": "Sprites",
       "tag": "",
-      "tagColor": "220, 220, 220",
-      "nameColor": "220, 220, 220"
+      "tagColor": "Gainsboro",
+      "nameColor": "Gainsboro"
     },
     {
       "name": "oGeorgeNew",
-      "path": "Objects/Actors",
+      "path": "Actors",
       "tag": "[WIP]",
       "tagColor": "128, 0, 255",
       "nameColor": "255, 128, 64"
     },
     {
       "name": "LevelGenerator",
-      "path": "Objects/Actors",
+      "path": "Actors",
       "tag": "",
       "tagColor": "128, 0, 255",
       "nameColor": "255, 128, 64"
     },
     {
       "name": "EditSample",
-      "path": "Objects/Actors",
+      "path": "Actors",
       "tag": null,
       "tagColor": "Gainsboro",
       "nameColor": "Gainsboro"
     },
     {
       "name": "oCryoSample",
-      "path": "Objects/Actors",
+      "path": "Actors",
       "tag": null,
       "tagColor": "Gainsboro",
       "nameColor": "Gainsboro"
     },
     {
       "name": "AnotherObject",
-      "path": "Objects/Actors",
+      "path": "Actors",
       "tag": null,
       "tagColor": "Gainsboro",
       "nameColor": "Gainsboro"
     },
     {
       "name": "oBrick",
-      "path": "Objects/Actors",
+      "path": "Actors",
       "tag": null,
       "tagColor": "Gainsboro",
       "nameColor": "Gainsboro"
     },
     {
       "name": "oZombie",
-      "path": "Objects/Actors",
+      "path": "Actors",
       "tag": null,
       "tagColor": "Gainsboro",
       "nameColor": "Gainsboro"
     },
     {
       "name": "oZombiePlayer",
-      "path": "Objects/Actors",
+      "path": "Actors",
       "tag": null,
       "tagColor": "Gainsboro",
       "nameColor": "Gainsboro"
     },
     {
       "name": "oZombieCoin",
-      "path": "Objects/Actors",
+      "path": "Actors",
+      "tag": null,
+      "tagColor": "Gainsboro",
+      "nameColor": "Gainsboro"
+    },
+    {
+      "name": "oGem",
+      "path": "Objects\\Actors",
       "tag": null,
       "tagColor": "Gainsboro",
       "nameColor": "Gainsboro"

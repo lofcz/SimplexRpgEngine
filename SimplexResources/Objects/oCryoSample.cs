@@ -30,7 +30,7 @@ namespace SimplexResources.Objects
         
         public override void EvtStep()
         {
-            if (mp_linear_step(10, 10, 16) == true)
+            if (mp_linear_step_object(10, 10, 16, new Type[]{typeof(oBrick)}) == false)
             {
                 show_message("lol");
             }

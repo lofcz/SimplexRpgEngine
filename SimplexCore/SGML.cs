@@ -61,20 +61,23 @@ namespace SimplexCore
             c *= drawAlpha;
             return c;
         }
-
+        
         public static bool place_empty(Vector2 position, bool self = false, Type[] obj = null)
         {
-            Guid[] blockedId = new Guid[1];
+            Guid blockedId = new Guid();
             if (self)
             {
-                blockedId[0] = currentObject.Id;
+                blockedId = currentObject.Id;
             }
 
             foreach (GameObject g in SceneObjects)
             {
                 if (g.CollidingWithPoint(position))
                 {
-                    if (!(self && g.Id == blockedId[0]))
+                    if (!(self && g.Id == blockedId) && obj == null)
+                    {
+                        return false;
+                    } else if (!(self && g.Id == blockedId) && obj != null && obj.Contains(g.GetType()))
                     {
                         return false;
                     }
@@ -83,7 +86,7 @@ namespace SimplexCore
             }
             return true;
         }
-
+        
         public static bool PlaceEmptyRectangle(RectangleF rr)
         {
             foreach (RoomLayer rl in roomLayers)

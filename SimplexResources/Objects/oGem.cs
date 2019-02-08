@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Microsoft.Xna.Framework;
 using MonoGame.Extended;
 using SimplexCore;
@@ -10,40 +7,63 @@ namespace SimplexResources.Objects
 {
     public class oGem : GameObject
     {
-        private ColliderRectangle bodyCollider = null;
-
         public oGem()
         {
-            EditorPath = "Items";
-            Sprite.TextureSource = "Gem";
-            Sprite.Texture = sprite_get("Gem");
+            EditorPath = "Actors";
 
-            bodyCollider = new ColliderRectangle();
-            bodyCollider.Collision = new RectangleF(0, 0, 16, 16);
-            bodyCollider.GameObject = this;
-            bodyCollider.Name = "main";
+            ColliderRectangle cr = new ColliderRectangle();
+            cr.Name = "MainCollider";
+            cr.GameObject = this;
+            cr.Collision = new RectangleF(0, 0, 64, 32);
 
-            Colliders.Add(bodyCollider);
+            Colliders.Add(cr);
+        }
+        
+        public override void EvtRegisterCollisions()
+        {
+            RegisterCollider("MainCollider", typeof(oBall), "MainCollider", BallCollision);
         }
 
-        public override void EvtCreate()
+        public void BallCollision(GameObject me, GameObject ball)
         {
-
+            move_bounce_rectangle_object(me.CollisionContainer, ball.CollisionContainer, ball);
+            instance_destroy(me);
         }
 
         public override void EvtStep()
         {
+            UpdateState();
             UpdateColliders();
+        }
 
-            CollisionContainer.X = (int)Position.X;
-            CollisionContainer.Y = (int)Position.Y;
-            CollisionContainer.Width = 16;
-            CollisionContainer.Height = 16;
+        public override void EvtCreate()
+        {
+            //alarm_set(0, 60);
+            ImageOrigin = new Vector2(8, 8);
+        }
+
+        public override void EvtAlarm0()
+        {
+            show_message("asd");
         }
 
         public override void EvtDraw()
         {
-            draw_sprite(Sprite.Texture, -2, Position);
+            CollisionContainer.Height = (int) (32 * ImageScaleTarget.Y);
+            CollisionContainer.Width = (int) (64 * ImageScaleTarget.X);
+            CollisionContainer.X = (int) Position.X;
+            CollisionContainer.Y = (int) Position.Y;
+
+
+            //   draw_rectangle(Position, new Vector2(Position.X + 16 * ImageScaleTarget.X, Position.Y + 16 * ImageScaleTarget.Y), true);
+            draw_sprite(sprite_get("Gem"), -2, Position, ImageScale.X, ImageScale.Y, ImageAngle, ImageOrigin.X,
+                ImageOrigin.Y);
+            draw_text(Position, ImageAngle.ToString());
+
+            //draw_line_color(rr.Point1, rr.Point2, Color.Red, Color.Red);
+            // draw_line_color(rr.Point2, rr.Point3, Color.Red, Color.Red);
+            //draw_line_color(rr.Point3, rr.Point4, Color.Red, Color.Red);
+            //  draw_line_color(rr.Point4, rr.Point1, Color.Red, Color.Red);
         }
     }
 }

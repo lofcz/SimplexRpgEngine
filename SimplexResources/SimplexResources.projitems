@@ -24,7 +24,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Rooms\Room1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Rooms\Room2.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Objects\NewObject.cs" xmlns="" />
-    <Compile Include="$(MSBuildThisFileDirectory)Objects\oGem.cs" xmlns="" />
     <Compile Include="$(MSBuildThisFileDirectory)Objects\oGeorgeNew.cs" xmlns="" />
     <Compile Include="$(MSBuildThisFileDirectory)Objects\AnotherObject.cs" xmlns="" />
     <Compile Include="$(MSBuildThisFileDirectory)Rooms\room3.cs" />
@@ -33,6 +32,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Objects\oZombie.cs" xmlns="" />
     <Compile Include="$(MSBuildThisFileDirectory)Objects\oZombiePlayer.cs" xmlns="" />
     <Compile Include="$(MSBuildThisFileDirectory)Objects\oZombieCoin.cs" xmlns="" />
+    <Compile Include="$(MSBuildThisFileDirectory)Objects\oGem.cs" xmlns="" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Content\" />
