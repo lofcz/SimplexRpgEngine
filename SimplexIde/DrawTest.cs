@@ -51,7 +51,7 @@ namespace SimplexIde
         GameTime g = new GameTime();
         public static Color BackgroundColor = Color.CornflowerBlue;
         public List<Spritesheet> Sprites = new List<Spritesheet>();
-        OrthographicCamera camera;
+        SimplexCore.OrthographicCamera camera;
         SimplexCamera cam = new SimplexCamera();
         KeyboardState prevState;
         public Vector2 MousePosition;
@@ -137,7 +137,7 @@ namespace SimplexIde
             Sgml.RoomEditor = this;
             Sgml.RoomEditorEditor = Editor;
 
-            camera = new OrthographicCamera(Editor.graphics);
+            camera = new SimplexCore.OrthographicCamera(Editor.graphics);
             basicEffect = new BasicEffect(Editor.graphics);
 
             cam.Camera = camera;

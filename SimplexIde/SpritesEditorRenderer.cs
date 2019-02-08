@@ -19,7 +19,7 @@ namespace SimplexIde
 {
     public class SpritesEditorRenderer : MonoGameControl
     {
-        private OrthographicCamera c;
+        private SimplexCore.OrthographicCamera c;
         SimplexCamera cam = new SimplexCamera();
         Matrix world = Matrix.Identity;
         private Color BackgroundColor;
@@ -52,7 +52,7 @@ namespace SimplexIde
             representativeGameObject = new GameObject();
             representativeGameObject.Sprite.TextureCellsPerRow = 1;
 
-            c = new OrthographicCamera(Editor.graphics);
+            c = new SimplexCore.OrthographicCamera(Editor.graphics);
             cam.Camera = c;
             cam.Position = Vector2.Zero;
             cam.TransformSpeed = 0.1f;

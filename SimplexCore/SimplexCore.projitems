@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Autotile.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AutotileDefinition.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Circle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ColliderBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ColliderCircle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ColliderDescriptor.cs" />
@@ -21,6 +22,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Heap.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MgcbEntry.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GamePath.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)OrtographicCamera.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RotatedRectangle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlMisc.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlPathfinding.cs" />
