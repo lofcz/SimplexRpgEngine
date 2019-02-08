@@ -35,5 +35,13 @@ namespace SimplexCore
             MemoryStream ms = surface_save_ext_memory(surface, w,h);
             return new Bitmap(ms);
         }
+
+        public static Microsoft.Xna.Framework.Color merge_color(Microsoft.Xna.Framework.Color color, Microsoft.Xna.Framework.Color backColor, double amount)
+        {
+            byte r = (byte)((color.R * amount) + backColor.R * (1 - amount));
+            byte g = (byte)((color.G * amount) + backColor.G * (1 - amount));
+            byte b = (byte)((color.B * amount) + backColor.B * (1 - amount));
+            return Microsoft.Xna.Framework.Color.FromNonPremultiplied(r, g, b, 255);
+        }
     }
 }

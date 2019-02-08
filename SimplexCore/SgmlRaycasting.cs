@@ -90,7 +90,8 @@ namespace SimplexCore
             p4 = rotate_vector2(p4, point, angle);
             p4.X += r.X;
             p4.Y += r.Y;
-
+            CircleF cf = new CircleF();
+            Ray r = new Ray();
             return new RotatedRectangle(p1, p3, p4, p2);
         }
 
