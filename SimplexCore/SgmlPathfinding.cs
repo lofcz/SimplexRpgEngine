@@ -354,6 +354,7 @@ namespace SimplexCore
                 }
             }
         }
+
     }
 
     public class PathfingingGrid

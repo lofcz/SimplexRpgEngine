@@ -19,7 +19,7 @@ namespace SimplexCore
         public static bool point_in_rectangle_rotated(Point2 point, Rectangle rectangle, double angle, Vector2 origin)
         {
             RotatedRectangle rr = rectangle_rotate(rectangle, origin, angle);
-           // currentObject.rr = rr;
+            // currentObject.rr = rr;
             return rr.Contains(point);
         }
 
@@ -306,6 +306,7 @@ namespace SimplexCore
             {
                 l.Add(temp.Value);
             }
+
             return l;
         }
 
@@ -559,7 +560,7 @@ namespace SimplexCore
 
             if (point_in_line(p1, p2, x, y) && point_in_line(p3, p4, x, y))
             {
-                return new Vector2 { X = (float)x, Y = (float)y };
+                return new Vector2 {X = (float) x, Y = (float) y};
             }
 
             return null;
@@ -589,6 +590,112 @@ namespace SimplexCore
         public static float line_get_slope(Vector2 p1, Vector2 p2)
         {
             return ((p2.X - p1.X) / (p2.Y - p1.Y));
+        }
+
+        public static bool point_in_circle(Vector2 point, Vector2 pos, double rad)
+        {
+            return ((point.X - pos.X) * (point.X - pos.X) + (point.Y - pos.Y) * (point.Y - pos.Y) <= rad * rad);
+        }
+
+        public static List<Vector2> convex_hull(List<Vector2> points)
+        {
+            List<HullPoint> newPoints = new List<HullPoint>();
+
+            foreach (Vector2 v in points)
+            {
+                HullPoint hp = new HullPoint(v.X, v.Y);
+                newPoints.Add(hp);
+            }
+
+            newPoints.Sort();
+            List<HullPoint> preReturn = MakeHullPresorted(newPoints);
+
+            List<Vector2> tR = new List<Vector2>();
+
+            foreach (HullPoint hp in preReturn)
+            {
+                Vector2 v = new Vector2((float)hp.x, (float)hp.y);
+                tR.Add(v);
+            }
+
+            return tR;
+        }
+
+        // O(n)
+        public static List<HullPoint> MakeHullPresorted(List<HullPoint> points)
+        {
+            if (points.Count <= 1)
+            {
+                return new List<HullPoint>(points);
+            }
+
+            List<HullPoint> upperHull = new List<HullPoint>();
+            foreach (HullPoint p in points)
+            {
+                while (upperHull.Count >= 2)
+                {
+                    HullPoint q = upperHull[upperHull.Count - 1];
+                    HullPoint r = upperHull[upperHull.Count - 2];
+                    if ((q.x - r.x) * (p.y - r.y) >= (q.y - r.y) * (p.x - r.x))
+                        upperHull.RemoveAt(upperHull.Count - 1);
+                    else
+                        break;
+                }
+
+                upperHull.Add(p);
+            }
+
+            upperHull.RemoveAt(upperHull.Count - 1);
+
+            List<HullPoint> lowerHull = new List<HullPoint>();
+            for (int i = points.Count - 1; i >= 0; i--)
+            {
+                HullPoint p = points[i];
+                while (lowerHull.Count >= 2)
+                {
+                    HullPoint q = lowerHull[lowerHull.Count - 1];
+                    HullPoint r = lowerHull[lowerHull.Count - 2];
+                    if ((q.x - r.x) * (p.y - r.y) >= (q.y - r.y) * (p.x - r.x))
+                        lowerHull.RemoveAt(lowerHull.Count - 1);
+                    else
+                        break;
+                }
+
+                lowerHull.Add(p);
+            }
+
+            lowerHull.RemoveAt(lowerHull.Count - 1);
+
+            if (!(upperHull.Count == 1 && upperHull.SequenceEqual(lowerHull)))
+                upperHull.AddRange(lowerHull);
+            return upperHull;
+        }
+
+        public struct HullPoint : IComparable<HullPoint>
+        {
+            public double x;
+            public double y;
+
+            public HullPoint(double x, double y)
+            {
+                this.x = x;
+                this.y = y;
+            }
+
+
+            public int CompareTo(HullPoint other)
+            {
+                if (x < other.x)
+                    return -1;
+                if (x > other.x)
+                    return +1;
+                if (y < other.y)
+                    return -1;
+                if (y > other.y)
+                    return +1;
+
+                return 0;
+            }
         }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -14,6 +15,9 @@ namespace SimplexResources.Objects
     {
         Triangle t1 = new Triangle(new Vector2(400, 400), new Vector2(500, 400), new Vector2(450, 350));
         Triangle t2 = new Triangle();
+        List<Vector2> randomVectors = new List<Vector2>();
+        List<Vector2> kkt = new List<Vector2>();
+        Vector2 selected = Vector2.One;
         public oZombie()
         {
             EditorPath = "Objects/Actors/oBrick";
@@ -41,9 +45,17 @@ namespace SimplexResources.Objects
             }
             Stopwatch s = new Stopwatch();
             s.Start();
-            SimplexTexurePacker.PackTextures(x, 1048, 0);
+            //SimplexTexurePacker.PackTextures(x, 1048, 0);
             s.Stop();
-            Sgml.show_message(s.ElapsedMilliseconds.ToString());
+            //Sgml.show_message(s.ElapsedMilliseconds.ToString());
+
+            for (int i = 0; i < 400; i++)
+            {
+                Vector2 v = new Vector2(irandom_range(200, 800), irandom_range(200, 800));
+                randomVectors.Add(v);                                                
+            }
+
+             kkt = new List<Vector2>(randomVectors.ToArray());
         }
 
         public override void EvtDraw()
@@ -77,9 +89,57 @@ namespace SimplexResources.Objects
                 draw_circle_fast(v, 8, 24, Color.Red);
             }
 
-            draw_triangle(t1, true, 0);
-            draw_triangle(t2, true, 0);
+         //   draw_triangle(t1, true, 0);
+          // draw_triangle(t2, true, 0);
 
+       
+            List<Vector2> sorted = convex_hull(randomVectors);
+
+            for (int i = 0; i < randomVectors.Count; i++)
+            {
+                Vector2 v = randomVectors[i];
+
+                draw_set_color(Color.White);
+
+                if (point_in_circle(v, mouse, 8))
+                {
+                    draw_set_color(Color.Lime);
+
+                    if (mouse_check_button_pressed(MouseButtons.Left))
+                    {
+                        selected = v;
+                    }
+                }
+
+                if (v == selected)
+                {
+                    v.X = mouse.X;
+                    v.Y = mouse.Y;
+
+                    randomVectors[i] = v;
+                }
+
+                draw_circle_fast(v, 16, 24, DrawGetColor());
+            }
+
+            if (mouse_check_button_released(MouseButtons.Left))
+            {
+                selected = Vector2.One;                
+            }
+
+            Vector2 s = sorted[0];
+            Vector2 last = sorted[0];
+
+            draw_set_color(Color.Red);
+            foreach (Vector2 v in sorted)
+            {             
+                draw_line(s, v);
+                s = v;
+
+            }
+
+            draw_line(s, last);
+            draw_set_color(Color.White);
         }
     }
 }
