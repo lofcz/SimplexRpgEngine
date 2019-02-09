@@ -62,7 +62,7 @@ namespace SimplexCore
             return c;
         }
         
-        public static bool place_empty(Vector2 position, bool self = false, Type[] obj = null)
+        public static bool place_empty(Vector2 position,Type[] obj, bool self = false)
         {
             Guid blockedId = new Guid();
             if (self)
@@ -74,10 +74,7 @@ namespace SimplexCore
             {
                 if (g.CollidingWithPoint(position))
                 {
-                    if (!(self && g.Id == blockedId) && obj == null)
-                    {
-                        return false;
-                    } else if (!(self && g.Id == blockedId) && obj != null && obj.Contains(g.GetType()))
+                    if (!(self && g.Id == blockedId) && obj.Contains(g.GetType()))
                     {
                         return false;
                     }
