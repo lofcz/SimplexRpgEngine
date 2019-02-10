@@ -58,18 +58,22 @@ namespace SimplexCore
 
         public static bool? mp_linear_step(float Xgoal, float Ygoal, int StepSize)
         {
-            Type[] get_all_types()
+            if (point_distance(currentObject.Position, new Vector2(Xgoal, Ygoal)) > StepSize)
             {
-                Type[] lisType = new Type[SceneObjects.Count]; 
-                for (int i = 0; i < SceneObjects.Count; i++)
+                if (place_empty(currentObject.Position, true))
                 {
-                    lisType[i] = SceneObjects[i].GetType();
+                    move_towards_point(new Vector2(Xgoal, Ygoal), StepSize);
                 }
-
-                return lisType;
+                else
+                {
+                    return false;
+                }
             }
-            
-            return mp_linear_step_objects(Xgoal, Ygoal, StepSize, get_all_types());
+            else
+            {
+                return true;
+            }
+            return null;
         }
         
         public static bool? mp_linear_step_objects(float Xgoal, float Ygoal, int StepSize, Type[] obj)
@@ -116,7 +120,7 @@ namespace SimplexCore
         {
             if (point_distance(currentObject.Position,Goal) > StepSize)
             {
-                if (place_empty(currentObject.Position, null, true))
+                if (place_empty(currentObject.Position, true))
                 {
                     move_towards_point(Goal, StepSize);
                 }
