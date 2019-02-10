@@ -83,6 +83,28 @@ namespace SimplexCore
             }
             return true;
         }
+        
+        public static bool place_empty(Vector2 position, bool self = false)
+        {
+            Guid blockedId = new Guid();
+            if (self)
+            {
+                blockedId = currentObject.Id;
+            }
+
+            foreach (GameObject g in SceneObjects)
+            {
+                if (g.CollidingWithPoint(position))
+                {
+                    if (!(self && g.Id == blockedId))
+                    {
+                        return false;
+                    }
+                }
+
+            }
+            return true;
+        }
 
         public static bool place_empty(Vector2 position)
         {
