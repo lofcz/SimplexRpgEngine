@@ -153,7 +153,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormNew.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -163,6 +163,12 @@
     </Compile>
     <Compile Include="LayerTool.Designer.cs">
       <DependentUpon>LayerTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ObjectPropertiesEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ObjectPropertiesEditor.Designer.cs">
+      <DependentUpon>ObjectPropertiesEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -185,7 +191,7 @@
       <DependentUpon>SimplexRender.cs</DependentUpon>
     </Compile>
     <Compile Include="Sounds manager.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Sounds manager.Designer.cs">
       <DependentUpon>Sounds manager.cs</DependentUpon>
@@ -222,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LayerTool.resx">
       <DependentUpon>LayerTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ObjectPropertiesEditor.resx">
+      <DependentUpon>ObjectPropertiesEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -397,6 +406,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Resize_Vertical_16_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toolbox_16xSM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Picker_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ColorDialog_16x1.png" />
   </ItemGroup>
   <Import Project="..\SimplexCore\SimplexCore.projitems" Label="Shared" />
   <Import Project="..\SimplexResources\SimplexResources.projitems" Label="Shared" />

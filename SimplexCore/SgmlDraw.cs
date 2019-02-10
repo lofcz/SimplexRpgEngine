@@ -218,8 +218,7 @@ namespace SimplexCore
                 AddVertex(x3, y3, true);
                 RotateVectors(angle);
                 RenderVertices();
-            }
-            
+            }         
             else
             {
                 AddVertex(x1, y1, true);

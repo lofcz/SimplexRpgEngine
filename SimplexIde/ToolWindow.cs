@@ -353,5 +353,14 @@ namespace SimplexIde
                 lastNode.SuffixColor = c;
             }
         }
+
+        private void EditPropertiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // open properties editor
+            ObjectPropertiesEditor ope = new ObjectPropertiesEditor();
+            ope.DockText = "Object Properties - " + lastNode.Text;
+            ope.editingNode = lastNode;
+            form1.darkDockPanel1.AddContent(ope);              
+        }
     }
 }

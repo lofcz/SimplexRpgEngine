@@ -1961,6 +1961,16 @@ namespace SimplexIde
                 }
             }
 
+       /*     List<DarkTreeNode> sprites = editorForm.objects.Nodes.FirstOrDefault(x => x.Text == "Sprites").GetChilds();
+
+            foreach (DarkTreeNode dtn in editorForm.objects.Nodes.FirstOrDefault(x => x.Text == "Objects").GetChilds())
+            {
+                Invoke(new Action(() =>
+                {
+                    Bitmap ico = sprites.FirstOrDefault(x => x)
+                }));
+            }*/
+
 
             Sgml.Sprites = Sprites;
             UpdateProgress(25);
@@ -2025,6 +2035,7 @@ namespace SimplexIde
 
            
             UpdateProgress(100);
+
 
         }
 

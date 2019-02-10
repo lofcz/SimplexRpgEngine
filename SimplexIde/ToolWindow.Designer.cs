@@ -48,6 +48,7 @@
             this.renameToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.editPropertiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darkToolStrip1.SuspendLayout();
             this.darkContextMenu1.SuspendLayout();
             this.darkContextMenu2.SuspendLayout();
@@ -133,6 +134,7 @@
             this.darkContextMenu1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.insertFolderToolStripMenuItem,
             this.insertNewObjectToolStripMenuItem,
+            this.editPropertiesToolStripMenuItem,
             this.editCodeToolStripMenuItem,
             this.renameToolStripMenuItem,
             this.changeColorToolStripMenuItem,
@@ -140,7 +142,7 @@
             this.changeTagColorToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.darkContextMenu1.Name = "darkContextMenu1";
-            this.darkContextMenu1.Size = new System.Drawing.Size(193, 196);
+            this.darkContextMenu1.Size = new System.Drawing.Size(211, 248);
             this.darkContextMenu1.Opening += new System.ComponentModel.CancelEventHandler(this.darkContextMenu1_Opening);
             // 
             // insertFolderToolStripMenuItem
@@ -148,7 +150,7 @@
             this.insertFolderToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.insertFolderToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.insertFolderToolStripMenuItem.Name = "insertFolderToolStripMenuItem";
-            this.insertFolderToolStripMenuItem.Size = new System.Drawing.Size(192, 24);
+            this.insertFolderToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.insertFolderToolStripMenuItem.Text = "Insert folder";
             this.insertFolderToolStripMenuItem.Click += new System.EventHandler(this.InsertFolderToolStripMenuItem_Click);
             // 
@@ -157,7 +159,7 @@
             this.insertNewObjectToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.insertNewObjectToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.insertNewObjectToolStripMenuItem.Name = "insertNewObjectToolStripMenuItem";
-            this.insertNewObjectToolStripMenuItem.Size = new System.Drawing.Size(192, 24);
+            this.insertNewObjectToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.insertNewObjectToolStripMenuItem.Text = "Insert object";
             this.insertNewObjectToolStripMenuItem.Click += new System.EventHandler(this.insertNewObjectToolStripMenuItem_Click);
             // 
@@ -166,7 +168,7 @@
             this.editCodeToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.editCodeToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.editCodeToolStripMenuItem.Name = "editCodeToolStripMenuItem";
-            this.editCodeToolStripMenuItem.Size = new System.Drawing.Size(192, 24);
+            this.editCodeToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.editCodeToolStripMenuItem.Text = "Edit code";
             this.editCodeToolStripMenuItem.Click += new System.EventHandler(this.editCodeToolStripMenuItem_Click);
             // 
@@ -175,7 +177,7 @@
             this.renameToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.renameToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.renameToolStripMenuItem.Name = "renameToolStripMenuItem";
-            this.renameToolStripMenuItem.Size = new System.Drawing.Size(192, 24);
+            this.renameToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.renameToolStripMenuItem.Text = "Rename";
             this.renameToolStripMenuItem.Click += new System.EventHandler(this.renameToolStripMenuItem_Click);
             // 
@@ -184,7 +186,7 @@
             this.changeColorToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.changeColorToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.changeColorToolStripMenuItem.Name = "changeColorToolStripMenuItem";
-            this.changeColorToolStripMenuItem.Size = new System.Drawing.Size(192, 24);
+            this.changeColorToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.changeColorToolStripMenuItem.Text = "Change color";
             this.changeColorToolStripMenuItem.Click += new System.EventHandler(this.ChangeColorToolStripMenuItem_Click);
             // 
@@ -193,7 +195,7 @@
             this.setTagToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.setTagToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.setTagToolStripMenuItem.Name = "setTagToolStripMenuItem";
-            this.setTagToolStripMenuItem.Size = new System.Drawing.Size(192, 24);
+            this.setTagToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.setTagToolStripMenuItem.Text = "Set tag";
             this.setTagToolStripMenuItem.Click += new System.EventHandler(this.SetTagToolStripMenuItem_Click);
             // 
@@ -202,7 +204,7 @@
             this.changeTagColorToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.changeTagColorToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.changeTagColorToolStripMenuItem.Name = "changeTagColorToolStripMenuItem";
-            this.changeTagColorToolStripMenuItem.Size = new System.Drawing.Size(192, 24);
+            this.changeTagColorToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.changeTagColorToolStripMenuItem.Text = "Change tag color";
             this.changeTagColorToolStripMenuItem.Click += new System.EventHandler(this.ChangeTagColorToolStripMenuItem_Click);
             // 
@@ -211,7 +213,7 @@
             this.deleteToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.deleteToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(192, 24);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
             // 
@@ -241,6 +243,15 @@
             this.deleteToolStripMenuItem1.Name = "deleteToolStripMenuItem1";
             this.deleteToolStripMenuItem1.Size = new System.Drawing.Size(132, 24);
             this.deleteToolStripMenuItem1.Text = "Delete";
+            // 
+            // editPropertiesToolStripMenuItem
+            // 
+            this.editPropertiesToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
+            this.editPropertiesToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
+            this.editPropertiesToolStripMenuItem.Name = "editPropertiesToolStripMenuItem";
+            this.editPropertiesToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.editPropertiesToolStripMenuItem.Text = "Properties Editor";
+            this.editPropertiesToolStripMenuItem.Click += new System.EventHandler(this.EditPropertiesToolStripMenuItem_Click);
             // 
             // ToolWindow
             // 
@@ -285,5 +296,6 @@
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.ToolStripMenuItem setTagToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem changeTagColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editPropertiesToolStripMenuItem;
     }
 }
