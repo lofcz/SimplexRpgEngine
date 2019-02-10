@@ -1052,6 +1052,12 @@ namespace SimplexIde
         {
 
         }
+
+        private void ToolStripButton1_Click(object sender, EventArgs e)
+        {
+            // SAVE CHANGES TO THE IMAGE
+            spritesEditorRenderer1.SaveChanges();
+        }
     }
 
     public class Subsprite

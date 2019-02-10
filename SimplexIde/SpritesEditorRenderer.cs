@@ -115,6 +115,19 @@ namespace SimplexIde
             }
         }
 
+        public void SaveChanges()
+        {
+            RenderTarget2D finalSurface = Sgml.surface_create(imageOverlay.Width, imageOverlay.Height);
+            Sgml.surface_set_target(finalSurface);
+            Sgml.draw_sprite(selectedImage, -2, Vector2.Zero);
+            Sgml.draw_surface(Vector2.Zero, imageOverlay);
+            Sgml.surface_reset_target();
+
+
+            Sgml.surface_save(finalSurface, parentForm.owner.currentProject.RootPath + "/Content/Sprites/texture");
+            finalSurface.Dispose();
+        }
+
         protected override void Draw()
         {
             if (parentForm != null)

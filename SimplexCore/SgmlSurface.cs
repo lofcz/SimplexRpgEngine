@@ -88,6 +88,12 @@ namespace SimplexCore
         {
             if (format == ImageFormat.Png)
             {
+                if (File.Exists(fname + ".png"))
+                {
+                    File.SetAttributes(fname + ".png", FileAttributes.Normal);
+                    File.Delete(fname + ".png");
+                }
+
                 Stream stream = File.Create(fname + ".png");
                 surface.SaveAsPng(stream, surface.Width, surface.Height);
                 stream.Close();
