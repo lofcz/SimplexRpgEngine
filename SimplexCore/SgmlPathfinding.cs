@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MoreLinq;
 using SharpDX.Direct2D1;
+using SimplexIde;
 using SimplexResources.Objects;
 using TagLib.Riff;
 using Point = System.Drawing.Point;
@@ -57,29 +58,45 @@ namespace SimplexCore
 
         public static bool? mp_linear_step(float Xgoal, float Ygoal, int StepSize)
         {
-            if (point_distance(currentObject.Position, new Vector2(Xgoal, Ygoal)) > StepSize)
+            Type[] get_all_types()
             {
-                    if (place_empty(currentObject.Position, true))
-                    {
-                        move_towards_point(new Vector2(Xgoal, Ygoal), StepSize);
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-                else
+                Type[] lisType = new Type[SceneObjects.Count]; 
+                for (int i = 0; i < SceneObjects.Count; i++)
                 {
-                    return true;
+                    lisType[i] = SceneObjects[i].GetType();
                 }
-            return null;
+
+                return lisType;
+            }
+            
+            return mp_linear_step_objects(Xgoal, Ygoal, StepSize, get_all_types());
         }
         
-        public static bool? mp_linear_step_object(float Xgoal, float Ygoal, int StepSize, Type[] obj)
+        public static bool? mp_linear_step_objects(float Xgoal, float Ygoal, int StepSize, Type[] obj)
         {
             if (point_distance(currentObject.Position, new Vector2(Xgoal, Ygoal)) > StepSize)
             {
-                if (place_empty(currentObject.Position, true, obj))
+                if (place_empty(currentObject.Position, obj, true))
+                {
+                    move_towards_point(new Vector2(Xgoal, Ygoal), StepSize);
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return true;
+            }
+            return null;
+        }
+        
+        public static bool? mp_linear_step_object(float Xgoal, float Ygoal, int StepSize, Type obj)
+        {
+            if (point_distance(currentObject.Position, new Vector2(Xgoal, Ygoal)) > StepSize)
+            {
+                if (place_empty(currentObject.Position, new []{obj}, true))
                 {
                     move_towards_point(new Vector2(Xgoal, Ygoal), StepSize);
                 }
@@ -99,7 +116,7 @@ namespace SimplexCore
         {
             if (point_distance(currentObject.Position,Goal) > StepSize)
             {
-                if (place_empty(currentObject.Position, true))
+                if (place_empty(currentObject.Position, null, true))
                 {
                     move_towards_point(Goal, StepSize);
                 }
@@ -114,6 +131,13 @@ namespace SimplexCore
             }
 
             return null;
+        }
+        
+        
+        
+        public static void mp_linear_path(GamePath path)
+        {
+            path.points.Add(currentObject.Position);
         }
 
         public static void mp_grid_draw(bool outline = true, double alpha = .5)

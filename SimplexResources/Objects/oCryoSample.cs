@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using SimplexCore;
+using SimplexIde;
 using static SimplexCore.Sgml;
 using RectangleF = MonoGame.Extended.RectangleF;
 
@@ -17,6 +18,7 @@ namespace SimplexResources.Objects
     {
         
         List<Vector2> pos = new List<Vector2>();
+        GamePath path = new GamePath();
         public oCryoSample()
         {
             EditorPath = "Actors";
@@ -30,9 +32,10 @@ namespace SimplexResources.Objects
         
         public override void EvtStep()
         {
-            if (mp_linear_step_object(10, 10, 16, new Type[]{typeof(oBrick)}) == false)
+            
+            if (mp_linear_step(10, 10, 16) == null)
             {
-                show_message("lol");
+                mp_linear_path(path);
             }
         }
 
@@ -45,6 +48,8 @@ namespace SimplexResources.Objects
                 pos.Add(new Vector2(mouse.X / 32, mouse.Y / 32));
             }
             mp_grid_set_instance(this);
+            
+            draw_path(path);
             //draw_triangle_new(Position.X-15,Position.Y,Position.X+15,Position.Y,Position.X,Position.Y-15,true,50);
         }
 
