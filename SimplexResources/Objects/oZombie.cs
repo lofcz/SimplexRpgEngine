@@ -56,6 +56,8 @@ namespace SimplexResources.Objects
             }
 
              kkt = new List<Vector2>(randomVectors.ToArray());
+
+
         }
 
         public override void EvtDraw()
@@ -115,7 +117,7 @@ namespace SimplexResources.Objects
                 {
                     v.X = mouse.X;
                     v.Y = mouse.Y;
-
+         
                     randomVectors[i] = v;
                 }
 
@@ -140,6 +142,23 @@ namespace SimplexResources.Objects
 
             draw_line(s, last);
             draw_set_color(Color.White);
+
+            Vector2 p1 = new Vector2(8, 8);
+            Vector2 p4 = new Vector2(8, 24);
+            Vector2 p2 = new Vector2(24, 8);
+            Vector2 p3 = new Vector2(24, 24);
+            RotatedRectangle r = new RotatedRectangle(p1, p2, p3, p4);
+
+            var list = line_in_rectangle_rotated_all(new Vector2(0, 0), new Vector2(50, 50), r);
+
+            draw_line(p1, p2);
+            draw_line(p2, p3);
+            draw_line(p3, p4);
+            draw_line(p4, p1);
+
+            draw_line(new Vector2(0, 0), new Vector2(50, 50));
+            
+           // draw_triangle(100, 100, );
         }
     }
 }

@@ -13,6 +13,7 @@ using DarkUI.Collections;
 using DarkUI.Controls;
 using DarkUI.Docking;
 using DarkUI.Forms;
+using Microsoft.Xna.Framework.Graphics;
 using Newtonsoft.Json;
 using SimplexCore;
 using SimplexIde.Properties;
@@ -361,6 +362,40 @@ namespace SimplexIde
             ope.DockText = "Object Properties - " + lastNode.Text;
             ope.editingNode = lastNode;
             form1.darkDockPanel1.AddContent(ope);              
+        }
+
+        private void DarkTreeView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            // node double clicked
+            if (darkTreeView1.SelectedNodes.Count > 0 && e.Button == MouseButtons.Left)
+            {
+                DarkTreeNode dtn = darkTreeView1.SelectedNodes[0];
+
+                if (dtn.RootNodeName == "Sprites")
+                {
+                    // open sprites editor
+                    Sprites_manager sm = new Sprites_manager();
+                    sm.DockText = "Sprites Editor - " + dtn.Text;
+                    sm.owner = form1;
+
+                    // find him a sprite
+                    Texture2D s = form1.sr.drawTest1.Sprites.FirstOrDefault(x => x.Name == dtn.Text)?.Texture;
+
+                    if (s != null)
+                    {
+                        sm.spritesEditorRenderer1.selectedImage = s;
+                    }
+
+                    form1.darkDockPanel1.AddContent(sm);
+                }
+
+                if (dtn.RootNodeName == "Objects")
+                {
+                    // open sprites editor
+                    Sgml.show_debug_message("Double clicked an object");
+                }
+            }
+
         }
     }
 }

@@ -24,6 +24,7 @@ namespace SimplexIde
         private void ObjectPropertiesEditor_Load(object sender, EventArgs e)
         {
             // First we need SimplexProjectEntry
+
             darkTextBox1.Text = editingNode?.Text;
         }
 

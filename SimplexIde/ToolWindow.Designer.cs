@@ -77,6 +77,7 @@
             this.darkTreeView1.Click += new System.EventHandler(this.darkTreeView1_Click);
             this.darkTreeView1.DragDrop += new System.Windows.Forms.DragEventHandler(this.DarkTreeView1_DragDrop);
             this.darkTreeView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.darkTreeView1_MouseClick);
+            this.darkTreeView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.DarkTreeView1_MouseDoubleClick);
             // 
             // darkToolStrip1
             // 
@@ -142,7 +143,7 @@
             this.changeTagColorToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.darkContextMenu1.Name = "darkContextMenu1";
-            this.darkContextMenu1.Size = new System.Drawing.Size(211, 248);
+            this.darkContextMenu1.Size = new System.Drawing.Size(193, 220);
             this.darkContextMenu1.Opening += new System.ComponentModel.CancelEventHandler(this.darkContextMenu1_Opening);
             // 
             // insertFolderToolStripMenuItem

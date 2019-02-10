@@ -23,6 +23,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)MgcbEntry.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GamePath.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)OrtographicCamera.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Prefabs\Global.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RotatedRectangle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlMisc.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SgmlPathfinding.cs" />
@@ -52,12 +53,16 @@
     <Compile Include="$(MSBuildThisFileDirectory)SimplexIdeApi.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SimplexProjectStructure.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SimplexTexurePacker.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ObjectDescriptor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SoundDescriptor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SoundReference.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TilesetDescriptor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Triangle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)VideoDescriptor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)VideoExtended.cs" />
+    <None Include="$(MSBuildThisFileDirectory)Prefabs\Prefab.projitems" />
+    <None Include="$(MSBuildThisFileDirectory)Prefabs\Prefab.shproj" />
+    <None Include="$(MSBuildThisFileDirectory)Prefabs\Prefab.sproject" />
     <None Include="$(MSBuildThisFileDirectory)Prefabs\PrefabObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Quadtree.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RoomLayer.cs" />
@@ -92,5 +97,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Content\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Prefabs\Prefab.json" />
   </ItemGroup>
 </Project>

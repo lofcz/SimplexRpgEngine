@@ -83,7 +83,21 @@ namespace SimplexCore
             }
             return true;
         }
-        
+
+        public static bool place_empty(Vector2 position)
+        {
+            foreach (GameObject g in SceneObjects)
+            {
+                if (g.CollidingWithPoint(position))
+                {
+                    return false;
+                }
+
+            }
+
+            return true;
+        }
+
         public static bool PlaceEmptyRectangle(RectangleF rr)
         {
             foreach (RoomLayer rl in roomLayers)

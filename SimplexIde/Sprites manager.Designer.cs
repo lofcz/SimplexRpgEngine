@@ -38,7 +38,6 @@
             this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.compileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.darkTreeView1 = new DarkUI.Controls.DarkTreeView();
             this.darkSectionPanel1 = new DarkUI.Controls.DarkSectionPanel();
             this.darkLabel5 = new DarkUI.Controls.DarkLabel();
             this.darkDropdownList2 = new DarkUI.Controls.DarkDropdownList();
@@ -159,20 +158,6 @@
             this.compileToolStripMenuItem.Text = "Compile";
             this.compileToolStripMenuItem.Click += new System.EventHandler(this.compileToolStripMenuItem_Click);
             // 
-            // darkTreeView1
-            // 
-            this.darkTreeView1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.darkTreeView1.Location = new System.Drawing.Point(0, 53);
-            this.darkTreeView1.Margin = new System.Windows.Forms.Padding(4);
-            this.darkTreeView1.MaxDragChange = 20;
-            this.darkTreeView1.Name = "darkTreeView1";
-            this.darkTreeView1.ShowIcons = true;
-            this.darkTreeView1.Size = new System.Drawing.Size(337, 763);
-            this.darkTreeView1.TabIndex = 2;
-            this.darkTreeView1.Text = "darkTreeView1";
-            this.darkTreeView1.SelectedNodesChanged += new System.EventHandler(this.darkTreeView1_SelectedNodesChanged);
-            this.darkTreeView1.Click += new System.EventHandler(this.darkTreeView1_Click);
-            // 
             // darkSectionPanel1
             // 
             this.darkSectionPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -193,11 +178,11 @@
             this.darkSectionPanel1.Controls.Add(this.darkNumericUpDown1);
             this.darkSectionPanel1.Controls.Add(this.darkLabel2);
             this.darkSectionPanel1.Controls.Add(this.darkLabel1);
-            this.darkSectionPanel1.Location = new System.Drawing.Point(345, 30);
+            this.darkSectionPanel1.Location = new System.Drawing.Point(4, 55);
             this.darkSectionPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.darkSectionPanel1.Name = "darkSectionPanel1";
             this.darkSectionPanel1.SectionHeader = null;
-            this.darkSectionPanel1.Size = new System.Drawing.Size(247, 786);
+            this.darkSectionPanel1.Size = new System.Drawing.Size(247, 757);
             this.darkSectionPanel1.TabIndex = 4;
             this.darkSectionPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.darkSectionPanel1_Paint);
             // 
@@ -282,7 +267,7 @@
             // darkButton2
             // 
             this.darkButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.darkButton2.Location = new System.Drawing.Point(19, 697);
+            this.darkButton2.Location = new System.Drawing.Point(19, 668);
             this.darkButton2.Margin = new System.Windows.Forms.Padding(4);
             this.darkButton2.Name = "darkButton2";
             this.darkButton2.Size = new System.Drawing.Size(212, 28);
@@ -294,7 +279,7 @@
             // darkButton1
             // 
             this.darkButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.darkButton1.Location = new System.Drawing.Point(19, 743);
+            this.darkButton1.Location = new System.Drawing.Point(19, 714);
             this.darkButton1.Margin = new System.Windows.Forms.Padding(4);
             this.darkButton1.Name = "darkButton1";
             this.darkButton1.Size = new System.Drawing.Size(212, 28);
@@ -533,11 +518,11 @@
             this.spritesEditorRenderer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.spritesEditorRenderer1.Location = new System.Drawing.Point(601, 59);
+            this.spritesEditorRenderer1.Location = new System.Drawing.Point(259, 59);
             this.spritesEditorRenderer1.Margin = new System.Windows.Forms.Padding(4);
             this.spritesEditorRenderer1.MouseHoverUpdatesOnly = false;
             this.spritesEditorRenderer1.Name = "spritesEditorRenderer1";
-            this.spritesEditorRenderer1.Size = new System.Drawing.Size(1084, 757);
+            this.spritesEditorRenderer1.Size = new System.Drawing.Size(1426, 757);
             this.spritesEditorRenderer1.TabIndex = 5;
             this.spritesEditorRenderer1.Text = "spritesEditorRenderer1";
             this.spritesEditorRenderer1.OnMouseWheelUpwards += new MonoGame.Forms.Controls.GraphicsDeviceControl.MouseWheelUpwardsEvent(this.spritesEditorRenderer1_OnMouseWheelUpwards);
@@ -554,7 +539,6 @@
             this.Controls.Add(this.darkToolStrip2);
             this.Controls.Add(this.darkToolStrip1);
             this.Controls.Add(this.spritesEditorRenderer1);
-            this.Controls.Add(this.darkTreeView1);
             this.Controls.Add(this.darkMenuStrip1);
             this.Controls.Add(this.darkSectionPanel1);
             this.DefaultDockArea = DarkUI.Docking.DarkDockArea.Document;
@@ -589,7 +573,6 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem actionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private DarkUI.Controls.DarkTreeView darkTreeView1;
         private DarkUI.Controls.DarkSectionPanel darkSectionPanel1;
         private DarkUI.Controls.DarkLabel darkLabel2;
         private DarkUI.Controls.DarkLabel darkLabel1;
@@ -608,7 +591,6 @@
         private DarkUI.Controls.DarkButton darkButton3;
         private DarkUI.Controls.DarkDropdownList darkDropdownList2;
         private DarkUI.Controls.DarkLabel darkLabel5;
-        private SpritesEditorRenderer spritesEditorRenderer1;
         private DarkUI.Controls.DarkToolStrip darkToolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
@@ -622,5 +604,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.ToolStripMenuItem compileToolStripMenuItem;
+        public SpritesEditorRenderer spritesEditorRenderer1;
     }
 }

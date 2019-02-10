@@ -1293,7 +1293,7 @@ namespace SimplexIde
                     // therefore run heuristic checks against currently selected instances 
                     // not in any active area? fuck you then
 
-                    if (Sgml.place_empty(Sgml.mouse, null))
+                    if (Sgml.place_empty(Sgml.mouse))
                     {
                         // also user might be in the draggers area so check that
                         ComputeRectanglesForInstance(lastClickedObject);
@@ -1447,7 +1447,7 @@ namespace SimplexIde
                             }
                             else
                             {
-                                bool placeEmpty = Sgml.place_empty(vec, null); // reduce collision checks needed
+                                bool placeEmpty = Sgml.place_empty(vec); // reduce collision checks needed
 
                                 if (!ks.IsKeyDown(Keys.LeftShift) || placeEmpty)
                                 {
@@ -1944,10 +1944,8 @@ namespace SimplexIde
                     try
                     {
                         // Generate nodes for sprites
-                        DarkTreeNode toAdd = SimplexIdeApi.TreeCreateNode(s.Name, "Sprites", s.Name, "", null, null,
-                            Resources.AzureDefaultResource_16x);
-                        DarkTreeNode currentNode = editorForm.objects.Nodes.FirstOrDefault(x => x.Text == "Sprites");
-                        
+                        DarkTreeNode toAdd = SimplexIdeApi.TreeCreateNode(s.Name, "Sprites", s.Name, "", null, null, Resources.AzureDefaultResource_16x);
+                        DarkTreeNode currentNode = editorForm.objects.Nodes.FirstOrDefault(x => x.Text == "Sprites");                    
                         Bitmap b = (Bitmap) Image.FromFile(Path.GetFullPath(sps.RootPath + "/Content/Sprites/" + s.Name + ".png"));
                         b = new Bitmap(b, 16, 16);
 
