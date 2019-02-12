@@ -41,6 +41,7 @@
             this.spritesEditorRenderer1.Size = new System.Drawing.Size(928, 654);
             this.spritesEditorRenderer1.TabIndex = 6;
             this.spritesEditorRenderer1.Text = "spritesEditorRenderer1";
+            this.spritesEditorRenderer1.Click += new System.EventHandler(this.SpritesEditorRenderer1_Click);
             // 
             // SpritesRenderPreviewForm
             // 
@@ -52,6 +53,7 @@
             this.Icon = global::SimplexIde.Properties.Resources.PreviewTransition_16x;
             this.Name = "SpritesRenderPreviewForm";
             this.Size = new System.Drawing.Size(928, 679);
+            this.Closing += new System.EventHandler(this.SpritesRenderPreviewForm_Closing);
             this.Load += new System.EventHandler(this.SpritesRenderPreviewForm_Load);
             this.ResumeLayout(false);
 

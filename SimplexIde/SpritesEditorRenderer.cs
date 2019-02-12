@@ -48,6 +48,7 @@ namespace SimplexIde
         protected override void Initialize()
         {
             base.Initialize();
+            MouseHoverUpdatesOnly = true;
 
             representativeGameObject = new GameObject();
             representativeGameObject.Sprite.TextureCellsPerRow = 1;
