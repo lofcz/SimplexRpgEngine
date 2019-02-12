@@ -283,6 +283,16 @@ namespace SimplexIde.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PreviewTransition_16x {
+            get {
+                object obj = ResourceManager.GetObject("PreviewTransition_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Property_left_16x {
             get {
                 object obj = ResourceManager.GetObject("Property_left_16x", resourceCulture);

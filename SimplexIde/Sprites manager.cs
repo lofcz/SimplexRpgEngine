@@ -51,6 +51,7 @@ namespace SimplexIde
         public bool drawModeOn = false;
         public List<MgcbEntry> MgcbEntries = new List<MgcbEntry>();
         public Graphics WinGraphics;
+        public SpritesRenderPreviewForm srpf = new SpritesRenderPreviewForm();
 
         public Sprites_manager()
         {
@@ -65,7 +66,7 @@ namespace SimplexIde
                // owner.sr.drawTest1.UpdateRunning = false;
             }
 
-            spritesEditorRenderer1.parentForm = this;
+            srpf.spritesEditorRenderer1.parentForm = this;
             /*  if (owner.currentProject != null)
               {
                 //  owner.sr.drawTest1.UpdateRunning = false;
@@ -800,7 +801,7 @@ namespace SimplexIde
                 Bitmap bmp = (Bitmap) Image.FromFile(path);
                 Texture2D tx = GetTexture(Sgml.GraphicsDevice, bmp);
 
-                spritesEditorRenderer1.selectedImage = tx;
+                srpf.spritesEditorRenderer1.selectedImage = tx;
 
                 // Create a new entry in unsaved images
                 MgcbEntry me = new MgcbEntry();
@@ -937,7 +938,7 @@ namespace SimplexIde
 
         private void Sprites_manager_Resize(object sender, EventArgs e)
         {
-            spritesEditorRenderer1.Rsize();
+            srpf.spritesEditorRenderer1.Rsize();
         }
 
         private void darkToolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -947,22 +948,22 @@ namespace SimplexIde
 
         private void spritesEditorRenderer1_OnMouseWheelDownwards(MouseEventArgs e)
         {
-            spritesEditorRenderer1.WheelDown();
+            srpf.spritesEditorRenderer1.WheelDown();
         }
 
         private void spritesEditorRenderer1_MouseUp(object sender, MouseEventArgs e)
         {
-            spritesEditorRenderer1.ClickUp();
+            srpf.spritesEditorRenderer1.ClickUp();
         }
 
         private void spritesEditorRenderer1_OnMouseWheelUpwards(MouseEventArgs e)
         {
-            spritesEditorRenderer1.WheelUp();
+            srpf.spritesEditorRenderer1.WheelUp();
         }
 
         private void spritesEditorRenderer1_MouseDown(object sender, MouseEventArgs e)
         {
-            spritesEditorRenderer1.ClickLock(e.Button);
+            srpf.spritesEditorRenderer1.ClickLock(e.Button);
         }
 
         private void spritesEditorRenderer1_MouseMove(object sender, MouseEventArgs e)
@@ -970,10 +971,10 @@ namespace SimplexIde
 
             if (e.Button == MouseButtons.Middle)
             {
-                spritesEditorRenderer1.MoveView();
+                srpf.spritesEditorRenderer1.MoveView();
             }
 
-            spritesEditorRenderer1.MouseDrag(e.Location);
+            srpf.spritesEditorRenderer1.MouseDrag(e.Location);
         }
 
         private void darkNumericUpDown1_ValueChanged(object sender, EventArgs e)
@@ -995,7 +996,7 @@ namespace SimplexIde
         {
             // Toggle edit mode
             drawModeOn = !drawModeOn;
-            spritesEditorRenderer1.AaToggled();
+            srpf.spritesEditorRenderer1.AaToggled();
         }
 
         private void toolStripButton5_Click(object sender, EventArgs e)
@@ -1003,7 +1004,7 @@ namespace SimplexIde
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 Color r = colorDialog1.Color;
-                spritesEditorRenderer1.penColor = Microsoft.Xna.Framework.Color.FromNonPremultiplied(r.R, r.G, r.B, r.A);
+                srpf.spritesEditorRenderer1.penColor = Microsoft.Xna.Framework.Color.FromNonPremultiplied(r.R, r.G, r.B, r.A);
             }
         }
 
@@ -1056,7 +1057,12 @@ namespace SimplexIde
         private void ToolStripButton1_Click(object sender, EventArgs e)
         {
             // SAVE CHANGES TO THE IMAGE
-            spritesEditorRenderer1.SaveChanges();
+            srpf.spritesEditorRenderer1.SaveChanges();
+        }
+
+        private void DarkDockPanel2_Load(object sender, EventArgs e)
+        {
+            darkDockPanel2.AddContent(srpf);
         }
     }
 

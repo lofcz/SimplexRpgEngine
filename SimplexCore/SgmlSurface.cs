@@ -16,6 +16,11 @@ namespace SimplexCore
 
         public static RenderTarget2D surface_create(int width, int height)
         {
+            if (width <= 0 || height <= 0)
+            {
+                return null;
+            }
+
             return new RenderTarget2D(GraphicsDevice, width, height, false, GraphicsDevice.PresentationParameters.BackBufferFormat, DepthFormat.Depth24, 0, RenderTargetUsage.PreserveContents);
         }
 

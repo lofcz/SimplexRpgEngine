@@ -183,6 +183,7 @@ namespace SimplexIde
                 Sgml.draw_text(new Vector2(10, 10), framerate.ToString());
                 Sgml.draw_text(new Vector2(10, 30), "[X: " + Sgml.round(Sgml.mouse.X) + " Y: " + Sgml.round(Sgml.mouse.Y) + "]");
                 Sgml.draw_text(new Vector2(10, 50), parentForm.darkNumericUpDown1.Value.ToString());
+                Sgml.draw_text(new Vector2(10, 70), cam.Zoom.ToString());
                 basicEffect.View = view;
                 Sgml.m = transformMatrix;
 

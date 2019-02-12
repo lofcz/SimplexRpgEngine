@@ -145,6 +145,9 @@
   <data name="undo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\undo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ColorDialog_16x1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ColorDialog_16x1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Checkmark_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Checkmark_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -181,6 +184,9 @@
   <data name="Save_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Save_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Run_16xMD" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Run_16xMD.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="toolbox_16xSM" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\toolbox_16xSM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -196,9 +202,6 @@
   <data name="ColorDialog_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ColorDialog_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Resize_TopLeft_16_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Resize_TopLeft_16_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Property_left_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Property_left_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -208,8 +211,8 @@
   <data name="cursor_scale_16_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cursor_scale_16_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Run_16xMD" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Run_16xMD.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Resize_TopLeft_16_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Resize_TopLeft_16_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Resize_BottomLeft_16_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Resize_BottomLeft_16_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -238,7 +241,7 @@
   <data name="Undo_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Undo_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ColorDialog_16x1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ColorDialog_16x1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PreviewTransition_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PreviewTransition_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
