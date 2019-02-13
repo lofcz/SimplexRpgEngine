@@ -1116,19 +1116,68 @@ namespace SimplexIde
 
         private void DarkColorPallete2_MouseClick(object sender, MouseEventArgs e)
         {
-            Bitmap b = new Bitmap(darkColorPallete2.Width, darkColorPallete2.Height);
-            darkColorPallete2.DrawToBitmap(b, new Rectangle(0, 0, b.Width, b.Height));
 
-            Color c = b.GetPixel(e.X, e.Y);
-            spritesEditorRenderer1.penColor = new Microsoft.Xna.Framework.Color(c.R, c.G, c.B, c.A);
         }
 
         private void DarkColorPallete1_MouseClick(object sender, MouseEventArgs e)
         {
+
+        }
+
+        private void DarkButton22_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DarkColorPallete1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DarkColorPallete1_MouseDown(object sender, MouseEventArgs e)
+        {
             int index = (e.Y / 16) * 6 + e.X / 16;
             Color c = darkColorPallete1.colors[index];
 
-            spritesEditorRenderer1.penColor = new Microsoft.Xna.Framework.Color(c.R, c.G, c.B, c.A);
+         
+
+            if (e.Button == MouseButtons.Left)
+            {
+                darkMouseTool1.LeftColor = c;
+                spritesEditorRenderer1.penColor = new Microsoft.Xna.Framework.Color(c.R, c.G, c.B, c.A);
+            }
+            else if (e.Button == MouseButtons.Right)
+            {
+                darkMouseTool1.RightColor = c;
+                spritesEditorRenderer1.penColorRight = new Microsoft.Xna.Framework.Color(c.R, c.G, c.B, c.A);
+
+            }
+
+            Sgml.show_debug_message(e.Button.ToString());
+            darkMouseTool1.Invalidate();
+        }
+
+        private void DarkColorPallete2_MouseDown(object sender, MouseEventArgs e)
+        {
+            Bitmap b = new Bitmap(darkColorPallete2.Width, darkColorPallete2.Height);
+            darkColorPallete2.DrawToBitmap(b, new Rectangle(0, 0, b.Width, b.Height));
+
+            Color c = b.GetPixel(e.X, e.Y);
+            
+
+            if (e.Button == MouseButtons.Left)
+            {
+                darkMouseTool1.LeftColor = c;
+                spritesEditorRenderer1.penColor = new Microsoft.Xna.Framework.Color(c.R, c.G, c.B, c.A);
+            }
+            else if (e.Button == MouseButtons.Right)
+            {
+                darkMouseTool1.RightColor = c;
+                spritesEditorRenderer1.penColorRight = new Microsoft.Xna.Framework.Color(c.R, c.G, c.B, c.A);
+            }
+
+            Sgml.show_debug_message(e.Button.ToString());
+            darkMouseTool1.Invalidate();
         }
     }
 

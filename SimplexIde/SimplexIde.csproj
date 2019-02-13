@@ -458,6 +458,21 @@
   <ItemGroup>
     <None Include="Resources\RectangleSelectionTool_16x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shape.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Circle select.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spray tool.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Select.png" />
+  </ItemGroup>
   <Import Project="..\SimplexCore\SimplexCore.projitems" Label="Shared" />
   <Import Project="..\SimplexResources\SimplexResources.projitems" Label="Shared" />
   <Import Project="..\TestExtension1\TestExtension1.projitems" Label="Shared" />

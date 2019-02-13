@@ -68,6 +68,11 @@
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.darkSectionPanel2 = new DarkUI.Controls.DarkSectionPanel();
             this.darkGroupBox1 = new DarkUI.Controls.DarkGroupBox();
+            this.darkButton20 = new DarkUI.Controls.DarkButton();
+            this.darkButton19 = new DarkUI.Controls.DarkButton();
+            this.darkButton18 = new DarkUI.Controls.DarkButton();
+            this.darkButton17 = new DarkUI.Controls.DarkButton();
+            this.darkButton16 = new DarkUI.Controls.DarkButton();
             this.darkButton15 = new DarkUI.Controls.DarkButton();
             this.darkButton14 = new DarkUI.Controls.DarkButton();
             this.darkButton13 = new DarkUI.Controls.DarkButton();
@@ -78,6 +83,11 @@
             this.darkButton8 = new DarkUI.Controls.DarkButton();
             this.darkButton7 = new DarkUI.Controls.DarkButton();
             this.darkGroupBox2 = new DarkUI.Controls.DarkGroupBox();
+            this.darkButton23 = new DarkUI.Controls.DarkButton();
+            this.darkButton22 = new DarkUI.Controls.DarkButton();
+            this.darkButton24 = new DarkUI.Controls.DarkButton();
+            this.darkButton21 = new DarkUI.Controls.DarkButton();
+            this.darkMouseTool1 = new DarkUI.Controls.DarkMouseTool();
             this.darkColorPallete2 = new DarkUI.Controls.DarkColorPallete();
             this.darkColorPallete1 = new DarkUI.Controls.DarkColorPallete();
             this.darkGroupBox3 = new DarkUI.Controls.DarkGroupBox();
@@ -559,6 +569,11 @@
             // darkGroupBox1
             // 
             this.darkGroupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.darkGroupBox1.Controls.Add(this.darkButton20);
+            this.darkGroupBox1.Controls.Add(this.darkButton19);
+            this.darkGroupBox1.Controls.Add(this.darkButton18);
+            this.darkGroupBox1.Controls.Add(this.darkButton17);
+            this.darkGroupBox1.Controls.Add(this.darkButton16);
             this.darkGroupBox1.Controls.Add(this.darkButton15);
             this.darkGroupBox1.Controls.Add(this.darkButton14);
             this.darkGroupBox1.Controls.Add(this.darkButton13);
@@ -576,6 +591,51 @@
             this.darkGroupBox1.TabIndex = 12;
             this.darkGroupBox1.TabStop = false;
             this.darkGroupBox1.Text = "Tools";
+            // 
+            // darkButton20
+            // 
+            this.darkButton20.Image = global::SimplexIde.Properties.Resources.Select;
+            this.darkButton20.Location = new System.Drawing.Point(109, 132);
+            this.darkButton20.Margin = new System.Windows.Forms.Padding(4);
+            this.darkButton20.Name = "darkButton20";
+            this.darkButton20.Size = new System.Drawing.Size(43, 28);
+            this.darkButton20.TabIndex = 13;
+            // 
+            // darkButton19
+            // 
+            this.darkButton19.Image = global::SimplexIde.Properties.Resources.spray_tool;
+            this.darkButton19.Location = new System.Drawing.Point(109, 95);
+            this.darkButton19.Margin = new System.Windows.Forms.Padding(4);
+            this.darkButton19.Name = "darkButton19";
+            this.darkButton19.Size = new System.Drawing.Size(43, 28);
+            this.darkButton19.TabIndex = 12;
+            // 
+            // darkButton18
+            // 
+            this.darkButton18.Image = global::SimplexIde.Properties.Resources.Circle_select;
+            this.darkButton18.Location = new System.Drawing.Point(59, 132);
+            this.darkButton18.Margin = new System.Windows.Forms.Padding(4);
+            this.darkButton18.Name = "darkButton18";
+            this.darkButton18.Size = new System.Drawing.Size(43, 28);
+            this.darkButton18.TabIndex = 11;
+            // 
+            // darkButton17
+            // 
+            this.darkButton17.Image = global::SimplexIde.Properties.Resources.Line;
+            this.darkButton17.Location = new System.Drawing.Point(8, 60);
+            this.darkButton17.Margin = new System.Windows.Forms.Padding(4);
+            this.darkButton17.Name = "darkButton17";
+            this.darkButton17.Size = new System.Drawing.Size(43, 28);
+            this.darkButton17.TabIndex = 10;
+            // 
+            // darkButton16
+            // 
+            this.darkButton16.Image = global::SimplexIde.Properties.Resources.Shape;
+            this.darkButton16.Location = new System.Drawing.Point(211, 60);
+            this.darkButton16.Margin = new System.Windows.Forms.Padding(4);
+            this.darkButton16.Name = "darkButton16";
+            this.darkButton16.Size = new System.Drawing.Size(43, 28);
+            this.darkButton16.TabIndex = 9;
             // 
             // darkButton15
             // 
@@ -598,7 +658,7 @@
             // darkButton13
             // 
             this.darkButton13.Image = global::SimplexIde.Properties.Resources.RoundedRectangleTool_16x;
-            this.darkButton13.Location = new System.Drawing.Point(59, 59);
+            this.darkButton13.Location = new System.Drawing.Point(110, 60);
             this.darkButton13.Margin = new System.Windows.Forms.Padding(4);
             this.darkButton13.Name = "darkButton13";
             this.darkButton13.Size = new System.Drawing.Size(43, 28);
@@ -634,7 +694,7 @@
             // darkButton9
             // 
             this.darkButton9.Image = global::SimplexIde.Properties.Resources.SquareSingle_16x;
-            this.darkButton9.Location = new System.Drawing.Point(8, 59);
+            this.darkButton9.Location = new System.Drawing.Point(59, 60);
             this.darkButton9.Margin = new System.Windows.Forms.Padding(4);
             this.darkButton9.Name = "darkButton9";
             this.darkButton9.Size = new System.Drawing.Size(43, 28);
@@ -643,7 +703,7 @@
             // darkButton8
             // 
             this.darkButton8.Image = global::SimplexIde.Properties.Resources.Ellipse_16x;
-            this.darkButton8.Location = new System.Drawing.Point(109, 59);
+            this.darkButton8.Location = new System.Drawing.Point(160, 60);
             this.darkButton8.Margin = new System.Windows.Forms.Padding(4);
             this.darkButton8.Name = "darkButton8";
             this.darkButton8.Size = new System.Drawing.Size(43, 28);
@@ -661,22 +721,70 @@
             // darkGroupBox2
             // 
             this.darkGroupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.darkGroupBox2.Controls.Add(this.darkButton23);
+            this.darkGroupBox2.Controls.Add(this.darkButton22);
+            this.darkGroupBox2.Controls.Add(this.darkButton24);
+            this.darkGroupBox2.Controls.Add(this.darkButton21);
+            this.darkGroupBox2.Controls.Add(this.darkMouseTool1);
             this.darkGroupBox2.Controls.Add(this.darkColorPallete2);
             this.darkGroupBox2.Controls.Add(this.darkColorPallete1);
             this.darkGroupBox2.Location = new System.Drawing.Point(1387, 266);
             this.darkGroupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.darkGroupBox2.Name = "darkGroupBox2";
             this.darkGroupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.darkGroupBox2.Size = new System.Drawing.Size(295, 196);
+            this.darkGroupBox2.Size = new System.Drawing.Size(295, 283);
             this.darkGroupBox2.TabIndex = 13;
             this.darkGroupBox2.TabStop = false;
             this.darkGroupBox2.Text = "Colors";
             this.darkGroupBox2.Enter += new System.EventHandler(this.DarkGroupBox2_Enter);
             // 
+            // darkButton23
+            // 
+            this.darkButton23.Location = new System.Drawing.Point(211, 55);
+            this.darkButton23.Name = "darkButton23";
+            this.darkButton23.Size = new System.Drawing.Size(63, 22);
+            this.darkButton23.TabIndex = 8;
+            this.darkButton23.Text = "Load";
+            // 
+            // darkButton22
+            // 
+            this.darkButton22.Location = new System.Drawing.Point(145, 55);
+            this.darkButton22.Name = "darkButton22";
+            this.darkButton22.Size = new System.Drawing.Size(61, 22);
+            this.darkButton22.TabIndex = 7;
+            this.darkButton22.Text = "Save";
+            // 
+            // darkButton24
+            // 
+            this.darkButton24.Location = new System.Drawing.Point(211, 84);
+            this.darkButton24.Name = "darkButton24";
+            this.darkButton24.Size = new System.Drawing.Size(63, 22);
+            this.darkButton24.TabIndex = 6;
+            this.darkButton24.Text = "Reset";
+            // 
+            // darkButton21
+            // 
+            this.darkButton21.Location = new System.Drawing.Point(145, 84);
+            this.darkButton21.Name = "darkButton21";
+            this.darkButton21.Size = new System.Drawing.Size(61, 22);
+            this.darkButton21.TabIndex = 3;
+            this.darkButton21.Text = "Edit";
+            // 
+            // darkMouseTool1
+            // 
+            this.darkMouseTool1.Gradient = false;
+            this.darkMouseTool1.LeftColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.darkMouseTool1.Location = new System.Drawing.Point(8, 37);
+            this.darkMouseTool1.Name = "darkMouseTool1";
+            this.darkMouseTool1.RightColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.darkMouseTool1.Size = new System.Drawing.Size(129, 72);
+            this.darkMouseTool1.TabIndex = 2;
+            this.darkMouseTool1.Text = "darkMouseTool1";
+            // 
             // darkColorPallete2
             // 
             this.darkColorPallete2.Gradient = true;
-            this.darkColorPallete2.Location = new System.Drawing.Point(145, 23);
+            this.darkColorPallete2.Location = new System.Drawing.Point(145, 116);
             this.darkColorPallete2.Margin = new System.Windows.Forms.Padding(4);
             this.darkColorPallete2.Name = "darkColorPallete2";
             this.darkColorPallete2.Size = new System.Drawing.Size(129, 159);
@@ -684,26 +792,29 @@
             this.darkColorPallete2.Text = "kokot";
             this.darkColorPallete2.Click += new System.EventHandler(this.DarkColorPallete2_Click);
             this.darkColorPallete2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.DarkColorPallete2_MouseClick);
+            this.darkColorPallete2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DarkColorPallete2_MouseDown);
             // 
             // darkColorPallete1
             // 
             this.darkColorPallete1.Gradient = false;
-            this.darkColorPallete1.Location = new System.Drawing.Point(8, 23);
+            this.darkColorPallete1.Location = new System.Drawing.Point(8, 116);
             this.darkColorPallete1.Margin = new System.Windows.Forms.Padding(4);
             this.darkColorPallete1.Name = "darkColorPallete1";
             this.darkColorPallete1.Size = new System.Drawing.Size(129, 159);
             this.darkColorPallete1.TabIndex = 0;
             this.darkColorPallete1.Text = "kokot";
+            this.darkColorPallete1.Click += new System.EventHandler(this.DarkColorPallete1_Click);
             this.darkColorPallete1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.DarkColorPallete1_MouseClick);
+            this.darkColorPallete1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DarkColorPallete1_MouseDown);
             // 
             // darkGroupBox3
             // 
             this.darkGroupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.darkGroupBox3.Location = new System.Drawing.Point(1384, 469);
+            this.darkGroupBox3.Location = new System.Drawing.Point(1387, 557);
             this.darkGroupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.darkGroupBox3.Name = "darkGroupBox3";
             this.darkGroupBox3.Padding = new System.Windows.Forms.Padding(4);
-            this.darkGroupBox3.Size = new System.Drawing.Size(292, 130);
+            this.darkGroupBox3.Size = new System.Drawing.Size(292, 110);
             this.darkGroupBox3.TabIndex = 14;
             this.darkGroupBox3.TabStop = false;
             this.darkGroupBox3.Text = "Brushes";
@@ -712,11 +823,11 @@
             // 
             this.darkGroupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.darkGroupBox5.Location = new System.Drawing.Point(1387, 607);
+            this.darkGroupBox5.Location = new System.Drawing.Point(1387, 675);
             this.darkGroupBox5.Margin = new System.Windows.Forms.Padding(4);
             this.darkGroupBox5.Name = "darkGroupBox5";
             this.darkGroupBox5.Padding = new System.Windows.Forms.Padding(4);
-            this.darkGroupBox5.Size = new System.Drawing.Size(292, 199);
+            this.darkGroupBox5.Size = new System.Drawing.Size(292, 131);
             this.darkGroupBox5.TabIndex = 15;
             this.darkGroupBox5.TabStop = false;
             this.darkGroupBox5.Text = "Layers";
@@ -837,5 +948,15 @@
         private DarkUI.Controls.DarkGroupBox darkGroupBox5;
         private DarkUI.Controls.DarkColorPallete darkColorPallete1;
         private DarkUI.Controls.DarkColorPallete darkColorPallete2;
+        private DarkUI.Controls.DarkButton darkButton16;
+        private DarkUI.Controls.DarkButton darkButton17;
+        private DarkUI.Controls.DarkButton darkButton18;
+        private DarkUI.Controls.DarkButton darkButton19;
+        private DarkUI.Controls.DarkButton darkButton20;
+        private DarkUI.Controls.DarkMouseTool darkMouseTool1;
+        private DarkUI.Controls.DarkButton darkButton24;
+        private DarkUI.Controls.DarkButton darkButton21;
+        private DarkUI.Controls.DarkButton darkButton23;
+        private DarkUI.Controls.DarkButton darkButton22;
     }
 }
