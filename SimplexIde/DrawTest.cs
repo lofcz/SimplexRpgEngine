@@ -1945,12 +1945,14 @@ namespace SimplexIde
                     {
                         // Generate nodes for sprites
                         DarkTreeNode toAdd = SimplexIdeApi.TreeCreateNode(s.Name, "Sprites", s.Name, "", null, null, Resources.AzureDefaultResource_16x);
-                        DarkTreeNode currentNode = editorForm.objects.Nodes.FirstOrDefault(x => x.Text == "Sprites");                    
-                        Bitmap b = (Bitmap) Image.FromFile(Path.GetFullPath(sps.RootPath + "/Content/Sprites/" + s.Name + ".png"));
-                        b = new Bitmap(b, 16, 16);
+                        DarkTreeNode currentNode = editorForm.objects.Nodes.FirstOrDefault(x => x.Text == "Sprites");
+                        using (Bitmap b = (Bitmap) Image.FromFile(Path.GetFullPath(sps.RootPath + "/Content/Sprites/" + s.Name + ".png")))
+                        {
+                            Bitmap bb = new Bitmap(b, 16, 16);
 
-                        toAdd.Icon = b;
-                        Invoke(new Action(() => { currentNode.Nodes.Add(toAdd); }));
+                            toAdd.Icon = bb;
+                            Invoke(new Action(() => { currentNode.Nodes.Add(toAdd); }));
+                        }
                     }
                     catch (Exception e)
                     {

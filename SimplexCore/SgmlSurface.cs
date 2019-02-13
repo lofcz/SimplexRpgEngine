@@ -16,6 +16,11 @@ namespace SimplexCore
 
         public static RenderTarget2D surface_create(int width, int height)
         {
+            if (width <= 0 || height <= 0)
+            {
+                return null;
+            }
+
             return new RenderTarget2D(GraphicsDevice, width, height, false, GraphicsDevice.PresentationParameters.BackBufferFormat, DepthFormat.Depth24, 0, RenderTargetUsage.PreserveContents);
         }
 
@@ -88,6 +93,12 @@ namespace SimplexCore
         {
             if (format == ImageFormat.Png)
             {
+                if (File.Exists(fname + ".png"))
+                {
+                    File.SetAttributes(fname + ".png", FileAttributes.Normal);
+                    File.Delete(fname + ".png");
+                }
+
                 Stream stream = File.Create(fname + ".png");
                 surface.SaveAsPng(stream, surface.Width, surface.Height);
                 stream.Close();

@@ -51,6 +51,7 @@ namespace SimplexIde
         public bool drawModeOn = false;
         public List<MgcbEntry> MgcbEntries = new List<MgcbEntry>();
         public Graphics WinGraphics;
+        public SpritesRenderPreviewForm srpf = new SpritesRenderPreviewForm();
 
         public Sprites_manager()
         {
@@ -800,7 +801,7 @@ namespace SimplexIde
                 Bitmap bmp = (Bitmap) Image.FromFile(path);
                 Texture2D tx = GetTexture(Sgml.GraphicsDevice, bmp);
 
-                spritesEditorRenderer1.selectedImage = tx;
+                srpf.spritesEditorRenderer1.selectedImage = tx;
 
                 // Create a new entry in unsaved images
                 MgcbEntry me = new MgcbEntry();
@@ -1003,7 +1004,7 @@ namespace SimplexIde
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
                 Color r = colorDialog1.Color;
-                spritesEditorRenderer1.penColor = Microsoft.Xna.Framework.Color.FromNonPremultiplied(r.R, r.G, r.B, r.A);
+                srpf.spritesEditorRenderer1.penColor = Microsoft.Xna.Framework.Color.FromNonPremultiplied(r.R, r.G, r.B, r.A);
             }
         }
 
@@ -1049,6 +1050,58 @@ namespace SimplexIde
         }
 
         private void DarkMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void ToolStripButton1_Click(object sender, EventArgs e)
+        {
+            // SAVE CHANGES TO THE IMAGE
+            spritesEditorRenderer1.SaveChanges();
+        }
+
+        private void DarkDockPanel2_Load(object sender, EventArgs e)
+        {
+         //   darkDockPanel2.AddContent(srpf);
+           
+        }
+
+        private void SpritesEditorRenderer1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SpritesEditorRenderer1_MouseUp_1(object sender, MouseEventArgs e)
+        {
+            spritesEditorRenderer1.ClickUp();
+        }
+
+        private void SpritesEditorRenderer1_OnMouseWheelUpwards_1(MouseEventArgs e)
+        {
+            spritesEditorRenderer1.WheelUp();
+        }
+
+        private void SpritesEditorRenderer1_OnMouseWheelDownwards_1(MouseEventArgs e)
+        {
+            spritesEditorRenderer1.WheelDown();
+        }
+
+        private void SpritesEditorRenderer1_MouseMove_1(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Middle)
+            {
+                spritesEditorRenderer1.MoveView();
+            }
+
+            spritesEditorRenderer1.MouseDrag(e.Location);
+        }
+
+        private void SpritesEditorRenderer1_MouseDown_1(object sender, MouseEventArgs e)
+        {
+            spritesEditorRenderer1.ClickLock(e.Button);
+        }
+
+        private void DarkGroupBox2_Enter(object sender, EventArgs e)
         {
 
         }

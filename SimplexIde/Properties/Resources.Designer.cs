@@ -123,6 +123,16 @@ namespace SimplexIde.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ColorPicker_12x_16x {
+            get {
+                object obj = ResourceManager.GetObject("ColorPicker_12x_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cursor_rotate_16_16 {
             get {
                 object obj = ResourceManager.GetObject("cursor_rotate_16_16", resourceCulture);
@@ -146,6 +156,46 @@ namespace SimplexIde.Properties {
         internal static System.Drawing.Bitmap EditCommandColumn_ActionGray_16x_32 {
             get {
                 object obj = ResourceManager.GetObject("EditCommandColumn_ActionGray_16x_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Ellipse_16x {
+            get {
+                object obj = ResourceManager.GetObject("Ellipse_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Eraser_16x {
+            get {
+                object obj = ResourceManager.GetObject("Eraser_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FilledRoundedRectangleTool_16x {
+            get {
+                object obj = ResourceManager.GetObject("FilledRoundedRectangleTool_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FillTool_16x {
+            get {
+                object obj = ResourceManager.GetObject("FillTool_16x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -273,9 +323,29 @@ namespace SimplexIde.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Pen4_16x1 {
+            get {
+                object obj = ResourceManager.GetObject("Pen4_16x1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Picker_16x {
             get {
                 object obj = ResourceManager.GetObject("Picker_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PreviewTransition_16x {
+            get {
+                object obj = ResourceManager.GetObject("PreviewTransition_16x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -296,6 +366,16 @@ namespace SimplexIde.Properties {
         internal static System.Drawing.Bitmap Question_16x {
             get {
                 object obj = ResourceManager.GetObject("Question_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RectangleSelectionTool_16x {
+            get {
+                object obj = ResourceManager.GetObject("RectangleSelectionTool_16x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -363,6 +443,16 @@ namespace SimplexIde.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RoundedRectangleTool_16x {
+            get {
+                object obj = ResourceManager.GetObject("RoundedRectangleTool_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Run_16xMD {
             get {
                 object obj = ResourceManager.GetObject("Run_16xMD", resourceCulture);
@@ -403,9 +493,29 @@ namespace SimplexIde.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SquareSingle_16x {
+            get {
+                object obj = ResourceManager.GetObject("SquareSingle_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Stop_16x {
             get {
                 object obj = ResourceManager.GetObject("Stop_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TextElement_16x {
+            get {
+                object obj = ResourceManager.GetObject("TextElement_16x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

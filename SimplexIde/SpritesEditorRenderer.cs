@@ -48,6 +48,7 @@ namespace SimplexIde
         protected override void Initialize()
         {
             base.Initialize();
+           // MouseHoverUpdatesOnly = true;
 
             representativeGameObject = new GameObject();
             representativeGameObject.Sprite.TextureCellsPerRow = 1;
@@ -115,6 +116,19 @@ namespace SimplexIde
             }
         }
 
+        public void SaveChanges()
+        {
+            RenderTarget2D finalSurface = Sgml.surface_create(imageOverlay.Width, imageOverlay.Height);
+            Sgml.surface_set_target(finalSurface);
+            Sgml.draw_sprite(selectedImage, -2, Vector2.Zero);
+            Sgml.draw_surface(Vector2.Zero, imageOverlay);
+            Sgml.surface_reset_target();
+
+
+            Sgml.surface_save(finalSurface, parentForm.owner.currentProject.RootPath + "/Content/Sprites/texture");
+            finalSurface.Dispose();
+        }
+
         protected override void Draw()
         {
             if (parentForm != null)
@@ -170,6 +184,7 @@ namespace SimplexIde
                 Sgml.draw_text(new Vector2(10, 10), framerate.ToString());
                 Sgml.draw_text(new Vector2(10, 30), "[X: " + Sgml.round(Sgml.mouse.X) + " Y: " + Sgml.round(Sgml.mouse.Y) + "]");
                 Sgml.draw_text(new Vector2(10, 50), parentForm.darkNumericUpDown1.Value.ToString());
+                Sgml.draw_text(new Vector2(10, 70), cam.Zoom.ToString());
                 basicEffect.View = view;
                 Sgml.m = transformMatrix;
 
@@ -366,6 +381,20 @@ namespace SimplexIde
 
         public void AaToggled()
         {
+            if (parentForm == null)
+            {
+                if (selectedXIndex != -1 && selectedYIndex != -1)
+                {
+                    selectedImageIndex = 1;
+                    imageOverlay = Sgml.surface_create((int)parentForm.darkNumericUpDown1.Value, (int)parentForm.darkNumericUpDown2.Value);
+
+                    Sgml.surface_set_target(imageOverlay);
+                    Sgml.draw_clear_transparent();
+                    Sgml.surface_reset_target();
+                }
+                return;
+            }
+
             if (parentForm.drawModeOn)
             {
                 if (selectedXIndex != -1 && selectedYIndex != -1)

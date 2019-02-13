@@ -387,6 +387,8 @@ namespace SimplexIde
                     }
 
                     form1.darkDockPanel1.AddContent(sm);
+                    sm.Invalidate();
+                   // sm.darkDockPanel2.AssureMePlase();
                 }
 
                 if (dtn.RootNodeName == "Objects")
