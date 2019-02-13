@@ -428,6 +428,36 @@
   <ItemGroup>
     <None Include="Resources\PreviewTransition_16x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pen4_16x1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ellipse_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SquareSingle_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ColorPicker_12x_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Eraser_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TextElement_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FilledRoundedRectangleTool_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RoundedRectangleTool_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FillTool_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RectangleSelectionTool_16x.png" />
+  </ItemGroup>
   <Import Project="..\SimplexCore\SimplexCore.projitems" Label="Shared" />
   <Import Project="..\SimplexResources\SimplexResources.projitems" Label="Shared" />
   <Import Project="..\TestExtension1\TestExtension1.projitems" Label="Shared" />

@@ -53,7 +53,6 @@
             this.Icon = global::SimplexIde.Properties.Resources.PreviewTransition_16x;
             this.Name = "SpritesRenderPreviewForm";
             this.Size = new System.Drawing.Size(928, 679);
-            this.Closing += new System.EventHandler(this.SpritesRenderPreviewForm_Closing);
             this.Load += new System.EventHandler(this.SpritesRenderPreviewForm_Load);
             this.ResumeLayout(false);
 

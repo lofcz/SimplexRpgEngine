@@ -1057,7 +1057,7 @@ namespace SimplexIde
         private void ToolStripButton1_Click(object sender, EventArgs e)
         {
             // SAVE CHANGES TO THE IMAGE
-            srpf.spritesEditorRenderer1.SaveChanges();
+            spritesEditorRenderer1.SaveChanges();
         }
 
         private void DarkDockPanel2_Load(object sender, EventArgs e)
@@ -1099,6 +1099,11 @@ namespace SimplexIde
         private void SpritesEditorRenderer1_MouseDown_1(object sender, MouseEventArgs e)
         {
             spritesEditorRenderer1.ClickLock(e.Button);
+        }
+
+        private void DarkGroupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 
