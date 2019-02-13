@@ -694,6 +694,7 @@
             this.darkColorPallete1.Size = new System.Drawing.Size(129, 159);
             this.darkColorPallete1.TabIndex = 0;
             this.darkColorPallete1.Text = "kokot";
+            this.darkColorPallete1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.DarkColorPallete1_MouseClick);
             // 
             // darkGroupBox3
             // 

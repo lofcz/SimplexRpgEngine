@@ -1122,6 +1122,14 @@ namespace SimplexIde
             Color c = b.GetPixel(e.X, e.Y);
             spritesEditorRenderer1.penColor = new Microsoft.Xna.Framework.Color(c.R, c.G, c.B, c.A);
         }
+
+        private void DarkColorPallete1_MouseClick(object sender, MouseEventArgs e)
+        {
+            int index = (e.Y / 16) * 6 + e.X / 16;
+            Color c = darkColorPallete1.colors[index];
+
+            spritesEditorRenderer1.penColor = new Microsoft.Xna.Framework.Color(c.R, c.G, c.B, c.A);
+        }
     }
 
     public class Subsprite
