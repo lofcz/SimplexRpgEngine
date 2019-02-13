@@ -66,7 +66,7 @@ namespace SimplexIde
                // owner.sr.drawTest1.UpdateRunning = false;
             }
 
-            srpf.spritesEditorRenderer1.parentForm = this;
+            spritesEditorRenderer1.parentForm = this;
             /*  if (owner.currentProject != null)
               {
                 //  owner.sr.drawTest1.UpdateRunning = false;
@@ -938,7 +938,7 @@ namespace SimplexIde
 
         private void Sprites_manager_Resize(object sender, EventArgs e)
         {
-            srpf.spritesEditorRenderer1.Rsize();
+            spritesEditorRenderer1.Rsize();
         }
 
         private void darkToolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -948,22 +948,22 @@ namespace SimplexIde
 
         private void spritesEditorRenderer1_OnMouseWheelDownwards(MouseEventArgs e)
         {
-            srpf.spritesEditorRenderer1.WheelDown();
+            spritesEditorRenderer1.WheelDown();
         }
 
         private void spritesEditorRenderer1_MouseUp(object sender, MouseEventArgs e)
         {
-            srpf.spritesEditorRenderer1.ClickUp();
+            spritesEditorRenderer1.ClickUp();
         }
 
         private void spritesEditorRenderer1_OnMouseWheelUpwards(MouseEventArgs e)
         {
-            srpf.spritesEditorRenderer1.WheelUp();
+            spritesEditorRenderer1.WheelUp();
         }
 
         private void spritesEditorRenderer1_MouseDown(object sender, MouseEventArgs e)
         {
-            srpf.spritesEditorRenderer1.ClickLock(e.Button);
+            spritesEditorRenderer1.ClickLock(e.Button);
         }
 
         private void spritesEditorRenderer1_MouseMove(object sender, MouseEventArgs e)
@@ -971,10 +971,10 @@ namespace SimplexIde
 
             if (e.Button == MouseButtons.Middle)
             {
-                srpf.spritesEditorRenderer1.MoveView();
+                spritesEditorRenderer1.MoveView();
             }
 
-            srpf.spritesEditorRenderer1.MouseDrag(e.Location);
+            spritesEditorRenderer1.MouseDrag(e.Location);
         }
 
         private void darkNumericUpDown1_ValueChanged(object sender, EventArgs e)
@@ -996,7 +996,7 @@ namespace SimplexIde
         {
             // Toggle edit mode
             drawModeOn = !drawModeOn;
-            srpf.spritesEditorRenderer1.AaToggled();
+            spritesEditorRenderer1.AaToggled();
         }
 
         private void toolStripButton5_Click(object sender, EventArgs e)
@@ -1062,7 +1062,43 @@ namespace SimplexIde
 
         private void DarkDockPanel2_Load(object sender, EventArgs e)
         {
-            darkDockPanel2.AddContent(srpf);
+         //   darkDockPanel2.AddContent(srpf);
+           
+        }
+
+        private void SpritesEditorRenderer1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SpritesEditorRenderer1_MouseUp_1(object sender, MouseEventArgs e)
+        {
+            spritesEditorRenderer1.ClickUp();
+        }
+
+        private void SpritesEditorRenderer1_OnMouseWheelUpwards_1(MouseEventArgs e)
+        {
+            spritesEditorRenderer1.WheelUp();
+        }
+
+        private void SpritesEditorRenderer1_OnMouseWheelDownwards_1(MouseEventArgs e)
+        {
+            spritesEditorRenderer1.WheelDown();
+        }
+
+        private void SpritesEditorRenderer1_MouseMove_1(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Middle)
+            {
+                spritesEditorRenderer1.MoveView();
+            }
+
+            spritesEditorRenderer1.MouseDrag(e.Location);
+        }
+
+        private void SpritesEditorRenderer1_MouseDown_1(object sender, MouseEventArgs e)
+        {
+            spritesEditorRenderer1.ClickLock(e.Button);
         }
     }
 

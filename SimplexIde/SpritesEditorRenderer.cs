@@ -48,7 +48,7 @@ namespace SimplexIde
         protected override void Initialize()
         {
             base.Initialize();
-            MouseHoverUpdatesOnly = true;
+           // MouseHoverUpdatesOnly = true;
 
             representativeGameObject = new GameObject();
             representativeGameObject.Sprite.TextureCellsPerRow = 1;
@@ -381,6 +381,20 @@ namespace SimplexIde
 
         public void AaToggled()
         {
+            if (parentForm == null)
+            {
+                if (selectedXIndex != -1 && selectedYIndex != -1)
+                {
+                    selectedImageIndex = 1;
+                    imageOverlay = Sgml.surface_create((int)parentForm.darkNumericUpDown1.Value, (int)parentForm.darkNumericUpDown2.Value);
+
+                    Sgml.surface_set_target(imageOverlay);
+                    Sgml.draw_clear_transparent();
+                    Sgml.surface_reset_target();
+                }
+                return;
+            }
+
             if (parentForm.drawModeOn)
             {
                 if (selectedXIndex != -1 && selectedYIndex != -1)

@@ -68,7 +68,7 @@
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.darkSectionPanel2 = new DarkUI.Controls.DarkSectionPanel();
             this.darkSectionPanel3 = new DarkUI.Controls.DarkSectionPanel();
-            this.darkDockPanel2 = new DarkUI.Docking.DarkDockPanel();
+            this.spritesEditorRenderer1 = new SimplexIde.SpritesEditorRenderer();
             this.darkMenuStrip1.SuspendLayout();
             this.darkSectionPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.darkNumericUpDown3)).BeginInit();
@@ -411,14 +411,12 @@
             // 
             // darkDockPanel1
             // 
-            this.darkDockPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.darkDockPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-            this.darkDockPanel1.Location = new System.Drawing.Point(278, 74);
+            this.darkDockPanel1.Enabled = false;
+            this.darkDockPanel1.Location = new System.Drawing.Point(0, 0);
             this.darkDockPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.darkDockPanel1.Name = "darkDockPanel1";
-            this.darkDockPanel1.Size = new System.Drawing.Size(931, 588);
+            this.darkDockPanel1.Size = new System.Drawing.Size(100, 100);
             this.darkDockPanel1.TabIndex = 36;
             // 
             // openFileDialog1
@@ -551,29 +549,36 @@
             this.darkSectionPanel3.Size = new System.Drawing.Size(296, 723);
             this.darkSectionPanel3.TabIndex = 10;
             // 
-            // darkDockPanel2
+            // spritesEditorRenderer1
             // 
-            this.darkDockPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.spritesEditorRenderer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.darkDockPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
-            this.darkDockPanel2.Location = new System.Drawing.Point(259, 206);
-            this.darkDockPanel2.Name = "darkDockPanel2";
-            this.darkDockPanel2.Size = new System.Drawing.Size(1119, 600);
-            this.darkDockPanel2.TabIndex = 10;
-            this.darkDockPanel2.Load += new System.EventHandler(this.DarkDockPanel2_Load);
+            this.spritesEditorRenderer1.Location = new System.Drawing.Point(259, 207);
+            this.spritesEditorRenderer1.Margin = new System.Windows.Forms.Padding(4);
+            this.spritesEditorRenderer1.MouseHoverUpdatesOnly = false;
+            this.spritesEditorRenderer1.Name = "spritesEditorRenderer1";
+            this.spritesEditorRenderer1.Size = new System.Drawing.Size(1120, 599);
+            this.spritesEditorRenderer1.TabIndex = 11;
+            this.spritesEditorRenderer1.Text = "spritesEditorRenderer1";
+            this.spritesEditorRenderer1.OnMouseWheelUpwards += new MonoGame.Forms.Controls.GraphicsDeviceControl.MouseWheelUpwardsEvent(this.SpritesEditorRenderer1_OnMouseWheelUpwards_1);
+            this.spritesEditorRenderer1.OnMouseWheelDownwards += new MonoGame.Forms.Controls.GraphicsDeviceControl.MouseWheelDownwardsEvent(this.SpritesEditorRenderer1_OnMouseWheelDownwards_1);
+            this.spritesEditorRenderer1.Click += new System.EventHandler(this.SpritesEditorRenderer1_Click_1);
+            this.spritesEditorRenderer1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SpritesEditorRenderer1_MouseDown_1);
+            this.spritesEditorRenderer1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SpritesEditorRenderer1_MouseMove_1);
+            this.spritesEditorRenderer1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.SpritesEditorRenderer1_MouseUp_1);
             // 
             // Sprites_manager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.spritesEditorRenderer1);
             this.Controls.Add(this.darkSectionPanel3);
-            this.Controls.Add(this.darkDockPanel2);
             this.Controls.Add(this.darkSectionPanel2);
             this.Controls.Add(this.darkToolStrip2);
             this.Controls.Add(this.darkToolStrip1);
-            this.Controls.Add(this.darkMenuStrip1);
             this.Controls.Add(this.darkSectionPanel1);
+            this.Controls.Add(this.darkMenuStrip1);
             this.DefaultDockArea = DarkUI.Docking.DarkDockArea.Document;
             this.DockText = "Sprites editor";
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -640,6 +645,6 @@
         public DarkUI.Docking.DarkDockPanel darkDockPanel1;
         private DarkUI.Controls.DarkSectionPanel darkSectionPanel2;
         private DarkUI.Controls.DarkSectionPanel darkSectionPanel3;
-        private DarkUI.Docking.DarkDockPanel darkDockPanel2;
+        public SpritesEditorRenderer spritesEditorRenderer1;
     }
 }

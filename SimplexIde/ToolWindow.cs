@@ -383,11 +383,12 @@ namespace SimplexIde
 
                     if (s != null)
                     {
-                        sm.srpf.spritesEditorRenderer1.selectedImage = s;
+                        sm.spritesEditorRenderer1.selectedImage = s;
                     }
 
                     form1.darkDockPanel1.AddContent(sm);
                     sm.Invalidate();
+                   // sm.darkDockPanel2.AssureMePlase();
                 }
 
                 if (dtn.RootNodeName == "Objects")
