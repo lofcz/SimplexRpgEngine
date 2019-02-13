@@ -76,7 +76,7 @@ namespace SimplexCore
             return null;
         }
         
-        public static bool? mp_linear_step_objects(float Xgoal, float Ygoal, int StepSize, Type[] obj)
+        public static bool? mp_linear_objects(float Xgoal, float Ygoal, int StepSize, Type[] obj)
         {
             if (point_distance(currentObject.Position, new Vector2(Xgoal, Ygoal)) > StepSize)
             {
@@ -96,7 +96,7 @@ namespace SimplexCore
             return null;
         }
         
-        public static bool? mp_linear_step_object(float Xgoal, float Ygoal, int StepSize, Type obj)
+        public static bool? mp_linear_object(float Xgoal, float Ygoal, int StepSize, Type obj)
         {
             if (point_distance(currentObject.Position, new Vector2(Xgoal, Ygoal)) > StepSize)
             {
