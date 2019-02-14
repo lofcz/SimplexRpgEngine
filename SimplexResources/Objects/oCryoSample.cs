@@ -32,8 +32,7 @@ namespace SimplexResources.Objects
         
         public override void EvtStep()
         {
-            
-            if (mp_linear_step(10, 10, 16) == null)
+            if (mp_linear_objects(10,10,20,new []{typeof(oBrick), typeof(oGem)}) == false)
             {
                 mp_linear_path(path);
             }

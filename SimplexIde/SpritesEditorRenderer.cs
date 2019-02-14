@@ -44,6 +44,7 @@ namespace SimplexIde
         private MouseState ms;
         private Texture2D pixel = null;
         public Color penColor = Color.Black;
+        public Color penColorRight = Color.Black;
 
         protected override void Initialize()
         {
@@ -108,6 +109,18 @@ namespace SimplexIde
                     Sgml.draw_set_aa(false);
 
                     Sgml.draw_set_color(penColor);
+                    Sgml.draw_sprite(pixel, -2, new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1));
+                    //Sgml.draw_rectangle(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1), new Vector2((float)Sgml.round(Sgml.mouse.X + .5f) - x1, (float)Sgml.round(Sgml.mouse.Y + .5f) - y1), false);
+                    Sgml.surface_reset_target();
+                    Sgml.draw_set_color(Color.White);
+                }
+
+                if (ms.RightButton == ButtonState.Pressed)
+                {
+                    Sgml.surface_set_target(imageOverlay);
+                    Sgml.draw_set_aa(false);
+
+                    Sgml.draw_set_color(penColorRight);
                     Sgml.draw_sprite(pixel, -2, new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1));
                     //Sgml.draw_rectangle(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1), new Vector2((float)Sgml.round(Sgml.mouse.X + .5f) - x1, (float)Sgml.round(Sgml.mouse.Y + .5f) - y1), false);
                     Sgml.surface_reset_target();
@@ -274,10 +287,14 @@ namespace SimplexIde
 
                             Sgml.draw_set_aa(false);
                             Sgml.draw_surface(new Vector2(x1, y1), imageOverlay);
+
+                            Sgml.draw_set_color(penColor);
                             Sgml.draw_rectangle(
                                 new Vector2((float) Sgml.round(Sgml.mouse.X - .5f), (float) Sgml.round(Sgml.mouse.Y - .5f)),
                                 new Vector2((float) Sgml.round(Sgml.mouse.X + .5f), (float) Sgml.round(Sgml.mouse.Y + .5f)),
                                 false);
+
+                            Sgml.draw_set_color(Color.White);
                         }
                     }
                 }
