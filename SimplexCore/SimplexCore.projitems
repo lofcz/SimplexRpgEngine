@@ -9,6 +9,7 @@
     <Import_RootNamespace>SimplexCore</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AnimationFrame.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Autotile.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AutotileDefinition.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Circle.cs" />

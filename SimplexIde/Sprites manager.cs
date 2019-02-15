@@ -1190,20 +1190,31 @@ namespace SimplexIde
             
         }
 
+        private int holdingFrame = -1;
+
         private void DarkImageIndex1_MouseDown(object sender, MouseEventArgs e)
         {
             // behavior of the control itself
             int actualX = e.X + darkImageIndex1.CameraX;
             int actualY = e.Y;
 
-            if (e.X > 0 && e.X < 100)
+            if (e.X > 0 && e.X < 80)
             {
-                darkImageIndex1.Frames.Add(new ImageIndex() {bmp = lastImage});
+                darkImageIndex1.Frames.Add(new ImageIndex() {});
+                spritesEditorRenderer1.AddEmptyFrame();
             }
             else
             {
-                darkImageIndex1.SelectedFrame = e.X / 80;
+                darkImageIndex1.SelectedFrame = ((e.X - 96) / 96);
+                spritesEditorRenderer1.selectedImageIndex = ((e.X - 96) / 96);
+                
+                spritesEditorRenderer1.SelectFrame((e.X - 96) / 96);
             }
+        }
+
+        private void DarkImageIndex1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 

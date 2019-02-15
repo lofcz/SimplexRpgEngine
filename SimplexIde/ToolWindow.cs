@@ -385,6 +385,8 @@ namespace SimplexIde
                     {
                         sm.spritesEditorRenderer1.selectedImage = s;
                         sm.lastImage = Sgml.convert_to_bitmap(s, s.Width, s.Height);
+
+                        sm.spritesEditorRenderer1.AddFrameFromTexture(s);
                     }
 
                     form1.darkDockPanel1.AddContent(sm);

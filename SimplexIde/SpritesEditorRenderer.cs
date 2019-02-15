@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Diagnostics;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +16,9 @@ using MonoGame.Extended;
 using MonoGame.Forms.Controls;
 using SimplexCore;
 using ButtonState = Microsoft.Xna.Framework.Input.ButtonState;
+using Color = Microsoft.Xna.Framework.Color;
+using Rectangle = Microsoft.Xna.Framework.Rectangle;
+using RectangleF = MonoGame.Extended.RectangleF;
 
 namespace SimplexIde
 {
@@ -39,12 +44,50 @@ namespace SimplexIde
         int selectedXIndex = -1;
         private int selectedYIndex = -1;
         RenderTarget2D gridSurface = null;
-        private int selectedImageIndex = -1;
+        public int selectedImageIndex = 0;
         private RenderTarget2D imageOverlay = null;
         private MouseState ms;
         private Texture2D pixel = null;
         public Color penColor = Color.Black;
         public Color penColorRight = Color.Black;
+        public AnimationFrame selectedFrame = null;
+        public int selectedLayer = 0;
+        public List<AnimationFrame> Frames = new List<AnimationFrame>();
+        private RenderTarget2D previewGrid;
+
+        public void AddEmptyFrame()
+        {
+            AnimationFrame af = new AnimationFrame();
+
+            RenderTarget2D s = Sgml.surface_create(selectedImage.Width, selectedImage.Height);
+            
+            af.layers.Add(new AnimationLayer() {texture = s });
+            selectedFrame = af;
+            Frames.Add(af);
+        }
+
+        public void AddFrameFromTexture(Texture2D texture)
+        {
+            AnimationFrame af = new AnimationFrame();
+            af.texture = texture;
+
+            RenderTarget2D surf = Sgml.surface_create(texture.Width, texture.Height);
+            Sgml.surface_set_target(surf);
+            Sgml.draw_sprite(texture, -2, Vector2.Zero);
+            Sgml.surface_reset_target();
+
+            af.layers.Add(new AnimationLayer() {texture = surf});
+            selectedFrame = af;
+            Frames.Add(af);
+        }
+
+        public void SelectFrame(int index)
+        {
+            selectedFrame = Frames[index];
+        }
+
+        
+
 
         protected override void Initialize()
         {
@@ -72,6 +115,8 @@ namespace SimplexIde
           
             Rsize();
             UpdateGrid();
+
+            previewGrid = Sgml.surface_create(80, 80);
         }
 
         protected override void Update(GameTime gameTime)
@@ -96,37 +141,55 @@ namespace SimplexIde
             Sgml.view = view;
             Sgml.normalizedMatrix = normalizedMatrix;
 
-            if (imageOverlay != null)
+            if (selectedFrame != null)
             {
-                int x1 = selectedXIndex * (int)parentForm.darkNumericUpDown1.Value + 200;
-                int y1 = selectedXIndex * (int)parentForm.darkNumericUpDown2.Value + 200;
-                int x2 = x1 + (int)parentForm.darkNumericUpDown1.Value;
-                int y2 = y1 + (int)parentForm.darkNumericUpDown2.Value;
+                int x1 = 0;
+                int y1 = 0;
 
                 if (ms.LeftButton == ButtonState.Pressed)
                 {
-                    Sgml.surface_set_target(imageOverlay);
+                    Sgml.surface_set_target(selectedFrame.layers[0].texture);
                     Sgml.draw_set_aa(false);
 
                     Sgml.draw_set_color(penColor);
                     Sgml.draw_sprite(pixel, -2, new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1));
-                    //Sgml.draw_rectangle(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1), new Vector2((float)Sgml.round(Sgml.mouse.X + .5f) - x1, (float)Sgml.round(Sgml.mouse.Y + .5f) - y1), false);
                     Sgml.surface_reset_target();
                     Sgml.draw_set_color(Color.White);
+
+                    UpdatePreview(selectedImageIndex);
                 }
 
                 if (ms.RightButton == ButtonState.Pressed)
                 {
-                    Sgml.surface_set_target(imageOverlay);
+                    Sgml.surface_set_target(selectedFrame.layers[0].texture);
                     Sgml.draw_set_aa(false);
 
                     Sgml.draw_set_color(penColorRight);
                     Sgml.draw_sprite(pixel, -2, new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1));
-                    //Sgml.draw_rectangle(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1), new Vector2((float)Sgml.round(Sgml.mouse.X + .5f) - x1, (float)Sgml.round(Sgml.mouse.Y + .5f) - y1), false);
                     Sgml.surface_reset_target();
                     Sgml.draw_set_color(Color.White);
+
+                    UpdatePreview(selectedImageIndex);
                 }
             }
+        }
+
+        void UpdatePreview(int index)
+        {
+            RenderTarget2D finalSurface = Sgml.surface_create(selectedFrame.layers[0].texture.Width, selectedFrame.layers[0].texture.Height);
+            Sgml.surface_set_target(finalSurface);
+
+
+            Sgml.draw_surface(Vector2.Zero, selectedFrame.layers[0].texture);
+            Sgml.surface_reset_target();
+
+            MemoryStream ms = Sgml.surface_save_ext_memory(finalSurface, 80, 80);
+
+            Bitmap b = (Bitmap)Image.FromStream(ms);
+            b.MakeTransparent(System.Drawing.Color.Black);
+
+            parentForm.darkImageIndex1.Frames[index].bmp = b;
+            parentForm.darkImageIndex1.Invalidate();
         }
 
         public void SaveChanges()
@@ -134,7 +197,7 @@ namespace SimplexIde
             RenderTarget2D finalSurface = Sgml.surface_create(imageOverlay.Width, imageOverlay.Height);
             Sgml.surface_set_target(finalSurface);
             Sgml.draw_sprite(selectedImage, -2, Vector2.Zero);
-            Sgml.draw_surface(Vector2.Zero, imageOverlay);
+         //   Sgml.draw_surface(Vector2.Zero, imageOverlay);
             Sgml.surface_reset_target();
 
 
@@ -201,102 +264,64 @@ namespace SimplexIde
                 basicEffect.View = view;
                 Sgml.m = transformMatrix;
 
-                //Sgml.draw_circle_fast(new Vector2(Sgml.mouse.X, Sgml.mouse.Y), 32, 24, Color.CornflowerBlue);
-                if (selectedImage != null)
+                if (selectedFrame != null)
                 {
                     Sgml.draw_set_aa(!parentForm.drawModeOn);
 
-                    if (selectedImageIndex == -1)
+                    if (selectedFrame.layers[0].texture != null)
                     {
-                        Sgml.draw_sprite(selectedImage, -2, new Vector2(200, 200));
-                    }
-                    else
-                    {
-                        Sgml.draw_sprite_part(selectedImage, new Rectangle(selectedXIndex * (int) parentForm.darkNumericUpDown1.Value, selectedYIndex * (int) parentForm.darkNumericUpDown2.Value, (int) parentForm.darkNumericUpDown1.Value, (int) parentForm.darkNumericUpDown2.Value), new Vector2(200, 200));
+                        Sgml.draw_surface(Vector2.Zero, selectedFrame.layers[selectedLayer].texture);
                     }
 
                     Sgml.draw_set_aa(true);
 
                     // draw cells
-                    int xx = 200;
-                    int yy = 200;
+                    int xx = 0;
+                    int yy = 0;
                     int xIndex = 0;
                     int yIndex = 0;
                     RectangleF temp = RectangleF.Empty;
 
-                    if (selectedImageIndex == -1)
+                    int x1 = 0;
+                    int y1 = 0;
+                    int x2 = x1 + (int) parentForm.darkNumericUpDown1.Value;
+                    int y2 = y1 + (int) parentForm.darkNumericUpDown2.Value;
+
+                    Sgml.draw_set_alpha(0.8);
+                    Sgml.draw_set_color(Color.Black);
+                    for (var i = 0; i < parentForm.darkNumericUpDown2.Value + 1; i++)
                     {
-                        for (var i = 0; i < parentForm.darkNumericUpDown3.Value; i++)
+                        Sgml.draw_line(x1, y1 + i, x2, y1 + i);
+                    }
+
+                    for (var i = 0; i < parentForm.darkNumericUpDown2.Value + 1; i++)
+                    {
+                        Sgml.draw_line(x1 + i, y1, x1 + i, y2);
+                    }
+
+                    Sgml.draw_set_alpha(1);
+                    Sgml.draw_set_color(Color.White);
+
+                    Sgml.draw_set_aa(false);
+              
+
+                    Sgml.draw_set_color(penColor);
+                    Sgml.draw_rectangle(
+                        new Vector2((float) Sgml.round(Sgml.mouse.X - .5f), (float) Sgml.round(Sgml.mouse.Y - .5f)),
+                        new Vector2((float) Sgml.round(Sgml.mouse.X + .5f), (float) Sgml.round(Sgml.mouse.Y + .5f)),
+                        false);
+
+                    Sgml.draw_set_alpha(1);
+                    Sgml.draw_set_color(Color.White);
+
+                    if (selectedFrame.layers.Count > 0)
+                    {
+                        if (selectedFrame.layers[0].texture != null)
                         {
-                            for (var j = 0; j < selectedImage.Width / parentForm.darkNumericUpDown1.Value; j++)
-                            {
-                                temp.Size = new Size2((int) parentForm.darkNumericUpDown1.Value,
-                                    (int) parentForm.darkNumericUpDown2.Value);
-                                temp.Position = new Point2(xx, yy);
-
-                                Sgml.draw_rectangle(temp, true);
-
-                                // check for mouse intersection
-                                if (Sgml.point_in_rectangle(Sgml.mouse, temp) ||
-                                    (selectedXIndex == xIndex && selectedYIndex == yIndex))
-                                {
-                                    Sgml.draw_set_alpha(0.5);
-                                    Sgml.draw_rectangle(temp, false);
-                                    Sgml.draw_set_alpha(1);
-
-                                    if (ms.LeftButton == ButtonState.Pressed)
-                                    {
-                                        selectedXIndex = xIndex;
-                                        selectedYIndex = yIndex;
-                                    }
-                                }
-
-                                xx += (int) parentForm.darkNumericUpDown1.Value;
-                                xIndex++;
-                            }
-
-                            xx = 200;
-                            yy += (int) parentForm.darkNumericUpDown2.Value;
-                            xIndex = 0;
-                            yIndex++;
+                            Sgml.draw_rectangle(Vector2.Zero, new Vector2(selectedFrame.layers[0].texture.Width, selectedFrame.layers[0].texture.Height), true);
                         }
                     }
-                    else
-                    {
-                        if (imageOverlay != null)
-                        {
-                            int x1 = selectedXIndex * (int) parentForm.darkNumericUpDown1.Value + 200;
-                            int y1 = selectedXIndex * (int) parentForm.darkNumericUpDown2.Value + 200;
-                            int x2 = x1 + (int) parentForm.darkNumericUpDown1.Value;
-                            int y2 = y1 + (int) parentForm.darkNumericUpDown2.Value;
 
-                            Sgml.draw_set_alpha(0.8);
-                            Sgml.draw_set_color(Color.Black);
-                            for (var i = 0; i < parentForm.darkNumericUpDown2.Value + 1; i++)
-                            {
-                                Sgml.draw_line(x1, y1 + i, x2, y1 + i);
-                            }
-
-                            for (var i = 0; i < parentForm.darkNumericUpDown2.Value + 1; i++)
-                            {
-                                Sgml.draw_line(x1 + i, y1, x1 + i, y2);
-                            }
-
-                            Sgml.draw_set_alpha(1);
-                            Sgml.draw_set_color(Color.White);
-
-                            Sgml.draw_set_aa(false);
-                            Sgml.draw_surface(new Vector2(x1, y1), imageOverlay);
-
-                            Sgml.draw_set_color(penColor);
-                            Sgml.draw_rectangle(
-                                new Vector2((float) Sgml.round(Sgml.mouse.X - .5f), (float) Sgml.round(Sgml.mouse.Y - .5f)),
-                                new Vector2((float) Sgml.round(Sgml.mouse.X + .5f), (float) Sgml.round(Sgml.mouse.Y + .5f)),
-                                false);
-
-                            Sgml.draw_set_color(Color.White);
-                        }
-                    }
                 }
             }
         }
