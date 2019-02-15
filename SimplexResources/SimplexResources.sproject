@@ -19,13 +19,6 @@
       "nameColor": "220, 220, 220"
     },
     {
-      "name": "elves1",
-      "path": "Sprites",
-      "tag": "",
-      "tagColor": "220, 220, 220",
-      "nameColor": "220, 220, 220"
-    },
-    {
       "name": "elves0",
       "path": "Sprites",
       "tag": "",
@@ -33,7 +26,7 @@
       "nameColor": "220, 220, 220"
     },
     {
-      "name": "circle",
+      "name": "elves1",
       "path": "Sprites",
       "tag": "",
       "tagColor": "220, 220, 220",
@@ -62,6 +55,13 @@
     },
     {
       "name": "elves5",
+      "path": "Sprites",
+      "tag": "",
+      "tagColor": "220, 220, 220",
+      "nameColor": "220, 220, 220"
+    },
+    {
+      "name": "circle",
       "path": "Sprites",
       "tag": "",
       "tagColor": "220, 220, 220",
@@ -103,13 +103,6 @@
       "nameColor": "220, 220, 220"
     },
     {
-      "name": "oGeorgeNew",
-      "path": "Objects/Actors",
-      "tag": "[WIP]",
-      "tagColor": "128, 0, 255",
-      "nameColor": "255, 128, 64"
-    },
-    {
       "name": "LevelGenerator",
       "path": "Objects/Actors",
       "tag": "",
@@ -136,6 +129,13 @@
       "tag": null,
       "tagColor": "Gainsboro",
       "nameColor": "Gainsboro"
+    },
+    {
+      "name": "oGeorgeNew",
+      "path": "Objects/Actors",
+      "tag": "[WIP]",
+      "tagColor": "128, 0, 255",
+      "nameColor": "255, 128, 64"
     },
     {
       "name": "oBrick",

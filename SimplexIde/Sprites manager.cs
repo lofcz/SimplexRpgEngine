@@ -1179,6 +1179,32 @@ namespace SimplexIde
             Sgml.show_debug_message(e.Button.ToString());
             darkMouseTool1.Invalidate();
         }
+
+        private void DarkProgressBar1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DarkImageIndex1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void DarkImageIndex1_MouseDown(object sender, MouseEventArgs e)
+        {
+            // behavior of the control itself
+            int actualX = e.X + darkImageIndex1.CameraX;
+            int actualY = e.Y;
+
+            if (e.X > 0 && e.X < 100)
+            {
+                darkImageIndex1.Frames.Add(new ImageIndex() {bmp = lastImage});
+            }
+            else
+            {
+                darkImageIndex1.SelectedFrame = e.X / 80;
+            }
+        }
     }
 
     public class Subsprite

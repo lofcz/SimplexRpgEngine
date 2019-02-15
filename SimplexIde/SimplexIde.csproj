@@ -172,6 +172,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="RoomsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -240,14 +245,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="FormNew.resx">
       <DependentUpon>FormNew.cs</DependentUpon>
     </EmbeddedResource>
@@ -472,6 +472,48 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Select.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\airbrush.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle 1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle 2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle 3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle 4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle 5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle 6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Star.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Circle 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Circle 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Circle 3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Circle 4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Circle 5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Circle 6.png" />
   </ItemGroup>
   <Import Project="..\SimplexCore\SimplexCore.projitems" Label="Shared" />
   <Import Project="..\SimplexResources\SimplexResources.projitems" Label="Shared" />
