@@ -989,6 +989,7 @@
             this.darkImageIndex1.Click += new System.EventHandler(this.DarkImageIndex1_Click);
             this.darkImageIndex1.Paint += new System.Windows.Forms.PaintEventHandler(this.DarkImageIndex1_Paint);
             this.darkImageIndex1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DarkImageIndex1_MouseDown);
+            this.darkImageIndex1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DarkImageIndex1_MouseMove);
             // 
             // darkGroupBox4
             // 
@@ -1143,7 +1144,7 @@
         private DarkUI.Controls.DarkButton darkButton31;
         private DarkUI.Controls.DarkButton darkButton32;
         private System.Windows.Forms.ToolStripMenuItem transformToolStripMenuItem;
-        private DarkUI.Controls.DarkGroupBox darkGroupBox4;
         public DarkUI.Controls.DarkImageIndex darkImageIndex1;
+        public DarkUI.Controls.DarkGroupBox darkGroupBox4;
     }
 }

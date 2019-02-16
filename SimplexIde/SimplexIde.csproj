@@ -515,6 +515,12 @@
   <ItemGroup>
     <None Include="Resources\Circle 6.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\black-gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red.png" />
+  </ItemGroup>
   <Import Project="..\SimplexCore\SimplexCore.projitems" Label="Shared" />
   <Import Project="..\SimplexResources\SimplexResources.projitems" Label="Shared" />
   <Import Project="..\TestExtension1\TestExtension1.projitems" Label="Shared" />

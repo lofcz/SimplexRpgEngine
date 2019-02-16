@@ -83,6 +83,16 @@ namespace SimplexIde.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap black_gray {
+            get {
+                object obj = ResourceManager.GetObject("black_gray", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BlankApplication_16x {
             get {
                 object obj = ResourceManager.GetObject("BlankApplication_16x", resourceCulture);
@@ -466,6 +476,16 @@ namespace SimplexIde.Properties {
         internal static System.Drawing.Bitmap RectangleSelectionTool_16x {
             get {
                 object obj = ResourceManager.GetObject("RectangleSelectionTool_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap red {
+            get {
+                object obj = ResourceManager.GetObject("red", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

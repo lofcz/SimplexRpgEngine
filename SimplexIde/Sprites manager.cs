@@ -54,7 +54,7 @@ namespace SimplexIde
         public List<MgcbEntry> MgcbEntries = new List<MgcbEntry>();
         public Graphics WinGraphics;
         public SpritesRenderPreviewForm srpf = new SpritesRenderPreviewForm();
-
+        private int mouseX = 0;
         public Sprites_manager()
         {
             InitializeComponent();
@@ -1198,23 +1198,39 @@ namespace SimplexIde
             int actualX = e.X + darkImageIndex1.CameraX;
             int actualY = e.Y;
 
-            if (e.X > 0 && e.X < 80)
+            if (actualX > 0 && actualX < 80)
             {
                 darkImageIndex1.Frames.Add(new ImageIndex() {});
                 spritesEditorRenderer1.AddEmptyFrame();
+                spritesEditorRenderer1.UpdatePreview(spritesEditorRenderer1.selectedImageIndex);
+
+                darkGroupBox4.Text = "Animation (" + spritesEditorRenderer1.Frames.Count + "/" + spritesEditorRenderer1.Frames.Count + ")";
             }
             else
             {
-                darkImageIndex1.SelectedFrame = ((e.X - 96) / 96);
-                spritesEditorRenderer1.selectedImageIndex = ((e.X - 96) / 96);
+                darkImageIndex1.SelectedFrame = ((actualX - 96) / 96);
+                spritesEditorRenderer1.selectedImageIndex = ((actualX - 96) / 96);
                 
-                spritesEditorRenderer1.SelectFrame((e.X - 96) / 96);
+                spritesEditorRenderer1.SelectFrame(((actualX - 96) / 96));
             }
         }
 
         private void DarkImageIndex1_Paint(object sender, PaintEventArgs e)
         {
+            int actualX = mouseX + darkImageIndex1.CameraX;
 
+            if (actualX > 80)
+            {
+                int k = ((actualX - 96) / 96) * 96;
+
+                e.Graphics.DrawImage(Properties.Resources.red, new System.Drawing.Point(actualX, 5));
+            }
+        }
+
+        private void DarkImageIndex1_MouseMove(object sender, MouseEventArgs e)
+        {
+            darkImageIndex1.Invalidate();
+            mouseX = e.X;
         }
     }
 

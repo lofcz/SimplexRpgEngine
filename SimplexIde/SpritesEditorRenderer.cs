@@ -64,6 +64,8 @@ namespace SimplexIde
             af.layers.Add(new AnimationLayer() {texture = s });
             selectedFrame = af;
             Frames.Add(af);
+
+            Debug.WriteLine(Frames.Count);
         }
 
         public void AddFrameFromTexture(Texture2D texture)
@@ -83,7 +85,11 @@ namespace SimplexIde
 
         public void SelectFrame(int index)
         {
-            selectedFrame = Frames[index];
+            if (Frames.Count > index)
+            {
+                selectedFrame = Frames[index];
+                parentForm.darkGroupBox4.Text = "Animation (" + index + "/" + Frames.Count + ")";
+            }
         }
 
         
@@ -174,7 +180,7 @@ namespace SimplexIde
             }
         }
 
-        void UpdatePreview(int index)
+        public void UpdatePreview(int index)
         {
             RenderTarget2D finalSurface = Sgml.surface_create(selectedFrame.layers[0].texture.Width, selectedFrame.layers[0].texture.Height);
             Sgml.surface_set_target(finalSurface);
@@ -188,7 +194,12 @@ namespace SimplexIde
             Bitmap b = (Bitmap)Image.FromStream(ms);
             b.MakeTransparent(System.Drawing.Color.Black);
 
-            parentForm.darkImageIndex1.Frames[index].bmp = b;
+            if (parentForm.darkImageIndex1.Frames.Count > index)
+            {
+                parentForm.darkImageIndex1.Frames[index].bmp = b;
+            }
+
+            Debug.WriteLine(parentForm.darkImageIndex1.Frames.Count);
             parentForm.darkImageIndex1.Invalidate();
         }
 
