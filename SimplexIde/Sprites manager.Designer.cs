@@ -506,6 +506,7 @@
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(24, 23);
             this.toolStripButton2.Text = "toolStripButton2";
+            this.toolStripButton2.Click += new System.EventHandler(this.ToolStripButton2_Click);
             // 
             // toolStripSeparator1
             // 
@@ -980,7 +981,7 @@
             // 
             this.darkImageIndex1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.darkImageIndex1.Location = new System.Drawing.Point(6, 22);
+            this.darkImageIndex1.Location = new System.Drawing.Point(6, 28);
             this.darkImageIndex1.Name = "darkImageIndex1";
             this.darkImageIndex1.SelectedFrame = 0;
             this.darkImageIndex1.Size = new System.Drawing.Size(1106, 130);
@@ -998,7 +999,7 @@
             this.darkGroupBox4.Controls.Add(this.darkImageIndex1);
             this.darkGroupBox4.Location = new System.Drawing.Point(258, 87);
             this.darkGroupBox4.Name = "darkGroupBox4";
-            this.darkGroupBox4.Size = new System.Drawing.Size(1118, 158);
+            this.darkGroupBox4.Size = new System.Drawing.Size(1118, 172);
             this.darkGroupBox4.TabIndex = 16;
             this.darkGroupBox4.TabStop = false;
             this.darkGroupBox4.Text = "Animation";
@@ -1008,11 +1009,11 @@
             this.spritesEditorRenderer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.spritesEditorRenderer1.Location = new System.Drawing.Point(259, 256);
+            this.spritesEditorRenderer1.Location = new System.Drawing.Point(259, 274);
             this.spritesEditorRenderer1.Margin = new System.Windows.Forms.Padding(4);
             this.spritesEditorRenderer1.MouseHoverUpdatesOnly = false;
             this.spritesEditorRenderer1.Name = "spritesEditorRenderer1";
-            this.spritesEditorRenderer1.Size = new System.Drawing.Size(1117, 611);
+            this.spritesEditorRenderer1.Size = new System.Drawing.Size(1117, 593);
             this.spritesEditorRenderer1.TabIndex = 11;
             this.spritesEditorRenderer1.Text = "spritesEditorRenderer1";
             this.spritesEditorRenderer1.OnMouseWheelUpwards += new MonoGame.Forms.Controls.GraphicsDeviceControl.MouseWheelUpwardsEvent(this.SpritesEditorRenderer1_OnMouseWheelUpwards_1);

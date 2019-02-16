@@ -1232,6 +1232,18 @@ namespace SimplexIde
             darkImageIndex1.Invalidate();
             mouseX = e.X;
         }
+
+        private void DarkButton33_Click(object sender, EventArgs e)
+        {
+ 
+        }
+
+        private void ToolStripButton2_Click(object sender, EventArgs e)
+        {
+            // clear current image
+            spritesEditorRenderer1.selectedFrame.layers[0].texture = surface_create(spritesEditorRenderer1.selectedFrame.layers[0].texture.Width, spritesEditorRenderer1.selectedFrame.layers[0].texture.Height);
+            spritesEditorRenderer1.UpdatePreview(spritesEditorRenderer1.selectedImageIndex);
+        }
     }
 
     public class Subsprite
