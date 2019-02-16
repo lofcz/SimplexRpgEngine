@@ -54,6 +54,7 @@ namespace SimplexIde
         public int selectedLayer = 0;
         public List<AnimationFrame> Frames = new List<AnimationFrame>();
         private RenderTarget2D previewGrid;
+        private int animateIn = 0;
 
         public void AddEmptyFrame()
         {
@@ -176,6 +177,29 @@ namespace SimplexIde
                     Sgml.draw_set_color(Color.White);
 
                     UpdatePreview(selectedImageIndex);
+                }
+            }
+
+
+            // Update frame if user pushed autoplay btn 
+            if (parentForm.darkButton33.Pushed)
+            {
+                animateIn--;
+
+                if (animateIn <= 0)
+                {
+                    animateIn = (int)parentForm.darkNumericUpDown5.Value;
+
+                    selectedImageIndex++;
+
+                    if (selectedImageIndex >= Frames.Count)
+                    {
+                        selectedImageIndex = 0;
+                    }
+
+                    selectedFrame = Frames[selectedImageIndex];
+                    parentForm.darkImageIndex1.SelectedFrame = selectedImageIndex;
+                    parentForm.darkImageIndex1.Invalidate();
                 }
             }
         }

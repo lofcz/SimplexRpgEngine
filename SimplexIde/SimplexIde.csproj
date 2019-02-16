@@ -521,6 +521,15 @@
   <ItemGroup>
     <None Include="Resources\red.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pause_grey_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayVideo_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stop_grey_16x.png" />
+  </ItemGroup>
   <Import Project="..\SimplexCore\SimplexCore.projitems" Label="Shared" />
   <Import Project="..\SimplexResources\SimplexResources.projitems" Label="Shared" />
   <Import Project="..\TestExtension1\TestExtension1.projitems" Label="Shared" />

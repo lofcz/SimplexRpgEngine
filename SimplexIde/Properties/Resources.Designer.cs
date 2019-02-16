@@ -413,6 +413,16 @@ namespace SimplexIde.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Pause_grey_16x {
+            get {
+                object obj = ResourceManager.GetObject("Pause_grey_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Pen4_16x {
             get {
                 object obj = ResourceManager.GetObject("Pen4_16x", resourceCulture);
@@ -436,6 +446,16 @@ namespace SimplexIde.Properties {
         internal static System.Drawing.Bitmap Picker_16x {
             get {
                 object obj = ResourceManager.GetObject("Picker_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PlayVideo_16x {
+            get {
+                object obj = ResourceManager.GetObject("PlayVideo_16x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -656,6 +676,16 @@ namespace SimplexIde.Properties {
         internal static System.Drawing.Bitmap Stop_16x {
             get {
                 object obj = ResourceManager.GetObject("Stop_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Stop_grey_16x {
+            get {
+                object obj = ResourceManager.GetObject("Stop_grey_16x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

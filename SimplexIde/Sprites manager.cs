@@ -1244,6 +1244,11 @@ namespace SimplexIde
             spritesEditorRenderer1.selectedFrame.layers[0].texture = surface_create(spritesEditorRenderer1.selectedFrame.layers[0].texture.Width, spritesEditorRenderer1.selectedFrame.layers[0].texture.Height);
             spritesEditorRenderer1.UpdatePreview(spritesEditorRenderer1.selectedImageIndex);
         }
+
+        private void DarkButton33_Click_1(object sender, EventArgs e)
+        {
+            darkButton33.Pushed = !darkButton33.Pushed;
+        }
     }
 
     public class Subsprite
