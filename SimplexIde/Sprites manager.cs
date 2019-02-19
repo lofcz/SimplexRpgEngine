@@ -1142,18 +1142,24 @@ namespace SimplexIde
          
 
             if (e.Button == MouseButtons.Left)
-            {
+            {                             
+                Microsoft.Xna.Framework.Color cc = new Microsoft.Xna.Framework.Color(c.R, c.G, c.B, c.A);
+                cc *= (float)(darkNumericUpDown4.Value / 255);
+                spritesEditorRenderer1.penColor = cc;
+
+                c = Color.FromArgb((int)darkNumericUpDown4.Value, c);
                 darkMouseTool1.LeftColor = c;
-                spritesEditorRenderer1.penColor = new Microsoft.Xna.Framework.Color(c.R, c.G, c.B, c.A);
             }
             else if (e.Button == MouseButtons.Right)
             {
-                darkMouseTool1.RightColor = c;
-                spritesEditorRenderer1.penColorRight = new Microsoft.Xna.Framework.Color(c.R, c.G, c.B, c.A);
+                Microsoft.Xna.Framework.Color cc = new Microsoft.Xna.Framework.Color(c.R, c.G, c.B, c.A);
+                cc *= (float)(darkNumericUpDown4.Value / 255);
+                spritesEditorRenderer1.penColorRight = cc;
 
+                c = Color.FromArgb((int)darkNumericUpDown4.Value, c);
+                darkMouseTool1.RightColor = c;
             }
 
-            Sgml.show_debug_message(e.Button.ToString());
             darkMouseTool1.Invalidate();
         }
 
@@ -1163,20 +1169,22 @@ namespace SimplexIde
             darkColorPallete2.DrawToBitmap(b, new Rectangle(0, 0, b.Width, b.Height));
 
             Color c = b.GetPixel(e.X, e.Y);
-            
+            c = Color.FromArgb((int)darkNumericUpDown4.Value, c);
+
+            Microsoft.Xna.Framework.Color cc = new Microsoft.Xna.Framework.Color(c.R, c.G, c.B, c.A);
+            cc *= (float)(darkNumericUpDown4.Value / 255);
 
             if (e.Button == MouseButtons.Left)
             {
                 darkMouseTool1.LeftColor = c;
-                spritesEditorRenderer1.penColor = new Microsoft.Xna.Framework.Color(c.R, c.G, c.B, c.A);
+                spritesEditorRenderer1.penColor = cc;
             }
             else if (e.Button == MouseButtons.Right)
             {
                 darkMouseTool1.RightColor = c;
-                spritesEditorRenderer1.penColorRight = new Microsoft.Xna.Framework.Color(c.R, c.G, c.B, c.A);
+                spritesEditorRenderer1.penColorRight = cc;
             }
 
-            Sgml.show_debug_message(e.Button.ToString());
             darkMouseTool1.Invalidate();
         }
 
@@ -1248,6 +1256,12 @@ namespace SimplexIde
         private void DarkButton33_Click_1(object sender, EventArgs e)
         {
             darkButton33.Pushed = !darkButton33.Pushed;
+        }
+
+        private void DarkNumericUpDown4_ValueChanged(object sender, EventArgs e)
+        {
+            // change alpha
+            darkProgressBar1.Value = (int)(((float)darkNumericUpDown4.Value / 255f) * 100);
         }
     }
 
