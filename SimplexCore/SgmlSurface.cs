@@ -129,6 +129,7 @@ namespace SimplexCore
         {
             RenderTarget2D temp = new RenderTarget2D(GraphicsDevice, width, height);
             surface_set_target(temp);
+            draw_clear_transparent();
             draw_surface_stretched(new Vector2(0, 0), surface, new Vector2(width, height));
             surface_reset_target();
 

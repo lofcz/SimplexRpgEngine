@@ -1051,7 +1051,7 @@ namespace SimplexCore
             GeneralRectangle.Height = surface.Height;
 
             sb.Begin(transformMatrix: m, samplerState: SamplerState.PointClamp);
-            sb.Draw(surface, GeneralRectangle, DrawColor);
+            sb.Draw(surface, GeneralRectangle, Color.White);
             sb.End();
         }
 
@@ -1063,7 +1063,7 @@ namespace SimplexCore
             GeneralRectangle.Height = (int) size.Y;
 
             sb.Begin(transformMatrix: m, samplerState: SamplerState.PointClamp);
-            sb.Draw(surface, GeneralRectangle, DrawColor);
+            sb.Draw(surface, GeneralRectangle, Color.White);
             sb.End();
         }
 

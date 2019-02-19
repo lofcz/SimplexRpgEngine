@@ -48,13 +48,16 @@ namespace SimplexIde
         private RenderTarget2D imageOverlay = null;
         private MouseState ms;
         private Texture2D pixel = null;
-        public Color penColor = Color.Black;
-        public Color penColorRight = Color.Black;
+        public Color penColor = Color.White;
+        public Color penColorRight = Color.FromNonPremultiplied(0, 0, 1, 255);
         public AnimationFrame selectedFrame = null;
         public int selectedLayer = 0;
         public List<AnimationFrame> Frames = new List<AnimationFrame>();
         private RenderTarget2D previewGrid;
         private int animateIn = 0;
+        List<Vector2> occupiedPositions = new List<Vector2>();
+        public Color penColorLast = Color.White;
+        public Color penColorRightLast = Color.FromNonPremultiplied(0, 0, 1, 255);
 
         public void AddEmptyFrame()
         {
@@ -126,6 +129,12 @@ namespace SimplexIde
             previewGrid = Sgml.surface_create(80, 80);
         }
 
+        public void UpdateColors(int value)
+        {
+            penColor = penColorLast * (value / 255f);
+            penColorRight = penColorRightLast * (value / 255f);
+        }
+
         protected override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
@@ -159,7 +168,13 @@ namespace SimplexIde
                     Sgml.draw_set_aa(false);
 
                     Sgml.draw_set_color(penColor);
-                    Sgml.draw_sprite(pixel, -2, new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1));
+
+                    if (!occupiedPositions.Contains(new Vector2((float) Sgml.round(Sgml.mouse.X - .5f) - x1, (float) Sgml.round(Sgml.mouse.Y - .5f) - y1)))
+                    {
+                        Sgml.draw_sprite(pixel, -2, new Vector2((float) Sgml.round(Sgml.mouse.X - .5f) - x1, (float) Sgml.round(Sgml.mouse.Y - .5f) - y1));
+                        occupiedPositions.Add(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1));
+                    }
+
                     Sgml.surface_reset_target();
                     Sgml.draw_set_color(Color.White);
 
@@ -172,7 +187,13 @@ namespace SimplexIde
                     Sgml.draw_set_aa(false);
 
                     Sgml.draw_set_color(penColorRight);
-                    Sgml.draw_sprite(pixel, -2, new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1));
+
+                    if (!occupiedPositions.Contains(new Vector2((float) Sgml.round(Sgml.mouse.X - .5f) - x1, (float) Sgml.round(Sgml.mouse.Y - .5f) - y1)))
+                    {
+                        Sgml.draw_sprite(pixel, -2, new Vector2((float) Sgml.round(Sgml.mouse.X - .5f) - x1, (float) Sgml.round(Sgml.mouse.Y - .5f) - y1));
+                        occupiedPositions.Add(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1));
+                    }
+
                     Sgml.surface_reset_target();
                     Sgml.draw_set_color(Color.White);
 
@@ -206,24 +227,21 @@ namespace SimplexIde
 
         public void UpdatePreview(int index)
         {
-            RenderTarget2D finalSurface = Sgml.surface_create(selectedFrame.layers[0].texture.Width, selectedFrame.layers[0].texture.Height);
+            // later
+          /*  RenderTarget2D finalSurface = Sgml.surface_create(selectedFrame.layers[0].texture.Width, selectedFrame.layers[0].texture.Height);
             Sgml.surface_set_target(finalSurface);
-
-
             Sgml.draw_surface(Vector2.Zero, selectedFrame.layers[0].texture);
-            Sgml.surface_reset_target();
+            Sgml.surface_reset_target();*/
 
-            MemoryStream ms = Sgml.surface_save_ext_memory(finalSurface, 80, 80);
+            MemoryStream ms = Sgml.surface_save_ext_memory(selectedFrame.layers[0].texture, 80, 80);
 
             Bitmap b = (Bitmap)Image.FromStream(ms);
-            b.MakeTransparent(System.Drawing.Color.Black);
 
             if (parentForm.darkImageIndex1.Frames.Count > index)
             {
                 parentForm.darkImageIndex1.Frames[index].bmp = b;
             }
 
-            Debug.WriteLine(parentForm.darkImageIndex1.Frames.Count);
             parentForm.darkImageIndex1.Invalidate();
         }
 
@@ -449,6 +467,7 @@ namespace SimplexIde
         public void ClickUp()
         {
             panView = false;
+            occupiedPositions.Clear();
         }
 
         public void MouseDrag(System.Drawing.Point pos)
