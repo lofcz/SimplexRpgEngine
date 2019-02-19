@@ -48,6 +48,8 @@ namespace SimplexIde
         private RenderTarget2D imageOverlay = null;
         private MouseState ms;
         private Texture2D pixel = null;
+        public int activetool = 0;
+        public enum Tools { Pixel, SprayPaint, Dropper, Rubber, Line, Rectangle, Elipse, RoundedRectangle, Polygon, Star, Text, Can, Spray };
         public Color penColor = Color.White;
         public Color penColorRight = Color.FromNonPremultiplied(0, 0, 1, 255);
         public AnimationFrame selectedFrame = null;
@@ -81,7 +83,6 @@ namespace SimplexIde
             Sgml.surface_set_target(surf);
             Sgml.draw_sprite(texture, -2, Vector2.Zero);
             Sgml.surface_reset_target();
-
             af.layers.Add(new AnimationLayer() {texture = surf});
             selectedFrame = af;
             Frames.Add(af);
@@ -96,13 +97,13 @@ namespace SimplexIde
             }
         }
 
-        
+
 
 
         protected override void Initialize()
         {
             base.Initialize();
-           // MouseHoverUpdatesOnly = true;
+            // MouseHoverUpdatesOnly = true;
 
             representativeGameObject = new GameObject();
             representativeGameObject.Sprite.TextureCellsPerRow = 1;
@@ -159,45 +160,16 @@ namespace SimplexIde
 
             if (selectedFrame != null)
             {
-                int x1 = 0;
-                int y1 = 0;
+
 
                 if (ms.LeftButton == ButtonState.Pressed)
                 {
-                    Sgml.surface_set_target(selectedFrame.layers[0].texture);
-                    Sgml.draw_set_aa(false);
-
-                    Sgml.draw_set_color(penColor);
-
-                    if (!occupiedPositions.Contains(new Vector2((float) Sgml.round(Sgml.mouse.X - .5f) - x1, (float) Sgml.round(Sgml.mouse.Y - .5f) - y1)))
-                    {
-                        Sgml.draw_sprite(pixel, -2, new Vector2((float) Sgml.round(Sgml.mouse.X - .5f) - x1, (float) Sgml.round(Sgml.mouse.Y - .5f) - y1));
-                        occupiedPositions.Add(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1));
-                    }
-
-                    Sgml.surface_reset_target();
-                    Sgml.draw_set_color(Color.White);
-
-                    UpdatePreview(selectedImageIndex);
+                    ToolDraw(activetool, penColor);
                 }
 
                 if (ms.RightButton == ButtonState.Pressed)
                 {
-                    Sgml.surface_set_target(selectedFrame.layers[0].texture);
-                    Sgml.draw_set_aa(false);
-
-                    Sgml.draw_set_color(penColorRight);
-
-                    if (!occupiedPositions.Contains(new Vector2((float) Sgml.round(Sgml.mouse.X - .5f) - x1, (float) Sgml.round(Sgml.mouse.Y - .5f) - y1)))
-                    {
-                        Sgml.draw_sprite(pixel, -2, new Vector2((float) Sgml.round(Sgml.mouse.X - .5f) - x1, (float) Sgml.round(Sgml.mouse.Y - .5f) - y1));
-                        occupiedPositions.Add(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1));
-                    }
-
-                    Sgml.surface_reset_target();
-                    Sgml.draw_set_color(Color.White);
-
-                    UpdatePreview(selectedImageIndex);
+                    ToolDraw(activetool, penColorRight);
                 }
             }
 
@@ -223,6 +195,139 @@ namespace SimplexIde
                     parentForm.darkImageIndex1.Invalidate();
                 }
             }
+        }
+
+        private void ToolDraw(int activetool, Color penColor)
+        {
+
+            Sgml.surface_set_target(selectedFrame.layers[0].texture);
+            Sgml.draw_set_aa(false);
+            Sgml.draw_set_color(penColor);
+
+            int x1 = 0;
+            int y1 = 0;
+
+            if (activetool == (int)Tools.Pixel)
+            {
+                if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
+                {
+                    Sgml.draw_sprite(pixel, -2, new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1));
+                    occupiedPositions.Add(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1));
+                }
+
+            }
+            else if (activetool == (int)Tools.Elipse)
+            {
+                if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
+                {
+                    Sgml.draw_ellipse(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1), new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1), 1);
+                    occupiedPositions.Add(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1));
+                }
+
+            }
+
+            else if (activetool == (int)Tools.Can)
+            {
+                {
+
+                }
+            }
+
+            else if (activetool == (int)Tools.Dropper)
+            {
+                if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
+                {
+                    
+                }
+
+            }
+
+            else if (activetool == (int)Tools.Line)
+            {
+                if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
+                {
+
+                }
+
+            }
+
+
+            else if (activetool == (int)Tools.Polygon)
+            {
+                if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
+                {
+
+                }
+
+            }
+
+
+            else if (activetool == (int)Tools.Rectangle)
+            {
+                if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
+                {
+
+                }
+
+            }
+
+
+            else if (activetool == (int)Tools.RoundedRectangle)
+            {
+                if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
+                {
+
+                }
+
+            }
+
+
+            else if (activetool == (int)Tools.Rubber)
+            {
+                Sgml.draw_set_color(Color.Transparent);
+                Sgml.draw_sprite(pixel, -2, new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1));
+                occupiedPositions.Add(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1));
+            }
+
+            else if (activetool == (int)Tools.Spray)
+            {
+                if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
+                {
+
+                }
+
+            }
+
+            else if (activetool == (int)Tools.SprayPaint)
+            {
+                if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
+                {
+
+                }
+
+            }
+
+            else if (activetool == (int)Tools.Star)
+            {
+                if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
+                {
+
+                }
+
+            }
+
+            else if (activetool == (int)Tools.Text)
+            {
+                {
+
+                }
+
+            }
+
+            Sgml.surface_reset_target();
+            Sgml.draw_set_color(Color.White);
+
+            UpdatePreview(selectedImageIndex);
         }
 
         public void UpdatePreview(int index)
