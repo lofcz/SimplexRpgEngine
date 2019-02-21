@@ -47,6 +47,7 @@ namespace SimplexIde
         public int selectedImageIndex = 0;
         private RenderTarget2D imageOverlay = null;
         private MouseState ms;
+        private MouseState msPrev;
         private Texture2D pixel = null;
         public Tools activeTool = Tools.None;
         public enum Tools { None, Pixel, SprayPaint, Dropper, Rubber, Line, Rectangle, Elipse, RoundedRectangle, Polygon, Star, Text, Can, Spray };
@@ -61,6 +62,10 @@ namespace SimplexIde
         public Color penColorLast = Color.White;
         public Color penColorRightLast = Color.FromNonPremultiplied(0, 0, 1, 255);
         Vector2 tempVector = Vector2.One;
+        Vector2 toolOrigin = Vector2.One;
+        bool toolPreview = false;
+        Vector2 safe = Vector2.One;
+        private bool over = false;
 
         public void AddEmptyFrame()
         {
@@ -120,6 +125,7 @@ namespace SimplexIde
 
             vertexBuffer = new DynamicVertexBuffer(GraphicsDevice, typeof(VertexPositionColor), 1000, BufferUsage.WriteOnly);
             basicEffect = new BasicEffect(GraphicsDevice);
+            msPrev = Mouse.GetState();
 
             GraphicsDevice.PresentationParameters.RenderTargetUsage = RenderTargetUsage.PreserveContents;
 
@@ -167,7 +173,21 @@ namespace SimplexIde
             {
                 if (ms.LeftButton == ButtonState.Pressed || ms.RightButton == ButtonState.Pressed)
                 {
-                    ToolDraw(ms.LeftButton == ButtonState.Pressed ? penColor :  penColorRight);
+                    if (activeTool == Tools.Pixel || activeTool == Tools.Rubber)
+                    {
+                        ToolDraw(ms.LeftButton == ButtonState.Pressed ? penColor : penColorRight);
+                    }
+                }
+
+                if (ms.LeftButton == ButtonState.Released && msPrev.LeftButton == ButtonState.Pressed && toolPreview)
+                {
+                    if (activeTool == Tools.Elipse)
+                    {
+                        ToolDraw(msPrev.LeftButton == ButtonState.Pressed ? penColor : penColorRight);
+                        over = true;
+                    }
+
+                    toolPreview = false;
                 }
 
                 Sgml.draw_set_color(penColor);
@@ -177,18 +197,34 @@ namespace SimplexIde
                 Sgml.draw_clear_transparent();
                 Sgml.draw_set_color(penColor);
 
+                
                 if (activeTool == Tools.Pixel)
                 {
                     Sgml.draw_rectangle(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f), (float)Sgml.round(Sgml.mouse.Y - .5f)), new Vector2((float)Sgml.round(Sgml.mouse.X + .5f), (float)Sgml.round(Sgml.mouse.Y + .5f)), false);
                 }
-                else if (activeTool == Tools.Elipse)
+
+                if (toolPreview)
                 {
-
-                    Sgml.draw_ellipse(Sgml.mouse, new Vector2(1, 1), 1);
-
+                    if (activeTool == Tools.Elipse)
+                    {
+                        Sgml.draw_ellipse(new Vector2(Sgml.mouse.X - toolOrigin.X, Sgml.mouse.Y - toolOrigin.Y), toolOrigin, 1);
+                    }
                 }
 
                 Sgml.surface_reset_target();
+
+                if (ms.LeftButton == ButtonState.Pressed && !toolPreview)
+                {
+                    if (!over)
+                    {
+                        toolOrigin = new Vector2(Sgml.mouse.X, Sgml.mouse.Y);
+                        toolPreview = true;
+                    }
+                    else
+                    {
+                        over = false;
+                    }
+                }
             }
 
 
@@ -213,6 +249,8 @@ namespace SimplexIde
                     parentForm.darkImageIndex1.Invalidate();
                 }
             }
+
+            msPrev = ms;
         }
 
         bool PixelFree(float x, float y)
@@ -232,117 +270,113 @@ namespace SimplexIde
             int x1 = 0;
             int y1 = 0;
 
-            if (activeTool == Tools.Pixel)
-            {
-                if (PixelFree(Sgml.mouse.X, Sgml.mouse.Y))
-                {
-                    Sgml.draw_sprite(pixel, -2, tempVector);
-                    occupiedPositions.Add(tempVector);
-                }
 
-            }
-            else if (activeTool == Tools.Elipse)
-            {
-                if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
+                if (activeTool == Tools.Pixel)
                 {
-                    Sgml.draw_ellipse(Sgml.mouse, new Vector2(1, 1), 1);
+                    if (PixelFree(Sgml.mouse.X, Sgml.mouse.Y))
+                    {
+                        Sgml.draw_sprite(pixel, -2, tempVector);
+                        occupiedPositions.Add(tempVector);
+                    }
+
+                }
+                else if (activeTool == Tools.Elipse)
+                {
+                    Sgml.draw_ellipse(new Vector2(Sgml.mouse.X - toolOrigin.X, Sgml.mouse.Y - toolOrigin.Y), toolOrigin, 1);
+                }
+                else if (activeTool == Tools.Can)
+                {
+
+                }
+                else if (activeTool == Tools.Dropper)
+                {
+                    if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
+                    {
+
+                    }
+
+                }
+                else if (activeTool == Tools.Line)
+                {
+                    if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
+                    {
+
+                    }
+
+                }
+                else if (activeTool == Tools.Polygon)
+                {
+                    if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
+                    {
+
+                    }
+
+                }
+                else if (activeTool == Tools.Rectangle)
+                {
+                    if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
+                    {
+
+                    }
+
+                }
+                else if (activeTool == Tools.RoundedRectangle)
+                {
+                    if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
+                    {
+
+                    }
+
+                }
+                else if (activeTool == Tools.Rubber)
+                {
+                    Color[] data = new Color[selectedFrame.layers[0].texture.Width * selectedFrame.layers[0].texture.Height];
+                    selectedFrame.layers[0].texture.GetData(data);
+
+                    int x = (int)Sgml.round(Sgml.mouse.X - .5f);
+                    int y = (int)Sgml.round(Sgml.mouse.Y - .5f);
+
+                    if (selectedFrame.layers[0].texture.Height * y + x >= 0 && selectedFrame.layers[0].texture.Height * y + x < selectedFrame.layers[0].texture.Width * selectedFrame.layers[0].texture.Height)
+                    {
+                        data[selectedFrame.layers[0].texture.Height * y + x] = Color.Transparent;
+                        selectedFrame.layers[0].texture.SetData(data);
+                    }
+
                     occupiedPositions.Add(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1));
                 }
-
-            }
-            else if (activeTool == Tools.Can)
-            {
+                else if (activeTool == Tools.Spray)
                 {
+                    if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
+                    {
+
+                    }
 
                 }
-            }
-            else if (activeTool == Tools.Dropper)
-            {
-                if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
+                else if (activeTool == Tools.SprayPaint)
                 {
-                    
-                }
+                    if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
+                    {
 
-            }
-            else if (activeTool == Tools.Line)
-            {
-                if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
-                {
+                    }
 
                 }
-
-            }
-            else if (activeTool == Tools.Polygon)
-            {
-                if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
+                else if (activeTool == Tools.Star)
                 {
+                    if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
+                    {
+
+                    }
 
                 }
-
-            }
-            else if (activeTool == Tools.Rectangle)
-            {
-                if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
+                else if (activeTool == Tools.Text)
                 {
+                    {
+
+                    }
 
                 }
-
-            }
-            else if (activeTool == Tools.RoundedRectangle)
-            {
-                if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
-                {
-
-                }
-
-            }
-            else if (activeTool == Tools.Rubber)
-            {
-                Color[] data = new Color[selectedFrame.layers[0].texture.Width * selectedFrame.layers[0].texture.Height];
-                selectedFrame.layers[0].texture.GetData(data);
-
-                int x = (int) Sgml.round(Sgml.mouse.X - .5f);
-                int y = (int) Sgml.round(Sgml.mouse.Y - .5f);
-
-                if (selectedFrame.layers[0].texture.Height * y + x >= 0 && selectedFrame.layers[0].texture.Height * y + x < selectedFrame.layers[0].texture.Width * selectedFrame.layers[0].texture.Height)
-                {
-                    data[selectedFrame.layers[0].texture.Height * y + x] = Color.Transparent;
-                    selectedFrame.layers[0].texture.SetData(data);
-                }
-
-                occupiedPositions.Add(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1));
-            }
-            else if (activeTool == Tools.Spray)
-            {
-                if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
-                {
-
-                }
-
-            }
-            else if (activeTool == Tools.SprayPaint)
-            {
-                if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
-                {
-
-                }
-
-            }
-            else if (activeTool == Tools.Star)
-            {
-                if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
-                {
-
-                }
-
-            }
-            else if (activeTool == Tools.Text)
-            {
-                {
-
-                }
-
-            }
+            
+         
 
             Sgml.surface_reset_target();
             Sgml.draw_set_color(Color.White);
