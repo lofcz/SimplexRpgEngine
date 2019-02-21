@@ -298,8 +298,18 @@ namespace SimplexIde
             }
             else if (activeTool == Tools.Rubber)
             {
-                Sgml.draw_set_color(Color.TransparentBlack);
-                Sgml.draw_sprite(pixel, -2, new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1));
+                Color[] data = new Color[selectedFrame.layers[0].texture.Width * selectedFrame.layers[0].texture.Height];
+                selectedFrame.layers[0].texture.GetData(data);
+
+                int x = (int) Sgml.round(Sgml.mouse.X - .5f);
+                int y = (int) Sgml.round(Sgml.mouse.Y - .5f);
+
+                if (selectedFrame.layers[0].texture.Height * y + x >= 0 && selectedFrame.layers[0].texture.Height * y + x < selectedFrame.layers[0].texture.Width * selectedFrame.layers[0].texture.Height)
+                {
+                    data[selectedFrame.layers[0].texture.Height * y + x] = Color.Transparent;
+                    selectedFrame.layers[0].texture.SetData(data);
+                }
+
                 occupiedPositions.Add(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1));
             }
             else if (activeTool == Tools.Spray)
