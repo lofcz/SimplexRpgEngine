@@ -171,7 +171,7 @@ namespace SimplexIde
 
             if (selectedFrame != null)
             {
-                if (ms.LeftButton == ButtonState.Pressed || ms.RightButton == ButtonState.Pressed)
+                if (ms.LeftButton == ButtonState.Pressed ^ ms.RightButton == ButtonState.Pressed)
                 {
                     if (activeTool == Tools.Pixel || activeTool == Tools.Rubber)
                     {
@@ -179,9 +179,9 @@ namespace SimplexIde
                     }
                 }
 
-                if (ms.LeftButton == ButtonState.Released && msPrev.LeftButton == ButtonState.Pressed && toolPreview)
+                if ((ms.LeftButton == ButtonState.Released && msPrev.LeftButton == ButtonState.Pressed && toolPreview)^(ms.RightButton == ButtonState.Released && msPrev.RightButton == ButtonState.Pressed && toolPreview))
                 {
-                    if (activeTool == Tools.Elipse)
+                    if (activeTool == Tools.Elipse || activeTool == Tools.Rectangle || activeTool == Tools.Line || activeTool == Tools.RoundedRectangle)
                     {
                         ToolDraw(msPrev.LeftButton == ButtonState.Pressed ? penColor : penColorRight);
                         over = true;
@@ -190,14 +190,14 @@ namespace SimplexIde
                     toolPreview = false;
                 }
 
-                Sgml.draw_set_color(penColor);
+                Sgml.draw_set_color(ms.LeftButton == ButtonState.Pressed ? penColor : penColorRight);
 
 
                 Sgml.surface_set_target(selectedFrame.previewLayer.texture);
                 Sgml.draw_clear_transparent();
-                Sgml.draw_set_color(penColor);
+                Sgml.draw_set_color(ms.LeftButton == ButtonState.Pressed ? penColor : penColorRight);
 
-                
+
                 if (activeTool == Tools.Pixel)
                 {
                     Sgml.draw_rectangle(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f), (float)Sgml.round(Sgml.mouse.Y - .5f)), new Vector2((float)Sgml.round(Sgml.mouse.X + .5f), (float)Sgml.round(Sgml.mouse.Y + .5f)), false);
@@ -209,11 +209,27 @@ namespace SimplexIde
                     {
                         Sgml.draw_ellipse(new Vector2(Sgml.mouse.X - toolOrigin.X, Sgml.mouse.Y - toolOrigin.Y), toolOrigin, 1);
                     }
+
+                    else if (activeTool == Tools.Rectangle)
+                    {
+
+                        Sgml.draw_rectangle(toolOrigin, new Vector2(Sgml.mouse.X, Sgml.mouse.Y), true);
+                    }
+
+                    else if (activeTool == Tools.Line)
+                    {
+                        Sgml.draw_line(new Vector2(Sgml.mouse.X, Sgml.mouse.Y), toolOrigin);
+
+                    }
+                    else if (activeTool == Tools.RoundedRectangle)
+                    {
+                        Sgml.draw_roundrect(toolOrigin, new Vector2(Sgml.mouse.X, Sgml.mouse.Y), true, 1);
+                    }
                 }
 
                 Sgml.surface_reset_target();
 
-                if (ms.LeftButton == ButtonState.Pressed && !toolPreview)
+                if ((ms.LeftButton == ButtonState.Pressed && !toolPreview)^(ms.RightButton == ButtonState.Pressed && !toolPreview))
                 {
                     if (!over)
                     {
@@ -290,43 +306,24 @@ namespace SimplexIde
                 }
                 else if (activeTool == Tools.Dropper)
                 {
-                    if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
-                    {
-
-                    }
 
                 }
                 else if (activeTool == Tools.Line)
                 {
-                    if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
-                    {
-
-                    }
+                   Sgml.draw_line(new Vector2(Sgml.mouse.X, Sgml.mouse.Y), toolOrigin);
 
                 }
                 else if (activeTool == Tools.Polygon)
                 {
-                    if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
-                    {
-
-                    }
 
                 }
                 else if (activeTool == Tools.Rectangle)
                 {
-                    if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
-                    {
-
-                    }
-
+                    Sgml.draw_rectangle(toolOrigin, new Vector2(Sgml.mouse.X, Sgml.mouse.Y), true);
                 }
                 else if (activeTool == Tools.RoundedRectangle)
                 {
-                    if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
-                    {
-
-                    }
-
+                    Sgml.draw_roundrect(toolOrigin, new Vector2(Sgml.mouse.X, Sgml.mouse.Y), true, 1);
                 }
                 else if (activeTool == Tools.Rubber)
                 {
@@ -346,33 +343,18 @@ namespace SimplexIde
                 }
                 else if (activeTool == Tools.Spray)
                 {
-                    if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
-                    {
-
-                    }
 
                 }
                 else if (activeTool == Tools.SprayPaint)
                 {
-                    if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
-                    {
-
-                    }
 
                 }
                 else if (activeTool == Tools.Star)
                 {
-                    if (!occupiedPositions.Contains(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1)))
-                    {
-
-                    }
 
                 }
                 else if (activeTool == Tools.Text)
                 {
-                    {
-
-                    }
 
                 }
             
