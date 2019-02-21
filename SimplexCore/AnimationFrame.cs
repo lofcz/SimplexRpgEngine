@@ -9,6 +9,7 @@ namespace SimplexCore
     {
         public Texture texture;
         public List<AnimationLayer> layers = new List<AnimationLayer>();
+        public AnimationLayer previewLayer = new AnimationLayer();
     }
 
     public class AnimationLayer

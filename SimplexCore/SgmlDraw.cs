@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
 using MonoGame.Extended.Sprites;
 using MonoGame.Extended.TextureAtlases;
+using SharpDX.DXGI;
 using Color = Microsoft.Xna.Framework.Color;
 using Point = Microsoft.Xna.Framework.Point;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
@@ -45,6 +46,17 @@ namespace SimplexCore
         private static bool vertexbatchOn = false;
         private static PrimitiveType vertexBatchType = PrimitiveType.LineList;
         private static bool vertexBatchOutline = false;
+        public static BlendState blendState = BlendState.Additive;
+
+        public static void draw_set_blend_mode(BlendState bs)
+        {
+            blendState = bs;
+        }
+
+        public static BlendState draw_get_blend_mode()
+        {
+            return blendState;
+        }
 
         // Internal cool shit
         static Vector2 GetCentroid(Vector3[] nodes)
@@ -371,7 +383,7 @@ namespace SimplexCore
             {
                 if (aaOn)
                 {
-                    sb.Begin(transformMatrix: m);
+                    sb.Begin(transformMatrix: m, blendState: blendState);
                 }
                 else
                 {
@@ -817,10 +829,12 @@ namespace SimplexCore
         // todo
         public static void draw_ellipse(Vector2 pos, Vector2 exct, float theta)
         {
-            Microsoft.Xna.Framework.Color fc = FinalizeColor(DrawColor);
+            vertices.Clear();
+
+            Color fc = FinalizeColor(DrawColor);
             int vertexCount = 40;
 
-            VertexPositionColor[] vertices = new VertexPositionColor[vertexCount];
+           // VertexPositionColor[] vertices = new VertexPositionColor[vertexCount];
             //Drawing an Ellipse with its major axis parallel to the x-axis. Rotation can be applied to change this.
             Vector3 position = Vector3.One;
             const float max = MathHelper.Pi;
@@ -831,46 +845,56 @@ namespace SimplexCore
             //Vector3 axis = new Vector3(0, 0, -1);
             float angle = MathHelper.ToRadians(theta);
 
+            VertexPositionColor vv = new VertexPositionColor(position, fc);
+
             for (float t = -max; t <= max; t += step)
             {
                 //Formula shamelessly taken from wikipedia
                 position = new Vector3(exct.X + pos.X * (float)Math.Cos((double)t), exct.Y + pos.Y * (float)Math.Sin((double)t), 0f);
                 //Optional Rotation for the Ellipse:
                 position = Vector3.Transform(position, Matrix.CreateFromAxisAngle(new Vector3(0, 0, angle), angle));
-                vertices[i] = new VertexPositionColor(position, fc);
+                
                 i++;
+
+                vv.Position = position;
+                vv.Color = fc;
+
+                vertices.Add(vv);
             }
 
             //Optional Rotation for the Ellipse:
-         
+            //position = Vector3.Transform(position, Matrix.CreateFromAxisAngle(axis, angle));
+
             //then add the first vector again so it's a complete loop (sounds familiar)
             position = new Vector3(exct.X + pos.X * (float)Math.Cos((double)-max), exct.Y + pos.Y * (float)Math.Sin((double)-max), 0f);
             position = Vector3.Transform(position, Matrix.CreateFromAxisAngle(new Vector3(0, 0, angle), angle));
-            vertices[vertexCount - 1] = new VertexPositionColor(position, fc);
 
+            vv.Position = position;
+            vv.Color = fc;
+            vertices.Add(vv);
 
-            vb = new DynamicVertexBuffer(sb.GraphicsDevice, typeof(VertexPositionColor), vertices.Length,
-                BufferUsage.WriteOnly);
-            vb.SetData<VertexPositionColor>(vertices.ToArray());
+            RenderVertices(PrimitiveType.LineStrip);
+            //   vb = new DynamicVertexBuffer(sb.GraphicsDevice, typeof(VertexPositionColor), vertices.Length, BufferUsage.WriteOnly);
+            //   vb.SetData<VertexPositionColor>(vertices.ToArray());
 
+            //
+            // sb.GraphicsDevice.SetVertexBuffer(vb);
 
-            sb.GraphicsDevice.SetVertexBuffer(vb);
+            /*      RasterizerState rasterizerState = new RasterizerState();
+                  rasterizerState.CullMode = CullMode.None;
+                  rasterizerState.MultiSampleAntiAlias = true;
+                  rasterizerState.FillMode = FillMode.Solid;
 
-            RasterizerState rasterizerState = new RasterizerState();
-            rasterizerState.CullMode = CullMode.None;
-            rasterizerState.MultiSampleAntiAlias = true;
-            rasterizerState.FillMode = FillMode.Solid;
+                  sb.GraphicsDevice.RasterizerState = rasterizerState;
 
-            sb.GraphicsDevice.RasterizerState = rasterizerState;
+                  foreach (EffectPass pass in be.CurrentTechnique.Passes)
+                  {
+                      pass.Apply();
+                      sb.GraphicsDevice.DrawPrimitives(PrimitiveType.LineStrip, 0, (vertices.Length - 1));
+                  }
 
-            foreach (EffectPass pass in be.CurrentTechnique.Passes)
-            {
-                pass.Apply();
-                sb.GraphicsDevice.DrawPrimitives(PrimitiveType.LineStrip, 0, (vertices.Length - 1));
-            }
-
-            vb.Dispose();
-            rasterizerState.Dispose();
+                  vb.Dispose();
+                  rasterizerState.Dispose();*/
         }
 
         //

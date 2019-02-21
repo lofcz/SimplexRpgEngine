@@ -1301,67 +1301,68 @@ namespace SimplexIde
 
         private void darkButton7_Click(object sender, EventArgs e)
         {
-            spritesEditorRenderer1.activetool = (int)SpritesEditorRenderer.Tools.Pixel;
+            spritesEditorRenderer1.activeTool = SpritesEditorRenderer.Tools.Pixel;
+            darkButton7.Pushed = !darkButton7.Pushed;
         }
 
         private void darkButton26_Click(object sender, EventArgs e)
         {
-            spritesEditorRenderer1.activetool = (int)SpritesEditorRenderer.Tools.SprayPaint;
+            spritesEditorRenderer1.activeTool = SpritesEditorRenderer.Tools.SprayPaint;
         }
 
         private void darkButton10_Click(object sender, EventArgs e)
         {
-            spritesEditorRenderer1.activetool = (int)SpritesEditorRenderer.Tools.Dropper;
+            spritesEditorRenderer1.activeTool = SpritesEditorRenderer.Tools.Dropper;
         }
 
         private void darkButton11_Click(object sender, EventArgs e)
         {
-            spritesEditorRenderer1.activetool = (int)SpritesEditorRenderer.Tools.Rubber;
+            spritesEditorRenderer1.activeTool = SpritesEditorRenderer.Tools.Rubber;
         }
 
         private void darkButton17_Click(object sender, EventArgs e)
         {
-            spritesEditorRenderer1.activetool = (int)SpritesEditorRenderer.Tools.Line;
+            spritesEditorRenderer1.activeTool = SpritesEditorRenderer.Tools.Line;
         }
 
         private void darkButton9_Click(object sender, EventArgs e)
         {
-            spritesEditorRenderer1.activetool = (int)SpritesEditorRenderer.Tools.Rectangle;
+            spritesEditorRenderer1.activeTool = SpritesEditorRenderer.Tools.Rectangle;
         }
 
         private void darkButton8_Click(object sender, EventArgs e)
         {
-            spritesEditorRenderer1.activetool = (int)SpritesEditorRenderer.Tools.Elipse;
+            spritesEditorRenderer1.activeTool = SpritesEditorRenderer.Tools.Elipse;
         }
 
         private void darkButton13_Click(object sender, EventArgs e)
         {
-            spritesEditorRenderer1.activetool = (int)SpritesEditorRenderer.Tools.RoundedRectangle;
+            spritesEditorRenderer1.activeTool = SpritesEditorRenderer.Tools.RoundedRectangle;
         }
 
         private void darkButton16_Click(object sender, EventArgs e)
         {
-            spritesEditorRenderer1.activetool = (int)SpritesEditorRenderer.Tools.Polygon;
+            spritesEditorRenderer1.activeTool = SpritesEditorRenderer.Tools.Polygon;
         }
 
         private void darkButton32_Click(object sender, EventArgs e)
         {
-            spritesEditorRenderer1.activetool = (int)SpritesEditorRenderer.Tools.Star;
+            spritesEditorRenderer1.activeTool = SpritesEditorRenderer.Tools.Star;
         }
 
         private void darkButton12_Click(object sender, EventArgs e)
         {
-            spritesEditorRenderer1.activetool = (int)SpritesEditorRenderer.Tools.Text;
+            spritesEditorRenderer1.activeTool = SpritesEditorRenderer.Tools.Text;
         }
 
         private void darkButton14_Click(object sender, EventArgs e)
         {
-            spritesEditorRenderer1.activetool = (int)SpritesEditorRenderer.Tools.Can;
+            spritesEditorRenderer1.activeTool = SpritesEditorRenderer.Tools.Can;
         }
 
         private void darkButton19_Click(object sender, EventArgs e)
         {
-            spritesEditorRenderer1.activetool = (int)SpritesEditorRenderer.Tools.Spray;
+            spritesEditorRenderer1.activeTool = SpritesEditorRenderer.Tools.Spray;
         }
     }
 
