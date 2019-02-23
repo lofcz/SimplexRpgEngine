@@ -1332,7 +1332,7 @@ namespace SimplexIde
 
         private void darkButton8_Click(object sender, EventArgs e)
         {
-            spritesEditorRenderer1.activeTool = SpritesEditorRenderer.Tools.Elipse;
+            spritesEditorRenderer1.activeTool = SpritesEditorRenderer.Tools.Ellipse;
         }
 
         private void darkButton13_Click(object sender, EventArgs e)
@@ -1357,7 +1357,7 @@ namespace SimplexIde
 
         private void darkButton14_Click(object sender, EventArgs e)
         {
-            spritesEditorRenderer1.activeTool = SpritesEditorRenderer.Tools.Can;
+            spritesEditorRenderer1.activeTool = SpritesEditorRenderer.Tools.Fill;
         }
 
         private void darkButton19_Click(object sender, EventArgs e)

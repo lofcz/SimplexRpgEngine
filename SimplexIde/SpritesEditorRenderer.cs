@@ -17,6 +17,7 @@ using MonoGame.Forms.Controls;
 using SimplexCore;
 using ButtonState = Microsoft.Xna.Framework.Input.ButtonState;
 using Color = Microsoft.Xna.Framework.Color;
+using Point = System.Drawing.Point;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
 using RectangleF = MonoGame.Extended.RectangleF;
 
@@ -50,7 +51,7 @@ namespace SimplexIde
         private MouseState msPrev;
         private Texture2D pixel = null;
         public Tools activeTool = Tools.None;
-        public enum Tools { None, Pixel, SprayPaint, Dropper, Rubber, Line, Rectangle, Elipse, RoundedRectangle, Polygon, Star, Text, Can, Spray };
+        public enum Tools { None, Pixel, SprayPaint, Dropper, Rubber, Line, Rectangle, Ellipse, RoundedRectangle, Polygon, Star, Text, Fill, Spray };
         public Color penColor = Color.White;
         public Color penColorRight = Color.FromNonPremultiplied(0, 0, 1, 255);
         public AnimationFrame selectedFrame = null;
@@ -173,7 +174,7 @@ namespace SimplexIde
             {
                 if (ms.LeftButton == ButtonState.Pressed ^ ms.RightButton == ButtonState.Pressed)
                 {
-                    if (activeTool == Tools.Pixel || activeTool == Tools.Rubber)
+                    if (activeTool == Tools.Pixel || activeTool == Tools.Rubber || activeTool == Tools.Fill)
                     {
                         ToolDraw(ms.LeftButton == ButtonState.Pressed ? penColor : penColorRight);
                     }
@@ -181,7 +182,7 @@ namespace SimplexIde
 
                 if ((ms.LeftButton == ButtonState.Released && msPrev.LeftButton == ButtonState.Pressed && toolPreview)^(ms.RightButton == ButtonState.Released && msPrev.RightButton == ButtonState.Pressed && toolPreview))
                 {
-                    if (activeTool == Tools.Elipse || activeTool == Tools.Rectangle || activeTool == Tools.Line || activeTool == Tools.RoundedRectangle)
+                    if (activeTool == Tools.Ellipse || activeTool == Tools.Rectangle || activeTool == Tools.Line || activeTool == Tools.RoundedRectangle)
                     {
                         ToolDraw(msPrev.LeftButton == ButtonState.Pressed ? penColor : penColorRight);
                         over = true;
@@ -192,7 +193,7 @@ namespace SimplexIde
 
                 Sgml.draw_set_color(ms.LeftButton == ButtonState.Pressed ? penColor : penColorRight);
 
-
+                // render preview
                 Sgml.surface_set_target(selectedFrame.previewLayer.texture);
                 Sgml.draw_clear_transparent();
                 Sgml.draw_set_color(ms.LeftButton == ButtonState.Pressed ? penColor : penColorRight);
@@ -205,7 +206,7 @@ namespace SimplexIde
 
                 if (toolPreview)
                 {
-                    if (activeTool == Tools.Elipse)
+                    if (activeTool == Tools.Ellipse)
                     {
                         Sgml.draw_ellipse(new Vector2(Sgml.mouse.X - toolOrigin.X, Sgml.mouse.Y - toolOrigin.Y), toolOrigin, 1);
                     }
@@ -276,6 +277,29 @@ namespace SimplexIde
             return !occupiedPositions.Contains(tempVector);
         }
 
+        bool inTexture(int x, int y)
+        {
+            return selectedFrame.layers[0].texture.Height * y + x >= 0 && selectedFrame.layers[0].texture.Height * y + x < selectedFrame.layers[0].texture.Width * selectedFrame.layers[0].texture.Height;
+        }
+
+        bool inTextureP(int x, int y)
+        {
+            return x >= 0 && x < selectedFrame.layers[0].texture.Width + 1 && y >= 0 && y < selectedFrame.layers[0].texture.Height + 1;
+        }
+
+        private static T[,] Make2DArray<T>(T[] input, int height, int width)
+        {
+            T[,] output = new T[height, width];
+            for (int i = 0; i < height; i++)
+            {
+                for (int j = 0; j < width; j++)
+                {
+                    output[i, j] = input[i * width + j];
+                }
+            }
+            return output;
+        }
+
         private void ToolDraw(Color penColor)
         {
 
@@ -296,13 +320,47 @@ namespace SimplexIde
                     }
 
                 }
-                else if (activeTool == Tools.Elipse)
+                else if (activeTool == Tools.Ellipse)
                 {
                     Sgml.draw_ellipse(new Vector2(Sgml.mouse.X - toolOrigin.X, Sgml.mouse.Y - toolOrigin.Y), toolOrigin, 1);
                 }
-                else if (activeTool == Tools.Can)
+                else if (activeTool == Tools.Fill)
                 {
+                    // flood fill
+                    Color[] data = new Color[selectedFrame.layers[0].texture.Width * selectedFrame.layers[0].texture.Height]; 
+                    selectedFrame.layers[0].texture.GetData(data);
 
+                    int x = (int)Sgml.round(Sgml.mouse.X - .5f);
+                    int y = (int)Sgml.round(Sgml.mouse.Y - .5f);
+
+                    if (inTexture(x, y))
+                    {
+                        Stack<Point> pixels = new Stack<Point>();
+                        List<Point> used = new List<Point>();
+
+                        Color targetColor = data[selectedFrame.layers[0].texture.Height * y + x];
+                        pixels.Push(new Point(x, y));
+
+                        while (pixels.Count > 0)
+                        {
+                            Point a = pixels.Pop();
+                            if (a.X < selectedFrame.layers[0].texture.Width && a.X > -1 && a.Y < selectedFrame.layers[0].texture.Height && a.Y > -1)
+                            {
+                                if (data[selectedFrame.layers[0].texture.Height * a.Y + a.X] == targetColor)
+                                {
+                                    data[selectedFrame.layers[0].texture.Height * a.Y + a.X] = penColor;
+                                    if (inTextureP(a.X - 1, a.Y) && !used.Contains(new Point(a.X - 1, a.Y))) { pixels.Push(new Point(a.X - 1, a.Y)); used.Add(new Point(a.X - 1, a.Y));}
+                                    if (inTextureP(a.X + 1, a.Y) && !used.Contains(new Point(a.X + 1, a.Y))) { pixels.Push(new Point(a.X + 1, a.Y)); used.Add(new Point(a.X + 1, a.Y)); }
+                                    if (inTextureP(a.X, a.Y - 1) && !used.Contains(new Point(a.X, a.Y - 1))) { pixels.Push(new Point(a.X, a.Y - 1)); used.Add(new Point(a.X, a.Y - 1)); }
+                                    if (inTextureP(a.X, a.Y + 1) && !used.Contains(new Point(a.X, a.Y + 1))) { pixels.Push(new Point(a.X, a.Y + 1)); used.Add(new Point(a.X, a.Y + 1)); }
+                                }
+                            }
+                        }
+
+                        selectedFrame.layers[0].texture.SetData(data);
+                    }
+
+                    Sgml.show_debug_message("PLECHOVKA");
                 }
                 else if (activeTool == Tools.Dropper)
                 {
