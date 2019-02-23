@@ -284,7 +284,7 @@ namespace SimplexIde
 
         bool inTextureP(int x, int y)
         {
-            return x >= 0 && x < selectedFrame.layers[0].texture.Width + 1 && y >= 0 && y < selectedFrame.layers[0].texture.Height + 1;
+            return x >= 0 && x < selectedFrame.layers[0].texture.Width && y >= 0 && y < selectedFrame.layers[0].texture.Height;
         }
 
         private static T[,] Make2DArray<T>(T[] input, int height, int width)
@@ -300,9 +300,17 @@ namespace SimplexIde
             return output;
         }
 
+        bool pixelsSimilar(int color1, int color2, int threshold)
+        {
+            // threshold = sum of rgb diffs 
+            int dr = Math.Abs(((color1 >> 16) & 0xff) - ((color2 >> 16) & 0xff));
+            int dg = Math.Abs(((color1 >> 8) & 0xff) - ((color2 >> 8) & 0xff));
+            int db = Math.Abs(((color1 >> 0) & 0xff) - ((color2 >> 0) & 0xff));
+            return (dr + dg + db) <= threshold;
+        }
+
         private void ToolDraw(Color penColor)
         {
-
             Sgml.surface_set_target(selectedFrame.layers[0].texture);
             Sgml.draw_set_aa(false);
             Sgml.draw_set_color(penColor);
@@ -327,40 +335,82 @@ namespace SimplexIde
                 else if (activeTool == Tools.Fill)
                 {
                     // flood fill
-                    Color[] data = new Color[selectedFrame.layers[0].texture.Width * selectedFrame.layers[0].texture.Height]; 
+                    var data = new Color[selectedFrame.layers[0].texture.Width * selectedFrame.layers[0].texture.Height];
                     selectedFrame.layers[0].texture.GetData(data);
 
-                    int x = (int)Sgml.round(Sgml.mouse.X - .5f);
-                    int y = (int)Sgml.round(Sgml.mouse.Y - .5f);
+                    var x = (int) Sgml.round(Sgml.mouse.X - .5f);
+                    var y = (int) Sgml.round(Sgml.mouse.Y - .5f);
 
-                    if (inTexture(x, y))
+                    if (inTexture(x, y) && inTextureP(x, y))
                     {
-                        Stack<Point> pixels = new Stack<Point>();
-                        List<Point> used = new List<Point>();
+                        var pixels = new Stack<Point>();
+                        var used = new List<Point>();
 
-                        Color targetColor = data[selectedFrame.layers[0].texture.Height * y + x];
+                        var targetColor = data[selectedFrame.layers[0].texture.Height * y + x];
                         pixels.Push(new Point(x, y));
+                        var i = 0;
+                        var max = data.Length - 1;
+                        var flag = !(data[selectedFrame.layers[0].texture.Height * y + x] == penColor);
 
-                        while (pixels.Count > 0)
+                        if (flag)
                         {
-                            Point a = pixels.Pop();
-                            if (a.X < selectedFrame.layers[0].texture.Width && a.X > -1 && a.Y < selectedFrame.layers[0].texture.Height && a.Y > -1)
+                            while (pixels.Count > 0 && i < max)
                             {
-                                if (data[selectedFrame.layers[0].texture.Height * a.Y + a.X] == targetColor)
+                                var a = pixels.Pop();
+                                var xx = a.X;
+
+                                if (!inTextureP(a.X, a.Y)) {break;}
+
+                                while (xx >= 0 && data[selectedFrame.layers[0].texture.Height * a.Y + xx] == targetColor)
                                 {
-                                    data[selectedFrame.layers[0].texture.Height * a.Y + a.X] = penColor;
-                                    if (inTextureP(a.X - 1, a.Y) && !used.Contains(new Point(a.X - 1, a.Y))) { pixels.Push(new Point(a.X - 1, a.Y)); used.Add(new Point(a.X - 1, a.Y));}
-                                    if (inTextureP(a.X + 1, a.Y) && !used.Contains(new Point(a.X + 1, a.Y))) { pixels.Push(new Point(a.X + 1, a.Y)); used.Add(new Point(a.X + 1, a.Y)); }
-                                    if (inTextureP(a.X, a.Y - 1) && !used.Contains(new Point(a.X, a.Y - 1))) { pixels.Push(new Point(a.X, a.Y - 1)); used.Add(new Point(a.X, a.Y - 1)); }
-                                    if (inTextureP(a.X, a.Y + 1) && !used.Contains(new Point(a.X, a.Y + 1))) { pixels.Push(new Point(a.X, a.Y + 1)); used.Add(new Point(a.X, a.Y + 1)); }
+                                    xx--;
                                 }
+
+                                xx++;
+                                var spanAbove = false;
+                                var spanBelow = false;
+
+                                while (xx < selectedFrame.layers[0].texture.Width && data[selectedFrame.layers[0].texture.Height * a.Y + xx] == targetColor)
+                                {
+                                    data[selectedFrame.layers[0].texture.Height * a.Y + xx] = penColor;
+
+                                    if (!spanAbove && a.Y > 0 && data[selectedFrame.layers[0].texture.Height * (a.Y - 1) + xx] == targetColor)
+                                    {
+                                        if (!used.Contains(new Point(xx, a.Y - 1)))
+                                        {
+                                            pixels.Push(new Point(xx, a.Y - 1));
+                                            used.Add(new Point(xx, a.Y - 1));
+                                            spanAbove = true;
+                                        }
+                                    }
+                                    else if (spanAbove && a.Y > 0 && data[selectedFrame.layers[0].texture.Height * (a.Y - 1) + xx] != targetColor)
+                                    {
+                                        spanAbove = false;
+                                    }
+
+                                    if (!spanBelow && a.Y < selectedFrame.layers[0].texture.Height - 1 && data[selectedFrame.layers[0].texture.Height * (a.Y + 1) + xx] == targetColor)
+                                    {
+                                        if (!used.Contains(new Point(xx, a.Y + 1)))
+                                        {
+                                            pixels.Push(new Point(xx, a.Y + 1));
+                                            used.Add(new Point(xx, a.Y + 1));
+                                            spanBelow = true;
+                                        }
+                                    }
+                                    else if (spanBelow && a.Y < selectedFrame.layers[0].texture.Height - 1 && data[selectedFrame.layers[0].texture.Height * (a.Y + 1) + xx] != targetColor)
+                                    {
+                                        spanBelow = false;
+                                    }
+
+                                    xx++;
+                                }
+
+                                i++;
                             }
+
+                            selectedFrame.layers[0].texture.SetData(data);
                         }
-
-                        selectedFrame.layers[0].texture.SetData(data);
                     }
-
-                    Sgml.show_debug_message("PLECHOVKA");
                 }
                 else if (activeTool == Tools.Dropper)
                 {
