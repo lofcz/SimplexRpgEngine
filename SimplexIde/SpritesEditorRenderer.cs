@@ -67,6 +67,8 @@ namespace SimplexIde
         bool toolPreview = false;
         Vector2 safe = Vector2.One;
         private bool over = false;
+        private Vector2 toolOriginSubpixel;
+        private Vector2 mouseSubpixel;
 
         public void AddEmptyFrame()
         {
@@ -101,7 +103,7 @@ namespace SimplexIde
             if (Frames.Count > index)
             {
                 selectedFrame = Frames[index];
-                parentForm.darkGroupBox4.Text = "Animation (" + index + "/" + Frames.Count + ")";
+                parentForm.darkGroupBox4.Text = "Animation (" + (index + 1) + "/" + Frames.Count + ")";
             }
         }
 
@@ -171,6 +173,7 @@ namespace SimplexIde
             {
                 if (ms.LeftButton == ButtonState.Pressed ^ ms.RightButton == ButtonState.Pressed)
                 {
+
                     if (activeTool == Tools.Pixel || activeTool == Tools.Rubber || activeTool == Tools.Fill)
                     {
                         ToolDraw(ms.LeftButton == ButtonState.Pressed ? penColor : penColorRight);
@@ -191,6 +194,12 @@ namespace SimplexIde
                 Sgml.draw_set_color(ms.LeftButton == ButtonState.Pressed ? penColor : penColorRight);
 
                 // render preview
+                toolOriginSubpixel.X = (float)Math.Floor(toolOrigin.X + .5f);
+                toolOriginSubpixel.Y = (float)Math.Floor(toolOrigin.Y + .5f);
+
+                mouseSubpixel.X = (float)Math.Floor(Sgml.mouse.X + .5f);
+                mouseSubpixel.Y = (float)Math.Floor(Sgml.mouse.Y + .5f);
+
                 Sgml.surface_set_target(selectedFrame.previewLayer.texture);
                 Sgml.draw_clear_transparent();
                 Sgml.draw_set_color(ms.LeftButton == ButtonState.Pressed ? penColor : penColorRight);
@@ -210,13 +219,12 @@ namespace SimplexIde
 
                     else if (activeTool == Tools.Rectangle)
                     {
-
-                        Sgml.draw_rectangle(toolOrigin, new Vector2(Sgml.mouse.X, Sgml.mouse.Y), true);
+                        Sgml.draw_rectangle(toolOriginSubpixel, mouseSubpixel, true);
                     }
 
                     else if (activeTool == Tools.Line)
                     {
-                        Sgml.draw_line(new Vector2(Sgml.mouse.X, Sgml.mouse.Y), toolOrigin);
+                        Sgml.draw_line(mouseSubpixel, toolOriginSubpixel);
 
                     }
                     else if (activeTool == Tools.RoundedRectangle)
@@ -417,7 +425,7 @@ namespace SimplexIde
                 }
                 else if (activeTool == Tools.Line)
                 {
-                   Sgml.draw_line(new Vector2(Sgml.mouse.X, Sgml.mouse.Y), toolOrigin);
+                   Sgml.draw_line(mouseSubpixel, toolOriginSubpixel);
 
                 }
                 else if (activeTool == Tools.Polygon)
@@ -426,7 +434,7 @@ namespace SimplexIde
                 }
                 else if (activeTool == Tools.Rectangle)
                 {
-                    Sgml.draw_rectangle(toolOrigin, new Vector2(Sgml.mouse.X, Sgml.mouse.Y), true);
+                    Sgml.draw_rectangle(toolOriginSubpixel, mouseSubpixel, true);
                 }
                 else if (activeTool == Tools.RoundedRectangle)
                 {
@@ -563,9 +571,12 @@ namespace SimplexIde
 
                 Sgml.draw_set_color(Color.White);
                 Sgml.draw_text(new Vector2(10, 10), framerate.ToString());
-                Sgml.draw_text(new Vector2(10, 30), "[X: " + Sgml.round(Sgml.mouse.X) + " Y: " + Sgml.round(Sgml.mouse.Y) + "]");
+                Sgml.draw_text(new Vector2(10, 30), "[X: " + Sgml.round(Sgml.mouse.X - 0.5f) + " Y: " + Sgml.round(Sgml.mouse.Y - 0.5f) + "]");
                 Sgml.draw_text(new Vector2(10, 50), parentForm.darkNumericUpDown1.Value.ToString());
                 Sgml.draw_text(new Vector2(10, 70), cam.Zoom.ToString());
+                Sgml.draw_text(new Vector2(10, 90), "DIR: " + Sgml.point_direction(toolOriginSubpixel, mouseSubpixel));
+                Sgml.draw_text(new Vector2(10, 110), "CLICK: " + toolOriginSubpixel.X + "x " + toolOriginSubpixel.Y + "y");
+
                 basicEffect.View = view;
                 Sgml.m = transformMatrix;
 

@@ -1222,10 +1222,11 @@ namespace SimplexIde
 
             if (actualX > 0 && actualX < 80)
             {
+                int k = darkImageIndex1.SelectedFrame;
                 darkImageIndex1.Frames.Add(new ImageIndex() {});
                 spritesEditorRenderer1.AddEmptyFrame();
 
-                darkGroupBox4.Text = "Animation (" + spritesEditorRenderer1.Frames.Count + "/" + spritesEditorRenderer1.Frames.Count + ")";
+                darkGroupBox4.Text = "Animation (" + k + "/" + spritesEditorRenderer1.Frames.Count + ")";
             }
             else
             {
