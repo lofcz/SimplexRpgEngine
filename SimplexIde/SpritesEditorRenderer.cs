@@ -77,10 +77,7 @@ namespace SimplexIde
             af.previewLayer.texture = Sgml.surface_create(selectedImage.Width, selectedImage.Height);
 
             af.layers.Add(new AnimationLayer() {texture = s });
-            selectedFrame = af;
             Frames.Add(af);
-
-            Debug.WriteLine(Frames.Count);
         }
 
         public void AddFrameFromTexture(Texture2D texture)
@@ -299,6 +296,7 @@ namespace SimplexIde
             }
             return output;
         }
+
 
         bool pixelsSimilar(int color1, int color2, int threshold)
         {

@@ -139,10 +139,10 @@
             this.aboutToolStripMenuItem,
             this.transformToolStripMenuItem,
             this.compileToolStripMenuItem});
-            this.darkMenuStrip1.Location = new System.Drawing.Point(0, 25);
+            this.darkMenuStrip1.Location = new System.Drawing.Point(0, 31);
             this.darkMenuStrip1.Name = "darkMenuStrip1";
-            this.darkMenuStrip1.Padding = new System.Windows.Forms.Padding(3, 2, 0, 2);
-            this.darkMenuStrip1.Size = new System.Drawing.Size(1270, 24);
+            this.darkMenuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.darkMenuStrip1.Size = new System.Drawing.Size(1693, 28);
             this.darkMenuStrip1.TabIndex = 0;
             this.darkMenuStrip1.Text = "darkMenuStrip1";
             this.darkMenuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.DarkMenuStrip1_ItemClicked);
@@ -155,7 +155,7 @@
             this.importTilesetToolStripMenuItem});
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // importSpriteToolStripMenuItem
@@ -163,7 +163,7 @@
             this.importSpriteToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.importSpriteToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.importSpriteToolStripMenuItem.Name = "importSpriteToolStripMenuItem";
-            this.importSpriteToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.importSpriteToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
             this.importSpriteToolStripMenuItem.Text = "Import sprite";
             this.importSpriteToolStripMenuItem.Click += new System.EventHandler(this.importSpriteToolStripMenuItem_Click);
             // 
@@ -172,7 +172,7 @@
             this.importTilesetToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.importTilesetToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.importTilesetToolStripMenuItem.Name = "importTilesetToolStripMenuItem";
-            this.importTilesetToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.importTilesetToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
             this.importTilesetToolStripMenuItem.Text = "Import tileset";
             this.importTilesetToolStripMenuItem.Click += new System.EventHandler(this.importTilesetToolStripMenuItem_Click);
             // 
@@ -183,7 +183,7 @@
             this.fileToolStripMenuItem1});
             this.actionsToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.actionsToolStripMenuItem.Name = "actionsToolStripMenuItem";
-            this.actionsToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.actionsToolStripMenuItem.Size = new System.Drawing.Size(56, 24);
             this.actionsToolStripMenuItem.Text = "Tools";
             // 
             // fileToolStripMenuItem1
@@ -191,7 +191,7 @@
             this.fileToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.fileToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
-            this.fileToolStripMenuItem1.Size = new System.Drawing.Size(130, 22);
+            this.fileToolStripMenuItem1.Size = new System.Drawing.Size(157, 26);
             this.fileToolStripMenuItem1.Text = "6 -> 47 file";
             this.fileToolStripMenuItem1.Click += new System.EventHandler(this.fileToolStripMenuItem1_Click);
             // 
@@ -200,7 +200,7 @@
             this.aboutToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.aboutToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
             this.aboutToolStripMenuItem.Text = "Effects";
             // 
             // transformToolStripMenuItem
@@ -208,7 +208,7 @@
             this.transformToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.transformToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.transformToolStripMenuItem.Name = "transformToolStripMenuItem";
-            this.transformToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.transformToolStripMenuItem.Size = new System.Drawing.Size(87, 24);
             this.transformToolStripMenuItem.Text = "Transform";
             // 
             // compileToolStripMenuItem
@@ -216,7 +216,7 @@
             this.compileToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(63)))), ((int)(((byte)(65)))));
             this.compileToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.compileToolStripMenuItem.Name = "compileToolStripMenuItem";
-            this.compileToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.compileToolStripMenuItem.Size = new System.Drawing.Size(77, 24);
             this.compileToolStripMenuItem.Text = "Compile";
             this.compileToolStripMenuItem.Click += new System.EventHandler(this.compileToolStripMenuItem_Click);
             // 
@@ -240,10 +240,11 @@
             this.darkSectionPanel1.Controls.Add(this.darkNumericUpDown1);
             this.darkSectionPanel1.Controls.Add(this.darkLabel2);
             this.darkSectionPanel1.Controls.Add(this.darkLabel1);
-            this.darkSectionPanel1.Location = new System.Drawing.Point(3, 45);
+            this.darkSectionPanel1.Location = new System.Drawing.Point(4, 55);
+            this.darkSectionPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkSectionPanel1.Name = "darkSectionPanel1";
             this.darkSectionPanel1.SectionHeader = null;
-            this.darkSectionPanel1.Size = new System.Drawing.Size(185, 665);
+            this.darkSectionPanel1.Size = new System.Drawing.Size(247, 818);
             this.darkSectionPanel1.TabIndex = 4;
             this.darkSectionPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.darkSectionPanel1_Paint);
             // 
@@ -251,59 +252,66 @@
             // 
             this.darkLabel5.AutoSize = true;
             this.darkLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.darkLabel5.Location = new System.Drawing.Point(11, 152);
+            this.darkLabel5.Location = new System.Drawing.Point(15, 187);
+            this.darkLabel5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.darkLabel5.Name = "darkLabel5";
-            this.darkLabel5.Size = new System.Drawing.Size(57, 13);
+            this.darkLabel5.Size = new System.Drawing.Size(73, 17);
             this.darkLabel5.TabIndex = 15;
             this.darkLabel5.Text = "Active tool";
             // 
             // darkDropdownList2
             // 
-            this.darkDropdownList2.Location = new System.Drawing.Point(14, 178);
+            this.darkDropdownList2.Location = new System.Drawing.Point(19, 219);
+            this.darkDropdownList2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkDropdownList2.Name = "darkDropdownList2";
-            this.darkDropdownList2.Size = new System.Drawing.Size(159, 26);
+            this.darkDropdownList2.Size = new System.Drawing.Size(212, 32);
             this.darkDropdownList2.TabIndex = 14;
             this.darkDropdownList2.Text = "darkDropdownList2";
             // 
             // darkButton6
             // 
-            this.darkButton6.Location = new System.Drawing.Point(14, 423);
+            this.darkButton6.Location = new System.Drawing.Point(19, 521);
+            this.darkButton6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton6.Name = "darkButton6";
-            this.darkButton6.Size = new System.Drawing.Size(159, 23);
+            this.darkButton6.Size = new System.Drawing.Size(212, 28);
             this.darkButton6.TabIndex = 13;
             this.darkButton6.Text = "Delete";
             // 
             // darkButton5
             // 
-            this.darkButton5.Location = new System.Drawing.Point(14, 384);
+            this.darkButton5.Location = new System.Drawing.Point(19, 473);
+            this.darkButton5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton5.Name = "darkButton5";
-            this.darkButton5.Size = new System.Drawing.Size(159, 23);
+            this.darkButton5.Size = new System.Drawing.Size(212, 28);
             this.darkButton5.TabIndex = 12;
             this.darkButton5.Text = "Create";
             this.darkButton5.Click += new System.EventHandler(this.darkButton5_Click);
             // 
             // darkButton4
             // 
-            this.darkButton4.Location = new System.Drawing.Point(14, 346);
+            this.darkButton4.Location = new System.Drawing.Point(19, 426);
+            this.darkButton4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton4.Name = "darkButton4";
-            this.darkButton4.Size = new System.Drawing.Size(159, 23);
+            this.darkButton4.Size = new System.Drawing.Size(212, 28);
             this.darkButton4.TabIndex = 11;
             this.darkButton4.Text = "Change position";
             // 
             // darkButton3
             // 
-            this.darkButton3.Location = new System.Drawing.Point(14, 307);
+            this.darkButton3.Location = new System.Drawing.Point(19, 378);
+            this.darkButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton3.Name = "darkButton3";
-            this.darkButton3.Size = new System.Drawing.Size(159, 23);
+            this.darkButton3.Size = new System.Drawing.Size(212, 28);
             this.darkButton3.TabIndex = 10;
             this.darkButton3.Text = "Change name";
             // 
             // darkDropdownList1
             // 
-            this.darkDropdownList1.Location = new System.Drawing.Point(14, 261);
+            this.darkDropdownList1.Location = new System.Drawing.Point(19, 321);
+            this.darkDropdownList1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkDropdownList1.MaxHeight = 900;
             this.darkDropdownList1.Name = "darkDropdownList1";
-            this.darkDropdownList1.Size = new System.Drawing.Size(159, 26);
+            this.darkDropdownList1.Size = new System.Drawing.Size(212, 32);
             this.darkDropdownList1.TabIndex = 9;
             this.darkDropdownList1.Text = "darkDropdownList1";
             // 
@@ -311,18 +319,20 @@
             // 
             this.darkLabel4.AutoSize = true;
             this.darkLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.darkLabel4.Location = new System.Drawing.Point(11, 236);
+            this.darkLabel4.Location = new System.Drawing.Point(15, 290);
+            this.darkLabel4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.darkLabel4.Name = "darkLabel4";
-            this.darkLabel4.Size = new System.Drawing.Size(86, 13);
+            this.darkLabel4.Size = new System.Drawing.Size(114, 17);
             this.darkLabel4.TabIndex = 8;
             this.darkLabel4.Text = "Defined autotiles";
             // 
             // darkButton2
             // 
             this.darkButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.darkButton2.Location = new System.Drawing.Point(14, 592);
+            this.darkButton2.Location = new System.Drawing.Point(19, 729);
+            this.darkButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton2.Name = "darkButton2";
-            this.darkButton2.Size = new System.Drawing.Size(159, 23);
+            this.darkButton2.Size = new System.Drawing.Size(212, 28);
             this.darkButton2.TabIndex = 7;
             this.darkButton2.Text = "Convert subsprites";
             this.darkButton2.Visible = false;
@@ -331,9 +341,10 @@
             // darkButton1
             // 
             this.darkButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.darkButton1.Location = new System.Drawing.Point(14, 630);
+            this.darkButton1.Location = new System.Drawing.Point(19, 775);
+            this.darkButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton1.Name = "darkButton1";
-            this.darkButton1.Size = new System.Drawing.Size(159, 23);
+            this.darkButton1.Size = new System.Drawing.Size(212, 28);
             this.darkButton1.TabIndex = 6;
             this.darkButton1.Text = "Save";
             this.darkButton1.Click += new System.EventHandler(this.darkButton1_Click);
@@ -349,10 +360,11 @@
             0,
             0,
             65536});
-            this.darkNumericUpDown3.Location = new System.Drawing.Point(73, 24);
+            this.darkNumericUpDown3.Location = new System.Drawing.Point(97, 30);
+            this.darkNumericUpDown3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkNumericUpDown3.MousewheelSingleIncrement = true;
             this.darkNumericUpDown3.Name = "darkNumericUpDown3";
-            this.darkNumericUpDown3.Size = new System.Drawing.Size(100, 20);
+            this.darkNumericUpDown3.Size = new System.Drawing.Size(133, 22);
             this.darkNumericUpDown3.TabIndex = 5;
             this.darkNumericUpDown3.Value = new decimal(new int[] {
             1,
@@ -366,9 +378,10 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.darkLabel3.AutoSize = true;
             this.darkLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.darkLabel3.Location = new System.Drawing.Point(11, 26);
+            this.darkLabel3.Location = new System.Drawing.Point(15, 32);
+            this.darkLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.darkLabel3.Name = "darkLabel3";
-            this.darkLabel3.Size = new System.Drawing.Size(34, 13);
+            this.darkLabel3.Size = new System.Drawing.Size(42, 17);
             this.darkLabel3.TabIndex = 4;
             this.darkLabel3.Text = "Rows";
             // 
@@ -383,7 +396,8 @@
             0,
             0,
             65536});
-            this.darkNumericUpDown2.Location = new System.Drawing.Point(73, 100);
+            this.darkNumericUpDown2.Location = new System.Drawing.Point(97, 123);
+            this.darkNumericUpDown2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkNumericUpDown2.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -391,7 +405,7 @@
             0});
             this.darkNumericUpDown2.MousewheelSingleIncrement = true;
             this.darkNumericUpDown2.Name = "darkNumericUpDown2";
-            this.darkNumericUpDown2.Size = new System.Drawing.Size(100, 20);
+            this.darkNumericUpDown2.Size = new System.Drawing.Size(133, 22);
             this.darkNumericUpDown2.TabIndex = 3;
             this.darkNumericUpDown2.Value = new decimal(new int[] {
             32,
@@ -410,7 +424,8 @@
             0,
             0,
             65536});
-            this.darkNumericUpDown1.Location = new System.Drawing.Point(73, 65);
+            this.darkNumericUpDown1.Location = new System.Drawing.Point(97, 80);
+            this.darkNumericUpDown1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkNumericUpDown1.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -418,7 +433,7 @@
             0});
             this.darkNumericUpDown1.MousewheelSingleIncrement = true;
             this.darkNumericUpDown1.Name = "darkNumericUpDown1";
-            this.darkNumericUpDown1.Size = new System.Drawing.Size(100, 20);
+            this.darkNumericUpDown1.Size = new System.Drawing.Size(133, 22);
             this.darkNumericUpDown1.TabIndex = 2;
             this.darkNumericUpDown1.Value = new decimal(new int[] {
             32,
@@ -433,9 +448,10 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.darkLabel2.AutoSize = true;
             this.darkLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.darkLabel2.Location = new System.Drawing.Point(11, 107);
+            this.darkLabel2.Location = new System.Drawing.Point(15, 132);
+            this.darkLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.darkLabel2.Name = "darkLabel2";
-            this.darkLabel2.Size = new System.Drawing.Size(56, 13);
+            this.darkLabel2.Size = new System.Drawing.Size(74, 17);
             this.darkLabel2.TabIndex = 1;
             this.darkLabel2.Text = "Cell height";
             // 
@@ -445,9 +461,10 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.darkLabel1.AutoSize = true;
             this.darkLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.darkLabel1.Location = new System.Drawing.Point(11, 67);
+            this.darkLabel1.Location = new System.Drawing.Point(15, 82);
+            this.darkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.darkLabel1.Name = "darkLabel1";
-            this.darkLabel1.Size = new System.Drawing.Size(52, 13);
+            this.darkLabel1.Size = new System.Drawing.Size(67, 17);
             this.darkLabel1.TabIndex = 0;
             this.darkLabel1.Text = "Cell width";
             // 
@@ -480,10 +497,10 @@
             this.toolStripSeparator1,
             this.toolStripButton1,
             this.toolStripButton3});
-            this.darkToolStrip1.Location = new System.Drawing.Point(191, 45);
+            this.darkToolStrip1.Location = new System.Drawing.Point(255, 55);
             this.darkToolStrip1.Name = "darkToolStrip1";
-            this.darkToolStrip1.Padding = new System.Windows.Forms.Padding(5, 0, 1, 0);
-            this.darkToolStrip1.Size = new System.Drawing.Size(1078, 21);
+            this.darkToolStrip1.Padding = new System.Windows.Forms.Padding(7, 0, 1, 0);
+            this.darkToolStrip1.Size = new System.Drawing.Size(1437, 26);
             this.darkToolStrip1.TabIndex = 6;
             this.darkToolStrip1.Text = "darkToolStrip1";
             // 
@@ -495,7 +512,7 @@
             this.toolStripButton2.Image = global::SimplexIde.Properties.Resources.BlankFile_16x;
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(24, 18);
+            this.toolStripButton2.Size = new System.Drawing.Size(24, 23);
             this.toolStripButton2.Text = "toolStripButton2";
             this.toolStripButton2.Click += new System.EventHandler(this.ToolStripButton2_Click);
             // 
@@ -505,7 +522,7 @@
             this.toolStripSeparator1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
             this.toolStripSeparator1.Margin = new System.Windows.Forms.Padding(0, 0, 2, 0);
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 21);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 26);
             // 
             // toolStripButton1
             // 
@@ -515,7 +532,7 @@
             this.toolStripButton1.Image = global::SimplexIde.Properties.Resources.Save_16x;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(24, 18);
+            this.toolStripButton1.Size = new System.Drawing.Size(24, 23);
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.Click += new System.EventHandler(this.ToolStripButton1_Click);
             // 
@@ -527,7 +544,7 @@
             this.toolStripButton3.Image = global::SimplexIde.Properties.Resources.SaveAll_16x;
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(24, 18);
+            this.toolStripButton3.Size = new System.Drawing.Size(24, 23);
             this.toolStripButton3.Text = "toolStripButton3";
             // 
             // darkToolStrip2
@@ -541,10 +558,10 @@
             this.darkToolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton4,
             this.toolStripButton5});
-            this.darkToolStrip2.Location = new System.Drawing.Point(870, 24);
+            this.darkToolStrip2.Location = new System.Drawing.Point(1160, 30);
             this.darkToolStrip2.Name = "darkToolStrip2";
-            this.darkToolStrip2.Padding = new System.Windows.Forms.Padding(5, 0, 1, 0);
-            this.darkToolStrip2.Size = new System.Drawing.Size(400, 21);
+            this.darkToolStrip2.Padding = new System.Windows.Forms.Padding(7, 0, 1, 0);
+            this.darkToolStrip2.Size = new System.Drawing.Size(533, 26);
             this.darkToolStrip2.TabIndex = 7;
             this.darkToolStrip2.Text = "darkToolStrip2";
             // 
@@ -556,7 +573,7 @@
             this.toolStripButton4.Image = global::SimplexIde.Properties.Resources.Pen4_16x;
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(24, 18);
+            this.toolStripButton4.Size = new System.Drawing.Size(24, 23);
             this.toolStripButton4.Text = "toolStripButton4";
             this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
@@ -568,7 +585,7 @@
             this.toolStripButton5.Image = global::SimplexIde.Properties.Resources.ColorDialog_16x;
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(24, 18);
+            this.toolStripButton5.Size = new System.Drawing.Size(24, 23);
             this.toolStripButton5.Text = "toolStripButton5";
             this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
             // 
@@ -591,9 +608,11 @@
             this.darkGroupBox1.Controls.Add(this.darkButton9);
             this.darkGroupBox1.Controls.Add(this.darkButton8);
             this.darkGroupBox1.Controls.Add(this.darkButton7);
-            this.darkGroupBox1.Location = new System.Drawing.Point(1037, 69);
+            this.darkGroupBox1.Location = new System.Drawing.Point(1383, 85);
+            this.darkGroupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkGroupBox1.Name = "darkGroupBox1";
-            this.darkGroupBox1.Size = new System.Drawing.Size(230, 148);
+            this.darkGroupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.darkGroupBox1.Size = new System.Drawing.Size(307, 182);
             this.darkGroupBox1.TabIndex = 12;
             this.darkGroupBox1.TabStop = false;
             this.darkGroupBox1.Text = "Tools";
@@ -601,141 +620,157 @@
             // darkButton32
             // 
             this.darkButton32.Image = global::SimplexIde.Properties.Resources.Star;
-            this.darkButton32.Location = new System.Drawing.Point(196, 49);
+            this.darkButton32.Location = new System.Drawing.Point(261, 60);
+            this.darkButton32.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton32.Name = "darkButton32";
-            this.darkButton32.Size = new System.Drawing.Size(32, 23);
+            this.darkButton32.Size = new System.Drawing.Size(43, 28);
             this.darkButton32.TabIndex = 15;
             this.darkButton32.Click += new System.EventHandler(this.darkButton32_Click);
             // 
             // darkButton26
             // 
             this.darkButton26.Image = global::SimplexIde.Properties.Resources.airbrush;
-            this.darkButton26.Location = new System.Drawing.Point(44, 19);
+            this.darkButton26.Location = new System.Drawing.Point(59, 23);
+            this.darkButton26.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton26.Name = "darkButton26";
-            this.darkButton26.Size = new System.Drawing.Size(32, 23);
+            this.darkButton26.Size = new System.Drawing.Size(43, 28);
             this.darkButton26.TabIndex = 14;
             this.darkButton26.Click += new System.EventHandler(this.darkButton26_Click);
             // 
             // darkButton20
             // 
             this.darkButton20.Image = global::SimplexIde.Properties.Resources.Select;
-            this.darkButton20.Location = new System.Drawing.Point(82, 107);
+            this.darkButton20.Location = new System.Drawing.Point(109, 132);
+            this.darkButton20.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton20.Name = "darkButton20";
-            this.darkButton20.Size = new System.Drawing.Size(32, 23);
+            this.darkButton20.Size = new System.Drawing.Size(43, 28);
             this.darkButton20.TabIndex = 13;
             // 
             // darkButton19
             // 
             this.darkButton19.Image = global::SimplexIde.Properties.Resources.spray_tool;
-            this.darkButton19.Location = new System.Drawing.Point(82, 77);
+            this.darkButton19.Location = new System.Drawing.Point(109, 95);
+            this.darkButton19.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton19.Name = "darkButton19";
-            this.darkButton19.Size = new System.Drawing.Size(32, 23);
+            this.darkButton19.Size = new System.Drawing.Size(43, 28);
             this.darkButton19.TabIndex = 12;
             this.darkButton19.Click += new System.EventHandler(this.darkButton19_Click);
             // 
             // darkButton18
             // 
             this.darkButton18.Image = global::SimplexIde.Properties.Resources.Circle_select;
-            this.darkButton18.Location = new System.Drawing.Point(44, 107);
+            this.darkButton18.Location = new System.Drawing.Point(59, 132);
+            this.darkButton18.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton18.Name = "darkButton18";
-            this.darkButton18.Size = new System.Drawing.Size(32, 23);
+            this.darkButton18.Size = new System.Drawing.Size(43, 28);
             this.darkButton18.TabIndex = 11;
             // 
             // darkButton17
             // 
             this.darkButton17.Image = global::SimplexIde.Properties.Resources.Line;
-            this.darkButton17.Location = new System.Drawing.Point(6, 49);
+            this.darkButton17.Location = new System.Drawing.Point(8, 60);
+            this.darkButton17.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton17.Name = "darkButton17";
-            this.darkButton17.Size = new System.Drawing.Size(32, 23);
+            this.darkButton17.Size = new System.Drawing.Size(43, 28);
             this.darkButton17.TabIndex = 10;
             this.darkButton17.Click += new System.EventHandler(this.darkButton17_Click);
             // 
             // darkButton16
             // 
             this.darkButton16.Image = global::SimplexIde.Properties.Resources.Shape;
-            this.darkButton16.Location = new System.Drawing.Point(158, 49);
+            this.darkButton16.Location = new System.Drawing.Point(211, 60);
+            this.darkButton16.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton16.Name = "darkButton16";
-            this.darkButton16.Size = new System.Drawing.Size(32, 23);
+            this.darkButton16.Size = new System.Drawing.Size(43, 28);
             this.darkButton16.TabIndex = 9;
             this.darkButton16.Click += new System.EventHandler(this.darkButton16_Click);
             // 
             // darkButton15
             // 
             this.darkButton15.Image = global::SimplexIde.Properties.Resources.RectangleSelectionTool_16x;
-            this.darkButton15.Location = new System.Drawing.Point(6, 107);
+            this.darkButton15.Location = new System.Drawing.Point(8, 132);
+            this.darkButton15.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton15.Name = "darkButton15";
-            this.darkButton15.Size = new System.Drawing.Size(32, 23);
+            this.darkButton15.Size = new System.Drawing.Size(43, 28);
             this.darkButton15.TabIndex = 8;
             // 
             // darkButton14
             // 
             this.darkButton14.Image = global::SimplexIde.Properties.Resources.FillTool_16x;
-            this.darkButton14.Location = new System.Drawing.Point(44, 78);
+            this.darkButton14.Location = new System.Drawing.Point(59, 96);
+            this.darkButton14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton14.Name = "darkButton14";
-            this.darkButton14.Size = new System.Drawing.Size(32, 23);
+            this.darkButton14.Size = new System.Drawing.Size(43, 28);
             this.darkButton14.TabIndex = 7;
             this.darkButton14.Click += new System.EventHandler(this.darkButton14_Click);
             // 
             // darkButton13
             // 
             this.darkButton13.Image = global::SimplexIde.Properties.Resources.RoundedRectangleTool_16x;
-            this.darkButton13.Location = new System.Drawing.Point(82, 49);
+            this.darkButton13.Location = new System.Drawing.Point(109, 60);
+            this.darkButton13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton13.Name = "darkButton13";
-            this.darkButton13.Size = new System.Drawing.Size(32, 23);
+            this.darkButton13.Size = new System.Drawing.Size(43, 28);
             this.darkButton13.TabIndex = 6;
             this.darkButton13.Click += new System.EventHandler(this.darkButton13_Click);
             // 
             // darkButton12
             // 
             this.darkButton12.Image = global::SimplexIde.Properties.Resources.TextElement_16x;
-            this.darkButton12.Location = new System.Drawing.Point(6, 77);
+            this.darkButton12.Location = new System.Drawing.Point(8, 95);
+            this.darkButton12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton12.Name = "darkButton12";
-            this.darkButton12.Size = new System.Drawing.Size(32, 23);
+            this.darkButton12.Size = new System.Drawing.Size(43, 28);
             this.darkButton12.TabIndex = 5;
             this.darkButton12.Click += new System.EventHandler(this.darkButton12_Click);
             // 
             // darkButton11
             // 
             this.darkButton11.Image = global::SimplexIde.Properties.Resources.Eraser_16x;
-            this.darkButton11.Location = new System.Drawing.Point(119, 20);
+            this.darkButton11.Location = new System.Drawing.Point(159, 25);
+            this.darkButton11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton11.Name = "darkButton11";
-            this.darkButton11.Size = new System.Drawing.Size(32, 23);
+            this.darkButton11.Size = new System.Drawing.Size(43, 28);
             this.darkButton11.TabIndex = 4;
             this.darkButton11.Click += new System.EventHandler(this.darkButton11_Click);
             // 
             // darkButton10
             // 
             this.darkButton10.Image = global::SimplexIde.Properties.Resources.ColorPicker_12x_16x;
-            this.darkButton10.Location = new System.Drawing.Point(82, 20);
+            this.darkButton10.Location = new System.Drawing.Point(109, 25);
+            this.darkButton10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton10.Name = "darkButton10";
-            this.darkButton10.Size = new System.Drawing.Size(32, 23);
+            this.darkButton10.Size = new System.Drawing.Size(43, 28);
             this.darkButton10.TabIndex = 3;
             this.darkButton10.Click += new System.EventHandler(this.darkButton10_Click);
             // 
             // darkButton9
             // 
             this.darkButton9.Image = global::SimplexIde.Properties.Resources.SquareSingle_16x;
-            this.darkButton9.Location = new System.Drawing.Point(44, 49);
+            this.darkButton9.Location = new System.Drawing.Point(59, 60);
+            this.darkButton9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton9.Name = "darkButton9";
-            this.darkButton9.Size = new System.Drawing.Size(32, 23);
+            this.darkButton9.Size = new System.Drawing.Size(43, 28);
             this.darkButton9.TabIndex = 2;
             this.darkButton9.Click += new System.EventHandler(this.darkButton9_Click);
             // 
             // darkButton8
             // 
             this.darkButton8.Image = global::SimplexIde.Properties.Resources.Ellipse_16x;
-            this.darkButton8.Location = new System.Drawing.Point(120, 49);
+            this.darkButton8.Location = new System.Drawing.Point(160, 60);
+            this.darkButton8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton8.Name = "darkButton8";
-            this.darkButton8.Size = new System.Drawing.Size(32, 23);
+            this.darkButton8.Size = new System.Drawing.Size(43, 28);
             this.darkButton8.TabIndex = 1;
             this.darkButton8.Click += new System.EventHandler(this.darkButton8_Click);
             // 
             // darkButton7
             // 
             this.darkButton7.Image = global::SimplexIde.Properties.Resources.Pen4_16x1;
-            this.darkButton7.Location = new System.Drawing.Point(6, 19);
+            this.darkButton7.Location = new System.Drawing.Point(8, 23);
+            this.darkButton7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton7.Name = "darkButton7";
-            this.darkButton7.Size = new System.Drawing.Size(32, 23);
+            this.darkButton7.Size = new System.Drawing.Size(43, 28);
             this.darkButton7.TabIndex = 0;
             this.darkButton7.Click += new System.EventHandler(this.darkButton7_Click);
             // 
@@ -752,9 +787,11 @@
             this.darkGroupBox2.Controls.Add(this.darkMouseTool1);
             this.darkGroupBox2.Controls.Add(this.darkColorPallete2);
             this.darkGroupBox2.Controls.Add(this.darkColorPallete1);
-            this.darkGroupBox2.Location = new System.Drawing.Point(1038, 223);
+            this.darkGroupBox2.Location = new System.Drawing.Point(1384, 274);
+            this.darkGroupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkGroupBox2.Name = "darkGroupBox2";
-            this.darkGroupBox2.Size = new System.Drawing.Size(230, 292);
+            this.darkGroupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.darkGroupBox2.Size = new System.Drawing.Size(307, 359);
             this.darkGroupBox2.TabIndex = 13;
             this.darkGroupBox2.TabStop = false;
             this.darkGroupBox2.Text = "Colors";
@@ -765,10 +802,9 @@
             this.darkLabel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.darkLabel6.AutoSize = true;
             this.darkLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.darkLabel6.Location = new System.Drawing.Point(4, 236);
-            this.darkLabel6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.darkLabel6.Location = new System.Drawing.Point(5, 290);
             this.darkLabel6.Name = "darkLabel6";
-            this.darkLabel6.Size = new System.Drawing.Size(46, 13);
+            this.darkLabel6.Size = new System.Drawing.Size(60, 17);
             this.darkLabel6.TabIndex = 11;
             this.darkLabel6.Text = "Opacity:";
             // 
@@ -782,8 +818,8 @@
             0,
             0,
             65536});
-            this.darkNumericUpDown4.Location = new System.Drawing.Point(6, 252);
-            this.darkNumericUpDown4.Margin = new System.Windows.Forms.Padding(2);
+            this.darkNumericUpDown4.Location = new System.Drawing.Point(8, 310);
+            this.darkNumericUpDown4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.darkNumericUpDown4.Maximum = new decimal(new int[] {
             255,
             0,
@@ -791,7 +827,7 @@
             0});
             this.darkNumericUpDown4.MousewheelSingleIncrement = true;
             this.darkNumericUpDown4.Name = "darkNumericUpDown4";
-            this.darkNumericUpDown4.Size = new System.Drawing.Size(218, 20);
+            this.darkNumericUpDown4.Size = new System.Drawing.Size(291, 22);
             this.darkNumericUpDown4.TabIndex = 10;
             this.darkNumericUpDown4.Value = new decimal(new int[] {
             255,
@@ -803,10 +839,10 @@
             // darkProgressBar1
             // 
             this.darkProgressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.darkProgressBar1.Location = new System.Drawing.Point(5, 275);
-            this.darkProgressBar1.Margin = new System.Windows.Forms.Padding(2);
+            this.darkProgressBar1.Location = new System.Drawing.Point(7, 338);
+            this.darkProgressBar1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.darkProgressBar1.Name = "darkProgressBar1";
-            this.darkProgressBar1.Size = new System.Drawing.Size(219, 15);
+            this.darkProgressBar1.Size = new System.Drawing.Size(292, 18);
             this.darkProgressBar1.TabIndex = 9;
             this.darkProgressBar1.Value = 100;
             this.darkProgressBar1.Click += new System.EventHandler(this.DarkProgressBar1_Click);
@@ -814,37 +850,37 @@
             // 
             // darkButton23
             // 
-            this.darkButton23.Location = new System.Drawing.Point(169, 47);
-            this.darkButton23.Margin = new System.Windows.Forms.Padding(2);
+            this.darkButton23.Location = new System.Drawing.Point(225, 58);
+            this.darkButton23.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.darkButton23.Name = "darkButton23";
-            this.darkButton23.Size = new System.Drawing.Size(47, 18);
+            this.darkButton23.Size = new System.Drawing.Size(63, 22);
             this.darkButton23.TabIndex = 8;
             this.darkButton23.Text = "Load";
             // 
             // darkButton22
             // 
-            this.darkButton22.Location = new System.Drawing.Point(119, 47);
-            this.darkButton22.Margin = new System.Windows.Forms.Padding(2);
+            this.darkButton22.Location = new System.Drawing.Point(159, 58);
+            this.darkButton22.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.darkButton22.Name = "darkButton22";
-            this.darkButton22.Size = new System.Drawing.Size(46, 18);
+            this.darkButton22.Size = new System.Drawing.Size(61, 22);
             this.darkButton22.TabIndex = 7;
             this.darkButton22.Text = "Save";
             // 
             // darkButton24
             // 
-            this.darkButton24.Location = new System.Drawing.Point(169, 71);
-            this.darkButton24.Margin = new System.Windows.Forms.Padding(2);
+            this.darkButton24.Location = new System.Drawing.Point(225, 87);
+            this.darkButton24.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.darkButton24.Name = "darkButton24";
-            this.darkButton24.Size = new System.Drawing.Size(47, 18);
+            this.darkButton24.Size = new System.Drawing.Size(63, 22);
             this.darkButton24.TabIndex = 6;
             this.darkButton24.Text = "Reset";
             // 
             // darkButton21
             // 
-            this.darkButton21.Location = new System.Drawing.Point(119, 71);
-            this.darkButton21.Margin = new System.Windows.Forms.Padding(2);
+            this.darkButton21.Location = new System.Drawing.Point(159, 87);
+            this.darkButton21.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.darkButton21.Name = "darkButton21";
-            this.darkButton21.Size = new System.Drawing.Size(46, 18);
+            this.darkButton21.Size = new System.Drawing.Size(61, 22);
             this.darkButton21.TabIndex = 3;
             this.darkButton21.Text = "Edit";
             // 
@@ -852,20 +888,21 @@
             // 
             this.darkMouseTool1.Gradient = false;
             this.darkMouseTool1.LeftColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.darkMouseTool1.Location = new System.Drawing.Point(6, 30);
-            this.darkMouseTool1.Margin = new System.Windows.Forms.Padding(2);
+            this.darkMouseTool1.Location = new System.Drawing.Point(8, 37);
+            this.darkMouseTool1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.darkMouseTool1.Name = "darkMouseTool1";
             this.darkMouseTool1.RightColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.darkMouseTool1.Size = new System.Drawing.Size(97, 58);
+            this.darkMouseTool1.Size = new System.Drawing.Size(129, 71);
             this.darkMouseTool1.TabIndex = 2;
             this.darkMouseTool1.Text = "darkMouseTool1";
             // 
             // darkColorPallete2
             // 
             this.darkColorPallete2.Gradient = true;
-            this.darkColorPallete2.Location = new System.Drawing.Point(119, 94);
+            this.darkColorPallete2.Location = new System.Drawing.Point(159, 116);
+            this.darkColorPallete2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkColorPallete2.Name = "darkColorPallete2";
-            this.darkColorPallete2.Size = new System.Drawing.Size(97, 129);
+            this.darkColorPallete2.Size = new System.Drawing.Size(129, 159);
             this.darkColorPallete2.TabIndex = 1;
             this.darkColorPallete2.Text = "kokot";
             this.darkColorPallete2.Click += new System.EventHandler(this.DarkColorPallete2_Click);
@@ -875,9 +912,10 @@
             // darkColorPallete1
             // 
             this.darkColorPallete1.Gradient = false;
-            this.darkColorPallete1.Location = new System.Drawing.Point(6, 94);
+            this.darkColorPallete1.Location = new System.Drawing.Point(8, 116);
+            this.darkColorPallete1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkColorPallete1.Name = "darkColorPallete1";
-            this.darkColorPallete1.Size = new System.Drawing.Size(97, 129);
+            this.darkColorPallete1.Size = new System.Drawing.Size(129, 159);
             this.darkColorPallete1.TabIndex = 0;
             this.darkColorPallete1.Text = "kokot";
             this.darkColorPallete1.Click += new System.EventHandler(this.DarkColorPallete1_Click);
@@ -893,9 +931,11 @@
             this.darkGroupBox3.Controls.Add(this.darkButton28);
             this.darkGroupBox3.Controls.Add(this.darkButton27);
             this.darkGroupBox3.Controls.Add(this.darkButton25);
-            this.darkGroupBox3.Location = new System.Drawing.Point(1038, 518);
+            this.darkGroupBox3.Location = new System.Drawing.Point(1384, 638);
+            this.darkGroupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkGroupBox3.Name = "darkGroupBox3";
-            this.darkGroupBox3.Size = new System.Drawing.Size(231, 78);
+            this.darkGroupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.darkGroupBox3.Size = new System.Drawing.Size(308, 96);
             this.darkGroupBox3.TabIndex = 14;
             this.darkGroupBox3.TabStop = false;
             this.darkGroupBox3.Text = "Brushes";
@@ -903,49 +943,55 @@
             // darkButton31
             // 
             this.darkButton31.Image = global::SimplexIde.Properties.Resources.Circle_6;
-            this.darkButton31.Location = new System.Drawing.Point(195, 19);
+            this.darkButton31.Location = new System.Drawing.Point(260, 23);
+            this.darkButton31.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton31.Name = "darkButton31";
-            this.darkButton31.Size = new System.Drawing.Size(32, 23);
+            this.darkButton31.Size = new System.Drawing.Size(43, 28);
             this.darkButton31.TabIndex = 19;
             // 
             // darkButton30
             // 
             this.darkButton30.Image = global::SimplexIde.Properties.Resources.Circle_5;
-            this.darkButton30.Location = new System.Drawing.Point(158, 19);
+            this.darkButton30.Location = new System.Drawing.Point(211, 23);
+            this.darkButton30.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton30.Name = "darkButton30";
-            this.darkButton30.Size = new System.Drawing.Size(32, 23);
+            this.darkButton30.Size = new System.Drawing.Size(43, 28);
             this.darkButton30.TabIndex = 18;
             // 
             // darkButton29
             // 
             this.darkButton29.Image = global::SimplexIde.Properties.Resources.Circle_4;
-            this.darkButton29.Location = new System.Drawing.Point(119, 19);
+            this.darkButton29.Location = new System.Drawing.Point(159, 23);
+            this.darkButton29.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton29.Name = "darkButton29";
-            this.darkButton29.Size = new System.Drawing.Size(32, 23);
+            this.darkButton29.Size = new System.Drawing.Size(43, 28);
             this.darkButton29.TabIndex = 17;
             // 
             // darkButton28
             // 
             this.darkButton28.Image = global::SimplexIde.Properties.Resources.Circle_2;
-            this.darkButton28.Location = new System.Drawing.Point(44, 19);
+            this.darkButton28.Location = new System.Drawing.Point(59, 23);
+            this.darkButton28.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton28.Name = "darkButton28";
-            this.darkButton28.Size = new System.Drawing.Size(32, 23);
+            this.darkButton28.Size = new System.Drawing.Size(43, 28);
             this.darkButton28.TabIndex = 16;
             // 
             // darkButton27
             // 
             this.darkButton27.Image = global::SimplexIde.Properties.Resources.Circle_3;
-            this.darkButton27.Location = new System.Drawing.Point(82, 19);
+            this.darkButton27.Location = new System.Drawing.Point(109, 23);
+            this.darkButton27.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton27.Name = "darkButton27";
-            this.darkButton27.Size = new System.Drawing.Size(32, 23);
+            this.darkButton27.Size = new System.Drawing.Size(43, 28);
             this.darkButton27.TabIndex = 15;
             // 
             // darkButton25
             // 
             this.darkButton25.Image = global::SimplexIde.Properties.Resources.Circle_1;
-            this.darkButton25.Location = new System.Drawing.Point(6, 19);
+            this.darkButton25.Location = new System.Drawing.Point(8, 23);
+            this.darkButton25.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton25.Name = "darkButton25";
-            this.darkButton25.Size = new System.Drawing.Size(32, 23);
+            this.darkButton25.Size = new System.Drawing.Size(43, 28);
             this.darkButton25.TabIndex = 14;
             // 
             // darkGroupBox5
@@ -953,9 +999,11 @@
             this.darkGroupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.darkGroupBox5.Controls.Add(this.darkTreeView1);
-            this.darkGroupBox5.Location = new System.Drawing.Point(1038, 603);
+            this.darkGroupBox5.Location = new System.Drawing.Point(1384, 742);
+            this.darkGroupBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkGroupBox5.Name = "darkGroupBox5";
-            this.darkGroupBox5.Size = new System.Drawing.Size(227, 102);
+            this.darkGroupBox5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.darkGroupBox5.Size = new System.Drawing.Size(303, 126);
             this.darkGroupBox5.TabIndex = 15;
             this.darkGroupBox5.TabStop = false;
             this.darkGroupBox5.Text = "Layers";
@@ -964,11 +1012,11 @@
             // 
             this.darkTreeView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.darkTreeView1.Location = new System.Drawing.Point(6, 18);
-            this.darkTreeView1.Margin = new System.Windows.Forms.Padding(2);
+            this.darkTreeView1.Location = new System.Drawing.Point(8, 22);
+            this.darkTreeView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.darkTreeView1.MaxDragChange = 20;
             this.darkTreeView1.Name = "darkTreeView1";
-            this.darkTreeView1.Size = new System.Drawing.Size(216, 78);
+            this.darkTreeView1.Size = new System.Drawing.Size(288, 96);
             this.darkTreeView1.TabIndex = 0;
             this.darkTreeView1.Text = "darkTreeView1";
             // 
@@ -976,15 +1024,16 @@
             // 
             this.darkImageIndex1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.darkImageIndex1.Location = new System.Drawing.Point(58, 35);
-            this.darkImageIndex1.Margin = new System.Windows.Forms.Padding(2);
+            this.darkImageIndex1.Location = new System.Drawing.Point(77, 43);
+            this.darkImageIndex1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.darkImageIndex1.Name = "darkImageIndex1";
             this.darkImageIndex1.SelectedFrame = 0;
-            this.darkImageIndex1.Size = new System.Drawing.Size(776, 106);
+            this.darkImageIndex1.Size = new System.Drawing.Size(1035, 130);
             this.darkImageIndex1.TabIndex = 0;
             this.darkImageIndex1.Text = "darkImageIndex1";
             this.darkImageIndex1.Click += new System.EventHandler(this.DarkImageIndex1_Click);
             this.darkImageIndex1.Paint += new System.Windows.Forms.PaintEventHandler(this.DarkImageIndex1_Paint);
+            this.darkImageIndex1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DarkImageIndex1_KeyDown);
             this.darkImageIndex1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DarkImageIndex1_MouseDown);
             this.darkImageIndex1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.DarkImageIndex1_MouseMove);
             // 
@@ -998,11 +1047,11 @@
             this.darkGroupBox4.Controls.Add(this.darkNumericUpDown5);
             this.darkGroupBox4.Controls.Add(this.darkButton33);
             this.darkGroupBox4.Controls.Add(this.darkImageIndex1);
-            this.darkGroupBox4.Location = new System.Drawing.Point(194, 71);
-            this.darkGroupBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.darkGroupBox4.Location = new System.Drawing.Point(259, 87);
+            this.darkGroupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.darkGroupBox4.Name = "darkGroupBox4";
-            this.darkGroupBox4.Padding = new System.Windows.Forms.Padding(2);
-            this.darkGroupBox4.Size = new System.Drawing.Size(838, 146);
+            this.darkGroupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.darkGroupBox4.Size = new System.Drawing.Size(1117, 180);
             this.darkGroupBox4.TabIndex = 16;
             this.darkGroupBox4.TabStop = false;
             this.darkGroupBox4.Text = "Animation";
@@ -1010,27 +1059,28 @@
             // darkButton35
             // 
             this.darkButton35.Image = global::SimplexIde.Properties.Resources.Stop_grey_16x;
-            this.darkButton35.Location = new System.Drawing.Point(5, 116);
+            this.darkButton35.Location = new System.Drawing.Point(7, 143);
+            this.darkButton35.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton35.Name = "darkButton35";
-            this.darkButton35.Size = new System.Drawing.Size(47, 23);
+            this.darkButton35.Size = new System.Drawing.Size(63, 28);
             this.darkButton35.TabIndex = 20;
             // 
             // darkButton34
             // 
             this.darkButton34.Image = global::SimplexIde.Properties.Resources.Pause_grey_16x;
-            this.darkButton34.Location = new System.Drawing.Point(5, 87);
+            this.darkButton34.Location = new System.Drawing.Point(7, 107);
+            this.darkButton34.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton34.Name = "darkButton34";
-            this.darkButton34.Size = new System.Drawing.Size(47, 23);
+            this.darkButton34.Size = new System.Drawing.Size(63, 28);
             this.darkButton34.TabIndex = 19;
             // 
             // darkLabel7
             // 
             this.darkLabel7.AutoSize = true;
             this.darkLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(220)))));
-            this.darkLabel7.Location = new System.Drawing.Point(4, 18);
-            this.darkLabel7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.darkLabel7.Location = new System.Drawing.Point(5, 22);
             this.darkLabel7.Name = "darkLabel7";
-            this.darkLabel7.Size = new System.Drawing.Size(30, 13);
+            this.darkLabel7.Size = new System.Drawing.Size(38, 17);
             this.darkLabel7.TabIndex = 18;
             this.darkLabel7.Text = "FPS:";
             // 
@@ -1043,11 +1093,11 @@
             0,
             0,
             65536});
-            this.darkNumericUpDown5.Location = new System.Drawing.Point(5, 34);
-            this.darkNumericUpDown5.Margin = new System.Windows.Forms.Padding(2);
+            this.darkNumericUpDown5.Location = new System.Drawing.Point(7, 42);
+            this.darkNumericUpDown5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.darkNumericUpDown5.MousewheelSingleIncrement = true;
             this.darkNumericUpDown5.Name = "darkNumericUpDown5";
-            this.darkNumericUpDown5.Size = new System.Drawing.Size(46, 20);
+            this.darkNumericUpDown5.Size = new System.Drawing.Size(61, 22);
             this.darkNumericUpDown5.TabIndex = 17;
             this.darkNumericUpDown5.Value = new decimal(new int[] {
             30,
@@ -1058,9 +1108,10 @@
             // darkButton33
             // 
             this.darkButton33.Image = global::SimplexIde.Properties.Resources.PlayVideo_16x;
-            this.darkButton33.Location = new System.Drawing.Point(5, 58);
+            this.darkButton33.Location = new System.Drawing.Point(7, 71);
+            this.darkButton33.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.darkButton33.Name = "darkButton33";
-            this.darkButton33.Size = new System.Drawing.Size(47, 23);
+            this.darkButton33.Size = new System.Drawing.Size(63, 28);
             this.darkButton33.TabIndex = 16;
             this.darkButton33.Click += new System.EventHandler(this.DarkButton33_Click_1);
             // 
@@ -1069,10 +1120,11 @@
             this.spritesEditorRenderer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.spritesEditorRenderer1.Location = new System.Drawing.Point(194, 232);
+            this.spritesEditorRenderer1.Location = new System.Drawing.Point(259, 286);
+            this.spritesEditorRenderer1.Margin = new System.Windows.Forms.Padding(4);
             this.spritesEditorRenderer1.MouseHoverUpdatesOnly = false;
             this.spritesEditorRenderer1.Name = "spritesEditorRenderer1";
-            this.spritesEditorRenderer1.Size = new System.Drawing.Size(838, 473);
+            this.spritesEditorRenderer1.Size = new System.Drawing.Size(1117, 582);
             this.spritesEditorRenderer1.TabIndex = 11;
             this.spritesEditorRenderer1.Text = "spritesEditorRenderer1";
             this.spritesEditorRenderer1.OnMouseWheelUpwards += new MonoGame.Forms.Controls.GraphicsDeviceControl.MouseWheelUpwardsEvent(this.SpritesEditorRenderer1_OnMouseWheelUpwards_1);
@@ -1084,7 +1136,7 @@
             // 
             // Sprites_manager
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.darkGroupBox4);
             this.Controls.Add(this.darkGroupBox5);
@@ -1098,8 +1150,9 @@
             this.Controls.Add(this.darkMenuStrip1);
             this.DefaultDockArea = DarkUI.Docking.DarkDockArea.Document;
             this.DockText = "Sprites editor";
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Sprites_manager";
-            this.Size = new System.Drawing.Size(1270, 713);
+            this.Size = new System.Drawing.Size(1693, 878);
             this.Load += new System.EventHandler(this.Sprites_manager_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Sprites_manager_Paint);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Sprites_manager_MouseClick);

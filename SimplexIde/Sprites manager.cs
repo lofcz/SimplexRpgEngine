@@ -1224,7 +1224,6 @@ namespace SimplexIde
             {
                 darkImageIndex1.Frames.Add(new ImageIndex() {});
                 spritesEditorRenderer1.AddEmptyFrame();
-                spritesEditorRenderer1.UpdatePreview(spritesEditorRenderer1.selectedImageIndex);
 
                 darkGroupBox4.Text = "Animation (" + spritesEditorRenderer1.Frames.Count + "/" + spritesEditorRenderer1.Frames.Count + ")";
             }
@@ -1363,6 +1362,22 @@ namespace SimplexIde
         private void darkButton19_Click(object sender, EventArgs e)
         {
             spritesEditorRenderer1.activeTool = SpritesEditorRenderer.Tools.Spray;
+        }
+
+        private void DarkImageIndex1_KeyDown(object sender, KeyEventArgs e)
+        {
+            // handle ctrl c/v
+            if (e.KeyCode == Keys.C && e.Modifiers == Keys.Control)
+            {
+                int frame = darkImageIndex1.SelectedFrame;
+
+            }
+
+            if (e.KeyCode == Keys.V && e.Modifiers == Keys.Control)
+            {
+                darkImageIndex1.Frames.Add(new ImageIndex() { });
+                darkImageIndex1.Invalidate();
+            }
         }
     }
 
