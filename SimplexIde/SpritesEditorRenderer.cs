@@ -340,17 +340,18 @@ namespace SimplexIde
 
                     var x = (int) Sgml.round(Sgml.mouse.X - .5f);
                     var y = (int) Sgml.round(Sgml.mouse.Y - .5f);
+                    int w = Math.Max(selectedFrame.layers[0].texture.Height, selectedFrame.layers[0].texture.Width);
 
                     if (inTexture(x, y) && inTextureP(x, y))
                     {
                         var pixels = new Stack<Point>();
                         var used = new List<Point>();
 
-                        var targetColor = data[selectedFrame.layers[0].texture.Height * y + x];
+                        var targetColor = data[w * y + x];
                         pixels.Push(new Point(x, y));
                         var i = 0;
                         var max = data.Length - 1;
-                        var flag = !(data[selectedFrame.layers[0].texture.Height * y + x] == penColor);
+                        var flag = !(data[w * y + x] == penColor);
 
                         if (flag)
                         {
@@ -361,7 +362,7 @@ namespace SimplexIde
 
                                 if (!inTextureP(a.X, a.Y)) {break;}
 
-                                while (xx >= 0 && data[selectedFrame.layers[0].texture.Height * a.Y + xx] == targetColor)
+                                while (xx >= 0 && data[w * a.Y + xx] == targetColor)
                                 {
                                     xx--;
                                 }
@@ -370,11 +371,11 @@ namespace SimplexIde
                                 var spanAbove = false;
                                 var spanBelow = false;
 
-                                while (xx < selectedFrame.layers[0].texture.Width && data[selectedFrame.layers[0].texture.Height * a.Y + xx] == targetColor)
+                                while (xx < selectedFrame.layers[0].texture.Width && data[w * a.Y + xx] == targetColor)
                                 {
-                                    data[selectedFrame.layers[0].texture.Height * a.Y + xx] = penColor;
+                                    data[w * a.Y + xx] = penColor;
 
-                                    if (!spanAbove && a.Y > 0 && data[selectedFrame.layers[0].texture.Height * (a.Y - 1) + xx] == targetColor)
+                                    if (!spanAbove && a.Y > 0 && data[w * (a.Y - 1) + xx] == targetColor)
                                     {
                                         if (!used.Contains(new Point(xx, a.Y - 1)))
                                         {
@@ -383,12 +384,12 @@ namespace SimplexIde
                                             spanAbove = true;
                                         }
                                     }
-                                    else if (spanAbove && a.Y > 0 && data[selectedFrame.layers[0].texture.Height * (a.Y - 1) + xx] != targetColor)
+                                    else if (spanAbove && a.Y > 0 && data[w * (a.Y - 1) + xx] != targetColor)
                                     {
                                         spanAbove = false;
                                     }
 
-                                    if (!spanBelow && a.Y < selectedFrame.layers[0].texture.Height - 1 && data[selectedFrame.layers[0].texture.Height * (a.Y + 1) + xx] == targetColor)
+                                    if (!spanBelow && a.Y < selectedFrame.layers[0].texture.Height - 1 && data[w * (a.Y + 1) + xx] == targetColor)
                                     {
                                         if (!used.Contains(new Point(xx, a.Y + 1)))
                                         {
@@ -397,7 +398,7 @@ namespace SimplexIde
                                             spanBelow = true;
                                         }
                                     }
-                                    else if (spanBelow && a.Y < selectedFrame.layers[0].texture.Height - 1 && data[selectedFrame.layers[0].texture.Height * (a.Y + 1) + xx] != targetColor)
+                                    else if (spanBelow && a.Y < selectedFrame.layers[0].texture.Height - 1 && data[w * (a.Y + 1) + xx] != targetColor)
                                     {
                                         spanBelow = false;
                                     }
@@ -440,14 +441,18 @@ namespace SimplexIde
 
                     int x = (int)Sgml.round(Sgml.mouse.X - .5f);
                     int y = (int)Sgml.round(Sgml.mouse.Y - .5f);
+                    int w = Math.Max(selectedFrame.layers[0].texture.Height, selectedFrame.layers[0].texture.Width);
 
-                    if (selectedFrame.layers[0].texture.Height * y + x >= 0 && selectedFrame.layers[0].texture.Height * y + x < selectedFrame.layers[0].texture.Width * selectedFrame.layers[0].texture.Height)
+                    if (inTextureP(x, y))
                     {
-                        data[selectedFrame.layers[0].texture.Height * y + x] = Color.Transparent;
-                        selectedFrame.layers[0].texture.SetData(data);
-                    }
+                        if (selectedFrame.layers[0].texture.Height * y + x >= 0 && selectedFrame.layers[0].texture.Height * y + x < selectedFrame.layers[0].texture.Width * selectedFrame.layers[0].texture.Height)
+                        {
+                            data[w * y + x] = Color.Transparent;
+                            selectedFrame.layers[0].texture.SetData(data);
+                        }
 
-                    occupiedPositions.Add(new Vector2((float)Sgml.round(Sgml.mouse.X - .5f) - x1, (float)Sgml.round(Sgml.mouse.Y - .5f) - y1));
+                        occupiedPositions.Add(new Vector2((float) Sgml.round(Sgml.mouse.X - .5f) - x1, (float) Sgml.round(Sgml.mouse.Y - .5f) - y1));
+                    }
                 }
                 else if (activeTool == Tools.Spray)
                 {
