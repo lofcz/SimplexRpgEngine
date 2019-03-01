@@ -69,6 +69,7 @@ namespace SimplexIde
         private bool over = false;
         private Vector2 toolOriginSubpixel;
         private Vector2 mouseSubpixel;
+        Vector2 toolOriginINP = Vector2.One;
 
         public void AddEmptyFrame()
         {
@@ -194,11 +195,15 @@ namespace SimplexIde
                 Sgml.draw_set_color(ms.LeftButton == ButtonState.Pressed ? penColor : penColorRight);
 
                 // render preview
-                toolOriginSubpixel.X = (float)Math.Floor(toolOrigin.X >= Sgml.mouse.X ? toolOrigin.X + .5f : toolOrigin.X - .5f);
-                toolOriginSubpixel.Y = (float)Math.Floor(toolOrigin.Y >= Sgml.mouse.Y ? toolOrigin.Y + .5f : toolOrigin.Y - .5f);
+                toolOriginSubpixel.X = toolOrigin.X;//(float)Math.Floor(toolOrigin.X >= Sgml.mouse.X ? toolOrigin.X + .5f : toolOrigin.X - .5f);
+                toolOriginSubpixel.Y = toolOrigin.Y;//(float)Math.Floor(toolOrigin.Y >= Sgml.mouse.Y ? toolOrigin.Y + .5f : toolOrigin.Y - .5f);
 
-                mouseSubpixel.X = (float)Math.Floor(Sgml.mouse.X + .5f);
-                mouseSubpixel.Y = (float)Math.Floor(Sgml.mouse.Y + .5f);
+                mouseSubpixel.X = (float)Math.Floor(Sgml.mouse.X);
+                mouseSubpixel.Y = (float)Math.Floor(Sgml.mouse.Y);
+
+                mouseSubpixel.X += mouseSubpixel.X > toolOriginSubpixel.X ? 1 : 0;
+                mouseSubpixel.Y += mouseSubpixel.Y > toolOriginSubpixel.Y ? 1 : 0;
+
 
                 Sgml.surface_set_target(selectedFrame.previewLayer.texture);
                 Sgml.draw_clear_transparent();
@@ -224,6 +229,7 @@ namespace SimplexIde
 
                     else if (activeTool == Tools.Line)
                     {
+                        Sgml.draw_rectangle(new Vector2((float)Sgml.round(toolOriginINP.X - .5f), (float)Sgml.round(toolOriginINP.Y - .5f)), new Vector2((float)Sgml.round(toolOriginINP.X + .5f), (float)Sgml.round(toolOriginINP.Y + .5f)), false);
                         Sgml.draw_line(mouseSubpixel, toolOriginSubpixel);
 
                     }
@@ -239,7 +245,10 @@ namespace SimplexIde
                 {
                     if (!over)
                     {
-                        toolOrigin = new Vector2(Sgml.mouse.X, Sgml.mouse.Y);
+                        toolOriginINP = new Vector2(Sgml.mouse.X, Sgml.mouse.Y);
+                        toolOrigin.X = (float)Sgml.round(Sgml.mouse.X - 0.5f) + .5f;
+                        toolOrigin.Y = (float)Sgml.round(Sgml.mouse.Y - 0.5f) + .5f;
+
                         toolPreview = true;
                     }
                     else
@@ -425,7 +434,8 @@ namespace SimplexIde
                 }
                 else if (activeTool == Tools.Line)
                 {
-                   Sgml.draw_line(mouseSubpixel, toolOriginSubpixel);
+                    Sgml.draw_rectangle(new Vector2((float)Sgml.round(toolOriginINP.X - .5f), (float)Sgml.round(toolOriginINP.Y - .5f)), new Vector2((float)Sgml.round(toolOriginINP.X + .5f), (float)Sgml.round(toolOriginINP.Y + .5f)), false);
+                    Sgml.draw_line(mouseSubpixel, toolOriginSubpixel);
 
                 }
                 else if (activeTool == Tools.Polygon)
