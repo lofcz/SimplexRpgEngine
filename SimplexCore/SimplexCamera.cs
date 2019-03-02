@@ -30,6 +30,7 @@ namespace SimplexCore
             Camera.Position = new Vector2(newX, newY);
             Camera.Zoom = (float)Sgml.clamp(Zoom, 0.05, 30);
             Camera.Rotation = Rotation;
+            //Camera.Origin = new Vector2(0, 0);
         }
 
         public SimplexCamera()

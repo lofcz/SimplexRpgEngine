@@ -563,7 +563,7 @@ namespace SimplexIde
                 basicEffect.View = view;
                 basicEffect.Projection = projection;
                 basicEffect.VertexColorEnabled = true;
-
+                
                 Sgml.mouse = MousePositionTranslated;
 
                 // Actual logic
@@ -579,31 +579,36 @@ namespace SimplexIde
                 bool flag = true;
                 bool lastFlag = flag;
 
+                cam.Camera.Origin = new Vector2(Width / 2f, Height / 2f);
+                
+
                 basicEffect.View = Matrix.Identity;
                 Sgml.m = Matrix.Identity;
+                Vector2 origin = Vector2.Zero;//new Vector2(Width / 2f, Height / 2f);
 
-                Sgml.draw_surface(Vector2.Zero, gridSurface);
+                // origin.X -= ((cam.Zoom - 1) * 32);
+                //origin.Y -= ((cam.Zoom - 1) * 32);
 
+                Sgml.draw_surface(origin, gridSurface);
 
-                Sgml.draw_set_color(Color.White);
-                Sgml.draw_text(new Vector2(10, 10), framerate.ToString());
-                Sgml.draw_text(new Vector2(10, 30), "[X: " + Sgml.round(Sgml.mouse.X - 0.5f) + " Y: " + Sgml.round(Sgml.mouse.Y - 0.5f) + "]");
-                Sgml.draw_text(new Vector2(10, 50), parentForm.darkNumericUpDown1.Value.ToString());
-                Sgml.draw_text(new Vector2(10, 70), cam.Zoom.ToString());
-                Sgml.draw_text(new Vector2(10, 90), "DIR: " + Sgml.point_direction(toolOriginSubpixel, mouseSubpixel));
-                Sgml.draw_text(new Vector2(10, 110), "CLICK: " + toolOriginSubpixel.X + "x " + toolOriginSubpixel.Y + "y");
 
                 basicEffect.View = view;
                 Sgml.m = transformMatrix;
 
                 if (selectedFrame != null)
                 {
+                    if (ms.LeftButton == ButtonState.Pressed ^ ms.RightButton == ButtonState.Pressed)
+                    {                     
+                        cam.TargetZoom = (Sgml.min(Width, Height) / (float)Sgml.max(selectedFrame.previewLayer.texture.Width, selectedFrame.previewLayer.texture.Height) / 100f) * 90;                 
+                        cam.TargetPosition = new Vector2(-Width / 2f + selectedFrame.layers[0].texture.Width / 2f, -Height / 2f + selectedFrame.layers[0].texture.Height / 2f);
+                    }
+
                     Sgml.draw_set_aa(!parentForm.drawModeOn);
 
                     if (selectedFrame.layers[0].texture != null)
                     {
-                        Sgml.draw_surface(Vector2.Zero, selectedFrame.layers[selectedLayer].texture);
-                        Sgml.draw_surface(Vector2.Zero, selectedFrame.previewLayer.texture);
+                        Sgml.draw_surface(origin, selectedFrame.layers[selectedLayer].texture);
+                        Sgml.draw_surface(origin, selectedFrame.previewLayer.texture);
                     }
 
                     Sgml.draw_set_aa(true);
@@ -615,10 +620,10 @@ namespace SimplexIde
                     int yIndex = 0;
                     RectangleF temp = RectangleF.Empty;
 
-                    int x1 = 0;
-                    int y1 = 0;
-                    int x2 = x1 + (int) parentForm.darkNumericUpDown1.Value;
-                    int y2 = y1 + (int) parentForm.darkNumericUpDown2.Value;
+                    float x1 = origin.X;
+                    float y1 = origin.Y;
+                    float x2 = x1 +  (int)parentForm.darkNumericUpDown1.Value;
+                    float y2 = y1 +  (int)parentForm.darkNumericUpDown2.Value;
 
                     Sgml.draw_set_alpha(0.8);
                     Sgml.draw_set_color(Color.Black);
@@ -642,11 +647,22 @@ namespace SimplexIde
                     {
                         if (selectedFrame.layers[0].texture != null)
                         {
-                            Sgml.draw_rectangle(Vector2.Zero, new Vector2(selectedFrame.layers[0].texture.Width, selectedFrame.layers[0].texture.Height), true);
+                            Sgml.draw_rectangle(origin, new Vector2(selectedFrame.layers[0].texture.Width, selectedFrame.layers[0].texture.Height), true);
                         }
                     }
-
                 }
+
+                basicEffect.View = Matrix.Identity;
+                Sgml.m = Matrix.Identity;
+
+                Sgml.draw_set_color(Color.White);
+                Sgml.draw_text(new Vector2(10, 10), framerate.ToString());
+                //Sgml.draw_text(new Vector2(10, 30), "[X: " + Sgml.round(Sgml.mouse.X - 0.5f) + " Y: " + Sgml.round(Sgml.mouse.Y - 0.5f) + "]");
+                Sgml.draw_text(new Vector2(10, 30), cam.Position.X + " " + cam.Position.Y);
+                Sgml.draw_text(new Vector2(10, 50), parentForm.darkNumericUpDown1.Value.ToString());
+                Sgml.draw_text(new Vector2(10, 70), cam.Zoom.ToString());
+                Sgml.draw_text(new Vector2(10, 90), "DIR: " + Sgml.point_direction(toolOriginSubpixel, mouseSubpixel));
+                Sgml.draw_text(new Vector2(10, 110), "CLICK: " + toolOriginSubpixel.X + "x " + toolOriginSubpixel.Y + "y");
             }
         }
 
