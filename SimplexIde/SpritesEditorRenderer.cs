@@ -224,7 +224,10 @@ namespace SimplexIde
 
                     else if (activeTool == Tools.Rectangle)
                     {
-                        Sgml.draw_rectangle(toolOriginSubpixel, mouseSubpixel, true);
+                        float my = Sgml.mouse.Y;
+                        my = (float)Sgml.floor(my) + .5f;
+
+                        Sgml.draw_rectangle(toolOrigin, new Vector2(Sgml.mouse.X, my), true);
                     }
 
                     else if (activeTool == Tools.Line)
@@ -444,7 +447,10 @@ namespace SimplexIde
                 }
                 else if (activeTool == Tools.Rectangle)
                 {
-                    Sgml.draw_rectangle(toolOriginSubpixel, mouseSubpixel, true);
+                    float my = Sgml.mouse.Y;
+                    my = (float)Sgml.floor(my) + .5f;
+
+                    Sgml.draw_rectangle(toolOrigin, new Vector2(Sgml.mouse.X, my), true);
                 }
                 else if (activeTool == Tools.RoundedRectangle)
                 {

@@ -32,24 +32,15 @@ namespace SimplexResources.Objects
         
         public override void EvtStep()
         {
-            if (mp_linear_objects(10,10,20,new []{typeof(oBrick), typeof(oGem)}) == false)
+           /* if (mp_linear_objects(10,10,20,new []{typeof(oBrick), typeof(oGem)}) == false)
             {
                 mp_linear_path(path);
-            }
+            }*/
         }
 
         public override void EvtDraw()
         {
-            draw_circle(Position, 20, true, 0);
-            mp_grid_clear();
-            if (mouse_check_button_pressed(MouseButtons.mb_right))
-            {
-                pos.Add(new Vector2(mouse.X / 32, mouse.Y / 32));
-            }
-            mp_grid_set_instance(this);
-            
-            draw_path(path);
-            //draw_triangle_new(Position.X-15,Position.Y,Position.X+15,Position.Y,Position.X,Position.Y-15,true,50);
+           draw_rectangle(new Vector2(Position.X + 100, Position.Y + 100), Position, true);
         }
 
        
