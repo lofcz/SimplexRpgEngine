@@ -388,7 +388,7 @@ namespace SimplexIde
 
                         sm.darkImageIndex1.Frames.Add(new ImageIndex() { });
                         sm.spritesEditorRenderer1.AddFrameFromTexture(s);
-
+                       
                     }
 
                     form1.darkDockPanel1.AddContent(sm);

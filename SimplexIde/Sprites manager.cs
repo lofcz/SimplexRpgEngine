@@ -1227,6 +1227,7 @@ namespace SimplexIde
                 spritesEditorRenderer1.AddEmptyFrame();
 
                 darkGroupBox4.Text = "Animation (" + k + "/" + spritesEditorRenderer1.Frames.Count + ")";
+                //spritesEditorRenderer1.ScaleToFit(90);
             }
             else
             {
@@ -1234,6 +1235,7 @@ namespace SimplexIde
                 spritesEditorRenderer1.selectedImageIndex = ((actualX - 96) / 96);
                 
                 spritesEditorRenderer1.SelectFrame(((actualX - 96) / 96));
+                //spritesEditorRenderer1.ScaleToFit(90);
             }
         }
 
@@ -1379,6 +1381,11 @@ namespace SimplexIde
                 darkImageIndex1.Frames.Add(new ImageIndex() { });
                 darkImageIndex1.Invalidate();
             }
+        }
+
+        private void SpritesEditorRenderer1_Resize(object sender, EventArgs e)
+        {
+            spritesEditorRenderer1.ScaleToFit(90);
         }
     }
 

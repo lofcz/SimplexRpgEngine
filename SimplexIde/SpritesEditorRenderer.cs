@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.Common;
 using System.Diagnostics;
 using System.Drawing;
@@ -70,6 +71,7 @@ namespace SimplexIde
         private Vector2 toolOriginSubpixel;
         private Vector2 mouseSubpixel;
         Vector2 toolOriginINP = Vector2.One;
+        private int ttl = 0;
 
         public void AddEmptyFrame()
         {
@@ -534,11 +536,30 @@ namespace SimplexIde
             finalSurface.Dispose();
         }
 
+        public void ScaleToFit(int percent)
+        {
+            if (selectedFrame != null)
+            {
+                cam.TargetZoom = (Sgml.min(Width, Height) / (float) Sgml.max(selectedFrame.previewLayer.texture.Width, selectedFrame.previewLayer.texture.Height) / 100f) * percent;
+                cam.TargetPosition = new Vector2(-Width / 2f + selectedFrame.layers[0].texture.Width / 2f, -Height / 2f + selectedFrame.layers[0].texture.Height / 2f);
+            }
+        }
+
         protected override void Draw()
         {
             if (parentForm != null)
             {
                 ms = Mouse.GetState();
+
+                if (ttl < 10)
+                {
+                    if (ttl == 9)
+                    {
+                        ScaleToFit(90);
+                    }
+
+                    ttl++;
+                }
 
                 base.Draw();
                 double framerate = Editor.GetFrameRate;
@@ -584,25 +605,15 @@ namespace SimplexIde
 
                 basicEffect.View = Matrix.Identity;
                 Sgml.m = Matrix.Identity;
-                Vector2 origin = Vector2.Zero;//new Vector2(Width / 2f, Height / 2f);
-
-                // origin.X -= ((cam.Zoom - 1) * 32);
-                //origin.Y -= ((cam.Zoom - 1) * 32);
+                Vector2 origin = Vector2.Zero;
 
                 Sgml.draw_surface(origin, gridSurface);
-
 
                 basicEffect.View = view;
                 Sgml.m = transformMatrix;
 
                 if (selectedFrame != null)
                 {
-                    if (ms.LeftButton == ButtonState.Pressed ^ ms.RightButton == ButtonState.Pressed)
-                    {                     
-                        cam.TargetZoom = (Sgml.min(Width, Height) / (float)Sgml.max(selectedFrame.previewLayer.texture.Width, selectedFrame.previewLayer.texture.Height) / 100f) * 90;                 
-                        cam.TargetPosition = new Vector2(-Width / 2f + selectedFrame.layers[0].texture.Width / 2f, -Height / 2f + selectedFrame.layers[0].texture.Height / 2f);
-                    }
-
                     Sgml.draw_set_aa(!parentForm.drawModeOn);
 
                     if (selectedFrame.layers[0].texture != null)
@@ -657,8 +668,7 @@ namespace SimplexIde
 
                 Sgml.draw_set_color(Color.White);
                 Sgml.draw_text(new Vector2(10, 10), framerate.ToString());
-                //Sgml.draw_text(new Vector2(10, 30), "[X: " + Sgml.round(Sgml.mouse.X - 0.5f) + " Y: " + Sgml.round(Sgml.mouse.Y - 0.5f) + "]");
-                Sgml.draw_text(new Vector2(10, 30), cam.Position.X + " " + cam.Position.Y);
+                Sgml.draw_text(new Vector2(10, 30), "[X: " + Sgml.round(Sgml.mouse.X - 0.5f) + " Y: " + Sgml.round(Sgml.mouse.Y - 0.5f) + "]");
                 Sgml.draw_text(new Vector2(10, 50), parentForm.darkNumericUpDown1.Value.ToString());
                 Sgml.draw_text(new Vector2(10, 70), cam.Zoom.ToString());
                 Sgml.draw_text(new Vector2(10, 90), "DIR: " + Sgml.point_direction(toolOriginSubpixel, mouseSubpixel));
