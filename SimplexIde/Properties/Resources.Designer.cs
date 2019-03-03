@@ -123,6 +123,16 @@ namespace SimplexIde.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Checkmark_16x1 {
+            get {
+                object obj = ResourceManager.GetObject("Checkmark_16x1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Circle_1 {
             get {
                 object obj = ResourceManager.GetObject("Circle_1", resourceCulture);
@@ -313,6 +323,16 @@ namespace SimplexIde.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Grid_16xMD {
+            get {
+                object obj = ResourceManager.GetObject("Grid_16xMD", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap GridUniform_16x {
             get {
                 object obj = ResourceManager.GetObject("GridUniform_16x", resourceCulture);
@@ -376,6 +396,16 @@ namespace SimplexIde.Properties {
         internal static System.Drawing.Bitmap MapTileLayer_16x {
             get {
                 object obj = ResourceManager.GetObject("MapTileLayer_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Next_16x {
+            get {
+                object obj = ResourceManager.GetObject("Next_16x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -466,6 +496,16 @@ namespace SimplexIde.Properties {
         internal static System.Drawing.Bitmap PreviewTransition_16x {
             get {
                 object obj = ResourceManager.GetObject("PreviewTransition_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Previous_16x {
+            get {
+                object obj = ResourceManager.GetObject("Previous_16x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -756,6 +796,46 @@ namespace SimplexIde.Properties {
         internal static System.Drawing.Bitmap WorldLocal_16x {
             get {
                 object obj = ResourceManager.GetObject("WorldLocal_16x", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Zoom_16xMD {
+            get {
+                object obj = ResourceManager.GetObject("Zoom_16xMD", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ZoomIn_16xMD {
+            get {
+                object obj = ResourceManager.GetObject("ZoomIn_16xMD", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ZoomOut_16xMD {
+            get {
+                object obj = ResourceManager.GetObject("ZoomOut_16xMD", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ZoomOut_16xMD1 {
+            get {
+                object obj = ResourceManager.GetObject("ZoomOut_16xMD1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

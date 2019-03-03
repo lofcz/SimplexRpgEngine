@@ -638,7 +638,7 @@ namespace SimplexIde
 
                     Sgml.draw_set_alpha(0.8);
                     Sgml.draw_set_color(Color.Black);
-                    for (var i = 0; i < parentForm.darkNumericUpDown2.Value + 1; i++)
+                    for (var i = 0; i < parentForm.darkNumericUpDown1.Value + 1; i++)
                     {
                         Sgml.draw_line(x1, y1 + i, x2, y1 + i);
                     }
@@ -669,7 +669,7 @@ namespace SimplexIde
                 Sgml.draw_set_color(Color.White);
                 Sgml.draw_text(new Vector2(10, 10), framerate.ToString());
                 Sgml.draw_text(new Vector2(10, 30), "[X: " + Sgml.round(Sgml.mouse.X - 0.5f) + " Y: " + Sgml.round(Sgml.mouse.Y - 0.5f) + "]");
-                Sgml.draw_text(new Vector2(10, 50), parentForm.darkNumericUpDown1.Value.ToString());
+               // Sgml.draw_text(new Vector2(10, 50), parentForm.darkNumericUpDown1.Value.ToString());
                 Sgml.draw_text(new Vector2(10, 70), cam.Zoom.ToString());
                 Sgml.draw_text(new Vector2(10, 90), "DIR: " + Sgml.point_direction(toolOriginSubpixel, mouseSubpixel));
                 Sgml.draw_text(new Vector2(10, 110), "CLICK: " + toolOriginSubpixel.X + "x " + toolOriginSubpixel.Y + "y");
@@ -779,7 +779,7 @@ namespace SimplexIde
                 if (selectedXIndex != -1 && selectedYIndex != -1)
                 {
                     selectedImageIndex = 1;
-                    imageOverlay = Sgml.surface_create((int)parentForm.darkNumericUpDown1.Value, (int)parentForm.darkNumericUpDown2.Value);
+                   // imageOverlay = Sgml.surface_create((int)parentForm.darkNumericUpDown1.Value, (int)parentForm.darkNumericUpDown2.Value);
 
                     Sgml.surface_set_target(imageOverlay);
                     Sgml.draw_clear_transparent();
@@ -793,7 +793,7 @@ namespace SimplexIde
                 if (selectedXIndex != -1 && selectedYIndex != -1)
                 {
                     selectedImageIndex = 1;
-                    imageOverlay = Sgml.surface_create((int)parentForm.darkNumericUpDown1.Value, (int)parentForm.darkNumericUpDown2.Value);
+                   // imageOverlay = Sgml.surface_create((int)parentForm.darkNumericUpDown1.Value, (int)parentForm.darkNumericUpDown2.Value);
                    
                     Sgml.surface_set_target(imageOverlay);
                     Sgml.draw_clear_transparent();

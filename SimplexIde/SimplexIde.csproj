@@ -314,9 +314,6 @@
     <None Include="Resources\LayerTool_16x1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ObjectFile_16x.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\WorldLocal_16x.png" />
   </ItemGroup>
   <ItemGroup>
@@ -529,6 +526,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Stop_grey_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ObjectFile_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Checkmark_16x1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Previous_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Next_16x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ZoomOut_16xMD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Zoom_16xMD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ZoomOut_16xMD1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ZoomIn_16xMD.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Grid_16xMD.png" />
   </ItemGroup>
   <Import Project="..\SimplexCore\SimplexCore.projitems" Label="Shared" />
   <Import Project="..\SimplexResources\SimplexResources.projitems" Label="Shared" />

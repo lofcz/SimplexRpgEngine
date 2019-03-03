@@ -16,6 +16,7 @@ using DarkUI.Docking;
 using DarkUI.Forms;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using MoreLinq;
 using Newtonsoft.Json;
 using SimplexCore;
 using Color = System.Drawing.Color;
@@ -67,6 +68,11 @@ namespace SimplexIde
             {
                // owner.sr.drawTest1.UpdateRunning = false;
             }
+
+            SimplexIdeApi.TreeAddRootNode(darkTreeView1, "Layers");
+            DarkTreeNode dtn = SimplexIdeApi.TreeCreateNode("Layer 1", "Layers", "layer", "", null, null, Properties.Resources.ObjectFile_16x);
+
+            darkTreeView1.Nodes[0].Nodes.Add(dtn);
 
             spritesEditorRenderer1.parentForm = this;
             darkMouseTool1.LeftColor = Color.White;
@@ -315,7 +321,7 @@ namespace SimplexIde
         }
 
         private void Sprites_manager_MouseClick(object sender, MouseEventArgs e)
-        {
+        {/*
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
                 if (toolMode == 2)
@@ -664,7 +670,8 @@ namespace SimplexIde
                     }
                 }
             }
-        }
+        */
+            }
 
         void Form_MouseWheel(object sender, MouseEventArgs e)
         {
@@ -1386,6 +1393,31 @@ namespace SimplexIde
         private void SpritesEditorRenderer1_Resize(object sender, EventArgs e)
         {
             spritesEditorRenderer1.ScaleToFit(90);
+        }
+
+        private void DarkNumericUpDown1_ValueChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BlurToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DarkFloatingToolbox1_QueryContinueDrag(object sender, QueryContinueDragEventArgs e)
+        {
+          
+        }
+
+        private void DarkFloatingToolbox1_LocationChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

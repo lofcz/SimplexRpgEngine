@@ -124,11 +124,11 @@
   <data name="spray tool" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\spray tool.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="toolbox_16xSM" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\toolbox_16xSM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="RectangleSelectionTool_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RectangleSelectionTool_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Next_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Next_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Save_grey_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Save_grey_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -138,6 +138,9 @@
   </data>
   <data name="AzureDefaultResource_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AzureDefaultResource_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PlayVideo_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PlayVideo_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="TextElement_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TextElement_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,6 +166,9 @@
   <data name="BlankApplication_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BlankApplication_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Previous_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Previous_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Redo_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Redo_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -175,11 +181,23 @@
   <data name="ImageMap_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ImageMap_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Circle_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Circle 4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="BlankFile_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BlankFile_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ZoomOut_16xMD1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ZoomOut_16xMD1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="black_gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\black-gray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="FillTool_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FillTool_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Circle_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Circle 3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cursor_rotate_16_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cursor_rotate_16_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -190,6 +208,9 @@
   <data name="GridUniform_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GridUniform_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Circle_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Circle 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ColorDialog_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ColorDialog_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -199,8 +220,14 @@
   <data name="ViewTop_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ViewTop_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Circle_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Circle 6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Checkmark_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Checkmark_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Run_16xMD" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Run_16xMD.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -211,11 +238,26 @@
   <data name="cursor_scale_16_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cursor_scale_16_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ZoomOut_16xMD" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ZoomOut_16xMD.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Save_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Save_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ZoomIn_16xMD" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ZoomIn_16xMD.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Line" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Line.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Pause_grey_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pause_grey_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="airbrush" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\airbrush.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ParticleLayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TracePointDisable_16xMD.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pen4_16x1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Pen4_16x1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -225,9 +267,6 @@
   </data>
   <data name="grab_cursor_16_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\grab_cursor_16_7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Save_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Save_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Resize_Vertical_16_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Resize_Vertical_16_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -244,6 +283,9 @@
   <data name="Ellipse_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ellipse_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Checkmark_16x1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Checkmark_16x1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Select" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Select.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -253,17 +295,14 @@
   <data name="Circle select" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Circle select.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PreviewTransition_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PreviewTransition_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Stop_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Stop_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Eraser_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Eraser_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ParticleLayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TracePointDisable_16xMD.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Circle_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Circle 5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RoundedRectangleTool_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RoundedRectangleTool_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -274,8 +313,8 @@
   <data name="FilledRoundedRectangleTool_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FilledRoundedRectangleTool_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Picker_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Picker_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="toolbox_16xSM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\toolbox_16xSM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Pen4_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Pen4_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -283,11 +322,26 @@
   <data name="LayerTool_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LayerTool_16x1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Circle_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Circle 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Folder_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Folder_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PreviewTransition_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PreviewTransition_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Noname" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Noname.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Zoom_16xMD" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Zoom_16xMD.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Picker_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Picker_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Stop_grey_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Stop_grey_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Resize_TopLeft_16_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Resize_TopLeft_16_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -295,37 +349,7 @@
   <data name="Star" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Star.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Circle_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Circle 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Circle_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Circle 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Circle_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Circle 3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Circle_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Circle 4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Circle_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Circle 5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Circle_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Circle 6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="black_gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\black-gray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="red" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Pause_grey_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Pause_grey_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PlayVideo_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PlayVideo_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Stop_grey_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Stop_grey_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Grid_16xMD" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Grid_16xMD.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
