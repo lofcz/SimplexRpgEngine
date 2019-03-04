@@ -1407,7 +1407,7 @@ namespace SimplexIde
 
         private void BlurToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void DarkFloatingToolbox1_QueryContinueDrag(object sender, QueryContinueDragEventArgs e)

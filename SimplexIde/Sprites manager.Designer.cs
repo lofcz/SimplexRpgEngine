@@ -121,7 +121,6 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.darkLabel1 = new DarkUI.Controls.DarkLabel();
             this.spritesEditorRenderer1 = new SimplexIde.SpritesEditorRenderer();
-            this.darkGroupBox5 = new DarkUI.Controls.DarkGroupBox();
             this.darkMenuStrip1.SuspendLayout();
             this.darkGroupBox1.SuspendLayout();
             this.darkGroupBox2.SuspendLayout();
@@ -1178,22 +1177,10 @@
             this.spritesEditorRenderer1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.SpritesEditorRenderer1_MouseUp_1);
             this.spritesEditorRenderer1.Resize += new System.EventHandler(this.SpritesEditorRenderer1_Resize);
             // 
-            // darkGroupBox5
-            // 
-            this.darkGroupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.darkGroupBox5.Location = new System.Drawing.Point(1405, 844);
-            this.darkGroupBox5.Name = "darkGroupBox5";
-            this.darkGroupBox5.Size = new System.Drawing.Size(299, 158);
-            this.darkGroupBox5.TabIndex = 26;
-            this.darkGroupBox5.TabStop = false;
-            this.darkGroupBox5.Text = "Effect";
-            this.darkGroupBox5.Visible = false;
-            // 
             // Sprites_manager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.darkGroupBox5);
             this.Controls.Add(this.darkLabel2);
             this.Controls.Add(this.darkNumericUpDown2);
             this.Controls.Add(this.darkLabel1);
@@ -1343,6 +1330,5 @@
         public DarkUI.Controls.DarkNumericUpDown darkNumericUpDown2;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem blurToolStripMenuItem;
-        private DarkUI.Controls.DarkGroupBox darkGroupBox5;
     }
 }

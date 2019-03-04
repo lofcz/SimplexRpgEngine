@@ -525,15 +525,22 @@ namespace SimplexIde
 
         public void SaveChanges()
         {
-            RenderTarget2D finalSurface = Sgml.surface_create(imageOverlay.Width, imageOverlay.Height);
-            Sgml.surface_set_target(finalSurface);
-            Sgml.draw_sprite(selectedImage, -2, Vector2.Zero);
-         //   Sgml.draw_surface(Vector2.Zero, imageOverlay);
-            Sgml.surface_reset_target();
+            // Save physical images
+            RenderTarget2D finalSurface = null;
+            int index = 0;
 
+            foreach (AnimationFrame af in Frames)
+            {
+                finalSurface = Sgml.surface_create(selectedFrame.previewLayer.texture.Width, selectedFrame.previewLayer.texture.Height);
+                Sgml.surface_set_target(finalSurface);
+                Sgml.draw_surface(Vector2.Zero, af.layers[0].texture);
+                Sgml.surface_reset_target();
+                Sgml.surface_save(finalSurface, parentForm.owner.currentProject.RootPath + "/Content/Sprites/texture" + "_frame" + index);
 
-            Sgml.surface_save(finalSurface, parentForm.owner.currentProject.RootPath + "/Content/Sprites/texture");
-            finalSurface.Dispose();
+                index++;
+            }
+            
+            finalSurface?.Dispose();
         }
 
         public void ScaleToFit(int percent)

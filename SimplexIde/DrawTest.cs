@@ -24,6 +24,7 @@ using MonoGame.Extended;
 using MonoGame.Extended.ViewportAdapters;
 using MonoGame.Extended.Shapes;
 using MonoGame.Forms.Controls;
+using MonoGame.Framework.Content.Pipeline.Builder;
 using Newtonsoft.Json;
 using SimplexCore;
 using SimplexCore.Ext;
@@ -125,9 +126,14 @@ namespace SimplexIde
 
         Cursor ScaleCursor = new Cursor((Resources.cursor_scale_16_16).GetHicon());
 
+        PipelineManager pipelineManager = new PipelineManager("", "", "");
+        
+
 
         protected override void Initialize()
         {
+            pipelineManager.
+
             base.Initialize();
                
             Sgml.SceneObjects = SceneObjects;
