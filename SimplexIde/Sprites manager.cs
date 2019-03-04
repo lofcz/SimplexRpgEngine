@@ -1419,6 +1419,36 @@ namespace SimplexIde
         {
 
         }
+
+        private void darkButton25_Click(object sender, EventArgs e)
+        {
+            spritesEditorRenderer1.size = 1;
+        }
+
+        private void darkButton28_Click(object sender, EventArgs e)
+        {
+            spritesEditorRenderer1.size = 2;
+        }
+
+        private void darkButton27_Click(object sender, EventArgs e)
+        {
+            spritesEditorRenderer1.size = 3;
+        }
+
+        private void darkButton29_Click(object sender, EventArgs e)
+        {
+            spritesEditorRenderer1.size = 4;
+        }
+
+        private void darkButton30_Click(object sender, EventArgs e)
+        {
+            spritesEditorRenderer1.size = 5;
+        }
+
+        private void darkButton31_Click(object sender, EventArgs e)
+        {
+            spritesEditorRenderer1.size = 6;
+        }
     }
 
     public class Subsprite
