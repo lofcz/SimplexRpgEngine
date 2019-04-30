@@ -126,13 +126,13 @@ namespace SimplexIde
 
         Cursor ScaleCursor = new Cursor((Resources.cursor_scale_16_16).GetHicon());
 
-        PipelineManager pipelineManager = new PipelineManager("", "", "");
+        //PipelineManager pipelineManager = new PipelineManager("", "", "");
         
 
 
         protected override void Initialize()
         {
-            pipelineManager.
+            //pipelineManager.
 
             base.Initialize();
                

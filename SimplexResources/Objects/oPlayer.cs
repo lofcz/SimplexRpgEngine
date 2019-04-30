@@ -62,7 +62,12 @@ namespace SimplexResources.Objects
         // This actual GMS-like Create event
         public override void OnCreate()
         {
-            Debug.WriteLine("Hello c#");
+            show_message("Test");
+
+            if (place_empty(Position))
+            {
+                //instanc
+            }
         }
 
         public override void EvtStep()

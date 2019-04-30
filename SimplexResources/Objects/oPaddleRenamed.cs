@@ -31,6 +31,8 @@ namespace SimplexResources.Objects
             Colliders.Add(cr);
 
             MySurface = surface_create(640, 480);
+
+            //point_in_rectangle_rotated()
         }
 
         public override void EvtStep()
