@@ -72,6 +72,10 @@ namespace SimplexIde
         private Vector2 mouseSubpixel;
         Vector2 toolOriginINP = Vector2.One;
         private int ttl = 0;
+        public int size = 1;
+        int num;
+        private List<int> sizesx = new List<int>() { -2, -2, -1, -1, -1, -1, 0, 0, 0, 1, 1, -3, -3, -3, -3, -2, -2, -2, -2, -1, -1, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, -5, -5, -5, -5, -4, -4, -4, -4, -4, -4, -3, -3, -3, -3, -2, -2, -2, -2, -1, -1, -1, -1, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, -7, -7, -7, -7, -6, -6, -6, -6, -6, -6, -6, -6, -5, -5, -5, -5, -5, -5, -4, -4, -4, -4, -4, -4, -3, -3, -3, -3, -2, -2, -2, -2, -1, -1, -1, -1, 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, -8, -8, -8, -8, -8, -8, -7, -7, -7, -7, -7, -7, -6, -6, -6, -6, -5, -5, -5, -5, -4, -4, -3, -3, -3, -3, -2, -2, -1, -1, 0, 0, 1, 1, 2, 2, 2, 2, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7 };
+        private List<int> sizesy = new List<int>() { -1, 0, -2, -1, 0, 1, -2, -1, 1, -1, 0, -2, -1, 0, 1, -3, -2, 1, 2, -3, 2, -3, 2, -3, -2, 1, 2, -2, -1, 0, 1, -2, -1, 0, 1, -3, -2, -1, 0, 1, 2, -4, -3, 2, 3, -5, -4, 3, 4, -5, -4, 3, 4, -5, -4, 3, 4, -5, -4, 3, 4, -4, -3, 2, 3, -3, -2, -1, 0, 1, 2, -2, -1, 0, 1, -2, -1, 0, 1, -4, -3, -2, -1, 0, 1, 2, 3, -5, -4, -3, 2, 3, 4, -6, -5, -4, 3, 4, 5, -6, -5, 4, 5, -7, -6, 5, 6, -7, -6, 5, 6, -7, -6, 5, 6, -7, -6, 5, 6, -6, -5, 4, 5, -6, -5, -4, 3, 4, 5, -5, -4, -3, 2, 3, 4, -4, -3, -2, -1, 0, 1, 2, 3, -2, -1, 0, 1, -3, -2, -1, 0, 1, 2, -5, -4, -3, 2, 3, 4, -6, -5, 4, 5, -7, -6, 5, 6, -7, 6, -8, -7, 6, 7, -8, 7, -8, 7, -8, 7, -8, 7, -8, -7, 6, 7, -7, 6, -7, -6, 5, 6, -6, -5, 4, 5, -5, -4, -3, 2, 3, 4, -3, -2, -1, 0, 1, 2 };
 
         public void AddEmptyFrame()
         {
@@ -338,164 +342,178 @@ namespace SimplexIde
             int x1 = 0;
             int y1 = 0;
 
-
-                if (activeTool == Tools.Pixel)
+            
+            if (activeTool == Tools.Pixel)
+            {
+                if (PixelFree(Sgml.mouse.X, Sgml.mouse.Y))
                 {
-                    if (PixelFree(Sgml.mouse.X, Sgml.mouse.Y))
+                    Sgml.draw_sprite(pixel, -2, tempVector);
+                    occupiedPositions.Add(tempVector);
+                }
+                
+                if (size == 1) { num = 0; }
+                if (size == 2) { num = 11; }
+                if (size == 3) { num = 31; }
+                if (size == 4) { num = 75; }
+                if (size == 5) { num = 147; }
+                if (size == 6) { num = 207; }
+
+                for (int i = 0; i < num; i++)
+                {
+                    if (PixelFree(Sgml.mouse.X + sizesx[i], Sgml.mouse.Y + sizesy[i]))
                     {
                         Sgml.draw_sprite(pixel, -2, tempVector);
-                        occupiedPositions.Add(tempVector);
                     }
-
                 }
-                else if (activeTool == Tools.Ellipse)
-                {
-                    Sgml.draw_ellipse(new Vector2(Sgml.mouse.X - toolOrigin.X, Sgml.mouse.Y - toolOrigin.Y), toolOrigin, 1);
-                }
-                else if (activeTool == Tools.Fill)
-                {
-                    // flood fill
-                    var data = new Color[selectedFrame.layers[0].texture.Width * selectedFrame.layers[0].texture.Height];
-                    selectedFrame.layers[0].texture.GetData(data);
 
-                    var x = (int) Sgml.round(Sgml.mouse.X - .5f);
-                    var y = (int) Sgml.round(Sgml.mouse.Y - .5f);
-                    int w = Math.Max(selectedFrame.layers[0].texture.Height, selectedFrame.layers[0].texture.Width);
+                
+            }
+            else if (activeTool == Tools.Ellipse)
+            {
+                Sgml.draw_ellipse(new Vector2(Sgml.mouse.X - toolOrigin.X, Sgml.mouse.Y - toolOrigin.Y), toolOrigin, 1);
+            }
+            else if (activeTool == Tools.Fill)
+            {
+                // flood fill
+                var data = new Color[selectedFrame.layers[0].texture.Width * selectedFrame.layers[0].texture.Height];
+                selectedFrame.layers[0].texture.GetData(data);
 
-                    if (inTexture(x, y) && inTextureP(x, y))
+                var x = (int) Sgml.round(Sgml.mouse.X - .5f);
+                var y = (int) Sgml.round(Sgml.mouse.Y - .5f);
+                int w = Math.Max(selectedFrame.layers[0].texture.Height, selectedFrame.layers[0].texture.Width);
+
+                if (inTexture(x, y) && inTextureP(x, y))
+                {
+                    var pixels = new Stack<Point>();
+                    var used = new List<Point>();
+
+                    var targetColor = data[w * y + x];
+                    pixels.Push(new Point(x, y));
+                    var i = 0;
+                    var max = data.Length - 1;
+                    var flag = !(data[w * y + x] == penColor);
+
+                    if (flag)
                     {
-                        var pixels = new Stack<Point>();
-                        var used = new List<Point>();
-
-                        var targetColor = data[w * y + x];
-                        pixels.Push(new Point(x, y));
-                        var i = 0;
-                        var max = data.Length - 1;
-                        var flag = !(data[w * y + x] == penColor);
-
-                        if (flag)
+                        while (pixels.Count > 0 && i < max)
                         {
-                            while (pixels.Count > 0 && i < max)
+                            var a = pixels.Pop();
+                            var xx = a.X;
+
+                            if (!inTextureP(a.X, a.Y)) {break;}
+
+                            while (xx >= 0 && data[w * a.Y + xx] == targetColor)
                             {
-                                var a = pixels.Pop();
-                                var xx = a.X;
+                                xx--;
+                            }
 
-                                if (!inTextureP(a.X, a.Y)) {break;}
+                            xx++;
+                            var spanAbove = false;
+                            var spanBelow = false;
 
-                                while (xx >= 0 && data[w * a.Y + xx] == targetColor)
+                            while (xx < selectedFrame.layers[0].texture.Width && data[w * a.Y + xx] == targetColor)
+                            {
+                                data[w * a.Y + xx] = penColor;
+
+                                if (!spanAbove && a.Y > 0 && data[w * (a.Y - 1) + xx] == targetColor)
                                 {
-                                    xx--;
+                                    if (!used.Contains(new Point(xx, a.Y - 1)))
+                                    {
+                                        pixels.Push(new Point(xx, a.Y - 1));
+                                        used.Add(new Point(xx, a.Y - 1));
+                                        spanAbove = true;
+                                    }
+                                }
+                                else if (spanAbove && a.Y > 0 && data[w * (a.Y - 1) + xx] != targetColor)
+                                {
+                                    spanAbove = false;
+                                }
+
+                                if (!spanBelow && a.Y < selectedFrame.layers[0].texture.Height - 1 && data[w * (a.Y + 1) + xx] == targetColor)
+                                {
+                                    if (!used.Contains(new Point(xx, a.Y + 1)))
+                                    {
+                                        pixels.Push(new Point(xx, a.Y + 1));
+                                        used.Add(new Point(xx, a.Y + 1));
+                                        spanBelow = true;
+                                    }
+                                }
+                                else if (spanBelow && a.Y < selectedFrame.layers[0].texture.Height - 1 && data[w * (a.Y + 1) + xx] != targetColor)
+                                {
+                                    spanBelow = false;
                                 }
 
                                 xx++;
-                                var spanAbove = false;
-                                var spanBelow = false;
-
-                                while (xx < selectedFrame.layers[0].texture.Width && data[w * a.Y + xx] == targetColor)
-                                {
-                                    data[w * a.Y + xx] = penColor;
-
-                                    if (!spanAbove && a.Y > 0 && data[w * (a.Y - 1) + xx] == targetColor)
-                                    {
-                                        if (!used.Contains(new Point(xx, a.Y - 1)))
-                                        {
-                                            pixels.Push(new Point(xx, a.Y - 1));
-                                            used.Add(new Point(xx, a.Y - 1));
-                                            spanAbove = true;
-                                        }
-                                    }
-                                    else if (spanAbove && a.Y > 0 && data[w * (a.Y - 1) + xx] != targetColor)
-                                    {
-                                        spanAbove = false;
-                                    }
-
-                                    if (!spanBelow && a.Y < selectedFrame.layers[0].texture.Height - 1 && data[w * (a.Y + 1) + xx] == targetColor)
-                                    {
-                                        if (!used.Contains(new Point(xx, a.Y + 1)))
-                                        {
-                                            pixels.Push(new Point(xx, a.Y + 1));
-                                            used.Add(new Point(xx, a.Y + 1));
-                                            spanBelow = true;
-                                        }
-                                    }
-                                    else if (spanBelow && a.Y < selectedFrame.layers[0].texture.Height - 1 && data[w * (a.Y + 1) + xx] != targetColor)
-                                    {
-                                        spanBelow = false;
-                                    }
-
-                                    xx++;
-                                }
-
-                                i++;
                             }
 
-                            selectedFrame.layers[0].texture.SetData(data);
+                            i++;
                         }
+
+                        selectedFrame.layers[0].texture.SetData(data);
                     }
                 }
-                else if (activeTool == Tools.Dropper)
-                {
+            }
+            else if (activeTool == Tools.Dropper)
+            {
 
-                }
-                else if (activeTool == Tools.Line)
-                {
-                    Sgml.draw_rectangle(new Vector2((float)Sgml.round(toolOriginINP.X - .5f), (float)Sgml.round(toolOriginINP.Y - .5f)), new Vector2((float)Sgml.round(toolOriginINP.X + .5f), (float)Sgml.round(toolOriginINP.Y + .5f)), false);
-                    Sgml.draw_line(mouseSubpixel, toolOriginSubpixel);
+            }
+            else if (activeTool == Tools.Line)
+            {
+                Sgml.draw_rectangle(new Vector2((float)Sgml.round(toolOriginINP.X - .5f), (float)Sgml.round(toolOriginINP.Y - .5f)), new Vector2((float)Sgml.round(toolOriginINP.X + .5f), (float)Sgml.round(toolOriginINP.Y + .5f)), false);
+                Sgml.draw_line(mouseSubpixel, toolOriginSubpixel);
 
-                }
-                else if (activeTool == Tools.Polygon)
-                {
+            }
+            else if (activeTool == Tools.Polygon)
+            {
 
-                }
-                else if (activeTool == Tools.Rectangle)
-                {
-                    float my = Sgml.mouse.Y;
-                    my = (float)Sgml.floor(my) + .5f;
+            }
+            else if (activeTool == Tools.Rectangle)
+            {
+                float my = Sgml.mouse.Y;
+                my = (float)Sgml.floor(my) + .5f;
 
-                    Sgml.draw_rectangle(toolOrigin, new Vector2(Sgml.mouse.X, my), true);
-                }
-                else if (activeTool == Tools.RoundedRectangle)
-                {
-                    Sgml.draw_roundrect(toolOrigin, new Vector2(Sgml.mouse.X, Sgml.mouse.Y), true, 1);
-                }
-                else if (activeTool == Tools.Rubber)
-                {
-                    Color[] data = new Color[selectedFrame.layers[0].texture.Width * selectedFrame.layers[0].texture.Height];
-                    selectedFrame.layers[0].texture.GetData(data);
+                Sgml.draw_rectangle(toolOrigin, new Vector2(Sgml.mouse.X, my), true);
+            }
+            else if (activeTool == Tools.RoundedRectangle)
+            {
+                Sgml.draw_roundrect(toolOrigin, new Vector2(Sgml.mouse.X, Sgml.mouse.Y), true, 1);
+            }
+            else if (activeTool == Tools.Rubber)
+            {
+                Color[] data = new Color[selectedFrame.layers[0].texture.Width * selectedFrame.layers[0].texture.Height];
+                selectedFrame.layers[0].texture.GetData(data);
 
-                    int x = (int)Sgml.round(Sgml.mouse.X - .5f);
-                    int y = (int)Sgml.round(Sgml.mouse.Y - .5f);
-                    int w = Math.Max(selectedFrame.layers[0].texture.Height, selectedFrame.layers[0].texture.Width);
+                int x = (int)Sgml.round(Sgml.mouse.X - .5f);
+                int y = (int)Sgml.round(Sgml.mouse.Y - .5f);
+                int w = Math.Max(selectedFrame.layers[0].texture.Height, selectedFrame.layers[0].texture.Width);
 
-                    if (inTextureP(x, y))
+                if (inTextureP(x, y))
+                {
+                    if (selectedFrame.layers[0].texture.Height * y + x >= 0 && selectedFrame.layers[0].texture.Height * y + x < selectedFrame.layers[0].texture.Width * selectedFrame.layers[0].texture.Height)
                     {
-                        if (selectedFrame.layers[0].texture.Height * y + x >= 0 && selectedFrame.layers[0].texture.Height * y + x < selectedFrame.layers[0].texture.Width * selectedFrame.layers[0].texture.Height)
-                        {
-                            data[w * y + x] = Color.Transparent;
-                            selectedFrame.layers[0].texture.SetData(data);
-                        }
-
-                        occupiedPositions.Add(new Vector2((float) Sgml.round(Sgml.mouse.X - .5f) - x1, (float) Sgml.round(Sgml.mouse.Y - .5f) - y1));
+                        data[w * y + x] = Color.Transparent;
+                        selectedFrame.layers[0].texture.SetData(data);
                     }
-                }
-                else if (activeTool == Tools.Spray)
-                {
 
+                    occupiedPositions.Add(new Vector2((float) Sgml.round(Sgml.mouse.X - .5f) - x1, (float) Sgml.round(Sgml.mouse.Y - .5f) - y1));
                 }
-                else if (activeTool == Tools.SprayPaint)
-                {
+            }
+            else if (activeTool == Tools.Spray)
+            {
 
-                }
-                else if (activeTool == Tools.Star)
-                {
+            }
+            else if (activeTool == Tools.SprayPaint)
+            {
 
-                }
-                else if (activeTool == Tools.Text)
-                {
+            }
+            else if (activeTool == Tools.Star)
+            {
 
-                }
-            
-         
+            }
+            else if (activeTool == Tools.Text)
+            {
+
+            }
 
             Sgml.surface_reset_target();
             Sgml.draw_set_color(Color.White);
