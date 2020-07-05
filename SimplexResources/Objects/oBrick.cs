@@ -14,7 +14,7 @@ namespace SimplexResources.Objects
         {
             EditorPath = "Actors";
 
-            ColliderRectangle cr = new ColliderRectangle();
+            ColliderRectangle cr = new ColliderRectangle(this);
             cr.Name = "MainCollider";
             cr.GameObject = this;
             cr.Collision = new RectangleF(0, 0, 64, 32);

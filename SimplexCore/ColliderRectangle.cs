@@ -9,5 +9,15 @@ namespace SimplexCore
     {
         public RectangleF Collision;
         public RectangleF CollisionTransformed;
+
+        public ColliderRectangle(GameObject root) : base(root)
+        {
+
+        }
+
+        public ColliderRectangle()
+        {
+
+        }
     }
 }

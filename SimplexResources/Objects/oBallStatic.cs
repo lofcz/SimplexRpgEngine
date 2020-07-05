@@ -23,7 +23,7 @@ namespace SimplexResources.Objects
         {
             EditorPath = "Collisions";
 
-            ColliderCircle cr = new ColliderCircle();
+            ColliderCircle cr = new ColliderCircle(this);
             cr.Position = Position;
             cr.Radius = 64;
             cr.Name = "Main";

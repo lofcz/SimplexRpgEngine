@@ -10,7 +10,8 @@ namespace SimplexResources.Objects
 {
     public class oSolidMask : GameObject
     {
-        ColliderRectangle cr = new ColliderRectangle();
+        public ColliderRectangle cr;
+
         public oSolidMask()
         {
             EditorPath = "Solid";
@@ -21,6 +22,7 @@ namespace SimplexResources.Objects
             cr.Name = "main";
             cr.GameObject = this;
 
+            cr = new ColliderRectangle(this);
             Colliders.Add(cr);
         }
 

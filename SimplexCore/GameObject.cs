@@ -13,10 +13,12 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
+using SharpDX.Direct2D1;
 using SimplexResources.Objects;
 using SimplexIde;
 using Color = System.Drawing.Color;
 using static SimplexCore.Sgml;
+using SpriteBatch = Microsoft.Xna.Framework.Graphics.SpriteBatch;
 
 namespace SimplexCore
 {
@@ -24,6 +26,16 @@ namespace SimplexCore
     [Serializable]
     public class GameObject : IDisposable
     {
+        public void Reset()
+        {
+            _position = __DefaultPosition;
+            Position = __DefaultPosition;
+            PositionPrevious = __DefaultPosition;
+            Speed = 0;
+            Direction = 0;
+            Colliders.Clear();
+        }
+
         public struct AlarmStruct
         {
             public int Steps;
@@ -77,6 +89,13 @@ namespace SimplexCore
             }
         }
 
+        public void __Store()
+        {
+            __DefaultImageAngle = ImageAngle;
+            __DefaultImageScale = ImageScale;
+            __DefaultPosition = Position;
+            __DefaultDirection = Direction;
+        }
 
         public Vector2 Position
         {
@@ -140,18 +159,23 @@ namespace SimplexCore
         public Vector2 ImageScaleTarget;
         public float ImageAlpha;
         public string LayerName;
-        public double ImageSpeed;
-        public double Direction;
-        public Vector2 PostionStart;
+        public float ImageSpeed;
+        public float Direction;
+        public Vector2 PositionStart;
         public Vector2 PositionPrevious;
-        public double Speed;
-        public double Friction;
+        public float Speed;
+        public float Friction;
         public Vector2 Gravity;
         public Vector2 Velocity;
-        public double Mass;
+        public float Mass;
         public bool Persistent;
         public string PersistentLayer;
         public Vector2 ImageOrigin;
+
+        public Vector2 __DefaultPosition;
+        public float __DefaultImageAngle;
+        public float __DefaultDirection;
+        public Vector2 __DefaultImageScale;
 
         [XmlIgnore]
         public RotatedRectangle rr = null;
@@ -276,17 +300,31 @@ namespace SimplexCore
 
         public void UpdateColliders()
         {
-            foreach (var c in Colliders)
+            foreach (ColliderBase c in Colliders)
             {
                 if (c is ColliderRectangle)
                 {
                     ColliderRectangle cr = c as ColliderRectangle;
+
+                    if (c.AttachToRoot && cr.Root != null)
+                    {
+                        cr.Collision.X = c.Root.X;
+                        cr.Collision.Y = c.Root.Y;
+                    }
+
                     cr.CollisionTransformed = new RectangleF(Position.X + cr.Collision.X, Position.Y + cr.Collision.Y, cr.Collision.Width, cr.Collision.Height);
                 }
 
                 if (c is ColliderCircle)
                 {
                     ColliderCircle cr = c as ColliderCircle;
+
+                    if (c.AttachToRoot && cr.Root != null)
+                    {
+                        cr.Position.X = c.Root.X;
+                        cr.Position.Y = c.Root.Y;
+                    }
+
                     cr.Position = new Vector2(Position.X, Position.Y);            
                 }
             }

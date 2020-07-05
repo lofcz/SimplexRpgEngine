@@ -36,13 +36,13 @@ namespace SimplexCore
             return currentObject.Position.X % cellSize.X == 0 && currentObject.Position.Y % cellSize.Y == 0;
         }
 
-        public static void motion_set(double dir, double speed)
+        public static void motion_set(float dir, float speed)
         {
             currentObject.Direction = dir;
             currentObject.Speed = speed;
         }
 
-        public static void motion_add(double dir, double speed)
+        public static void motion_add(float dir, float speed)
         {
             currentObject.Direction += dir;
             currentObject.Speed += speed;

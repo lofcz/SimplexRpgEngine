@@ -357,6 +357,16 @@ namespace SimplexCore
             RenderVertices(vertexBatchType, vertexBatchOutline);
         }
 
+        public static void draw_self(GameObject instance)
+        {
+            draw_sprite(instance.Sprite.Texture, instance.ImageIndex, instance.Position);
+        }
+
+        public static void draw_self()
+        {
+            draw_sprite(currentObject.Sprite.Texture, currentObject.ImageIndex, currentObject.Position);
+        }
+
         public static void draw_sprite(Texture2D sprite, double subimg, Vector2 position, float xscale = 1, float yscale = 1, float angle = 0, float originX = 0, float originY = 0)
         {
             if (subimg != -2)
@@ -1064,6 +1074,27 @@ namespace SimplexCore
         {
             sb.Begin(transformMatrix: m);
             sb.DrawString(drawFont, text, position, FinalizeColor(DrawColor));
+            sb.End();
+        }
+
+        public static void draw_text(int x, int y, string text)
+        {
+            sb.Begin(transformMatrix: m);
+            sb.DrawString(drawFont, text, new Vector2(x, y), FinalizeColor(DrawColor));
+            sb.End();
+        }
+
+        public static void draw_text(float x, float y, string text)
+        {
+            sb.Begin(transformMatrix: m);
+            sb.DrawString(drawFont, text, new Vector2(x, y), FinalizeColor(DrawColor));
+            sb.End();
+        }
+
+        public static void draw_text(double x, double y, string text)
+        {
+            sb.Begin(transformMatrix: m);
+            sb.DrawString(drawFont, text, new Vector2((float)x, (float)y), FinalizeColor(DrawColor));
             sb.End();
         }
 

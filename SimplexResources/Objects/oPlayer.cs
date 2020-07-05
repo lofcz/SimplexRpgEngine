@@ -24,34 +24,25 @@ namespace SimplexResources.Objects
         public Color c1;
         public Color c2;
 
-        public double speed = 4;
-
+        public float speed = 4;
         public float LastImageIndex = 0;
-
-        // all variables to be serialized have to be public
         public int time;
+        public ColliderRectangle bodyCollider;
 
         public oPlayer()
         {
             Sprite.TextureSource = "elves2";
-            EditorPath = "Colliders";
-            ImageSpeed = 0.01;
+            EditorPath = "Actors";
+            ImageSpeed = 0.01f;
 
-            Colliders.Add(new ColliderRectangle() {Collision = new RectangleF(16, 48, 32, 16)});
+            bodyCollider = new ColliderRectangle(this) {Collision = new RectangleF(16, 48, 32, 16), AttachToRoot = true};
+            Colliders.Add(bodyCollider);
         }
         
         // Defines what happens once instance is placed in the room editor
         public override void EvtCreate()
         {
-            // Local function
-            int helper()
-            {
-                return irandom(10);
-            }
-
-            X = helper();
-            Y = helper();
-
+            show_message("Test");
         }
 
         public override void EvtLoad()
@@ -72,9 +63,9 @@ namespace SimplexResources.Objects
 
         public override void EvtStep()
         {
-            Gravity.X = 1;
+           // Gravity.X = 1;
             currentObject = this;
-            Velocity.Y = min(Velocity.Y, 60);
+           // Velocity.Y = min(Velocity.Y, 60);
 
            
             time++;
@@ -91,15 +82,15 @@ namespace SimplexResources.Objects
                 if (Velocity.Y > 0)
                 {
                     // Speed.Y *= -0.5f;
-                    Velocity.Y *= -0.9f;
+                   // Velocity.Y *= -0.9f;
                     //Position.Y -= 32;
                 }
             }
 
-                if (Input.KeyboardState.IsKeyDown(Keys.D) || Input.KeyboardState.IsKeyDown(Keys.W) || Input.KeyboardState.IsKeyDown(Keys.S) || Input.KeyboardState.IsKeyDown(Keys.A))
+            if (Input.KeyboardState.IsKeyDown(Keys.D) || Input.KeyboardState.IsKeyDown(Keys.W) || Input.KeyboardState.IsKeyDown(Keys.S) || Input.KeyboardState.IsKeyDown(Keys.A))
             {
-                ImageSpeed = 0.3;
-                ImageIndex += (float)ImageSpeed;
+                ImageSpeed = 0.3f;
+                ImageIndex += ImageSpeed;
             }
             else
             {
@@ -110,11 +101,9 @@ namespace SimplexResources.Objects
             {
                 ImageIndex = (float)clamp(ImageIndex, 27, 36);
 
-                RectangleF bR = (Colliders[0] as ColliderRectangle).CollisionTransformed;
-                bR.X += (float)speed;
-                if (PlaceEmptyRectangle(bR))
+                if (place_empty_rectangle(bodyCollider.CollisionTransformed))
                 {
-                    X += (float) speed;
+                    X += speed;
                 }
 
                 LastImageIndex = ImageIndex;
@@ -124,11 +113,9 @@ namespace SimplexResources.Objects
                 ImageIndex = (float)clamp(ImageIndex, 9, 18);
                 if (ImageIndex == 18) { ImageIndex = 9;}
 
-                RectangleF bR = (Colliders[0] as ColliderRectangle).CollisionTransformed;
-                bR.X -= (float)speed;
-                if (PlaceEmptyRectangle(bR))
+                if (place_empty_rectangle(bodyCollider.CollisionTransformed))
                 {
-                    X -= (float) speed;
+                    X -= speed;
                 }
 
                 LastImageIndex = ImageIndex;
@@ -138,11 +125,9 @@ namespace SimplexResources.Objects
                 ImageIndex = (float)clamp(ImageIndex, 0, 9);
                 if (ImageIndex == 9) { ImageIndex = 0; }
 
-                RectangleF bR = (Colliders[0] as ColliderRectangle).CollisionTransformed;
-                bR.Y -= (float)speed;
-                if (PlaceEmptyRectangle(bR))
+                if (place_empty_rectangle(bodyCollider.CollisionTransformed))
                 {
-                    Y -= (float) speed;
+                    Y -= speed;
                 }
 
                 LastImageIndex = ImageIndex;
@@ -152,11 +137,9 @@ namespace SimplexResources.Objects
                 ImageIndex = (float)clamp(ImageIndex, 18, 27);
                 if (ImageIndex == 27) { ImageIndex = 18; }
 
-                RectangleF bR = (Colliders[0] as ColliderRectangle).CollisionTransformed;
-                bR.Y += (float)speed;
-                if (PlaceEmptyRectangle(bR))
+                if (place_empty_rectangle(bodyCollider.CollisionTransformed))
                 {
-                    Y += (float) speed;
+                    Y += speed;
                 }
 
                 LastImageIndex = ImageIndex;
@@ -165,6 +148,10 @@ namespace SimplexResources.Objects
 
         public override void EvtDraw()
         {
+            draw_self();
+
+            draw_text(Position.X + 64, Position.Y, "X: " + round(Position.X) + "\n" + "Y: " + round(Position.Y));
+            draw_text(Position.X + 64, Position.Y + 64, "S_X: " + round(PositionStart.X) + "\n" + "S_Y: " + round(PositionStart.Y));
 
         }
     }

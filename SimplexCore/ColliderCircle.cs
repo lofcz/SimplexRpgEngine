@@ -12,6 +12,16 @@ namespace SimplexCore
         public double Radius;
         public Vector2 Position;
 
+        public ColliderCircle(GameObject root) : base(root)
+        {
+
+        }
+
+        public ColliderCircle()
+        {
+
+        }
+
         public static bool CircleInCircle(ColliderCircle a, ColliderCircle b)
         {
             return abs((a.Position.X - b.Position.X) * (a.Position.X - b.Position.X) + (a.Position.Y - b.Position.Y) * (a.Position.Y - b.Position.Y)) <= (a.Radius + b.Radius) * (a.Radius + b.Radius);

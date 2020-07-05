@@ -69,7 +69,8 @@ namespace SimplexIde
 
                     if (File.Exists(mapContent))
                     {
-                        Sgml.game_load(mapContent);
+                        Root dataDump = Sgml.game_load(mapContent, false);
+                        drawTest1.LastRoomState = dataDump;
                     }
                     else
                     {

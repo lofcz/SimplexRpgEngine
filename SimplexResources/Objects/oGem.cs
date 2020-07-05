@@ -7,14 +7,18 @@ namespace SimplexResources.Objects
 {
     public class oGem : GameObject
     {
+        private float s = 0;
+
         public oGem()
         {
             EditorPath = "Actors";
 
-            ColliderRectangle cr = new ColliderRectangle();
+            ColliderRectangle cr = new ColliderRectangle(this);
             cr.Name = "MainCollider";
             cr.GameObject = this;
             cr.Collision = new RectangleF(0, 0, 64, 32);
+
+            synth_speak_async("Hello World");
 
             Colliders.Add(cr);
         }
@@ -32,6 +36,16 @@ namespace SimplexResources.Objects
 
         public override void EvtStep()
         {
+            Speed = random_range(0, 5);
+            Direction = random_range(0, 360);
+
+
+            ImageScale.X = (float)sin(s) * 5;
+            ImageScale.Y = ImageScale.X;
+
+
+            s += 0.1f;
+
             UpdateState();
             UpdateColliders();
         }

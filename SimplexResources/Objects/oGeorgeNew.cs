@@ -30,7 +30,7 @@ namespace SimplexResources.Objects
             Sprite.TextureSource = "george";
             
 
-            bodyCollider = new ColliderRectangle();
+            bodyCollider = new ColliderRectangle(this);
             bodyCollider.Collision = new RectangleF(0, 0, 48, 48);
             bodyCollider.GameObject = this;
             bodyCollider.Name = "main";
@@ -171,22 +171,22 @@ namespace SimplexResources.Objects
 
             // Oscillate greyscale amount
             k = (float)abs(dsin(time));
-            time += 1;
+            time += 0.001f;
 
             // Set shader just like in GMS, it's even easier!
             shader_set(shader_get("shader1"));
             shader_set_uniform_float("amt", k);
-          //  draw_sprite(Sprite.Texture, ImageIndex, Position);
+           draw_sprite(Sprite.Texture, ImageIndex, Position);
             shader_reset();
 
          //  draw_text(new Vector2(Position.X - d + 24, Position.Y - 16), "Gems remaining: " + gemsRemaining);
 
-            draw_sprite(sprite_get("simplex"), -2, Position);
+          //  draw_sprite(sprite_get("simplex"), -2, Position);
 
             // draw_video(Position, new Vector2(166, 100));
-            mp_grid_clear();
+            //mp_grid_clear();
 
-            mp_grid_set_instance(this);
+          //  mp_grid_set_instance(this);
 
 
           //  mp_grid_set_cell(4, 4);
@@ -202,11 +202,11 @@ namespace SimplexResources.Objects
               mp_grid_set_cell((int)v.X, (int)v.Y);
           }
 
-          GamePath p = mp_grid_path(new Vector2(96, 96), new Vector2(512, 512), false);
+          //GamePath p = mp_grid_path(new Vector2(96, 96), new Vector2(512, 512), false);
 
 
-           mp_grid_draw(false);
-           draw_path(p);
+        //   mp_grid_draw(false);
+        //   draw_path(p);
 
             //mp_
         }

@@ -18,7 +18,7 @@ namespace SimplexResources.Objects
 
         public override void EvtCreate()
         {
-            ColliderCircle cr = new ColliderCircle();
+            ColliderCircle cr = new ColliderCircle(this);
             cr.Name = "MainCollider";
             cr.GameObject = this;
             cr.Position = Position;

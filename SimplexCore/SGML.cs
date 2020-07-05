@@ -32,7 +32,7 @@ namespace SimplexCore
         public static List<Effect> Shaders = new List<Effect>();
         private static int _randomSeed = DateTime.Now.Millisecond;
         public static Random _random = new Random();
-        private static double _epsilon = 0.000001;
+        private static float _epsilon = 0.000001f;
         public static SpriteBatch sb;
         private static Color _color = Color.White;
         public static SpriteFont drawFont;
@@ -118,6 +118,11 @@ namespace SimplexCore
             }
 
             return true;
+        }
+
+        public static bool place_empty_rectangle(RectangleF rectangle)
+        {
+            return PlaceEmptyRectangle(rectangle);
         }
 
         public static bool PlaceEmptyRectangle(RectangleF rr)
@@ -244,14 +249,14 @@ namespace SimplexCore
             return items[_random.Next(0, items.Length)];
         }
 
-        public static double random(double n)
+        public static float random(float n)
         {
-            return _random.NextDouble() * n;
+            return _random.NextFloat(0f, n);
         }
 
-        public static double random_range(double n1, double n2)
+        public static float random_range(float n1, float n2)
         {
-            return _random.NextDouble(n1, n2);
+            return _random.NextFloat(n1, n2);
         }
 
         public static int irandom(int n)
@@ -702,11 +707,11 @@ namespace SimplexCore
             return ApplyEpsilon((Math.Atan2(xDiff, yDiff) * 180.0 / Math.PI));
         }
 
-        public static double point_direction(Vector2 point1, Vector2 point2)
+        public static float point_direction(Vector2 point1, Vector2 point2)
         {
-            double xDiff = point2.X - point1.X;
-            double yDiff = point2.Y - point1.Y;
-            double d = ApplyEpsilon( (360 - (nDir(Math.Atan2(yDiff, xDiff)) * 180.0 / Math.PI)));
+            float xDiff = point2.X - point1.X;
+            float yDiff = point2.Y - point1.Y;
+            float d = ApplyEpsilon( (360 - (nDir(Math.Atan2(yDiff, xDiff)) * 180.0 / Math.PI)));
 
             return d;
         }
@@ -757,19 +762,19 @@ namespace SimplexCore
         /*
          *  ------------------------------------- Epsilon ------------------------------------
          */
-        public static void math_set_epsilon(double epsilon)
+        public static void math_set_epsilon(float epsilon)
         {
             _epsilon = epsilon;
         }
 
-        public static double math_get_epsilon()
+        public static float math_get_epsilon()
         {
             return ApplyEpsilon(_epsilon);
         }
 
-        private static double ApplyEpsilon(double x)
+        private static float ApplyEpsilon(double x)
         {
-            return Math.Ceiling(x * (1 / _epsilon)) / (1 / _epsilon);
+            return (float)Math.Ceiling(x * (1 / _epsilon)) / (1 / _epsilon);
         }
 
         private static double ApplyEpsilonAggressive(double x)

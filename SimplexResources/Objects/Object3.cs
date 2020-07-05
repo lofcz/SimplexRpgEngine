@@ -48,7 +48,7 @@ namespace SimplexResources.Objects
 
             // This creates a new circle collider
             // setting some properties
-            cc = new ColliderCircle();
+            cc = new ColliderCircle(this);
             cc.Radius = 64;
             cc.Name = "main";
             cc.GameObject = this;

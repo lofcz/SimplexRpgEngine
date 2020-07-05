@@ -171,6 +171,13 @@
       "tag": null,
       "tagColor": "Gainsboro",
       "nameColor": "Gainsboro"
+    },
+    {
+      "name": "oPlayer",
+      "path": "Objects/Actors",
+      "tag": null,
+      "tagColor": "Gainsboro",
+      "nameColor": "Gainsboro"
     }
   ],
   "Rooms": [

@@ -21,6 +21,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Objects\Object3.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Objects\oSolidMask.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Objects\SampleObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Objects\TestObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Rooms\Room1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Rooms\Room2.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Objects\NewObject.cs" xmlns="" />

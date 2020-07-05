@@ -84,7 +84,7 @@ namespace SimplexIde
         public Vector2 GridSize = new Vector2(32, 32);
         public Vector2 GridSizeRender = new Vector2(32, 32);
         public Form1 editorForm;
-        public bool GameRunning = true;
+        public bool GameRunning = false;
         public Vector2 MousePrevious = new Vector2();
         public AutotileDefinition currentAutotile = null;
         public TileLayer currentTileLayer = null;
@@ -123,6 +123,7 @@ namespace SimplexIde
         Vector2 helpVec2 = Vector2.One;
         private List<GameObject> possibleColliders = null;
         private List<GameObject> activeColliders = new List<GameObject>();
+        public Root LastRoomState;
 
         Cursor ScaleCursor = new Cursor((Resources.cursor_scale_16_16).GetHicon());
 
@@ -264,7 +265,7 @@ namespace SimplexIde
                     {
                         sh.RegisterObject(SceneObjects[i]);
 
-                        if (GameRunning || SceneObjects[i] == clickedObject)
+                        if (GameRunning)
                         {
                             Sgml.currentObject = SceneObjects[i];
                             SceneObjects[i].EvtStep();
@@ -327,6 +328,12 @@ namespace SimplexIde
 
         }
 
+        public void ResetCamera()
+        {
+            cam.TargetPosition = Vector2.Zero;
+            cam.TargetZoom = 1f;
+        }
+
         protected override void Draw()
         {
             Sgml.drawFont = Editor.Font;
@@ -360,10 +367,10 @@ namespace SimplexIde
             {
                 if (Sgml.mouse_check_button_pressed(Sgml.MouseButtons.Left) && Input.KeyDown(Keys.LeftControl))
                 {
-                    float dir = (float)Sgml.point_direction(lastClickedObject.Position, Sgml.mouse);
+                    float dir = Sgml.point_direction(lastClickedObject.Position, Sgml.mouse);
                     lastClickedObject.ImageAngle = 360 - (dir );
                     lastClickedObject.ImageAngleTarget = 360 - (dir); 
-
+                    lastClickedObject.__Store();
                 }
             }
 
@@ -548,8 +555,16 @@ namespace SimplexIde
                                 {
                                     Sgml.currentObject = o;
                                     Sgml.realObject = o;
-                                    o.PositionPrevious = o.Position;
-                                    o.EvtDraw();
+
+                                    if (GameRunning)
+                                    {
+                                        o.PositionPrevious = o.Position;
+                                        o.EvtDraw();
+                                    }
+                                    else
+                                    {
+                                        Sgml.draw_self(o);
+                                    }
 
                                     if (o == lastClickedObject)
                                     {
@@ -993,6 +1008,8 @@ namespace SimplexIde
                         Transformingobject.Y -= (dif) * (float)Math.Sin((Transformingobject.ImageAngle + 90) * Math.PI / 180) / 2f;
                         Transformingobject.X -= (dif) * (float)Math.Cos((Transformingobject.ImageAngle + 90) * Math.PI / 180) / 2f;
                         Transformingobject.UpdateRectangle();
+
+                        Transformingobject.__Store();
                     }
                     else if (Transformingside == 3)
                     {
@@ -1026,6 +1043,8 @@ namespace SimplexIde
                         Transformingobject.ImageScaleTarget.Y += k;
                         Transformingobject.ImageScale.Y += k;
                         Transformingobject.UpdateRectangle();
+
+                        Transformingobject.__Store();
                     }
                     else if (Transformingside == 2)
                     {
@@ -1077,6 +1096,8 @@ namespace SimplexIde
                         Transformingobject.Y -= (dif) * (float)Math.Sin((Transformingobject.ImageAngle) * Math.PI / 180) / 2f;
                         Transformingobject.X -= (dif) * (float)Math.Cos((Transformingobject.ImageAngle) * Math.PI / 180) / 2f;
                         Transformingobject.UpdateRectangle();
+
+                        Transformingobject.__Store();
                     }
                     else if (Transformingside == 4)
                     {
@@ -1135,6 +1156,8 @@ namespace SimplexIde
                         Transformingobject.ImageScaleTarget.X += k;
                         Transformingobject.ImageScale.X += k;
                         Transformingobject.UpdateRectangle();
+
+                        Transformingobject.__Store();
                     }
                 }
 
@@ -1142,17 +1165,45 @@ namespace SimplexIde
             }
         }
 
+        public void Play()
+        {
+            if (LastRoomState != null)
+            {
+                GameRunning = true;
+                Sgml.__loadGameObjects(LastRoomState.Objects);
+                ResetCamera();
+            }
+        }
+
+        public void Stop()
+        {
+            if (LastRoomState != null)
+            {
+                GameRunning = false;
+                Sgml.__loadGameObjects(LastRoomState.Objects, false, false);
+                ResetCamera();
+            }
+        }
+
         public void WheelDown()
         {
-            cam.TargetZoom -= 0.1f;
-            cam.TargetZoom = (float)Sgml.clamp(cam.TargetZoom, 0.05, 10);
+            if (!GameRunning)
+            {
+                cam.TargetZoom -= 0.1f;
+                cam.TargetZoom = (float)Sgml.clamp(cam.TargetZoom, 0.05, 10);
+            }
+
             Input.WheelDown = true;
         }
 
         public void WheelUp()
         {
-            cam.TargetZoom += 0.1f;
-            cam.TargetZoom = (float)Sgml.clamp(cam.TargetZoom, 0.05, 10);
+            if (!GameRunning)
+            {
+                cam.TargetZoom += 0.1f;
+                cam.TargetZoom = (float)Sgml.clamp(cam.TargetZoom, 0.05, 10);
+            }
+
             Input.WheelUp = true;
         }
 
@@ -1321,6 +1372,24 @@ namespace SimplexIde
             }
         }
 
+        public void SetupAllGameObjectInstances()
+        {
+            foreach (RoomLayer layer in roomLayers)
+            {
+                if (layer.GetType() == typeof(ObjectLayer))
+                {
+                    ObjectLayer ol = (ObjectLayer) layer;
+
+                    foreach (GameObject go in ol.Objects)
+                    {
+                        go.Reset();
+                        go.EvtCreate();
+                        go.EvtCreateEnd();
+                    }
+                }
+            }
+        }
+
 
         public void GameClicked(MouseEventArgs e, MouseButtons mb)
         {
@@ -1442,6 +1511,7 @@ namespace SimplexIde
                                         foreach (GameObject o in selectedRectangleObjects)
                                         {
                                             o.Position += new Vector2(vec.X - MousePrevious.X, vec.Y - MousePrevious.Y);
+                                            o.__Store();
                                         }
                                     }
                                 }
@@ -1490,21 +1560,16 @@ namespace SimplexIde
 
                                                         if (s == null)
                                                         {
-                                                            Texture2D tx = ConvertToTexture(Properties.Resources.Question_16x,
-                                                                GraphicsDevice);
-
+                                                            Texture2D tx = ConvertToTexture(Properties.Resources.Question_16x, GraphicsDevice);
 
                                                             o.Sprite = new Sprite();
                                                             o.Sprite.Texture = tx;
-                                                            o.Sprite.ImageRectangle =
-                                                                new Microsoft.Xna.Framework.Rectangle(0, 0, 16, 16);
+                                                            o.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, 16, 16);
                                                         }
                                                         else
                                                         {
                                                             o.Sprite.Texture = s.Texture;
-                                                            o.Sprite.ImageRectangle =
-                                                                new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth,
-                                                                    s.CellHeight);
+                                                            o.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
                                                         }
 
                                                         o.Sprite.TextureRows = s.Rows;
@@ -1526,8 +1591,19 @@ namespace SimplexIde
                                                         o.Layer = (ObjectLayer)selectedLayer;
 
                                                         Sgml.currentObject = o;
-                                                        o.EvtCreate();
-                                                        o.EvtCreateEnd();
+
+                                                        o.__DefaultDirection = 0;
+                                                        o.__DefaultImageAngle = 0;
+                                                        o.__DefaultImageScale = Vector2.One;
+                                                        o.__DefaultPosition = new Vector2(vec.X, vec.Y);
+
+                                                        LastRoomState?.Objects.Add(o);
+
+                                                        if (GameRunning)
+                                                        {
+                                                            o.EvtCreate();
+                                                            o.EvtCreateEnd();
+                                                        }
 
                                                         o.Layer.Objects.Add(o);
                                                         SceneObjects.Add(o);
@@ -1577,8 +1653,7 @@ namespace SimplexIde
                                             clickedObject = collidingObject;
                                             lastClickedObject = clickedObject;
 
-                                            helpVec = new Vector2(-MousePositionTranslated.X + collidingObject.X,
-                                                -MousePositionTranslated.Y + collidingObject.Y);
+                                            helpVec = new Vector2(-MousePositionTranslated.X + collidingObject.X, -MousePositionTranslated.Y + collidingObject.Y);
                                             clickedVec = MousePositionTranslated;
 
                                             // load properties in the props tab
@@ -1698,6 +1773,7 @@ namespace SimplexIde
                         if (!cmsOpen)
                         {
                             clickedObject.Position = vec;
+                            clickedObject.__Store();
                           ////  Debug.WriteLine("KOKOTI AKCE");
                         }
                     }
@@ -1833,7 +1909,7 @@ namespace SimplexIde
 
         public void MoveView()
         {
-            if (editorForm.projectFile != "" && panView)
+            if (editorForm.projectFile != "" && panView && !GameRunning)
             {
                 cam.TargetPosition = new Vector2(cam.Position.X + helpVec2.X - MousePositionTranslated.X, cam.Position.Y + helpVec2.Y - MousePositionTranslated.Y);
             }

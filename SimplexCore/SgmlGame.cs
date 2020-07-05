@@ -38,7 +38,79 @@ namespace SimplexCore
             room_goto(currentProject.RoomTypes[0]);
         }
 
-        public static void game_load(string path)
+        public static void __loadGameObjects(List<GameObject> objects, bool execCreateEvt = true, bool execLoadEvt = true)
+        {
+            SceneObjects.Clear();
+
+            foreach (RoomLayer rl in currentRoom.Layers)
+            {
+                if (rl is ObjectLayer)
+                {
+                    ObjectLayer ol = (ObjectLayer) rl;
+                    ol.Objects.Clear();
+                }
+            }
+
+             foreach (GameObject g in objects)
+             {
+                    Spritesheet s = Sprites.FirstOrDefault(x => x.Name == g.Sprite.TextureSource);
+
+                    g.Position = g.__DefaultPosition;
+                    g.ImageAngle = g.__DefaultImageAngle;
+                    g.Direction = g.__DefaultDirection;
+                    g.ImageScale = g.__DefaultImageScale;
+
+                    g.Sprite.Texture = s.Texture;
+                    g.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
+                    g.Sprite.TextureRows = s.Rows;
+                    g.Sprite.TextureCellsPerRow = s.Texture.Width / s.CellWidth;
+                    g.Sprite.ImageSize = new Vector2(s.CellWidth, s.CellHeight);
+                    g.Sprite.FramesCount = (s.Texture.Width / s.CellWidth) * (s.Texture.Height / s.CellHeight) - 1;
+                    g.FramesCount = g.Sprite.FramesCount - 1;
+                    g.Sprite.cellW = s.CellHeight;
+                    g.Sprite.cellH = s.CellWidth;
+
+                    RoomLayer rt = currentRoom.Layers.FirstOrDefault(x => x.Name == g.LayerName);
+                    g.Layer = (ObjectLayer) rt;
+
+                    g.Sprite.UpdateImageRectangle();
+                    g.UpdateState();
+                    g.UpdateColliders();
+
+                    // Need to give object OriginalType !!!
+                    g.OriginalType = Type.GetType(g.TypeString);
+
+                    currentObject = g;
+
+                    if (execCreateEvt)
+                    {
+                        g.EvtCreate();
+                    }
+
+                    if (execLoadEvt)
+                    {
+                        g.EvtLoad();
+                    }
+                    
+                    SceneObjects.Add(g);
+                    g.Layer.Objects.Add(g);
+                    sh.RegisterObject(g);
+
+                    if (g.Colliders.Count > 0)
+                    {
+                        SceneColliders.Add(g);
+                    }
+
+                }
+
+                foreach (GameObject g in SceneObjects)
+                {
+                    g.EvtCreateEnd();
+                }
+
+        }
+
+        public static Root game_load(string path, bool execCreateEvt = true, bool execLoadEvt = true)
         {
             bool flag = false;
 
@@ -93,8 +165,7 @@ namespace SimplexCore
                     RoomEditor?.PropagateNodes();
                     RoomEditor.roomsControl.execute = false;
 
-                    RoomEditor.roomsControl.dtv.SelectNode(RoomEditor.roomsControl.dtv.Nodes[0].Nodes
-                        .FirstOrDefault(x => x.Text == currentRoom.GetType().ToString().Split('.').Last()));
+                    RoomEditor.roomsControl.dtv.SelectNode(RoomEditor.roomsControl.dtv.Nodes[0].Nodes.FirstOrDefault(x => x.Text == currentRoom.GetType().ToString().Split('.').Last()));
                     RoomEditor.roomsControl.execute = true;
                 }
 
@@ -124,49 +195,7 @@ namespace SimplexCore
                 }
 
                 // Time to load babies
-                foreach (GameObject g in rawData.Objects)
-                {
-                    Spritesheet s = Sprites.FirstOrDefault(x => x.Name == g.Sprite.TextureSource);
-
-                    g.Sprite.Texture = s.Texture;
-                    g.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
-                    g.Sprite.TextureRows = s.Rows;
-                    g.Sprite.TextureCellsPerRow = s.Texture.Width / s.CellWidth;
-                    g.Sprite.ImageSize = new Vector2(s.CellWidth, s.CellHeight);
-                    g.Sprite.FramesCount = (s.Texture.Width / s.CellWidth) * (s.Texture.Height / s.CellHeight) - 1;
-                    g.FramesCount = g.Sprite.FramesCount - 1;
-                    g.Sprite.cellW = s.CellHeight;
-                    g.Sprite.cellH = s.CellWidth;
-
-                    RoomLayer rt = currentRoom.Layers.FirstOrDefault(x => x.Name == g.LayerName);
-                    g.Layer = (ObjectLayer) rt;
-
-                    g.Sprite.UpdateImageRectangle();
-                    g.UpdateState();
-                    g.UpdateColliders();
-
-                    // Need to give object OriginalType !!!
-                    g.OriginalType = Type.GetType(g.TypeString);
-
-                    currentObject = g;
-                    g.EvtCreate();
-                    g.EvtLoad();
-
-                    SceneObjects.Add(g);
-                    g.Layer.Objects.Add(g);
-                    sh.RegisterObject(g);
-
-                    if (g.Colliders.Count > 0)
-                    {
-                        SceneColliders.Add(g);
-                    }
-
-                }
-
-                foreach (GameObject g in SceneObjects)
-                {
-                    g.EvtCreateEnd();
-                }
+                __loadGameObjects(rawData.Objects, execCreateEvt, execLoadEvt);
 
                 // Load tiles
                 foreach (Tile t in rawData.Tiles)
@@ -204,6 +233,8 @@ namespace SimplexCore
 
                 w.Close();
             }
+
+            return rawData;
         }
 
 

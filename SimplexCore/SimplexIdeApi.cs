@@ -115,10 +115,10 @@ namespace SimplexCore
         public static void GetResourceClasses(string path, string core, ref Dictionary<Type, SimplexProjectItem> fList, List<SimplexProjectItem> resList)
         {
             string nspace = path + "." + core;
-            var q = from t in Assembly.GetExecutingAssembly().GetTypes()
+            IEnumerable<Type> q = from t in Assembly.GetExecutingAssembly().GetTypes()
                 where t.IsClass && t.Namespace == nspace
                 select t;
-            List<Type> classList = q.ToList().ToList();
+            List<Type> classList = q.ToList();
 
             foreach (SimplexProjectItem s in resList)
             {

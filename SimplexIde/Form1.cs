@@ -48,6 +48,7 @@ namespace SimplexIde
         public LayerTool lt = null;
         public SimplexRender sr = null;
         public Graphics WinGraphics;
+
         public Form1()
         {
             InitializeComponent();
@@ -144,7 +145,8 @@ namespace SimplexIde
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // load last game
-            Sgml.game_load(Path.Combine(Environment.CurrentDirectory, @"Data/" + activeRoom.Text));
+            Root dataDump = Sgml.game_load(Path.Combine(Environment.CurrentDirectory, @"Data/" + activeRoom.Text), false);
+            sr.drawTest1.LastRoomState = dataDump;
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -189,7 +191,8 @@ namespace SimplexIde
 
             if (File.Exists(Path.Combine(Environment.CurrentDirectory, @"Data/" + activeRoom.Text)))
             {
-                Sgml.game_load(Path.Combine(Environment.CurrentDirectory, @"Data/" + activeRoom.Text));
+               Root dataDump = Sgml.game_load(Path.Combine(Environment.CurrentDirectory, @"Data/" + activeRoom.Text), false);
+               sr.drawTest1.LastRoomState = dataDump;
             }
             else
             {
@@ -372,12 +375,12 @@ namespace SimplexIde
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            sr.drawTest1.GameRunning = true;
+            sr.drawTest1.Play();
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
-            sr.drawTest1.GameRunning = false;
+            sr.drawTest1.Stop();
         }
 
         private void spritesManagerToolStripMenuItem_Click(object sender, EventArgs e)
