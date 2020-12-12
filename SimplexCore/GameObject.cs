@@ -31,8 +31,12 @@ namespace SimplexCore
             _position = __DefaultPosition;
             Position = __DefaultPosition;
             PositionPrevious = __DefaultPosition;
+            ImageAngle = __DefaultImageAngle;
+            ImageScale = __DefaultImageScale;
             Speed = 0;
-            Direction = 0;
+            Direction = __DefaultDirection;
+            ImageIndex = __DefaultImageIndex;
+            ImageAlpha = __DefaultImageAlpha;
             Colliders.Clear();
         }
 
@@ -95,6 +99,8 @@ namespace SimplexCore
             __DefaultImageScale = ImageScale;
             __DefaultPosition = Position;
             __DefaultDirection = Direction;
+            __DefaultImageIndex = ImageIndex;
+            __DefaultImageAlpha = ImageAlpha;
         }
 
         public Vector2 Position
@@ -176,6 +182,8 @@ namespace SimplexCore
         public float __DefaultImageAngle;
         public float __DefaultDirection;
         public Vector2 __DefaultImageScale;
+        public float __DefaultImageIndex;
+        public float __DefaultImageAlpha;
 
         [XmlIgnore]
         public RotatedRectangle rr = null;
@@ -353,6 +361,11 @@ namespace SimplexCore
             Sgml.be = be;
             Sgml.m = m;
             Sgml.currentObject = currentObject;
+        }
+
+        public virtual void EvtSetup()
+        {
+
         }
 
         // Editor events

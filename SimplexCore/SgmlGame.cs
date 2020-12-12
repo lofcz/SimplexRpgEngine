@@ -38,7 +38,7 @@ namespace SimplexCore
             room_goto(currentProject.RoomTypes[0]);
         }
 
-        public static void __loadGameObjects(List<GameObject> objects, bool execCreateEvt = true, bool execLoadEvt = true)
+        public static void __loadGameObjects(List<GameObject> objects, bool execCreateEvt = true, bool execLoadEvt = true, bool execSetupEvt = true, bool reset = true)
         {
             SceneObjects.Clear();
 
@@ -53,12 +53,18 @@ namespace SimplexCore
 
              foreach (GameObject g in objects)
              {
+                 if (reset)
+                 {
+                     g.Reset();
+                 }
+
                     Spritesheet s = Sprites.FirstOrDefault(x => x.Name == g.Sprite.TextureSource);
 
                     g.Position = g.__DefaultPosition;
                     g.ImageAngle = g.__DefaultImageAngle;
                     g.Direction = g.__DefaultDirection;
                     g.ImageScale = g.__DefaultImageScale;
+                    g.ImageIndex = g.__DefaultImageIndex;
 
                     g.Sprite.Texture = s.Texture;
                     g.Sprite.ImageRectangle = new Microsoft.Xna.Framework.Rectangle(0, 0, s.CellWidth, s.CellHeight);
@@ -90,6 +96,11 @@ namespace SimplexCore
                     if (execLoadEvt)
                     {
                         g.EvtLoad();
+                    }
+
+                    if (execSetupEvt)
+                    {
+                        g.EvtSetup();
                     }
                     
                     SceneObjects.Add(g);

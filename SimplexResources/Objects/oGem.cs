@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
 using SimplexCore;
 using static SimplexCore.Sgml;
@@ -7,7 +9,9 @@ namespace SimplexResources.Objects
 {
     public class oGem : GameObject
     {
-        private float s = 0;
+        private ParticleEngine pe;
+        private bool drawParticles;
+        private bool pickedUp;
 
         public oGem()
         {
@@ -18,36 +22,47 @@ namespace SimplexResources.Objects
             cr.GameObject = this;
             cr.Collision = new RectangleF(0, 0, 64, 32);
 
-            synth_speak_async("Hello World");
-
+          //  synth_speak_async("Hello World");
+            Sprite.TextureSource = "Gem";
             Colliders.Add(cr);
+        }
+
+        public override void EvtSetup()
+        {
+            pickedUp = false;
+            drawParticles = false;
+            pe = null;
         }
         
         public override void EvtRegisterCollisions()
         {
-            RegisterCollider("MainCollider", typeof(oBall), "MainCollider", BallCollision);
+            RegisterCollider("MainCollider", typeof(oPlayer), "bodyCollider", PlayerCollision);
         }
 
-        public void BallCollision(GameObject me, GameObject ball)
+        private void PlayerCollision(GameObject me, GameObject player)
         {
-            move_bounce_rectangle_object(me.CollisionContainer, ball.CollisionContainer, ball);
-            instance_destroy(me);
+            oGem meCasted = (oGem) me;
+
+            if (!meCasted.pickedUp)
+            {
+                meCasted.pe = new ParticleEngine(new List<Texture2D> {meCasted.Sprite.Texture}, meCasted.Position);
+                meCasted.pe.Setup();
+
+                alarm_set(0, 120);
+                meCasted.pickedUp = true;
+            }
+           // move_bounce_rectangle_object(me.CollisionContainer, player.CollisionContainer, player);
         }
 
         public override void EvtStep()
         {
-            Speed = random_range(0, 5);
-            Direction = random_range(0, 360);
-
-
-            ImageScale.X = (float)sin(s) * 5;
-            ImageScale.Y = ImageScale.X;
-
-
-            s += 0.1f;
-
             UpdateState();
             UpdateColliders();
+
+            if (pickedUp)
+            {
+                pe.Update();
+            }
         }
 
         public override void EvtCreate()
@@ -58,7 +73,7 @@ namespace SimplexResources.Objects
 
         public override void EvtAlarm0()
         {
-            show_message("asd");
+            instance_destroy();
         }
 
         public override void EvtDraw()
@@ -68,12 +83,22 @@ namespace SimplexResources.Objects
             CollisionContainer.X = (int) Position.X;
             CollisionContainer.Y = (int) Position.Y;
 
-
             //   draw_rectangle(Position, new Vector2(Position.X + 16 * ImageScaleTarget.X, Position.Y + 16 * ImageScaleTarget.Y), true);
-            draw_sprite(sprite_get("Gem"), -2, Position, ImageScale.X, ImageScale.Y, ImageAngle, ImageOrigin.X,
-                ImageOrigin.Y);
-            draw_text(Position, ImageAngle.ToString());
 
+            if (pickedUp)
+            {
+                ImageAlpha = (float)lerp_aggressive(ImageAlpha, 0, 0.1);
+            }
+
+            draw_self();
+
+            if (pickedUp)
+            {
+                pe.Draw(sb);
+            }
+
+            draw_text(X, Y - 64, pickedUp.ToString());
+            draw_text(X, Y - 96, "Alpha: " + ImageAlpha.ToString());
             //draw_line_color(rr.Point1, rr.Point2, Color.Red, Color.Red);
             // draw_line_color(rr.Point2, rr.Point3, Color.Red, Color.Red);
             //draw_line_color(rr.Point3, rr.Point4, Color.Red, Color.Red);

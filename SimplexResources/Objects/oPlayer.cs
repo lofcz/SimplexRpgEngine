@@ -34,15 +34,14 @@ namespace SimplexResources.Objects
             Sprite.TextureSource = "elves2";
             EditorPath = "Actors";
             ImageSpeed = 0.01f;
-
-            bodyCollider = new ColliderRectangle(this) {Collision = new RectangleF(16, 48, 32, 16), AttachToRoot = true};
+            bodyCollider = new ColliderRectangle(this) {Collision = new RectangleF(16, 48, 32, 16), AttachToRoot = true, Name = "bodyCollider"};
             Colliders.Add(bodyCollider);
         }
-        
+
         // Defines what happens once instance is placed in the room editor
         public override void EvtCreate()
         {
-            show_message("Test");
+            //show_message("Test");
         }
 
         public override void EvtLoad()
@@ -53,7 +52,7 @@ namespace SimplexResources.Objects
         // This actual GMS-like Create event
         public override void OnCreate()
         {
-            show_message("Test");
+          //  show_message("Test");
 
             if (place_empty(Position))
             {
@@ -76,7 +75,7 @@ namespace SimplexResources.Objects
             UpdateState();
             Sprite.UpdateImageRectangle();
 
-            RectangleF bRR = (Colliders[0] as ColliderRectangle).CollisionTransformed;
+            RectangleF bRR = bodyCollider.CollisionTransformed;
             if (instance_place(new Vector2(bRR.X + 32, bRR.Y + 68), typeof(Object3)) != null)
             {
                 if (Velocity.Y > 0)
@@ -150,7 +149,7 @@ namespace SimplexResources.Objects
         {
             draw_self();
 
-            draw_text(Position.X + 64, Position.Y, "X: " + round(Position.X) + "\n" + "Y: " + round(Position.Y));
+            draw_text(Position.X + 64, Position.Y, __DefaultImageIndex.ToString());
             draw_text(Position.X + 64, Position.Y + 64, "S_X: " + round(PositionStart.X) + "\n" + "S_Y: " + round(PositionStart.Y));
 
         }

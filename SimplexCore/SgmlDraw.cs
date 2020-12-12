@@ -359,18 +359,23 @@ namespace SimplexCore
 
         public static void draw_self(GameObject instance)
         {
-            draw_sprite(instance.Sprite.Texture, instance.ImageIndex, instance.Position);
+            draw_sprite(instance.Sprite.Texture, instance.ImageIndex, instance.Position, instance.ImageScale.X, instance.ImageScale.Y, instance.ImageAngle, 0, 0, instance.ImageAlpha);
         }
 
         public static void draw_self()
         {
-            draw_sprite(currentObject.Sprite.Texture, currentObject.ImageIndex, currentObject.Position);
+            draw_sprite(currentObject.Sprite.Texture, currentObject.ImageIndex, currentObject.Position, currentObject.ImageScale.X, currentObject.ImageScale.Y, currentObject.ImageAngle, 0, 0, currentObject.ImageAlpha);
         }
 
-        public static void draw_sprite(Texture2D sprite, double subimg, Vector2 position, float xscale = 1, float yscale = 1, float angle = 0, float originX = 0, float originY = 0)
+        public static void draw_sprite(Texture2D sprite, double subimg, Vector2 position, float xscale = 1, float yscale = 1, float angle = 0, float originX = 0, float originY = 0, float alpha = 1)
         {
             if (subimg != -2)
-            { 
+            {
+                if (subimg < 0)
+                {
+                    subimg = 0;
+                }
+
                 int y = ((int) subimg / currentObject.Sprite.TextureCellsPerRow);
                 int x = ((int) subimg % currentObject.Sprite.TextureCellsPerRow);
 
@@ -380,13 +385,13 @@ namespace SimplexCore
                 if (!batchRunning)
                 { 
                     sb.Begin(transformMatrix: m, effect: effect);
-                    sb.Draw(sprite, position, ImageRectangle, FinalizeColor(DrawColor), currentObject.Sprite.ImageAngle, new Vector2(0, 0), currentObject.Sprite.ImageScale, SpriteEffects.None, 1);
+                    sb.Draw(sprite, position, ImageRectangle, FinalizeColor(DrawColor) * alpha, currentObject.Sprite.ImageAngle, new Vector2(0, 0), currentObject.Sprite.ImageScale, SpriteEffects.None, 1);
                     sb.End();
                 }
                 else
                 {
                     effect?.Parameters["FirstTexture"].SetValue(sprite);
-                    sb.Draw(sprite, position, ImageRectangle, FinalizeColor(DrawColor), currentObject.Sprite.ImageAngle, new Vector2(0, 0), currentObject.Sprite.ImageScale, SpriteEffects.None, 1);
+                    sb.Draw(sprite, position, ImageRectangle, FinalizeColor(DrawColor) * alpha, currentObject.Sprite.ImageAngle, new Vector2(0, 0), currentObject.Sprite.ImageScale, SpriteEffects.None, 1);
                 }
             }
             else

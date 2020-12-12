@@ -1180,7 +1180,7 @@ namespace SimplexIde
             if (LastRoomState != null)
             {
                 GameRunning = false;
-                Sgml.__loadGameObjects(LastRoomState.Objects, false, false);
+                Sgml.__loadGameObjects(LastRoomState.Objects, false, false, true, true);
                 ResetCamera();
             }
         }
@@ -1390,6 +1390,11 @@ namespace SimplexIde
             }
         }
 
+        void SelectedObjectPosChangedFromEditorX(object sender, EventArgs e)
+        {
+            decimal val = ((NumericUpDown)sender).Value;
+            Debug.WriteLine(val);
+        }
 
         public void GameClicked(MouseEventArgs e, MouseButtons mb)
         {
@@ -1596,6 +1601,8 @@ namespace SimplexIde
                                                         o.__DefaultImageAngle = 0;
                                                         o.__DefaultImageScale = Vector2.One;
                                                         o.__DefaultPosition = new Vector2(vec.X, vec.Y);
+                                                        o.__DefaultImageIndex = 0;
+                                                        o.__DefaultImageAlpha = 1;
 
                                                         LastRoomState?.Objects.Add(o);
 
@@ -1657,10 +1664,32 @@ namespace SimplexIde
                                             clickedVec = MousePositionTranslated;
 
                                             // load properties in the props tab
-                                            editorForm.properties.Controls.Clear();
+                                            editorForm.properties.Controls.Clear(true);
 
                                             // 1) register default trash
                                             editorForm.properties.Controls.Add(new DarkLabel() {Text = "Instance " + lastClickedObject.Id.ToString(), Location = new System.Drawing.Point(10, 30), AutoSize = true});
+
+                                            int sx = 10;
+                                            int sy = 50;
+
+                                            DarkNumericUpDown posX = new DarkNumericUpDown {Minimum = decimal.MinValue, Maximum = decimal.MaxValue, Value = (decimal) Sgml.round(lastClickedObject.Position.X), Location = new System.Drawing.Point(sx + 70, sy), Width = 60};
+                                            posX.ValueChanged += SelectedObjectPosChangedFromEditorX;
+
+                                            editorForm.properties.Controls.Add(new DarkLabel {Text = "Position", Location = new System.Drawing.Point(sx, sy), AutoSize = true});
+                                            editorForm.properties.Controls.Add(new DarkLabel {Text = "X", Location = new System.Drawing.Point(sx + 50, sy), AutoSize = true});
+                                            editorForm.properties.Controls.Add(posX);
+                                            editorForm.properties.Controls.Add(new DarkLabel {Text = "Y", Location = new System.Drawing.Point(sx + 150, sy), AutoSize = true});
+                                            editorForm.properties.Controls.Add(new DarkNumericUpDown {Minimum = decimal.MinValue, Maximum = decimal.MaxValue, Value = (decimal)Sgml.round(lastClickedObject.Position.Y), Location = new System.Drawing.Point(sx + 170, sy), Width = 60});
+
+                                            sy += 30;
+
+                                            editorForm.properties.Controls.Add(new DarkLabel {Text = "Scale", Location = new System.Drawing.Point(sx, sy), AutoSize = true});
+                                            editorForm.properties.Controls.Add(new DarkLabel {Text = "X", Location = new System.Drawing.Point(sx + 50, sy), AutoSize = true});
+                                            editorForm.properties.Controls.Add(new DarkNumericUpDown {DecimalPlaces = 2, Increment = 0.01m, Minimum = decimal.MinValue, Maximum = decimal.MaxValue, Value = (decimal)(lastClickedObject.ImageScale.X), Location = new System.Drawing.Point(sx + 70, sy), Width = 60});
+                                            editorForm.properties.Controls.Add(new DarkLabel {Text = "Y", Location = new System.Drawing.Point(sx + 150, sy), AutoSize = true});
+                                            editorForm.properties.Controls.Add(new DarkNumericUpDown {DecimalPlaces = 2, Increment = 0.01m, Minimum = decimal.MinValue, Maximum = decimal.MaxValue, Value = (decimal)(lastClickedObject.ImageScale.Y), Location = new System.Drawing.Point(sx + 170, sy), Width = 60});
+
+
 
                                             // 2) user defined shit
                                             editorForm.properties.RegisterControls(clickedObject.EditorProperties);
@@ -1803,6 +1832,8 @@ namespace SimplexIde
                                             {
                                                 if (ol.Objects[i].CollidingWithPoint(vec))
                                                 {
+                                                    LastRoomState?.Objects.Remove(ol.Objects[i]);
+
                                                     SceneObjects.Remove(ol.Objects[i]);
                                                     ol.Objects[i].EvtDelete();
                                                     ol.Objects.Remove(ol.Objects[i]);

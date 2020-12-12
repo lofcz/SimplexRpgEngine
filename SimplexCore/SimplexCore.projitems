@@ -19,6 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ColliderRectangle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CollisionInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CollisionsTree.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FrameManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Heap.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MgcbEntry.cs" />

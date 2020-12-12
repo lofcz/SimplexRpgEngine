@@ -36,6 +36,16 @@ namespace SimplexCore
             return SceneObjects.FirstOrDefault(x => x.GetType() == t);
         }
 
+        
+        public static void instance_destroy()
+        {
+            if (currentObject.Layer != null)
+            {
+                currentObject.Layer.Objects.Remove(currentObject);
+                SceneObjects.Remove(currentObject);
+            }
+        }
+
         public static void instance_destroy(GameObject go)
         {
             if (go.Layer != null)

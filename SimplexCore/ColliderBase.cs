@@ -19,7 +19,8 @@ namespace SimplexCore
 
         public ColliderBase(GameObject root)
         {
-
+            Root = root;
+            GameObject = root;
         }
 
         public ColliderBase()
